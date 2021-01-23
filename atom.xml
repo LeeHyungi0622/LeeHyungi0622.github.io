@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HYUNGI&#39;S TECH BLOG</title>
+  
+  <subtitle>All about Django</subtitle>
+  <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://leehyungi0622.github.io/"/>
+  <updated>2021-01-23T11:47:32.418Z</updated>
+  <id>https://leehyungi0622.github.io/</id>
+  
+  <author>
+    <name>Lee Hyungi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210122 Hexo blog</title>
+    <link href="https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/"/>
+    <id>https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/</id>
+    <published>2021-01-22T07:37:42.000Z</published>
+    <updated>2021-01-23T11:47:32.418Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Today-I-Learn-about-how-to-set-up-the-Hexo"><a href="#Today-I-Learn-about-how-to-set-up-the-Hexo" class="headerlink" title="Today I Learn about how to set up the Hexo."></a>Today I Learn about how to set up the Hexo.</h2><p>hexo clean &amp;&amp; hexo generate : local 환경에서 업데이트 된 내용을 확인하기 위해 generate한다.</p><p>hexo clean &amp;&amp; hexo deploy : Deploy된 사이트에 업데이트된 내용을 적용해서 deploy한다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Today-I-Learn-about-how-to-set-up-the-Hexo&quot;&gt;&lt;a href=&quot;#Today-I-Learn-about-how-to-set-up-the-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Today I </summary>
+      
+    
+    
+    
+    <category term="hexo" scheme="https://leehyungi0622.github.io/categories/hexo/"/>
+    
+    
+    <category term="hexo" scheme="https://leehyungi0622.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
