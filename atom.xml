@@ -10,7 +10,7 @@
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
-    <name>Lee Hyungi</name>
+    <name>Lee Hyungi(이현기)</name>
     
   </author>
   
@@ -48,9 +48,9 @@
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/</id>
     <published>2021-01-22T07:37:42.000Z</published>
-    <updated>2021-01-23T13:32:24.076Z</updated>
+    <updated>2021-01-23T14:30:21.816Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Hexo-사용법"><a href="#Hexo-사용법" class="headerlink" title="Hexo 사용법"></a>Hexo 사용법</h1><hr><h3 id="Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리"><a href="#Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리" class="headerlink" title="Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리"></a>Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리</h3><p>hexo generate는 로컬 환경에서 Hexo 페이지의 변경된 내용을 확인할 때 사용되며, hexo deploy는 업데이트 된 내용을 Git에 최종적으로 deploy함으로써 Github pages에 변경사항을 적용한다.</p><pre><code>$ hexo clean &amp;&amp; hexo generate$ hexo clean &amp;&amp; hexo deploy</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hexo-사용법"><a href="#Hexo-사용법" class="headerlink" title="Hexo 사용법"></a>Hexo 사용법</h1><hr><h3 id="Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리"><a href="#Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리" class="headerlink" title="Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리"></a>Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리</h3><p><img src="/images/post_images/210122_hexo-logo.png"></p><p>hexo generate는 로컬 환경에서 Hexo 페이지의 변경된 내용을 확인할 때 사용되며, hexo deploy는 업데이트 된 내용을 Git에 최종적으로 deploy함으로써 Github pages에 변경사항을 적용한다.</p><pre><code>$ hexo clean &amp;&amp; hexo generate$ hexo clean &amp;&amp; hexo deploy</code></pre>]]></content>
     
     
       
