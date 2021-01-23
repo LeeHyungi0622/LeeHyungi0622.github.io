@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-23T11:47:32.418Z</updated>
+  <updated>2021-01-23T14:20:17.817Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,18 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>210122 Hexo blog</title>
+    <title>Pseudo code + Algorithm 연습노트 준비</title>
+    <link href="https://leehyungi0622.github.io/2021/01/23/210123-Algorithm_start/"/>
+    <id>https://leehyungi0622.github.io/2021/01/23/210123-Algorithm_start/</id>
+    <published>2021-01-23T01:37:42.000Z</published>
+    <updated>2021-01-23T14:20:17.817Z</updated>
+    
+    <content type="html"><![CDATA[<p>첫 주에 강사님께 배웠던 내용중에 가장 인상깊었던 부분이 Pseudo code를 작성하는 것이었다. 그리고 단순 코더가 아닌 컴퓨팅 사고를 할 줄 아는 그런 개발자가 되라는 말씀이 마음에 가장 와닿았다.</p><p><img src="/images/post_images/210123_img1.JPG"><br>[ 나의 첫 Pseudo code + Algorithm 연습노트 ]</p><hr><p>그래서 첫주가 끝난는 21일 금요일날 집에 가는 길에 노트를 사서 Pseudo code와 알고리즘을 연습하기 위한 전용 노트를 만들었다. 그리고 인터넷에서 Pseudo code의 정의와 중요성 그리고 작성하는 방법에 대해서 간단하게 정리해보았다.</p><p>이렇게 글을 정리해놓는 이유는 이제부터 매일매일 적어도 하나의 알고리즘 문제를 풀면서 Pseudo code를 작성하는 연습도 같이 병행할 것이기 때문이다.</p><p>혹시나 훗날 힘들어질때 다시 지금 이때 작성한 글을 읽고 다시 마음을 다잡아야 겠다.</p><p><img src="/images/post_images/210123_img2.JPG"><br>[ Pseudo code의 중요성과 작성방법 ]<br><img src="/images/post_images/210123_img3.JPG"><br>[ Pseudo code 작성 sample ]</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;첫 주에 강사님께 배웠던 내용중에 가장 인상깊었던 부분이 Pseudo code를 작성하는 것이었다. 그리고 단순 코더가 아닌 컴퓨팅 사고를 할 줄 아는 그런 개발자가 되라는 말씀이 마음에 가장 와닿았다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/image</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="Pseudo code" scheme="https://leehyungi0622.github.io/tags/Pseudo-code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210122 Hexo 사용법</title>
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/</id>
     <published>2021-01-22T07:37:42.000Z</published>
-    <updated>2021-01-23T11:47:32.418Z</updated>
+    <updated>2021-01-23T13:32:24.076Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Today-I-Learn-about-how-to-set-up-the-Hexo"><a href="#Today-I-Learn-about-how-to-set-up-the-Hexo" class="headerlink" title="Today I Learn about how to set up the Hexo."></a>Today I Learn about how to set up the Hexo.</h2><p>hexo clean &amp;&amp; hexo generate : local 환경에서 업데이트 된 내용을 확인하기 위해 generate한다.</p><p>hexo clean &amp;&amp; hexo deploy : Deploy된 사이트에 업데이트된 내용을 적용해서 deploy한다.</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hexo-사용법"><a href="#Hexo-사용법" class="headerlink" title="Hexo 사용법"></a>Hexo 사용법</h1><hr><h3 id="Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리"><a href="#Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리" class="headerlink" title="Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리"></a>Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리</h3><p>hexo generate는 로컬 환경에서 Hexo 페이지의 변경된 내용을 확인할 때 사용되며, hexo deploy는 업데이트 된 내용을 Git에 최종적으로 deploy함으로써 Github pages에 변경사항을 적용한다.</p><pre><code>$ hexo clean &amp;&amp; hexo generate$ hexo clean &amp;&amp; hexo deploy</code></pre>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;Today-I-Learn-about-how-to-set-up-the-Hexo&quot;&gt;&lt;a href=&quot;#Today-I-Learn-about-how-to-set-up-the-Hexo&quot; class=&quot;headerlink&quot; title=&quot;Today I </summary>
+    <summary type="html">&lt;h1 id=&quot;Hexo-사용법&quot;&gt;&lt;a href=&quot;#Hexo-사용법&quot; class=&quot;headerlink&quot; title=&quot;Hexo 사용법&quot;&gt;&lt;/a&gt;Hexo 사용법&lt;/h1&gt;&lt;hr&gt;
+&lt;h3 id=&quot;Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서</summary>
       
     
     
