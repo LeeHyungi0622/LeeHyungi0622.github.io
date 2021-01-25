@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-25T03:46:01.010Z</updated>
+  <updated>2021-01-24T12:54:09.047Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,48 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://leehyungi0622.github.io/2021/01/24/210120-python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/24/210120-python_til/</id>
-    <published>2021-01-24T12:12:17.772Z</published>
-    <updated>2021-01-25T03:46:01.010Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p>형변환(Type Casting) :<br>변환하고자 하는 변수를 변환하고자하는 타입으로 감싸주면 형 변환이 된다.</p><ul><li>string</li><li>list</li><li>eval() :<br>매개변수로 받은 문자열 값을 알맞은 형으로 변환<ul><li>ex) eval(“2”) =&gt; 2 (integer type)</li><li>매개변수로 받은 수식을 문자열로 받아서 실행<ul><li>ex) eval(“1+2”) =&gt; 3</li></ul></li></ul></li></ul></li><li><p>외부입력(User input)</p><ul><li>input() :<br>input의 인자로 문자열을 넣을 수 있다. 이는 사용자로부터 입력을 받을때 instruction역할을 한다. 입력받은 값은 기본적으로 str타입이다. 필요에 따라 입력과 동시에 형 변환을 할 수 있다.</li></ul></li><li><p>index를 활용하여 문자열 slicing</p><ul><li>문자열의 index의 범위를 지정하여 slicing할 수 있다.<ul><li>ex) “Fastcampus”[4] =&gt; ‘c’</li><li>ex) “Fastcampus”[2:5+1] =&gt; ‘stca’</li><li>ex) “Fastcampus”[-2:-7:-2] =&gt; ‘umc’</li><li>ex)<pre><code class="python">   target = &#39;Fastcampus&#39;   target[:1] #&#39;F&#39; 마지막 인덱스 -1 만큼의 범위까지 문자열을 자른다.   target[2:] #두번째 인덱스부터 끝까지 문자열을 자른다.</code></pre></li></ul></li></ul></li><li><p>내장함수를 활용 (string)</p><pre><code class="python">  sentence = &#39;Python is very easy, powerful and awesome LANGUAGE, I think.&#39;  word_list = [&#39;F&#39;, &#39;a&#39;, &#39;s&#39;, &#39;t&#39;, &#39;c&#39;, &#39;a&#39;, &#39;m&#39;, &#39;p&#39;, &#39;u&#39;, &#39;s&#39;]  target = &#39;   ....,,,,hello, python....,,fastcampus,,    &#39;</code></pre><p>위의 sentence 변수를 활용하여 아래 내장함수의 활용을 이해한다.</p><ul><li>count() :</li></ul><pre><code class="python">  sentence.count(&#39;y&#39;) # 주어진 문자열 내에 문자 &#39;y&#39;가 몇 번 등장하는지 체크 (3번)  sentence.count(&#39;very easy&#39;) # 주어진 문자열내에 문자열 &#39;very easy&#39;가 몇 번 등장하는지 체크 (1번)</code></pre><ul><li>find() :</li></ul><pre><code class="python">  sentence.find(&#39;is&#39;) # 주어진 문자열내에서 &#39;is&#39;가 몇 번째 index부터 시작되는지 체크 (7번 인덱스부터 시작)</code></pre><ul><li>join() :</li></ul><pre><code class="python">  # 배열의 요소를 전부 붙여서 하나의 문자열로 표기하기 위해서 아래와 같이 작성한다.  &#39;&#39;.join(word_list) #Fastcampus 출력  &#39;,&#39;.join(&#39;python&#39;) #&#39;p,y,t,h,o,n&#39;</code></pre><ul><li>split() :</li></ul><pre><code class="python">  to_be_list = &#39; &#39;.join(&#39;Fastcampus&#39;)  to_be_list.split(&#39; &#39;) #space를 기준으로 문자를 나눠서 리스트화 한다. [&#39;F&#39;, &#39;a&#39;, &#39;s&#39;, &#39;t&#39;, &#39;c&#39;, &#39;a&#39;, &#39;m&#39;, &#39;p&#39;, &#39;u&#39;, &#39;s&#39;]</code></pre><ul><li>replace() :</li></ul><pre><code class="python">  sentence = sentence.replace(&#39;Python&#39;, &#39;Golang&#39;) # 주어진 문장 내에 있는 &#39;Python&#39; 문자를 &#39;Golang&#39;으로 교체한다.</code></pre><ul><li>strip() :</li></ul><pre><code class="python">  target.strip().strip(&#39;.&#39;).strip(&#39;,&#39;) #target 문자열에서 공백과 &#39;.&#39;, &#39;,&#39;를 제거한다. 문자여려 앞과 뒤에서는 제거가 되지만, 문자와 문자 사이사이에 있는 지정문자는 제거되지 않는다.  #위의 코드를 아래와 같이 간략하게 작성할 수 있다.  target.strip(&#39; .,&#39;)</code></pre><ul><li>isalpha() :</li></ul><pre><code class="python">  &#39;LeeHyungi&#39;.isalpha() #대상 문자열이 알파벳으로 구성되어있는지 체크</code></pre><ul><li>isalnum() :</li></ul><pre><code class="python">  &#39;LeeHyungi&#39;.isalnum() #대상 문자열이 알파벳과 숫자 혼합으로 구성되어있는지 체크</code></pre><ul><li>isdigit() :</li></ul><pre><code class="python">  &#39;2021&#39;.isdigit() #대상 문자열이 숫자로만 구성되어있는지 확인</code></pre><ul><li>islower() :</li></ul><pre><code class="python">  &#39;leehyungi&#39;.islower() #대상 문자열이 소문자로만 구성되어 있는지 확인</code></pre><ul><li>isupper()</li></ul><pre><code class="python">  &#39;LEEHYUNGI&#39;.isupper() #대상문자열이 대문자로만 구성되어 있는지 확인</code></pre><ul><li>print()의 sep, end 속성활용</li></ul><pre><code class="python">  print(target[:1], &#39;e&#39;, target[2:], sep = &#39;&#39;, end=&#39;python&#39;) #첫번째 문자(target[0]) 다음에 문자 &#39;e&#39;를 붙여주고, 그 다음에 target 문자열의 두번째 index부터 끝까지 슬라이싱한 문자를 붙여준다. sep는 빈 공백으로 해서 붙이고, end= 속성을 이용해서 문자열 맨 마지막에 &#39;python&#39;을 붙여준다.</code></pre></li><li><p>String Formatting</p><ul><li>예전 방식 :<br>Python의 옛 방식으로 문자열을 formatting하게 되면 아래와 같다.<pre><code class="python">#C언어와 비슷하게 출력하는 문자열 내에 %s, %d 와 같은 데이터 타입를 %와 같이 붙여서 지정해주고, %(&#39;value&#39;)를 넣어서 작성해준다.&#39;I have a %s, I have a %s.&#39;%(&#39;apple&#39;, &#39;pen&#39;)</code></pre></li><li>새로운 방식 :<br>Python의 String formatting을 새로운 방식으로 .format()를 사용해서 작성할 수 있다.<pre><code class="python">&#39;I have a &#123;&#125;, I have a &#123;&#125;&#39;.format(&#39;pen&#39;,&#39;apple&#39;) # 순차 formatting#위에서는 format에 넣어준 인자의 순서대로 값을 대입하는 방법으로 작성하였다. 다음은 인덱스를 지정해서 대입하는 방법이다.&#39;I have a &#123;1&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,10)</code></pre><pre><code class="python"># &gt;, &lt; , ^ (왼쪽에 space에 채워줄 문자를 작성해주고, 오른쪽에는 문자열의 최대길이를 설정해준다.)# &gt;, &lt; 각각 부등호 반대방향으로 문자열이 정렬되며, ^는 가운데 정렬을 한다. print(&#39;I have a &#123;1:_&gt;10&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,&#39;apple&#39;))print(&#39;I have a &#123;1:*^10&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,&#39;apple&#39;))print(&#39;I have a &#123;1:-&lt;10&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,&#39;pineapple&#39;))# 출력내용# I have a _____apple, I have a pen# I have a **apple***, I have a pen# I have a pineapple-, I have a pen</code></pre></li></ul></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h2><p>오늘 배운 전반적인 내용을 활용하여 아래 문제를 해결한다.</p><ol><li><p>사용자가 입력한 전화번호를 저장하려합니다. 전화번호의 구분자로 - 또는 <code>를 혼합하여 사용할 때 이를 split과 join을 이용하여-</code>로 통일하여 입력 받아 결과물을 출력하세요.</p></li><li><p>사용자가 다음과 같은 입력을 할때, 그 자료가 알파벳 단독인지, 숫자 단독인지, 알파벳 숫자인지, 소문자인지, 대문자인지를 formating 하여 출력하세요.</p></li></ol><pre><code class="python">FASTcampus12FastCampus1107dynamite</code></pre><h2 id="문제풀이"><a href="#문제풀이" class="headerlink" title="문제풀이"></a><strong>문제풀이</strong></h2><pre><code class="python">&quot;&quot;&quot;campus12FastCampus1107dynamite&quot;&quot;&quot;user_input = input(&quot;Type some words: &quot;)&quot;&#123;&#125; is &#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;&quot;.format(    user_input,    user_input.isalpha(),    user_input.isdigit(),    user_input.isalnum(),    user_input.islower(),    user_input.isupper())</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/h1&gt;&lt;h2 id=&quot;오늘-배운내용&quot;&gt;&lt;a href=&quot;#오늘-배운내용&quot; clas</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://leehyungi0622.github.io/2021/01/24/210119-python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/24/210119-python_til/</id>
-    <published>2021-01-24T12:12:08.851Z</published>
-    <updated>2021-01-25T01:50:25.279Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><p>오늘 배운내용</p><ul><li>Python의 기본 자료형<ul><li>string</li><li>list</li><li>number</li><li>bool</li><li>int</li><li>float</li></ul></li><li>Python의 내장함수<ul><li>print()</li><li>type()</li><li>round() : 반올림하고자 하는 값과 소숫점이하 N번째 자리까지 수를 표시하기 위해서 인자 N을 넣어준다.</li></ul></li><li>Python의 숫자 자료형과 연산<ul><li>사칙연산(+,-,*,/)</li><li>// (몫 구하는 연산자), % (나머지 구하는 연산자)</li><li>** (지수 연산자)</li></ul></li><li>Python 변수의 데이터 타입검사<ul><li>변수의 데이터 타입검사는 type() 내장함수를 사용하여 체크 할 수 있다.</li></ul></li><li>for-loop를 활용한 반복연산<ul><li>for - in - range() 구문을 활용하여 일정 구간에 있는 숫자를 순회하며 처리할 수 있다.</li></ul></li></ul><br/><h3 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h3><p>오늘 배운 전반적인 내용을 활용하여 아래 문제를 해결한다.</p><blockquote><p>반지름(r=10)을 선언한 뒤, 이를 이용하여 원의 지름, 둘레, 넓이, 구의 겉넓이, 부피를 각각 출력하는 파이썬 파일을 만들어보세요.(pi=3.1415)</p></blockquote><p><strong>sample output</strong></p><p>r(반지름)의 길이가 10일때의 출력 sample</p><pre><code class="python">r = 10 ==&gt; print(&quot;r =&quot;, r)d = 20c = 62.830a = 314.15gnb = 1256.0000v = 4188.666666666667</code></pre><h2 id="문제풀이"><a href="#문제풀이" class="headerlink" title="문제풀이"></a><strong>문제풀이</strong></h2><pre><code class="python"># 반지름과 pi값을 선언한다.r = 10pi = 3.1415#  d: 지름, c: 둘레, a: 넓이# gnb: 구의 넓이, v: 부피d = 2 * rc = 2 * pi * ra = pi * r ** 2gnb = 4 * pi * r ** 2v = 4 / 3 * pi * r ** 3print(&quot;r =&quot;, r)print(&quot;c =&quot;, round(c, 4))print(&quot;a =&quot;, a)print(&quot;gnb =&quot;, round(gnb, 2))print(&quot;v =&quot;, round(v,4))</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;오늘 배운내용&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Python의 기본 자료형&lt;u</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Baekjoon Online Judge 2920번 음계 문제</title>
@@ -162,6 +120,60 @@
     
     
     <category term="Hexo" scheme="https://leehyungi0622.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210120 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/20/210120-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/20/210120-python_til/</id>
+    <published>2021-01-20T07:37:42.000Z</published>
+    <updated>2021-01-25T07:59:34.319Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p>형변환(Type Casting) :<br>변환하고자 하는 변수를 변환하고자하는 타입으로 감싸주면 형 변환이 된다.</p><ul><li>string</li><li>list</li><li>eval() :<br>매개변수로 받은 문자열 값을 알맞은 형으로 변환<ul><li>ex) eval(“2”) =&gt; 2 (integer type)</li><li>매개변수로 받은 수식을 문자열로 받아서 실행<ul><li>ex) eval(“1+2”) =&gt; 3</li></ul></li></ul></li></ul></li><li><p>외부입력(User input)</p><ul><li>input() :<br>input의 인자로 문자열을 넣을 수 있다. 이는 사용자로부터 입력을 받을때 instruction역할을 한다. 입력받은 값은 기본적으로 str타입이다. 필요에 따라 입력과 동시에 형 변환을 할 수 있다.</li></ul></li><li><p>index를 활용하여 문자열 slicing</p><ul><li>문자열의 index의 범위를 지정하여 slicing할 수 있다.<ul><li>ex) “Fastcampus”[4] =&gt; ‘c’</li><li>ex) “Fastcampus”[2:5+1] =&gt; ‘stca’</li><li>ex) “Fastcampus”[-2:-7:-2] =&gt; ‘umc’</li><li>ex)<pre><code class="python">   target = &#39;Fastcampus&#39;   target[:1] #&#39;F&#39; 마지막 인덱스 -1 만큼의 범위까지 문자열을 자른다.   target[2:] #두번째 인덱스부터 끝까지 문자열을 자른다.</code></pre></li></ul></li></ul></li><li><p>내장함수를 활용 (string)</p><pre><code class="python">  sentence = &#39;Python is very easy, powerful and awesome LANGUAGE, I think.&#39;  word_list = [&#39;F&#39;, &#39;a&#39;, &#39;s&#39;, &#39;t&#39;, &#39;c&#39;, &#39;a&#39;, &#39;m&#39;, &#39;p&#39;, &#39;u&#39;, &#39;s&#39;]  target = &#39;   ....,,,,hello, python....,,fastcampus,,    &#39;</code></pre><p>위의 sentence 변수를 활용하여 아래 내장함수의 활용을 이해한다.</p><ul><li>count() :</li></ul><pre><code class="python">  sentence.count(&#39;y&#39;) # 주어진 문자열 내에 문자 &#39;y&#39;가 몇 번 등장하는지 체크 (3번)  sentence.count(&#39;very easy&#39;) # 주어진 문자열내에 문자열 &#39;very easy&#39;가 몇 번 등장하는지 체크 (1번)</code></pre><ul><li>find() :</li></ul><pre><code class="python">  sentence.find(&#39;is&#39;) # 주어진 문자열내에서 &#39;is&#39;가 몇 번째 index부터 시작되는지 체크 (7번 인덱스부터 시작)</code></pre><ul><li>join() :</li></ul><pre><code class="python">  # 배열의 요소를 전부 붙여서 하나의 문자열로 표기하기 위해서 아래와 같이 작성한다.  &#39;&#39;.join(word_list) #Fastcampus 출력  &#39;,&#39;.join(&#39;python&#39;) #&#39;p,y,t,h,o,n&#39;</code></pre><ul><li>split() :</li></ul><pre><code class="python">  to_be_list = &#39; &#39;.join(&#39;Fastcampus&#39;)  to_be_list.split(&#39; &#39;) #space를 기준으로 문자를 나눠서 리스트화 한다. [&#39;F&#39;, &#39;a&#39;, &#39;s&#39;, &#39;t&#39;, &#39;c&#39;, &#39;a&#39;, &#39;m&#39;, &#39;p&#39;, &#39;u&#39;, &#39;s&#39;]</code></pre><ul><li>replace() :</li></ul><pre><code class="python">  sentence = sentence.replace(&#39;Python&#39;, &#39;Golang&#39;) # 주어진 문장 내에 있는 &#39;Python&#39; 문자를 &#39;Golang&#39;으로 교체한다.</code></pre><ul><li>strip() :</li></ul><pre><code class="python">  target.strip().strip(&#39;.&#39;).strip(&#39;,&#39;) #target 문자열에서 공백과 &#39;.&#39;, &#39;,&#39;를 제거한다. 문자여려 앞과 뒤에서는 제거가 되지만, 문자와 문자 사이사이에 있는 지정문자는 제거되지 않는다.  #위의 코드를 아래와 같이 간략하게 작성할 수 있다.  target.strip(&#39; .,&#39;)</code></pre><ul><li>isalpha() :</li></ul><pre><code class="python">  &#39;LeeHyungi&#39;.isalpha() #대상 문자열이 알파벳으로 구성되어있는지 체크</code></pre><ul><li>isalnum() :</li></ul><pre><code class="python">  &#39;LeeHyungi&#39;.isalnum() #대상 문자열이 알파벳과 숫자 혼합으로 구성되어있는지 체크</code></pre><ul><li>isdigit() :</li></ul><pre><code class="python">  &#39;2021&#39;.isdigit() #대상 문자열이 숫자로만 구성되어있는지 확인</code></pre><ul><li>islower() :</li></ul><pre><code class="python">  &#39;leehyungi&#39;.islower() #대상 문자열이 소문자로만 구성되어 있는지 확인</code></pre><ul><li>isupper()</li></ul><pre><code class="python">  &#39;LEEHYUNGI&#39;.isupper() #대상문자열이 대문자로만 구성되어 있는지 확인</code></pre><ul><li>print()의 sep, end 속성활용</li></ul><pre><code class="python">  print(target[:1], &#39;e&#39;, target[2:], sep = &#39;&#39;, end=&#39;python&#39;) #첫번째 문자(target[0]) 다음에 문자 &#39;e&#39;를 붙여주고, 그 다음에 target 문자열의 두번째 index부터 끝까지 슬라이싱한 문자를 붙여준다. sep는 빈 공백으로 해서 붙이고, end= 속성을 이용해서 문자열 맨 마지막에 &#39;python&#39;을 붙여준다.</code></pre></li><li><p>String Formatting</p><ul><li>예전 방식 :<br>Python의 옛 방식으로 문자열을 formatting하게 되면 아래와 같다.<pre><code class="python">#C언어와 비슷하게 출력하는 문자열 내에 %s, %d 와 같은 데이터 타입를 %와 같이 붙여서 지정해주고, %(&#39;value&#39;)를 넣어서 작성해준다.&#39;I have a %s, I have a %s.&#39;%(&#39;apple&#39;, &#39;pen&#39;)</code></pre></li><li>새로운 방식 :<br>Python의 String formatting을 새로운 방식으로 .format()를 사용해서 작성할 수 있다.<pre><code class="python">&#39;I have a &#123;&#125;, I have a &#123;&#125;&#39;.format(&#39;pen&#39;,&#39;apple&#39;) # 순차 formatting#위에서는 format에 넣어준 인자의 순서대로 값을 대입하는 방법으로 작성하였다. 다음은 인덱스를 지정해서 대입하는 방법이다.&#39;I have a &#123;1&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,10)</code></pre><pre><code class="python"># &gt;, &lt; , ^ (왼쪽에 space에 채워줄 문자를 작성해주고, 오른쪽에는 문자열의 최대길이를 설정해준다.)# &gt;, &lt; 각각 부등호 반대방향으로 문자열이 정렬되며, ^는 가운데 정렬을 한다. print(&#39;I have a &#123;1:_&gt;10&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,&#39;apple&#39;))print(&#39;I have a &#123;1:*^10&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,&#39;apple&#39;))print(&#39;I have a &#123;1:-&lt;10&#125;, I have a &#123;0&#125;&#39;.format(&#39;pen&#39;,&#39;pineapple&#39;))# 출력내용# I have a _____apple, I have a pen# I have a **apple***, I have a pen# I have a pineapple-, I have a pen</code></pre></li></ul></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h2><p>오늘 배운 전반적인 내용을 활용하여 아래 문제를 해결한다.</p><ol><li><p>사용자가 입력한 전화번호를 저장하려합니다. 전화번호의 구분자로 - 또는 <code>를 혼합하여 사용할 때 이를 split과 join을 이용하여-</code>로 통일하여 입력 받아 결과물을 출력하세요.</p></li><li><p>사용자가 다음과 같은 입력을 할때, 그 자료가 알파벳 단독인지, 숫자 단독인지, 알파벳 숫자인지, 소문자인지, 대문자인지를 formating 하여 출력하세요.</p></li></ol><pre><code class="python">FASTcampus12FastCampus1107dynamite</code></pre><h2 id="문제풀이"><a href="#문제풀이" class="headerlink" title="문제풀이"></a><strong>문제풀이</strong></h2><pre><code class="python">&quot;&quot;&quot;campus12FastCampus1107dynamite&quot;&quot;&quot;user_input = input(&quot;Type some words: &quot;)&quot;&#123;&#125; is &#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;,&#123;&#125;&quot;.format(    user_input,    user_input.isalpha(),    user_input.isdigit(),    user_input.isalnum(),    user_input.islower(),    user_input.isupper())</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Pytho</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210119 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/19/210119-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/19/210119-python_til/</id>
+    <published>2021-01-19T07:37:42.000Z</published>
+    <updated>2021-01-25T06:31:02.764Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><p>오늘 배운내용</p><ul><li>Python의 기본 자료형<ul><li>string</li><li>list</li><li>number</li><li>bool</li><li>int</li><li>float</li></ul></li><li>Python의 내장함수<ul><li>print()</li><li>type()</li><li>round() : 반올림하고자 하는 값과 소숫점이하 N번째 자리까지 수를 표시하기 위해서 인자 N을 넣어준다.</li></ul></li><li>Python의 숫자 자료형과 연산<ul><li>사칙연산(+,-,*,/)</li><li>// (몫 구하는 연산자), % (나머지 구하는 연산자)</li><li>** (지수 연산자)</li></ul></li><li>Python 변수의 데이터 타입검사<ul><li>변수의 데이터 타입검사는 type() 내장함수를 사용하여 체크 할 수 있다.</li></ul></li><li>for-loop를 활용한 반복연산<ul><li>for - in - range() 구문을 활용하여 일정 구간에 있는 숫자를 순회하며 처리할 수 있다.</li></ul></li></ul><br/><h3 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h3><p>오늘 배운 전반적인 내용을 활용하여 아래 문제를 해결한다.</p><blockquote><p>반지름(r=10)을 선언한 뒤, 이를 이용하여 원의 지름, 둘레, 넓이, 구의 겉넓이, 부피를 각각 출력하는 파이썬 파일을 만들어보세요.(pi=3.1415)</p></blockquote><p><strong>sample output</strong></p><p>r(반지름)의 길이가 10일때의 출력 sample</p><pre><code class="python">r = 10 ==&gt; print(&quot;r =&quot;, r)d = 20c = 62.830a = 314.15gnb = 1256.0000v = 4188.666666666667</code></pre><h2 id="문제풀이"><a href="#문제풀이" class="headerlink" title="문제풀이"></a><strong>문제풀이</strong></h2><pre><code class="python"># 반지름과 pi값을 선언한다.r = 10pi = 3.1415#  d: 지름, c: 둘레, a: 넓이# gnb: 구의 넓이, v: 부피d = 2 * rc = 2 * pi * ra = pi * r ** 2gnb = 4 * pi * r ** 2v = 4 / 3 * pi * r ** 3print(&quot;r =&quot;, r)print(&quot;c =&quot;, round(c, 4))print(&quot;a =&quot;, a)print(&quot;gnb =&quot;, round(gnb, 2))print(&quot;v =&quot;, round(v,4))</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Pytho</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
