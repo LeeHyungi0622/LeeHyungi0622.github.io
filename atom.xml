@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-25T20:33:48.286Z</updated>
+  <updated>2021-01-25T21:23:01.225Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
     <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
     <published>2021-01-25T13:37:42.000Z</published>
-    <updated>2021-01-25T20:33:48.286Z</updated>
+    <updated>2021-01-25T21:23:01.225Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="백준-저지-2920번-문제-Pseudo-code-Python-code"><a href="#백준-저지-2920번-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2920번 문제 Pseudo code + Python code"></a>백준 저지 2920번 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210125-Ethiopian_multiplication.png"></p><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;))result = 0while m &gt; 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;백준-저지-2920번-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-2920번-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저지 2920번 문제 P</summary>
+    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
       
     
     
@@ -39,6 +39,33 @@
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
     
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210125 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/25/210125-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/25/210125-python_til/</id>
+    <published>2021-01-25T13:37:42.000Z</published>
+    <updated>2021-01-25T21:14:36.203Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운-내용"><a href="#오늘-배운-내용" class="headerlink" title="오늘 배운 내용"></a><strong>오늘 배운 내용</strong></h2><ul><li>Python 과제 점검<ul><li>21년 1월 3주차 파이썬 과제 풀이 정리하기</li></ul></li><li>Python 메인 강의<ul><li>과제점검</li><li>삼항연산자 (Ternary operator)</li><li>Iteration(Loop)<ul><li>for</li><li>while</li></ul></li><li>문자열 * True / 문자열 * False</li><li>break, continue in conditional statement</li></ul></li></ul><br/><h2 id="21년-1월-3주차-파이썬-과제-풀이-정리하기"><a href="#21년-1월-3주차-파이썬-과제-풀이-정리하기" class="headerlink" title="21년 1월 3주차 파이썬 과제 풀이 정리하기"></a><strong>21년 1월 3주차 파이썬 과제 풀이 정리하기</strong></h2><p>기본적으로 문제풀이에서 요구하는 것은 isupper()와 islower()를 사용하여 주어진 문자열, 배열의 값을 소문자는 대문자로, 대문자는 소문자로 토글하는 문제였다.</p><p>아래는 내가 작성한 문제의 답으로, solution1에서는 isupper()와 islower()를 사용해서 입력된 값을 조건처리하여 작성하였다.<br>solution2에서는 입력된 값의 조건처리를 알파벳의 ASCII 코드 값을 활용하여 접근하였다.</p><p>solution1과 solution2에서 공통적으로 입력된 값이 문자열인지 리스트인지 구분하여, 문자열인 경우 문자열의 값을 리스트화하고, 출력을 할때에도 입력된 값이 문자열인 경우와 그렇지 않은 경우를 구분하여 출력하는 구문도 조건처리하였다.</p><pre><code class="python"># solution 1) isupper(), islower()를 활용# string이 list로 convert되었는지 구분하기 위한 flag변수flag = Falseiv = [&#39;A&#39;, &#39;b&#39;, &#39;C&#39;]# iv = &quot;AbCdEf&quot;# 만약 입력한 값이 문자열인 경우, 리스트로 변환하고 flag변수를 True로 변환한다.if type(iv) == str:    iv = [w for w in iv]    flag = Truefor idx, w in enumerate(iv):    if w.isupper():        iv[idx] = w.lower()    else:        iv[idx] = w.upper()if flag:    print(&#39;&#39;.join(iv))else:    print(iv)# solution 2) ASCII CODE를 활용# string이 list로 convert되었는지 구분하기 위한 flag변수flag = Falseiv = [&#39;A&#39;, &#39;b&#39;, &#39;C&#39;]# iv = &quot;AbCdEf&quot;# 만약 입력한 값이 문자열인 경우, 리스트로 변환하고 flag변수를 True로 변환한다.if type(iv) == str:    iv = [w for w in iv]    flag = Truefor idx, w in enumerate(iv):    # w의 ASCII 코드가 65이상 90이하인 경우 (대문자의 경우)    if ord(w) &gt;= 65 and ord(w) &lt;= 90:        iv[idx] = chr(ord(w)+32)    else:        iv[idx] = chr(ord(w)-32)if flag:    print(&#39;&#39;.join(iv))else:    print(iv)</code></pre><h1 id="Python-메인-강의"><a href="#Python-메인-강의" class="headerlink" title="Python 메인 강의"></a><strong>Python 메인 강의</strong></h1><h2 id="과제-점검"><a href="#과제-점검" class="headerlink" title="과제 점검"></a><strong>과제 점검</strong></h2><p>(1) 기존의 Numguess 코드에 추가할 요소에 대해서 생각해보기</p><p>(2) Hacker Rank문제 풀이 (2문제)</p><ul><li><a href="https://www.hackerrank.com/challenges/py-if-else/problem">https://www.hackerrank.com/challenges/py-if-else/problem</a></li><li><a href="https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem">https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem</a></li></ul><p><strong>Hacker Rank 두번째 문제 풀이 참고 :</strong> 리스트(list)를 집합(set)으로 변환해서 중복을 제거하고 sort와 sort의 reverse= 속성을 활용해서 내림차순으로 정렬을 한다.</p><p><strong>삼항연산자(Ternary operator)</strong></p><ul><li>Conditional Expressions<pre><code class="python"># a if condition else bTrue if 3&gt;2 else FalseTrue if 3&lt;2 else False</code></pre><pre><code class="python"># a if condition else b if condition else c (다중 if문)# 2~3개의 조건은 삼항연산자로 작성해도 괜찮지만, 그 이상 작성을 하면, 가독성이 떨어진다.&#39;a&#39; if 3&lt;2 else &#39;b&#39; if 4&gt;3 else &#39;c&#39;</code></pre>삼항연산자를 사용해서 직접적으로 변수의 값을 초기화 해 줄 수 없다.<pre><code class="python">result = &#39;pass&#39; if 3&gt;2 else result = &#39;Non-pass&#39; #Error</code></pre></li></ul><hr><h2 id="Practice-1"><a href="#Practice-1" class="headerlink" title="Practice(1)"></a><strong>Practice(1)</strong></h2><h3 id="내가-작성한-코드-코드-점검하기"><a href="#내가-작성한-코드-코드-점검하기" class="headerlink" title="내가 작성한 코드 (코드 점검하기)"></a>내가 작성한 코드 (코드 점검하기)</h3><pre><code class="python">day = input(&quot;요일을 입력하세요 : &quot;)# conditional statementday_list = [&#39;월&#39;, &#39;화&#39;, &#39;수&#39;, &#39;목&#39;, &#39;금&#39;, &#39;토&#39;, &#39;일&#39;]if day in day_list[:5] or day.replace(&quot;요일&quot;, &quot;&quot;) in day_list[:5]:    print(&quot;평일이네요ㅜㅜ&quot;)elif day in day_list[5:] or day.replace(&quot;요일&quot;, &quot;&quot;) in day_list[5:]:    print(&quot;주말입니다^^&quot;)else:    print(&quot;요일을 입력하세요&quot;)# conditional expressprint(&quot;평일이네요ㅜㅜ&quot;) if day in day_list[:5] or day.replace(&quot;요일&quot;, &quot;&quot;) in day_list[:5] else \print(&quot;주말입니다 ^ ^&quot;) if day in day_list[5:] or day.replace(&quot;요일&quot;, &quot;&quot;) in day_list[5:] else \print(&quot;요일을 입력하세요&quot;)</code></pre><h3 id="강사님이-작성하신-코드-솔루션"><a href="#강사님이-작성하신-코드-솔루션" class="headerlink" title="강사님이 작성하신 코드 솔루션"></a>강사님이 작성하신 코드 솔루션</h3><pre><code class="python">weekday = (&#39;월&#39;,&#39;화&#39;,&#39;수&#39;,&#39;목&#39;,&#39;금&#39;)weekend = (&#39;토&#39;,&#39;일&#39;)</code></pre><p>튜플의 형태로 평일과 주말을 분류하고, 입력한 문자열이 각각의 튜플의 내부에 있는지 검사해서 출력한다.</p><hr><h2 id="For"><a href="#For" class="headerlink" title="For"></a><strong>For</strong></h2><pre><code class="python">for 변수 in (리스트 or 문자열):        실행문1    ...</code></pre><pre><code class="python">for i in [&quot;python&quot;, &quot;java&quot;, &quot;golang&quot;]:    print(i)</code></pre><pre><code class="python"># 복수 변수는 변수이름을 명명할때 복수로 명사로 선언한다.animals = [&#39;cat&#39;, &#39;dog&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;]for animal in animals:    print(&#39;There is &#123;&#125; in cage.&#39;.format(animal))</code></pre><pre><code class="python"># 1부터 N까지의 합을 구하기# (수식 : n(n+1)/2) - O(1)# For-loop를 사용한 풀이 -  O(N)# 가독성을 높이기 위해 101이 아닌 100+1의 형태로 숫자를 작성해준다.for i in range(1, 100+1):    result += iprint(result)</code></pre><h2 id="시간복잡도-이해"><a href="#시간복잡도-이해" class="headerlink" title="시간복잡도 이해"></a>시간복잡도 이해</h2><blockquote><p>만약에 위의 문제를 for-loop를 사용해서 해결하지 않고, n(n+1)/2라는 수식으로만 해결을 한다면, 빅오 표기법으로 <i>O(1)</i>의 시작 복잡도를 갖는다. 반면에 for-loop를 사용해서 해결을 한다면, N번만큼 반복해야되므로 빅오 표기법으로 <i>O(N)</i>만큼의 시간복잡도를 갖는다.</p></blockquote><h2 id="While"><a href="#While" class="headerlink" title="While"></a><strong>While</strong></h2><pre><code class="python">while 조건:    실행문1    ...</code></pre><pre><code class="python">while True:    message = input(&#39;Type anything: &#39;)    if message == &#39;exit&#39;:        break    print(message)</code></pre><pre><code class="python">import randommagic_number = random.randint(1,20)print(&quot;Stop at &quot;, magic_number)for i in range(1, 100+1):    if i == magic_number:        break    elif i%2==0:        print(&#39;skip for now&#39;)        # continue는 다음 index에 대해서 새로운 cycle을 시작하라는 의미이다.        continue    print(i)</code></pre><p><strong>continue는 현재 실행한 cycle을 끝내고 다음 cycle로 시작하고, break는 구문(for-loop)을 끝낸다.</strong></p><h2 id="Practice-2"><a href="#Practice-2" class="headerlink" title="Practice(2)"></a><strong>Practice(2)</strong></h2><h3 id="내가-작성한-코드"><a href="#내가-작성한-코드" class="headerlink" title="내가 작성한 코드"></a>내가 작성한 코드</h3><p><strong>1번 문제)</strong></p><pre><code class="python">num = int(input())result = 1while num &gt; 0:    result *= num    num -= 1</code></pre><p><strong>2번 문제)</strong></p><pre><code class="python">num_list = [[1, 0, 7, 0], [0, 2, 0, 9], [0, 6, 3, 7], [4, 0, 5, 1],]sum = 0for i in range(len(num_list)):    for j in range(len(num_list[i])):        sum += num_list[i][j]print(sum)</code></pre><h3 id="강사님이-작성하신-코드-솔루션-1"><a href="#강사님이-작성하신-코드-솔루션-1" class="headerlink" title="강사님이 작성하신 코드 솔루션"></a>강사님이 작성하신 코드 솔루션</h3><pre><code class="python">user_num = int(input(&#39;Enter just one number(2-100): &#39;))print(user_num, type(user_num))result = 1for i in range(1, user_num+1):    result *= iprint(result)</code></pre><p>강사님이 올려주신 파일보고, 코드 다시 점검하기</p><pre><code class="python">lists_in_list = [    [1, 0, 7, 0],    [0, 2, 0, 9],    [0, 6, 3, 7],    [4, 0, 5, 1],]final_result = 0for list_ in lists_in_list:    result = 0    for item in list_:        result += item    final_result += resultprint(final_result)# 출력값# 8# 11# 16# 10# 45</code></pre><pre><code class="python"># 위의 코드를 Refactoring하기for list_ in lists_in_list:    # sum함수를 사용함으로써 for-loop를 하나 생략할 수 있다.    print(sum(list_))# [1, 0, 7, 0]# [0, 2, 0, 9]# [0, 6, 3, 7]# [4, 0, 5, 1]</code></pre><pre><code class="python">result = 0for list_ in lists_in_list:    result += sum(list_)print(result)# 45</code></pre><br /><h2 id="Fizzbuzz-문제"><a href="#Fizzbuzz-문제" class="headerlink" title="Fizzbuzz 문제"></a><strong>Fizzbuzz 문제</strong></h2><p>내가 작성한 코드</p><pre><code class="python">for i in range(1, 100+1):    if i % 15 == 0:        print(&quot;FizzBuzz&quot;)    elif i % 3 == 0:        print(&quot;Fizz&quot;)    elif i % 5 == 0:        print(&quot;Buzz&quot;)    else:        print(i)</code></pre><h3 id="강사님이-작성하신-코드-솔루션-2"><a href="#강사님이-작성하신-코드-솔루션-2" class="headerlink" title="강사님이 작성하신 코드 솔루션"></a><strong>강사님이 작성하신 코드 솔루션</strong></h3><p>Python에서는 True*”string” = string이고, False*”string” = ‘’이다. bool 값을 문자열에 곱해서 해당 문자열을 표시할 수도 표시를 안할 수도 있다.</p><p>연산속도를 생각하면, 연산을 통한 값 출력이 더 빠르다는 것을 알 수 있다.</p><pre><code class="python">    for i in range(1, 30+1):        if i%3==0 or i%5==0:            print(&#39;fizz&#39;*(i%3==0) + &#39;buzz&#39;*(i%5==0))        else:            print(i)</code></pre><h2 id="Numguess"><a href="#Numguess" class="headerlink" title="Numguess"></a><strong>Numguess</strong></h2><pre><code class="python">    import randomanswer = random.randint(1, 100)print(&#39;DEBUG: &#123;&#125;&#39;.format(answer))chance = int(input(&#39;Choose level(10-easy 1-hell): &#39;))while chance &gt; 0:    guess = int(input(&#39;Guess the number(1-100): &#39;))    print(guess, type(guess))    if guess-answer == 0:        print(&#39;Correct&#39;)        break    elif guess &lt; answer:        msg = &#39;Up!&#39;    elif guess &gt; answer:        msg = &#39;Down!&#39;    chance -= 1    print(&#39;&#123;&#125; You have &#123;&#125; life(s).&#39;.format(msg, chance))    if chance == 0:        print(&#39;Wrong! The answer was &#123;&#125;&#39;.format())</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Pytho</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -125,6 +152,33 @@
   </entry>
   
   <entry>
+    <title>210122 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/22/210122-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/22/210122-python_til/</id>
+    <published>2021-01-22T13:37:42.000Z</published>
+    <updated>2021-01-25T21:20:02.583Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="과제"><a href="#과제" class="headerlink" title="과제"></a>과제</h1><p>1월 22일자 Python 과제</p><ol><li>Numguess에 추가할 요소 생각해서 정리해오기</li><li><a href="https://www.hackerrank.com/challenges/py-if-else/problem">https://www.hackerrank.com/challenges/py-if-else/problem</a> (완료)</li><li><a href="https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem">https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem</a> (완료)</li><li>부가가치세 pseudo code 작성해서 #python 에 업로드 (완료)</li></ol><h2 id="1번과제-기존의-Numguess에-추가할-요소를-생각해보고-정리하기"><a href="#1번과제-기존의-Numguess에-추가할-요소를-생각해보고-정리하기" class="headerlink" title="1번과제 : 기존의 Numguess에 추가할 요소를 생각해보고 정리하기"></a>1번과제 : 기존의 Numguess에 추가할 요소를 생각해보고 정리하기</h2><pre><code class="python">import randomanswer = random.randint(1,100)guess = int(input(&#39;Guess the number(1-100): &#39;))if answer == guess:    print(&#39;That is correct! The answer was &#123;&#125;&#39;.format(answer))else:    print(&#39;Wrong Answer, The answer was &#123;&#125;.&#39;.format(answer))</code></pre><ul><li>Up / Down 확인 요소넣기</li></ul><p>[ <strong>기존 Pseudo code</strong> ]</p><pre><code>정답이 되는 1부터 100까지의 랜덤 숫자를 생성한고, answer변수에 초기화시킨다.&quot;Guess the number(1-100):&quot; prompt를 출력하고, 사용자로부터 입력을 받아 정수형으로 변환한다.IF 만약 랜덤으로 생성된 숫자와 사용자로부터 입력받은 숫자가 같다면,  THEN, &quot;That is correct! The answer was &#123;answer&#125;&quot; 를 출력해준다.IF 일치하지 않는다면  THEN, &quot;Wrong Answer, The answer was &#123;answer&#125;&quot; 를 출력한다.</code></pre><br/><p>[<strong>새롭게 추가한 요소를 적용한 후의 Pseudo code</strong>]</p><pre><code>정답이 되는 1부터 100까지의 랜덤 숫자를 생성한고, answer변수에 초기화시킨다.&quot;Guess the number(1-100):&quot; prompt를 출력하고, 사용자로부터 입력을받아 정수형으로 변환한다.WHILE TRUE:    IF 랜덤으로 생성된 숫자와 사용자로부터 입력받은 숫자가 같다면,        THEN, PRINT            &quot;That is correct! The answer was &#123;answer&#125;&quot;            BREAK    ELSE 일치하지 않는다면        IF 입력한 숫자가 answer 보다 크다면,            THEN, PRINT                &quot;Please enter a value less than &#123;input value&#125;.&quot;        ELSE            THEN,                PRINT &quot;Please enter a value  greater than &#123;input value&#125;.&quot;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;과제&quot;&gt;&lt;a href=&quot;#과제&quot; class=&quot;headerlink&quot; title=&quot;과제&quot;&gt;&lt;/a&gt;과제&lt;/h1&gt;&lt;p&gt;1월 22일자 Python </summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210122 Hexo 사용법</title>
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/</id>
@@ -146,6 +200,33 @@
     
     
     <category term="Hexo" scheme="https://leehyungi0622.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210121 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/21/210121-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/21/210121-python_til/</id>
+    <published>2021-01-21T13:37:42.000Z</published>
+    <updated>2021-01-25T21:19:14.921Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p>List (리스트)</p><ul><li>리스트 작성예시<pre><code class="python">fastcampus = [2.71828, 3.1415]zoo = [&#39;rabbit&#39;,&#39;dog&#39;,&#39;cat&#39;]</code></pre></li><li>리스트관련 내장함수<ul><li>append()</li><li>insert()</li><li>remove()</li><li>pop()</li><li>sort()</li><li>reverse()</li><li>+, extend()</li><li>문자열 (not) in 리스트</li><li></li></ul></li></ul></li><li><p>Tuple (튜플) :<br>immutable 자료형으로 리스트와 달리 기존에 선언한 데이터를 수정할 수 없다.</p></li><li><p>Set (집합) :</p></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h2><p>오늘 배운 전반적인 내용을 활용하여 아래 문제를 해결한다.</p><blockquote><p>list와 tuple을 이용하여 다음의 문제를 해결하세요.</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Pytho</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
