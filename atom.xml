@@ -239,6 +239,33 @@
   </entry>
   
   <entry>
+    <title>210122 Git TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
+    <published>2021-01-22T13:37:42.000Z</published>
+    <updated>2021-01-25T21:29:10.217Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/github_logo.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/github_logo.png&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210122 Python TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-python_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-python_til/</id>
@@ -263,33 +290,6 @@
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210122 Git TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
-    <published>2021-01-22T13:37:42.000Z</published>
-    <updated>2021-01-25T21:29:10.217Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/github_logo.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/github_logo.png&quot;&gt;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
     
   </entry>
   
