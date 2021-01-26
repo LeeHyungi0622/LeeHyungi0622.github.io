@@ -73,6 +73,32 @@
   </entry>
   
   <entry>
+    <title>Ethiopian_multiplication</title>
+    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
+    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
+    <published>2021-01-25T13:37:42.000Z</published>
+    <updated>2021-01-25T21:23:01.225Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;))result = 0while m &gt; 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210125 Python TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/25/210125-python_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/25/210125-python_til/</id>
@@ -96,32 +122,6 @@
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ethiopian_multiplication</title>
-    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
-    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
-    <published>2021-01-25T13:37:42.000Z</published>
-    <updated>2021-01-25T21:23:01.225Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;))result = 0while m &gt; 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
   </entry>
   
@@ -208,33 +208,6 @@
   </entry>
   
   <entry>
-    <title>210122 Git TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
-    <published>2021-01-22T13:37:42.000Z</published>
-    <updated>2021-01-25T21:29:10.217Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/github_logo.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/github_logo.png&quot;&gt;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>210122 Python TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-python_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-python_til/</id>
@@ -258,6 +231,33 @@
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210122 Git TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
+    <published>2021-01-22T13:37:42.000Z</published>
+    <updated>2021-01-25T21:29:10.217Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/github_logo.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/github_logo.png&quot;&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
     
   </entry>
   
@@ -291,9 +291,9 @@
     <link href="https://leehyungi0622.github.io/2021/01/21/210121-python_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/21/210121-python_til/</id>
     <published>2021-01-21T13:37:42.000Z</published>
-    <updated>2021-01-25T21:19:14.921Z</updated>
+    <updated>2021-01-26T07:36:58.837Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p>List (리스트)</p><ul><li>리스트 작성예시<pre><code class="python">fastcampus = [2.71828, 3.1415]zoo = [&#39;rabbit&#39;,&#39;dog&#39;,&#39;cat&#39;]</code></pre></li><li>리스트관련 내장함수<ul><li>append()</li><li>insert()</li><li>remove()</li><li>pop()</li><li>sort()</li><li>reverse()</li><li>+, extend()</li><li>문자열 (not) in 리스트</li><li></li></ul></li></ul></li><li><p>Tuple (튜플) :<br>immutable 자료형으로 리스트와 달리 기존에 선언한 데이터를 수정할 수 없다.</p></li><li><p>Set (집합) :</p></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h2><p>오늘 배운 전반적인 내용을 활용하여 아래 문제를 해결한다.</p><blockquote><p>list와 tuple을 이용하여 다음의 문제를 해결하세요.</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p>List (리스트)</p><ul><li><p>리스트 작성예시</p><pre><code class="python">fastcampus = [2.71828, 3.1415]zoo = [&#39;rabbit&#39;,&#39;dog&#39;,&#39;cat&#39;]</code></pre></li><li><p>리스트관련 내장함수</p><pre><code class="python">  zoo = [&#39;rabbit&#39;, &#39;dog&#39;, &#39;cat&#39;]</code></pre><ul><li>append()<pre><code class="python">  zoo.append(&#39;owl&#39;)  # [&#39;rabbit&#39;, &#39;dog&#39;, &#39;cat&#39;, &#39;owl&#39;]</code></pre></li><li>insert()<pre><code class="python">  zoo.insert(2, &#39;horse&#39;)  # [&#39;rabbit&#39;, &#39;dog&#39;, &#39;horse&#39; &#39;cat&#39;, &#39;owl&#39;]</code></pre></li><li>remove()</li></ul><pre><code class="python">  zoo.remove(&#39;dog&#39;)  # [&#39;rabbit&#39;, &#39;horse&#39; &#39;cat&#39;, &#39;owl&#39;]</code></pre><ul><li>pop()</li></ul><pre><code class="python">  # 아무 인자도 주지 않는다면, 리스트의 가장 끝 요소가 제거된다.  zoo.pop(2) # 리스트의 index는 0부터 시작하기 때문에, 3번째 요소가 제거된다.  # 만약에 index는 알지 못하지만 값을 알고 있는 경우, index()를 활용하여 index를 찾을 수 있다.  zoo.pop(zoo.index(&#39;cat&#39;))</code></pre><ul><li>remove(): pop()의 경우에는 index값으로 리스트의 값을 제거했지만, remove()의 경우에는 값으로 접근해서 값을 제거한다.</li></ul><pre><code class="python">  zoo.remove(&#39;cat&#39;)</code></pre><ul><li>sort()</li></ul><pre><code class="python">  zoo.sort() #zoo리스트에 있는 요소들을 오름차순으로 정렬한다.  #내림차순으로 정렬하기 위해서는 sort()함수의 속성으로 reverse=를 사용하면 된다.  zoo.sort(reverse=True)</code></pre><ul><li>reverse()</li></ul><pre><code class="python">  zoo.reverse() # zoo리스트의 요소를 거꾸로 정렬한다.</code></pre><ul><li>+, extend() :<br>서로다른 두 개의 리스트를 접붙이기 위해서 사용된다.</li></ul><pre><code class="python">  numbers1 = [1, 2]  numbers2 = [-1, -2]  number1 + number2 # [1, 2, -1, -2]  number1.extend([3, 4]) # [1, 2, 3, 4]</code></pre><ul><li>문자열 (not) in 리스트</li></ul><pre><code class="python">  zoo = [&#39;rabbit&#39;, &#39;owl&#39;, &#39;horse&#39;, &#39;aligator&#39;]  &#39;dog&#39; in zoo # False  &#39;owl&#39; in zoo # True  &#39;dog&#39; not in zoo # True</code></pre></li></ul></li><li><p>Tuple (튜플) :<br>immutable 자료형으로 리스트와 달리 기존에 선언한 데이터를 수정할 수 없다.</p><ul><li>튜플은 index로 값에 접근할 수 있다.</li></ul><pre><code class="python">  grade = (90, 0, 16, 40)  grade[1] # 0</code></pre><ul><li>튜플 형태로 Destructuring Assignment를 할 수 있다.</li></ul><pre><code class="python">  def split_hello(word):    result = word.split()    return result[0], result[1]  (greet, word) = split_hello(&#39;hello world&#39;)  greet # &#39;hello&#39;  word # &#39;world&#39;</code></pre><ul><li>튜플을 활용하여 두 변수를 swapping할 수 있다.</li></ul><pre><code class="python">  (greet, word) = (word, greet)</code></pre><ul><li>튜플을 리스트로, 리스트는 튜플로 type casting이 가능하다.</li></ul></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a>간단한 연습문제</h2><h3 id="Practice-1"><a href="#Practice-1" class="headerlink" title="Practice(1)"></a>Practice(1)</h3><blockquote><p>Practice(1)<br>list와 tuple을 이용하여 다음의 문제를 해결하세요.<br/></p></blockquote><ol><li>변수 animals에 다음의 자료를 입력하세요. rabbit, cat, dog, aligator, tiger, lion<br/></li><li>animals에 새로운 동물을 3마리 추가하세요.(insert, append, extend 꼭 쓸것)<br/></li><li>animals를 알파벳 내림차순으로 정렬하세요.<br/></li><li>정렬된 animals의 짝수(index 기준) 동물을 even_animals라는 tuple에 할당하세요.</li></ol><pre><code class="python">animals = [&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;]animals.insert(3, &#39;kangaroo&#39;) # [&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;kangaroo&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;]animals.append(&#39;puma&#39;) # [&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;kangaroo&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;, &#39;puma&#39;]animals.extend([&#39;cheetah&#39;])&quot;&quot;&quot;[&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;kangaroo&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;, &#39;puma&#39;, &#39;cheetah&#39;]&quot;&quot;&quot;animals[::2] # 리스트에서 짝수번째 있는 동물들을 출력한다.animals[1::2] # 홀수번째 있는 동물들을 출력한다.even_animals = tuple(animals[::2])</code></pre>]]></content>
     
     
       
