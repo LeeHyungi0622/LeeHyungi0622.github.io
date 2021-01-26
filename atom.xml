@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-26T04:57:55.959Z</updated>
+  <updated>2021-01-26T06:27:31.116Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Baekjoon Online Judge 2798번 블랙잭 문제</title>
+    <link href="https://leehyungi0622.github.io/2021/01/26/210126-Algorithm_baekjoon_2798/"/>
+    <id>https://leehyungi0622.github.io/2021/01/26/210126-Algorithm_baekjoon_2798/</id>
+    <published>2021-01-26T06:18:42.000Z</published>
+    <updated>2021-01-26T06:27:31.116Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="백준-저지-2798번-문제-Pseudo-code-Python-code"><a href="#백준-저지-2798번-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2798번 문제 Pseudo code + Python code"></a>백준 저지 2798번 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210126_baekjoon_2798.png"></p><p>이 문제는 3중 for-loop을 활용하여 주어진 숫자 리스트 내의 숫자들을 3개 단위로 묶을 수 있는 모든 경우의 수를 고려하여 연산을 한다.</p><p>3개 단위로 묶인 합이 입력한 m의 값보다 크지 않으면서 가장 큰 수를 출력하도록 하는 문제이다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;백준-저지-2798번-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-2798번-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저지 2798번 문제 P</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
+    
+  </entry>
   
   <entry>
     <title>Monty Hall Problem</title>
@@ -45,32 +73,6 @@
   </entry>
   
   <entry>
-    <title>Ethiopian_multiplication</title>
-    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
-    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
-    <published>2021-01-25T13:37:42.000Z</published>
-    <updated>2021-01-25T21:23:01.225Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;))result = 0while m &gt; 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>210125 Python TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/25/210125-python_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/25/210125-python_til/</id>
@@ -94,6 +96,32 @@
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ethiopian_multiplication</title>
+    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
+    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
+    <published>2021-01-25T13:37:42.000Z</published>
+    <updated>2021-01-25T21:23:01.225Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;))result = 0while m &gt; 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
   </entry>
   
@@ -180,33 +208,6 @@
   </entry>
   
   <entry>
-    <title>210122 Python TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/22/210122-python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/22/210122-python_til/</id>
-    <published>2021-01-22T13:37:42.000Z</published>
-    <updated>2021-01-25T21:20:02.583Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="과제"><a href="#과제" class="headerlink" title="과제"></a>과제</h1><p>1월 22일자 Python 과제</p><ol><li>Numguess에 추가할 요소 생각해서 정리해오기</li><li><a href="https://www.hackerrank.com/challenges/py-if-else/problem">https://www.hackerrank.com/challenges/py-if-else/problem</a> (완료)</li><li><a href="https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem">https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem</a> (완료)</li><li>부가가치세 pseudo code 작성해서 #python 에 업로드 (완료)</li></ol><h2 id="1번과제-기존의-Numguess에-추가할-요소를-생각해보고-정리하기"><a href="#1번과제-기존의-Numguess에-추가할-요소를-생각해보고-정리하기" class="headerlink" title="1번과제 : 기존의 Numguess에 추가할 요소를 생각해보고 정리하기"></a>1번과제 : 기존의 Numguess에 추가할 요소를 생각해보고 정리하기</h2><pre><code class="python">import randomanswer = random.randint(1,100)guess = int(input(&#39;Guess the number(1-100): &#39;))if answer == guess:    print(&#39;That is correct! The answer was &#123;&#125;&#39;.format(answer))else:    print(&#39;Wrong Answer, The answer was &#123;&#125;.&#39;.format(answer))</code></pre><ul><li>Up / Down 확인 요소넣기</li></ul><p>[ <strong>기존 Pseudo code</strong> ]</p><pre><code>정답이 되는 1부터 100까지의 랜덤 숫자를 생성한고, answer변수에 초기화시킨다.&quot;Guess the number(1-100):&quot; prompt를 출력하고, 사용자로부터 입력을 받아 정수형으로 변환한다.IF 만약 랜덤으로 생성된 숫자와 사용자로부터 입력받은 숫자가 같다면,  THEN, &quot;That is correct! The answer was &#123;answer&#125;&quot; 를 출력해준다.IF 일치하지 않는다면  THEN, &quot;Wrong Answer, The answer was &#123;answer&#125;&quot; 를 출력한다.</code></pre><br/><p>[<strong>새롭게 추가한 요소를 적용한 후의 Pseudo code</strong>]</p><pre><code>정답이 되는 1부터 100까지의 랜덤 숫자를 생성한고, answer변수에 초기화시킨다.&quot;Guess the number(1-100):&quot; prompt를 출력하고, 사용자로부터 입력을받아 정수형으로 변환한다.WHILE TRUE:    IF 랜덤으로 생성된 숫자와 사용자로부터 입력받은 숫자가 같다면,        THEN, PRINT            &quot;That is correct! The answer was &#123;answer&#125;&quot;            BREAK    ELSE 일치하지 않는다면        IF 입력한 숫자가 answer 보다 크다면,            THEN, PRINT                &quot;Please enter a value less than &#123;input value&#125;.&quot;        ELSE            THEN,                PRINT &quot;Please enter a value  greater than &#123;input value&#125;.&quot;</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;과제&quot;&gt;&lt;a href=&quot;#과제&quot; class=&quot;headerlink&quot; title=&quot;과제&quot;&gt;&lt;/a&gt;과제&lt;/h1&gt;&lt;p&gt;1월 22일자 Python </summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>210122 Git TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
@@ -230,6 +231,33 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210122 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/22/210122-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/22/210122-python_til/</id>
+    <published>2021-01-22T13:37:42.000Z</published>
+    <updated>2021-01-25T21:20:02.583Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="과제"><a href="#과제" class="headerlink" title="과제"></a>과제</h1><p>1월 22일자 Python 과제</p><ol><li>Numguess에 추가할 요소 생각해서 정리해오기</li><li><a href="https://www.hackerrank.com/challenges/py-if-else/problem">https://www.hackerrank.com/challenges/py-if-else/problem</a> (완료)</li><li><a href="https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem">https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem</a> (완료)</li><li>부가가치세 pseudo code 작성해서 #python 에 업로드 (완료)</li></ol><h2 id="1번과제-기존의-Numguess에-추가할-요소를-생각해보고-정리하기"><a href="#1번과제-기존의-Numguess에-추가할-요소를-생각해보고-정리하기" class="headerlink" title="1번과제 : 기존의 Numguess에 추가할 요소를 생각해보고 정리하기"></a>1번과제 : 기존의 Numguess에 추가할 요소를 생각해보고 정리하기</h2><pre><code class="python">import randomanswer = random.randint(1,100)guess = int(input(&#39;Guess the number(1-100): &#39;))if answer == guess:    print(&#39;That is correct! The answer was &#123;&#125;&#39;.format(answer))else:    print(&#39;Wrong Answer, The answer was &#123;&#125;.&#39;.format(answer))</code></pre><ul><li>Up / Down 확인 요소넣기</li></ul><p>[ <strong>기존 Pseudo code</strong> ]</p><pre><code>정답이 되는 1부터 100까지의 랜덤 숫자를 생성한고, answer변수에 초기화시킨다.&quot;Guess the number(1-100):&quot; prompt를 출력하고, 사용자로부터 입력을 받아 정수형으로 변환한다.IF 만약 랜덤으로 생성된 숫자와 사용자로부터 입력받은 숫자가 같다면,  THEN, &quot;That is correct! The answer was &#123;answer&#125;&quot; 를 출력해준다.IF 일치하지 않는다면  THEN, &quot;Wrong Answer, The answer was &#123;answer&#125;&quot; 를 출력한다.</code></pre><br/><p>[<strong>새롭게 추가한 요소를 적용한 후의 Pseudo code</strong>]</p><pre><code>정답이 되는 1부터 100까지의 랜덤 숫자를 생성한고, answer변수에 초기화시킨다.&quot;Guess the number(1-100):&quot; prompt를 출력하고, 사용자로부터 입력을받아 정수형으로 변환한다.WHILE TRUE:    IF 랜덤으로 생성된 숫자와 사용자로부터 입력받은 숫자가 같다면,        THEN, PRINT            &quot;That is correct! The answer was &#123;answer&#125;&quot;            BREAK    ELSE 일치하지 않는다면        IF 입력한 숫자가 answer 보다 크다면,            THEN, PRINT                &quot;Please enter a value less than &#123;input value&#125;.&quot;        ELSE            THEN,                PRINT &quot;Please enter a value  greater than &#123;input value&#125;.&quot;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;과제&quot;&gt;&lt;a href=&quot;#과제&quot; class=&quot;headerlink&quot; title=&quot;과제&quot;&gt;&lt;/a&gt;과제&lt;/h1&gt;&lt;p&gt;1월 22일자 Python </summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
