@@ -239,19 +239,19 @@
   </entry>
   
   <entry>
-    <title>210122 Git TIL</title>
+    <title>210122 Git + Vim editor usage TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
     <published>2021-01-22T13:37:42.000Z</published>
-    <updated>2021-01-25T21:29:10.217Z</updated>
+    <updated>2021-01-26T20:17:19.603Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/github_logo.png"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/git_vim_logo.png"></p><h1 id="Shell-Vim-command-or-git"><a href="#Shell-Vim-command-or-git" class="headerlink" title="Shell, Vim command or git"></a><strong>Shell, Vim command or git</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p><strong>Shell command</strong></p><ul><li><p>기본 Linux shell command 활용</p><ul><li>cd : 쉘의 현재 위치 이동</li><li>mv : 디렉토리, 파일 이동</li><li>cp : 파일 복사</li><li>rm : 디렉토리, 파일 삭제</li><li>mkdir : 디렉토리 생성</li><li>pwd : 쉘의 현재 위치 확인</li><li>ls (-a, -l option) : 쉘의 현 위치에 있는 디렉토리, 파일을 출력 (옵션을 이용해서 세부사항 출력, 리스트로 출력가능)</li><li>touch : 새로운 파일을 생성</li><li>cat : 파일의 내용을 terminal 상에서 확인</li><li>head : 파일의 앞 부분의 내용을 terminal 상에서 확인</li><li>tail : 파일의 뒷 부분의 내용을 terminal 상에서 확인<br>(option으로 -[N] N 번째 라인까지 확인할지 설정할 수 있다.)</li><li>chmod : 파일권한 설정</li></ul><pre><code>$ chmod [옵션] (8진수) (파일명)</code></pre><pre><code>drwxr-xr-xd or -: directory or file(user)(group)(other)r: readw: writex: execute-: no permission</code></pre></li><li><p>Application 계층과 Kernel 계층 그리고 하드웨어 계층으로 분류하여 이해할 수 있다.</p><ul><li>커널은 하드웨어와 Application 사이에 위치하여 하드웨어와 응용프로그램을 이어주는 운영체제의 핵심 소프트웨어이다.</li></ul></li><li><p>Shell의 정의에 대해 이해할 수 있다. - 커널과 사용자가 소통할 수 있도록 그 사이를 이어주는 소프트웨어이다. - 다양한 쉘이 존재 (sh, csh, bash, zsh)</p></li></ul></li><li><p><strong>Vim command</strong></p><ul><li>Vim editor를 이용한 commit message 작성 및 수정<pre><code>Vim 기본 사용키h,j,k,l - move cursori - insert modev - visual moded - deletey - yankp - pasteu - undor - replace$ - move end of line^ - move start of line:q - quit:q! - quit w/o write(no warning):wq - write and quit:&#123;number&#125; - move to &#123;number&#125;th line</code></pre></li></ul></li><li><p><strong>Git</strong>:<br>Git은 VSC(Version Control System)으로, SCM(Source Code Management)라고도 한다.</p><ul><li>Git과 Github가 다름을 이해한다.<ul><li>Git은 VCS(Version Control System)로 tool 자체이며, Github는 이 Git이라는 tool을 활용하여 웹 기반으로 만든 웹 서비스이다.</li></ul></li><li>Git을 활용하여 소스코드를 관리한다.</li><li>전체적인 git flow를 이해한다.<br><img src="/images/post_images/210127git_flow.png"><br>workspace에서 add를 하게 되면, stage(=index)에 Blob의 형태로 파일 정보가 업로드 된다. stage에 올라간 파일을 로컬 repository 에 업데이트 하기 위해서 commit을 하고, 최종적으로 remote repository에 저장하기 위해 push라는 과정을 거친다.</li><li>git의 환경설정을 할 수 있다.<ul><li>기본적으로 local 환경에서 git을 사용하기 전에 user.name, user.email, core.editor 를 설정해준다.<pre><code class="terminal">$ git config --global user.name &quot;&#123;github username&#125;&quot;$ git config --global user.email &quot;&#123;github email address&#125;&quot;$ git config --global core.editor &quot;vim&quot;$ git config --global core.pager &quot;cat&quot;$ git config --list</code></pre></li><li>core.editor로 등록한 vim을 활용하여 commit message를 작성할 수 있다.<ul><li><strong>Commit Convention</strong><ul><li>commit제목은 50자 이내로 요약하여 작성한다.</li><li>제목과 내용사이에는 한 칸 띄어준다.</li><li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.<pre><code>feat: featuresdocs: documentationsconf: configurationstest: testfix: bug-fixrefactor: refactoringci: Continuous Integrationbuild: Buildperf: Performance</code></pre></li></ul><strong>ex) Commit Convention - example</strong><pre><code>feat: Create server.py to start flask projectdocs: Create README.mdconf: poetry inittest: User model CRUD test complete</code></pre></li></ul></li><li>기존에 remote repository를 local 환경에 clone해서 작업을 할 수 있다.<pre><code>$ git clone</code></pre></li></ul></li></ul></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/github_logo.png&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/git_vim_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Shell-Vim-command-or-git&quot;&gt;&lt;a href=&quot;#Shell-Vim-command-or-git&quot; class=&quot;headerl</summary>
       
     
     
