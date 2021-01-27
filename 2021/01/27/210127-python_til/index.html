@@ -1,0 +1,207 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210127 Python TIL</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210127 Python TIL</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python"><span class="toc-text">Python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 배운 내용</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%A8%EC%88%98-function"><span class="toc-text">함수(function)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C"><span class="toc-text">간단한 연습문제</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recursive-function-%EC%9E%AC%EA%B7%80%ED%95%A8%EC%88%98"><span class="toc-text">Recursive function(재귀함수) :</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210127 Python TIL</h1><time class="has-text-grey" datetime="2021-01-27T00:36:42.000Z">2021-01-27</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운-내용"><a href="#오늘-배운-내용" class="headerlink" title="오늘 배운 내용"></a><strong>오늘 배운 내용</strong></h2><ul>
+<li><p>Python 메인 강의</p>
+<ul>
+<li><p>과제점검</p>
+<ul>
+<li><p>Ethiopian Multiplication</p>
+<pre><code class="python">result = 0
+print(&#39;&#123;:7&#125;,&#123;:7&#125;, ,etc&#39;.format(&#39;num1&#39;, &#39;num2&#39;))
+while num &gt; 0:
+    if num1 % 2 == 0:
+        print(&#39;&#123;:7&#125;, &#123;:7&#125;, Pass&#39;.format(num1, num2))
+    else:
+        print(&#39;&#123;:7&#125;, &#123;:7&#125;, Keep&#39;.format(num1, num2))
+        result += num2
+    num1 = num1//2
+    num2 = num2*2
+print(&quot;The result is &#123;&#125;&quot;.format(result))</code></pre>
+</li>
+<li><p>Monty Hall Simulation</p>
+<pre><code class="python">import random
+stay = 0
+switch = 0
+trial = int(input(&quot;How many times do you want?&quot;))
+for _ in range(trial):
+    # goats: 0, sportcar: 1
+    doors = [0, 0, 1]
+    random.shuffle(doors)
+    # print(doors)
+    users_choice = doors.pop()
+    # print(users_choice, doors)
+    doors.remove(0)
+    if users_choice == 1:
+        stay += 1
+    else:
+        switch += 1
+
+print(&quot;stay: &#123;&#125;, switch: &#123;&#125; for &#123;&#125;th trial&quot;.format(stay/trial, switch/trial, trial))</code></pre>
+</li>
+</ul>
+</li>
+<li><h2 id="함수-function"><a href="#함수-function" class="headerlink" title="함수(function)"></a><strong>함수(function)</strong></h2><pre><code class="python">def function(parameter):
+    실행문1
+    실행문2
+    ...
+    return output</code></pre>
+<ul>
+<li>function with input</li>
+</ul>
+<pre><code class="python"># a, b는 parameter이다.
+def awe_sum(a, b):
+    result = a + b
+    return result
+a = 2
+b = 3
+# a, b는 함수의 실행단계에서 사용하는 argument이다.
+print(awe_sum(a, b))</code></pre>
+<ul>
+<li>function without input</li>
+</ul>
+<pre><code class="python">def print_hello():
+    return &quot;hello&quot;
+result_hello = print_hello()
+print(result_hello)</code></pre>
+<ul>
+<li>function with multiple return</li>
+</ul>
+<pre><code class="python">def mul_return(a):
+    b = a + 1
+    return a,b</code></pre>
+<ul>
+<li>return skill</li>
+</ul>
+<pre><code class="python">def id_check(id):
+    if id == &quot;admin&quot;:
+        print(&quot;invalid id: admin&quot;)
+        return
+    print(&quot;valid id: &quot;, id)</code></pre>
+<ul>
+<li>parameter with initialize</li>
+</ul>
+<pre><code class="python">def say_hello(name=&quot;Fool&quot;, nick=True)
+print(&quot;Hi, &quot;, name)
+if nick == True:
+    print(&quot;But, you are Fool&quot;)
+else:
+    print(&quot;Oh, you are not Fool&quot;)</code></pre>
+<ul>
+<li>arguments</li>
+</ul>
+<pre><code class="python">def mul_sum(*args):
+    sum = 0
+    for i in args:
+        sum += i
+    return sum</code></pre>
+<ul>
+<li>keyword arguments</li>
+</ul>
+<pre><code class="python">def show_kwargs(**kwargs):
+    print(str(kwargs))
+show_kwargs(a=10, b=&quot;google&quot;)
+# &#123;&#39;a&#39;: 10, &#39;b&#39;: &#39;google&#39;&#125;</code></pre>
+<ul>
+<li>keyword arguments</li>
+</ul>
+<pre><code class="python"># **로 넘겨준 인자 중 지정되지 않은 나머지 인자에 대해 grouping 해서 표현할 수 있다. (key=value형태로 접근)
+def kwargs_url(server, port, **query):
+    url = &quot;https://&quot;+server+&quot;:&quot;+port+&quot;?&quot;
+    for key in query.keys():
+        url += key+&quot;=&quot;+query[key]+&quot;&amp;&quot;
+    return url
+kwargs_url(&quot;localhost&quot;, &quot;8080&quot;, utm_source=&quot;google&quot;, keyword=&quot;naver&quot;)</code></pre>
+<ul>
+<li>외부 변수와 지역변수</li>
+</ul>
+<pre><code class="python">x = &quot;awesome&quot;
+
+def myfunc():
+    x = &quot;fantastic&quot;
+    print(&quot;Python is &quot; + x)
+myfunc()
+print(&quot;Python is &quot; + x)
+# output:
+&quot;&quot;&quot;
+# 지역변수 내에서 재 정의한 변수는 외부의 같은 이름의 변수에 변화를 주지 않는다.
+Python is fantastic
+Python is awesome
+&quot;&quot;&quot;</code></pre>
+<ul>
+<li><p>global variable (전역변수)</p>
+<ul>
+<li>use return</li>
+</ul>
+<pre><code class="python">a = &quot;hello&quot;
+def glob_test(a):
+    a += &quot;world&quot;
+    return a
+
+a = glob_test(a)
+print(a)
+# output : helloworld</code></pre>
+<ul>
+<li>use global</li>
+</ul>
+<pre><code class="python"># 안좋은 케이스 : &#39;global&#39;이라는 명령을 사용하여 전역변수로 사용하게 되면, 함수는 독립성을 잃게 되어 함수가 외부 변수에 의존적이게 된다.
+a = &quot;hello&quot;
+def glob_test():
+  global a
+  a += &quot;world&quot;
+  return a
+print(glob_test())
+# helloworld</code></pre>
+<h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a>간단한 연습문제</h2><ol>
+<li><p>Leap year(윤년) 구하는 문제</p>
+<blockquote>
+<p>사용자로부터 연도 (0~9999 사이의 정수)를 입력받아 4로 나뉘어 떨어지면 윤년, 100으로 나뉘어 떨어지면 평년, 400으로 나뉘어 떨어질땐 윤년을 출력하는 함수를 작성하시오.</p>
+</blockquote>
+<pre><code class="python">leap = False
+def is_leap(y):
+   if y % 4 == 0 and (y % 100 != 0 or y % 400 == 0):
+       leap = True
+y = int(input(&quot;Is leap?? &quot;))
+print(is_leap(y))</code></pre>
+</li>
+<li><p>numguess with function<br>이전 시간에 작성한 numguess 문제를 함수화 시켜서 작성한다.</p>
+<pre><code class="python">def guesser(guess):
+   if guess == answer:
+       print(&quot;Correct! The answer was &quot;, str(answer))
+       break
+   else:
+       print(&quot;That&#39;s not what I wanted! Try again!!&quot;)
+</code></pre>
+</li>
+</ol>
+<br/>
+</li>
+</ul>
+</li>
+<li><h2 id="Recursive-function-재귀함수"><a href="#Recursive-function-재귀함수" class="headerlink" title="Recursive function(재귀함수) :"></a><strong>Recursive function(재귀함수)</strong> :</h2><p>재귀함수는 반복 호출하는 구조이기 때문에 함수 내에는 함수를 종료할 수 있는 탈출조건을 가지고 있어야 한다.</p>
+<ul>
+<li><p>Fibonacci(for-loop활용 풀이)</p>
+<pre><code class="python">n = int(input())
+num = [0,1]
+for i in range(2, n+1):
+    sum_ = num[i-1] + num[i-2]
+    num.append(sum_)
+print(num[-1])</code></pre>
+</li>
+<li><p>Fibonacci(재귀함수를 활용 풀이)</p>
+<pre><code class="python">def Fibonacci(n):
+    if n &lt;= 1:
+        return n
+    else:
+        return Fibonacci(n-1) + Fibonacci(n-2)
+print(Fibonacci(9))</code></pre>
+</li>
+<li><p>Binet’s Fibonacci formula</p>
+<pre><code class="python"></code></pre>
+</li>
+</ul>
+<br/>
+</li>
+</ul>
+</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/01/27/210127-Algorithm_baekjoon_5397/" title="Baekjoon Online Judge 5397번 키로거 문제"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: Baekjoon Online Judge 5397번 키로거 문제</span></a><a class="button is-default" href="/2021/01/27/210127-Typescript/" title="210127 TypeScript TIL"><span class="has-text-weight-semibold">Next: 210127 TypeScript TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="https://github.com/LeeHyungi0622/LeeHyungi0622.github.io" src="https://utteranc.es/client.js" issue-term="pathname" theme="preferred-color-scheme"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

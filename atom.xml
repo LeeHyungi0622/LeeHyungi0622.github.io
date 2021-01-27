@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-26T21:21:26.168Z</updated>
+  <updated>2021-01-27T05:14:31.243Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,11 +17,66 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Baekjoon Online Judge 5397번 키로거 문제</title>
+    <link href="https://leehyungi0622.github.io/2021/01/27/210127-Algorithm_baekjoon_5397/"/>
+    <id>https://leehyungi0622.github.io/2021/01/27/210127-Algorithm_baekjoon_5397/</id>
+    <published>2021-01-27T05:18:42.000Z</published>
+    <updated>2021-01-27T05:14:31.243Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="백준-저지-5397번-키로거-문제-Pseudo-code-Python-code"><a href="#백준-저지-5397번-키로거-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 5397번 키로거 문제 Pseudo code + Python code"></a>백준 저지 5397번 키로거 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210127_baekjoon_5397.png"></p><p>이 문제는 키로거로부터 읽은 키보드의 입력을 읽어, 사용자가 입력한 비밀번호가 무엇인지 알아내는 프로그램을 작성하는 문제이다.</p><p>커서를 기준으로 좌, 우 이동 그리고 삭제하는 처리가 있기 때문에 좌, 우 이동시 리스트 내의 문자의 이동을 처리하기 위해 두 개의 스택을 준비해서 처리한다.</p><p>주의해야 될 부분은 오른쪽 스택은 반대 방향으로 데이터가 쌓이기 때문에 최종적으로 오른쪽 스택은 좌우 반전을 하여 왼쪽 스택과 같이 이어줘야 알맞는 결과를 얻을 수 있다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;백준-저지-5397번-키로거-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-5397번-키로거-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저지 53</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210127 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/01/27/210127-python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/27/210127-python_til/</id>
+    <published>2021-01-27T00:36:42.000Z</published>
+    <updated>2021-01-27T04:53:44.779Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운-내용"><a href="#오늘-배운-내용" class="headerlink" title="오늘 배운 내용"></a><strong>오늘 배운 내용</strong></h2><ul><li><p>Python 메인 강의</p><ul><li><p>과제점검</p><ul><li><p>Ethiopian Multiplication</p><pre><code class="python">result = 0print(&#39;&#123;:7&#125;,&#123;:7&#125;, ,etc&#39;.format(&#39;num1&#39;, &#39;num2&#39;))while num &gt; 0:    if num1 % 2 == 0:        print(&#39;&#123;:7&#125;, &#123;:7&#125;, Pass&#39;.format(num1, num2))    else:        print(&#39;&#123;:7&#125;, &#123;:7&#125;, Keep&#39;.format(num1, num2))        result += num2    num1 = num1//2    num2 = num2*2print(&quot;The result is &#123;&#125;&quot;.format(result))</code></pre></li><li><p>Monty Hall Simulation</p><pre><code class="python">import randomstay = 0switch = 0trial = int(input(&quot;How many times do you want?&quot;))for _ in range(trial):    # goats: 0, sportcar: 1    doors = [0, 0, 1]    random.shuffle(doors)    # print(doors)    users_choice = doors.pop()    # print(users_choice, doors)    doors.remove(0)    if users_choice == 1:        stay += 1    else:        switch += 1print(&quot;stay: &#123;&#125;, switch: &#123;&#125; for &#123;&#125;th trial&quot;.format(stay/trial, switch/trial, trial))</code></pre></li></ul></li><li><h2 id="함수-function"><a href="#함수-function" class="headerlink" title="함수(function)"></a><strong>함수(function)</strong></h2><pre><code class="python">def function(parameter):    실행문1    실행문2    ...    return output</code></pre><ul><li>function with input</li></ul><pre><code class="python"># a, b는 parameter이다.def awe_sum(a, b):    result = a + b    return resulta = 2b = 3# a, b는 함수의 실행단계에서 사용하는 argument이다.print(awe_sum(a, b))</code></pre><ul><li>function without input</li></ul><pre><code class="python">def print_hello():    return &quot;hello&quot;result_hello = print_hello()print(result_hello)</code></pre><ul><li>function with multiple return</li></ul><pre><code class="python">def mul_return(a):    b = a + 1    return a,b</code></pre><ul><li>return skill</li></ul><pre><code class="python">def id_check(id):    if id == &quot;admin&quot;:        print(&quot;invalid id: admin&quot;)        return    print(&quot;valid id: &quot;, id)</code></pre><ul><li>parameter with initialize</li></ul><pre><code class="python">def say_hello(name=&quot;Fool&quot;, nick=True)print(&quot;Hi, &quot;, name)if nick == True:    print(&quot;But, you are Fool&quot;)else:    print(&quot;Oh, you are not Fool&quot;)</code></pre><ul><li>arguments</li></ul><pre><code class="python">def mul_sum(*args):    sum = 0    for i in args:        sum += i    return sum</code></pre><ul><li>keyword arguments</li></ul><pre><code class="python">def show_kwargs(**kwargs):    print(str(kwargs))show_kwargs(a=10, b=&quot;google&quot;)# &#123;&#39;a&#39;: 10, &#39;b&#39;: &#39;google&#39;&#125;</code></pre><ul><li>keyword arguments</li></ul><pre><code class="python"># **로 넘겨준 인자 중 지정되지 않은 나머지 인자에 대해 grouping 해서 표현할 수 있다. (key=value형태로 접근)def kwargs_url(server, port, **query):    url = &quot;https://&quot;+server+&quot;:&quot;+port+&quot;?&quot;    for key in query.keys():        url += key+&quot;=&quot;+query[key]+&quot;&amp;&quot;    return urlkwargs_url(&quot;localhost&quot;, &quot;8080&quot;, utm_source=&quot;google&quot;, keyword=&quot;naver&quot;)</code></pre><ul><li>외부 변수와 지역변수</li></ul><pre><code class="python">x = &quot;awesome&quot;def myfunc():    x = &quot;fantastic&quot;    print(&quot;Python is &quot; + x)myfunc()print(&quot;Python is &quot; + x)# output:&quot;&quot;&quot;# 지역변수 내에서 재 정의한 변수는 외부의 같은 이름의 변수에 변화를 주지 않는다.Python is fantasticPython is awesome&quot;&quot;&quot;</code></pre><ul><li><p>global variable (전역변수)</p><ul><li>use return</li></ul><pre><code class="python">a = &quot;hello&quot;def glob_test(a):    a += &quot;world&quot;    return aa = glob_test(a)print(a)# output : helloworld</code></pre><ul><li>use global</li></ul><pre><code class="python"># 안좋은 케이스 : &#39;global&#39;이라는 명령을 사용하여 전역변수로 사용하게 되면, 함수는 독립성을 잃게 되어 함수가 외부 변수에 의존적이게 된다.a = &quot;hello&quot;def glob_test():  global a  a += &quot;world&quot;  return aprint(glob_test())# helloworld</code></pre><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a>간단한 연습문제</h2><ol><li><p>Leap year(윤년) 구하는 문제</p><blockquote><p>사용자로부터 연도 (0~9999 사이의 정수)를 입력받아 4로 나뉘어 떨어지면 윤년, 100으로 나뉘어 떨어지면 평년, 400으로 나뉘어 떨어질땐 윤년을 출력하는 함수를 작성하시오.</p></blockquote><pre><code class="python">leap = Falsedef is_leap(y):   if y % 4 == 0 and (y % 100 != 0 or y % 400 == 0):       leap = Truey = int(input(&quot;Is leap?? &quot;))print(is_leap(y))</code></pre></li><li><p>numguess with function<br>이전 시간에 작성한 numguess 문제를 함수화 시켜서 작성한다.</p><pre><code class="python">def guesser(guess):   if guess == answer:       print(&quot;Correct! The answer was &quot;, str(answer))       break   else:       print(&quot;That&#39;s not what I wanted! Try again!!&quot;)</code></pre></li></ol><br/></li></ul></li><li><h2 id="Recursive-function-재귀함수"><a href="#Recursive-function-재귀함수" class="headerlink" title="Recursive function(재귀함수) :"></a><strong>Recursive function(재귀함수)</strong> :</h2><p>재귀함수는 반복 호출하는 구조이기 때문에 함수 내에는 함수를 종료할 수 있는 탈출조건을 가지고 있어야 한다.</p><ul><li><p>Fibonacci(for-loop활용 풀이)</p><pre><code class="python">n = int(input())num = [0,1]for i in range(2, n+1):    sum_ = num[i-1] + num[i-2]    num.append(sum_)print(num[-1])</code></pre></li><li><p>Fibonacci(재귀함수를 활용 풀이)</p><pre><code class="python">def Fibonacci(n):    if n &lt;= 1:        return n    else:        return Fibonacci(n-1) + Fibonacci(n-2)print(Fibonacci(9))</code></pre></li><li><p>Binet’s Fibonacci formula</p><pre><code class="python"></code></pre></li></ul><br/></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Pytho</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210127 TypeScript TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/27/210127-Typescript/"/>
     <id>https://leehyungi0622.github.io/2021/01/27/210127-Typescript/</id>
-    <published>2021-01-27T01:37:42.000Z</published>
-    <updated>2021-01-26T21:21:26.168Z</updated>
+    <published>2021-01-26T21:00:42.000Z</published>
+    <updated>2021-01-27T00:58:21.317Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 Udemy : Understanding TypeScript - 2021 Edition 에서 개별 학습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul><li><p><strong>TypeScript에 대한 개념 이해</strong></p><ul><li><p>TypeScript는 JavaScript의 Superset으로, 기존의 자바스크립트 위에 building된 언어이다.<br>기존에 JavaScript에는 없던 각종 이점들을 추가한 언어라고 생각하면 된다. 하지만 브라우저에서는 실행할 수 없기 때문에 작성한 TypeScript는 JavaScript로 컴파일 된 후에 실행된다.</p><br/></li></ul></li><li><p><strong>TypeScript의 이점</strong></p><ul><li>JavaScript에서의 변수는 단순히 상수(const)와 변수(let)으로만 구분해서 사용하고, 별도로 타입(Type)을 지정하지 않았다. 이로인해 함수의 인자로 넘겨주는 인자값이 어떤 것이든 입력이 되었고, 이로 인해 발생하는 에러는 컴파일(compile)단계에서 잡아서 수정할 수 있었다. 하지만 TypeScript를 사용해서 개발하게 되면, 개발단계에서 미리 에러를 잡아서 수정할 수 있다.</li><li>물론 JavaScript에서도 변수의 타입을 검사해서 유효성 검사 처리를 추가할 수 있다. 하지만 TypeScript를 사용해서 Type을 지정해서 처리하는 것 만큼 효율적이지 않다.</li></ul><pre><code class="javascript">function add(num1, num2) &#123;  if (typeof num1 === &quot;number&quot; &amp;&amp; typeof num2 === &quot;number&quot;) &#123;    return num1 + num2;  &#125; else &#123;    return +num1 + +num2;  &#125;&#125;console.log(add(&quot;2&quot;, &quot;3&quot;));</code></pre><ul><li>Non-JavaScript Features인 Interfaces와 Generics을 활용할 수 있다.</li><li>Meta-Programming 특징인 Decorators를 활용하여 개발할 수 있다.</li></ul><br/></li><li><p><strong>TypeScript 설치 및 사용</strong></p><ul><li>npm command를 사용하기 위해 node.js를 설치한다.</li><li>global하게 TypeScript를 설치한다.</li></ul><pre><code class="shell">$ npm install -g typescript</code></pre><ul><li>tsc를 사용하여 TypeScript 파일을 컴파일할 수 있다.</li></ul><pre><code class="shell">$ tsc test.ts</code></pre><br/><p><strong>앞서 작성했던 JavaScript 코드에 TypeScript를 적용해서 작성해보도록 한다.</strong></p><p><strong>using-ts.ts</strong></p><pre><code class="typescript">const button = document.querySelector(&quot;button&quot;);const input1 = document.getElementById(&quot;num1&quot;)! as HTMLInputElement;const input2 = document.getElementById(&quot;num2&quot;)! as HTMLInputElement;function add(num1: number, num2: number) &#123;  return num1 + num2;&#125;button.addEventListener(&quot;click&quot;, function () &#123;  console.log(add(+input1.value, +input2.value));&#125;);</code></pre></li></ul><h1 id="TypeScript-공부순서"><a href="#TypeScript-공부순서" class="headerlink" title="TypeScript 공부순서"></a><strong>TypeScript 공부순서</strong></h1><ul><li>TypeScript Basics</li><li>Compiler &amp; Configuration Deep Dive</li><li>Working with Next-gen JS Code</li><li>Classes &amp; Interfaces</li><li>Advanced Types &amp; TypeScript Features</li><li>Generics</li><li>Decorators</li><li>Time to Practice - Full Project</li><li>Working with Namespace &amp; Modules</li><li>Webpack &amp; TypeScript</li><li>Third-Party Libraries &amp; TypeScript</li><li>React + TypeScript &amp; NodeJS + TypeScript</li></ul><h1 id="공부하는-방법"><a href="#공부하는-방법" class="headerlink" title="공부하는 방법"></a><strong>공부하는 방법</strong></h1><p>(1) Watch the lecture<br>(2) Code Along (Pause &amp; Rewind)<br>(3) Practice (Advance on your Own(Partly))<br>(4) Debug &amp; Search (Use attached Code, Google, Udemy Search)<br>(5) Ask &amp; Answer (Ask in Q&amp;A section, but also help others!)</p>]]></content>
     
