@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-28T04:01:00.974Z</updated>
+  <updated>2021-01-28T07:35:34.014Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,11 +17,182 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210128 자료구조(Data structure) Linked List(링크드 리스트)</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-linked_list/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-linked_list/</id>
+    <published>2021-01-28T07:30:42.000Z</published>
+    <updated>2021-01-28T07:35:34.014Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210128_linked_list.png"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p><code>링크드 리스트(Linked list)</code>에 대한 개념이다.<br>(작성중…)</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210128_linked_list.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;이번-포스팅에서-정리-할-내용은&quot;&gt;&lt;a href=&quot;#이번-포스팅에서-정리-할-내용은&quot; class=&quot;headerlink&quot; tit</summary>
+      
+    
+    
+    
+    <category term="Data-Structure-&amp;-Algorithm" scheme="https://leehyungi0622.github.io/categories/Data-Structure-Algorithm/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210128 자료구조(Data structure) Stack(스택)</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-stack/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-stack/</id>
+    <published>2021-01-28T07:04:42.000Z</published>
+    <updated>2021-01-28T07:29:49.665Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210128_stack_img.png"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p>스택에 대한 개념이다. 스택을 비유로 들면, 바닥에 쌓여있는 책들을 예로 많이 들고 있는데, 그 이유는 스택은 데이터를 제한적으로 접근할 수 있는 구조로 되어있기 때문이다.</p><h3 id="여기서-제한적인-접근이란"><a href="#여기서-제한적인-접근이란" class="headerlink" title="여기서 제한적인 접근이란?"></a><strong>여기서 제한적인 접근이란?</strong></h3><p>한 쪽 끝에서만 자료를 넣거나 뺄 수 있는 구조로 되어있다는 것을 말한다.<br>따라서 <code>LIFO(Last-In-First-Out)</code>의 정책을 가지고 있는 구조이다.<br>이는 다음에 정리할 큐(queue)의 <code>FIFO(First-In-First-Out)</code>정책과 상반되는 구조이다.</p><h3 id="스택은-어디에서-사용되나"><a href="#스택은-어디에서-사용되나" class="headerlink" title="스택은 어디에서 사용되나?"></a><strong>스택은 어디에서 사용되나?</strong></h3><p>스택은 대표적으로 우리가 사용하는 <code>컴퓨터 내부의 프로세스 구조의 함수 동작 방식</code>에서 사용이 된다.<br>스택 구조는 프로세스 실행 구조의 가장 기본으로, 함수 호출시 프로세스 실행 구조를 스택과 비교해서 이해할 필요가 있다.</p><pre><code class="python">def recursive(data):  if data &lt; 0:    print(&quot;ended&quot;)  else:    print(data)    recursive(data - 1)    print(&quot;return&quot;, data)recursive(4)# output :&quot;&quot;&quot;43210endedreturned 0returned 1returned 2returned 3returned 4&quot;&quot;&quot;</code></pre><p>위의 재귀함수 실행을 살펴보면, 4부터 0까지 데이터가 들어간 다음에 탈출조건에 만족하는 입력 데이터 들어가게 되면, “ended”가 출력이 되고, 그 다음에 마지막에 삽입된 데이터부터 역으로 함수 내의 재귀호출 실행부의 아래에 있는 출력문이 실행되고 있음을 알 수 있다.</p><h3 id="스택의-주요-기능"><a href="#스택의-주요-기능" class="headerlink" title="스택의 주요 기능"></a><strong>스택의 주요 기능</strong></h3><p>스택의 주요 기능은 데이터를 스택에 넣는 (<code>push()</code>)와 데이터를 스택에서 꺼내는 (<code>pop()</code>)이 있다.</p><h3 id="스택의-장단점"><a href="#스택의-장단점" class="headerlink" title="스택의 장단점"></a><strong>스택의 장단점</strong></h3><p><code>스택의 장점</code>은 <code>구조가 단순해서 구현이 용이</code>하다는 점과 <code>데이터 저장</code>과 <code>데이터 읽기</code> 속도가 빠르다는 점이 있다.<br><code>스택의 단점</code>은 일반적인 스택을 구현할 경우, 데이터의 최대 갯수를 미리정해야 된다는 점이 있다. 이러한 한계는 <code>링크드 리스트(Linked List)</code>를 구현해서 극복할 수 있으며, 최대로 쌓을 수 있는 공간을 확보함으로써 생기는 메모리 낭비에 대한 문제점도 해결할 수 있다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210128_stack_img.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;이번-포스팅에서-정리-할-내용은&quot;&gt;&lt;a href=&quot;#이번-포스팅에서-정리-할-내용은&quot; class=&quot;headerlink&quot; title</summary>
+      
+    
+    
+    
+    <category term="Data-Structure-&amp;-Algorithm" scheme="https://leehyungi0622.github.io/categories/Data-Structure-Algorithm/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210128 자료구조(Data structure) Array(배열)</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-array/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-array/</id>
+    <published>2021-01-28T06:52:42.000Z</published>
+    <updated>2021-01-28T07:02:57.179Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210128_array_img.jpg"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p>배열에 대한 개념이다. 파이썬에서는 리스트 타입이 배열의 기능을 제공하지만, c언어의 경우에는 배열을 독립적으로 사용한다.<br><strong>배열</strong>이란 데이터를 나열하고, 각 데이터를 인덱스에 대응하도록 구성한 데이터 구조를 말한다.</p><h3 id="그럼-배열이-왜-필요해"><a href="#그럼-배열이-왜-필요해" class="headerlink" title="그럼 배열이 왜 필요해?"></a><strong>그럼 배열이 왜 필요해?</strong></h3><p>데이터에는 다양한 종류가 있고, 이러한 데이터들을 같은 종류로 분류해서 효율적으로 관리하기 위해서 배열이 사용된다.<br><code>배열의 장점</code>은 index 번호로 접근하기 때문에 특정위치에서 상대ㅐ적인 위치로의 데이터 접근이 빠르다는 장점을 가지고 있다. index 번호를 통해서 데이터에 접근을 하기 때문에, <code>O(1)만큼의 시간복잡도</code>를 갖는다.<br><code>배열의 단점</code>은 <code>데이터의 추가/삭제의 어려움</code>이 있다는 점이다. 미리 최대 길이를 지정해서, 한정된 자원내에서 데이터를 관리해야 되기 때문이다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210128_array_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;이번-포스팅에서-정리-할-내용은&quot;&gt;&lt;a href=&quot;#이번-포스팅에서-정리-할-내용은&quot; class=&quot;headerlink&quot; title</summary>
+      
+    
+    
+    
+    <category term="Data-Structure-&amp;-Algorithm" scheme="https://leehyungi0622.github.io/categories/Data-Structure-Algorithm/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210128 자료구조(Data structure) &amp; 알고리즘(Algorithm) 개념</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-data_structure/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-data_structure/</id>
+    <published>2021-01-28T06:11:42.000Z</published>
+    <updated>2021-01-28T06:48:37.806Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/data-and-algorithm.jpg"></p><h1 id="오늘-정리할-내용은"><a href="#오늘-정리할-내용은" class="headerlink" title="오늘 정리할 내용은"></a><strong>오늘 정리할 내용은</strong></h1><p>자료구조에 대한 개념이다. 기본적인 내용이지만 다른 사람에게 설명하듯이 정리해보려고 한다.</p><p><strong>자료구조</strong>란 <strong>데이터 구조(Data Structure)</strong> 라는 용어와 혼재해서 사용된다.<br>대량의 데이터를 효율적으로 관리할 수 있는 데이터 구조를 의미하는 것으로, 현실에 있는 정보를 프로그래밍으로 바꾸려면 정보에서 데이터로 변환이 필요한데 이때 필요한 것이 <code>자료구조</code>이다. <br/></p><h3 id="개발자에게-자료구조-데이터-구조-란"><a href="#개발자에게-자료구조-데이터-구조-란" class="headerlink" title="개발자에게 자료구조(데이터 구조)란?"></a><strong>개발자에게 자료구조(데이터 구조)란?</strong></h3><p>개발자는 현실에 있는 데이터를 활용해서 프로그래밍 언어로 개발을 하기 때문에 데이터를 가지고 개발을 할때 <code>자료구조에 대한 지식</code>은 필수이다. 그리고 데이터 구조에는 다양한 구조들이 있는데, <code>어떤 데이터 구조</code>를 사용하느냐에 따라 <code>코드의 효율</code>이 즉, <code>프로그램의 퍼포먼스</code>가 달라진다.<br/></p><h3 id="현실에서의-데이터-관리의-예"><a href="#현실에서의-데이터-관리의-예" class="headerlink" title="현실에서의 데이터 관리의 예"></a><strong>현실에서의 데이터 관리의 예</strong></h3><p>우리 주변에서 이 데이터를 관리하는 예를 찾아보면, 우편번호와 학생 관리 번호가 있다. 우편번호는 앞의 3자리는 시, 군, 자치구를 의미하고, 뒤의 두자리는 일련번호로 구성이 된다. 학생 관리 번호 또한 학년, 반, 번호로 구성된 번호로 학생들을 관리한다.<br>이처럼 우리의 일상에서도 데이터를 구조화시켜서 관리하는 경우가 많다.<br/></p><h3 id="그럼-대표적인-자료구조-데이터-구조-는"><a href="#그럼-대표적인-자료구조-데이터-구조-는" class="headerlink" title="그럼 대표적인 자료구조(데이터 구조)는?"></a><strong>그럼 대표적인 자료구조(데이터 구조)는?</strong></h3><p>그럼 데이터 구조에 다양한 구조들이 있다고 했는데, 대표적으로 어떤 자료구조(데이터 구조)가 있는지 살펴보자.<br>컴퓨터의 이론에 대해서 조금이라도 관심있는 사람이라면 다들 들어보았겠지만, <code>배열, 스택, 큐, 링크드 리스트, 해쉬 테이블, 힙 등..</code>이 있다.<br>우리 현실 세계에서 가장 대표적인 데이터 구조는 <code>사전</code>이 있다.</p><br/><h3 id="기존에-있는-자료구조-데이터-구조-는-왜-공부해야-하는가"><a href="#기존에-있는-자료구조-데이터-구조-는-왜-공부해야-하는가" class="headerlink" title="기존에 있는 자료구조(데이터 구조)는 왜 공부해야 하는가?"></a><strong>기존에 있는 자료구조(데이터 구조)는 왜 공부해야 하는가?</strong></h3><p>앞서 이미 언급했듯이 개발자에게 있어 자료구조는 필수이다. 모나리자를 그릴 수 있는 실력은 모나리자를 모방함으로써 그 기술을 습득할 수 있다.<br>이 말을 왜 하냐면 기존에 존재하는 대표적인 자료구조들을 모방해가면서 필요에 따라 새로운 자료구조를 만들 수 있는 역량을 키울 수 있다는 의미로 예시를 들었다.<br>실제로 프로그램을 만들때나 기술면접시에도 많이 묻는 개념이기 때문에 알아두면 좋다.<br/></p><p><img src="/images/post_images/algorithm_img.png"></p><h2 id="다음으로-정리할-내용은-알고리즘이다"><a href="#다음으로-정리할-내용은-알고리즘이다" class="headerlink" title="다음으로 정리할 내용은 알고리즘이다."></a><strong>다음으로 정리할 내용은 알고리즘이다.</strong></h2><p>알고리즘(Algorithm)은 어떤 문제를 풀기 위한 절차/방법을 의미하며, 어떤 문제에 대해서 특정한 입력을 넣으면 원하는 출력을 얻을 수 있도록 만드는 <code>프로그래밍</code> 이다.<br>우리 현실에서 가장 대표적인 알고리즘은 <code>요리를 만드는 레시피</code>를 예로 들 수 있다.<br>요리를 하기 위해서는 재료준비 및 손질 단계와 숙성단계 조리단계 등 다양한 단계가 있는데, 얼마만큼의 시간과 저장공간이 필요한지 <code>각 각의 절차적 특성</code>을 고려해야 하기 때문에 여러 측면에서 보았을때 알고리즘과 비슷한 특징을 갖고 있다.</p><h2 id="결론적으로-말하자면"><a href="#결론적으로-말하자면" class="headerlink" title="결론적으로 말하자면,"></a><strong>결론적으로 말하자면,</strong></h2><p>어떤 자료구조를 사용해서 알고리즘을 작성하느냐에 따라 성능이 천지차이고, 요즘과 같이 데이터가 중요해진 시대에는 더욱이 알고리즘의 작성방법은 매우 중요해졌다.<br>프로그래밍을 잘 할 수 있는 기술과 역량을 보여주기 위해서는 이러한 자료구조와 알고리즘을 잘 활용할 줄 알아야 한다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/data-and-algorithm.jpg&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;오늘-정리할-내용은&quot;&gt;&lt;a href=&quot;#오늘-정리할-내용은&quot; class=&quot;headerlink&quot; title=&quot;오늘 정리할 내용은</summary>
+      
+    
+    
+    
+    <category term="Data-Structure-&amp;-Algorithm" scheme="https://leehyungi0622.github.io/categories/Data-Structure-Algorithm/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210128 계수정렬(Counting sort)</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-counting_sort/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-counting_sort/</id>
+    <published>2021-01-28T05:10:42.000Z</published>
+    <updated>2021-01-28T06:05:59.070Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h1><p>Baekjoon Online Judge의 10989문제의 풀이에서 사용한 계수정렬(Counting sort)에 대해서 정리를 해본다.</p><p>계수정렬은 O(N)의 시간복잡도를 갖는다.<br>계수 정렬을 사용하려면 정렬 대상 배열의 최소값과 최대값을 알고 있어야 한다. 최대값만큼 최대 길이를 설정해서 별도의 리스트를 생성해야 되기 때문이다.</p><p>정렬 이름대로 요소의 값에 해당하는 index의 위치에 요소의 갯수만큼 카운트해서 값을 증가시켜 주는 형태를 갖는다. <br/><br>예를 들어 [1, 5, 1, 5, 6] 이라는 리스트가 있다고 가정하자. <br/><br>총 5개의 숫자, 최소값은 1, 최대값은 6이라는 전제 조건이 성립하며, 계수정렬을 사용하기 위한 조건을 만족한다.</p><p>자 그럼 카운팅을 위해서 길이가 6인 0으로 초기화된 리스트를 별도로 생성해준다. 그리고나서 리스트를 순회하며 해당 값을 index로 갖는 새로 생성한 리스트의 위치값을 1씩 증가시켜준다.<br>이제 index를 새로 카운트해서 넣어 준 값만큼 순회하며 값을 출력해주면 된다.</p><p><img src="/images/post_images/210128_counting_sort.png"></p><blockquote><p>이미지 출처 : <a href="https://brilliant.org/wiki/counting-sort/">https://brilliant.org/wiki/counting-sort/</a></p></blockquote><br/><p>아래는 Big-O 표기법으로 표기한 시간복잡도의 관계를 표현하고 있다.<br><img src="/images/post_images/functions_ranking.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;오늘-공부한-내용&quot;&gt;&lt;a href=&quot;#오늘-공부한-내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 공부한 내용&quot;&gt;&lt;/a&gt;&lt;strong&gt;오늘 공부한 내용&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;Baekjoon Online Judge의 10</summary>
+      
+    
+    
+    
+    <category term="Data-Structure-&amp;-Algorithm" scheme="https://leehyungi0622.github.io/categories/Data-Structure-Algorithm/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Sorting" scheme="https://leehyungi0622.github.io/tags/Sorting/"/>
+    
+    <category term="Counting-sort" scheme="https://leehyungi0622.github.io/tags/Counting-sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210128 List와 Tuple 자료형을 이용한 정렬</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_til/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_til/</id>
+    <published>2021-01-28T04:48:42.000Z</published>
+    <updated>2021-01-28T05:47:56.897Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/self_development_logo.jpg"></p><h1 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h1><p>리스트와 튜플을 활용한 정렬에 대해서 정리해보려고 한다. 코딩테스트 문제에서 자주 활용할 수 있는 부분이기 때문에 사용에 대해서 숙지해두면 좋다.<br><br/></p><ul><li><h2 id="Tuple-sorting"><a href="#Tuple-sorting" class="headerlink" title="Tuple sorting"></a><strong>Tuple sorting</strong></h2></li></ul><pre><code class="python">v = [(3,4),(2,2),(3,3),(1,2),(1,-1)]</code></pre><ul><li>리스트 v를 튜플의 첫 번째 원소를 기준으로 오름차순 정렬하기</li></ul><pre><code class="python">v.sort(key = lambda x : x[0])print(v)# [(1, 2), (1, -1), (2, 2), (3, 4), (3, 3)]</code></pre><ul><li>리스트 v를 튜플의 첫 번째 원소로 내림차순 정렬하기</li></ul><pre><code class="python"># 방법 1v.sort(key = lambda x : -x[0])print(v)# [(3, 4), (3, 3), (2, 2), (1, 2), (1, -1)]# 방법 2v.sort(key = lambda x : x[0], reverse=True)print(v)# [(3, 4), (3, 3), (2, 2), (1, 2), (1, -1)]</code></pre><ul><li>리스트 v를 튜플의 두 번째 원소로 오름차순 정렬하기</li></ul><pre><code class="python">v.sort(key=lambda x : x[1])print(v)#[(1, -1), (2, 2), (1, 2), (3, 3), (3, 4)]</code></pre><ul><li>리스트 v를 튜플의 첫번째 원소로 오름차순 정렬하고, 첫 번째 원소가 같은 경우, 두 번째 원소로 오름차순 정렬하기</li></ul><pre><code class="python">v.sort()# [(1, -1), (1, 2), (2, 2), (3, 3), (3, 4)]v.sort(key=lambda x : (x[0],x[1]))# [(1, -1), (1, 2), (2, 2), (3, 3), (3, 4)]</code></pre><ul><li>리스트 v를 튜플의 첫번째 원소로 내림차순 정렬하고, 첫 번째 원소가 같은 경우, 두 번째 원소로 오름차순 정렬하기</li></ul><pre><code class="python">v.sort(key=lambda x:(-x[0],x[1]))print(v)# [(3, 3), (3, 4), (2, 2), (1, -1), (1, 2)]</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/self_development_logo.jpg&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;오늘-공부한-내용&quot;&gt;&lt;a href=&quot;#오늘-공부한-내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 공부한 내용</summary>
+      
+    
+    
+    
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="List" scheme="https://leehyungi0622.github.io/tags/List/"/>
+    
+    <category term="Tuple" scheme="https://leehyungi0622.github.io/tags/Tuple/"/>
+    
+    <category term="Sorting" scheme="https://leehyungi0622.github.io/tags/Sorting/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Baekjoon Online Judge 10989번 수 정렬하기3 문제 (시간/공간 복잡도 조건문제)</title>
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10989/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10989/</id>
     <published>2021-01-28T03:46:42.000Z</published>
-    <updated>2021-01-28T04:01:00.974Z</updated>
+    <updated>2021-01-28T05:40:51.436Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-10989번-수-정렬하기3-문제-Pseudo-code-Python-code"><a href="#백준-저지-10989번-수-정렬하기3-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 10989번 수 정렬하기3 문제 Pseudo code + Python code"></a>백준 저지 10989번 수 정렬하기3 문제 Pseudo code + Python code</h2><blockquote><p><strong>[시간 제한] 시간복잡도 고려</strong><br>Java 8: 3 초<br>Java 8 (OpenJDK): 3 초<br>Java 11: 3 초<br>Kotlin (JVM): 3 초</p></blockquote><blockquote><p><strong>[메모리 제한] 공간복잡도 고려</strong><br>Java 8: 512 MB<br>Java 8 (OpenJDK): 512 MB<br>Java 11: 512 MB<br>Kotlin (JVM): 512 MB</p></blockquote><p><img src="/images/post_images/210128_baekjoon_10989.png"></p><pre><code class="python">n = int(input())counting_sort_list = [0] * 10001for _ in range(n):  num = int(input())  counting_sort_list[num] += 1for i in range(1, 10001):  for _ in range(counting_sort_list[i]):    print(i)</code></pre><p>이 문제는 계수정렬(Counting sort)을 사용하여 입력한 숫자를 오름차순으로 정렬하는 문제이다. <br/><br>수의 갯수가 최대 10,000,000개이므로, 반복문을 통해서 값을 입력받게 되면, 해당 문제의 조건에서 초과된 시간으로 실행이 된다. <br/><br>계수정렬은 시간복잡도가 O(N)이기 때문에 문제에서 조건으로 제시한 시간 내에 실행이 가능하다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -33,7 +204,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -49,9 +220,9 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-Self-development_til/</id>
     <published>2021-01-28T02:16:42.000Z</published>
-    <updated>2021-01-28T02:30:51.503Z</updated>
+    <updated>2021-01-28T07:37:17.667Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/self_development_logo.jpg"></p><h1 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h1><br/><ul><li><h2 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a><strong>알고리즘 문제 풀이</strong></h2><ul><li>백준 10814번 나이순 정렬문제 (Pseudo code/손코딩 + 본 코딩)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/</a></li></ul></li><li>백준 5585번 거스름돈 문제 (Pseudo code/손코딩 + 본 코딩)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/</a></li></ul></li><li>백준 10930번 SHA-256 문제 (Pseudo code/손코딩 + 본 코딩)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/</a></li></ul></li></ul></li></ul><br/><ul><li><h2 id="Python-기본-문법-복습-및-TIL-업데이트"><a href="#Python-기본-문법-복습-및-TIL-업데이트" class="headerlink" title="Python 기본 문법 복습 및 TIL 업데이트"></a><strong>Python 기본 문법 복습 및 TIL 업데이트</strong></h2><ul><li>210128 분 Python 수업내용 복습하기</li><li>210128 분 Self-Development TIL 블로그 글 업데이트</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/self_development_logo.jpg"></p><h1 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h1><br/><ul><li><h2 id="자료구조와-알고리즘-개념정리"><a href="#자료구조와-알고리즘-개념정리" class="headerlink" title="자료구조와 알고리즘 개념정리"></a><strong>자료구조와 알고리즘 개념정리</strong></h2><ul><li>자료구조에 대한 개념정리 (<strong>완료</strong>)</li><li>계수정렬(Counting sort)에 대한 개념정리 (<strong>완료</strong>)</li><li>210128 자료구조(Data structure) Array(배열) (<strong>완료</strong>)</li><li>자료구조(Data structure) Stack(스택) (<strong>완료</strong>)</li><li>자료구조(Data structure) Linked List(링크드 리스트) (<strong>작성중…</strong>)</li></ul></li><li><h2 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a><strong>알고리즘 문제 풀이</strong></h2><ul><li>백준 10814번 나이순 정렬문제 (Pseudo code/손코딩 + 본 코딩) (<strong>완료</strong>)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/</a></li></ul></li><li>백준 5585번 거스름돈 문제 (Pseudo code/손코딩 + 본 코딩) (<strong>완료</strong>)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/</a></li></ul></li><li>백준 10930번 SHA-256 문제 (Pseudo code/손코딩 + 본 코딩) (<strong>완료</strong>)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/</a></li></ul></li><li>백준 10989번 수 정렬하기3 문제 (Pseudo code/손코딩 + 본 코딩)(<strong>완료</strong>)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10989/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10989/</a></li></ul></li></ul></li></ul><br/><ul><li><h2 id="알고리즘-문제-풀이에-필요한-공부"><a href="#알고리즘-문제-풀이에-필요한-공부" class="headerlink" title="알고리즘 문제 풀이에 필요한 공부"></a><strong>알고리즘 문제 풀이에 필요한 공부</strong></h2><ul><li>리스트와 튜플 자료형을 이용한 정렬 공부 및 블로그 정리</li><li>계수정렬(Counting sort) 개념 공부 및 블로그 정리</li></ul></li><li><h2 id="Python-기본-문법-복습-및-TIL-업데이트"><a href="#Python-기본-문법-복습-및-TIL-업데이트" class="headerlink" title="Python 기본 문법 복습 및 TIL 업데이트"></a><strong>Python 기본 문법 복습 및 TIL 업데이트</strong></h2><ul><li>210128 분 Python 수업내용 복습하기 (<strong>완료</strong>)</li><li>210128 분 Self-Development TIL 블로그 글 업데이트 (<strong>완료</strong>)</li></ul></li></ul>]]></content>
     
     
       
@@ -80,7 +251,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/</id>
     <published>2021-01-28T02:06:42.000Z</published>
-    <updated>2021-01-28T02:13:51.773Z</updated>
+    <updated>2021-01-28T05:40:44.373Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-10930번-Hash-String-변환문제-Pseudo-code-Python-code"><a href="#백준-저지-10930번-Hash-String-변환문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 10930번 Hash String 변환문제 Pseudo code + Python code"></a>백준 저지 10930번 Hash String 변환문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210128_baekjoon_10930.png"></p><pre><code class="python">import hashlibinput_string = input()encoded_input_string = input_string.encode()hash_string = hashlib.sha256(encoded_input_string).hexdigest()print(hash_string)</code></pre><p>이 문제는 입력받은 문자열을 hashlib를 활용하여 Hash string으로 변환하는 문제이다. <br/><br>입력받은 문자열은 encode를 한 뒤에 Python의 hashlib에서 지원하는 sha256 함수를 사용하여 처리를 해준 다음에, hex decimal 값만을 포함하는 문자열을 생성하기 위해 hexdigest()로 처리를 해준다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -92,7 +263,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -108,7 +279,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/</id>
     <published>2021-01-28T01:38:42.000Z</published>
-    <updated>2021-01-28T01:44:34.421Z</updated>
+    <updated>2021-01-28T05:40:31.390Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-5585번-거스름돈-문제-Pseudo-code-Python-code"><a href="#백준-저지-5585번-거스름돈-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 5585번 거스름돈 문제 Pseudo code + Python code"></a>백준 저지 5585번 거스름돈 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210128_baekjoon_5585.png"></p><pre><code class="python">product_price = int(input())coin_unit = [1, 5, 10, 50, 100, 500]coin_unit.sort(reverse=True)changes = 1000 - product_pricecoin_count = 0for unit in coin_unit:  if changes &gt;= unit:    num_of_coin = changes // unit    changes -= unit * num_of_coin    coin_count += num_of_coinprint(coin_count)</code></pre><p>이 문제는 대표적인 그리디 알고리즘 문제 유형으로, 최소한의 동전 갯수를 사용해서 거스름돈을 만드는 문제이다.<br>사용될 동전의 종류를 저장하고 있는 리스트를 역정렬한 뒤에, 해당 리스트를 순회하면서 사용될 동전의 갯수를 카운트하면 되는 간단한 문제이다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -120,7 +291,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -136,7 +307,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/</id>
     <published>2021-01-28T00:50:42.000Z</published>
-    <updated>2021-01-28T01:11:16.377Z</updated>
+    <updated>2021-01-28T05:40:37.875Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-10814번-나이순-정렬문제-Pseudo-code-Python-code"><a href="#백준-저지-10814번-나이순-정렬문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 10814번 나이순 정렬문제 Pseudo code + Python code"></a>백준 저지 10814번 나이순 정렬문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210128_baekjoon_10814.png"></p><blockquote><p><strong>(오류1)</strong> 손코딩을 한 부분에 오류가 있다. age, name을 한 줄에서 입력받는데, 두 입력 데이터의 타입은 같지 않기 때문에 integer 형으로만 설정할 수 없다. <br/> 이 경우에는 string 형으로 우선 받고나서 데이터를 삽입할때 integer형으로 type casting을 해주면 된다. <br/> <strong>(오류2)</strong> 두번째 오류는 문제의 조건에서 튜플의 첫번째 요소(나이)로 우선 오름차순 정렬을 하고, 튜플의 두번째 요소(이름)으로 오름차순 정렬을 하는 문제가 아닌, 나이로 오름차순 정렬을 하고, 나이가 같으면 입력한 순서대로 정렬을 하는 문제였다. 따라서 정렬 조건을 key = lambda x:(x[0], x[1]) 가 아닌 key = lambda x: x[0]로만 해주면 된다.</p></blockquote><pre><code class="python">test_case = int(input())join_members = []for _ in range(test_case):  age, name = map(str, input().split(&#39; &#39;))  join_members.append((int(age), name))join_members.sort(key=lambda x:x[0])for i in join_members:  print(i[0], i[1])# input :321 Junkyu21 Dohyun20 Sunyoung# output :20 Sunyoung21 Junkyu21 Dohyun</code></pre><p>이 문제는 리스트 내의 튜플을 이용해서 정렬하는 문제이다. 사용자로부터 나이와 이름에 대한 정보를 입력받고, 그 입력받은 정보를 튜플 자료형으로 묶은 다음에 리스트에 누적 저장한다. 최종 완성된 리스트는 sort() 메서드를 사용해서 조건에 맞게 정렬시켜서 출력시키면 된다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -148,7 +319,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -164,7 +335,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/27/210127-Algorithm_baekjoon_5397/"/>
     <id>https://leehyungi0622.github.io/2021/01/27/210127-Algorithm_baekjoon_5397/</id>
     <published>2021-01-27T05:18:42.000Z</published>
-    <updated>2021-01-27T21:35:33.487Z</updated>
+    <updated>2021-01-28T05:40:22.966Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-5397번-키로거-문제-Pseudo-code-Python-code"><a href="#백준-저지-5397번-키로거-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 5397번 키로거 문제 Pseudo code + Python code"></a>백준 저지 5397번 키로거 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210127_baekjoon_5397.png"></p><blockquote><p>위에서 손코딩한 코드에서는 left_stack과 right_stack을 for문 외부에서 초기화 해주었지만, 이렇게 해주면 매 테스트 케이스마다 초기화된 스택을 사용할 수 없기 때문에 for-loop 내에서 left_stack과 right_stack을 초기화 시켜주어야 한다.</p></blockquote><pre><code class="python">test_case = int(input())for _ in range(test_case):    left_stack = []    right_stack = []    p = input()    for i in p:        if i == &#39;-&#39;:            if left_stack:                left_stack.pop()        elif i == &#39;&lt;&#39;:            if left_stack:                right_stack.append(left_stack.pop())        elif i == &#39;&gt;&#39;:            if right_stack:                left_stack.append(right_stack.pop())        else:            left_stack.append(i)    left_stack.extend(reversed(right_stack))    print(&#39;&#39;.join(left_stack))</code></pre><p>이 문제는 키로거로부터 읽은 키보드의 입력을 읽어, 사용자가 입력한 비밀번호가 무엇인지 알아내는 프로그램을 작성하는 문제이다.</p><p>커서를 기준으로 좌, 우 이동 그리고 삭제하는 처리가 있기 때문에 좌, 우 이동시 리스트 내의 문자의 이동을 처리하기 위해 두 개의 스택을 준비해서 처리한다.</p><p>주의해야 될 부분은 오른쪽 스택은 반대 방향으로 데이터가 쌓이기 때문에 최종적으로 오른쪽 스택은 좌우 반전을 하여 왼쪽 스택과 같이 이어줘야 알맞는 결과를 얻을 수 있다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -176,7 +347,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -282,7 +453,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/26/210126-Algorithm_baekjoon_2798/"/>
     <id>https://leehyungi0622.github.io/2021/01/26/210126-Algorithm_baekjoon_2798/</id>
     <published>2021-01-26T06:18:42.000Z</published>
-    <updated>2021-01-26T06:27:31.116Z</updated>
+    <updated>2021-01-28T05:40:06.049Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-2798번-문제-Pseudo-code-Python-code"><a href="#백준-저지-2798번-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2798번 문제 Pseudo code + Python code"></a>백준 저지 2798번 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210126_baekjoon_2798.png"></p><p>이 문제는 3중 for-loop을 활용하여 주어진 숫자 리스트 내의 숫자들을 3개 단위로 묶을 수 있는 모든 경우의 수를 고려하여 연산을 한다.</p><p>3개 단위로 묶인 합이 입력한 m의 값보다 크지 않으면서 가장 큰 수를 출력하도록 하는 문제이다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -294,7 +465,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -310,7 +481,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/26/210126-monty_hall/"/>
     <id>https://leehyungi0622.github.io/2021/01/26/210126-monty_hall/</id>
     <published>2021-01-26T02:20:42.000Z</published>
-    <updated>2021-01-26T04:57:55.959Z</updated>
+    <updated>2021-01-28T05:40:15.750Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Monty-Hall-Problem-Pseudo-code-Python-code"><a href="#Monty-Hall-Problem-Pseudo-code-Python-code" class="headerlink" title="Monty Hall Problem (Pseudo code + Python code)"></a>Monty Hall Problem (Pseudo code + Python code)</h2><p><img src="/images/post_images/210126_monty_hall.png"></p><blockquote><p>앞서 작성한 Pseudo code와 손코딩 한 부분의 코드상에 논리적 문제를 발견했다. 만약 사용자가 선택한 문과 당첨 문이 일치하지 않는 경우, 진행자는 당첨문과 사용자가 선택한 문을 제외한 범위 내의 문을 열어서 보여줘야 하기 때문에 이 경우에는 당첨 문과 참가자가 선택한 문 둘 다 제거를 해줘야 한다. 만약 사용자가 선택한 문과 당첨 문이 같은 경우에는 사용자가 선택한 문을 제외한 두 개의 문 중에서 하나를 선택해서 문을 열어서 보여주면 된다.</p></blockquote><pre><code class="python">import randomNUM_OF_SIMULATION = 10000num_of_win = 0num_of_condition = int(input(    &quot;Enter the number of condition(1: Keep first choice, 2: Change first choice)&quot;))for _ in range(NUM_OF_SIMULATION):    car_door = random.randint(1, 3)    participant_select_door = random.randint(1, 3)    door = [i for i in range(1, 3+1)]    # 당첨되는 문을 door 리스트에서 제거한다.    if participant_select_door != car_door:        door.remove(car_door)        door.remove(participant_select_door)    else:        door.remove(car_door)    open_door = random.choice(door)    if num_of_condition == 1:        if participant_select_door == car_door:            num_of_win += 1    elif num_of_condition == 2:        # 참가자가 변심으로 처음 선택한 문을 바꾸는 경우, door 리스트를 다시 초기화한다.        new_door = [1, 2, 3]        new_door.remove(open_door)        new_door.remove(participant_select_door)        new_select_door = new_door[0]        if new_select_door == car_door:            num_of_win += 1print(f&quot;&#123;(1.0 * num_of_win)/NUM_OF_SIMULATION * 100&#125;%의 확률로 당첨될 수 있습니다.&quot;)&quot;&quot;&quot;위의 코드로 시뮬레이션을 해 본 결과 :게임 참가자가 처음 선택한 문을 바꾸지 않을 경우(Condition1)에는당첨될 확률은 32.48%(오차범위 ±2%)이고,처음 선택한 문을 바꾸는 경우(Condition2)에는 66.24%(오차범위±2%)의 확률로 당첨이 될 수 있습니다.따라서 처음 선택한 문을 바꾸는 것이 당첨될 확률이 더 높습니다.&quot;&quot;&quot;</code></pre><table>    <tr>        <td>            <img src="/images/post_images/210126_Monty_open_door.png" width="800" height="500">        </td>        <td rowspan="2">            <div> 이 Monty Hall 문제에 대해서는 처음 들어봤지만, 이전에 21이라는 영화를 보면서 교수가 학생에게 확률과 관련한 질문을 하였던 것을 기억하는데 이 문제가 바로 Monty Hall문제였다.<p>이 영화에서 질문을 받은 학생은 “한 번 선택을 하면 33%의 확률이지만, 바꿀 수 있는 한 번의 기회를 더 받았으므로 당첨될 확률이 두 배가 된다”고 대답했던 것 같다.</p><p>이 문제가 Monty Hall 문제라는 것은 처음 알고 재미있게 Pseudo code도 적고 손코딩으로 코드도 작성해보았다. </div></p></td></tr><tr><td span="2"><img src="/images/post_images/210126_movie21.png" width="800" height="300"></td></tr></table>]]></content>
     
@@ -322,7 +493,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -330,32 +501,6 @@
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
     <category term="ProbabilityPuzzle" scheme="https://leehyungi0622.github.io/tags/ProbabilityPuzzle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ethiopian_multiplication</title>
-    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
-    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
-    <published>2021-01-25T13:37:42.000Z</published>
-    <updated>2021-01-26T12:59:16.035Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;).split(&#39; &#39;))result = 0while m &gt;= 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
   </entry>
   
@@ -387,11 +532,37 @@
   </entry>
   
   <entry>
+    <title>Ethiopian_multiplication</title>
+    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
+    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
+    <published>2021-01-25T13:37:42.000Z</published>
+    <updated>2021-01-28T05:39:51.919Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;).split(&#39; &#39;))result = 0while m &gt;= 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
+      
+    
+    
+    
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Baekjoon Online Judge 2920번 음계 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/01/24/210124-Algorithm/"/>
-    <id>https://leehyungi0622.github.io/2021/01/24/210124-Algorithm/</id>
+    <link href="https://leehyungi0622.github.io/2021/01/24/210124-Algorithm_baekjoon_2920/"/>
+    <id>https://leehyungi0622.github.io/2021/01/24/210124-Algorithm_baekjoon_2920/</id>
     <published>2021-01-24T01:30:42.000Z</published>
-    <updated>2021-01-24T12:54:09.047Z</updated>
+    <updated>2021-01-28T05:42:30.899Z</updated>
     
     <content type="html"><![CDATA[<h2 id="백준-저지-2920번-문제-Pseudo-code-Python-code"><a href="#백준-저지-2920번-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2920번 문제 Pseudo code + Python code"></a>백준 저지 2920번 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210124_baekjoon_2920.JPG"></p><p>Pseudo code와 본 코드의 작성은 모두 손코딩으로 하기로 했다. 손코딩을 하게 되면 좀 더 기억에 오래 남고, 현장 코딩테스트에서 화이트보드에 코드를 적으면서 코드를 설명할 기회가 있을 수도 있기 때문에 좋은 연습이 될 것 같다.</p><p>즉흥적으로 코드를 바로 작성하지 말고, 간단한 논리 연산 문제라도 우선 나의 생각을 간략하게 순차적으로 정리하고 논리적 오류가 있는지 점검한 다음에 코드를 작성하는 습관을 들이도록 하자.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
     
@@ -403,7 +574,7 @@
     
     
     
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
     
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
@@ -411,168 +582,6 @@
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
     <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git Repository 이전하기</title>
-    <link href="https://leehyungi0622.github.io/2021/01/24/210123-Git_repository/"/>
-    <id>https://leehyungi0622.github.io/2021/01/24/210123-Git_repository/</id>
-    <published>2021-01-23T23:06:42.000Z</published>
-    <updated>2021-01-24T10:23:43.161Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210124_github.jpg"></p><p>오늘은 기존에 관리하던 Github 계정에서 필요한 Repository만 선별해서 새롭게 만든 계정으로 이전하는 작업을 하려고 한다. 이제 정말 필요한 Repository를 생성하고, 모든 Repository는 README 파일을 꼼꼼하게 적는 습관을 갖을 것이다.</p><p>새롭게 만든 Github 계정에서는 좀 더 꼼꼼하고 잘 관리된 개발자로서의 모습을 보여 줄 수 있도록 노력해야 겠다.</p><p><img src="/images/post_images/210124_repository.png"></p><hr><p>단순하게 기존의 코드만 이전을 하려면 이전하려는 Repository에 Push를 해주면 되지만, 나는 그동안 작성했던 커밋 로그까지 같이 옮기고 싶기 때문에 그 방법에 대해서 찾아보고 정리해보려고 한다.</p><h1 id="Repository-이삿짐-싸기"><a href="#Repository-이삿짐-싸기" class="headerlink" title="Repository 이삿짐 싸기"></a>Repository 이삿짐 싸기</h1><pre><code>$ git clone --mirror &#123;git Repository 주소&#125;</code></pre><p>git clone 명령과 –mirror 옵션과 함께 복사하려는 repository 주소를 입력해준다.</p><p>위의 작업을 하게 되면 <strong>[Repository 이름].git</strong> 을 가진 디렉토리가 생성된 것을 확인 할 수 있다. 이 디렉토리의 이름을 <strong>.git</strong> 으로 변경을 해주도록 한다.</p><h1 id="이사할-주소-지정하기"><a href="#이사할-주소-지정하기" class="headerlink" title="이사할 주소 지정하기"></a>이사할 주소 지정하기</h1><p>이제 Repository의 정리가 되었으면 이제 이전할 새로운 Repository의 주소를 알려줘야 한다.</p><pre><code>$ git remote set-url origin &#123;새로 이사갈 레파지토리 주소&#125;</code></pre><h1 id="Repository-이사하기"><a href="#Repository-이사하기" class="headerlink" title="Repository 이사하기"></a>Repository 이사하기</h1><pre><code>git push --mirror</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210124_github.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;오늘은 기존에 관리하던 Github 계정에서 필요한 Repository만 선별해서 새롭게 만든 계정으로 이전하는 작업을 하려고 한다. 이제 정말</summary>
-      
-    
-    
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/categories/Git/"/>
-    
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-    <category term="repository" scheme="https://leehyungi0622.github.io/tags/repository/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pseudo code + Algorithm 연습노트 준비</title>
-    <link href="https://leehyungi0622.github.io/2021/01/23/210123-Algorithm_start/"/>
-    <id>https://leehyungi0622.github.io/2021/01/23/210123-Algorithm_start/</id>
-    <published>2021-01-23T01:37:42.000Z</published>
-    <updated>2021-01-24T12:19:37.903Z</updated>
-    
-    <content type="html"><![CDATA[<p>첫 주에 강사님께 배웠던 내용중에 가장 인상깊었던 부분이 Pseudo code를 작성하는 것이었다. 그리고 단순 코더가 아닌 컴퓨팅 사고를 할 줄 아는 그런 개발자가 되라는 말씀이 마음에 가장 와닿았다.</p><p><img src="/images/post_images/210123_img1.JPG"><br>[ 나의 첫 Pseudo code + Algorithm 연습노트 ]</p><hr><p>그래서 첫주가 끝난는 21일 금요일날 집에 가는 길에 노트를 사서 Pseudo code와 알고리즘을 연습하기 위한 전용 노트를 만들었다. 그리고 인터넷에서 Pseudo code의 정의와 중요성 그리고 작성하는 방법에 대해서 간단하게 정리해보았다.</p><p>이렇게 글을 정리해놓는 이유는 이제부터 매일매일 적어도 하나의 알고리즘 문제를 풀면서 Pseudo code를 작성하는 연습도 같이 병행할 것이기 때문이다.</p><p>혹시나 훗날 힘들어질때 다시 지금 이때 작성한 글을 읽고 다시 마음을 다잡아야 겠다.</p><p><img src="/images/post_images/210123_img2.JPG"><br>[ Pseudo code의 중요성과 작성방법 ]<br><img src="/images/post_images/210123_img3.JPG"><br>[ Pseudo code 작성 sample ]</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;첫 주에 강사님께 배웠던 내용중에 가장 인상깊었던 부분이 Pseudo code를 작성하는 것이었다. 그리고 단순 코더가 아닌 컴퓨팅 사고를 할 줄 아는 그런 개발자가 되라는 말씀이 마음에 가장 와닿았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/image</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210122 Git + Vim editor usage TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/22/210122-git_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/22/210122-git_til/</id>
-    <published>2021-01-22T13:37:42.000Z</published>
-    <updated>2021-01-26T20:20:46.063Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/git_vim_logo.png"></p><h1 id="Shell-Vim-command-or-git"><a href="#Shell-Vim-command-or-git" class="headerlink" title="Shell, Vim command or git"></a><strong>Shell, Vim command or git</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p><strong>Shell command</strong></p><ul><li><p>기본 Linux shell command 활용</p><ul><li>cd : 쉘의 현재 위치 이동</li><li>mv : 디렉토리, 파일 이동</li><li>cp : 파일 복사</li><li>rm : 디렉토리, 파일 삭제</li><li>mkdir : 디렉토리 생성</li><li>pwd : 쉘의 현재 위치 확인</li><li>ls (-a, -l option) : 쉘의 현 위치에 있는 디렉토리, 파일을 출력 (옵션을 이용해서 세부사항 출력, 리스트로 출력가능)</li><li>touch : 새로운 파일을 생성</li><li>cat : 파일의 내용을 terminal 상에서 확인</li><li>head : 파일의 앞 부분의 내용을 terminal 상에서 확인</li><li>tail : 파일의 뒷 부분의 내용을 terminal 상에서 확인<br>(option으로 -[N] N 번째 라인까지 확인할지 설정할 수 있다.)</li><li>chmod : 파일권한 설정</li></ul><pre><code>$ chmod [옵션] (8진수) (파일명)</code></pre><pre><code>drwxr-xr-xd or -: directory or file(user)(group)(other)r: readw: writex: execute-: no permission</code></pre></li><li><p>Application 계층과 Kernel 계층 그리고 하드웨어 계층으로 분류하여 이해할 수 있다.</p><ul><li>커널은 하드웨어와 Application 사이에 위치하여 하드웨어와 응용프로그램을 이어주는 운영체제의 핵심 소프트웨어이다.</li></ul></li><li><p>Shell의 정의에 대해 이해할 수 있다. - 커널과 사용자가 소통할 수 있도록 그 사이를 이어주는 소프트웨어이다. - 다양한 쉘이 존재 (sh, csh, bash, zsh)</p></li></ul></li><li><p><strong>Vim command</strong></p><ul><li>Vim editor를 이용한 commit message 작성 및 수정<pre><code>Vim 기본 사용키h,j,k,l - move cursori - insert modev - visual moded - deletey - yankp - pasteu - undor - replace$ - move end of line^ - move start of line:q - quit:q! - quit w/o write(no warning):wq - write and quit:&#123;number&#125; - move to &#123;number&#125;th line</code></pre></li></ul></li><li><p><strong>Git</strong>:<br>Git은 VSC(Version Control System)으로, SCM(Source Code Management)라고도 한다.</p><ul><li>Git과 Github가 다름을 이해한다.<ul><li>Git은 VCS(Version Control System)로 tool 자체이며, Github는 이 Git이라는 tool을 활용하여 웹 기반으로 만든 웹 서비스이다.</li></ul></li><li>Git을 활용하여 소스코드를 관리한다.</li><li>전체적인 git flow를 이해한다.<br><img src="/images/post_images/210127git_flow.png"><br>workspace에서 add를 하게 되면, stage(=index)에 Blob의 형태로 파일 정보가 업로드 된다. stage에 올라간 파일을 로컬 repository 에 업데이트 하기 위해서 commit을 하고, 최종적으로 remote repository에 저장하기 위해 push라는 과정을 거친다.</li><li>git의 환경설정을 할 수 있다.<ul><li>기본적으로 local 환경에서 git을 사용하기 전에 user.name, user.email, core.editor 를 설정해준다.<pre><code class="terminal">$ git config --global user.name &quot;&#123;github username&#125;&quot;$ git config --global user.email &quot;&#123;github email address&#125;&quot;$ git config --global core.editor &quot;vim&quot;$ git config --global core.pager &quot;cat&quot;$ git config --list</code></pre></li><li>core.editor로 등록한 vim을 활용하여 commit message를 작성할 수 있다.<ul><li><strong>Commit Convention</strong><ul><li>commit제목은 50자 이내로 요약하여 작성한다.</li><li>제목과 내용사이에는 한 칸 띄어준다.</li><li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.<pre><code>feat: featuresdocs: documentationsconf: configurationstest: testfix: bug-fixrefactor: refactoringci: Continuous Integrationbuild: Buildperf: Performance</code></pre></li></ul><strong>ex) Commit Convention - example</strong><pre><code>feat: Create server.py to start flask projectdocs: Create README.mdconf: poetry inittest: User model CRUD test complete</code></pre></li></ul></li><li>기존에 remote repository를 local 환경에 clone해서 작업을 할 수 있다.<pre><code>$ git clone</code></pre></li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/git_vim_logo.png&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Shell-Vim-command-or-git&quot;&gt;&lt;a href=&quot;#Shell-Vim-command-or-git&quot; class=&quot;headerl</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-    <category term="Vim" scheme="https://leehyungi0622.github.io/tags/Vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210122 Python TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/22/210122-python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/22/210122-python_til/</id>
-    <published>2021-01-22T13:37:42.000Z</published>
-    <updated>2021-01-26T20:31:11.510Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h2 id="오늘-배운-내용"><a href="#오늘-배운-내용" class="headerlink" title="오늘 배운 내용"></a><strong>오늘 배운 내용</strong></h2><ul><li><p>Python 메인 강의</p><ul><li><p>과제점검(1월 22일자 파이썬 과제 풀이/해설)</p></li><li><h1>Dictionary</h1> : Dictionary는 key와 value로 구성된 자료형으로, 간편하게 key값으로 value를 참조해서 가져올 수 있다.<pre><code class="python">ganji = &#123;&#125;</code></pre><ul><li><p>Dictionary 활용</p><ul><li>Dictionary 데이터 초기화 하기</li></ul><pre><code class="python"># 직접 데이터를 넣고 초기화 시키기ganji = &#123;&#39;ja&#39;:0, &#39;chuk&#39;:1&#125; #&#123;&#39;ja&#39;: 0, &#39;chuk&#39;: 1&#125;ganji = dict(ja=1, chuk=0)ganji = dict([(&#39;ja&#39;,1),(&#39;chuk&#39;,2)])</code></pre><ul><li>Key값으로 Value 데이터 업데이트하기</li></ul><pre><code class="python"># 기존의 dictionary에 데이터 추가하기ganji[&#39;in&#39;] = &#39;tiger&#39; # &#123;&#39;ja&#39;: 1, &#39;chuk&#39;: 0, &#39;in&#39;: &#39;tiger&#39;&#125;</code></pre><ul><li>del 키워드로 Dictionary 내의 데이터 삭제하기</li></ul><pre><code class="python">  # del 키워드는 값을 참조해서 삭제한다.  del ganji[&#39;dragon&#39;]  # del 키워드를 사용해서 선언되어있는 변수를 삭제할 수 있다.  fast = 1  del fast  # ------ 이하에서는 fast 변수에 접근이 불가하다. (fast 변수는 메모릴상에서 제거된 상태)  result = fast + 2  print(result)</code></pre><ul><li>.keys()로 key값 참조하기</li></ul><pre><code class="python">ganji.keys() # dict_keys([&#39;ja&#39;, &#39;chuk&#39;, &#39;in&#39;, &#39;myo&#39;])# 위의 .keys()를 for-loop내에서 활용할 수 있다.for key in ganji.keys():    # 각 각의 value를 출력    print(ganji[key])</code></pre><ul><li>.values()로 value값 참조하기</li></ul><pre><code class="python">ganji.values() # dict_values([&#39;rat&#39;, &#39;cow&#39;, &#39;tiger&#39;, &#39;rabbit&#39;])</code></pre><ul><li>.items()로 [(key, value)] 형태(리스트 내 튜플 자료형)로 값 참조하기</li></ul><pre><code class="python">ganji.items() # dict_items([(&#39;ja&#39;, &#39;rat&#39;), (&#39;chuk&#39;, &#39;cow&#39;), (&#39;in&#39;, &#39;tiger&#39;), (&#39;myo&#39;, &#39;rabbit&#39;)])</code></pre><ul><li>zip() 을 활용하여 튜플형태로 (key, value)로 묶어서 리스트에 담아 표현하기</li></ul><pre><code class="python">list(zip(ganji.keys(), ganji.values()))# output : [(&#39;ja&#39;, &#39;rat&#39;), (&#39;chuk&#39;, &#39;cow&#39;), (&#39;in&#39;, &#39;tiger&#39;), (&#39;myo&#39;, &#39;rabbit&#39;)]</code></pre><ul><li>.pop([‘key’]) 을 활용하여 Dictionary 내 데이터 제거하기</li></ul><pre><code class="python">ganji.pop(&#39;ja&#39;) # &#39;rat&#39;</code></pre><ul><li>.popitem() 을 활용하여 Dictionary의 마지막 요소 제거하기 (list에서 .pop()과 같은 기능)</li></ul><pre><code class="python">ganji.popitem() # 리스트의 가장 마지막 요소를 제거한다. (&#39;myo&#39;, &#39;rabbit&#39;)</code></pre><pre><code class="python">&quot;&quot;&quot;hong_midterm = &#123;&#125;hong_midterm[&#39;Korean&#39;] = 70hong_midterm[&#39;Math&#39;] = 60hong_midterm[&#39;English&#39;] = 100hong_midterm[&#39;Social&#39;] = [45,30,20]hong_midterm[&#39;Science&#39;] = [45,45,40,10]&quot;&quot;&quot;</code></pre><ul><li>.get(‘[‘key’]’, [default value] ) : get의 첫번째 인자로 Key값을 넣고, 존재하지 않을 경우 반환할 Default 값을 선언할 수 있다.</li></ul><pre><code class="python">hong_midterm.get(&#39;Ethics&#39;, False)</code></pre><ul><li>.setDefault(‘Ethics’,[]) : Dictionary 변수에 Ethics 항목을 추가하고, 동시에 Default 값을 넣어 초기화 시켜 줄 수 있다.</li></ul><pre><code class="python">hong_midterm.setdefault(&#39;Ethics&#39;, [])</code></pre><ul><li><p>리스트만큼 잘 사용되지는 않지만, Dictionary도 len()을 사용해서 길이를 구할 수 있다.</p></li><li><p>**를 활용하여 Dictionary 변수의 key값으르 Destructuring Assignment하기</p></li></ul><pre><code class="python">some_dict = &#123;&#39;name&#39;: &#39;Hong Gil-dong&#39;, &#39;locale&#39;: &#39;Seoul, KR&#39;print(&quot;Hello, I&#39;m &#123;name&#125;, from &#123;locale&#125;&quot;.format(**some_dict))</code></pre></li></ul></li><li><h1>Set</h1>: set은 중복요소를 제거하고, 교집합(&, intersection), 합집합(|, union), 차집합(-, difference), 대칭차집합(symmetric difference)를 활용하여 두 집합변수의 관계형 데이터를 만들어낼 수 있다.</li></ul><pre><code class="python">ppap = [&#39;pen&#39;, &#39;pineapple&#39;, &#39;apple&#39;, &#39;pen&#39;]</code></pre><ul><li><p>Set 활용하기</p><ul><li>set과 list는 상호 type casting이 가능하다.</li></ul><pre><code class="python">a_word = &#39;fastcampus&#39;b_word = &#39;python&#39;a_set = set(a_word) #&#123;&#39;u&#39;, &#39;m&#39;, &#39;p&#39;, &#39;a&#39;, &#39;c&#39;, &#39;s&#39;, &#39;f&#39;, &#39;t&#39;&#125;b_set = set(b_word) # &#123;&#39;y&#39;, &#39;p&#39;, &#39;h&#39;, &#39;n&#39;, &#39;t&#39;, &#39;o&#39;&#125;</code></pre><ul><li>두 집합의 교집합 구하기</li></ul><pre><code class="python">a_set &amp; b_seta_set.intersection(b_set)# output : &#123;&#39;p&#39;, &#39;t&#39;&#125;</code></pre><ul><li>두 집합의 합집합 구하기</li></ul><pre><code class="python">a_set | b_seta_set.union(b_set)# output : &#123;&#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;h&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;y&#39;&#125;</code></pre><ul><li>두 집합의 차집합 구하기</li></ul><pre><code class="python">a_set - b_seta_set.difference(b_set)# output : &#123;&#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;m&#39;, &#39;s&#39;, &#39;u&#39;&#125;</code></pre><ul><li>두 집합의 대칭차 구하기</li></ul><pre><code class="python">a_set ^ b_seta_set.symmetric_difference(b_set# output : &#123;&#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;h&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;s&#39;, &#39;u&#39;, &#39;y&#39;&#125;</code></pre></li></ul></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h2><ol><li>다음 인적사항을 입력한다. (list에 각 정보가 dict로 존재)</li></ol><table><thead><tr><th>Name</th><th>Locale</th><th>Age</th><th>Username</th></tr></thead><tbody><tr><td>Johnny Silverhand</td><td>Night City</td><td>120</td><td>Johnny</td></tr><tr><td>John Doe</td><td>CA, USA</td><td>40</td><td>Doh</td></tr><tr><td>Jane Doe</td><td>Seoul, Korea</td><td>24</td><td>jane-doe</td></tr><tr><td>Foo Bar</td><td>Busan, Korea</td><td>31</td><td>foo-bar</td></tr></tbody></table><br/><p><strong>위에서 입력한 데이터를 활용하여 아래 문제를 해결하시오.</strong></p><p>1-1. Jane Doe의 Locale을 London, UK 로 수정하세요.<br>2-1. list의 모든 아이템에 대해 key와 value를 모두 출력하세요.(반복문 쓰지 말 것) 3. 다음 list의 중복 아이템을 제거한 뒤, 내림차순으로 정렬하여 출력하세요. (아래 cities 리스트 활용)</p><pre><code class="python">cities = [    &#39;Daejeon&#39;, &#39;Ulsan&#39;, &#39;Seoul&#39;, &#39;Jeju&#39;,    &#39;Busan&#39;, &#39;Ulsan&#39;, &#39;Daegu&#39;, &#39;Daejeon&#39;,    &#39;Seoul&#39;, &#39;Seoul&#39;, &#39;Daejeon&#39;, &#39;Gwangju&#39;,    &#39;Busan&#39;, &#39;Daegu&#39;, &#39;Gwangju&#39;, &#39;Daejeon&#39;,    &#39;Ulsan&#39;, &#39;Jeju&#39;, &#39;Gwangju&#39;, &#39;Seoul&#39;]</code></pre><p>1번의 경우, user_info 리스트 변수를 선언하여, 각각의 열에 dict 타입의 데이터를 초기화해서 넣어준다.</p><pre><code class="python">user_info = []user_row = dict([(&#39;name&#39;,&#39;Foo Bar&#39;),                 (&#39;locale&#39;, &#39;Busan, Korea&#39;),                 (&#39;age&#39;, 31),                 (&#39;username&#39;, &#39;foo-bar&#39;)                ])user_info.append(user_row)user_info&quot;&quot;&quot;output :[&#123;&#39;name&#39;: &#39;Johnny Silverhand&#39;,  &#39;locale&#39;: &#39;Night City&#39;,  &#39;age&#39;: 120,  &#39;username&#39;: &#39;Johnny&#39;&#125;, &#123;&#39;name&#39;: &#39;John Doe&#39;, &#39;locale&#39;: &#39;CA, USA&#39;, &#39;age&#39;: 40, &#39;username&#39;: &#39;Doh&#39;&#125;, &#123;&#39;name&#39;: &#39;Jane Doe&#39;,  &#39;locale&#39;: &#39;Seoul, Korea&#39;,  &#39;age&#39;: 24,  &#39;username&#39;: &#39;jane-doe&#39;&#125;, &#123;&#39;name&#39;: &#39;Foo Bar&#39;,  &#39;locale&#39;: &#39;Busan, Korea&#39;,  &#39;age&#39;: 31,  &#39;username&#39;: &#39;foo-bar&#39;&#125;]&quot;&quot;&quot;</code></pre><p>1-1번의 경우, 각각의 행 요소에는 index로 접근을 하고, 접근한 후에는 dict 데이터에 key값으로 접근을 해서 해당 데이터를 수정해주면 된다.</p><pre><code class="python">user_info[2][&#39;locale&#39;] = &#39;London, UK&#39;</code></pre><p>2-1번의 경우, 반복문을 사용하지 않고 각 행의 dict형 데이터들을 출력해야 되기 때문에 아래와 같이 각 행의 dict형 데이터에는 index로 접근을 하고, .items()로 key와 value를 Tuple 데이터형으로 묶어서 읽어온다.</p><pre><code class="python">print(list(user_info[0].items()))print(list(user_info[1].items()))print(list(user_info[2].items()))print(list(user_info[3].items()))&quot;&quot;&quot;output:[(&#39;name&#39;, &#39;Johnny Silverhand&#39;), (&#39;locale&#39;, &#39;Night City&#39;), (&#39;age&#39;, 120), (&#39;username&#39;, &#39;Johnny&#39;)][(&#39;name&#39;, &#39;John Doe&#39;), (&#39;locale&#39;, &#39;CA, USA&#39;), (&#39;age&#39;, 40), (&#39;username&#39;, &#39;Doh&#39;)][(&#39;name&#39;, &#39;Jane Doe&#39;), (&#39;locale&#39;, &#39;London, UK&#39;), (&#39;age&#39;, 24), (&#39;username&#39;, &#39;jane-doe&#39;)][(&#39;name&#39;, &#39;Foo Bar&#39;), (&#39;locale&#39;, &#39;Busan, Korea&#39;), (&#39;age&#39;, 31), (&#39;username&#39;, &#39;foo-bar&#39;)]&quot;&quot;&quot;</code></pre><p>3번 문제의 경우, 중복제거는 set()을 사용해서 제거하고 내림차순으로 정렬하기 위해서 list()로 변환한 후에 sort() 메서드를 사용해서 정렬한다.</p><pre><code class="python">unique_cities = list(set(cities))unique_cities.sort(reverse=True)</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;오늘-배운-내용&quot;&gt;&lt;a href=&quot;#오늘-배운-내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 배운 내용&quot;&gt;&lt;/a&gt;&lt;strong</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210122 Hexo 사용법</title>
-    <link href="https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/"/>
-    <id>https://leehyungi0622.github.io/2021/01/22/210122-Hexo-blog/</id>
-    <published>2021-01-22T07:37:42.000Z</published>
-    <updated>2021-01-24T10:17:54.059Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hexo-사용법"><a href="#Hexo-사용법" class="headerlink" title="Hexo 사용법"></a>Hexo 사용법</h1><hr><h3 id="Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리"><a href="#Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서-정리" class="headerlink" title="Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리"></a>Hexo에 파일을 수정/업데이트 한 뒤에 사용하는 명령어에 대해서 정리</h3><p><img src="/images/post_images/210122_hexo-logo.png"></p><p>hexo generate는 로컬 환경에서 Hexo 페이지의 변경된 내용을 확인할 때 사용되며, hexo deploy는 업데이트 된 내용을 Git에 최종적으로 deploy함으로써 Github pages에 변경사항을 적용한다.</p><pre><code>$ hexo clean &amp;&amp; hexo generate$ hexo clean &amp;&amp; hexo deploy</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Hexo-사용법&quot;&gt;&lt;a href=&quot;#Hexo-사용법&quot; class=&quot;headerlink&quot; title=&quot;Hexo 사용법&quot;&gt;&lt;/a&gt;Hexo 사용법&lt;/h1&gt;&lt;hr&gt;
-&lt;h3 id=&quot;Hexo에-파일을-수정-업데이트-한-뒤에-사용하는-명령어에-대해서</summary>
-      
-    
-    
-    
-    <category term="Hexo" scheme="https://leehyungi0622.github.io/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://leehyungi0622.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210121 Python TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/21/210121-python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/21/210121-python_til/</id>
-    <published>2021-01-21T13:37:42.000Z</published>
-    <updated>2021-01-26T07:36:58.837Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a><strong>Python</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul><li><p>List (리스트)</p><ul><li><p>리스트 작성예시</p><pre><code class="python">fastcampus = [2.71828, 3.1415]zoo = [&#39;rabbit&#39;,&#39;dog&#39;,&#39;cat&#39;]</code></pre></li><li><p>리스트관련 내장함수</p><pre><code class="python">  zoo = [&#39;rabbit&#39;, &#39;dog&#39;, &#39;cat&#39;]</code></pre><ul><li>append()<pre><code class="python">  zoo.append(&#39;owl&#39;)  # [&#39;rabbit&#39;, &#39;dog&#39;, &#39;cat&#39;, &#39;owl&#39;]</code></pre></li><li>insert()<pre><code class="python">  zoo.insert(2, &#39;horse&#39;)  # [&#39;rabbit&#39;, &#39;dog&#39;, &#39;horse&#39; &#39;cat&#39;, &#39;owl&#39;]</code></pre></li><li>remove()</li></ul><pre><code class="python">  zoo.remove(&#39;dog&#39;)  # [&#39;rabbit&#39;, &#39;horse&#39; &#39;cat&#39;, &#39;owl&#39;]</code></pre><ul><li>pop()</li></ul><pre><code class="python">  # 아무 인자도 주지 않는다면, 리스트의 가장 끝 요소가 제거된다.  zoo.pop(2) # 리스트의 index는 0부터 시작하기 때문에, 3번째 요소가 제거된다.  # 만약에 index는 알지 못하지만 값을 알고 있는 경우, index()를 활용하여 index를 찾을 수 있다.  zoo.pop(zoo.index(&#39;cat&#39;))</code></pre><ul><li>remove(): pop()의 경우에는 index값으로 리스트의 값을 제거했지만, remove()의 경우에는 값으로 접근해서 값을 제거한다.</li></ul><pre><code class="python">  zoo.remove(&#39;cat&#39;)</code></pre><ul><li>sort()</li></ul><pre><code class="python">  zoo.sort() #zoo리스트에 있는 요소들을 오름차순으로 정렬한다.  #내림차순으로 정렬하기 위해서는 sort()함수의 속성으로 reverse=를 사용하면 된다.  zoo.sort(reverse=True)</code></pre><ul><li>reverse()</li></ul><pre><code class="python">  zoo.reverse() # zoo리스트의 요소를 거꾸로 정렬한다.</code></pre><ul><li>+, extend() :<br>서로다른 두 개의 리스트를 접붙이기 위해서 사용된다.</li></ul><pre><code class="python">  numbers1 = [1, 2]  numbers2 = [-1, -2]  number1 + number2 # [1, 2, -1, -2]  number1.extend([3, 4]) # [1, 2, 3, 4]</code></pre><ul><li>문자열 (not) in 리스트</li></ul><pre><code class="python">  zoo = [&#39;rabbit&#39;, &#39;owl&#39;, &#39;horse&#39;, &#39;aligator&#39;]  &#39;dog&#39; in zoo # False  &#39;owl&#39; in zoo # True  &#39;dog&#39; not in zoo # True</code></pre></li></ul></li><li><p>Tuple (튜플) :<br>immutable 자료형으로 리스트와 달리 기존에 선언한 데이터를 수정할 수 없다.</p><ul><li>튜플은 index로 값에 접근할 수 있다.</li></ul><pre><code class="python">  grade = (90, 0, 16, 40)  grade[1] # 0</code></pre><ul><li>튜플 형태로 Destructuring Assignment를 할 수 있다.</li></ul><pre><code class="python">  def split_hello(word):    result = word.split()    return result[0], result[1]  (greet, word) = split_hello(&#39;hello world&#39;)  greet # &#39;hello&#39;  word # &#39;world&#39;</code></pre><ul><li>튜플을 활용하여 두 변수를 swapping할 수 있다.</li></ul><pre><code class="python">  (greet, word) = (word, greet)</code></pre><ul><li>튜플을 리스트로, 리스트는 튜플로 type casting이 가능하다.</li></ul></li></ul><h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a>간단한 연습문제</h2><h3 id="Practice-1"><a href="#Practice-1" class="headerlink" title="Practice(1)"></a>Practice(1)</h3><blockquote><p>Practice(1)<br>list와 tuple을 이용하여 다음의 문제를 해결하세요.<br/></p></blockquote><ol><li>변수 animals에 다음의 자료를 입력하세요. rabbit, cat, dog, aligator, tiger, lion<br/></li><li>animals에 새로운 동물을 3마리 추가하세요.(insert, append, extend 꼭 쓸것)<br/></li><li>animals를 알파벳 내림차순으로 정렬하세요.<br/></li><li>정렬된 animals의 짝수(index 기준) 동물을 even_animals라는 tuple에 할당하세요.</li></ol><pre><code class="python">animals = [&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;]animals.insert(3, &#39;kangaroo&#39;) # [&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;kangaroo&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;]animals.append(&#39;puma&#39;) # [&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;kangaroo&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;, &#39;puma&#39;]animals.extend([&#39;cheetah&#39;])&quot;&quot;&quot;[&#39;rabbit&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;kangaroo&#39;, &#39;aligator&#39;, &#39;tiger&#39;, &#39;lion&#39;, &#39;puma&#39;, &#39;cheetah&#39;]&quot;&quot;&quot;animals[::2] # 리스트에서 짝수번째 있는 동물들을 출력한다.animals[1::2] # 홀수번째 있는 동물들을 출력한다.even_animals = tuple(animals[::2])</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Python&quot;&gt;&lt;a href=&quot;#Python&quot; class=&quot;headerlink&quot; title=&quot;Python&quot;&gt;&lt;/a&gt;&lt;strong&gt;Pytho</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
