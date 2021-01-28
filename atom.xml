@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-28T01:11:16.377Z</updated>
+  <updated>2021-01-28T01:44:34.421Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Baekjoon Online Judge 5585번 거스름돈 문제</title>
+    <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/"/>
+    <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_5585/</id>
+    <published>2021-01-28T01:38:42.000Z</published>
+    <updated>2021-01-28T01:44:34.421Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="백준-저지-5585번-거스름돈-문제-Pseudo-code-Python-code"><a href="#백준-저지-5585번-거스름돈-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 5585번 거스름돈 문제 Pseudo code + Python code"></a>백준 저지 5585번 거스름돈 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210128_baekjoon_5585.png"></p><pre><code class="python">product_price = int(input())coin_unit = [1, 5, 10, 50, 100, 500]coin_unit.sort(reverse=True)changes = 1000 - product_pricecoin_count = 0for unit in coin_unit:  if changes &gt;= unit:    num_of_coin = changes // unit    changes -= unit * num_of_coin    coin_count += num_of_coinprint(coin_count)</code></pre><p>이 문제는 대표적인 그리디 알고리즘 문제 유형으로, 최소한의 동전 갯수를 사용해서 거스름돈을 만드는 문제이다.<br>사용될 동전의 종류를 저장하고 있는 리스트를 역정렬한 뒤에, 해당 리스트를 순회하면서 사용될 동전의 갯수를 카운트하면 되는 간단한 문제이다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;백준-저지-5585번-거스름돈-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-5585번-거스름돈-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저지 </summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
+    
+  </entry>
   
   <entry>
     <title>Baekjoon Online Judge 10814번 나이순 정렬문제</title>
@@ -219,32 +247,6 @@
   </entry>
   
   <entry>
-    <title>Ethiopian_multiplication</title>
-    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
-    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
-    <published>2021-01-25T13:37:42.000Z</published>
-    <updated>2021-01-26T12:59:16.035Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;).split(&#39; &#39;))result = 0while m &gt;= 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
-      
-    
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>210125 Python TIL</title>
     <link href="https://leehyungi0622.github.io/2021/01/25/210125-python_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/25/210125-python_til/</id>
@@ -268,6 +270,32 @@
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ethiopian_multiplication</title>
+    <link href="https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/"/>
+    <id>https://leehyungi0622.github.io/2021/01/25/210125-Ethiopian_multiplication/</id>
+    <published>2021-01-25T13:37:42.000Z</published>
+    <updated>2021-01-26T12:59:16.035Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Ethiopian-Multiplication-Pseudo-code-Python-code"><a href="#Ethiopian-Multiplication-Pseudo-code-Python-code" class="headerlink" title="Ethiopian Multiplication Pseudo code + Python code"></a>Ethiopian Multiplication Pseudo code + Python code</h2><p><img src="/images/post_images/210125_ethiopian_multiplication.png"></p><pre><code class="python">m, n = map(int, input(&quot;Enter two numbers separated by space&quot;).split(&#39; &#39;))result = 0while m &gt;= 1:  if m % 2 != 0:    result += n  m //= 2  n *= 2print(result)</code></pre><p>Ethiopian multiplication 방식으로 입력받은 두 숫자의 곱으르 구하는 코드를 구현해보았다.</p><p>원리는 m과 n 두 숫자를 입력받고, 왼쪽의 숫자는 나눠지지 않을 때까지 계속 2로 나눠주며, 오른쪽 수는 왼쪽의 수가 나눠지지 않을때까지 2를 곱해준다.</p><p>만약에 m이 홀수인 경우, n의 값은 특정 변수에 누적해서 저장을 한다. 이 누적된 값이 최초 입력받은 m과 n의 곱의 값이 된다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Ethiopian-Multiplication-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#Ethiopian-Multiplication-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; tit</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
   </entry>
   
