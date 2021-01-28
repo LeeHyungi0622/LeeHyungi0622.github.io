@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-28T07:35:34.014Z</updated>
+  <updated>2021-01-28T07:47:14.231Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-linked_list/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-linked_list/</id>
     <published>2021-01-28T07:30:42.000Z</published>
-    <updated>2021-01-28T07:35:34.014Z</updated>
+    <updated>2021-01-28T07:47:14.231Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/210128_linked_list.png"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p><code>링크드 리스트(Linked list)</code>에 대한 개념이다.<br>(작성중…)</p>]]></content>
     
@@ -41,6 +41,8 @@
     
     <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
     
+    <category term="Linked-list" scheme="https://leehyungi0622.github.io/tags/Linked-list/"/>
+    
   </entry>
   
   <entry>
@@ -48,7 +50,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-stack/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-stack/</id>
     <published>2021-01-28T07:04:42.000Z</published>
-    <updated>2021-01-28T07:29:49.665Z</updated>
+    <updated>2021-01-28T07:48:09.557Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/210128_stack_img.png"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p>스택에 대한 개념이다. 스택을 비유로 들면, 바닥에 쌓여있는 책들을 예로 많이 들고 있는데, 그 이유는 스택은 데이터를 제한적으로 접근할 수 있는 구조로 되어있기 때문이다.</p><h3 id="여기서-제한적인-접근이란"><a href="#여기서-제한적인-접근이란" class="headerlink" title="여기서 제한적인 접근이란?"></a><strong>여기서 제한적인 접근이란?</strong></h3><p>한 쪽 끝에서만 자료를 넣거나 뺄 수 있는 구조로 되어있다는 것을 말한다.<br>따라서 <code>LIFO(Last-In-First-Out)</code>의 정책을 가지고 있는 구조이다.<br>이는 다음에 정리할 큐(queue)의 <code>FIFO(First-In-First-Out)</code>정책과 상반되는 구조이다.</p><h3 id="스택은-어디에서-사용되나"><a href="#스택은-어디에서-사용되나" class="headerlink" title="스택은 어디에서 사용되나?"></a><strong>스택은 어디에서 사용되나?</strong></h3><p>스택은 대표적으로 우리가 사용하는 <code>컴퓨터 내부의 프로세스 구조의 함수 동작 방식</code>에서 사용이 된다.<br>스택 구조는 프로세스 실행 구조의 가장 기본으로, 함수 호출시 프로세스 실행 구조를 스택과 비교해서 이해할 필요가 있다.</p><pre><code class="python">def recursive(data):  if data &lt; 0:    print(&quot;ended&quot;)  else:    print(data)    recursive(data - 1)    print(&quot;return&quot;, data)recursive(4)# output :&quot;&quot;&quot;43210endedreturned 0returned 1returned 2returned 3returned 4&quot;&quot;&quot;</code></pre><p>위의 재귀함수 실행을 살펴보면, 4부터 0까지 데이터가 들어간 다음에 탈출조건에 만족하는 입력 데이터 들어가게 되면, “ended”가 출력이 되고, 그 다음에 마지막에 삽입된 데이터부터 역으로 함수 내의 재귀호출 실행부의 아래에 있는 출력문이 실행되고 있음을 알 수 있다.</p><h3 id="스택의-주요-기능"><a href="#스택의-주요-기능" class="headerlink" title="스택의 주요 기능"></a><strong>스택의 주요 기능</strong></h3><p>스택의 주요 기능은 데이터를 스택에 넣는 (<code>push()</code>)와 데이터를 스택에서 꺼내는 (<code>pop()</code>)이 있다.</p><h3 id="스택의-장단점"><a href="#스택의-장단점" class="headerlink" title="스택의 장단점"></a><strong>스택의 장단점</strong></h3><p><code>스택의 장점</code>은 <code>구조가 단순해서 구현이 용이</code>하다는 점과 <code>데이터 저장</code>과 <code>데이터 읽기</code> 속도가 빠르다는 점이 있다.<br><code>스택의 단점</code>은 일반적인 스택을 구현할 경우, 데이터의 최대 갯수를 미리정해야 된다는 점이 있다. 이러한 한계는 <code>링크드 리스트(Linked List)</code>를 구현해서 극복할 수 있으며, 최대로 쌓을 수 있는 공간을 확보함으로써 생기는 메모리 낭비에 대한 문제점도 해결할 수 있다.</p>]]></content>
     
@@ -68,6 +70,8 @@
     
     <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
     
+    <category term="Stack" scheme="https://leehyungi0622.github.io/tags/Stack/"/>
+    
   </entry>
   
   <entry>
@@ -75,7 +79,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-array/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-array/</id>
     <published>2021-01-28T06:52:42.000Z</published>
-    <updated>2021-01-28T07:02:57.179Z</updated>
+    <updated>2021-01-28T07:46:48.949Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/210128_array_img.jpg"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p>배열에 대한 개념이다. 파이썬에서는 리스트 타입이 배열의 기능을 제공하지만, c언어의 경우에는 배열을 독립적으로 사용한다.<br><strong>배열</strong>이란 데이터를 나열하고, 각 데이터를 인덱스에 대응하도록 구성한 데이터 구조를 말한다.</p><h3 id="그럼-배열이-왜-필요해"><a href="#그럼-배열이-왜-필요해" class="headerlink" title="그럼 배열이 왜 필요해?"></a><strong>그럼 배열이 왜 필요해?</strong></h3><p>데이터에는 다양한 종류가 있고, 이러한 데이터들을 같은 종류로 분류해서 효율적으로 관리하기 위해서 배열이 사용된다.<br><code>배열의 장점</code>은 index 번호로 접근하기 때문에 특정위치에서 상대ㅐ적인 위치로의 데이터 접근이 빠르다는 장점을 가지고 있다. index 번호를 통해서 데이터에 접근을 하기 때문에, <code>O(1)만큼의 시간복잡도</code>를 갖는다.<br><code>배열의 단점</code>은 <code>데이터의 추가/삭제의 어려움</code>이 있다는 점이다. 미리 최대 길이를 지정해서, 한정된 자원내에서 데이터를 관리해야 되기 때문이다.</p>]]></content>
     
@@ -94,6 +98,8 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
+    
+    <category term="Array" scheme="https://leehyungi0622.github.io/tags/Array/"/>
     
   </entry>
   
