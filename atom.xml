@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-30T10:28:00.057Z</updated>
+  <updated>2021-01-30T10:41:39.539Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://leehyungi0622.github.io/2021/01/30/210130-Git_commit_message_rule/"/>
     <id>https://leehyungi0622.github.io/2021/01/30/210130-Git_commit_message_rule/</id>
     <published>2021-01-30T02:18:42.000Z</published>
-    <updated>2021-01-30T10:28:00.057Z</updated>
+    <updated>2021-01-30T10:41:39.539Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210130_commit_message.png"></p><br/><ul><li><h2 id="Commit-Convention"><a href="#Commit-Convention" class="headerlink" title="Commit Convention"></a><strong>Commit Convention</strong></h2><ul><li>commit제목은 50자 이내로 요약하여 작성한다.</li><li>제목과 내용사이에는 한 칸 띄어준다.</li><li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.<pre><code>feat: featuresdocs: documentationsconf: configurationstest: testfix: bug-fixrefactor: refactoringci: Continuous Integrationbuild: Buildperf: Performance</code></pre></li></ul><strong>ex) Commit Convention - example</strong><pre><code>feat: Create server.py to start flask projectdocs: Create README.mdconf: poetry inittest: User model CRUD test complete</code></pre></li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210130_commit_message.png"></p><br/><ul><li><h2 id="Commit-Convention"><a href="#Commit-Convention" class="headerlink" title="Commit Convention"></a><strong>Commit Convention</strong></h2><ul><li>commit제목은 50자 이내로 요약하여 작성한다.</li><li>제목과 내용사이에는 한 칸 띄어준다.</li><li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.</li></ul><pre><code>feat: featuresdocs: documentationsconf: configurationstest: testfix: bug-fixrefactor: refactoringci: Continuous Integrationbuild: Buildperf: Performance</code></pre><p><strong>ex) Commit Convention - example</strong></p><pre><code>feat: Create server.py to start flask projectdocs: Create README.mdconf: poetry inittest: User model CRUD test complete</code></pre><p>구글링하다가 commit convention에 대해서 정리가 잘 되어있는 페이지가 있어서 정리해보려고 한다.</p></li></ul><br/><ul><li><h2 id="Semantic-Commit-Messages"><a href="#Semantic-Commit-Messages" class="headerlink" title="Semantic Commit Messages"></a>Semantic Commit Messages</h2><p>See how a minor change to your commit message style can make you a better programmer.</p><p>Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p><p><code>&lt;scope&gt;</code> is optional</p><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><pre><code>feat: add hat wobble^--^  ^------------^|     ||     +-&gt; Summary in present tense.|+-------&gt; Type: chore, docs, feat, fix, refactor, style, or test.</code></pre><p>More Examples:</p><ul><li><code>feat</code>: (new feature for the user, not a new feature for build script)</li><li><code>fix</code>: (bug fix for the user, not a fix to a build script)</li><li><code>docs</code>: (changes to the documentation)</li><li><code>style</code>: (formatting, missing semi colons, etc; no production code change)</li><li><code>refactor</code>: (refactoring production code, eg. renaming a variable)</li><li><code>test</code>: (adding missing tests, refactoring tests; no production code change)</li><li><code>chore</code>: (updating grunt tasks etc; no production code change)</li></ul><p>References:</p><ul><li><a href="https://www.conventionalcommits.org/">https://www.conventionalcommits.org/</a></li><li><a href="https://seesparkbox.com/foundry/semantic_commit_messages">https://seesparkbox.com/foundry/semantic_commit_messages</a></li><li><a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html">http://karma-runner.github.io/1.0/dev/git-commit-msg.html</a></li></ul></li></ul><p>위의 참고자료들을 보고, 프로젝트시에 적극 활용해서 commit convention을 따라 standard한 commit message를 잘 적을 수 있는 개발자가 될 수 있도록 하자.</p><p><code>목표 추가 : 협업 잘하는 개발자가 되기</code></p>]]></content>
     
     
       
@@ -44,7 +44,7 @@
     
     <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
