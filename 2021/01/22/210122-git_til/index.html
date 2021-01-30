@@ -38,7 +38,8 @@ x: execute
 </li>
 <li><p><strong>Vim command</strong></p>
 <ul>
-<li>Vim editor를 이용한 commit message 작성 및 수정<pre><code>Vim 기본 사용키
+<li>Vim editor를 이용한 commit message 작성 및 수정</li>
+<li>git commit -m “”을 통한 commit message를 작성하는 것은 되도록 하지 말고 git commit 을 통해 vi editor를 사용해서 commit message를 작성하는 것이 좋다.<pre><code>Vim 기본 사용키
 h,j,k,l - move cursor
 i - insert mode
 v - visual mode
@@ -58,20 +59,27 @@ $ - move end of line
 </li>
 <li><p><strong>Git</strong>:<br>Git은 VSC(Version Control System)으로, SCM(Source Code Management)라고도 한다.</p>
 <ul>
-<li>Git과 Github가 다름을 이해한다.<ul>
+<li><p>Git과 Github가 다름을 이해한다.</p>
+<ul>
 <li>Git은 VCS(Version Control System)로 tool 자체이며, Github는 이 Git이라는 tool을 활용하여 웹 기반으로 만든 웹 서비스이다.</li>
 </ul>
 </li>
-<li>Git을 활용하여 소스코드를 관리한다.</li>
-<li>전체적인 git flow를 이해한다.<br><img src="/images/post_images/210127git_flow.png"><br>workspace에서 add를 하게 되면, stage(=index)에 Blob의 형태로 파일 정보가 업로드 된다. stage에 올라간 파일을 로컬 repository 에 업데이트 하기 위해서 commit을 하고, 최종적으로 remote repository에 저장하기 위해 push라는 과정을 거친다.</li>
-<li>git의 환경설정을 할 수 있다.<ul>
-<li>기본적으로 local 환경에서 git을 사용하기 전에 user.name, user.email, core.editor 를 설정해준다.<pre><code class="terminal">$ git config --global user.name &quot;&#123;github username&#125;&quot;
+<li><p>Git을 활용하여 소스코드를 관리한다.</p>
+</li>
+<li><p>전체적인 git flow를 이해한다.<br><img src="/images/post_images/210127git_flow.png"><br>workspace에서 add를 하게 되면, stage(=index)에 Blob의 형태로 파일 정보가 업로드 된다. stage에 올라간 파일을 로컬 repository 에 업데이트 하기 위해서 commit을 하고, 최종적으로 remote repository에 저장하기 위해 push라는 과정을 거친다.</p>
+</li>
+<li><p>git의 환경설정을 할 수 있다.</p>
+<ul>
+<li>기본적으로 local 환경에서 git을 사용하기 전에 user.name, user.email, core.editor 를 설정해준다.</li>
+</ul>
+<pre><code class="terminal">$ git config --global user.name &quot;&#123;github username&#125;&quot;
 $ git config --global user.email &quot;&#123;github email address&#125;&quot;
 $ git config --global core.editor &quot;vim&quot;
 $ git config --global core.pager &quot;cat&quot;
 $ git config --list</code></pre>
-</li>
-<li>core.editor로 등록한 vim을 활용하여 commit message를 작성할 수 있다.<ul>
+<ul>
+<li><p>core.editor로 등록한 vim을 활용하여 commit message를 작성할 수 있다.</p>
+<ul>
 <li><strong>Commit Convention</strong><ul>
 <li>commit제목은 50자 이내로 요약하여 작성한다.</li>
 <li>제목과 내용사이에는 한 칸 띄어준다.</li>
@@ -93,7 +101,10 @@ test: User model CRUD test complete</code></pre>
 </li>
 </ul>
 </li>
-<li>기존에 remote repository를 local 환경에 clone해서 작업을 할 수 있다.<pre><code>$ git clone</code></pre>
+<li><p>기존에 remote repository를 local 환경에 clone해서 작업을 할 수 있다.</p>
+<pre><code>$ git clone
+
+$ git clone [git repository url] ./[생성할 폴더 이름(옵션)]</code></pre>
 </li>
 </ul>
 </li>

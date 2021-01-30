@@ -1,5 +1,59 @@
 <!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>Lee Hyungi (이현기)'s blog</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
-</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>Categories · TIL:Git</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/git_vim_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/01/22/210122-git_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/git_vim_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Git"><i class="tag post-item-tag">Git</i></a><a href="/tags/Vim"><i class="tag post-item-tag">Vim</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/01/22/210122-git_til/">210122 Git + Vim editor usage TIL</a></h2><time class="has-text-grey" datetime="2021-01-22T13:37:42.000Z">2021-01-22</time><p class="is-flex-grow-2 mt-2">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>Categories · TIL:Git</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/git_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/01/30/210130-Git_commit_message_rule/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/git_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Git"><i class="tag post-item-tag">Git</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/01/30/210130-Git_commit_message_rule/">210130 Git Commit Message TIL</a></h2><time class="has-text-grey" datetime="2021-01-30T02:18:42.000Z">2021-01-30</time><p class="is-flex-grow-2 mt-2">
+
+
+
+Git 협업할때 사용하는 방법:오늘은 Git에서 Branch를 새로 끊어서 별도의 Branch에서 새로 작성한 코드를 관리를 하고, 다른 Branch에 merge하는 방법에 대해서 배워보았다. 또한 Git을 활용해서 다른 사람들과 협업하는 방법에 대해서도 실습을 통해 배워보았다.
+
+Branch에 대한 개념 이해
+
+Branch란?
+분기점을 생성하고 독립적으로 코드를 변경할 수 있도록 도와주는 모델이다.
+
+
+기본적인 Branch 관리 관련 명령어
+
+사용가능한 Local Branch를 출력
+
+$ git branch
+
+Remote Branch에 대한 정보를 출력
+
+$ git branch -r
+
+사용가능한 모든 Branch 정보를 출력..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/01/30/210130-Git_commit_message_rule/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/git_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/01/29/210129-Git_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/git_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Git"><i class="tag post-item-tag">Git</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/01/29/210129-Git_til/">210129 Git TIL</a></h2><time class="has-text-grey" datetime="2021-01-29T00:52:42.000Z">2021-01-29</time><p class="is-flex-grow-2 mt-2">
+
+
+
+
+branch에 대한 개념 및 관리
+Branch란?
+분기점을 생성하고 독립적으로 코드를 변경할 수 있도록 도와주는 모델이다.
+
+
+기본적인 Branch 관리 관련 명령어
+
+사용가능한 Local Branch를 출력
+
+$ git branch
+
+Remote Branch에 대한 정보를 출력
+
+$ git branch -r
+
+사용가능한 모든 Branch 정보를 출력
+
+$ git branch -a
+
+새로운 Branch 끊기
+
+$ git branch [new branch name]
+
+새로운 Branch를 끊고, 동시에 checkout하기
+
+$ git checkout -b [new branch name]
+
+새로 만든 Branch 로 switch..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/01/29/210129-Git_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/git_vim_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/01/22/210122-git_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/git_vim_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Git"><i class="tag post-item-tag">Git</i></a><a href="/tags/Vim"><i class="tag post-item-tag">Vim</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/01/22/210122-git_til/">210122 Git + Vim editor usage TIL</a></h2><time class="has-text-grey" datetime="2021-01-22T13:37:42.000Z">2021-01-22</time><p class="is-flex-grow-2 mt-2">
 Shell, Vim command or git오늘 배운내용
 Shell command
 
@@ -15,7 +69,7 @@ ls (-a, -l option) : 쉘의 현 위치에 있는 디렉토리, 파일을 출력 
 touch : 새로운 파일을 생성
 cat : 파일의 내용을 terminal 상에서 확인
 head : 파일의 앞 부분의 내용을 terminal 상에서 확인
-tail : 파일의 뒷 부분의 내용을 ter..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/01/22/210122-git_til/">Read more</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container categories-widget category-page"><h3>Categories</h3><section><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Git/">TIL:Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Python/">TIL:Python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a><span class="category-list-count">1</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+tail : 파일의 뒷 부분의 내용을 ter..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/01/22/210122-git_til/">Read more</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container categories-widget category-page"><h3>Categories</h3><section><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Git/">TIL:Git</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Python/">TIL:Python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a><span class="category-list-count">1</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
     var images = document.querySelectorAll('.js-img-fadeIn')
