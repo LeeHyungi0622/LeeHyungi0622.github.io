@@ -1,25 +1,25 @@
 var $posts = {
-    scroller: function () {
+    scroller: function() {
         function Scroller() {
             this.callbacks = []
             return this
         }
-        Scroller.prototype.bindScrollEvent = function () {
+        Scroller.prototype.bindScrollEvent = function() {
             var _that = this
 
-            window.addEventListener('scroll', function (event) {
+            window.addEventListener('scroll', function(event) {
                 var wait = false
                 var beforeOffsetY = window.pageYOffset
 
                 if (wait) return
                 wait = true
 
-                setTimeout(function () {
+                setTimeout(function() {
                     var params = {
                         event: event,
                         beforeOffsetY: beforeOffsetY,
                     }
-                    _that.callbacks.forEach(function (func) { func(params) })
+                    _that.callbacks.forEach(function(func) { func(params) })
 
                     wait = false
                 }, 150)
@@ -28,7 +28,7 @@ var $posts = {
 
         return Scroller
     },
-    showTopic: function (evt) {
+    showTopic: function(evt) {
         var topicEl = document.getElementById('postTopic')
         var postTitle = document.getElementById('postTitle')
 
@@ -50,8 +50,7 @@ var $posts = {
                 if (topicEl.classList.contains('is-show-scrollToTop-tips')) {
                     topicEl.classList.remove('is-show-scrollToTop-tips')
                     topicEl.classList.add('is-flash-scrollToTop-tips')
-                }
-                else {
+                } else {
                     topicEl.classList.add('immediately-show')
                 }
             }
@@ -84,8 +83,7 @@ var $posts = {
                 topicEl.classList.remove('is-flash-scrollToTop-tips')
                 topicEl.classList.add('is-show-post-title')
             }
-        }
-        else{
+        } else {
             // hidden all
             topicEl.classList.remove('is-flash-scrollToTop-tips')
             topicEl.classList.remove('is-show-scrollToTop-tips')
@@ -96,18 +94,18 @@ var $posts = {
             topicEl.classList.add('is-hidden-topic-bar')
         }
     },
-    catalogueHighlight: function () {
+    catalogueHighlight: function() {
         var directory = document.querySelectorAll('.toc a')
         if (directory.length === 0) {
             return false
         }
 
         var tocContainer = document.querySelector('.toc')
-        return function () {
+        return function() {
             var contentTocList = []
             var activeClassName = 'is-active'
 
-            directory.forEach(function (link) {
+            directory.forEach(function(link) {
                 if (!link.href) return
                 var id = decodeURI(link.href).split('#')[1]
                 contentTocList.push(document.getElementById(id))
@@ -142,8 +140,7 @@ var $posts = {
                         // top: direc.offsetTop - spacing,
                         top: direc.offsetTop + 100 - tocContainerHeight,
                     })
-                }
-                else {
+                } else {
                     tocContainer.scrollTo({ top: 0 })
                 }
             }
@@ -158,7 +155,7 @@ var $posts = {
             scrollTo(0, 0);
         }
     },
-    mounted: function () {
+    mounted: function() {
         hljs && hljs.initHighlighting()
 
         var Scroller = this.scroller()
