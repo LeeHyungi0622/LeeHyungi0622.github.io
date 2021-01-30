@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-30T02:19:06.479Z</updated>
+  <updated>2021-01-30T10:28:00.057Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,18 +21,18 @@
     <link href="https://leehyungi0622.github.io/2021/01/30/210130-Git_commit_message_rule/"/>
     <id>https://leehyungi0622.github.io/2021/01/30/210130-Git_commit_message_rule/</id>
     <published>2021-01-30T02:18:42.000Z</published>
-    <updated>2021-01-30T02:19:06.479Z</updated>
+    <updated>2021-01-30T10:28:00.057Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/git_logo.png"></p><br/><ul><li><h2 id="Git-협업할때-사용하는-방법"><a href="#Git-협업할때-사용하는-방법" class="headerlink" title="Git 협업할때 사용하는 방법:"></a><strong>Git 협업할때 사용하는 방법</strong>:</h2><p>오늘은 Git에서 Branch를 새로 끊어서 별도의 Branch에서 새로 작성한 코드를 관리를 하고, 다른 Branch에 merge하는 방법에 대해서 배워보았다. 또한 Git을 활용해서 다른 사람들과 협업하는 방법에 대해서도 실습을 통해 배워보았다.</p><ul><li><p>Branch에 대한 개념 이해</p><ul><li><h2 id="Branch란"><a href="#Branch란" class="headerlink" title="Branch란?"></a><strong>Branch란?</strong></h2><ul><li>분기점을 생성하고 독립적으로 코드를 변경할 수 있도록 도와주는 모델이다.</li></ul></li><li><p>기본적인 Branch 관리 관련 명령어</p><ul><li>사용가능한 Local Branch를 출력</li></ul><pre><code class="bash">$ git branch</code></pre><ul><li>Remote Branch에 대한 정보를 출력</li></ul><pre><code class="bash">$ git branch -r</code></pre><ul><li>사용가능한 모든 Branch 정보를 출력</li></ul><pre><code class="bash">$ git branch -a</code></pre><ul><li>새로운 Branch 끊기</li></ul><pre><code class="bash">$ git branch [new branch name]</code></pre><ul><li>새로운 Branch를 끊고, 동시에 checkout하기</li></ul><pre><code class="bash">$ git checkout -b [new branch name]</code></pre><ul><li>새로 만든 Branch 로 switch 하기</li></ul><pre><code class="bash">$ git switch [new branch name]</code></pre><ul><li>master branch로 다시 이동을 해서 새로 생성한 branch를 merge하도록 한다.</li></ul><pre><code class="bash">$ git merge [새로 생성해서 작업한 branch 이름]</code></pre><ul><li>새로 생성된 branch에서의 모든 작업은 끝났고, merge작업까지 마무리 되었기 때문에 삭제해준다.</li></ul><pre><code class="bash">$ git branch -D [new branch name]</code></pre><blockquote><p><b>실습내용:</b> master branch에서 hello.py파일을 생성하고, <ins>파일내용의 수정은 iteration branch에서 작업</ins>을 한다. 그 후에 master branch로 이동을 해서 파일이 변경되어 있지 않음을 확인한다. (파일 수정 작업은 iteration branch에서 작업을 하였기 때문) <br/>master branch에 <ins>새로 끊어서 작업한 iteration branch를 merge해주기 위해서 master branch로 switch하고, 새로 끊은 branch에 대해서 merge 작업을 해준다.</ins></p></blockquote><blockquote><p><b>case study)</b> 별도의 branch에서 파일 변경작업을 하다가 commit을 하지 않고 main branch로 이동을 하고, 별도로 끊은 branch를 삭제한 경우, 기존에 수정된 내용이 불필요하다면(변경사항이 의도하지 않게 넘어온 경우에는), 아래의 명령을 이용해서 이동한 main branch에서 이전에 작성했던 파일을 원래 상태로 돌릴 수 있다.</p></blockquote><pre><code class="bash">$ git checkout -- [file name]예시) $ git checkout -- hello.pycf) git의 최신버전에서는 restore를 사용해서 위의 작업을 한다.</code></pre></li></ul></li><li><p>Branching models에 대한 이해</p><ul><li>master에서 바로 branch를 끊어서 수정한 다음에 바로 push해주고자 할때 <code>hotfix</code>branch를 사용한다.</li></ul></li><li><p>Git flow strategy<br>git 명령어를 간소화해서 사용할 수 있는 git-flow<br><a href="http://danielkummer.github.io/git-flow-cheatsheet/">http://danielkummer.github.io/git-flow-cheatsheet/</a><br>git-flow 설치,<br><code>$ brew install git-flow-avh</code><br>위의 홈페이지에서 설정 순서 보고 정리해보기</p></li><li><p>Collaborate with your Co-worker</p></li></ul></li></ul><h1 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h1><br/><ul><li><h2 id="자료구조와-알고리즘-개념정리"><a href="#자료구조와-알고리즘-개념정리" class="headerlink" title="자료구조와 알고리즘 개념정리"></a><strong>자료구조와 알고리즘 개념정리</strong></h2><ul><li><p>자료구조(Data structure) Linked List(링크드 리스트) (<strong>작성중…</strong>)</p><ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-linked_list/">https://leehyungi0622.github.io/2021/01/28/210128-linked_list/</a></li></ul><br/></li></ul></li><li><h2 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a><strong>알고리즘 문제 풀이</strong></h2><ul><li>백준 1번 문제 (Pseudo code/손코딩 + 본 코딩) (<strong>완료</strong>)<ul><li><a href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/">https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10814/</a></li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210130_commit_message.png"></p><br/><ul><li><h2 id="Commit-Convention"><a href="#Commit-Convention" class="headerlink" title="Commit Convention"></a><strong>Commit Convention</strong></h2><ul><li>commit제목은 50자 이내로 요약하여 작성한다.</li><li>제목과 내용사이에는 한 칸 띄어준다.</li><li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.<pre><code>feat: featuresdocs: documentationsconf: configurationstest: testfix: bug-fixrefactor: refactoringci: Continuous Integrationbuild: Buildperf: Performance</code></pre></li></ul><strong>ex) Commit Convention - example</strong><pre><code>feat: Create server.py to start flask projectdocs: Create README.mdconf: poetry inittest: User model CRUD test complete</code></pre></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/git_logo.png&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210130_commit_message.png&quot;&gt;&lt;/p&gt;
 &lt;br/&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&quot;Git-협업할때-사용하는-방법&quot;&gt;&lt;a href=&quot;#Git-협업할때-사용하는-방법&quot; class=&quot;headerlink&quot;</summary>
+&lt;li&gt;&lt;h2 id=&quot;Commit-Convention&quot;&gt;&lt;a href=&quot;#Commit-Convention&quot; cla</summary>
       
     
     
@@ -53,9 +53,9 @@
     <link href="https://leehyungi0622.github.io/2021/01/30/210130-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/01/30/210130-Self-development_til/</id>
     <published>2021-01-30T01:30:42.000Z</published>
-    <updated>2021-01-30T02:17:14.012Z</updated>
+    <updated>2021-01-30T10:23:16.490Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/self_development_logo.jpg"></p><p><img src="/images/post_images/210130_black_duck.png"></p><p>오늘은 동네에 새로 생긴 카페에서 공부를 하려고 나왔다. 아무래도 프랜차이즈 카페보다는 동네 카페가 상대적으로 사람이 없기 때문에 좋고, 내부 인테리어도 좋아서 왔는데 기대 이상으로 복층구조에 시설이나 서비스도 좋았다. <br/> 원래 공부관련된 내용만 딱딱하게 적으려고 했는데 그래도 나의 일상을 기록하면서 공부한 내용도 같이 기록하면 나중에 다시 봤을때 좋을 것 같아서 같이 기록해둔다.<br/><br>참고로 오늘은 토요일 공부시작 시간은 오전 10시 30분이다. 부지런해지자.</p><h1 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h1><ul><li><p>210129 분 수업에서 배운 내용 및 공부내용 정리하기</p></li><li><p>Git commit message 제대로 적는 연습하기</p><ul><li>이전처럼 git commit -m 으로 적지 말고, 제대로 된 규칙을 따라 작성하느느 연습하기</li></ul></li><li><p>Git flow 활용에 익숙해지기</p><ul><li>이전에 일일이 작성하면서 오래 걸렸던 부분을 Git flow와 친해지면서 빠르게 처리할 수 있는 것에 익숙해지기.</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/self_development_logo.jpg"></p><p><img src="/images/post_images/210130_black_duck.png"></p><p>오늘은 동네에 새로 생긴 카페에서 공부를 하려고 나왔다. 아무래도 프랜차이즈 카페보다는 동네 카페가 상대적으로 사람이 없기 때문에 좋고, 내부 인테리어도 좋아서 왔는데 기대 이상으로 복층구조에 시설이나 서비스도 좋았다. <br/> 원래 공부관련된 내용만 딱딱하게 적으려고 했는데 그래도 나의 일상을 기록하면서 공부한 내용도 같이 기록하면 나중에 다시 봤을때 좋을 것 같아서 같이 기록해둔다.<br/><br>참고로 오늘은 토요일 공부시작 시간은 오전 10시 30분 ~ 20시까지 했다. 부지런한 개발자가 되기 위해 좋은 습관을 들이도록 노력하자.</p><h1 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h1><ul><li><p>210129 분 수업에서 배운 내용 및 공부내용 정리하기 (<strong>완료</strong>)</p></li><li><p>강사님이 올려주신 git flow 영상 보기 (<strong>완료 + 블로그 업데이트 완료</strong>)</p></li><li><p>Git commit message 제대로 적는 연습하기 (예정)</p><ul><li>이전처럼 git commit -m 으로 적지 말고, 제대로 된 규칙을 따라 작성하는 연습하기 (안좋은 버릇 고치기)</li></ul></li><li><p>Git flow 활용에 익숙해지기 (<strong>부분 완료</strong>)</p><ul><li>이전에 일일이 작성하면서 오래 걸렸던 부분을 Git flow와 친해지면서 빠르게 처리할 수 있는 것에 익숙해지기. (<strong>완료</strong>) (<strong>오늘 팀원들과 15:30 ~ 18:00 까지 연습을 해서 익숙해진 것 같다.</strong>)</li><li>팀장 역할로 release해서 버전별로 나누는 연습하기 (예정)</li></ul></li></ul>]]></content>
     
     
       
