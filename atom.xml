@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-31T02:36:51.631Z</updated>
+  <updated>2021-01-31T04:50:53.641Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>210131 Git Practice</title>
+    <title>210131 Git Practice (Feature/Release/Hotfix)</title>
     <link href="https://leehyungi0622.github.io/2021/01/31/210131-Git-practice/"/>
     <id>https://leehyungi0622.github.io/2021/01/31/210131-Git-practice/</id>
     <published>2021-01-31T02:30:42.000Z</published>
-    <updated>2021-01-31T02:36:51.631Z</updated>
+    <updated>2021-01-31T04:50:53.641Z</updated>
     
-    <content type="html"><![CDATA[<p>오늘은 저번 수업시간(<strong>29(금)</strong>)에 배운 <code>Git branch 관리와 협업</code>에 대한 내용을 최대한 활용해서 연습을 해 볼 것이다. 물론 강사님 말처럼 입사하게 되면 <strong>main(master) branch, release branch</strong>를 건드릴 필요 없이, <strong>develop, feature branch</strong>만 가지고 작업을 하겠지만 개인 프로젝트할 때 버전별로 업데이트 해서 release도 해 볼 것이기 때문에 이를 위해 제대로 연습을 해 보겠다.</p><br/>]]></content>
+    <content type="html"><![CDATA[<p>오늘은 저번 수업시간(<strong>29(금)</strong>)에 배운 <code>Git branch 관리와 협업</code>에 대한 내용을 최대한 활용해서 연습을 해 볼 것이다. 물론 강사님 말처럼 입사하게 되면 <strong>main(master) branch, release branch</strong>를 건드릴 필요 없이, <strong>develop, feature branch</strong>만 가지고 작업을 하겠지만 개인 프로젝트할 때 버전별로 업데이트 해서 release도 해 볼 것이기 때문에 이를 위해 제대로 연습을 해 보겠다.</p><br/><p>Branching model : git flow</p><p><img src="/images/post_images/210129_git_flow.png"></p><ul><li><h2 id="Release-branch-실습"><a href="#Release-branch-실습" class="headerlink" title="Release branch 실습"></a><strong>Release branch 실습</strong></h2><p><img src="/images/post_images/210131_git_flow_release.png"></p></li><li><h2 id="Hotfix-branch-실습"><a href="#Hotfix-branch-실습" class="headerlink" title="Hotfix branch 실습"></a><strong>Hotfix branch 실습</strong></h2><p><img src="/images/post_images/210131_git_flow_hotfix.png"></p></li></ul><h2 id="git-flow-활용-꿀팁"><a href="#git-flow-활용-꿀팁" class="headerlink" title="git flow 활용 꿀팁"></a><strong>git flow 활용 꿀팁</strong></h2><p>git flow를 활용해서 start, finish를 하게 되면 branch가 merge가 된 뒤에 자동으로 생성했던 branch를 삭제하고 merge된 branch로 switch해주다. 편리하긴 하지만 만약에 graph 구조상에 생성했던 branch에 대한 내용도 keep하고 싶다면 아래와 같이 간단하게 <code>-k(eep)</code>옵션을 붙여주면 된다.</p><pre><code class="bash">$ git flow feature finish -k [feature branch name]</code></pre><p>성공적으로 develop branch에 feature branch를 merge하고 난 뒤에 feature branch를 제거하지 않는 것은 merge를 되돌리는 것을 손쉽게 할 수 있도록 도와준다.<br>간단하게 merge commit을 제거함으로써 merge를 되돌릴 수 있다.</p><pre><code class="bash"># On develop branch$ git reset --hard HEAD^</code></pre>]]></content>
     
     
       
@@ -36,9 +36,9 @@
     <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
@@ -212,9 +212,9 @@
     <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
@@ -242,9 +242,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
@@ -277,9 +277,9 @@
     <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
@@ -513,9 +513,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
