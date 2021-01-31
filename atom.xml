@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-01-31T02:13:38.337Z</updated>
+  <updated>2021-01-31T02:36:51.631Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210131 Git Practice</title>
+    <link href="https://leehyungi0622.github.io/2021/01/31/210131-Git-practice/"/>
+    <id>https://leehyungi0622.github.io/2021/01/31/210131-Git-practice/</id>
+    <published>2021-01-31T02:30:42.000Z</published>
+    <updated>2021-01-31T02:36:51.631Z</updated>
+    
+    <content type="html"><![CDATA[<p>오늘은 저번 수업시간(<strong>29(금)</strong>)에 배운 <code>Git branch 관리와 협업</code>에 대한 내용을 최대한 활용해서 연습을 해 볼 것이다. 물론 강사님 말처럼 입사하게 되면 <strong>main(master) branch, release branch</strong>를 건드릴 필요 없이, <strong>develop, feature branch</strong>만 가지고 작업을 하겠지만 개인 프로젝트할 때 버전별로 업데이트 해서 release도 해 볼 것이기 때문에 이를 위해 제대로 연습을 해 보겠다.</p><br/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;오늘은 저번 수업시간(&lt;strong&gt;29(금)&lt;/strong&gt;)에 배운 &lt;code&gt;Git branch 관리와 협업&lt;/code&gt;에 대한 내용을 최대한 활용해서 연습을 해 볼 것이다. 물론 강사님 말처럼 입사하게 되면 &lt;strong&gt;main(mast</summary>
+      
+    
+    
+    
+    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
+    
+  </entry>
   
   <entry>
     <title>Baekjoon Online Judge 11650번 x, y 좌표 정렬문제</title>
@@ -103,7 +133,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/30/210130-javascript-basic/"/>
     <id>https://leehyungi0622.github.io/2021/01/30/210130-javascript-basic/</id>
     <published>2021-01-30T13:00:42.000Z</published>
-    <updated>2021-01-30T13:06:45.266Z</updated>
+    <updated>2021-01-31T02:29:19.490Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/javascript_logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 JavaScript의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><ul><li><h1 id="JavaScript의-기본문법"><a href="#JavaScript의-기본문법" class="headerlink" title="JavaScript의 기본문법"></a><strong>JavaScript의 기본문법</strong></h1></li></ul>]]></content>
     
@@ -121,6 +151,8 @@
     
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
     <category term="JavaScript" scheme="https://leehyungi0622.github.io/tags/JavaScript/"/>
     
@@ -258,7 +290,7 @@
     <link href="https://leehyungi0622.github.io/2021/01/28/210128-linked_list/"/>
     <id>https://leehyungi0622.github.io/2021/01/28/210128-linked_list/</id>
     <published>2021-01-28T07:30:42.000Z</published>
-    <updated>2021-01-28T07:47:14.231Z</updated>
+    <updated>2021-01-31T02:28:54.214Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/210128_linked_list.png"></p><h1 id="이번-포스팅에서-정리-할-내용은"><a href="#이번-포스팅에서-정리-할-내용은" class="headerlink" title="이번 포스팅에서 정리 할 내용은"></a><strong>이번 포스팅에서 정리 할 내용은</strong></h1><p><code>링크드 리스트(Linked list)</code>에 대한 개념이다.<br>(작성중…)</p>]]></content>
     
@@ -279,6 +311,8 @@
     <category term="Data-structure-Theory" scheme="https://leehyungi0622.github.io/tags/Data-structure-Theory/"/>
     
     <category term="Linked-list" scheme="https://leehyungi0622.github.io/tags/Linked-list/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   
@@ -558,34 +592,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;백준-저지-10814번-나이순-정렬문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-10814번-나이순-정렬문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 5397번 키로거 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/01/27/210127-Algorithm_baekjoon_5397/"/>
-    <id>https://leehyungi0622.github.io/2021/01/27/210127-Algorithm_baekjoon_5397/</id>
-    <published>2021-01-27T05:18:42.000Z</published>
-    <updated>2021-01-28T05:40:22.966Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-5397번-키로거-문제-Pseudo-code-Python-code"><a href="#백준-저지-5397번-키로거-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 5397번 키로거 문제 Pseudo code + Python code"></a>백준 저지 5397번 키로거 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210127_baekjoon_5397.png"></p><blockquote><p>위에서 손코딩한 코드에서는 left_stack과 right_stack을 for문 외부에서 초기화 해주었지만, 이렇게 해주면 매 테스트 케이스마다 초기화된 스택을 사용할 수 없기 때문에 for-loop 내에서 left_stack과 right_stack을 초기화 시켜주어야 한다.</p></blockquote><pre><code class="python">test_case = int(input())for _ in range(test_case):    left_stack = []    right_stack = []    p = input()    for i in p:        if i == &#39;-&#39;:            if left_stack:                left_stack.pop()        elif i == &#39;&lt;&#39;:            if left_stack:                right_stack.append(left_stack.pop())        elif i == &#39;&gt;&#39;:            if right_stack:                left_stack.append(right_stack.pop())        else:            left_stack.append(i)    left_stack.extend(reversed(right_stack))    print(&#39;&#39;.join(left_stack))</code></pre><p>이 문제는 키로거로부터 읽은 키보드의 입력을 읽어, 사용자가 입력한 비밀번호가 무엇인지 알아내는 프로그램을 작성하는 문제이다.</p><p>커서를 기준으로 좌, 우 이동 그리고 삭제하는 처리가 있기 때문에 좌, 우 이동시 리스트 내의 문자의 이동을 처리하기 위해 두 개의 스택을 준비해서 처리한다.</p><p>주의해야 될 부분은 오른쪽 스택은 반대 방향으로 데이터가 쌓이기 때문에 최종적으로 오른쪽 스택은 좌우 반전을 하여 왼쪽 스택과 같이 이어줘야 알맞는 결과를 얻을 수 있다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-5397번-키로거-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-5397번-키로거-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저지 53</summary>
       
     
     
