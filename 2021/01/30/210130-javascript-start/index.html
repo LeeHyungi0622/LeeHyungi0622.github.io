@@ -1,0 +1,219 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210130 JavaScript의 탄생과 발전</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210130 JavaScript의 탄생과 발전</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%EC%9D%98-%ED%83%84%EC%83%9D%EA%B3%BC-%EB%B0%9C%EC%A0%84"><span class="toc-text">JavaScript의 탄생과 발전</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4%EC%84%9C-%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%B8%EC%83%81%EC%9D%98-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EC%9E%91%EC%97%85%EB%93%A4"><span class="toc-text">JavaScript를 이용해서 할 수 있는 브라우져상의 기본적인 작업들</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-%EC%9A%94%EC%86%8C%EC%97%90-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0"><span class="toc-text">HTML 요소에 접근하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-text">스타일 변경하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript%EB%A1%9C-action-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-text">JavaScript로 action 이벤트 변경하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-EVENT"><span class="toc-text">DOM EVENT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Callback-function"><span class="toc-text">Callback function</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JQuery%EC%9D%98-%EB%93%B1%EC%9E%A5"><span class="toc-text">JQuery의 등장</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%9D%98-%EC%9E%85%EC%9E%A5%EC%97%90%EC%84%9C-%EB%B3%B8-DOM-%EC%A1%B0%EC%9E%91"><span class="toc-text">개발자의 입장에서 본 DOM 조작</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript-Engine"><span class="toc-text">JavaScript Engine</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/JavaScript"><i class="tag post-item-tag">JavaScript</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210130 JavaScript의 탄생과 발전</h1><time class="has-text-grey" datetime="2021-01-30T11:59:42.000Z">2021-01-30</time><article class="mt-2 post-content"><p><img src="/images/post_images/javascript_logo.png"></p>
+<blockquote>
+<p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 JavaScript의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p>
+</blockquote>
+<h1 id="JavaScript의-탄생과-발전"><a href="#JavaScript의-탄생과-발전" class="headerlink" title="JavaScript의 탄생과 발전"></a><strong>JavaScript의 탄생과 발전</strong></h1><p><img src="/images/post_images/210130_javascript_img1.png"></p>
+<p>JavaScript는 1995년에 만들어졌고, Netscape 브라우저에서 당시에 다른 브라우저와 차별화를 두기 위한 기술로써 사용되었었다.<br>현대에 들어서는 장바구니 담기, 좋아요 클릭, instagram - javascript , 가상현실, VR 게임/앱, 드론 컨트롤, 로봇 컨트롤 등 다양한 분야에서 Javascript가 사용이 되고 있다.</p>
+<p><img src="/images/post_images/210130_javascript_img2.png"></p>
+<p>JavaScript는 과거에 웹 브라우저에 종속되었던 특성에서 웹 브라우저와 독립적으로 사용이 가능해짐에 따라 React, NodeJS, ExpressJS 등 front-end와 back-end에서 모두 JavaScript 사용이 가능하게 되었다.</p>
+<h1 id="JavaScript를-이용해서-할-수-있는-브라우져상의-기본적인-작업들"><a href="#JavaScript를-이용해서-할-수-있는-브라우져상의-기본적인-작업들" class="headerlink" title="JavaScript를 이용해서 할 수 있는 브라우져상의 기본적인 작업들"></a><strong>JavaScript를 이용해서 할 수 있는 브라우져상의 기본적인 작업들</strong></h1><blockquote>
+<ol>
+<li> 페이지에 있는 HTML 요소들을 변경할 수 있다.</li>
+<li> 페이지에 있는 HTML의 속성들을 변경할 수 있다.</li>
+<li> 페이지에 있는 CSS 스타일들을 변경할 수 있다.</li>
+<li> 기존의 HTML 요소나 속성을 제거할 수 있다.</li>
+<li> 새로운 HTML 요소나 속성들을 추가할 수 있다.</li>
+<li> 자바스크립트는 페이지에 있는 기존의 HTML 이벤트와 상호작용할 수 있다.</li>
+<li> 자바스크립트는 페이지에서 새로운 HTML 이벤트들을 생성할 수 있다.</li>
+</ol>
+</blockquote>
+<p>위의 브라우저의 조작은 DOM(Document Object Model)을 활용해서 가능하다.</p>
+<p><img src="/images/post_images/210130_javascript_img3.png"></p>
+<h3 id="HTML-요소에-접근하기"><a href="#HTML-요소에-접근하기" class="headerlink" title="HTML 요소에 접근하기"></a><strong>HTML 요소에 접근하기</strong></h3><pre><code class="javascript">document.getElementsByTagName(&quot;h1&quot;);
+document.getElementByClassName(&quot;second&quot;);
+document.getElementById(&quot;first&quot;);
+
+document.querySelector(&quot;h1&quot;) : selector가 찾은 태그의 첫번째 요소를 찾는다.
+document.querySelectorAll(&quot;li&quot;) : selector가 찾은 태그의 모든 요소를 찾는다.
+
+getAttribute : 속성값 찾기
+ex) document.querySelector(&quot;li&quot;).getAttribute(&quot;random&quot;);
+
+setAttribute : 속성값 셋팅
+ex) document.querySelector(&quot;li&quot;).setAttribute(&quot;random&quot;, &quot;1000&quot;);</code></pre>
+<h3 id="스타일-변경하기"><a href="#스타일-변경하기" class="headerlink" title="스타일 변경하기"></a><strong>스타일 변경하기</strong></h3><pre><code class="javascript">//style.&#123;property&#125;
+document.querySelector(&quot;h1&quot;).style.background = &quot;yellow&quot;;</code></pre>
+<p><strong>일반적으로 HTML은 텍스트에서 분리되고, CSS는 스타일에 집중된다. 그리고 Javascript는 액션에 집중한다.</strong></p>
+<h3 id="JavaScript로-action-이벤트-변경하기"><a href="#JavaScript로-action-이벤트-변경하기" class="headerlink" title="JavaScript로 action 이벤트 변경하기"></a><strong>JavaScript로 action 이벤트 변경하기</strong></h3><pre><code class="javascript">document.querySelector(&quot;li&quot;).classList;
+
+// 클래스이름에 리스트를 추가할 수 있다.
+document.querySelector(&quot;li&quot;).classList.add(&quot;coolTitle&quot;);
+
+document.querySelector(&quot;li&quot;).classList.toggle(&quot;done&quot;);
+
+// innerHTML
+document.querySelector(&quot;h1&quot;).innerHTML = &quot;&lt;strong&gt;!!!!!&lt;/strong&gt;&quot;;
+document.querySelectorAll(&quot;li&quot;)[1].parentElement.parentElement.children;
+
+// It is important to CACHE selectors in variables
+/** 
+※ 이렇게 페이지를 새로고침하기 전까지 h1 변수에 h1태그에 대한 querySelector를 지정해준 것을 저장해서 사용하는 것을 CACHE selector라고 한다. 
+*/
+var h1 = document.querySelector(&quot;h1&quot;);</code></pre>
+<h3 id="DOM-EVENT"><a href="#DOM-EVENT" class="headerlink" title="DOM EVENT"></a><strong>DOM EVENT</strong></h3><pre><code class="javascript">var button = document.getElementsByTagName(&quot;Button&quot;)[0];
+
+button.addEventListener(&quot;mouseleave&quot;, function () &#123;
+  console.log(&quot;CLICK!!!!&quot;);
+&#125;);</code></pre>
+<p><strong>Event reference</strong><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Events">Mozila Event Reference!</a></p>
+<pre><code class="html">&lt;input id=&quot;userinput&quot; type=&quot;text&quot; placeholder=&quot;enter items&quot; /&gt;
+&lt;button id=&quot;enter&quot;&gt;Enter&lt;/button&gt;</code></pre>
+<pre><code class="javascript">var button = document.getElementById(&quot;enter&quot;);
+var input = document.getElementById(&quot;userinput&quot;);
+var ul = document.querySelector(&quot;ul&quot;);
+
+function inputLength() &#123;
+  return input.value.length;
+&#125;
+
+function createListElement() &#123;
+  var li = document.createElement(&quot;li&quot;);
+  li.appendChild(document.createTextNode(input.value));
+  ul.appendChild(li);
+  input.value = &quot;&quot;;
+&#125;
+
+function addListAfterClick() &#123;
+  console.log(&quot;click is working&quot;);
+  if (inputLength() &gt; 0) &#123;
+    createListElement();
+  &#125;
+&#125;
+
+function addListAfterKeypress(event) &#123;
+  console.log(event.which);
+  //Enter key event(which):13
+  if (inputLength() &gt; 0 &amp;&amp; event.keyCode === 13) &#123;
+    createListElement();
+  &#125;
+&#125;
+
+button.addEventListener(&quot;click&quot;, addListAfterClick);
+
+input.addEventListener(&quot;keypress&quot;, addListAfterKeypress);</code></pre>
+<h3 id="Callback-function"><a href="#Callback-function" class="headerlink" title="Callback function"></a><strong>Callback function</strong></h3><p>앞서 코드를 refactoring할때 버튼 클릭 리스너와 input 태그에 대한 이벤트 리스너의 이벤트 메소드에서 argument가 있는 메소드 형태가 아닌 변수 형태로 작성을 해주었다</p>
+<blockquote>
+<ol>
+<li> button.addEventListener(“click”, addListAfterClick);</li>
+<li> input.addEventListener(“keypress”, addListAfterKeypress);</li>
+</ol>
+</blockquote>
+<p>이러한 작성을 콜백함수라고 한다. 자바스크립트에서는 클릭 이벤트가 호출될때, 함수를 실행하지 않고, 함수에 대한 참조를 전달한다.</p>
+<p>리스트의 항목을 클릭했을때, class=”done”을 toggle로써 추가/제거될 수 있도록 작성, 각각의 리스트 옆에 삭제할 수 있는 delete 버튼을 삽입</p>
+<p><strong>solution1)</strong></p>
+<pre><code class="javascript">// Toggle event
+function toggleListItemClass() &#123;
+  li.classList.toggle(&quot;done&quot;);
+&#125;
+
+//1. toggles the .done class on and off
+li.addEventListener(&quot;click&quot;, toggleListItemClass);
+
+//2. Add delete button beside of the list item.
+var li = document.querySelectorAll(&quot;li&quot;);
+
+for (var i = 0; i &lt; li.length; i++) &#123;
+  li[i].innerHTML +=
+    &quot;&lt;button id=&#39;delete_btn&quot; +
+    i +
+    &quot;&#39; onclick=&#39;deleteListItem(&quot; +
+    i +
+    &quot;)&#39;&gt;delete&lt;/button&gt;&quot;;
+&#125;
+
+function deleteListItem(i) &#123;
+  ul.removeChild(ul.childNodes[i]);
+&#125;</code></pre>
+<p><strong>solution2)</strong></p>
+<pre><code class="html">&lt;ul id=&quot;foodList&quot;&gt;
+  &lt;li class=&quot;bold red&quot; random=&quot;23&quot;&gt;
+    Notebook&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Jello&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;Spinach&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;Rice&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;Birthday Cake&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;Candles&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<pre><code class="javascript">var button = document.getElementById(&quot;enter&quot;);
+var input = document.getElementById(&quot;userinput&quot;);
+var ul = document.querySelector(&quot;ul&quot;);
+var li = document.querySelector(&quot;li&quot;);
+var deletebtn = document.getElementsByClassName(&quot;delete&quot;);
+
+// class=&quot;delete&quot;인 버튼에 click 이벤트 set up
+for (var i = 0; i &lt; deletebtn.length; i++) &#123;
+  deletebtn[i].addEventListener(&quot;click&quot;, removeParent, false);
+&#125;
+
+function inputLength() &#123;
+  return input.value.length;
+&#125;
+
+function createListElement() &#123;
+  var li = document.createElement(&quot;li&quot;);
+  var btn = document.createElement(&quot;button&quot;);
+  btn.innerHTML = &quot;Delete&quot;;
+  btn.onclick = removeParent;
+  li.appendChild(document.createTextNode(input.value));
+  li.appendChild(btn);
+  ul.appendChild(li);
+  input.value = &quot;&quot;;
+&#125;
+
+function addListAfterClick() &#123;
+  if (inputLength() &gt; 0) &#123;
+    createListElement();
+  &#125;
+&#125;
+
+function addListAfterKeypress(event) &#123;
+  if (inputLength() &gt; 0 &amp;&amp; event.keyCode === 13) &#123;
+    createListElement();
+  &#125;
+&#125;
+
+button.addEventListener(&quot;click&quot;, addListAfterClick);
+
+input.addEventListener(&quot;keypress&quot;, addListAfterKeypress);
+
+// Toggle event
+function toggleListItemClass() &#123;
+  li.classList.toggle(&quot;done&quot;);
+&#125;
+
+//toggles the .done class on and off
+li.addEventListener(&quot;click&quot;, toggleListItemClass);
+
+//delete parent function
+function removeParent(evt) &#123;
+  evt.target.removeEventListener(&quot;click&quot;, removeParent, false);
+  evt.target.parentNode.remove();
+&#125;</code></pre>
+<ul>
+<li><h2 id="JQuery의-등장"><a href="#JQuery의-등장" class="headerlink" title="JQuery의 등장"></a><strong>JQuery의 등장</strong></h2><p>DOM을 이용해서 화면의 구성요소를 조작할때에는 각 브라우저에서 호환이 되는지 확인을 해야했으며, querySelector를 지원하는 브라우저도 몇 안되었다. 이러한 호환문제와 DOM 객체를 이용한 웹 페이지 요소 조작을 간편하게 할 수 있도록 등장한 것이 바로 JQuery이다. 하지만 ES6 이후부터는 JavaScript가 많이 발전되어 JQuery를 사용하지 않는 추세이다.<br>(JQuery는 간단하게 JQuery CDN을 추가하고, $sign을 이용해서 간단하게 화면 구성요소들을 호출해서 사용할 수 있다.)</p>
+<pre><code class="javascript">ex. $(document).ready(function()&#123;
+  $(&quot;p&quot;).click(function()&#123;
+       $(this).hide();
+  &#125;);
+&#125;);
+(= p.addEventListener(&quot;click&quot;, function()&#123; &#125;);)</code></pre>
+<blockquote>
+<p>JQuery는 매우 Imperative한 언어이다. 따라서 프로그램에 정확히 무엇을 해야하는지 하나 하나씩 알려야 한다. 하지만 프로그램이 커지면 다른 조치는 또 다른 조치로 종속되고, 오류와 버그가 많아지며 해결하기 위한 추적이 매우 힘들어진다.<br/><ins>Imperative : 반드시 해야하는, 긴요한, 명령적인</ins></p>
+</blockquote>
+</li>
+</ul>
+<p>Javascript를 대중화시키고 편리하게 사용하는데에 JQuery는 많은 것을 기여를 했지만, 점점 시스템은 커져가고 있고, 단순히 모든 것들을 절차지향 언어와 같이 하나 하나 알려줘야하는 프로그램이라면 나중에 운용보수면에서 보았을때 힘들 것이라고 생각한다.</p>
+<ul>
+<li><h2 id="개발자의-입장에서-본-DOM-조작"><a href="#개발자의-입장에서-본-DOM-조작" class="headerlink" title="개발자의 입장에서 본 DOM 조작"></a><strong>개발자의 입장에서 본 DOM 조작</strong></h2>DOM 조작의 양을 최소화하는 것이 좋다. 이 것은 곧 웹 페이지의 퍼포먼스로 직결되는 문제이며, 페이지에서의 일부변경이 전체 페이지의 렌더링되어버리면 매우 효율이 떨어지는 어플리케이션이 될 것이다.<br>웹 응용 프로그램을 구축할 때 매우 중요한 개념이며 똑똑하고 최상의 방법은 필요한 부분만 re-painting하는 것이다.</li>
+</ul>
+<p><strong># document : 브라우저에서 볼 수 있는 화면</strong></p>
+<ul>
+<li><h2 id="JavaScript-Engine"><a href="#JavaScript-Engine" class="headerlink" title="JavaScript Engine"></a><strong>JavaScript Engine</strong></h2>각 브라우저는 JavaScript engine을 가지고 있으며, 아래와 같이 각기 다른 engine을 사용하고 있다.</li>
+</ul>
+<blockquote>
+<p>(1) Chrome - ‘V8’<br>(2) Edge - ‘Chalker Core’<br>(3) Safari - ‘Nitro’<br>(4) Firefox - ‘SpiderMonkey’</p>
+</blockquote>
+<p>JavaScript engine은 웹 브라우저상에 동작하는 자바스크립트 파일을 읽는 역할을 한다.</p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/01/30/210130-javascript-basic/" title="210130 JavaScript 기본 문법과 사용"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210130 JavaScript 기본 문법과 사용</span></a><a class="button is-default" href="/2021/01/30/210130-Git_commit_message_rule/" title="210130 Git Commit Message TIL"><span class="has-text-weight-semibold">Next: 210130 Git Commit Message TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
