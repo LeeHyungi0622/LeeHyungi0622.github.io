@@ -1,12 +1,12 @@
-<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210201 Python TIL (내용 수정중....)</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
-</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210201 Python TIL (내용 수정중....)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-List-Dictionary-Comprehension"><span class="toc-text">Python - List &#x2F; Dictionary Comprehension</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#List-Comprehension"><span class="toc-text">List Comprehension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dictionary-Comprehension"><span class="toc-text">Dictionary Comprehension</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-I-O"><span class="toc-text">File I&#x2F;O</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#close%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%84-%EC%9E%8A%EC%96%B4%EB%B2%84%EB%A6%AC%EB%8A%94-%EA%B2%BD%EC%9A%B0%EB%A5%BC-%EC%98%88%EB%B0%A9%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%B4-%EC%95%84%EB%9E%98%EC%99%80-%EA%B0%99%EC%9D%B4-with%EA%B5%AC%EB%B6%84%EC%9C%BC%EB%A1%9C-%EC%9E%91%EC%84%B1%EC%9D%84-%ED%95%B4%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%9C%EB%8B%A4"><span class="toc-text">close하는 것을 잊어버리는 경우를 예방하기 위해 아래와 같이 with구분으로 작성을 해서 사용한다.</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pandas"><span class="toc-text">Pandas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSV-module-CSV-File-Reading-and-Writing"><span class="toc-text">CSV module : CSV File Reading and Writing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-dump-load-%EC%A3%BC%EB%A1%9C-%EC%82%AC%EC%9A%A9"><span class="toc-text">JSON (dump, load 주로 사용)</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210201 Python TIL (내용 수정중....)</h1><time class="has-text-grey" datetime="2021-02-01T04:02:42.000Z">2021-02-01</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210201 Python TIL</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210201 Python TIL</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#List-Dictionary-Comprehension"><span class="toc-text">List &#x2F; Dictionary Comprehension**</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#List-Comprehension"><span class="toc-text">List Comprehension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dictionary-Comprehension"><span class="toc-text">Dictionary Comprehension</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9C%84%EC%9D%98-%EC%BD%94%EB%93%9C%EB%A5%BC-Dictionary-comprehension%EC%9C%BC%EB%A1%9C-%EC%9E%91%EC%84%B1"><span class="toc-text">위의 코드를 Dictionary comprehension으로 작성</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dictionary-for-loop-with-if-statement"><span class="toc-text">Dictionary + for-loop with if-statement</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9C%84%EC%9D%98-%EC%BD%94%EB%93%9C%EB%A5%BC-Dictionary-comprehension%EC%9C%BC%EB%A1%9C-%EC%9E%91%EC%84%B1-1"><span class="toc-text">위의 코드를 Dictionary comprehension으로 작성</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%9D%98-%EA%B0%81-%EB%AC%B8%EC%9E%90%EC%97%B4-%EC%9A%94%EC%86%8C%EC%9D%98-%EA%B8%B8%EC%9D%B4%EB%A5%BC-%EA%B5%AC%ED%95%B4%EC%84%9C-%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%B3%80%EC%88%98-%EC%83%9D%EC%84%B1-list-comprehension-for-loop-with-map"><span class="toc-text">리스트의 각 문자열 요소의 길이를 구해서 새로운 리스트 변수 생성 (list comprehension + for-loop with map)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dict-get-key-default-value-%EC%99%80-dict-setdefault-key-default-value-%ED%99%9C%EC%9A%A9"><span class="toc-text">dict.get([key], [default value])와 dict.setdefault([key], [default value]) 활용</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-I-O"><span class="toc-text">File I&#x2F;O</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC%EC%9D%84-%EC%97%B4%EA%B3%A0-open-%EC%93%B0%EA%B3%A0-write-%EC%9D%BD%EA%B8%B0-readline-%EC%8B%A4%EC%8A%B5"><span class="toc-text">파일을 열고(open), 쓰고(write), 읽기(readline) 실습</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSV-module-CSV-File-Reading-and-Writing"><span class="toc-text">CSV module : CSV File Reading and Writing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON-dump-load-%EC%A3%BC%EB%A1%9C-%EC%82%AC%EC%9A%A9"><span class="toc-text">JSON (dump, load 주로 사용)</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a><a href="/tags/List-comprehension"><i class="tag post-item-tag">List-comprehension</i></a><a href="/tags/Dictionary-comprehension"><i class="tag post-item-tag">Dictionary-comprehension</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210201 Python TIL</h1><time class="has-text-grey" datetime="2021-02-01T04:02:42.000Z">2021-02-01</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
 <br/>
 
 <ul>
-<li><h1 id="Python-List-Dictionary-Comprehension"><a href="#Python-List-Dictionary-Comprehension" class="headerlink" title="Python - List / Dictionary Comprehension"></a><strong>Python - List / Dictionary Comprehension</strong></h1><p>Python을 더 Python스럽게 작성하기위해서 이 Comprehension의 이해와 사용은 필수적이다.</p>
+<li><h1 id="List-Dictionary-Comprehension"><a href="#List-Dictionary-Comprehension" class="headerlink" title="List / Dictionary Comprehension**"></a>List / Dictionary Comprehension**</h1><p>Python을 더 Python스럽게 작성하기위해서 이 Comprehension을 이해하고 적절히 잘 사용해야한다.</p>
 <ul>
-<li><h3 id="List-Comprehension"><a href="#List-Comprehension" class="headerlink" title="List Comprehension"></a><strong>List Comprehension</strong></h3><ul>
-<li><strong>존재하는 리스트를 활용하여 새로운 리스트를 생성하는 방법</strong></li>
+<li><h2 id="List-Comprehension"><a href="#List-Comprehension" class="headerlink" title="List Comprehension"></a><strong>List Comprehension</strong></h2><ul>
+<li><strong>리스트의 각 요소에 2를 곱해서 새로운 리스트 생성하기 (for-loop + list comprehension)</strong></li>
 </ul>
 <pre><code class="python">numbers = [1, 2, 3, 4, 5]
 new_numbers = []
@@ -15,6 +15,9 @@ for i in numbers:
 print(new_numbers)
 # list comprehension을 사용해서 아래와 같이 간단하게 작성을 해줄 수 있다.
 new_numbers = [i*2 for i in numbers]</code></pre>
+<ul>
+<li><strong>리스트의 요소중에 짝수인 수를 선별해서 해당 수에 제곱을 해서 새로운 리스트 생성하기 (for-loop + list comprehension)</strong></li>
+</ul>
 <pre><code class="python">numbers = [1, 2, 3, 4, 5]
 new_numbers = []
 # numbers 자료 중 짝수일때만 제곱하여 new_numbers에 추가한다.
@@ -23,12 +26,18 @@ for i in numbers:
     new_numbers.append(i**2)
 # 조건문이 하나일때에는 for문 뒤에 위치하도록 한다.
 new_numbers = [i**2 for i in numbers if i % 2 == 0]</code></pre>
+<ul>
+<li><strong>리스트의 요소중에 짝수는 제곱을, 홀수인 경우에는 세제곱을 해서 새로운 리스트를 생성하기 (list comprehension + Ternary operator)</strong></li>
+</ul>
 <pre><code class="python">numbers = [1, 2, 3, 4, 5]
 new_numbers = []
 # numbers 자료 중 짝수일때만 제곱하여 new_numbers에 추가한다.
 # 그렇지 않을 경우, 세제곱하여 new_numbers에 추가한다.
 # expression내에 조건을 달아줄때에는 삼항연산자로 조건처리를 해준다.
 new_numbers = [item**2 if item % 2 == 0 else item**3 for item in numbers]</code></pre>
+<ul>
+<li><strong>FizzBuzz (for-loop &amp; if-statement)</strong></li>
+</ul>
 <pre><code class="python"># Fizzbuzz
 # 3의 배수 : Fizz, 5의 배수 : Buzz, 15의 배수 FizzBuzz
 numbers = [i for i in range(1, 100+1)]
@@ -43,12 +52,18 @@ for i in numbers:
   else:
     fizzbuzz_list.append(i)
 # list comprehension으로 convert</code></pre>
+<ul>
+<li><strong>FizzBuzz (list comprehension + Ternary operator)</strong></li>
+</ul>
 <pre><code class="python"># fizzbuzz with list comprehension
 numbers = [i for i in range(1, 100+1)]
 fizzbuzz_list = [&#39;fizzbuzz&#39; if i%15==0 else \
                  &#39;fizz&#39; if i%3==0 else \
                  &#39;buzz&#39; if i%5==0 else \
                  i for i in numbers]</code></pre>
+<ul>
+<li><strong>Leap year(list comprehension + for-loop, if-statement)</strong></li>
+</ul>
 <pre><code class="python"># Leap year
 # Constraint: 1999~2101
 year_list = [i for i in range(1999, 2101+1)]
@@ -64,6 +79,9 @@ for year in year_list:
     is_leap_list.append(&#39;leap_year&#39;)
   else:
     is_leap_list.append(year)</code></pre>
+<ul>
+<li><strong>Leap year(list comprehension with Ternary operator)</strong></li>
+</ul>
 <pre><code class="python"># Leap year with list comprehension
 # Leap year: 4의 배수이면서, 100의 배수가 아니거나 400의 배수인 연도
 # Constraint: 1999~2101
@@ -74,6 +92,9 @@ is_leap_list = [&#39;leap_year&#39; if year%4==0 and (year%100!=0 or year%400==0
 # 2000 = leap_year
 # 2100 = plain_year
 print(is_leap_list)</code></pre>
+<ul>
+<li><strong>Functionalize the process of filtering leap year</strong></li>
+</ul>
 <pre><code class="python">def is_leap(year):
   if year%4==0 and (year%100!=0 or year%400==0):
     return True
@@ -82,85 +103,61 @@ print(is_leap_list)</code></pre>
 is_leap_list = [&#39;leap_year&#39; if isi_leap(year) else year for year in years]
 
 print(is_leap_list)</code></pre>
+<br/>
 </li>
-<li><h3 id="Dictionary-Comprehension"><a href="#Dictionary-Comprehension" class="headerlink" title="Dictionary Comprehension"></a><strong>Dictionary Comprehension</strong></h3><pre><code class="python">fruits = &#123;&#39;a&#39;:&#39;apple&#39;, &#39;b&#39;:&#39;banana&#39;, &#39;c&#39;:&#39;coconut&#39;, &#39;d&#39;:&#39;durian&#39;&#125;</code></pre>
+<li><h2 id="Dictionary-Comprehension"><a href="#Dictionary-Comprehension" class="headerlink" title="Dictionary Comprehension"></a><strong>Dictionary Comprehension</strong></h2><pre><code class="python">fruits = &#123;&#39;a&#39;:&#39;apple&#39;, &#39;b&#39;:&#39;banana&#39;, &#39;c&#39;:&#39;coconut&#39;, &#39;d&#39;:&#39;durian&#39;&#125;</code></pre>
 <pre><code class="python">over_six_fruits = &#123;&#125;
-
+# fruite value 중에 문자열 길이가 6보다 큰 경우에 새로운 dict에 담아서 새로운 dict 변수를 생성
 for k, v in fruits.items():
   if len(v) &gt; 6:
     over_six_fruits[k] = v</code></pre>
-<p>위의 코드를 Dictionary comprehension으로 작성해본다.</p>
-<pre><code class="python"># dictionary comprehension
+<ul>
+<li><h4 id="위의-코드를-Dictionary-comprehension으로-작성"><a href="#위의-코드를-Dictionary-comprehension으로-작성" class="headerlink" title="위의 코드를 Dictionary comprehension으로 작성"></a><strong>위의 코드를 Dictionary comprehension으로 작성</strong></h4></li>
+</ul>
+<pre><code class="python"># Dictionary comprehension
 over_six_fruits = &#123;k:v for k,v in fruits.items() if len(v) &gt; 6&#125;</code></pre>
+<ul>
+<li><h4 id="Dictionary-for-loop-with-if-statement"><a href="#Dictionary-for-loop-with-if-statement" class="headerlink" title="Dictionary + for-loop with if-statement"></a><strong>Dictionary + for-loop with if-statement</strong></h4></li>
+</ul>
 <pre><code class="python">number_dict = &#123;&#39;pi&#39;:3.1415, &#39;e&#39;:2.71828, &#39;year&#39;:2021, &#39;month&#39;:2, &#39;day&#39;:1&#125;
 new_number_dict = &#123;&#125;
 for k,v in number_dict.items():
   if v &lt; 3:
     new_number_dict[k] = v ** 2
 print(new_number_dict)</code></pre>
+<ul>
+<li><h4 id="위의-코드를-Dictionary-comprehension으로-작성-1"><a href="#위의-코드를-Dictionary-comprehension으로-작성-1" class="headerlink" title="위의 코드를 Dictionary comprehension으로 작성"></a><strong>위의 코드를 Dictionary comprehension으로 작성</strong></h4></li>
+</ul>
 <pre><code class="python">number_dict = &#123;&#39;pi&#39;:3.1415, &#39;e&#39;:2.71828, &#39;year&#39;:2021, &#39;month&#39;:2, &#39;day&#39;:1&#125;
 # 아래와 같이 삼항연산자를 이용해서 조건처리를 해서 작성을 해 줄 수 있다.
 # 앞에서 key를 이미 정의해주었기 때문에 else구문에서는 key에 대한 정의를 생략하고 value에 대한 선언만 넣어준다.
 new_number_dict = &#123;k:v**2 if v &lt; 3 else v-1 for k,v in number_dict.items()&#125;</code></pre>
+<ul>
+<li><h4 id="리스트의-각-문자열-요소의-길이를-구해서-새로운-리스트-변수-생성-list-comprehension-for-loop-with-map"><a href="#리스트의-각-문자열-요소의-길이를-구해서-새로운-리스트-변수-생성-list-comprehension-for-loop-with-map" class="headerlink" title="리스트의 각 문자열 요소의 길이를 구해서 새로운 리스트 변수 생성 (list comprehension + for-loop with map)"></a><strong>리스트의 각 문자열 요소의 길이를 구해서 새로운 리스트 변수 생성 (list comprehension + for-loop with map)</strong></h4></li>
+</ul>
 <pre><code class="python">a_word_list = [&#39;aback&#39;,&#39;abacus&#39;,&#39;abandon&#39;,&#39;abandoned&#39;,&#39;abandonment&#39;,&#39;abashed&#39;,&#39;abate&#39;,&#39;abbey&#39;,]
 실행되는 순간에 나오는 것
-# 리스트에 있는 각각의 요소에 대해 길이를 구해서 (바로 결과를 사용해서 처리할 필요가 있을때 사용)
+
 a_word_len_list = [len(s) for s in a_word_list]
 
 # dict.get()
 # dict.setdefault()
 
-# for문이 돌때 자료가 필요할때마다 리스트의 데이터를 하나 하나 가져다가 쓴다. (바로 처리할 필요가 없을때 사용한다.)
-# map 객체를 사용하면, 시간을 절약할 수 있다.
 a_word_len_list = []
 for len_ in map(len, a_word_list):
   a_word_len_list.append(len_)
 </code></pre>
-<br/>
-</li>
-</ul>
-</li>
-<li><h2 id="File-I-O"><a href="#File-I-O" class="headerlink" title="File I/O"></a><strong>File I/O</strong></h2></li>
-</ul>
-<pre><code class="python"># list append와 같은 기능 : &#39;w&#39;, encoding : utf-8
-f = open(&#39;./numbers.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;)
-f.write(&#39;hello&#39;)
-# file 객체의 life-cycle 종료
-f.close()</code></pre>
-<pre><code class="python">f = open(&#39;./numbers.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;)
-text = f.readline()
-print(text)
-f.close()</code></pre>
-<h1 id="close하는-것을-잊어버리는-경우를-예방하기-위해-아래와-같이-with구분으로-작성을-해서-사용한다"><a href="#close하는-것을-잊어버리는-경우를-예방하기-위해-아래와-같이-with구분으로-작성을-해서-사용한다" class="headerlink" title="close하는 것을 잊어버리는 경우를 예방하기 위해 아래와 같이 with구분으로 작성을 해서 사용한다."></a>close하는 것을 잊어버리는 경우를 예방하기 위해 아래와 같이 with구분으로 작성을 해서 사용한다.</h1><pre><code class="python">with open(&#39;./numbers.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
-  for _ in range(10):
-    f.write(&#39;hello&#39;)</code></pre>
-<pre><code class="python">with open(&#39;./numbers.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
-  text_list = f.readlines()
-  # 한 줄을 읽을때에는 .readline()
-  for line in text_list:
-    print(line.replace(&#39;\n&#39;,&#39;&#39;))</code></pre>
-<pre><code class="python"># append mode의 사용
-
-# append mode를 사용하는 경우, 이전 데이터의 EOF(End Of File)부터 이어서 추가 데이터가 붙기 때문에 write하는 경우에는 enter를 쳐서 개행(\n) 처리를 하고나서 그 다음 append할 데이터에 대해서 append mode를 실행해줘야 한다.
-# 이전에 삽입된 데이터 끝에 \n 가 없는 경우, 다음 append mode로 추가되는 데이터는 이전에 삽입된 데이터의 끝에 붙는다.
-numbers = [i for i in range(1,10+1)]
-with open(&#39;./numbers.txt&#39;, &#39;a&#39;, encoding=&#39;utf-8&#39;) as f:
-  for i in numbers:
-    # file 객체를 사용할때에는 반드시 str 타입으로 변수를 만들어줘야 한다.
-    f.write(&#39;&#123;&#125;\n&#39;.foramt(i))
-
-with open(&#39;./numbers.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
-  print(f.readlines())</code></pre>
 <ul>
-<li><h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+<li><h4 id="dict-get-key-default-value-와-dict-setdefault-key-default-value-활용"><a href="#dict-get-key-default-value-와-dict-setdefault-key-default-value-활용" class="headerlink" title="dict.get([key], [default value])와 dict.setdefault([key], [default value]) 활용"></a>dict.get([key], [default value])와 dict.setdefault([key], [default value]) 활용</h4></li>
 </ul>
-<pre><code class="python"># dict.get()
+<pre><code class="python">#
 len_dict = &#123;&#125;
 
-# 현재 len_dict에 len(apple) 5라는 키가 없었으면 1을 누적해서 더해준다.
+# 현재 len_dict에 len(apple)를 key값으로 가지는 값이 없으면 해당 key에 해당하는 변수를 0으로 초기화해서 넣어주고, 1을 누적해서 더해준다.
 # 현재 leln_dict에 len(apple) 5라는 키가 있다면 기존 값에 1을 더해서 누적해준다.
 len_dict[len(&#39;apple&#39;)] = len_dict.get(len(&#39;apple&#39;), 0) + 1
-# key로 len(&#39;amp&#39;) - 3으로 조회를 했을때 값이 없으면 default로 0을 선언해주고, 초기값에 1을 누적해서 더해준다.
+# key로 len(&#39;amp&#39;)의 값인 3으로 조회를 했을때 값이 없으면 default로 0을 선언해주고, 초기값에 1을 누적해서 더해준다.
+# 존재한다면 기존 값에 1을 더해서 누적을 해준다.
 len_dict[len(&#39;amp&#39;)] = len_dict.get(len(&#39;amp&#39;), 0) + 1</code></pre>
 <pre><code class="python"># 숙제) 위의 코드를 dictionary comprehension 으로 바꿔보기.
 len_dict = &#123;&#125;
@@ -187,14 +184,54 @@ for word in a_word_list:
 for word in a_word_list:
     filtered_dict.setdefault(word[0], []).append(word)
 print(filtered_dict)</code></pre>
+  <br/>
+</li>
+</ul>
+</li>
+<li><h2 id="File-I-O"><a href="#File-I-O" class="headerlink" title="File I/O"></a><strong>File I/O</strong></h2><ul>
+<li><h4 id="파일을-열고-open-쓰고-write-읽기-readline-실습"><a href="#파일을-열고-open-쓰고-write-읽기-readline-실습" class="headerlink" title="파일을 열고(open), 쓰고(write), 읽기(readline) 실습"></a><strong>파일을 열고(open), 쓰고(write), 읽기(readline) 실습</strong></h4></li>
+</ul>
+<pre><code class="python"># numbers.txt 파일 열고 쓰기 설정 및 문자열 encoding 방식을 &#39;utf-8&#39;으로 설정
+f = open(&#39;./numbers.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;)
+# 파일에 hello 쓰기
+f.write(&#39;hello&#39;)
+# file 객체의 life-cycle 종료
+f.close()</code></pre>
+<pre><code class="python"># numbers.txt 파일 열고 읽기 설정 및 문자열 encoding 방식을 &#39;utf-8&#39;으로 설정
+f = open(&#39;./numbers.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;)
+# 파일의 한 줄을 읽고(readline) text 변수에 담기
+text = f.readline()
+# 파일로부터 읽은 text 변수를 출력
+print(text)
+# file 객체의 life-cycle 종료
+f.close()</code></pre>
+<p><strong>위에서는 open으로 파일을 연 후에 그 내용을 표시하고 close하였다. 아래 코드는 <code>with</code>을 활용한 코드 작성으로, 바로 옆에 수행 할 함수를 명시하고 alias로 f를 해주었다.</strong><br><code>with 구문을 사용하면 명시적 클로즈 처리가 불필요하게 되므로 close를 안하는 실수를 사전에 방지할 수 있다.</code></p>
+<pre><code class="python">with open(&#39;./numbers.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+  for _ in range(10):
+    f.write(&#39;hello&#39;)</code></pre>
+<pre><code class="python">with open(&#39;./numbers.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+# 복수의 줄을 읽을때에는 .readlines()
+  text_list = f.readlines()
+  # 한 줄을 읽을때에는 .readline()
+  for line in text_list:
+    print(line.replace(&#39;\n&#39;,&#39;&#39;))</code></pre>
+<pre><code class="python"># append mode의 사용
+
+# append mode를 사용하는 경우, 이전 데이터의 EOF(End Of File)부터 이어서 추가 데이터가 붙기 때문에 데이터를 입력할때 enter를 쳐서 개행(\n) 처리를 하고나서 그 다음 append할 데이터에 대해서 append mode를 실행해줘야 한다.
+# 이전에 삽입된 데이터 끝에 \n 가 없는 경우, 다음 append mode로 추가되는 데이터는 이전에 삽입된 데이터의 끝에 붙는다.
+numbers = [i for i in range(1,10+1)]
+
+with open(&#39;./numbers.txt&#39;, &#39;a&#39;, encoding=&#39;utf-8&#39;) as f:
+  for i in numbers:
+    # file 객체를 사용해서 데이터를 쓸때에는 반드시 str 타입으로 입력을 해주어야 한다.
+    f.write(&#39;&#123;&#125;\n&#39;.foramt(i))
+
+with open(&#39;./numbers.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+  print(f.readlines())</code></pre>
 <br/>
 
 <ul>
-<li><h2 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h2><ul>
-<li>Data Analysis Library</li>
-</ul>
-</li>
-<li><h2 id="CSV-module-CSV-File-Reading-and-Writing"><a href="#CSV-module-CSV-File-Reading-and-Writing" class="headerlink" title="CSV module : CSV File Reading and Writing"></a>CSV module : CSV File Reading and Writing</h2></li>
+<li><h4 id="CSV-module-CSV-File-Reading-and-Writing"><a href="#CSV-module-CSV-File-Reading-and-Writing" class="headerlink" title="CSV module : CSV File Reading and Writing"></a>CSV module : CSV File Reading and Writing</h4></li>
 </ul>
 <p>Python documentation : <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/csv.html?highlight=csv">CSV module reference</a>.</p>
 <pre><code class="python">import csv
@@ -213,7 +250,7 @@ with open(&#39;customers.csv&#39;, newline=&#39;&#39;) as customer_csv:
     ........
     &quot;&quot;&quot;</code></pre>
 <ul>
-<li><h2 id="JSON-dump-load-주로-사용"><a href="#JSON-dump-load-주로-사용" class="headerlink" title="JSON (dump, load 주로 사용)"></a>JSON (dump, load 주로 사용)</h2></li>
+<li><h4 id="JSON-dump-load-주로-사용"><a href="#JSON-dump-load-주로-사용" class="headerlink" title="JSON (dump, load 주로 사용)"></a>JSON (dump, load 주로 사용)</h4></li>
 </ul>
 <p>Python documentation : <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/json.html?highlight=dump#json.dump">json module reference</a>.</p>
 <pre><code class="python">import json
@@ -238,9 +275,11 @@ print(des_data)
 
 for row in des_data[&#39;users&#39;]:
     print(&#39;&#123;&#125; is from &#123;&#125;&#39;.format(row[&#39;name&#39;], row[&#39;locale&#39;]))
-    &quot;&quot;&quot;
-    KD Hong is from Seoul, KR
-    John Doe is from New York, US
-    Jane Doe is from London, UK
-    &quot;&quot;&quot;</code></pre>
-</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2021/02/01/210201-Algorithm_baekjoon_1543/" title="Baekjoon Online Judge 1543번 문서 검색 문제"><span class="has-text-weight-semibold">Next: Baekjoon Online Judge 1543번 문서 검색 문제</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
+&quot;&quot;&quot;
+KD Hong is from Seoul, KR
+John Doe is from New York, US
+Jane Doe is from London, UK
+&quot;&quot;&quot;</code></pre>
+</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/01/210201-Pandas/" title="210201 Pandas TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210201 Pandas TIL</span></a><a class="button is-default" href="/2021/02/01/210201-Algorithm_baekjoon_1543/" title="Baekjoon Online Judge 1543번 문서 검색 문제"><span class="has-text-weight-semibold">Next: Baekjoon Online Judge 1543번 문서 검색 문제</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
