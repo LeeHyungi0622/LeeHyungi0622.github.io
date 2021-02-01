@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-01T01:39:10.535Z</updated>
+  <updated>2021-02-01T02:49:44.267Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Baekjoon Online Judge 1543번 문서 검색 문제</title>
+    <link href="https://leehyungi0622.github.io/2021/02/01/210201-Algorithm_baekjoon_1543/"/>
+    <id>https://leehyungi0622.github.io/2021/02/01/210201-Algorithm_baekjoon_1543/</id>
+    <published>2021-02-01T02:28:42.000Z</published>
+    <updated>2021-02-01T02:49:44.267Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code"><a href="#백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 1543번 문서 검색 문제 Pseudo code + Python code"></a>백준 저지 1543번 문서 검색 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210201_baekjoon_1543.png"></p><blockquote><p>손코딩한 코드에서 논리적 오류를 발견했다. document에서 검색하고자 하는 문자열의 길이만큼 slicing할때, 시작 인덱스(start_index)부터 검색 문자열의 길이(search_word)까지가 아닌, 시작 인덱스(start_index)에서 검색 문자열의 길이(len(search_word))만큼 더한 곳 까지 slicing한 문자열을 비교해야 한다.</p></blockquote><pre><code class="python">document = input()search_word = input()search_count = 0start_index = 0while (len(document)-start_index) // len(search_word) != 0:# 아래의 조건도 위의 조건을 대체할 수 있다.# while len(document)-start_index &gt;= len(search_word):  if document[start_index:start_index+len(search_word)] == search_word:    start_index += len(search_word)    search_count += 1  else:    start_index += 1print(search_count)</code></pre><p>이 문제는</p><ul><li><h2 id="Brute-force-Algorithm"><a href="#Brute-force-Algorithm" class="headerlink" title="Brute force Algorithm"></a><strong>Brute force Algorithm</strong></h2></li></ul><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저</summary>
+      
+    
+    
+    
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
+    
+    <category term="Brute-force-search-Algorithm" scheme="https://leehyungi0622.github.io/tags/Brute-force-search-Algorithm/"/>
+    
+    <category term="String" scheme="https://leehyungi0622.github.io/tags/String/"/>
+    
+  </entry>
   
   <entry>
     <title>Baekjoon Online Judge 2212번 센서문제</title>
@@ -578,34 +610,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 10930번 Hash String 변환문제</title>
-    <link href="https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/"/>
-    <id>https://leehyungi0622.github.io/2021/01/28/210128-Algorithm_baekjoon_10930/</id>
-    <published>2021-01-28T02:06:42.000Z</published>
-    <updated>2021-01-28T05:40:44.373Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-10930번-Hash-String-변환문제-Pseudo-code-Python-code"><a href="#백준-저지-10930번-Hash-String-변환문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 10930번 Hash String 변환문제 Pseudo code + Python code"></a>백준 저지 10930번 Hash String 변환문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210128_baekjoon_10930.png"></p><pre><code class="python">import hashlibinput_string = input()encoded_input_string = input_string.encode()hash_string = hashlib.sha256(encoded_input_string).hexdigest()print(hash_string)</code></pre><p>이 문제는 입력받은 문자열을 hashlib를 활용하여 Hash string으로 변환하는 문제이다. <br/><br>입력받은 문자열은 encode를 한 뒤에 Python의 hashlib에서 지원하는 sha256 함수를 사용하여 처리를 해준 다음에, hex decimal 값만을 포함하는 문자열을 생성하기 위해 hexdigest()로 처리를 해준다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-10930번-Hash-String-변환문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-10930번-Hash-String-변환문제-Pseudo-code-Python-code&quot; class=&quot;heade</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
     
   </entry>
   
