@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-02T10:44:21.434Z</updated>
+  <updated>2021-02-03T07:37:23.519Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,124 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210203 Python Assignment</title>
+    <link href="https://leehyungi0622.github.io/2021/02/03/210203-Python_assignment/"/>
+    <id>https://leehyungi0622.github.io/2021/02/03/210203-Python_assignment/</id>
+    <published>2021-02-03T07:27:41.000Z</published>
+    <updated>2021-02-03T07:37:23.519Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="공공데이터포털의-csv파일을-json으로-converting하기"><a href="#공공데이터포털의-csv파일을-json으로-converting하기" class="headerlink" title="공공데이터포털의 csv파일을 json으로 converting하기"></a>공공데이터포털의 csv파일을 json으로 converting하기</h2><p><code>경기도 성남시_인구및세대_현황</code></p><pre><code class="python">import csvimport jsonpopulation = &#123;&#39;sungnam_population&#39;: []&#125;# csv 파일을 csv module로 읽어오기with open(&#39;20210201_sungnam.csv&#39;, &#39;r&#39;, encoding=&#39;euc-kr&#39;) as f:    sungnam_population = csv.reader(f)    # list -&gt; dictionary    sungnam_population_list = list(sungnam_population)    for row in sungnam_population_list[1:]:        population_dict_row = dict()        # 0번째 열에 있는 key값과 index를 이용해서 dictionary 데이터 만들기        for index, key in enumerate(sungnam_population_list[0]):            population_dict_row[key.replace(                &quot; &quot;, &quot;&quot;)] = row[index].replace(&quot; &quot;, &quot;&quot;)        population[&#39;sungnam_population&#39;].append(population_dict_row)# json.dump()를 활용해서 dictionary type의 데이터를 json 파일로 추출하기with open(&#39;sungnam_population.json&#39;, &#39;w&#39;, encoding=&#39;euc-kr&#39;) as f:    json.dump(population, f)# 추출된 json 파일을 읽고 출력하기with open(&#39;sungnam_population.json&#39;, &#39;r&#39;, encoding=&#39;euc-kr&#39;) as f:    des_data = json.load(f)print(des_data)</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;공공데이터포털의-csv파일을-json으로-converting하기&quot;&gt;&lt;a href=&quot;#공공데이터포털의-csv파일을-json으로-</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210203 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/03/210203-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/03/210203-Self-development_til/</id>
+    <published>2021-02-03T00:30:42.000Z</published>
+    <updated>2021-02-03T07:35:39.485Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다. <br/> (it always seems impossible until it’s done)</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h1 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h1><p>오늘은 동네에 있는 BLACK DUCK 카페에서 AM 9시 20분에 하루를 시작했다.</p><p>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h1 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h1><ul><li>Python + Pandas, Plotly Library project (Personal Side Project) (<code>진행중</code>)</li><li>Git PR template관련 블로그 글 작성하고 프로젝트에 적용시켜보기 (<code>완료</code>)</li><li>이전 블로그 개발내용 관련 글 내용 이전 작업하기 (JavaScript, ReactJS, NodeJS) (<code>진행중</code>)</li><li>Python 과제 - 공공데이터포털의 csv파일을 json으로 converting하기 (<code>완료</code>)</li></ul><br/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210203 Git PR template</title>
+    <link href="https://leehyungi0622.github.io/2021/02/03/210203-Git-pull-request-template/"/>
+    <id>https://leehyungi0622.github.io/2021/02/03/210203-Git-pull-request-template/</id>
+    <published>2021-02-02T22:12:42.000Z</published>
+    <updated>2021-02-03T01:09:23.823Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210203_pull_request_img.png"></p><p>다양한 사람들과 협업을 할 때 중요한 것은 <code>문서작성 능력</code>과 <code>커뮤니케이션 능력</code>이다. <br/></p><p>Github 프로젝트를 다른 사람들과 같이 진행을 할때, pull request나 commit 메시지를 작성하는데, <br/></p><p>적절한 format과 convention을 따라 작성을 하는 것은 매우 중요하다. 실제로 업무를 할때에도 이 convention을 따라 적절한 format으로 작성을 하게 되면, 해당 pull request나 commit 메시지를 확인하는 사람에게 업무처리에 대한 깔끔한 인상과 명확하게 처리한 업무에 대한 내용 전달을 할 수 있다. <br/></p><br/><p>따라서 이번 포스팅에서는 Github project에서 어떻게 문서를 관리하는지와 PR Template을 어떻게 자동으로 generate하는지에 대해서 살펴보고, 잘 formatting된 Template의 sample을 살펴보며 어떻게 하면 좀 더 전달력있는 Pull Requst message를 작성할 수 있는지에 대해서 배워보도록 하겠다.</p><h2 id="PR-Template-생성하기"><a href="#PR-Template-생성하기" class="headerlink" title="PR Template 생성하기"></a>PR Template 생성하기</h2><p>Github 프로젝트를 위한 PR Template를 만들어보도록 하겠다.</p><p>프로젝트를 위한 PR template을 생성하는 방법은 간단하다. PULL_REQUEST_TEMPLATE 파일을 생성해서 아래의 세 가지 위치 중에 한 곳에 위치시켜주면 된다.</p><p>GitHub가 <code>PULL_REQUEST_TEMPLATE</code>파일을 프로젝트 내에 있다는 것을 알고 새로운 PR을 생성할때 auto-populate 해 줄 것이다.</p><blockquote><p>(1) The root of your project<br>(2) .github folder<br>(3) docs folder</p></blockquote><p>나는 project의 root에 .github folder를 생성해서 PULL_REQUEST_TEMPLATE 파일과 ISSUE_TEMPLATE 파일을 작성해서 관리할 것이다.</p><h2 id="PR를-작성할때-고려되어야-할-내용들"><a href="#PR를-작성할때-고려되어야-할-내용들" class="headerlink" title="PR를 작성할때 고려되어야 할 내용들"></a>PR를 작성할때 고려되어야 할 내용들</h2><ul><li>What is this change?</li><li>What does it fix?</li><li>Is this a bug fix or a feature? Does it break any existing - functionality or force me to update to a new version?</li><li>How has it been tested?</li></ul><br/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210203_pull_request_img.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;다양한 사람들과 협업을 할 때 중요한 것은 &lt;code&gt;문서작성 능력&lt;/code&gt;과 &lt;code&gt;커뮤니케이션 능력&lt;/code&gt;이다</summary>
+      
+    
+    
+    
+    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
+    
+    
+    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Pull-Request" scheme="https://leehyungi0622.github.io/tags/Pull-Request/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210201 Plotly + Pandas Project</title>
+    <link href="https://leehyungi0622.github.io/2021/02/02/210202-Plotly_Pandas/"/>
+    <id>https://leehyungi0622.github.io/2021/02/02/210202-Plotly_Pandas/</id>
+    <published>2021-02-02T10:52:42.000Z</published>
+    <updated>2021-02-02T21:58:36.692Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210202_pandas_plotly_logo.jpeg"></p><br/><ul><li><h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><ul><li><p>방대한 양의 데이터를 가져와서 데이터를 깔끔하게 만들고, 처리하고, 구조를 변경(데이터 가공)하는데 사용된다.</p></li><li><p>데이터 분석과 처리를 쉽게 할 수 있도록 도와준다.</p></li></ul><pre><code class="bash">$ pip install pandas</code></pre></li></ul><br/><ul><li><h1 id="Plotly"><a href="#Plotly" class="headerlink" title="Plotly"></a>Plotly</h1><ul><li>모든 그래픽(그래프)를 만드는데에 사용된다.</li><li>No JavaScript required</li></ul><pre><code class="bash">$ pip install dash==1.14.0</code></pre></li></ul><br/><ul><li><h1 id="Project-setting"><a href="#Project-setting" class="headerlink" title="Project setting"></a>Project setting</h1><h2 id="virtualenv-amp-virtualenvwrapper-설치-및-환경설정"><a href="#virtualenv-amp-virtualenvwrapper-설치-및-환경설정" class="headerlink" title="virtualenv &amp; virtualenvwrapper 설치 및 환경설정"></a>virtualenv &amp; virtualenvwrapper 설치 및 환경설정</h2><ul><li><p>virtualenvwrapper는 virtualenv 도구에 대한 확장 세트이기 때문에 우선적으로 <code>virtualenv</code>를 설치해줘야 한다.</p><pre><code class="python">$ pip install virtualenv</code></pre></li><li><p>virtualenv의 위치에 대한 환경설정을 해줘야 한다.</p><pre><code class="python">$ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv</code></pre><p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper reference</a></p></li><li><p><strong>virtualenvwrapper</strong> : virtualenvwrapper는 lan Bicking의 <code>virtualenv 도구에 대한 확장 세트</code>이다. 확장된 기능에는 가상 환경을 생성 및 삭제하고 개발 work flow를 관리하기 위한 wrapper가 포함되어있어 종속성에 충돌을 일으키지 않고 한 번에 둘 이상의 프로젝트에서 더 쉽게 작업을 할 수 있다.</p><pre><code class="bash">$ pip install virtualenvwrapper...$ export WORKON_HOME=~/Envs$ mkdir -p $WORKON_HOME$ source /usr/local/bin/virtualenvwrapper.sh$ mkvirtualenv env1Installingsetuptools.................................................................................................................................................................................done.virtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/predeactivatevirtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/postdeactivatevirtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/preactivatevirtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/postactivate  New python executable in env1/bin/python(env1)$ ls $WORKON_HOMEenv1 hook.log</code></pre><ul><li>zsh환경설정 파일에 virtualenv 관련 환경설정 넣기 (<code>~/.zshrc</code>)</li></ul><pre><code class="bash"># Setting PATH for Python 3 installed by brewexport PATH=/usr/local/share/python:$PATH# Configuration for virtualenvexport WORKON_HOME=$HOME/.virtualenvsexport VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenvsource /usr/local/bin/virtualenvwrapper.sh</code></pre><p><a href="https://stackoverflow.com/questions/49470367/install-virtualenv-and-virtualenvwrapper-on-macos">virtualenv setting</a></p><ul><li>env1 가상 환경에 설치된 패키지 리스트 확인하기</li></ul><pre><code class="bash">(env1)$ lssitepackages</code></pre><ul><li>가상환경 간 전환하기</li></ul><pre><code class="bash">$ workon env2</code></pre><p>가상환경으로 설정을 변경하면 VSCode에서 Python관련 파일을 생성시, 자동으로 Interpreter설정을 바꾸는 알람이 뜨는데, 이곳에서 가상환경의 Python interpreter를 선택할 수 있다.<br><code>~/.virtualenvs/env1/bin/python</code></p></li></ul><h2 id="Jupyterlab-설치"><a href="#Jupyterlab-설치" class="headerlink" title="Jupyterlab 설치"></a>Jupyterlab 설치</h2><pre><code class="bash">$ pip install jupyterlab</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210202_pandas_plotly_logo.jpeg&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h1 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; t</summary>
+      
+    
+    
+    
+    <category term="TIL:Pandas" scheme="https://leehyungi0622.github.io/categories/TIL-Pandas/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="Plotly" scheme="https://leehyungi0622.github.io/tags/Plotly/"/>
+    
+    <category term="Pandas" scheme="https://leehyungi0622.github.io/tags/Pandas/"/>
+    
+  </entry>
   
   <entry>
     <title>Baekjoon Online Judge 1966번 프린터 큐 문제</title>
@@ -46,10 +164,10 @@
   
   <entry>
     <title>210202 Python TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/210202-Python_til%20copy/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/210202-Python_til%20copy/</id>
+    <link href="https://leehyungi0622.github.io/2021/02/02/210202-Python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/02/210202-Python_til/</id>
     <published>2021-02-02T00:44:41.000Z</published>
-    <updated>2021-02-02T10:35:00.987Z</updated>
+    <updated>2021-02-03T07:26:35.918Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="Section0-Assignment-amp-Review"><a href="#Section0-Assignment-amp-Review" class="headerlink" title="Section0) Assignment &amp; Review"></a>Section0) Assignment &amp; Review</h2><ul><li>HackerRank 문제 (List comprehension)</li></ul><pre><code class="python">x, y, z, n = (int(input()) for _ in range(4))result_ = [[i, j, k] for i in range(x+1) for j in range(y+1) for k in range(z+1) if (i+j+k) is not n]print(result_)</code></pre><h3 id="Section0-1-zip-활용"><a href="#Section0-1-zip-활용" class="headerlink" title="Section0-1)zip() 활용"></a>Section0-1)zip() 활용</h3><pre><code class="python">numbers = [i for i in range(1, 10+1)]chars = list(set(&#39;abcdefghij&#39;))for i,c in zip(numbers, chars):  print(i,c)</code></pre><h3 id="Section0-2-File-I-O-실습"><a href="#Section0-2-File-I-O-실습" class="headerlink" title="Section0-2)File I/O 실습"></a>Section0-2)File I/O 실습</h3><ul><li><p>readlines, csv.reader()로 csv파일 읽기<br><strong>readlines()</strong> : readlines()로 파일을 읽으면, 아래와 같이 row 데이터가 구분자(, comma)로 구분되어 출력이 된다.</p><pre><code class="python">with open(&#39;customers.csv&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:  rows = f.readlines()  for row in rows:      print(row)  # output :  # CustomerID,CustomerName,ContactName,Address,City,PostalCode,Country  # 1,Alfreds Futterkiste,Maria Anders,Obere Str. 57,Berlin,12209,Germany</code></pre><p><strong>csv.reader()</strong> : csv.reader()를 사용해서 csv 파일을 읽으면 아래와 같이 row가 list형으로 출력이 된다.<br>import csv</p><pre><code class="python">with open(&#39;customers.csv&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:  customers = csv.reader(f)  # reader object  for row in customers:      # print(row)      # output :      # [&#39;CustomerID&#39;, &#39;CustomerName&#39;, &#39;ContactName&#39;, &#39;Address&#39;, &#39;City&#39;, &#39;PostalCode&#39;, &#39;Country&#39;]      # [&#39;1&#39;, &#39;Alfreds Futterkiste&#39;, &#39;Maria Anders&#39;, &#39;Obere Str. 57&#39;, &#39;Berlin&#39;, &#39;12209&#39;, &#39;Germany&#39;]</code></pre><p><strong>customers.csv 파일을 읽어서 customers.json파일로 추출하기</strong></p><pre><code class="python"># customers.csv -&gt; customers.jsonimport csvimport json# csv 파일을 읽어서 아래와 같이 dictionary형으로 각 row의 데이터를 key-value 로 삽입을 해준다.# &#123;&#39;users&#39;:[#     &#123;&#125;,#     &#123;&#125;,# ]&#125;users = &#123;&#39;users&#39;: []&#125;with open(&#39;customers.csv&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:    customers = csv.reader(f)    customer_list = list(customers)    # list -&gt; dictionary    for row in customer_list[1:]:        user_dict = &#123;&#125;        for index, key in enumerate(customer_list[0]):            user_dict[key] = row[index]            users[&#39;users&#39;].append(user_dict)with open(&#39;customers.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:  json.dump(users, f)</code></pre></li></ul><h2 id="Exception-Error-handling-try-except-RegEx-Lambda-Function"><a href="#Exception-Error-handling-try-except-RegEx-Lambda-Function" class="headerlink" title="Exception(Error handling, try-except), RegEx, Lambda Function"></a><strong>Exception(Error handling, try-except), RegEx, Lambda Function</strong></h2><h2 id="Section1-Error-handling-Exception-try-exception-예외처리"><a href="#Section1-Error-handling-Exception-try-exception-예외처리" class="headerlink" title="Section1) Error handling(Exception, try-exception) (예외처리)"></a>Section1) Error handling(Exception, try-exception) (예외처리)</h2><h3 id="Section1-1-Exception-처리의-기본-format"><a href="#Section1-1-Exception-처리의-기본-format" class="headerlink" title="Section1-1) Exception 처리의 기본 format"></a>Section1-1) Exception 처리의 기본 format</h3><pre><code class="python">try:  실행문except:  실행문</code></pre><pre><code class="python">try:  passexcept:  pass</code></pre><h3 id="Section1-2-예외처리하기"><a href="#Section1-2-예외처리하기" class="headerlink" title="Section1-2) 예외처리하기"></a>Section1-2) 예외처리하기</h3><pre><code class="python">  try:    result = 3/0  except:    print(&#39;You could divide by anything, not zero.&#39;)</code></pre><p><strong>recursive하게 에러구문 처리하기</strong></p><pre><code class="python">def get_num_from_user():  try:    guess = int(input(&#39;Guess the number&#39;))    return guess  except:    print(&quot;Plz, don&#39;t bother programmer.&quot;)    return get_num_from_user()get_num_from_user()</code></pre><h2 id="Section2-RegEx-정규표현식"><a href="#Section2-RegEx-정규표현식" class="headerlink" title="Section2) RegEx (정규표현식)"></a>Section2) RegEx (정규표현식)</h2><ul><li>특정한 규칙을 가진 문자열의 집합을 표현하는데 사용하는 형식언어</li><li>Python은 <code>re</code> module로 정규표현식의 사용이 가능</li><li>기본적인 문법은 비슷하나 언어별로 사용법이나 문법이 조금씩 달라서 외우기 보다는 Reference를 참조하는 것이 좋다.</li></ul><p>Python RegEx Reference : <a href="https://docs.python.org/3/howto/regex.html">Python RegEx Reference</a></p><h3 id="Section2-1-Regular-Expressions-match"><a href="#Section2-1-Regular-Expressions-match" class="headerlink" title="Section2-1) Regular Expressions - match()"></a>Section2-1) <strong>Regular Expressions - match()</strong></h3><pre><code class="python">import rea = &#39;penpineapple&#39;b = &#39;applepen&#39;# r: regex string 구분자# match([regex pattern], [check string])m = re.match(r&#39;^pen&#39;, a)n = re.match(r&#39;.+pen$&#39;, b)print(m,n)</code></pre><h3 id="Section2-2-Regular-Expressions-match-object"><a href="#Section2-2-Regular-Expressions-match-object" class="headerlink" title="Section2-2) Regular Expressions - match object"></a>Section2-2) <strong>Regular Expressions - match object</strong></h3><pre><code class="python"># match한 string을 뽑아낼때에는 group()을 사용한다.m.group() # &#39;pen&#39;m.span() # (0, 3)# group()말고 m.start(), m.end()사용해서 substring해보기a[m.start():m.end()] # &#39;pen&#39;</code></pre><h3 id="Section2-3-Regular-Expressions-Meta-Characters"><a href="#Section2-3-Regular-Expressions-Meta-Characters" class="headerlink" title="Section2-3) Regular Expressions - Meta Characters"></a>Section2-3) Regular Expressions - Meta Characters</h3><ul><li><p>.(Dot) : Any character (except newline character)</p></li><li><p>*(Repetition) : Zero or more occurrences</p></li><li><p>+(Repetition) : One or more occurrences</p></li></ul><pre><code class="python"># ale aple apple appple appppple apppppple# 다음 문자열들이 주어졌다고 가정했을때,# p+ : 1개부터 무한대까지 p가 존재r&#39;app+le&#39; # apple ~ appppppler&#39;ap+le&#39; # aple ~ apppppple</code></pre><ul><li>^(Caret) : Starts with</li></ul><pre><code class="python">a = &#39;penpineapple&#39;b = &#39;applepen&#39;c = &#39;pen&#39;m = re.match(r&#39;^.*(pen)$&#39;, b) # (0, 3)</code></pre><ul><li>{}(Curly brackets) : Exactly the specified number of occurrences</li></ul><pre><code class="python"># &#39;ap&#39;와 &#39;le&#39;사이에 1~3개의 문자가 오는 경우r&#39;ap&#123;1,3&#125;le&#39;</code></pre><ul><li>()(Parentheses) : Capture and group</li></ul><pre><code class="python">fastcampusr&#39;(cam)&#39; : cam이 연속 순서로 나와야한다.r&#39;(fastcampus)&#39;</code></pre><ul><li>|(Vertical bar) : Either or</li></ul><pre><code class="python">r&#39;.*(fast\campus).*&#39; : fast나 campus가 등장을 하는 경우</code></pre><ul><li>(Backslash): Signals a special sequence (can also be used to escape special characters)</li></ul><pre><code class="python">r&#39;[A-Za-z0-9\-\_\.\+]@gmail\.com&#39; # alphabet, number, -, ., _, +</code></pre><ul><li>[](Square brackets) : A set of characters</li></ul><pre><code class="python">r&#39;[A-Za-z0-9\-\_\.\+]@gmail\.com&#39; # alphabet, number, -, ., _, +# 위의 정규표현식은 한글자의 username@gmail.com 만 작성할 수 있다.r&#39;[A-Za-z0-9\-\_\.\+]*@gmail\.com&#39; # alphabet, number, -, ., _, +# 위와같이 *를 붙여서 주면, 1개이거나 없는 경우를 허용하므로, 이 경우는 사용하지 않는다.r&#39;[A-Za-z0-9\-\_\.\+]+@gmail\.com&#39; # alphabet, number, -, ., _, +# 위와같이 +를 붙여서 앞의 사용자 이름(아이디)가 1개 이상 있다는 것을 표현할 수 있다.r&#39;[A-Za-z0-9\-\_\.\+]&#123;n,m&#125;@gmail\.com&#39; # alphabet, number, -, ., _, +# 위와같이 사용자 이름(아이디)의 글자수 범위(n~m)를 지정할 수 있다.# &#123;4, 32&#125; 보통 2의 배수인 4부터 32까지의 범위로 username을 잡는다.</code></pre><ul><li><p>$(Dollar sign) : Ends with</p></li><li><p>?(Question mark)</p></li></ul><h3 id="Section2-4-Regular-Expressions-사용하기"><a href="#Section2-4-Regular-Expressions-사용하기" class="headerlink" title="Section2-4) Regular Expressions 사용하기"></a>Section2-4) Regular Expressions 사용하기</h3><pre><code class="python"># 정규식 표현을 compile해두면 regular expression object를 재사용하는 것이 가능하다.apples = [&#39;a&#39;+&#39;p&#39;*i+&#39;le&#39; for i in range(10)]# 미리 regex를 compile해서 재사용 할 수 있다.apple_finder = re.compile(r&#39;^ap&#123;2&#125;le$&#39;)for item in apples:  m = apple_finder.match(item)  print(itme, m)</code></pre><h3 id="Section2-5-re-module-functions"><a href="#Section2-5-re-module-functions" class="headerlink" title="Section2-5) re module functions"></a>Section2-5) re module functions</h3><pre><code class="python">re.search(patterns, string[, flags])re.match(patterns, string[, flags])re.findall(patterns, string[, flags])re.compile(pattern[, flags])re.split(patterns, string[,maxsplit=0])re.sub(pattern, repl, string[, count])</code></pre><h2 id="Section3-Lambda-Function-람다함수"><a href="#Section3-Lambda-Function-람다함수" class="headerlink" title="Section3) Lambda Function (람다함수)"></a>Section3) Lambda Function (람다함수)</h2><ul><li>익명함수 (이름없는 함수)</li><li>간단한 수식을 함수로 지정해서 한 두번 쓸 용도로 사용</li><li>두 줄 이상 실행되는 함수는 별도로 함수로 선언해서 사용</li><li>코드의 가독성(Readibility)와 재사용성 고려하여 사용</li></ul><h3 id="Section3-1-Traditional-function"><a href="#Section3-1-Traditional-function" class="headerlink" title="Section3-1) Traditional function"></a>Section3-1) <strong>Traditional function</strong></h3><pre><code class="python"># 최근 python에서는 parameter type과 return type을 지정해 줄 수 있다.def get_next_integer(i:int -&gt; int):def get_next_integer(i):  return i + 1print(get_next_integer(10)) # 11</code></pre><h3 id="Section3-2-lambda-lambda-function"><a href="#Section3-2-lambda-lambda-function" class="headerlink" title="Section3-2) lambda - lambda function"></a>Section3-2) <strong>lambda - lambda function</strong></h3><pre><code class="python"># (lambda function)(argument)(lambda a: a+1)(10) # 11(lambda a,b: a+b+1)(10,11) # 22</code></pre><h3 id="Section3-3-map-filter-reduce의-사용"><a href="#Section3-3-map-filter-reduce의-사용" class="headerlink" title="Section3-3) map, filter, reduce의 사용"></a>Section3-3) <strong>map, filter, reduce의 사용</strong></h3><ul><li><p>map의 사용</p><ul><li>map의 기본 format<pre><code class="python">map(function, iter)# list의 각 element에 대해 특정한 함수를 적용</code></pre></li><li>사용예시</li></ul><pre><code class="python">numbers = [i for i in range(1, 10+1)]def int_plus_one(a):  return a + 1list(map(int_plus_one, numbers))# lambda functionlist(map(lambda a:a+1, numbers))</code></pre><p><strong>map은 generator를 생성해서 함수와 인자를 바인딩하고, 필요할 때 순차적으로 처리</strong></p><pre><code class="python">def do_square(num):  return num ** 2list(map(do_square, numbers))</code></pre><pre><code class="python">list(map(lambda a:a**2, numbers))</code></pre><p><code>수업시간에 map의 사용까지 (2020/02/02)</code></p></li></ul><h2 id="Section4-Variable-amp-Function-in-memory"><a href="#Section4-Variable-amp-Function-in-memory" class="headerlink" title="Section4) Variable &amp; Function in memory"></a>Section4) Variable &amp; Function in memory</h2><ul><li>Lambda Function의 경우에는 힙(heap)에 저장이 되고 사용이 된다. 한 번 사용되고 제거된다. (일회성)<br>Python은 Garbage collector를 가지고 있기 때문에 힙(Heap)의 메모리를 자동으로 관리해준다.</li><li>일반적으로 Function의 선언의 경우 스택(Stack)에 저장이 되고 사용이 된다.<br>(FILO(First-In-Last-Out), LIFO(Last-In-First-Out))</li></ul>]]></content>
     
@@ -482,131 +600,6 @@
     <category term="JavaScript" scheme="https://leehyungi0622.github.io/tags/JavaScript/"/>
     
     <category term="JavaScript-Basic" scheme="https://leehyungi0622.github.io/tags/JavaScript-Basic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210130 JavaScript의 탄생과 발전</title>
-    <link href="https://leehyungi0622.github.io/2021/01/30/210130-javascript-start/"/>
-    <id>https://leehyungi0622.github.io/2021/01/30/210130-javascript-start/</id>
-    <published>2021-01-30T11:59:42.000Z</published>
-    <updated>2021-01-31T01:48:45.774Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/javascript_logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 JavaScript의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><h1 id="JavaScript의-탄생과-발전"><a href="#JavaScript의-탄생과-발전" class="headerlink" title="JavaScript의 탄생과 발전"></a><strong>JavaScript의 탄생과 발전</strong></h1><p><img src="/images/post_images/210130_javascript_img1.png"></p><p>JavaScript는 1995년에 만들어졌고, Netscape 브라우저에서 당시에 다른 브라우저와 차별화를 두기 위한 기술로써 사용되었었다.<br>현대에 들어서는 장바구니 담기, 좋아요 클릭, instagram - javascript , 가상현실, VR 게임/앱, 드론 컨트롤, 로봇 컨트롤 등 다양한 분야에서 Javascript가 사용이 되고 있다.</p><p><img src="/images/post_images/210130_javascript_img2.png"></p><p>JavaScript는 과거에 웹 브라우저에 종속되었던 특성에서 웹 브라우저와 독립적으로 사용이 가능해짐에 따라 React, NodeJS, ExpressJS 등 front-end와 back-end에서 모두 JavaScript 사용이 가능하게 되었다.</p><h1 id="JavaScript를-이용해서-할-수-있는-브라우저상의-기본적인-작업들"><a href="#JavaScript를-이용해서-할-수-있는-브라우저상의-기본적인-작업들" class="headerlink" title="JavaScript를 이용해서 할 수 있는 브라우저상의 기본적인 작업들"></a><strong>JavaScript를 이용해서 할 수 있는 브라우저상의 기본적인 작업들</strong></h1><blockquote><ol><li> 페이지에 있는 HTML 요소들을 변경할 수 있다.</li><li> 페이지에 있는 HTML의 속성들을 변경할 수 있다.</li><li> 페이지에 있는 CSS 스타일들을 변경할 수 있다.</li><li> 기존의 HTML 요소나 속성을 제거할 수 있다.</li><li> 새로운 HTML 요소나 속성들을 추가할 수 있다.</li><li> 자바스크립트는 페이지에 있는 기존의 HTML 이벤트와 상호작용할 수 있다.</li><li> 자바스크립트는 페이지에서 새로운 HTML 이벤트들을 생성할 수 있다.</li></ol></blockquote><p>위의 브라우저의 조작은 DOM(Document Object Model)을 활용해서 가능하다.</p><p><img src="/images/post_images/210130_javascript_img3.png"></p><h3 id="HTML-요소에-접근하기"><a href="#HTML-요소에-접근하기" class="headerlink" title="HTML 요소에 접근하기"></a><strong>HTML 요소에 접근하기</strong></h3><pre><code class="javascript">document.getElementsByTagName(&quot;h1&quot;);document.getElementByClassName(&quot;second&quot;);document.getElementById(&quot;first&quot;);document.querySelector(&quot;h1&quot;) : selector가 찾은 태그의 첫번째 요소를 찾는다.document.querySelectorAll(&quot;li&quot;) : selector가 찾은 태그의 모든 요소를 찾는다.getAttribute : 속성값 찾기ex) document.querySelector(&quot;li&quot;).getAttribute(&quot;random&quot;);setAttribute : 속성값 셋팅ex) document.querySelector(&quot;li&quot;).setAttribute(&quot;random&quot;, &quot;1000&quot;);</code></pre><h3 id="스타일-변경하기"><a href="#스타일-변경하기" class="headerlink" title="스타일 변경하기"></a><strong>스타일 변경하기</strong></h3><pre><code class="javascript">//style.&#123;property&#125;document.querySelector(&quot;h1&quot;).style.background = &quot;yellow&quot;;</code></pre><p><strong>일반적으로 HTML은 텍스트에서 분리되고, CSS는 스타일에 집중된다. 그리고 Javascript는 액션에 집중한다.</strong></p><h3 id="JavaScript로-action-이벤트-변경하기"><a href="#JavaScript로-action-이벤트-변경하기" class="headerlink" title="JavaScript로 action 이벤트 변경하기"></a><strong>JavaScript로 action 이벤트 변경하기</strong></h3><pre><code class="javascript">document.querySelector(&quot;li&quot;).classList;// 클래스이름에 리스트를 추가할 수 있다.document.querySelector(&quot;li&quot;).classList.add(&quot;coolTitle&quot;);document.querySelector(&quot;li&quot;).classList.toggle(&quot;done&quot;);// innerHTMLdocument.querySelector(&quot;h1&quot;).innerHTML = &quot;&lt;strong&gt;!!!!!&lt;/strong&gt;&quot;;document.querySelectorAll(&quot;li&quot;)[1].parentElement.parentElement.children;// It is important to CACHE selectors in variables/** ※ 이렇게 페이지를 새로고침하기 전까지 h1 변수에 h1태그에 대한 querySelector를 지정해준 것을 저장해서 사용하는 것을 CACHE selector라고 한다. */var h1 = document.querySelector(&quot;h1&quot;);</code></pre><h3 id="DOM-EVENT"><a href="#DOM-EVENT" class="headerlink" title="DOM EVENT"></a><strong>DOM EVENT</strong></h3><pre><code class="javascript">var button = document.getElementsByTagName(&quot;Button&quot;)[0];button.addEventListener(&quot;mouseleave&quot;, function () &#123;  console.log(&quot;CLICK!!!!&quot;);&#125;);</code></pre><p><strong>Event reference</strong><br><a href="https://developer.mozilla.org/en-US/docs/Web/Events">Mozila Event Reference!</a></p><pre><code class="html">&lt;input id=&quot;userinput&quot; type=&quot;text&quot; placeholder=&quot;enter items&quot; /&gt;&lt;button id=&quot;enter&quot;&gt;Enter&lt;/button&gt;</code></pre><pre><code class="javascript">var button = document.getElementById(&quot;enter&quot;);var input = document.getElementById(&quot;userinput&quot;);var ul = document.querySelector(&quot;ul&quot;);function inputLength() &#123;  return input.value.length;&#125;function createListElement() &#123;  var li = document.createElement(&quot;li&quot;);  li.appendChild(document.createTextNode(input.value));  ul.appendChild(li);  input.value = &quot;&quot;;&#125;function addListAfterClick() &#123;  console.log(&quot;click is working&quot;);  if (inputLength() &gt; 0) &#123;    createListElement();  &#125;&#125;function addListAfterKeypress(event) &#123;  console.log(event.which);  //Enter key event(which):13  if (inputLength() &gt; 0 &amp;&amp; event.keyCode === 13) &#123;    createListElement();  &#125;&#125;button.addEventListener(&quot;click&quot;, addListAfterClick);input.addEventListener(&quot;keypress&quot;, addListAfterKeypress);</code></pre><h3 id="Callback-function"><a href="#Callback-function" class="headerlink" title="Callback function"></a><strong>Callback function</strong></h3><p>앞서 코드를 refactoring할때 버튼 클릭 리스너와 input 태그에 대한 이벤트 리스너의 이벤트 메소드에서 argument가 있는 메소드 형태가 아닌 변수 형태로 작성을 해주었다</p><blockquote><ol><li> button.addEventListener(“click”, addListAfterClick);</li><li> input.addEventListener(“keypress”, addListAfterKeypress);</li></ol></blockquote><p>이러한 작성을 콜백함수라고 한다. 자바스크립트에서는 클릭 이벤트가 호출될때, 함수를 실행하지 않고, 함수에 대한 참조를 전달한다.</p><p>리스트의 항목을 클릭했을때, class=”done”을 toggle로써 추가/제거될 수 있도록 작성, 각각의 리스트 옆에 삭제할 수 있는 delete 버튼을 삽입</p><p><strong>solution1)</strong></p><pre><code class="javascript">// Toggle eventfunction toggleListItemClass() &#123;  li.classList.toggle(&quot;done&quot;);&#125;//1. toggles the .done class on and offli.addEventListener(&quot;click&quot;, toggleListItemClass);//2. Add delete button beside of the list item.var li = document.querySelectorAll(&quot;li&quot;);for (var i = 0; i &lt; li.length; i++) &#123;  li[i].innerHTML +=    &quot;&lt;button id=&#39;delete_btn&quot; +    i +    &quot;&#39; onclick=&#39;deleteListItem(&quot; +    i +    &quot;)&#39;&gt;delete&lt;/button&gt;&quot;;&#125;function deleteListItem(i) &#123;  ul.removeChild(ul.childNodes[i]);&#125;</code></pre><p><strong>solution2)</strong></p><pre><code class="html">&lt;ul id=&quot;foodList&quot;&gt;  &lt;li class=&quot;bold red&quot; random=&quot;23&quot;&gt;    Notebook&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;  &lt;/li&gt;  &lt;li&gt;Jello&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;  &lt;li&gt;Spinach&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;  &lt;li&gt;Rice&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;  &lt;li&gt;Birthday Cake&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;  &lt;li&gt;Candles&lt;button class=&quot;delete&quot;&gt;Delete&lt;/button&gt;&lt;/li&gt;&lt;/ul&gt;</code></pre><pre><code class="javascript">var button = document.getElementById(&quot;enter&quot;);var input = document.getElementById(&quot;userinput&quot;);var ul = document.querySelector(&quot;ul&quot;);var li = document.querySelector(&quot;li&quot;);var deletebtn = document.getElementsByClassName(&quot;delete&quot;);// class=&quot;delete&quot;인 버튼에 click 이벤트 set upfor (var i = 0; i &lt; deletebtn.length; i++) &#123;  deletebtn[i].addEventListener(&quot;click&quot;, removeParent, false);&#125;function inputLength() &#123;  return input.value.length;&#125;function createListElement() &#123;  var li = document.createElement(&quot;li&quot;);  var btn = document.createElement(&quot;button&quot;);  btn.innerHTML = &quot;Delete&quot;;  btn.onclick = removeParent;  li.appendChild(document.createTextNode(input.value));  li.appendChild(btn);  ul.appendChild(li);  input.value = &quot;&quot;;&#125;function addListAfterClick() &#123;  if (inputLength() &gt; 0) &#123;    createListElement();  &#125;&#125;function addListAfterKeypress(event) &#123;  if (inputLength() &gt; 0 &amp;&amp; event.keyCode === 13) &#123;    createListElement();  &#125;&#125;button.addEventListener(&quot;click&quot;, addListAfterClick);input.addEventListener(&quot;keypress&quot;, addListAfterKeypress);// Toggle eventfunction toggleListItemClass() &#123;  li.classList.toggle(&quot;done&quot;);&#125;//toggles the .done class on and offli.addEventListener(&quot;click&quot;, toggleListItemClass);//delete parent functionfunction removeParent(evt) &#123;  evt.target.removeEventListener(&quot;click&quot;, removeParent, false);  evt.target.parentNode.remove();&#125;</code></pre><ul><li><h2 id="JQuery의-등장"><a href="#JQuery의-등장" class="headerlink" title="JQuery의 등장"></a><strong>JQuery의 등장</strong></h2><p>DOM을 이용해서 화면의 구성요소를 조작할때에는 각 브라우저에서 호환이 되는지 확인을 해야했으며, querySelector를 지원하는 브라우저도 몇 안되었다. 이러한 호환문제와 DOM 객체를 이용한 웹 페이지 요소 조작을 간편하게 할 수 있도록 등장한 것이 바로 JQuery이다. 하지만 ES6 이후부터는 JavaScript가 많이 발전되어 JQuery를 사용하지 않는 추세이다.<br>(JQuery는 간단하게 JQuery CDN을 추가하고, $sign을 이용해서 간단하게 화면 구성요소들을 호출해서 사용할 수 있다.)</p><pre><code class="javascript">ex. $(document).ready(function()&#123;  $(&quot;p&quot;).click(function()&#123;       $(this).hide();  &#125;);&#125;);(= p.addEventListener(&quot;click&quot;, function()&#123; &#125;);)</code></pre><blockquote><p>JQuery는 매우 Imperative한 언어이다. 따라서 프로그램에 정확히 무엇을 해야하는지 하나 하나씩 알려야 한다. 하지만 프로그램이 커지면 다른 조치는 또 다른 조치로 종속되고, 오류와 버그가 많아지며 해결하기 위한 추적이 매우 힘들어진다.<br/><ins>Imperative : 반드시 해야하는, 긴요한, 명령적인</ins></p></blockquote></li></ul><p>Javascript를 대중화시키고 편리하게 사용하는데에 JQuery는 많은 것을 기여를 했지만, 점점 시스템은 커져가고 있고, 단순히 모든 것들을 절차지향 언어와 같이 하나 하나 알려줘야하는 프로그램이라면 나중에 운용보수면에서 보았을때 힘들 것이라고 생각한다.</p><ul><li><h2 id="개발자의-입장에서-본-DOM-조작"><a href="#개발자의-입장에서-본-DOM-조작" class="headerlink" title="개발자의 입장에서 본 DOM 조작"></a><strong>개발자의 입장에서 본 DOM 조작</strong></h2><p>DOM 조작의 양을 최소화하는 것이 좋다. 이 것은 곧 웹 페이지의 퍼포먼스로 직결되는 문제이며, 페이지에서의 일부변경이 전체 페이지의 렌더링되어버리면 매우 효율이 떨어지는 어플리케이션이 될 것이다.<br>웹 응용 프로그램을 구축할 때 매우 중요한 개념이며 똑똑하고 최상의 방법은 필요한 부분만 re-painting하는 것이다.</p></li><li><h2 id="JavaScript-Engine"><a href="#JavaScript-Engine" class="headerlink" title="JavaScript Engine"></a><strong>JavaScript Engine</strong></h2><p>각 브라우저는 JavaScript engine을 가지고 있으며, 아래와 같이 각기 다른 engine을 사용하고 있다.</p></li></ul><blockquote><p>(1) Chrome - ‘V8’<br>(2) Edge - ‘Chalker Core’<br>(3) Safari - ‘Nitro’<br>(4) Firefox - ‘SpiderMonkey’</p></blockquote><p>JavaScript engine은 웹 브라우저상에 동작하는 자바스크립트 파일을 읽는 역할을 한다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/javascript_logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 JavaScript의 내용을 복습의 목적으로 다시 정리하는 포스</summary>
-      
-    
-    
-    
-    <category term="JavaScript" scheme="https://leehyungi0622.github.io/categories/JavaScript/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="JavaScript" scheme="https://leehyungi0622.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210130 Git Commit Message TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/30/210130-Git_commit_message_rule/"/>
-    <id>https://leehyungi0622.github.io/2021/01/30/210130-Git_commit_message_rule/</id>
-    <published>2021-01-30T02:18:42.000Z</published>
-    <updated>2021-01-30T10:41:39.539Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210130_commit_message.png"></p><br/><ul><li><h2 id="Commit-Convention"><a href="#Commit-Convention" class="headerlink" title="Commit Convention"></a><strong>Commit Convention</strong></h2><ul><li>commit제목은 50자 이내로 요약하여 작성한다.</li><li>제목과 내용사이에는 한 칸 띄어준다.</li><li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.</li></ul><pre><code>feat: featuresdocs: documentationsconf: configurationstest: testfix: bug-fixrefactor: refactoringci: Continuous Integrationbuild: Buildperf: Performance</code></pre><p><strong>ex) Commit Convention - example</strong></p><pre><code>feat: Create server.py to start flask projectdocs: Create README.mdconf: poetry inittest: User model CRUD test complete</code></pre><p>구글링하다가 commit convention에 대해서 정리가 잘 되어있는 페이지가 있어서 정리해보려고 한다.</p></li></ul><br/><ul><li><h2 id="Semantic-Commit-Messages"><a href="#Semantic-Commit-Messages" class="headerlink" title="Semantic Commit Messages"></a>Semantic Commit Messages</h2><p>See how a minor change to your commit message style can make you a better programmer.</p><p>Format: <code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code></p><p><code>&lt;scope&gt;</code> is optional</p><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><pre><code>feat: add hat wobble^--^  ^------------^|     ||     +-&gt; Summary in present tense.|+-------&gt; Type: chore, docs, feat, fix, refactor, style, or test.</code></pre><p>More Examples:</p><ul><li><code>feat</code>: (new feature for the user, not a new feature for build script)</li><li><code>fix</code>: (bug fix for the user, not a fix to a build script)</li><li><code>docs</code>: (changes to the documentation)</li><li><code>style</code>: (formatting, missing semi colons, etc; no production code change)</li><li><code>refactor</code>: (refactoring production code, eg. renaming a variable)</li><li><code>test</code>: (adding missing tests, refactoring tests; no production code change)</li><li><code>chore</code>: (updating grunt tasks etc; no production code change)</li></ul><p>References:</p><ul><li><a href="https://www.conventionalcommits.org/">https://www.conventionalcommits.org/</a></li><li><a href="https://seesparkbox.com/foundry/semantic_commit_messages">https://seesparkbox.com/foundry/semantic_commit_messages</a></li><li><a href="http://karma-runner.github.io/1.0/dev/git-commit-msg.html">http://karma-runner.github.io/1.0/dev/git-commit-msg.html</a></li></ul></li></ul><p>위의 참고자료들을 보고, 프로젝트시에 적극 활용해서 commit convention을 따라 standard한 commit message를 잘 적을 수 있는 개발자가 될 수 있도록 하자.</p><p><code>목표 추가 : 협업 잘하는 개발자가 되기</code></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210130_commit_message.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&quot;Commit-Convention&quot;&gt;&lt;a href=&quot;#Commit-Convention&quot; cla</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210130 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/30/210130-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/30/210130-Self-development_til/</id>
-    <published>2021-01-30T01:30:42.000Z</published>
-    <updated>2021-01-31T00:34:09.111Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/self_development_logo.jpg"></p><p><img src="/images/post_images/210130_black_duck.png"></p><p>오늘은 동네에 새로 생긴 카페에서 공부를 하려고 나왔다. 아무래도 프랜차이즈 카페보다는 동네 카페가 상대적으로 사람이 없기 때문에 좋고, 내부 인테리어도 좋아서 왔는데 기대 이상으로 복층구조에 시설이나 서비스도 좋았다. <br/> 원래 공부관련된 내용만 딱딱하게 적으려고 했는데 그래도 나의 일상을 기록하면서 공부한 내용도 같이 기록하면 나중에 다시 봤을때 좋을 것 같아서 같이 기록해둔다.<br/><br>참고로 오늘은 토요일 공부시작 시간은 오전 10시 30분 ~ 20시까지 했다. 부지런한 개발자가 되기 위해 좋은 습관을 들이도록 노력하자.</p><h1 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h1><ul><li><p>210129 분 수업에서 배운 내용 및 공부내용 정리하기 (<strong>완료</strong>)</p></li><li><p>강사님이 올려주신 git flow 영상 보기 (<strong>완료 + 블로그 업데이트 완료</strong>)</p></li><li><p>Git commit message 제대로 적는 연습하기 (<strong>완료</strong>)</p><ul><li>이전처럼 git commit -m 으로 적지 말고, 제대로 된 규칙을 따라 작성하는 연습하기 (안좋은 버릇 고치기) (<strong>완료</strong>)</li></ul></li><li><p>Git flow 활용에 익숙해지기 (<strong>완료</strong>)</p><ul><li>이전에 일일이 작성하면서 오래 걸렸던 부분을 Git flow와 친해지면서 빠르게 처리할 수 있는 것에 익숙해지기. (<strong>완료</strong>) (<strong>오늘 팀원들과 15:30 ~ 18:00 까지 연습을 해서 익숙해진 것 같다.</strong>)</li></ul></li></ul><br/>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/self_development_logo.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/post_images/210130_black_duck.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;오늘은 동네에 새로 </summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210129 Git TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/01/29/210129-Git_til/"/>
-    <id>https://leehyungi0622.github.io/2021/01/29/210129-Git_til/</id>
-    <published>2021-01-29T00:52:42.000Z</published>
-    <updated>2021-01-30T10:15:59.704Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/git_logo.png"></p><br/><p><img src="/images/post_images/210129_git_flow_hand_drawing.png"></p><ul><li><h1 id="branch에-대한-개념-및-관리"><a href="#branch에-대한-개념-및-관리" class="headerlink" title="branch에 대한 개념 및 관리"></a><strong>branch에 대한 개념 및 관리</strong></h1><ul><li><h2 id="Branch란"><a href="#Branch란" class="headerlink" title="Branch란?"></a><strong>Branch란?</strong></h2><ul><li>분기점을 생성하고 독립적으로 코드를 변경할 수 있도록 도와주는 모델이다.</li></ul></li><li><p>기본적인 Branch 관리 관련 명령어</p><ul><li>사용가능한 Local Branch를 출력</li></ul><pre><code class="bash">$ git branch</code></pre><ul><li>Remote Branch에 대한 정보를 출력</li></ul><pre><code class="bash">$ git branch -r</code></pre><ul><li>사용가능한 모든 Branch 정보를 출력</li></ul><pre><code class="bash">$ git branch -a</code></pre><ul><li>새로운 Branch 끊기</li></ul><pre><code class="bash">$ git branch [new branch name]</code></pre><ul><li>새로운 Branch를 끊고, 동시에 checkout하기</li></ul><pre><code class="bash">$ git checkout -b [new branch name]</code></pre><ul><li>새로 만든 Branch 로 switch 하기</li></ul><pre><code class="bash">$ git switch [new branch name]</code></pre><ul><li><code>(Additional step)</code>merge하기 전에 새로 생성한 branch와 master branch와 비교해서 달라진 부분을 비교해야 할 필요가 있다면 아래의 명령으로 변경된 부분을 확인한다.</li></ul><pre><code class="bash">$ git diff master [compared branch name]</code></pre><ul><li>master branch로 다시 이동을 해서 새로 생성한 branch를 merge하도록 한다.</li></ul><pre><code class="bash">$ git merge [새로 생성해서 작업한 branch 이름]</code></pre><ul><li><code>(Additional step)</code>만약에 새로 생성한 remote branch를 repository에 push해서 관리를 해야 한다면, 아래와 같이 명령어를 입력한다.</li></ul><pre><code class="bash">$ git push origin [new branch name]</code></pre><ul><li>새로 생성된 branch에서의 모든 작업은 끝났고, merge작업까지 마무리 되었기 때문에 삭제해준다.</li></ul><pre><code class="bash">$ git branch -D [new branch name]</code></pre><blockquote><p><b>실습내용:</b> master branch에서 hello.py파일을 생성하고, <ins>파일내용의 수정은 iteration branch에서 작업</ins>을 한다. 그 후에 master branch로 이동을 해서 파일이 변경되어 있지 않음을 확인한다. (파일 수정 작업은 iteration branch에서 작업을 하였기 때문) <br/>master branch에 <ins>새로 끊어서 작업한 iteration branch를 merge해주기 위해서 master branch로 switch하고, 새로 끊은 branch에 대해서 merge 작업을 해준다.</ins></p></blockquote><blockquote><p><b>case study)</b> 별도의 branch에서 파일 변경작업을 하다가 commit을 하지 않고 main branch로 이동을 하고, 별도로 끊은 branch를 삭제한 경우, 기존에 수정된 내용이 불필요하다면(변경사항이 의도하지 않게 넘어온 경우에는), 아래의 명령을 이용해서 이동한 main branch에서 이전에 작성했던 파일을 원래 상태로 돌릴 수 있다.</p></blockquote><pre><code class="bash">$ git checkout -- [file name]예시) $ git checkout -- hello.pycf) git의 최신버전에서는 restore를 사용해서 위의 작업을 한다.</code></pre></li></ul></li></ul><br/><ul><li><h2 id="Branching-models의-개념과-Pros-amp-Cons"><a href="#Branching-models의-개념과-Pros-amp-Cons" class="headerlink" title="Branching models의 개념과 Pros &amp; Cons"></a><strong>Branching models의 개념과 Pros &amp; Cons</strong></h2><p>branch를 관리하는 모델에는 다양한 종류가 있다.<br/></p><ul><li><h2 id="git-flow"><a href="#git-flow" class="headerlink" title="git flow"></a><strong>git flow</strong></h2><img src="/images/post_images/210129_git_flow.png" width=700, height=500><ul><li>(hotfix) - <code>master</code> - (release) - <code>develop</code> - feature</li><li><strong>pros</strong> : 가장 많이 적용되며, 각 단계가 명확히 구분된다.</li><li><strong>cons</strong> : 관리가 복잡하다.<blockquote><p>master에서 바로 branch를 끊어서 수정한 다음에 바로 push해주고자 할때 <code>hotfix branch</code>를 사용한다.</p></blockquote></li></ul></li><li><h2 id="github-flow"><a href="#github-flow" class="headerlink" title="github flow"></a><strong>github flow</strong></h2><img src="/images/post_images/210129_github_flow.jpg" width=700, height=500><ul><li><code>master</code> - feature</li><li><strong>pros</strong> : branch model의 단순화ㅏ, <code>master</code>의 모든 commit은 deploy할 수 있다.</li><li><strong>cons</strong> : CI의 의존성이 높다. <code>pull request를 통해 실수를 방지</code>할 수 있다.</li></ul></li><li><h2 id="gitlab-flow"><a href="#gitlab-flow" class="headerlink" title="gitlab flow"></a><strong>gitlab flow</strong></h2><img src="/images/post_images/210129_gitlab_flow.png" width=500, height=600><ul><li><code>production</code> - <code>pre-production</code> - <code>master</code> - feature</li><li><strong>pros</strong> : deploy, issue에 대한 대응이 가능하도록 보완되었다.</li><li><strong>cons</strong> : git flow와 순서가 반대이다.(<code>master</code>-develop, <code>production</code>-master)</li></ul></li></ul></li></ul><br/><ul><li><h2 id="Git-flow-strategy"><a href="#Git-flow-strategy" class="headerlink" title="Git flow strategy"></a><strong>Git flow strategy</strong></h2><p>git flow는 git 명령어를 간소화해서 사용할 수 있는 툴이다. <br/><br>이전에 git을 사용했을때에는 새로 끊은 branch에서 merge하고자하는 branch로 switch한 다음에 merge하고 merge된 branch를 삭제하는 이 일련의 작업을 일일이 해줘야 했는데, <code>git flow</code>를 사용하면 start finish 명령 한 번으로 처리를 해준다. 너무 편리한 것 같다.<br>그래도 구 방식의 CLI가 얼마나 번거로운지 알기 때문에 현재 git flow가 얼마나 편한지 이해가 되는 것 같다.</p><p><strong>(git-flow reference site)</strong><br><a href="http://danielkummer.github.io/git-flow-cheatsheet/">http://danielkummer.github.io/git-flow-cheatsheet/</a></p><p><code>mac에서는 간단하게 brew를 사용해서 git-flow를 설치할 수 있다.</code></p><pre><code class="bash">$ brew install git-flow-avh</code></pre><p>편하긴 하지만, 아직 명령어 사용에 익숙하지 않기 때문에, 위의 홈페이지를 참고해서 명령어에 익숙해지도록 하자. :)</p><img src="/images/post_images/210130_git_flow_command.png" width=500 height=600></li></ul><br/><ul><li><h2 id="Rebase에-대한-이해"><a href="#Rebase에-대한-이해" class="headerlink" title="Rebase에 대한 이해"></a><strong>Rebase에 대한 이해</strong></h2></li></ul><p><img src="/images/post_images/210130_rebase_hand_drawing.png"></p><p><strong>Rebase는 새로 끊은 branch의 base를 베이스가 되는 branch의 최신 point로 분기점을 이동하는 것을 말한다.</strong></p><blockquote><p>실제로 Rebase의 사용을 선호하는 기업(배달의 민족)도 있고, 그렇기 않은 기업도 있다. Rebase를 사용하게 되면, 새로 끊은 branch의 merge commit이 없는 상태로 branch가 붙기 때문에 merge commit과 <ins>새로 끊은 branch가 어느 시점에서 pruning되었고, 어떠한 작업으로 마무리가 되었는지 세부 과정을 확인하는 것이 필요하다면, 이러한 경우에는 rebase를 사용하지 않는 것이 좋다.</ins></p></blockquote><ul><li><h2 id="Rebase하는-방법"><a href="#Rebase하는-방법" class="headerlink" title="Rebase하는 방법"></a><strong>Rebase하는 방법</strong></h2><ul><li>(1) rebase하고자 하는 해당 branch에서 stage에 수정한 파일을 올리고 rebase명령을 해준다.</li></ul><pre><code class="bash">  $ git add [file]  $ git rebase --continue</code></pre><ul><li>(2) merge하고자 하는 base branch(master branch)로 switch한 뒤에, rebasing branch를 merge시켜준다.</li></ul><pre><code class="bash">$ git merge rebasing</code></pre><ul><li>Collaborate with your Co-worker</li></ul><h2 id="실습내용"><a href="#실습내용" class="headerlink" title="실습내용"></a><strong>실습내용</strong></h2><p><strong>Practice-flow :</strong> PM(Project Manager)는 Github에 repository를 새로 파고, 팀원들은 해당 repository를 fork해서 작업을 해준다.</p><pre><code>(PM)1. github에서 새로운 repo를 생성하고 내 컴에 clone 한다.- remote 에서 repository를 만들고 clone했기 때문에 git init을 통해 git을 초기화 해 줄 필요가 없다.2. git flow init 후 develop에서 numguess.py를 만들고 add, commit, push3. 팀원에게 알린다.(DEV)1. 알림 받은 후, 방문하여 fork 한다.2. 팀장 repo에 방문하여 issue를 생성한다.3. fork한 나의 repo를 내 컴에 clone한다.4. git flow init 후, dev -&gt; feature/&#123;MYFEATURE&#125; 브랜칭 하여 작업한다.  (commit 시 발급한 issue 번호 매기기)5. feature finish 후 나의 develop으로 push 한다.6. create pull request 하고 팀장에게 알린다.(PM)4. pull request를 리뷰한다.5. 수정할 것을 지시한다.(DEV 7. 수정사항을 반영하여 다시 add,commit,push)6. merge한다.DEV8. PM repo 업데이트 발생시 PM의 develop을 pull한다.</code></pre><p>Repository에 collaborator를 추가해서 작업 (settings - Manage access - Invite collaborator)</p><ul><li><p>이 방법은 추천을 하지 않는다. 그 이유는 collaborator에 추가된 사람은 해당 repository를 소유한 사람과 같이 해당 repository에 대해서 모든 권한을 가지기 때문이다.</p></li><li><p><code>이 방법은 큰 Open source project에서 pull request를 관리하는 권한으로만 Collaborator를 추가한다.</code></p></li></ul><p>위의 collaborator추가를 통한 repository 공유는 추천하지 않기 때문에 대안으로 나온 방법이 <code>Pork &amp; Merge</code>이다.<br>구체적인 순서는 위에서 작성한 순서를 따른다.</p><p><strong>commit message 작성</strong></p><p>팀장이 팀원을 위해 Repository에 파일을 생성시,<br>ex) :</p><pre><code class="bash">feat: Create index.htmlTODO- semantic elements- web standard- seperaate css, js files into static/</code></pre><p>다음에 할 일을 위와 같이 TODO와 함께 작성을 해주면, 팀원이 참고해서 일을 하게 된다.</p><h3 id="push-upstream-set-option에-대한-이해"><a href="#push-upstream-set-option에-대한-이해" class="headerlink" title="push upstream set option에 대한 이해"></a><strong>push upstream set option에 대한 이해</strong></h3><p>Clone한 경우에 만약에 main branch가 아닌, 별도의 branch에서 작업을 하는 내용이라면, push할때 -u 옵션을 사용해서 <code>remote branch</code>를 설정해줘야 한다.</p><pre><code class="bash">예) 현재 local에서 작업하는 내용을 remote의 develop branch로 push하는 경우,$ git push -u origin develop</code></pre><p>만약에 main/master branch에서 작업을 하는 경우에는 clone시에 이미 지정되어있는 부분이기 때문에 지정해주지 않아도 된다.</p><pre><code class="bash">$ git branch --set-upstream &lt;remote-branch&gt;</code></pre><p>위와 같이 현재 <code>local branch</code>에 대한 <code>remote branch</code>를 설정합니다.<br/><br>설정을 해주게 되면, 향후에 <code>$git pull</code>명령에 대해서 remote-branch에서 현재 로컬 분기로 commit된 정보를 가져옵니다.<br/></p><p>위와 같이 명시적으로 입력을 하지 않고 처리하는 방법으로는 push할때 -u옵션을 사용하는 것이다.<br>그러면 향후 Push / Pull 시도에 대한 upstream 연결이 자동으로 설정된다.</p><pre><code class="bash">$ git push -u origin &lt;local-branch&gt;</code></pre><ul><li><p><code>fork한 PM의 repository의 Issue</code>는 코드관련해서 구성원들끼리 communication하는 장이다.</p><ul><li>만약에 할당받은 업무에 대한 catch-up message는 작성하는 본문 내용에 자세하게 작성을 해줘야 한다.(업무의 연관성에 대해서)</li><li>그럼 PM은 작성한 ISSUE 내용을 보고 Assignee에 적합한 사람이라면 업무할당으르 해준다. (+Label로 구체적인 업무 구분을 해준다.)</li></ul></li><li><p>Commit을 할때에는 파일단위로 나눠서 commit을 하지 말고, 기능 단위로 파일들을 묶어서 해줘야 한다. 나중에 commit을 확인한 하는 개발자가 해당 commit을 보고 이 파일들의 수정을 통해서 어떤 기능구현이 가능했었는지 알 수 있도록 하기 위해서 이다.</p></li><li><p>Commit을 할때에는 Issue와 Pull request는 numbering이 되는데(Issue와 Pull request는 같이 진행이 된다), 이 번호를 commit log에 Issue번호를 같이 적어주게 되면 Commit - Issue - Pull request가 서로 연결이 된다. 따라서 이 commit message만 보더라도 해당 commit이 어떤 Issue를 해결했고, 어떤 Pull request와 연관이 되어있는지 이해할 수 있게 된다.</p></li></ul><pre><code class="bash">feat: Seperate css, js into static/solved: #1 (issue number)path- static/css/style.css- static/js/index.js</code></pre><ul><li><p>하나의 작업을 하더라도 꼭 하나의 feature를 따서 작업을 하는 습관 들이기.</p></li><li><p>팀원은 master(main) branch에 접근할 필요가 없고, Release 작업은 PM의 권한을 가지고 있는 개발자가 담당한다. 개발 담당자는 develop branch까지 merge한 내용을 fork한 본인의 branch에 push를 해주면 된다.</p></li></ul><pre><code class="bash">$ git push -u origin develop</code></pre><br/></li><li><h2 id="프로젝트-협업시에-참고하면-좋은-꿀-Tip"><a href="#프로젝트-협업시에-참고하면-좋은-꿀-Tip" class="headerlink" title="프로젝트 협업시에 참고하면 좋은 꿀 Tip"></a><strong>프로젝트 협업시에 참고하면 좋은 꿀 Tip</strong></h2><ul><li><p>fork한 본인의 branch에 push를 한 뒤에 pull request 작성으르 하게 되면, 본문 작성시, ‘#’ 입력과 함께 Issue에 작성했던 Issue의 title 내용이 자동완성되는 것을 확인할 수 있다.(직접입력하는 것과 동일)</p></li><li><p>Issue를 먼저 만들고 Pull request를 만들어주는 것이 더 모양이 좋다. <ins><b>(선 Issue, 후 Pull request)</b></ins></p></li><li><p>Pull request를 한 뒤에 PM(Project Manager) developer가 comment를 달아주면 팀원 developer는 해당 내용을 확인하고, 해당 Pull request는 merge되지 않고 open된 상태이기 때문에,<br><ins><b>수정하는 내용은 feature branch를 따서 작업을 해도 되고, develop branch에서 바로 작업을 해줘도 된다.</b></ins><br>변경사항에 대해서 파일을 수정한 다음에는 이전과 동일하게 add, commit을 해주면 된다. (comment의 title은 feat:로 해서 달아주면 된다.) commit을 해주고 fork한 본인의 repository의 developer branch에 push를 해주면 된다.</p></li><li><p>수정작업을 한 뒤에는 다시 Pull request를 열 필요 없이, 기존의 Pull request를 확인하면 업데이트 한 사항을 확인할 수 있다.<br>(Pull request를 안닫아주면, develop branch에서 작업한 다른 모든 내용들이 전부 open되어있는 pull request에 쌓이게 된다. 따라서 PM은 빨리 Pull request를 확인해서 닫아줘야 한다)</p></li><li><p><strong><ins>다른 팀원들은 미리 PM의 remote를 별도로 등록해줘야 한다. 나중에 다른 팀원들의 내용이 PM의 repository에 merge된 후에 해당 내용을 당겨서 받아야 되기 때문에, 미리 등록을 해두는 것이 좋다.</ins></strong></p></li></ul><pre><code class="bash">$ git remote add pmorigin [PM Repository address]//연결되어있는 remote branch 확인 (origin, pmorigin)$ git remote -v$ git pull pmorigin develop//팀장은 본인(origin)의 repository 정보를 pull해주면 된다.$ git pull origin develop</code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/git_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/post_images/210129_git_flow_hand_drawing.png&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
