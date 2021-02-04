@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-04T09:24:46.046Z</updated>
+  <updated>2021-02-04T10:18:02.687Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210203 Plotly + Pandas Practice</title>
+    <link href="https://leehyungi0622.github.io/2021/02/04/210204-Plotly_Pandas_Practice/"/>
+    <id>https://leehyungi0622.github.io/2021/02/04/210204-Plotly_Pandas_Practice/</id>
+    <published>2021-02-04T09:32:42.000Z</published>
+    <updated>2021-02-04T10:18:02.687Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210202_pandas_plotly_logo.jpeg"></p><br/><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210202_pandas_plotly_logo.jpeg&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 </summary>
+      
+    
+    
+    
+    <category term="TIL:Pandas" scheme="https://leehyungi0622.github.io/categories/TIL-Pandas/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="Plotly" scheme="https://leehyungi0622.github.io/tags/Plotly/"/>
+    
+    <category term="Pandas" scheme="https://leehyungi0622.github.io/tags/Pandas/"/>
+    
+    <category term="Practice" scheme="https://leehyungi0622.github.io/tags/Practice/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210204 Python Regular Expression Assignment</title>
     <link href="https://leehyungi0622.github.io/2021/02/04/210204-Python_HackerRank_assignment/"/>
     <id>https://leehyungi0622.github.io/2021/02/04/210204-Python_HackerRank_assignment/</id>
     <published>2021-02-04T06:02:41.000Z</published>
-    <updated>2021-02-04T09:24:46.046Z</updated>
+    <updated>2021-02-04T10:18:39.410Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/hackerrank-logo.jpg"></p><br/><p>원래 HackerRank 문제의 경우, 별도로 풀이를 정리하지는 않지만, 이번에 정규표현식의 경우, 헷갈리는 부분과 새롭게 공부하게 된 내용이 있어서 별도로 정리를 해본다.</p><h2 id="문제-1"><a href="#문제-1" class="headerlink" title="문제 1"></a>문제 1</h2><p><a href="https://www.hackerrank.com/challenges/re-findall-re-finditer/problem"><strong>Problem1 Link(HackerRank)</strong></a></p><p>이 문제는 앞 뒤로는 자음만 위치하고, 가운데에는 2개 이상의 모음으로만 구성되어 있는 문자를 정규표현식을 통해 출력하는 문제이다.</p><blockquote><p>Task You are given a string . It consists of alphanumeric characters, spaces and symbols(+, -). Your task is to find all the substrings of that contains or more vowels. Also, these substrings must lie in between consonants and should contain vowels only.</p></blockquote><p>우선 문제를 풀이하기에 앞서 다음 <strong>긍정/부정예측(positive/negative lookahead assertion)</strong>, <strong>긍정 후 읽기</strong>에 대한 개념에 대해서 알아보자.</p><h3 id="긍정적인-예측"><a href="#긍정적인-예측" class="headerlink" title="긍정적인 예측"></a>긍정적인 예측</h3><p><code>x?=y</code> : 이 패턴은 직후에 y가 존재하는 문자열 x에 match한다.</p><pre><code class="python">foo(?=bar)# 직후에 bar가 있는 foo에 일치한다.</code></pre><h3 id="부정적인-예측"><a href="#부정적인-예측" class="headerlink" title="부정적인 예측"></a>부정적인 예측</h3><p><code>x?!y</code> : 이 패턴은 직후에 y가 없는 문자열 x에 match한다.</p><pre><code class="python">foo(?!bar)# 직후에 bar가 없는 foo에 일치한다.</code></pre><h3 id="긍정-후-읽기"><a href="#긍정-후-읽기" class="headerlink" title="긍정 후 읽기"></a>긍정 후 읽기</h3><p><code>x?&lt;=y</code> : 이 패턴은 직전에 문자열 x가 있는 문자열 y(x는 포함하지 않음)에 일치한다.</p><pre><code class="python">(?&lt;=bar)foo# 직전에 bar가 있는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h3 id="부정-후-읽기"><a href="#부정-후-읽기" class="headerlink" title="부정 후 읽기"></a>부정 후 읽기</h3><p><code>x?&lt;!y</code> : 이 패턴은 직전에 x가 없는 문자열 y에 일치한다.</p><pre><code class="python">(?&lt;!bar)foo# 직전에 bar가 없는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h3 id="본-코드"><a href="#본-코드" class="headerlink" title="본 코드"></a><strong>본 코드</strong></h3><pre><code class="python">import reresult = re.findall(r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())if result:    print(*result, end=&#39;\n&#39;)else:    print(-1)</code></pre><pre><code class="python">find_object = re.finditer(    r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())for i in map(lambda x: x.group(), find_object):    print(i)</code></pre><br/><h2 id="문제-2"><a href="#문제-2" class="headerlink" title="문제 2"></a>문제 2</h2><p><a href="https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem"><strong>Problem2 Link(HackerRank)</strong></a></p><p>이 문제는 입력받은 multiline statements에서 각 문자열에 &amp;&amp;가 있으면 and로, ||가 있으면 or로 변환하는 문제였다.<br>이 문제를 풀때 처음에는 [\s]로 앞/뒤 공백을 구분하려고 했는데 예상 결과값으로 출력이 안되어, (<strong>(?&lt;=[white space]</strong>), <strong>(?=[white space])</strong>)로 다시 정규표현을 작성하여 풀이하였다.</p><blockquote><p>You are given a text of lines. The text contains &amp;&amp; and || symbols. <br/> Your task is to modify those symbols to the following:<br><code>Both &amp;&amp; and || should have a space &quot; &quot; on both sides.</code></p><blockquote><p>&amp;&amp; → and<br>|| → or</p></blockquote></blockquote><h3 id="본-코드-1"><a href="#본-코드-1" class="headerlink" title="본 코드"></a>본 코드</h3><pre><code class="python">import redef cvtLogicalOperator(match):    if match.group(0) == &quot;||&quot;:        return &quot;or&quot;    elif match.group(0) == &quot;&amp;&amp;&quot;:        return &quot;and&quot;N = int(input())statement = []for _ in range(N):    statement.append(input())statement = &#39;\n&#39;.join(statement)print(re.sub(r&quot;(?&lt;= )(&amp;&amp;|\|\|)(?= )&quot;, cvtLogicalOperator, statement))</code></pre><br/><h2 id="문제-3"><a href="#문제-3" class="headerlink" title="문제 3"></a>문제 3</h2><p><a href="https://www.hackerrank.com/challenges/validating-named-email-addresses/problem"><strong>Problem3 Link(HackerRank)</strong></a></p><p>이 문제는 입력받은 이메일 주소를 정규표현식(regular expression)을 사용해서 유효성 검사를 하는 문제이다.<br>이 문제에서는 <strong>이전에 배운 meta character를 다양하게 사용해 볼 수 있다.</strong></p><blockquote><p>The first line contains a single integer, , denoting the number of email address. <br/> Each line of the subsequent lines contains a name and an email address as two space-separated values following this format:</p><p><code>name &lt;user@email.com&gt;</code></p></blockquote><h3 id="본-코드-2"><a href="#본-코드-2" class="headerlink" title="본 코드"></a>본 코드</h3><pre><code class="python">import reimport email.utilsn = int(input())for _ in range(n):    name, email = map(str, input().split())    # &lt; 특수문자로 ^(시작)하고, \w(alphanumeric character),    # .을 문자 자체로 입력하기 위해 \(back slash)와 같이 입력,    # 끝은 &gt;로 끝나기 때문에 끝 문자 뒤에 $ 메타문자를 입력해서 처리해준다.    ptn = r&quot;^&lt;[a-zA-Z](\w|-|\.|_)+@[a-zA-Z]+\.+[a-zA-Z]&#123;1,3&#125;&gt;$&quot;    if re.match(ptn, email):        print(name, email)</code></pre><br/><h2 id="문제-4"><a href="#문제-4" class="headerlink" title="문제 4"></a>문제 4</h2><p><a href="https://www.hackerrank.com/challenges/validating-the-phone-number/problem"><strong>Problem4 Link(HackerRank)</strong></a></p><p>이문제는 입력받은 전화번호를 정규표현식을 사용해서 유효성 검사를 하는 문제이다.<br>문제에서 입력받는 전화번호의 조건은 아래와 같다.</p><blockquote><p><strong>condition1)</strong> 전화번호는 총 10자리 수로 구성이 된다.<br><strong>condition2)</strong> 앞 자리는 7, 8, 9로 시작한다.<br><strong>condition3)</strong> 나머지 자리수는 숫자(\d)로 구성된다.</p></blockquote><h3 id="본-코드-3"><a href="#본-코드-3" class="headerlink" title="본 코드"></a>본 코드</h3><pre><code class="python">import retest_case = int(input())for _ in range(test_case):    phone_number = input()    ptn = r&quot;[7-9][0-9]&#123;9&#125;&quot;    # ptn = r&quot;[7-9][\d]&#123;9&#125;&quot;    print(&#39;YES&#39; if re.match(ptn, phone_number) else &#39;NO&#39;)</code></pre>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/hackerrank-logo.jpg"></p><br/><p>원래 HackerRank 문제의 경우, 별도로 풀이를 정리하지는 않지만, 이번에 정규표현식의 경우, 헷갈리는 부분과 새롭게 공부하게 된 내용이 있어서 별도로 정리를 해본다.</p><h2 id="문제-1"><a href="#문제-1" class="headerlink" title="문제 1"></a>문제 1</h2><p><a href="https://www.hackerrank.com/challenges/re-findall-re-finditer/problem"><strong>Problem1 Link(HackerRank)</strong></a></p><p>이 문제는 앞 뒤로는 자음만 위치하고, 가운데에는 2개 이상의 모음으로만 구성되어 있는 문자를 정규표현식을 통해 출력하는 문제이다.</p><blockquote><p>Task You are given a string . It consists of alphanumeric characters, spaces and symbols(+, -). Your task is to find all the substrings of that contains or more vowels. Also, these substrings must lie in between consonants and should contain vowels only.</p></blockquote><p>우선 문제를 풀이하기에 앞서 다음 <strong>긍정/부정예측(positive/negative lookahead assertion)</strong>, <strong>긍정 후 읽기</strong>에 대한 개념에 대해서 알아보자.</p><h3 id="긍정적인-예측"><a href="#긍정적인-예측" class="headerlink" title="긍정적인 예측"></a>긍정적인 예측</h3><p><code>x?=y</code> : 이 패턴은 직후에 y가 존재하는 문자열 x에 match한다.</p><pre><code class="python">foo(?=bar)# 직후에 bar가 있는 foo에 일치한다.</code></pre><h3 id="부정적인-예측"><a href="#부정적인-예측" class="headerlink" title="부정적인 예측"></a>부정적인 예측</h3><p><code>x?!y</code> : 이 패턴은 직후에 y가 없는 문자열 x에 match한다.</p><pre><code class="python">foo(?!bar)# 직후에 bar가 없는 foo에 일치한다.</code></pre><h3 id="긍정-후-읽기"><a href="#긍정-후-읽기" class="headerlink" title="긍정 후 읽기"></a>긍정 후 읽기</h3><p><code>x?&lt;=y</code> : 이 패턴은 직전에 문자열 x가 있는 문자열 y(x는 포함하지 않음)에 일치한다.</p><pre><code class="python">(?&lt;=bar)foo# 직전에 bar가 있는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h3 id="부정-후-읽기"><a href="#부정-후-읽기" class="headerlink" title="부정 후 읽기"></a>부정 후 읽기</h3><p><code>x?&lt;!y</code> : 이 패턴은 직전에 x가 없는 문자열 y에 일치한다.</p><pre><code class="python">(?&lt;!bar)foo# 직전에 bar가 없는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h3 id="본-코드"><a href="#본-코드" class="headerlink" title="본 코드"></a><strong>본 코드</strong></h3><pre><code class="python">import reresult = re.findall(r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())if result:    print(*result, end=&#39;\n&#39;)else:    print(-1)</code></pre><pre><code class="python">find_object = re.finditer(    r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())for i in map(lambda x: x.group(), find_object):    print(i)</code></pre><br/><h2 id="문제-2"><a href="#문제-2" class="headerlink" title="문제 2"></a>문제 2</h2><p><a href="https://www.hackerrank.com/challenges/re-sub-regex-substitution/problem"><strong>Problem2 Link(HackerRank)</strong></a></p><p>이 문제는 입력받은 multiline statements에서 각 문자열에 &amp;&amp;가 있으면 and로, ||가 있으면 or로 변환하는 문제였다.<br>이 문제를 풀때 처음에는 [\s]로 앞/뒤 공백을 구분하려고 했는데 예상 결과값으로 출력이 안되어, (<strong>(?&lt;=[white space]</strong>), <strong>(?=[white space])</strong>)로 다시 정규표현을 작성하여 풀이하였다.</p><blockquote><p>You are given a text of lines. The text contains &amp;&amp; and || symbols. <br/> Your task is to modify those symbols to the following:<br><code>Both &amp;&amp; and || should have a space &quot; &quot; on both sides.</code></p><blockquote><p>&amp;&amp; → and<br>|| → or</p></blockquote></blockquote><h3 id="본-코드-1"><a href="#본-코드-1" class="headerlink" title="본 코드"></a>본 코드</h3><pre><code class="python">import redef cvtLogicalOperator(match):    if match.group(0) == &quot;||&quot;:        return &quot;or&quot;    elif match.group(0) == &quot;&amp;&amp;&quot;:        return &quot;and&quot;N = int(input())statement = []for _ in range(N):    statement.append(input())statement = &#39;\n&#39;.join(statement)print(re.sub(r&quot;(?&lt;= )(&amp;&amp;|\|\|)(?= )&quot;, cvtLogicalOperator, statement))</code></pre><br/><h2 id="문제-3"><a href="#문제-3" class="headerlink" title="문제 3"></a>문제 3</h2><p><a href="https://www.hackerrank.com/challenges/validating-named-email-addresses/problem"><strong>Problem3 Link(HackerRank)</strong></a></p><p>이 문제는 입력받은 이메일 주소를 정규표현식(regular expression)을 사용해서 유효성 검사를 하는 문제이다.<br>이 문제에서는 <strong>이전에 배운 meta character를 다양하게 사용해 볼 수 있다.</strong></p><blockquote><p>The first line contains a single integer, , denoting the number of email address. <br/> Each line of the subsequent lines contains a name and an email address as two space-separated values following this format:</p><p><code>name &lt;user@email.com&gt;</code></p></blockquote><h3 id="본-코드-2"><a href="#본-코드-2" class="headerlink" title="본 코드"></a>본 코드</h3><pre><code class="python">import reimport email.utilsn = int(input())for _ in range(n):    name, email = map(str, input().split())    # &lt; 특수문자로 ^(시작)하고, \w(alphanumeric character),    # .을 문자 자체로 입력하기 위해 \(back slash)와 같이 입력,    # 끝은 &gt;로 끝나기 때문에 끝 문자 뒤에 $ 메타문자를 입력해서 처리해준다.    ptn = r&quot;^&lt;[a-zA-Z](\w|-|\.|_)+@[a-zA-Z]+\.+[a-zA-Z]&#123;1,3&#125;&gt;$&quot;    if re.match(ptn, email):        print(name, email)</code></pre><br/><h2 id="문제-4"><a href="#문제-4" class="headerlink" title="문제 4"></a>문제 4</h2><p><a href="https://www.hackerrank.com/challenges/validating-the-phone-number/problem"><strong>Problem4 Link(HackerRank)</strong></a></p><p>이문제는 입력받은 전화번호를 정규표현식을 사용해서 유효성 검사를 하는 문제이다.<br>문제에서 입력받는 전화번호의 조건은 아래와 같다.</p><blockquote><p><strong>condition1)</strong> 전화번호는 총 10자리 수로 구성이 된다.<br><strong>condition2)</strong> 앞 자리는 7, 8, 9로 시작한다.<br><strong>condition3)</strong> 나머지 자리수는 숫자(\d)로 구성된다.</p></blockquote><h3 id="본-코드-3"><a href="#본-코드-3" class="headerlink" title="본 코드"></a>본 코드</h3><pre><code class="python">test_case = int(input())for _ in range(test_case):    phone_number = input()    ptn = r&quot;[7-9][0-9]&#123;9&#125;&quot;    print(&#39;YES&#39; if len(phone_number) == 10 and re.match(ptn, phone_number) else &#39;NO&#39;)</code></pre>]]></content>
     
     
       
@@ -584,36 +617,6 @@
     <category term="Greedy-Algorithm" scheme="https://leehyungi0622.github.io/tags/Greedy-Algorithm/"/>
     
     <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210131 Git Practice (Feature/Release/Hotfix)</title>
-    <link href="https://leehyungi0622.github.io/2021/01/31/210131-Git-practice/"/>
-    <id>https://leehyungi0622.github.io/2021/01/31/210131-Git-practice/</id>
-    <published>2021-01-31T02:30:42.000Z</published>
-    <updated>2021-01-31T04:50:53.641Z</updated>
-    
-    <content type="html"><![CDATA[<p>오늘은 저번 수업시간(<strong>29(금)</strong>)에 배운 <code>Git branch 관리와 협업</code>에 대한 내용을 최대한 활용해서 연습을 해 볼 것이다. 물론 강사님 말처럼 입사하게 되면 <strong>main(master) branch, release branch</strong>를 건드릴 필요 없이, <strong>develop, feature branch</strong>만 가지고 작업을 하겠지만 개인 프로젝트할 때 버전별로 업데이트 해서 release도 해 볼 것이기 때문에 이를 위해 제대로 연습을 해 보겠다.</p><br/><p>Branching model : git flow</p><p><img src="/images/post_images/210129_git_flow.png"></p><ul><li><h2 id="Release-branch-실습"><a href="#Release-branch-실습" class="headerlink" title="Release branch 실습"></a><strong>Release branch 실습</strong></h2><p><img src="/images/post_images/210131_git_flow_release.png"></p></li><li><h2 id="Hotfix-branch-실습"><a href="#Hotfix-branch-실습" class="headerlink" title="Hotfix branch 실습"></a><strong>Hotfix branch 실습</strong></h2><p><img src="/images/post_images/210131_git_flow_hotfix.png"></p></li></ul><h2 id="git-flow-활용-꿀팁"><a href="#git-flow-활용-꿀팁" class="headerlink" title="git flow 활용 꿀팁"></a><strong>git flow 활용 꿀팁</strong></h2><p>git flow를 활용해서 start, finish를 하게 되면 branch가 merge가 된 뒤에 자동으로 생성했던 branch를 삭제하고 merge된 branch로 switch해주다. 편리하긴 하지만 만약에 graph 구조상에 생성했던 branch에 대한 내용도 keep하고 싶다면 아래와 같이 간단하게 <code>-k(eep)</code>옵션을 붙여주면 된다.</p><pre><code class="bash">$ git flow feature finish -k [feature branch name]</code></pre><p>성공적으로 develop branch에 feature branch를 merge하고 난 뒤에 feature branch를 제거하지 않는 것은 merge를 되돌리는 것을 손쉽게 할 수 있도록 도와준다.<br>간단하게 merge commit을 제거함으로써 merge를 되돌릴 수 있다.</p><pre><code class="bash"># On develop branch$ git reset --hard HEAD^</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;오늘은 저번 수업시간(&lt;strong&gt;29(금)&lt;/strong&gt;)에 배운 &lt;code&gt;Git branch 관리와 협업&lt;/code&gt;에 대한 내용을 최대한 활용해서 연습을 해 볼 것이다. 물론 강사님 말처럼 입사하게 되면 &lt;strong&gt;main(mast</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   
