@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-04T11:52:57.363Z</updated>
+  <updated>2021-02-04T13:34:06.729Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210204 HTTP - Request/Response</title>
+    <link href="https://leehyungi0622.github.io/2021/02/04/210204-HTTP_Request_Response/"/>
+    <id>https://leehyungi0622.github.io/2021/02/04/210204-HTTP_Request_Response/</id>
+    <published>2021-02-04T13:03:42.000Z</published>
+    <updated>2021-02-04T13:34:06.729Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210204_http_request_response.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h3 id="GET-POST-방식-비교표"><a href="#GET-POST-방식-비교표" class="headerlink" title="GET/POST 방식 비교표"></a><strong>GET/POST 방식 비교표</strong></h3><p><img src="/images/post_images/210204_get_post_comparision.png"></p><p>GET 방식과 POST 방식은 위와같이 정보 전송방식과 보안적 측면, 전송할 수 있는 데이터의 길이, 전송데이터의 Caching 가능 유/무 등에서 차이점을 보인다.</p><p>HTTP의 동작방식에서 URL을 통해서 browser에 접속하게 되면, browser가 GET method 방식으로 Browser의 Page를 읽어온다.</p><p>로그인과 같이 중요한 정보를 전송할때에는 POST method로 browser에서 server로 정보를 전달하게 된다.</p><p>간단하게 browser상에서 /(root) 경로로 이동했을때의 처리를 작성해보자.</p><p><strong>index.js</strong></p><pre><code class="javascript">const handleHome = () =&gt; &#123;  console.log(&quot;Hi from home!&quot;);&#125;;app.get(&quot;/&quot;, handleHome);</code></pre><p>위와같이 작성을 해주면, console에서는 “Hi from home!”이라는 메시지를 확인할 수 있지만, 서버로 보내는 특정 response가 없기 때문에 웹 페이지가 무한 loading상태임을 확인할 수 있다.</p><pre><code class="javascript">const handleHome = (req, res) =&gt; &#123;  console.log(req);  res.send(&quot;Hello from home&quot;);&#125;;const handleProfile = (req, res) =&gt; &#123;  res.send(&quot;You are on my profile&quot;);&#125;;app.get(&quot;/&quot;, handleHome);app.get(&quot;/profile&quot;, handleProfile);</code></pre><p>위와같이 NodeJS는 서버와 Route를 생성하고 그것에 응답하는 방식으로 작동한다.</p><p>지금은 간단한 동작 확인을 위해서 위와같이 callback function과 router 처리를 같은 파일에서 작성을 해주었지만, 프로젝트 구성시에는 callback function은 controller로써 기능별로 분류를 해주고, router 기능을 하는 부분도 별도로 분류해서 작성을 해 줄 것이다.</p><p>실제로 웹 서버를 동작시킬때에는 위와같이 <code>res.send(&quot;[text]&quot;)</code>가 아닌 완전한 HTML파일을 rendering해준다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210204_http_request_response.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다</summary>
+      
+    
+    
+    
+    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
+    
+    
+    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
+    
+    <category term="Express-Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
+    
+    <category term="HTTP-Request-Response" scheme="https://leehyungi0622.github.io/tags/HTTP-Request-Response/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210204 Build a server using ExpressJS &amp; Babel</title>
+    <link href="https://leehyungi0622.github.io/2021/02/04/210204-ExpressJS_First_Server_and_Babel/"/>
+    <id>https://leehyungi0622.github.io/2021/02/04/210204-ExpressJS_First_Server_and_Babel/</id>
+    <published>2021-02-04T12:32:42.000Z</published>
+    <updated>2021-02-04T13:02:44.016Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210204_babel_logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h3 id="Express-프레임워크를-사용해서-NodeJS-서버-작성"><a href="#Express-프레임워크를-사용해서-NodeJS-서버-작성" class="headerlink" title="Express 프레임워크를 사용해서 NodeJS 서버 작성"></a><strong>Express 프레임워크를 사용해서 NodeJS 서버 작성</strong></h3><pre><code class="javascript">// express라는 이름의 파일을 찾아보고, 없으면 node_modules내부에서 찾아본다.const express = require(&quot;express&quot;);const app = express();const PORT = 4000;const handleListening = () =&gt; &#123;  console.log(`Listening on: http://localhost:$&#123;PORT&#125;`);&#125;;app.listen(PORT, handleListening);</code></pre><h3 id="package-json에-entry-command-만들어주기"><a href="#package-json에-entry-command-만들어주기" class="headerlink" title="package.json에 entry command 만들어주기"></a><strong>package.json에 entry command 만들어주기</strong></h3><pre><code class="javascript">// package.json&quot;scripts&quot;:&#123;      &quot;start&quot;: &quot;node index.js&quot;&#125;</code></pre><p>위와같이 entry command를 작성해주면 매번 node 명령으로 index.js(server entry) 파일을 실행시키지 않고, <code>npm start</code> 명령으로 server entry 파일을 실행시킬 수 있다.</p><h3 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a><strong>Babel</strong></h3><p>Babel은 최신의 JavaScript코드를 이전 버전의 JavaScript 코드로 변환해주는 역할을 한다. Babel에는 다양한 Loader가 존재하는데 NodeJS에서 사용할 것이기 때문에 Babel node를 설치해준다.</p><ul><li><p><strong>npm install @babel/node</strong> 설치</p></li><li><p><strong>npm install @babel/preset-env</strong> 설치</p></li><li><p><strong>npm install @babel/core</strong> 설치</p></li><li><p><strong>.babelrc 파일을 추가</strong>해준다.</p></li></ul><p><ins>babel에는 다양한 stage가 있는데 최신 stage인 -env를 사용해본다.</ins></p><p><strong>.babelrc</strong></p><pre><code class="javascript">&#123;  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]&#125;</code></pre><p><strong>index.js</strong></p><pre><code class="javascript">import express from &quot;express&quot;;const app = express();</code></pre><h3 id="package-json에-entry-command-수정하기"><a href="#package-json에-entry-command-수정하기" class="headerlink" title="package.json에 entry command 수정하기"></a><strong>package.json에 entry command 수정하기</strong></h3><pre><code class="javascript">// package.json// babel이 최신 JavaScript 코드를 변환해줌과 동시에 node로 작성한 index.js 파일을 실행시켜 줄 것이다.&quot;scripts&quot;:&#123;      &quot;start&quot;: &quot;babel-node index.js&quot;&#125;</code></pre><p>여지까지 작성한 방법으로는 server 코드에서 변화가 생기면 수동으로 서버를 끄고 다시 켜야 한다. 이러한 과정은 개발에 있어 매우 비효율적이므로, <code>nodemon</code>이라는 package를 설치해서 해결해보도록 하겠다.<br>여기서 설치하는 <code>nodemon</code>은 <ins><strong>개발자가 좀 더 편하게 개발할 수 있도록 도와주는 dependency이므로, 프로젝트의 실행과 직접적인 관련이 있는 dependency와 구별해서 설치해주는 것이 좋다.</strong></ins></p><p>따라서 nodemon을 설치할때에는 <code>option으로 -D</code>를 붙여주도록 한다.</p><pre><code class="bash">$ npm install nodemon -D</code></pre><p>그럼 아래와 같이 별도의 <code>devDependencies</code> 객체로 구분되서 dependency가 설치되는 것을 확인할 수 있따.</p><pre><code class="javascript">&quot;devDependencies&quot;: &#123;    &quot;nodemon&quot;: &quot;^2.0.4&quot;&#125;</code></pre><p>이제 nodemon이 설치되었으니 package.json에서 entry command 수정해준다.<br>기존의 command에 <code>nodemon --exec</code>와 babel이 JavaScript 파일의 변환하는 것을 위해 2초간 delay될 수 있도록 <code>--delay 2</code>를 붙여준다.</p><pre><code class="javascript">&quot;scripts&quot;: &#123;    &quot;start&quot;: &quot;nodemon --exec babel-node index.js --delay 2&quot;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210204_babel_logo.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입</summary>
+      
+    
+    
+    
+    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
+    
+    
+    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
+    
+    <category term="Express-Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
+    
+  </entry>
   
   <entry>
     <title>210204 Plotly + Pandas Practice</title>
@@ -414,7 +472,7 @@ df = pd.read_csv(</summary>
     <link href="https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_Express_Framework/"/>
     <id>https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_Express_Framework/</id>
     <published>2021-02-01T21:27:42.000Z</published>
-    <updated>2021-02-01T21:48:20.326Z</updated>
+    <updated>2021-02-04T12:34:27.451Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/210202_expressjs_and_nodejs.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h1 id="ExpressJS"><a href="#ExpressJS" class="headerlink" title="ExpressJS?"></a><strong>ExpressJS?</strong></h1><p>ExpressJS는 간단히 말하면 훌륭한 개발자들이 만들어준 NodeJS 프레임워크이다. 이를 사용해서 우리는 원하는 걸 쉽고 빠르게 해낼 수 있다. 예를 들어 NodeJS로 서버를 만드는 것이 목표라면 수작업으로 초반작업을 해줄 필요가 있는데 Express를 이용해서 단 몇 줄의 코드로 서버를 만들 수 있다.</p><h1 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a><strong>Framework</strong></h1><p>다른 프로그래밍 언어에도 프레임워크가 있다. 예를 들어 Django는 Python으로 된 프레임워크이고, Rails는 Ruby로 된 프레임워크이고, Laravel은 PHP로 된 프레임워크이다. 이러한 프레임워크들은 개발자들의 개발을 손쉽게 할 수 있도록 도와준다.</p><p>서버를 개발하는 것은 대부분의 경우 거의 동일한 패턴을 가지고 있다. Connection 열기, Connection Listening, 파일을 처리, html 전송, 데이터를 저장, form에서 데이터를 받아오기와 같은 일련의 과정의 반복이라고 볼 수 있다. 모든 어플리케이션이 대부분 동일한 일을 하기때문에 앞서 언급한 프레임워크는 다른 방식이지만 결국에는 같은 일들을 처리한다고 볼 수 있다.</p><p><code>ExpressJS는 NodeJS의 프레임워크 중에 대중적인 프레임워크이고, 안정적이다.</code></p><br/><p><strong>ExpressJS Reference :</strong> <a href="https://github.com/expressjs/express">ExpressJS Reference</a></p><br/><p>ExpressJS를 사용하는 일부 기업들은 아래와 같다.</p><p><img src="/images/post_images/210202_express_use_company.png"></p>]]></content>
     
@@ -433,7 +491,7 @@ df = pd.read_csv(</summary>
     
     <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
     
-    <category term="Express Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
+    <category term="Express-Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
     
   </entry>
   
@@ -554,70 +612,6 @@ df = pd.read_csv(</summary>
     <category term="List-comprehension" scheme="https://leehyungi0622.github.io/tags/List-comprehension/"/>
     
     <category term="Dictionary-comprehension" scheme="https://leehyungi0622.github.io/tags/Dictionary-comprehension/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 1543번 문서 검색 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/02/01/210201-Algorithm_baekjoon_1543/"/>
-    <id>https://leehyungi0622.github.io/2021/02/01/210201-Algorithm_baekjoon_1543/</id>
-    <published>2021-02-01T02:28:42.000Z</published>
-    <updated>2021-02-01T04:00:45.241Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code"><a href="#백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 1543번 문서 검색 문제 Pseudo code + Python code"></a>백준 저지 1543번 문서 검색 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210201_baekjoon_1543.png"></p><blockquote><p>손코딩한 코드에서 논리적 오류를 발견했다. document에서 검색하고자 하는 문자열의 길이만큼 slicing할때, 시작 인덱스(start_index)부터 검색 문자열의 길이(search_word)까지가 아닌, 시작 인덱스(start_index)에서 검색 문자열의 길이(len(search_word))만큼 더한 곳 까지 slicing한 문자열을 비교해야 한다.</p></blockquote><pre><code class="python">document = input()search_word = input()search_count = 0start_index = 0while (len(document)-start_index) // len(search_word) != 0:# 아래의 조건도 위의 조건을 대체할 수 있다.# while len(document)-start_index &gt;= len(search_word):  if document[start_index:start_index+len(search_word)] == search_word:    start_index += len(search_word)    search_count += 1  else:    start_index += 1print(search_count)</code></pre><p>이 문제는</p><ul><li><h2 id="Brute-force-Algorithm-완전탐색"><a href="#Brute-force-Algorithm-완전탐색" class="headerlink" title="Brute force Algorithm (완전탐색)"></a><strong>Brute force Algorithm (완전탐색)</strong></h2></li></ul><p>Brute Force Algorithm은 이름에서 유추해볼 수 있듯이 <code>맹목적으로 모든 경우의 수를 탐색하여 결과를 도출하는 알고리즘</code>이다. 이 알고리즘은 모든 경우의 수를 요구하는 문제를 풀때 사용된다.<br>1부터 100까지의 합을 구하는 문제도 1부터 100까지 완전탐색을 하여 그 합을 구하는 방식으로 Brute Force 기법의 문제라고 할 수 있다.<br><code>Brute Force 기법</code>은 굉장히 단순한 기법이며, 문제해결에 있어서 첫번째로 고려되어야 할 기법이다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-1543번-문서-검색-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Brute-force-search-Algorithm" scheme="https://leehyungi0622.github.io/tags/Brute-force-search-Algorithm/"/>
-    
-    <category term="String" scheme="https://leehyungi0622.github.io/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 2212번 센서문제</title>
-    <link href="https://leehyungi0622.github.io/2021/02/01/210201-Algorithm_baekjoon_2212/"/>
-    <id>https://leehyungi0622.github.io/2021/02/01/210201-Algorithm_baekjoon_2212/</id>
-    <published>2021-02-01T01:23:42.000Z</published>
-    <updated>2021-02-01T01:39:10.535Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-2212번-센서문제-Pseudo-code-Python-code"><a href="#백준-저지-2212번-센서문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2212번 센서문제 Pseudo code + Python code"></a>백준 저지 2212번 센서문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210201_baekjoon_2212.png"></p><pre><code class="python">sensor_num = int(input())station_num = int(input())sensor_loc_list = list(map(int, input().split()))sensor_loc_list.sort()distance = []for i in range(1, sensor_num):  distance.append(sensor_loc_list[i]-sensor_loc_list[i-1])distance.sort(reverse=True)for i in range(station_num-1):  distance[i] = 0print(sum(distance))</code></pre><p>이 문제는 설치하고자 하는 수신 기지국의 전파 수신 범위를 최소로 하기 위해서는 어떻게 수신 기지국을 설치를 하며, 최소한의 수신 범위는 어떻게 되는지 구하는 문제이다.<br>고속도로 위의 각 센서의 설치 위치에 대해서 오름차순으로 정렬을 하고, 각 센서간의 사이 거리에 대한 값을 별도의 리스트에 담아 내림차순으로 정렬하였다. 이는 최소 수신 범위를 만들기 위해서 가장 큰 수신 범위를 제외하기 위해서 이다. 내림차순으로 정렬하여 기지국 N개를 설치할때 기지국의 수신구역을 나누는 분기점의 갯수 N-1개를 센서 사이 거리에 대한 리스트에서 순차적으로 0으로 초기화 시켜주면 된다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-2212번-센서문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-2212번-센서문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저지 2212번 </summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Greedy-Algorithm" scheme="https://leehyungi0622.github.io/tags/Greedy-Algorithm/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
     
   </entry>
   
