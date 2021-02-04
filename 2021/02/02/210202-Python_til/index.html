@@ -101,19 +101,85 @@ m.span() # (0, 3)
 # group()말고 m.start(), m.end()사용해서 substring해보기
 a[m.start():m.end()] # &#39;pen&#39;</code></pre>
 <h3 id="Section2-3-Regular-Expressions-Meta-Characters"><a href="#Section2-3-Regular-Expressions-Meta-Characters" class="headerlink" title="Section2-3) Regular Expressions - Meta Characters"></a>Section2-3) Regular Expressions - Meta Characters</h3><ul>
-<li><p>.(Dot) : Any character (except newline character)</p>
-</li>
-<li><p>*(Repetition) : Zero or more occurrences</p>
-</li>
-<li><p>+(Repetition) : One or more occurrences</p>
+<li><p><strong>.(Dot)</strong> : Any character (except newline character)<br>줄바꿈 문자(\n)을 제외한 모든 문자와 match됨을 의미한다.</p>
+<pre><code class="python">a.b # a + 모든문자 + b
+    # a와 b라는 문자 사이에는 어떤 문자가 들어가도 모두 matching됨을 의미
+&quot;&quot;&quot;
+&quot;aab&quot;, &quot;a0b&quot;, &quot;abc&quot;가 정규식 a.b 검사를 했을때,
+- &quot;aab&quot;는 가운데 문자 &quot;a&quot;가 모든 문자를 의미하는 .과 일치하므로 정규식과 매치된다.
+- &quot;a0b&quot;는 가운데 문자 &quot;0&quot;가 모든 문자를 의미하는 .과 일치하므로 정규식과 매치된다.
+- &quot;abc&quot;는 &quot;a&quot;문자와 &quot;b&quot;문자 사이에 어떤 문자라도 하나는있어야 하는 이 정규식과 일치하지 않으므로 매치되지 않는다.
+&quot;&quot;&quot;</code></pre>
+<pre><code class="python">a[.]b # &quot;a + Dot(.)문자 + b&quot;
+# 따라서 정규식 a[.]b는 &quot;a.b&quot; 문자열과 매치되고, &quot;a0b&quot; 문자열과는 매치되지 않는다.
+&quot;&quot;&quot;
+※ 만약 앞에서 살펴본 문자 클래스([]) 내에 Dot(.) 메타 문자가 사용된다면 이것은 &quot;모든 문자&quot;라는 의미가 아닌 문자 . 그대로를 의미한다. 혼동하지 않도록 주의하자.
+&quot;&quot;&quot;</code></pre>
 </li>
 </ul>
-<pre><code class="python"># ale aple apple appple appppple apppppple
-# 다음 문자열들이 주어졌다고 가정했을때,
+<br/>
 
-# p+ : 1개부터 무한대까지 p가 존재
-r&#39;app+le&#39; # apple ~ apppppple
-r&#39;ap+le&#39; # aple ~ apppppple</code></pre>
+<ul>
+<li><p><strong>*(Repetition)</strong> : Zero or more occurrences * 바로 앞에 있는 특정 문자가 0부터 무한대로 반복될 수 있다는 의미한다.</p>
+<p>ca*t에서 *앞에 a라는 문자가 있고, 이 문자가 0~무한대로 반복하는 조건을 만족한다면 match된다.</p>
+<pre><code class="python">&quot;&quot;&quot;
+정규식    문자열    Match 여부            설명
+ca*t     ct        Yes         &quot;a&quot;가 0번 반복되어 매치
+ca*t     cat       Yes         &quot;a&quot;가 0번 이상 반복되어 매치 (1번 반복)
+ca*t     caaat     Yes         &quot;a&quot;가 0번 이상 반복되어 매치 (3번 반복)
+&quot;&quot;&quot;</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>+(Repetition)</strong> : One or more occurrences</p>
+<p>위에서 살펴본 반복을 나타내는 *외에 또 다른 반복을 나타내는 메타 문자로 +가 있다. +는 최소 1번 이상 반복될 때 사용한다. 즉 *가 반복 횟수 0부터라면 +는 반복 횟수 1부터인 것이다.</p>
+<pre><code class="python"># ca+t 정규식이 있다고 가정했을때,
+# &quot;c + a(1번 이상 반복) + t&quot;을 의미한다.
+
+&quot;&quot;&quot;
+정규식    문자열    Match 여부                설명
+ca+t     ct        No          &quot;a&quot;가 0번 반복되어 매치되지 않음
+ca+t     cat       Yes        &quot;a&quot;가 1번 이상 반복되어 매치 (1번 반복)
+ca+t     caaat     Yes        &quot;a&quot;가 1번 이상 반복되어 매치 (3번 반복)
+&quot;&quot;&quot;</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>{}(Curly brackets)</strong> : Exactly the specified number of occurrences<br>반복 횟수를 3회만 또는 1회부터 3회까지만으로 제한하고 싶을때 {}을 사용해서 범위를 지정해 줄 수 있다.</p>
+<blockquote>
+<p>{ } 메타 문자를 사용하면 반복 횟수를 고정할 수 있다. {m, n} 정규식을 사용하면 반복 횟수가 m부터 n까지 매치할 수 있다. 또한 m 또는 n을 생략할 수도 있다. 만약 {3,}처럼 사용하면 반복 횟수가 3 이상인 경우이고 {,3}처럼 사용하면 반복 횟수가 3 이하를 의미한다. 생략된 m은 0과 동일하며, 생략된 n은 무한대(2억 개 미만)의 의미를 갖는다.</p>
+</blockquote>
+<p><code>※ &#123;1,&#125;은 +와 동일하고, &#123;0,&#125;은 *와 동일하다.</code></p>
+<pre><code class="python"># ca&#123;2&#125;t 정규식이 있다고 가정했을때
+# &quot;c + a(반드시 2번 반복) + t&quot;를 의미한다.
+&quot;&quot;&quot;
+정규식      문자열      Match 여부            설명
+ca&#123;2&#125;t     cat         No          &quot;a&quot;가 1번만 반복되어 매치되지 않음
+ca&#123;2&#125;t     caat         Yes        &quot;a&quot;가 2번 반복되어 매치
+&quot;&quot;&quot;</code></pre>
+<br/>
+</li>
+<li><p><strong>?(Question mark)</strong> : 반복은 아니지만 이와 비슷한 개념이다. 메타 문자가 의미하는 것은 {0,1}이다. 0번부터 1번까지 ?앞의 문자가 사용이 되었다면 match되는 경우로 본다.</p>
+<pre><code class="python">&quot;&quot;&quot;
+정규식    문자열    Match 여부           설명
+ab?c     abc       Yes        &quot;b&quot;가 1번 사용되어 매치
+ab?c     ac         Yes        &quot;b&quot;가 0번 사용되어 매치
+&quot;&quot;&quot;</code></pre>
+</li>
+</ul>
+<h3 id="Section2-4-Regular-Expressions-사용하기"><a href="#Section2-4-Regular-Expressions-사용하기" class="headerlink" title="Section2-4) Regular Expressions 사용하기"></a>Section2-4) Regular Expressions 사용하기</h3><pre><code class="python"># 정규식 표현을 compile해두면 regular expression object를 재사용하는 것이 가능하다.
+
+apples = [&#39;a&#39;+&#39;p&#39;*i+&#39;le&#39; for i in range(10)]
+
+# 미리 regex를 compile해서 재사용 할 수 있다.
+apple_finder = re.compile(r&#39;^ap&#123;2&#125;le$&#39;)
+for item in apples:
+  m = apple_finder.match(item)
+  print(itme, m)</code></pre>
 <ul>
 <li>^(Caret) : Starts with</li>
 </ul>
@@ -121,11 +187,6 @@ r&#39;ap+le&#39; # aple ~ apppppple</code></pre>
 b = &#39;applepen&#39;
 c = &#39;pen&#39;
 m = re.match(r&#39;^.*(pen)$&#39;, b) # (0, 3)</code></pre>
-<ul>
-<li>{}(Curly brackets) : Exactly the specified number of occurrences</li>
-</ul>
-<pre><code class="python"># &#39;ap&#39;와 &#39;le&#39;사이에 1~3개의 문자가 오는 경우
-r&#39;ap&#123;1,3&#125;le&#39;</code></pre>
 <ul>
 <li>()(Parentheses) : Capture and group</li>
 </ul>
@@ -135,7 +196,7 @@ r&#39;(fastcampus)&#39;</code></pre>
 <ul>
 <li>|(Vertical bar) : Either or</li>
 </ul>
-<pre><code class="python">r&#39;.*(fast\campus).*&#39; : fast나 campus가 등장을 하는 경우</code></pre>
+<pre><code class="python">r&#39;.*(fast|campus).*&#39; : fast나 campus가 등장을 하는 경우</code></pre>
 <ul>
 <li>(Backslash): Signals a special sequence (can also be used to escape special characters)</li>
 </ul>
@@ -153,26 +214,78 @@ r&#39;[A-Za-z0-9\-\_\.\+]&#123;n,m&#125;@gmail\.com&#39; # alphabet, number, -, 
 # 위와같이 사용자 이름(아이디)의 글자수 범위(n~m)를 지정할 수 있다.
 # &#123;4, 32&#125; 보통 2의 배수인 4부터 32까지의 범위로 username을 잡는다.</code></pre>
 <ul>
-<li><p>$(Dollar sign) : Ends with</p>
+<li>$(Dollar sign) : Ends with</li>
+</ul>
+<h3 id="Section2-5-re-module-functions"><a href="#Section2-5-re-module-functions" class="headerlink" title="Section2-5) re module functions"></a>Section2-5) re module functions</h3><p>파이썬은 정규 표현식을 지원하기 위해 re(regular expression)모듈을 제공한다. re module은 파이썬을 설치할 때 자동으로 설치되는 기본 라이브러리이다.</p>
+<pre><code class="python">import re
+p = re.compile(&#39;ab*&#39;)</code></pre>
+<p>re.compile을 사용하여 정규 표현식을 컴파일한다. re.compile()의 결과로 돌려주는 객체 p(compile된 패턴 객체)를 사용하여 그 이후의 작업으르 수행할 수 있다.</p>
+<br/>
+
+<pre><code class="python">import re
+p = re.compile(&#39;[a-z]+&#39;)</code></pre>
+<ul>
+<li><p><strong>re.match(patterns, string[, flags])</strong> : 문자열의 처음부터 정규식과 매치되는지 조사한다.</p>
+<pre><code class="python">m = p.match(&quot;python&quot;)
+# Python 문자열은 [a-z]+ 정규식에 부합되므로 match 객체를 돌려준다.
+print(m)
+&lt;_sre.SRE_Match object at 0x01F3F9F8&gt;
+
+m = p.match(&quot;3 python&quot;)
+print(m)
+# output : None</code></pre>
+<p>match의 결과로 match 객체 혹은 None을 반환해주기 때문에 Python 정규식 프로그램은 보통 아래와 같은 흐름으로 작성한다.</p>
+<pre><code class="python">p = re.compile(&#39;[regular expression]&#39;)
+m = p.compile(&#39;[string goes here]&#39;)
+if m:
+  # match의 결과값이 있을때에만 다음의 작업을 수행
+  print(&#39;Match found: &#39;, m.group())
+else:
+  print(&#39;No match&#39;)</code></pre>
 </li>
-<li><p>?(Question mark)</p>
+<li><p><strong>re.search(patterns, string[, flags])</strong> : 문자열 전체를 검색하여 정규식과 매치되는지 조사한다.</p>
+<pre><code class="python">m = p.search(&quot;python&quot;)
+print(m)
+&lt;_sre.SRE_Match object at 0x01F3FA68&gt;</code></pre>
+<pre><code class="python">m = p.search(&quot;3 python&quot;)
+print(m)
+&lt;_sre.SRE_Match object at 0x01F3FA30&gt;</code></pre>
+<p>“3 python”문자열의 첫 번째 문자는 “3”이지만, search는 문자열의 처음부터 순차검색을 하는 것이 아니라 문자열 전체를 검색하기 때문에 “3” 이후의 “python” 문자열과 매치된다. <br/><br><code>이러한 match와 search 매서드는 문자열의 처음부터 검색할지 말지의 여부에 따라서 다르게 사용해야 한다.</code></p>
+<p><code>match, search는 정규식과 매치될 때는 match된 객체를 돌려주고, match되지 않을 때는 None을 돌려준다. </code></p>
 </li>
 </ul>
-<h3 id="Section2-4-Regular-Expressions-사용하기"><a href="#Section2-4-Regular-Expressions-사용하기" class="headerlink" title="Section2-4) Regular Expressions 사용하기"></a>Section2-4) Regular Expressions 사용하기</h3><pre><code class="python"># 정규식 표현을 compile해두면 regular expression object를 재사용하는 것이 가능하다.
+<br/>
 
-apples = [&#39;a&#39;+&#39;p&#39;*i+&#39;le&#39; for i in range(10)]
+<ul>
+<li><p><strong>re.findall(patterns, string[, flags])</strong> : 정규식과 매치되는 모든 문자열(substring)을 리스트로 돌려준다.</p>
+<pre><code class="python">result = p.findall(&quot;life is too short&quot;)
+print(result)
+# [&#39;life&#39;, &#39;is&#39;, &#39;too&#39;, &#39;short&#39;]
+# &quot;life is too short 문자열의 각 단어르르 각각 [a-z]+ 정규식과 match해서 리스트로 반환한다.</code></pre>
+<br/>
+</li>
+<li><p><strong>re.finditer(patterns, string[, flags])</strong> : 정규식과 매치되는 모든 문자열(substring)을 반복 가능한 객체로 돌려준다.</p>
+<pre><code class="python">result = p.finditer(&quot;life is too short&quot;)
+print(result)
+&lt;callable_iterator object at 0x01F5E390&gt;
 
-# 미리 regex를 compile해서 재사용 할 수 있다.
-apple_finder = re.compile(r&#39;^ap&#123;2&#125;le$&#39;)
-for item in apples:
-  m = apple_finder.match(item)
-  print(itme, m)</code></pre>
-<h3 id="Section2-5-re-module-functions"><a href="#Section2-5-re-module-functions" class="headerlink" title="Section2-5) re module functions"></a>Section2-5) re module functions</h3><pre><code class="python">re.search(patterns, string[, flags])
-re.match(patterns, string[, flags])
-re.findall(patterns, string[, flags])
-re.compile(pattern[, flags])
-re.split(patterns, string[,maxsplit=0])
-re.sub(pattern, repl, string[, count])</code></pre>
+for r in result: print(r)
+
+&lt;_sre.SRE_Match object at 0x01F3F9F8&gt;
+&lt;_sre.SRE_Match object at 0x01F3FAD8&gt;
+&lt;_sre.SRE_Match object at 0x01F3FAA0&gt;
+&lt;_sre.SRE_Match object at 0x01F3F9F8&gt;
+
+# finditer는 findall과 동일하지만 그 결과로 반복이 가능한 객체(iterator object)를 반환해준다. 반복 가능한 객체가 포함하는 각 각의 요소는 match의 객체이다.
+map(lambda x: x.group(), result) 로 작성을 해주면, for-loop을 활용해서 각각의 객체를 출력할 수 있다.</code></pre>
+</li>
+<li><p><strong>re.compile(pattern[, flags])</strong> : 주어진 정규식 pattern을 compile해서 재사용 가능한 객체로 만든다.</p>
+</li>
+<li><p><strong>re.split(patterns, string[,maxsplit=0])</strong></p>
+</li>
+<li><p><strong>re.sub(pattern, repl, string[, count])</strong></p>
+</li>
+</ul>
 <h2 id="Section3-Lambda-Function-람다함수"><a href="#Section3-Lambda-Function-람다함수" class="headerlink" title="Section3) Lambda Function (람다함수)"></a>Section3) Lambda Function (람다함수)</h2><ul>
 <li>익명함수 (이름없는 함수)</li>
 <li>간단한 수식을 함수로 지정해서 한 두번 쓸 용도로 사용</li>
