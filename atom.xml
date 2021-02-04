@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-04T06:41:04.117Z</updated>
+  <updated>2021-02-04T07:12:41.328Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="https://leehyungi0622.github.io/2021/02/04/210204-Python_HackerRank_assignment/"/>
     <id>https://leehyungi0622.github.io/2021/02/04/210204-Python_HackerRank_assignment/</id>
     <published>2021-02-04T06:02:41.000Z</published>
-    <updated>2021-02-04T06:41:04.117Z</updated>
+    <updated>2021-02-04T07:12:41.328Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="문제1"><a href="#문제1" class="headerlink" title="문제1"></a>문제1</h2><p>이 문제는 앞 뒤로는 자음만 위치하고, 가운데에는 2개 이상의 모음으로만 구성되어 있는 문자를 정규표현식을 통해 출력하는 문제이다.</p><blockquote><p>Task You are given a string . It consists of alphanumeric characters, spaces and symbols(+, -). Your task is to find all the substrings of that contains or more vowels. Also, these substrings must lie in between consonants and should contain vowels only.</p></blockquote><p>우선 문제를 풀이하기에 앞서 다음 <strong>긍정/부정예측(positive/negative lookahead assertion)</strong>, <strong>긍정 후 읽기</strong>에 대한 개념에 대해서 알아보자.</p><h4 id="긍정적인-예측"><a href="#긍정적인-예측" class="headerlink" title="긍정적인 예측"></a>긍정적인 예측</h4><p><code>x?=y</code> : 이 패턴은 직후에 y가 존재하는 문자열 x에 match한다.</p><pre><code class="python">foo(?=bar)# 직후에 bar가 있는 foo에 일치한다.</code></pre><h4 id="부정적인-예측"><a href="#부정적인-예측" class="headerlink" title="부정적인 예측"></a>부정적인 예측</h4><p><code>x?!y</code> : 이 패턴은 직후에 y가 없는 문자열 x에 match한다.</p><pre><code class="python">foo(?!bar)# 직후에 bar가 없는 foo에 일치한다.</code></pre><h4 id="긍정-후-읽기"><a href="#긍정-후-읽기" class="headerlink" title="긍정 후 읽기"></a>긍정 후 읽기</h4><p><code>x?&lt;=y</code> : 이 패턴은 직전에 문자열 x가 있는 문자열 y(x는 포함하지 않음)에 일치한다.</p><pre><code class="python">(?&lt;=bar)foo# 직전에 bar가 있는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h4 id="부정-후-읽기"><a href="#부정-후-읽기" class="headerlink" title="부정 후 읽기"></a>부정 후 읽기</h4><p><code>x?&lt;!y</code> : 이 패턴은 직전에 x가 없는 문자열 y에 일치한다.</p><pre><code class="python">(?&lt;!bar)foo# 직전에 bar가 없는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h4 id="본-코드"><a href="#본-코드" class="headerlink" title="본 코드"></a><strong>본 코드</strong></h4><pre><code class="python">import reresult = re.findall(r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())if result:    print(*result, end=&#39;\n&#39;)else:    print(-1)</code></pre><pre><code class="python">find_object = re.finditer(    r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())for i in map(lambda x: x.group(), find_object):    print(i)</code></pre>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/hackerrank-logo.jpg"></p><br/><h2 id="문제1"><a href="#문제1" class="headerlink" title="문제1"></a>문제1</h2><p>이 문제는 앞 뒤로는 자음만 위치하고, 가운데에는 2개 이상의 모음으로만 구성되어 있는 문자를 정규표현식을 통해 출력하는 문제이다.</p><blockquote><p>Task You are given a string . It consists of alphanumeric characters, spaces and symbols(+, -). Your task is to find all the substrings of that contains or more vowels. Also, these substrings must lie in between consonants and should contain vowels only.</p></blockquote><p>우선 문제를 풀이하기에 앞서 다음 <strong>긍정/부정예측(positive/negative lookahead assertion)</strong>, <strong>긍정 후 읽기</strong>에 대한 개념에 대해서 알아보자.</p><h4 id="긍정적인-예측"><a href="#긍정적인-예측" class="headerlink" title="긍정적인 예측"></a>긍정적인 예측</h4><p><code>x?=y</code> : 이 패턴은 직후에 y가 존재하는 문자열 x에 match한다.</p><pre><code class="python">foo(?=bar)# 직후에 bar가 있는 foo에 일치한다.</code></pre><h4 id="부정적인-예측"><a href="#부정적인-예측" class="headerlink" title="부정적인 예측"></a>부정적인 예측</h4><p><code>x?!y</code> : 이 패턴은 직후에 y가 없는 문자열 x에 match한다.</p><pre><code class="python">foo(?!bar)# 직후에 bar가 없는 foo에 일치한다.</code></pre><h4 id="긍정-후-읽기"><a href="#긍정-후-읽기" class="headerlink" title="긍정 후 읽기"></a>긍정 후 읽기</h4><p><code>x?&lt;=y</code> : 이 패턴은 직전에 문자열 x가 있는 문자열 y(x는 포함하지 않음)에 일치한다.</p><pre><code class="python">(?&lt;=bar)foo# 직전에 bar가 있는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h4 id="부정-후-읽기"><a href="#부정-후-읽기" class="headerlink" title="부정 후 읽기"></a>부정 후 읽기</h4><p><code>x?&lt;!y</code> : 이 패턴은 직전에 x가 없는 문자열 y에 일치한다.</p><pre><code class="python">(?&lt;!bar)foo# 직전에 bar가 없는 foo(bar는 포함하지 않음)에 일치한다.</code></pre><h4 id="본-코드"><a href="#본-코드" class="headerlink" title="본 코드"></a><strong>본 코드</strong></h4><pre><code class="python">import reresult = re.findall(r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())if result:    print(*result, end=&#39;\n&#39;)else:    print(-1)</code></pre><pre><code class="python">find_object = re.finditer(    r&#39;(?&lt;=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])([aeiouAEIOU]&#123;2,&#125;)(?=[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm])&#39;, input())for i in map(lambda x: x.group(), find_object):    print(i)</code></pre><br/><h2 id="문제2"><a href="#문제2" class="headerlink" title="문제2"></a>문제2</h2><h4 id=""><a href="#" class="headerlink" title=""></a></h4>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/hackerrank-logo.jpg&quot;&gt;&lt;/p&gt;
 &lt;br/&gt;
 
-&lt;h2 id=&quot;문제1&quot;&gt;&lt;a href=&quot;#문제1&quot; class=&quot;headerlink&quot; title=&quot;문제1&quot;&gt;&lt;/a&gt;문제1&lt;/h2&gt;&lt;p&gt;이 문제</summary>
+&lt;h2 id=&quot;문제1&quot;&gt;&lt;a href=&quot;#문제1&quot; class=&quot;headerlink&quot; title=&quot;문제1&quot;&gt;&lt;/a&gt;문제1&lt;/h2&gt;&lt;p&gt;</summary>
       
     
     
