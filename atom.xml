@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-05T01:22:26.603Z</updated>
+  <updated>2021-02-05T10:49:04.037Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210205 Book recommendation</title>
+    <link href="https://leehyungi0622.github.io/2021/02/05/210205-Book_Recommendation/"/>
+    <id>https://leehyungi0622.github.io/2021/02/05/210205-Book_Recommendation/</id>
+    <published>2021-02-05T10:22:41.000Z</published>
+    <updated>2021-02-05T10:49:04.037Z</updated>
+    
+    <content type="html"><![CDATA[<br/><h2 id="개발-관련-책-추천"><a href="#개발-관련-책-추천" class="headerlink" title="개발 관련 책 추천"></a>개발 관련 책 추천</h2><p>오늘은 평소에 내가 관심이 많이 있었던 Clean code, TypeScript 등 개발과 관련해서 강사님이 수업도중에 여러 책들을 추천해주셨다.</p><p>Clean code는 이전부터 관심이 있던 내용이고, TypeScript는 최근에 공부를 시작해서 관심이 있던 내용이라 추천해주셨을때 너무 좋았다. 요즘 무슨 책을 읽어볼까 고민하던 참이었는데, 온라인 북으로 구매해서 아이패드에 넣고 통학시간이나 주말, 머리식힐때 읽어봐야겠다.</p><p>읽은 내용에서 유익한 내용이 있으면, 블로그에 포스팅해봐야겠다.</p><p>추천해주신 책은 아래와 같다. <code>일단 내가 최근에 공부를 시작한 TypeScript와 Clean code 책을 구매해서 읽어 볼 생각</code>이다. 생각에서 끝나지 않기 위해서 내일 오전에 공부 시작할때 당장 구매해서 읽어봐야 겠다.</p><table>  <tr>    <td><img src="/images/post_images/210205_cleancode_cover_img.jpg" width=200 height=200/></td>    <td><img src="/images/post_images/210205clean_code_tdd_cover.jpg" width=200 height=200/></td>  </tr>  <tr>    <td align="center"> <b>Code 코드</b> </td>    <td align="center"> <b>파이썬을 이용한 클린 코드를 위한 테스트 주도 개발</b> </td>  </tr>  <tr>    <td align="center"><img src="/images/post_images/210205_typescript_cover.jpg" width=200 height=200/></td>    <td align="center"><img src="/images/post_images/210205_Two_Scoops_of_Django.jpg" width=200 height=200/></td>  </tr>    <tr>    <td align="center"><b>TypeScript Programming</b></td>    <td align="center">      <b>Two Scoops of Django</b>    </td>  </tr></table><ins>Two Scoops of Django책에서 다루고 있는 장고의 버전이 낮기 때문에 google에서 Two Scoops of Django를 검색해서 two scoops-of-django-3.x github의 코드파일을 참고하는 것을 추천한다. </ins><p><a href="https://github.com/feldroy/two-scoops-of-django-3.x">https://github.com/feldroy/two-scoops-of-django-3.x</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;br/&gt;
+
+&lt;h2 id=&quot;개발-관련-책-추천&quot;&gt;&lt;a href=&quot;#개발-관련-책-추천&quot; class=&quot;headerlink&quot; title=&quot;개발 관련 책 추천&quot;&gt;&lt;/a&gt;개발 관련 책 추천&lt;/h2&gt;&lt;p&gt;오늘은 평소에 내가 관심이 많이 있었던 Clean cod</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210205 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/05/210205-Python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/05/210205-Python_til/</id>
+    <published>2021-02-05T05:25:41.000Z</published>
+    <updated>2021-02-05T10:54:31.314Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><ul><li><strong>Section1)</strong> filter, reduce</li><li><strong>Section2)</strong> OOP, Class</li></ul><h2 id="filter-reduce"><a href="#filter-reduce" class="headerlink" title="filter, reduce"></a>filter, reduce</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><strong>filter의 기본 사용 format :</strong> <code>filter([function], [iterable object])</code></p><h4 id="1부터-10까지의-수-중에-짝수인-수로-구성된-리스트-만들기"><a href="#1부터-10까지의-수-중에-짝수인-수로-구성된-리스트-만들기" class="headerlink" title="1부터 10까지의 수 중에 짝수인 수로 구성된 리스트 만들기"></a>1부터 10까지의 수 중에 짝수인 수로 구성된 리스트 만들기</h4><pre><code class="python">def even_selector(x):  if x % 2 == 0:    return True  else:    return False# 선언한 function을 인자로 넣기list(filter(even_selector, range(1, 10+1)))# lambda function로 별도의 함수 선언없이 함수처리list(filter(lambda a:a%2==0, range(1, 10+1)))</code></pre><h4 id="isinstance-‘-check-value-’-check-type"><a href="#isinstance-‘-check-value-’-check-type" class="headerlink" title="isinstance(‘[check value]’, [check type])"></a>isinstance(‘[check value]’, [check type])</h4><pre><code class="python">**isinstance의 사용예)** isinstance(&#39;1&#39;, int) # True**isinstance의 사용예)** isinstance(&#39;1&#39;, float) # False# isinstance는 리스트 내부에 다양한 타입의 데이터가 존재할때 유용하게 사용이 가능하다.some_list = [1, 3.14, 2.71828, &#39;tau&#39;, &#39;lambda&#39;, [1, 0, 0, 1], &#123;&#39;kay&#39;: &#39;bamboo&#39;&#125;]# float인 요소만 filter해보기def validation_check(x):    if isinstance(x, float):        return Trueprint(list(filter(validation_check, some_list)))# filter는 반드시 lambda 함수식의 반환부분에서 True 또는 False를 반환해야 한다.print(list(filter(lambda x: isinstance(x, float), some_list)))</code></pre><br/><h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p><strong>reduce의 기본 사용 format :</strong> <code>reduce([function], [iterable object])</code></p><ul><li>iterable object의 모든 element에 대하여 연산결과를 출력</li><li>reduce는 Python3의 기본 내장함수에서 제외되어, functools에서 별도로 import해서 사용한다.<br><code>from functools import reduce</code><ul><li>Rossum은 map, filter, reduce에 대해 readibility가 떨어진다는 이유로 제외 기본 내장함수에서 제외하였다.</li></ul></li></ul><p><strong>reduce 사용하지 않고 단순 반복문으로 1부터 100까지의 합을 구하기</strong></p><pre><code class="python">sum = 0for i in range(1, 100+1):  sum += iprint(sum)</code></pre><p><strong>reduce를 사용하여 1부터 100까지의 합을 구하기</strong></p><pre><code class="python">from functools import reduce# reduce(function, iter)def accumulator(x,y):  return x+y# reduce의 function은 두 개의 인자(x,y)를 받고 하나의 값(x+y)을 반환하는 구조이다.print(reduce(accumulator, range(1, 100+1)))# lambdaprint(reduce(lambda x,y:x+y, range(1, 100+1))) # 5050# 세번째 argument값으로 initial value를 줄 수 있다. (default:0)print(reduce(lambda x,y:x+y, range(1, 100+1), 100)) # 5150</code></pre><p><strong>옆 사람이랑 같이 pair coding하기</strong><br>아래의 간단한 예제 문제를 옆 사람과 해결방향을 모색해가며 문제해결을 한다.</p><pre><code class="python">recycle_bin = [1, 2, &quot;Fastcampus&quot;, [&#39;dog&#39;, &#39;cat&#39;, &#39;pig&#39;], 5, 4, 5.6, False,&quot;패스트캠퍼스&quot;, 100, 3.14, 2.71828, &#123;&#39;name&#39;:&#39;Kim&#39;&#125;, True,]# 정수이거나 실수인 수들로만 이루어진 리스트 생성# True(1), Flase(0) 또한 integer로써 인식이 되기 때문에 별도로 bool type이 아니라는 조건을 추가해줘야 한다.def validation_check(x):    if (isinstance(x, int) or isinstance(x, float)) and not isinstance(x, bool):        return Trueprint(list(filter(validation_check, recycle_bin)))# lambda function 방식으로 위의 코드 refactoring한다.print(list(filter(lambda x: (isinstance(x, int) or isinstance(x, float)) and not isinstance(x, bool), recycle_bin)))# 정수로만 이루어진 리스트의 각 요소를 제곱해서 리스트 생성# True(1), Flase(0) 또한 integer로써 인식이 되기 때문에 별도로 bool type이 아니라는 조건을 추가해줘야 한다.def validation_check_second(x):    if isinstance(x, int) and not isinstance(x, bool):        return x**2result = list(filter(validation_check_second, recycle_bin))# lambda function 방식으로 위의 코드를 refactoring한다.result = list(filter(lambda x: isinstance(x, int) and not isinstance(x, bool) , recycle_bin))print(result)# sum() function을 이용해서 리스트의 모든 구성요소의 합을 구한다.result_sum = sum(result)print(result_sum)</code></pre><pre><code class="python"># 위에서 작성한 방식과 다르게 filter해서 나온 결과 리스트를 다시 filter하는 방식으로 처리result = list(filter(lambda b: not isinstance(b, bool),              filter(lambda a:isinstance(a, (int, float)),              recycle_bin)))print(result)</code></pre><pre><code class="python"># 위에서 작성한 방식과 다르게 filter해서 나온 결과 리스트를 다시 filter하는 방식으로 처리result = list(map(lambda x:x**2, filter(lambda b: not isinstance(b, bool),                                 filter(lambda a:isinstance(a,int),                                 recycle_bin))))print(result)</code></pre><br/><h3 id="OOP-Object-Oriented-Programming-객체지향-프로그래밍"><a href="#OOP-Object-Oriented-Programming-객체지향-프로그래밍" class="headerlink" title="OOP(Object-Oriented-Programming) : 객체지향 프로그래밍"></a>OOP(Object-Oriented-Programming) : 객체지향 프로그래밍</h3><ul><li>특징<ul><li><strong>Encapsulation</strong><ul><li>구현한 것을 드러나지 않도록 함</li><li>Information hiding: public, _protected, __private</li></ul></li><li><strong>Abstraction</strong><ul><li>인터페이스로 클래스의 공통 특성을 묶어 표현</li></ul></li><li><strong>Inheritance</strong><ul><li>자식 클래스가 부모 클래스의 특성과 기능을 물어본다.</li></ul></li><li><strong>Polymorphism</strong><ul><li>변수, method가 다른 상태를 가지는 것</li></ul></li></ul></li><li>프로그래밍 언어의 변천<ul><li>Imperative Programming(명령적 프로그래밍)</li><li>Procedural programming(절차지향 프로그래밍)</li><li>Object-Oriented Progrmming(객체지향 프로그래밍)</li><li>Functional Programming(함수형 프로그래밍)</li></ul></li></ul><h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><ul><li><strong>local :</strong> outer_scope(함수내의 변수)의 binding을 바꾸지 못한다.</li><li><strong>nonlocal :</strong> outer_scope(함수내의 변수)의 binding을 바꾼다.</li><li><strong>global :</strong> 전역 binding을 바꾼다.</li></ul><p><strong>아래의 간단한 예제를 통해 <code>global, local, nonlocal</code>의 키워드에 대해서 이해한다.</strong></p><pre><code class="python">## Scopemsg = &quot;fastcampus&quot;def outer_scope():    def inner_local():        msg = &quot;Fast&quot;    def inner_nonlocal():        nonlocal msg        msg = &quot;Campus&quot;    def inner_global():        global msg        msg = &quot;FastCampus&quot;    msg = &quot;Seong-Su&quot;    inner_local()    # method가 내부 변수(msg)에 영향을 주지 않는다.    print(&#39;inner local:&#39;, msg)    inner_nonlocal()    # nonlocal로 설정해주면 내부 변수에 영향을 준다.    # Seong-Su를 Campus로 업데이트    print(&#39;inner nonlocal:&#39;, msg)    # 외부에 선언된 msg 변수에 대해 처리    inner_global()    # inner_global에서의 msg는 &quot;fastcampus&quot;이다.    print(&#39;inner global:&#39;, msg)outer_scope()&quot;&quot;&quot;inner local: Seong-Suinner nonlocal: Campusinner global: Campus&quot;&quot;&quot;</code></pre><br/><h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a><strong>Class</strong></h3><ul><li><strong>SOLID</strong><ul><li>Single Responsibility Principle<ul><li>한 클래스는 하나의 책임만 가져야 한다.(goto 19)</li></ul></li><li>Open/Closed Principle<ul><li>확장에는 열려있지만, 변경에는 닫혀 있어야 한다.(override)</li></ul></li><li>Liskov’s Substitution Principle<ul><li>프로그램의 정확성을 깨트리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.(is-A)</li></ul></li><li>Interface Segregation Principle<ul><li>사용하지 않는 method는 분리해야 한다.(Abstract)</li></ul></li><li>Dependency Inversion Principle<ul><li>추상화에 의존하고, 구체화에 의존하지 않는다.</li></ul></li></ul></li><li><strong>구성요소</strong><ul><li>Class</li><li>Object</li><li>Method</li></ul></li></ul><pre><code class="python"># class의 기본형태class ClassName: #CamelCase  pass # statement  # hello_world: snake_case</code></pre><br/><h4 id="Class-작성-및-인스턴스-생성"><a href="#Class-작성-및-인스턴스-생성" class="headerlink" title="Class 작성 및 인스턴스 생성"></a>Class 작성 및 인스턴스 생성</h4><pre><code class="python">class Hero:  passIronMan = Hero()CaptainAmerica = Hero()Thor = Hero()</code></pre><br/><h4 id="Class-작성-및-인스턴스-생성-인스턴스-변수-초기화-및-Class-내부-method-작성"><a href="#Class-작성-및-인스턴스-생성-인스턴스-변수-초기화-및-Class-내부-method-작성" class="headerlink" title="Class 작성 및 인스턴스 생성(+인스턴스 변수 초기화) 및 Class 내부 method 작성"></a>Class 작성 및 인스턴스 생성(+인스턴스 변수 초기화) 및 Class 내부 method 작성</h4><pre><code class="python">class Hero:  hp = 100 # class variable  def __init__(self, name, weapon):    self.name = name # instance variable    self.weapon = weapon  # instance의 행동을 정의  def attack(self):    print(&#39;attack with &#123;&#125;&#39;,format(self.weapon))  def get_damaged(self):    passIronMan = Hero(&#39;IronMan&#39;, &#39;Suit&#39;)print(IronMan.attack())print(IronMan.name)print(IronMan.weapon)</code></pre><br/><h4 id="인스턴스-객체-참조를-통한-class-내부-변수의-값-변경하기"><a href="#인스턴스-객체-참조를-통한-class-내부-변수의-값-변경하기" class="headerlink" title="인스턴스 객체 참조를 통한 class 내부 변수의 값 변경하기"></a>인스턴스 객체 참조를 통한 class 내부 변수의 값 변경하기</h4><pre><code class="python">class LetsSeeAttributes:  &quot;&quot;&quot;  This is docstring  &quot;&quot;&quot;  integer = 1024  def function():    return &#39;fastcampus&#39;fast = LetsSeeAttributes()print(fast.integer) # 1024fast.integer = 2048print(fast.integer) # class 내부 변수의 값이 업데이트 된다.campus = LetsSeeAttributes()campus.integer # 1024</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;오늘-배운내용&quot;&gt;&lt;a href=&quot;#오늘-배운내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 배운내용&quot;&gt;&lt;/a&gt;오늘 </summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
   
   <entry>
     <title>Baekjoon Online Judge 1236번 성 지키기 문제</title>
@@ -546,64 +607,6 @@ df = pd.read_csv(</summary>
     
     
     <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210202 NodeJS의 기본 개념과 사용</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_start/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_start/</id>
-    <published>2021-02-01T20:36:42.000Z</published>
-    <updated>2021-02-01T21:09:31.959Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/nodejs_logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><ul><li><h1 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h1></li></ul><p>JavaScript는 브라우저에 내장이 되어있고, 브라우저상에서 동작한다. NodeJS는 이 JavaScript를 browser 밖으로 끄집어내서 유저가 browser 밖에서도 JavaScript를 사용가능하도록 한 것이다.<br><code>NodeJS = 브라우저 밖의 JavaScript를 의미</code></p><p><img src="/images/post_images/210202_nodejs_img1.png"></p><p>따라서 NodeJS는 컴퓨터상에서 동작하기 때문에 JavaScript를 이용해서 <code>FileSystem에 접근</code>을 할 수 있고, <code>서버를 만들 수도 있고,</code> <code>WebScrapping도</code> 할 수 있다. JavaScript를 <code>브라우저와 독립적으로 활용</code>할 수 있도록 해주는 것이 NodeJS의 주된 개념이다.</p><p>기존에 간단한 JavaScript compile의 경우, chrome inspector에서 했었지만, NodeJS를 설치하면 위와 같이 PC의 로컬환경에서도 JavaScript코드를 compile해 볼 수 있다.</p><h3 id="Browser와의-종속성을-깼다는-점에-있어-JavaScript언어의-가능성이-넓어졌다"><a href="#Browser와의-종속성을-깼다는-점에-있어-JavaScript언어의-가능성이-넓어졌다" class="headerlink" title="Browser와의 종속성을 깼다는 점에 있어 JavaScript언어의 가능성이 넓어졌다."></a><code>Browser와의 종속성을 깼다는 점에 있어 JavaScript언어의 가능성이 넓어졌다.</code></h3><h2 id="NodeJS의-선택과-사용"><a href="#NodeJS의-선택과-사용" class="headerlink" title="NodeJS의 선택과 사용"></a>NodeJS의 선택과 사용</h2><ul><li><p>Back-end, Sever를 Build해야하는 경우, Django(Python), Laravel(PHP) 등 다양한 언어와 프레임워크가 있지만 <code>JavaScript에 능숙하고 Front-end와 Back-end를 모두 JavaScript로 만들고 싶다면 NodeJS를 선택</code>한다.</p></li><li><p><code>두번째 만약 제한된 시간이 한정되어있고, 프로젝트가 빨리 시작되어야 한다면, 그리고 거의 모든 것을 다 customize할 수 있는 능력을 가지고 있다면 NodeJS를 선택</code>한다. 하지만 상대적으로 거의 대부분이 Configuration되어있는 것을 원한다면 Django나 Laravel을 선택하는 것이 좋다.<br>왜냐하면 NodeJS는 아무것도 들어있지 않다. 작은 블럭들을 위로 쌓아서 큰 성을 짓는 것이 바로 NodeJS를 활용해서 개발을 하는 것을 의미한다.<br>Django의 경우는 이미 완성되어 있는 큰 성과 같아서 전체적인 사용법을 이해하고 이용을 해야하는데 node.js는 그와 다르게 완전 아무 것도 없이 무에서 시작해서 모든 것을 하나씩 붙여가면서 개발을 한다.</p></li><li><p><code>세번째로 많은 데이터를 다뤄야 할때 NodeJS를 선택</code>한다.database를 생성하고 삭제, 사용자에게 전송하고 저장하는 작업과 같이 <code>데이터를 다루는 성능에 있어서는 NodeJS는 성능이 매우 좋다.</code>(Data Science를 말하는 것이 아니라 <code>유저들 간에 메시지를 전송하고 하는 것과 같은 실시간 처리 데이터를 의미</code>한다)<br>대신 Hardware쪽을 고려해서 개발을 해야한다면, <code>JavaScript는 Hardware의 memory에 접근할 수 없기 때문에</code> NodeJS는 전혀 도움이 되지 않는다.</p></li></ul><h2 id="NodeJS의-현-주소"><a href="#NodeJS의-현-주소" class="headerlink" title="NodeJS의 현 주소"></a>NodeJS의 현 주소</h2><p>그럼 누가 어느 기업이 NodeJS를 사용하고 있을까?</p><p>거의 모든 사람이 아는, 그리고 사용하는 Paypal, Uber, Netflix, Linkedin, Walmart, Trello, New York Times, … 이들의 모든 서비스들이 모두 NodeJS를 사용하여 만들어졌다.</p><p>이들의 서비스들이 NodeJS로 만들어진 이유는 앞서 말한 조건들 중에 <code>실시간 처리 데이터를 다루기 때문에 사용</code>되었다.</p><h2 id="웹-서비스를-만들때-꼭-한-가지-언어로만-Back-end를-구성할-필요는-없다"><a href="#웹-서비스를-만들때-꼭-한-가지-언어로만-Back-end를-구성할-필요는-없다" class="headerlink" title="웹 서비스를 만들때 꼭 한 가지 언어로만 Back-end를 구성할 필요는 없다."></a>웹 서비스를 만들때 꼭 한 가지 언어로만 Back-end를 구성할 필요는 없다.</h2><ul><li>Back-end 개발시에 여러 언어를 복합해서 쓸 수 있다. 물론 메인 언어는 존재하지만 다양한 언어로 만들 수 있다.<br><code>Netflix의 경우는</code> 엄청 많은 언어로 만들어졌다. 그 이유는 영상을 처리해야하기 때문이다. 영상을 압축하고 스트리밍하고 다운로드하고 다양한 처리들을 가능하게 하려면 한 가지 언어로는 어렵기 때문이다.<br><code>Paypal의 경우는</code> 금융거래를 다루기때문에 은행과 연결할때는 Java를 사용하고 웹 사이트를 개발할때는 프론트에서는 JavaScript, 백에서는 다양한 언어들이 사용된다.<br>수많은 회사에서 NodeJS로 Back-end를 돌리고 있고 그 만큼 많은 수요를 필요로 하고 있다. 이 의미는 수 없이 많은 웹 서비스 회사에서 검증이 되었고 사용이 되고 있다는 의미이다S.</li></ul><p><img src="/images/post_images/210202_nodejs_img2.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/nodejs_logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.&lt;/p</summary>
-      
-    
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210201 Pandas TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/01/210201-Pandas/"/>
-    <id>https://leehyungi0622.github.io/2021/02/01/210201-Pandas/</id>
-    <published>2021-02-01T10:38:42.000Z</published>
-    <updated>2021-02-01T10:56:55.861Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_pandas_logo.png"></p><br/><ul><li><h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1></li></ul><p>이전에 데이터 시각화와 관련해서 관심이 많았아서 우연히 Pandas에 대해서 접하게 되었는데, 오늘 Python 수업관련해서 강사님이 Pandas에 대해서 말씀해주셔서 간단하게 Pandas에 대해서 조사해보았다.</p><ul><li><h2 id="Pandas-1"><a href="#Pandas-1" class="headerlink" title="Pandas?"></a>Pandas?</h2><ul><li>pandas는 Python에서 데이터 분석 기능을 제공하는 라이브러리이다. 특히 몇 테이블 및 시계열 데이터를 조작하기위한 데이터 구조와 연산을 제공한다. Pandas는 BSD License하에 제공되고있다.</li></ul><p><code>여기서 BSD License란, BSD(Berkeley Software Distribution)로, 자유 소프트웨어 저작권의 한 가지로 분류된다.</code></p></li></ul><br/><p>조만간 시간내서 간단하게 데이터 시각화하는 웹 기반의 애플리케이션을 개발해봐야겠다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_pandas_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h1 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; title=&quot;Pa</summary>
-      
-    
-    
-    
-    <category term="TIL:Pandas" scheme="https://leehyungi0622.github.io/categories/TIL-Pandas/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
