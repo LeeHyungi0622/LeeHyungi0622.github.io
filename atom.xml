@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-06T02:09:22.994Z</updated>
+  <updated>2021-02-06T04:40:21.771Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210206 Side Project Diary 나의 첫 번째 이야기</title>
+    <link href="https://leehyungi0622.github.io/2021/02/06/210206_side_project_diary/"/>
+    <id>https://leehyungi0622.github.io/2021/02/06/210206_side_project_diary/</id>
+    <published>2021-02-06T03:23:42.000Z</published>
+    <updated>2021-02-06T04:40:21.771Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-첫-번째-일기"><a href="#Side-Project-Diary-첫-번째-일기" class="headerlink" title="Side Project Diary 첫 번째 일기"></a><strong>Side Project Diary 첫 번째 일기</strong></h2><p>이전에 GitHub로 Repository를 생성해서 개인프로젝트를 하면서 <strong>조금 아쉬웠던 부분이 뭔가 내가 프로젝트를 진행했을 당시에 느꼈던 느낌과 생각이 시간이 지나면 잊혀진다는 것이었다.</strong> 물론 Repository에 commit된 내용과 README 파일의 내용을 보면 “아, 이때 이 기능을 넣었지”라고 생각은 할 수 있지만, 뭔가 그 사이 사이에 느꼈던 느낌까지 세세하게 채우는 것은 어렵다고 생각한다.<br>그래서 이번 Side Project를 시작하면서 새롭게 Side Project Diary를 작성하려고 한다.<br>매일 매일 일기로 기록을 남기면 자연스럽게 프로젝트의 진행에 대해 스스로 self feedback하는 시간도 갖을 수 있을 것 같다.</p><p>훗날 회사에 가서 일을 할때 참여하는 프로젝트도 보안상 세부적인 내용은 남길 수 없겠지만, 대략적인 내용으로 일기를 써볼 수 있을 것 같다. 그럼 내가 개발자로서 어떻게 성장을 해왔는지 다시 되돌아보며 더욱 성장해나갈 수 있는 발판이 될 수 있을 것 같다.</p><p>그럼 나의 첫번째 Side Project Diary를 시작해본다.</p><p>이번 첫 프로젝트는 ReactJS를 사용한 간단한 책 정보 검색 사이트를 만들어 보려고 한다.<br>어제 강사님이 개발자를 위한 책을 추천해주셨는데, 이때 간단하게 요즘 IT/개발 관련 서적들 중에 어떤 책이 베스트샐러이고, 새로 출간되었는지 볼 수 있는 사이트가 있으면 좋지 않을까 생각되어 이 아이디어를 구상하게 되었다.<br>물론 이미 좋은 여러 책 관련 사이트들이 많지만, 나는 심플하게 개발과 컴퓨터 공학 관련 서적들 위주로 main category를 구성해서 웹 어플리케이션을 만들어보려고 한다.</p><p>이렇듯 개발이란 무언가 필요에 의해서 시작되는 것 같다. 나중에 회사에 가면 고객의 needs에 의해서 개발을 시작하겠고, 지금은 나의 일상에서 뭔가 필요하다고 생각되는 부분에서 아이디어를 착안해서 side project의 개발 아이템으로 시작을 하면 되는 것 같다.</p><p>솔직히 이번에 개발 블로그를 시작하면서 단순 코더가 아닌 생각할 줄 아는 개발자가 될 수 있을 것 같다는 생각이 많이 들었다.<br>이전에 많은 회의감이 들었었고, 찐 개발자가 되려면 노력이 많이 필요하다는 것은 알고 있기 때문에 남들보다 100배는 열심히 해야 겠다는 생각이 들었다.</p><table>  <tr>    <td>      <img src="/images/post_images/210206_book_recommendation_project_start.png" alt="210206_book_recommendation_project_start.png">    </td>  </tr>  <tr>    <td align="center">      <b>첫 번째 프로젝트 구상내용 적어보기</b>    </td>  </tr></table><p>우선 프로젝트의 주제는 앞에서 언급했듯이 개발자를 위한 책 정보제공 사이트이다. 카테고리의 구성은 개발 서적, 컴퓨터 공학 서적을 메인 카테고리로 하고, 검색하는 메뉴를 하나 추가하려고 한다.<br>Open API 중에 적절한 API를 찾던 중에 <code>InterPark에서 제공하는 Book Open API</code>가 있어서 이 API를 사용하기로 했다.<br>언어로는 HTML, CSS, JavaScript,그리고 Library는 ReactJS를 사용하려고 한다.<br>전체적인 프로젝트의 디자인 패턴은 React의 Container-Presenter Pattern을 사용할 것이다.<br>간단한 Application이지만, Data logic 부분과 View 부분을 분리해서 작성하면 코드의 가독성과 유지보수시에도 도움이 될 것이기 때문이다.</p><img src="/images/post_images/210206_Container-Presenter-pattern.png" alt="210206_book_recommendation_project_start" width=250 height=250><h3 id="Task를-Category별로-분류하기-Functional-Classification"><a href="#Task를-Category별로-분류하기-Functional-Classification" class="headerlink" title="Task를 Category별로 분류하기 (Functional Classification)"></a><strong>Task를 Category별로 분류하기 (Functional Classification)</strong></h3><ul><li>프로젝트 기본 폴더구조 구성 <strong>(Project basic folder structure)</strong></li><li>API<ul><li>interpark Open API의 사용법 API menual 참고</li><li>API 호출하는 Method 작성</li></ul></li><li>소프트웨어 개발 카테고리 <strong>(Software Development Category)</strong><ul><li>Category별 베스트샐러 서적, 새로 출간된 서적 등의 category로 나눠서 출력하는 페이지(category-main-page)</li><li>각 Category별 책의 세부 정보 페이지</li></ul></li><li>컴퓨터 공학 카테고리 <strong>(Computer Engineering Category)</strong><ul><li>Category별 베스트샐러 서적, 새로 출간된 서적 등의 category로 나눠서 출력하는 페이지(category-main-page)</li><li>각 Category별 책의 세부 정보 페이지</li></ul></li><li>검색 카테고리 <strong>(Search Category)</strong><ul><li>검색 결과출력 페이지</li></ul></li></ul><p><strong>처음부터 너무 세세하게 Task를 분류할 수 없기 때문에 우선, 큰 덩어리(Chunk)로 나눠서 Task를 분류해보았다.<br>이제 이 Task를 기준으로 세부 Task항목으로 쪼개서 프로젝트를 진행해 볼 것이다.</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Side-Project-Diary-첫-번째-일기&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-첫-번째-일기&quot; </summary>
+      
+    
+    
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
+    
+  </entry>
   
   <entry>
     <title>210206 What is difference between Framework and Library?</title>
@@ -50,9 +77,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/06/210206-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/06/210206-Self-development_til/</id>
     <published>2021-02-05T21:08:42.000Z</published>
-    <updated>2021-02-06T02:10:41.029Z</updated>
+    <updated>2021-02-06T04:46:18.747Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>뭔가를 위해 시도조차하려는 용기가 없다면 삶이 무슨 의미가 있을까?<br/> (What would life be if we had no courage to attempt anything?)<br/> -빈센트 반 고흐(Vincent Van Gogh)</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 오전 10시 20분에 집 앞 Black dock coffee에서 하루를 시작했다. 🌞<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li>TypeScript 공부 <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~</li></ul></li><li>Side Project 시작<ul><li>Python + Pandas, Plotly Library project 프로젝트<ul><li>프로젝트 진척</li></ul></li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>사용할 외부 API</li></ul></li></ul></li></ul></li><li>Python 과제<ul><li>Hacker Rank</li></ul></li><li>이전 블로그 개발내용 관련 글 내용 이전 작업하기 (JavaScript, ReactJS, NodeJS) (<code>진행중</code>)</li><li>Library와 Framework의 차이에 대해 블로그 작성하기 (<code>완료</code>)</li></ul><br/>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>뭔가를 위해 시도조차하려는 용기가 없다면 삶이 무슨 의미가 있을까?<br/> (What would life be if we had no courage to attempt anything?)<br/> -빈센트 반 고흐(Vincent Van Gogh)</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 오전 10시 20분에 집 앞 Black dock coffee에서 하루를 시작했다. 🌞<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Python + Pandas, Plotly Library project 프로젝트</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Side Project Diary 1일차 작성 (<code>완료</code>)</li><li>프로젝트 Repository 생성 (<code>완료</code>)</li><li>프로젝트 덩어리(Chunk) 단위로 Task category 분류하기 (<code>완료</code>)</li><li>프로젝트 Chunk Task Category를 세부 Task 항목으로 분류하며 프로젝트 진행하기 (<code>진행중</code>)</li></ul></li><li>프로젝트 진척</li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>HackerRank</li></ul></li><li><ins><strong>이전 블로그 개발내용 관련 글 내용 이전 작업하기 (JavaScript, ReactJS, NodeJS)</strong></ins> (<code>진행중</code>)</li><li><ins><strong>Library와 Framework의 차이에 대해 블로그 작성하기</strong></ins> (<code>완료</code>)</li></ul><br/>]]></content>
     
     
       
@@ -580,34 +607,6 @@ df = pd.read_csv(</summary>
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210202 ExpressJS Installation</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/210202-ExpressJS_Installation_and_Setting/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/210202-ExpressJS_Installation_and_Setting/</id>
-    <published>2021-02-01T21:51:42.000Z</published>
-    <updated>2021-02-02T00:38:52.420Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210202_npm_logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h1 id="ExpressJS-설치"><a href="#ExpressJS-설치" class="headerlink" title="ExpressJS 설치"></a><strong>ExpressJS 설치</strong></h1><p>NPM(Node Package Manager) : 업데이트된 각종 NodeJS 관련 패키지의 중앙집중화된 개념으로 NodeJS 월드의 중심과 같은 곳이다.</p><p>NPM은 NodeJS를 다운받게 되면 자동으로 설치가 되기 때문에 별도로 설치할 필요는 없다.</p><p><strong>Package manager로 npm을 사용하기 위해서는 우선 npm이 정한 방식으로 프로젝트를 시작해야한다.</strong></p><ol><li><p><strong>npm init</strong> : npm 초기화 (package name/description/author 설정)<br>→ 결과적으로 package.json 파일이 생성이 된다.</p></li><li><p><strong>npm 설치</strong> : ‘npm install express’ 명령실행한다.<br>(package.json 파일이 있는 폴더위치에서 실행을 해야한다)</p></li><li><p>설치가 끝난뒤에 살펴보아야하는 것은 node modules 부분이다. 이 부분은 npm을 통해서 다운을 받은 것들인데 여기보면 dependency라는 것을 갖게 된다.<br>어플리케이션 개발시에 필요한 것들을 자동으로 npm module에서 찾아서 사용해준다.</p></li></ol><h1 id="프로젝트-협업시에는-작성한-코드와-Package-json-파일만-넘겨주기"><a href="#프로젝트-협업시에는-작성한-코드와-Package-json-파일만-넘겨주기" class="headerlink" title="프로젝트 협업시에는 작성한 코드와 Package.json 파일만 넘겨주기"></a>프로젝트 협업시에는 작성한 코드와 Package.json 파일만 넘겨주기</h1><ul><li>두 파일만 받아서 프로젝트 폴더 내부에서 <code>npm install</code>만 실행해주면 자동으로 필요한 파일들을 다시 전부 생성해준다.</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210202_npm_logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다</summary>
-      
-    
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
-    
-    <category term="Express Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
     
   </entry>
   
