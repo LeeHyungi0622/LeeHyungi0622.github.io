@@ -1,0 +1,230 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210122 Python TIL</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210122 Python TIL</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4-%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 배운 내용</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Dictionary</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C"><span class="toc-text">간단한 연습문제</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210122 Python TIL</h1><time class="has-text-grey" datetime="2021-01-22T13:37:42.000Z">2021-01-22</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
+<h2 id="오늘-배운-내용"><a href="#오늘-배운-내용" class="headerlink" title="오늘 배운 내용"></a><strong>오늘 배운 내용</strong></h2><ul>
+<li><p>Python 메인 강의</p>
+<ul>
+<li><p>과제점검(1월 22일자 파이썬 과제 풀이/해설)</p>
+</li>
+<li><h1>Dictionary</h1> : Dictionary는 key와 value로 구성된 자료형으로, 간편하게 key값으로 value를 참조해서 가져올 수 있다.
+
+<pre><code class="python">ganji = &#123;&#125;</code></pre>
+<ul>
+<li><p>Dictionary 활용</p>
+<ul>
+<li>Dictionary 데이터 초기화 하기</li>
+</ul>
+<pre><code class="python"># 직접 데이터를 넣고 초기화 시키기
+ganji = &#123;&#39;ja&#39;:0, &#39;chuk&#39;:1&#125; #&#123;&#39;ja&#39;: 0, &#39;chuk&#39;: 1&#125;
+ganji = dict(ja=1, chuk=0)
+ganji = dict([(&#39;ja&#39;,1),(&#39;chuk&#39;,2)])</code></pre>
+<ul>
+<li>Key값으로 Value 데이터 업데이트하기</li>
+</ul>
+<pre><code class="python"># 기존의 dictionary에 데이터 추가하기
+ganji[&#39;in&#39;] = &#39;tiger&#39; # &#123;&#39;ja&#39;: 1, &#39;chuk&#39;: 0, &#39;in&#39;: &#39;tiger&#39;&#125;</code></pre>
+<ul>
+<li>del 키워드로 Dictionary 내의 데이터 삭제하기</li>
+</ul>
+<pre><code class="python">  # del 키워드는 값을 참조해서 삭제한다.
+  del ganji[&#39;dragon&#39;]
+  # del 키워드를 사용해서 선언되어있는 변수를 삭제할 수 있다.
+  fast = 1
+  del fast
+  # ------ 이하에서는 fast 변수에 접근이 불가하다. (fast 변수는 메모릴상에서 제거된 상태)
+  result = fast + 2
+  print(result)</code></pre>
+<ul>
+<li>.keys()로 key값 참조하기</li>
+</ul>
+<pre><code class="python">ganji.keys() # dict_keys([&#39;ja&#39;, &#39;chuk&#39;, &#39;in&#39;, &#39;myo&#39;])
+# 위의 .keys()를 for-loop내에서 활용할 수 있다.
+for key in ganji.keys():
+    # 각 각의 value를 출력
+    print(ganji[key])</code></pre>
+<ul>
+<li>.values()로 value값 참조하기</li>
+</ul>
+<pre><code class="python">ganji.values() # dict_values([&#39;rat&#39;, &#39;cow&#39;, &#39;tiger&#39;, &#39;rabbit&#39;])</code></pre>
+<ul>
+<li>.items()로 [(key, value)] 형태(리스트 내 튜플 자료형)로 값 참조하기</li>
+</ul>
+<pre><code class="python">ganji.items() # dict_items([(&#39;ja&#39;, &#39;rat&#39;), (&#39;chuk&#39;, &#39;cow&#39;), (&#39;in&#39;, &#39;tiger&#39;), (&#39;myo&#39;, &#39;rabbit&#39;)])
+</code></pre>
+<ul>
+<li>zip() 을 활용하여 튜플형태로 (key, value)로 묶어서 리스트에 담아 표현하기</li>
+</ul>
+<pre><code class="python">list(zip(ganji.keys(), ganji.values()))
+# output : [(&#39;ja&#39;, &#39;rat&#39;), (&#39;chuk&#39;, &#39;cow&#39;), (&#39;in&#39;, &#39;tiger&#39;), (&#39;myo&#39;, &#39;rabbit&#39;)]</code></pre>
+<ul>
+<li>.pop([‘key’]) 을 활용하여 Dictionary 내 데이터 제거하기</li>
+</ul>
+<pre><code class="python">ganji.pop(&#39;ja&#39;) # &#39;rat&#39;</code></pre>
+<ul>
+<li>.popitem() 을 활용하여 Dictionary의 마지막 요소 제거하기 (list에서 .pop()과 같은 기능)</li>
+</ul>
+<pre><code class="python">ganji.popitem() # 리스트의 가장 마지막 요소를 제거한다. (&#39;myo&#39;, &#39;rabbit&#39;)</code></pre>
+<pre><code class="python">&quot;&quot;&quot;
+hong_midterm = &#123;&#125;
+hong_midterm[&#39;Korean&#39;] = 70
+hong_midterm[&#39;Math&#39;] = 60
+hong_midterm[&#39;English&#39;] = 100
+hong_midterm[&#39;Social&#39;] = [45,30,20]
+hong_midterm[&#39;Science&#39;] = [45,45,40,10]
+&quot;&quot;&quot;</code></pre>
+<ul>
+<li>.get(‘[‘key’]’, [default value] ) : get의 첫번째 인자로 Key값을 넣고, 존재하지 않을 경우 반환할 Default 값을 선언할 수 있다.</li>
+</ul>
+<pre><code class="python">hong_midterm.get(&#39;Ethics&#39;, False)</code></pre>
+<ul>
+<li>.setDefault(‘Ethics’,[]) : Dictionary 변수에 Ethics 항목을 추가하고, 동시에 Default 값을 넣어 초기화 시켜 줄 수 있다.</li>
+</ul>
+<pre><code class="python">hong_midterm.setdefault(&#39;Ethics&#39;, [])</code></pre>
+<ul>
+<li><p>리스트만큼 잘 사용되지는 않지만, Dictionary도 len()을 사용해서 길이를 구할 수 있다.</p>
+</li>
+<li><p>**를 활용하여 Dictionary 변수의 key값으르 Destructuring Assignment하기</p>
+</li>
+</ul>
+<pre><code class="python">some_dict = &#123;&#39;name&#39;: &#39;Hong Gil-dong&#39;, &#39;locale&#39;: &#39;Seoul, KR&#39;
+print(&quot;Hello, I&#39;m &#123;name&#125;, from &#123;locale&#125;&quot;.format(**some_dict))</code></pre>
+</li>
+</ul>
+</li>
+<li><h1>Set</h1>: 
+set은 중복요소를 제거하고, 교집합(&, intersection), 합집합(|, union), 차집합(-, difference), 대칭차집합(symmetric difference)를 활용하여 두 집합변수의 관계형 데이터를 만들어낼 수 있다.
+
+</li>
+</ul>
+<pre><code class="python">ppap = [&#39;pen&#39;, &#39;pineapple&#39;, &#39;apple&#39;, &#39;pen&#39;]</code></pre>
+<ul>
+<li><p>Set 활용하기</p>
+<ul>
+<li>set과 list는 상호 type casting이 가능하다.</li>
+</ul>
+<pre><code class="python">a_word = &#39;fastcampus&#39;
+b_word = &#39;python&#39;
+
+a_set = set(a_word) #&#123;&#39;u&#39;, &#39;m&#39;, &#39;p&#39;, &#39;a&#39;, &#39;c&#39;, &#39;s&#39;, &#39;f&#39;, &#39;t&#39;&#125;
+b_set = set(b_word) # &#123;&#39;y&#39;, &#39;p&#39;, &#39;h&#39;, &#39;n&#39;, &#39;t&#39;, &#39;o&#39;&#125;</code></pre>
+<ul>
+<li>두 집합의 교집합 구하기</li>
+</ul>
+<pre><code class="python">a_set &amp; b_set
+a_set.intersection(b_set)
+# output : &#123;&#39;p&#39;, &#39;t&#39;&#125;</code></pre>
+<ul>
+<li>두 집합의 합집합 구하기</li>
+</ul>
+<pre><code class="python">a_set | b_set
+a_set.union(b_set)
+# output : &#123;&#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;h&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;y&#39;&#125;</code></pre>
+<ul>
+<li>두 집합의 차집합 구하기</li>
+</ul>
+<pre><code class="python">a_set - b_set
+a_set.difference(b_set)
+# output : &#123;&#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;m&#39;, &#39;s&#39;, &#39;u&#39;&#125;</code></pre>
+<ul>
+<li>두 집합의 대칭차 구하기</li>
+</ul>
+<pre><code class="python">a_set ^ b_set
+a_set.symmetric_difference(b_set
+# output : &#123;&#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;h&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;s&#39;, &#39;u&#39;, &#39;y&#39;&#125;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="간단한-연습문제"><a href="#간단한-연습문제" class="headerlink" title="간단한 연습문제"></a><strong>간단한 연습문제</strong></h2><ol>
+<li>다음 인적사항을 입력한다. (list에 각 정보가 dict로 존재)</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Locale</th>
+<th>Age</th>
+<th>Username</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Johnny Silverhand</td>
+<td>Night City</td>
+<td>120</td>
+<td>Johnny</td>
+</tr>
+<tr>
+<td>John Doe</td>
+<td>CA, USA</td>
+<td>40</td>
+<td>Doh</td>
+</tr>
+<tr>
+<td>Jane Doe</td>
+<td>Seoul, Korea</td>
+<td>24</td>
+<td>jane-doe</td>
+</tr>
+<tr>
+<td>Foo Bar</td>
+<td>Busan, Korea</td>
+<td>31</td>
+<td>foo-bar</td>
+</tr>
+</tbody></table>
+<br/>
+
+<p><strong>위에서 입력한 데이터를 활용하여 아래 문제를 해결하시오.</strong></p>
+<p>1-1. Jane Doe의 Locale을 London, UK 로 수정하세요.<br>2-1. list의 모든 아이템에 대해 key와 value를 모두 출력하세요.(반복문 쓰지 말 것) 3. 다음 list의 중복 아이템을 제거한 뒤, 내림차순으로 정렬하여 출력하세요. (아래 cities 리스트 활용)</p>
+<pre><code class="python">cities = [
+    &#39;Daejeon&#39;, &#39;Ulsan&#39;, &#39;Seoul&#39;, &#39;Jeju&#39;,
+    &#39;Busan&#39;, &#39;Ulsan&#39;, &#39;Daegu&#39;, &#39;Daejeon&#39;,
+    &#39;Seoul&#39;, &#39;Seoul&#39;, &#39;Daejeon&#39;, &#39;Gwangju&#39;,
+    &#39;Busan&#39;, &#39;Daegu&#39;, &#39;Gwangju&#39;, &#39;Daejeon&#39;,
+    &#39;Ulsan&#39;, &#39;Jeju&#39;, &#39;Gwangju&#39;, &#39;Seoul&#39;
+]</code></pre>
+<p>1번의 경우, user_info 리스트 변수를 선언하여, 각각의 열에 dict 타입의 데이터를 초기화해서 넣어준다.</p>
+<pre><code class="python">user_info = []
+user_row = dict([(&#39;name&#39;,&#39;Foo Bar&#39;),
+                 (&#39;locale&#39;, &#39;Busan, Korea&#39;),
+                 (&#39;age&#39;, 31),
+                 (&#39;username&#39;, &#39;foo-bar&#39;)
+                ])
+user_info.append(user_row)
+user_info
+
+&quot;&quot;&quot;
+output :
+[&#123;&#39;name&#39;: &#39;Johnny Silverhand&#39;,
+  &#39;locale&#39;: &#39;Night City&#39;,
+  &#39;age&#39;: 120,
+  &#39;username&#39;: &#39;Johnny&#39;&#125;,
+ &#123;&#39;name&#39;: &#39;John Doe&#39;, &#39;locale&#39;: &#39;CA, USA&#39;, &#39;age&#39;: 40, &#39;username&#39;: &#39;Doh&#39;&#125;,
+ &#123;&#39;name&#39;: &#39;Jane Doe&#39;,
+  &#39;locale&#39;: &#39;Seoul, Korea&#39;,
+  &#39;age&#39;: 24,
+  &#39;username&#39;: &#39;jane-doe&#39;&#125;,
+ &#123;&#39;name&#39;: &#39;Foo Bar&#39;,
+  &#39;locale&#39;: &#39;Busan, Korea&#39;,
+  &#39;age&#39;: 31,
+  &#39;username&#39;: &#39;foo-bar&#39;&#125;]
+&quot;&quot;&quot;</code></pre>
+<p>1-1번의 경우, 각각의 행 요소에는 index로 접근을 하고, 접근한 후에는 dict 데이터에 key값으로 접근을 해서 해당 데이터를 수정해주면 된다.</p>
+<pre><code class="python">user_info[2][&#39;locale&#39;] = &#39;London, UK&#39;</code></pre>
+<p>2-1번의 경우, 반복문을 사용하지 않고 각 행의 dict형 데이터들을 출력해야 되기 때문에 아래와 같이 각 행의 dict형 데이터에는 index로 접근을 하고, .items()로 key와 value를 Tuple 데이터형으로 묶어서 읽어온다.</p>
+<pre><code class="python">print(list(user_info[0].items()))
+print(list(user_info[1].items()))
+print(list(user_info[2].items()))
+print(list(user_info[3].items()))
+
+&quot;&quot;&quot;
+output:
+
+[(&#39;name&#39;, &#39;Johnny Silverhand&#39;), (&#39;locale&#39;, &#39;Night City&#39;), (&#39;age&#39;, 120), (&#39;username&#39;, &#39;Johnny&#39;)]
+[(&#39;name&#39;, &#39;John Doe&#39;), (&#39;locale&#39;, &#39;CA, USA&#39;), (&#39;age&#39;, 40), (&#39;username&#39;, &#39;Doh&#39;)]
+[(&#39;name&#39;, &#39;Jane Doe&#39;), (&#39;locale&#39;, &#39;London, UK&#39;), (&#39;age&#39;, 24), (&#39;username&#39;, &#39;jane-doe&#39;)]
+[(&#39;name&#39;, &#39;Foo Bar&#39;), (&#39;locale&#39;, &#39;Busan, Korea&#39;), (&#39;age&#39;, 31), (&#39;username&#39;, &#39;foo-bar&#39;)]
+&quot;&quot;&quot;</code></pre>
+<p>3번 문제의 경우, 중복제거는 set()을 사용해서 제거하고 내림차순으로 정렬하기 위해서 list()로 변환한 후에 sort() 메서드를 사용해서 정렬한다.</p>
+<pre><code class="python">unique_cities = list(set(cities))
+unique_cities.sort(reverse=True)</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/01/22/202101/210122-git_til/" title="210122 Git + Vim editor usage TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210122 Git + Vim editor usage TIL</span></a><a class="button is-default" href="/2021/01/22/202101/210122-Hexo-blog/" title="210122 Hexo 사용법"><span class="has-text-weight-semibold">Next: 210122 Hexo 사용법</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
