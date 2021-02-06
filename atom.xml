@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-05T10:49:04.037Z</updated>
+  <updated>2021-02-06T02:09:22.994Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210206 What is difference between Framework and Library?</title>
+    <link href="https://leehyungi0622.github.io/2021/02/06/210206-Self-Framework_and_Library_Difference/"/>
+    <id>https://leehyungi0622.github.io/2021/02/06/210206-Self-Framework_and_Library_Difference/</id>
+    <published>2021-02-06T01:42:42.000Z</published>
+    <updated>2021-02-06T02:09:22.994Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210206_difference_between_framework_and_library.webp"></p><h2 id="What-is-difference-between-Framework-and-Library"><a href="#What-is-difference-between-Framework-and-Library" class="headerlink" title="What is difference between Framework and Library?"></a><strong>What is difference between Framework and Library?</strong></h2><p>이전에 개발을 하면서 내가 사용하고 있는 것이 프레임워크인지 라이브러리인지 헷갈렸던 경험이 있었기 때문에, 나같은 사람이 없을 수도 있겠지만, 혹시 나와 같은 의문을 가진 사람들을 위해 프레임워크와 라이브러리의 차이에 대해서 정리해보려고 한다.</p><p>우선 메인으로 첨부한 그림을 보면 대략적으로 알 수 있듯이 <strong>Framework는</strong> 내가 작성한 Application을 감싸안고 포함고 있는 개념이라면, <strong>Library는</strong> 내가 작성한 Application과 아래의 우주선과 같이 도킹(docking)되어 있는 것이라고 정의할 수 있겠다.<br>따지고 보면 국제 <code>우주정거장 == Application</code>이 되겠고, <code>크루드래곤 == Library</code> 라고 생각하면 될 것이다.<br><br/></p><p><img src="/images/post_images/210206_spacex_crew-dragon_docking.jpg"><br><strong><ins>위 사진은 작년에 2020년 5월 31일 스페이스 X의 크루드래곤이 국제 우주정거장에 도킹을 성공하는 실제 장면이다.</ins></strong></p><p>이제 프레임워크와 라이브러리의 기본적인 형태에 대해서 이해가 되었으니, 내부 동작에 있어서는 어떤 차이가 있는지 살펴보자.</p><p><img src="/images/post_images/210206_library_vs_framework.jpg"></p><p>위에 첨부한 그림에서 알 수 있듯이 <code>우선 Libary는 Framework에 포함된 개념</code>이다.<br>Framework자체를 개발에 필요한 여러 Library의 집합으로 정의를 할 수도 있습니다.<br>Libray를 사용하기 위해서는 코드에서 호출을 해야하지만 Framework는 애플리케이션의 골격으로, 해당 골격과 맞지 않으면 Framework에서 애플리케이션 코드로 호출을 해서 알려주게 됩니다.</p><p>이상, 간단하게 Library와 Framework의 컨셉과 차이점에 대해서 정리해보았습니다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210206_difference_between_framework_and_library.webp&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;What-is-difference-between-Framework-and</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Framework" scheme="https://leehyungi0622.github.io/tags/Framework/"/>
+    
+    <category term="Library" scheme="https://leehyungi0622.github.io/tags/Library/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210206 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/06/210206-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/06/210206-Self-development_til/</id>
+    <published>2021-02-05T21:08:42.000Z</published>
+    <updated>2021-02-06T02:10:41.029Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>뭔가를 위해 시도조차하려는 용기가 없다면 삶이 무슨 의미가 있을까?<br/> (What would life be if we had no courage to attempt anything?)<br/> -빈센트 반 고흐(Vincent Van Gogh)</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 오전 10시 20분에 집 앞 Black dock coffee에서 하루를 시작했다. 🌞<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li>TypeScript 공부 <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~</li></ul></li><li>Side Project 시작<ul><li>Python + Pandas, Plotly Library project 프로젝트<ul><li>프로젝트 진척</li></ul></li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>사용할 외부 API</li></ul></li></ul></li></ul></li><li>Python 과제<ul><li>Hacker Rank</li></ul></li><li>이전 블로그 개발내용 관련 글 내용 이전 작업하기 (JavaScript, ReactJS, NodeJS) (<code>진행중</code>)</li><li>Library와 Framework의 차이에 대해 블로그 작성하기 (<code>완료</code>)</li></ul><br/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>210205 Book recommendation</title>
@@ -553,60 +608,6 @@ df = pd.read_csv(</summary>
     <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
     
     <category term="Express Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210202 NodeJS Express Framework</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_Express_Framework/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_Express_Framework/</id>
-    <published>2021-02-01T21:27:42.000Z</published>
-    <updated>2021-02-04T12:34:27.451Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210202_expressjs_and_nodejs.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h1 id="ExpressJS"><a href="#ExpressJS" class="headerlink" title="ExpressJS?"></a><strong>ExpressJS?</strong></h1><p>ExpressJS는 간단히 말하면 훌륭한 개발자들이 만들어준 NodeJS 프레임워크이다. 이를 사용해서 우리는 원하는 걸 쉽고 빠르게 해낼 수 있다. 예를 들어 NodeJS로 서버를 만드는 것이 목표라면 수작업으로 초반작업을 해줄 필요가 있는데 Express를 이용해서 단 몇 줄의 코드로 서버를 만들 수 있다.</p><h1 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a><strong>Framework</strong></h1><p>다른 프로그래밍 언어에도 프레임워크가 있다. 예를 들어 Django는 Python으로 된 프레임워크이고, Rails는 Ruby로 된 프레임워크이고, Laravel은 PHP로 된 프레임워크이다. 이러한 프레임워크들은 개발자들의 개발을 손쉽게 할 수 있도록 도와준다.</p><p>서버를 개발하는 것은 대부분의 경우 거의 동일한 패턴을 가지고 있다. Connection 열기, Connection Listening, 파일을 처리, html 전송, 데이터를 저장, form에서 데이터를 받아오기와 같은 일련의 과정의 반복이라고 볼 수 있다. 모든 어플리케이션이 대부분 동일한 일을 하기때문에 앞서 언급한 프레임워크는 다른 방식이지만 결국에는 같은 일들을 처리한다고 볼 수 있다.</p><p><code>ExpressJS는 NodeJS의 프레임워크 중에 대중적인 프레임워크이고, 안정적이다.</code></p><br/><p><strong>ExpressJS Reference :</strong> <a href="https://github.com/expressjs/express">ExpressJS Reference</a></p><br/><p>ExpressJS를 사용하는 일부 기업들은 아래와 같다.</p><p><img src="/images/post_images/210202_express_use_company.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210202_expressjs_and_nodejs.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시</summary>
-      
-    
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
-    
-    <category term="Express-Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210202 NodeJS Installation</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_installation/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/210202-NodeJS_installation/</id>
-    <published>2021-02-01T21:17:42.000Z</published>
-    <updated>2021-02-01T21:23:34.475Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210202_nodejs_installation.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h1 id="NodeJS-설치"><a href="#NodeJS-설치" class="headerlink" title="NodeJS 설치"></a>NodeJS 설치</h1><p>나는 Mac 사용자이기 때문에 MacOS 기준으로 설치내용을 정리해보겠다.</p><p>NodeJS는 간단하게 brew로 설치가 가능하다 <code>brew install node</code></p><br/><p><strong>NodeJS Installation Guide :</strong> <a href="https://changelog.com/posts/install-node-js-with-homebrew-on-os-x">NodeJS Installation Guide</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210202_nodejs_installation.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 </summary>
-      
-    
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
     
   </entry>
   
