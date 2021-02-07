@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-06T13:51:44.288Z</updated>
+  <updated>2021-02-07T07:04:18.712Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,11 +17,92 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210207 API &amp; Networking with Axios instance</title>
+    <link href="https://leehyungi0622.github.io/2021/02/07/202102/210207-ReactJS_axios/"/>
+    <id>https://leehyungi0622.github.io/2021/02/07/202102/210207-ReactJS_axios/</id>
+    <published>2021-02-07T05:55:42.000Z</published>
+    <updated>2021-02-07T07:04:18.712Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/react-js-logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><ul><li><h1 id="Axios-vs-Fetch"><a href="#Axios-vs-Fetch" class="headerlink" title="Axios vs Fetch"></a>Axios vs Fetch</h1></li></ul><br/><ul><li><h1 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch()"></a>Fetch()</h1></li></ul><p>Fetch API는 Request나 Response와 같은 HTTP Pipeline에 접근 및 조작을 하기 위한 JavaScript interface를 제공한다.<br>Network를 통해 비동기방식으로 resource를 fetch하기 위해서 사용된다고 이해하면 된다.</p><p>사용방법은 아래와 같이 fetch() method에 자원을 얻기 위한 path를 넣어주고 request, response에 접근하면 된다.</p><pre><code class="javascript">// fetch의 기본적인 사용fetch(&quot;examples/example.json&quot;)  .then((response) =&gt; &#123;    // Do stuff with the response  &#125;)  .catch((error) =&gt; &#123;    console.log(&quot;Looks like there was a problem: \n&quot;, error);  &#125;);</code></pre><h2 id="Request-object"><a href="#Request-object" class="headerlink" title="Request object"></a>Request object</h2><pre><code class="javascript">// Request object&#123;  method: &#39;POST&#39;, // *GET, POST, PUT, DELETE, etc.  mode: &#39;cors&#39;, // no-cors, *cors, same-origin  cache: &#39;no-cache&#39;, // *default, no-cache, reload, force-cache, only-if-cached  credentials: &#39;same-origin&#39;, // include, *same-origin, omit  headers: &#123;   &#39;Content-Type&#39;: &#39;application/json&#39;  &#125;,  redirect: &#39;follow&#39;, // manual, *follow, error  referrerPolicy: &#39;no-referrer&#39;, // no-referrer, *client  body: JSON.stringify(data) // body data type must match &quot;Content-Type&quot; header&#125;</code></pre><h2 id="Response-object"><a href="#Response-object" class="headerlink" title="Response object"></a>Response object</h2><p>아래와같이 Response 객체를 통해서 서버로부터 넘겨받은 데이터를 여러 형식으로 받아 올 수 있다.<br>response.json(): Parse the response as JSON<br>response.text(): Read the response and return as text<br>response.formData(): Return the response as FormData object<br>response.blob(): Return the response as Blob<br>response.arrayBuffer(): Return the response as ArrayBuffer</p><br/><ul><li><h1 id="Axios"><a href="#Axios" class="headerlink" title="Axios?"></a>Axios?</h1></li></ul><p>Axios는 native JavaScript API가 아니기 때문에 사용하려면 우선 <code>npm i axios</code>를 통해 Axios를 설치해줘야 한다. Axios는 JavaScript library로, node.js 또는 XMLHttpRequests로부터 http requests 만들때 사용이 된다.</p><p><code>그럼 Fetch() method와 비교했을때 Axios library는 어떤 장점이 있을까?</code></p><p><em><b>첫번재,</b></em> <ins>Fetch() method에서는 사용할때마다 매번 인자로 resource를 가져올 path를 넣어줘야 하는데, Axios는 baseURL과 기타 설정 부분을 공통처리해서 만든 <code>instance 객체로 재사용해서 사용이 가능</code>하다는 점이다.</ins></p><p><img src="/images/post_images/210207_axios_instance_creation.png"></p><pre><code class="javascript">import axios from &quot;axios&quot;;const api = axios.create(&#123;  baseURL: &quot;https://api.baseurl.com/&quot;,  params: &#123;    api_key: &quot;06e43891a2b919ee11ba3f3894d63374&quot;,    language: &quot;euc-kr&quot;  &#125;&#125;);api.get(&quot;test&quot;);export default api;</code></pre><p><em><b>두번째,</b></em> <ins>Axios는 download progress를 관리할 수 있는 build-in function이 있다.</ins></p><p><em><b>세번째,</b></em> <ins>Axios는 XSRF에 대항하여 client-side 보호가 가능하다.</ins></p><p><strong>XSRF?</strong></p><blockquote><p>사이트 간 요청 위조(또는 크로스 사이트 요청 위조, Cross-site request forgery, CSRF, XSRF)라고 한다. 웹 사이트 취약점 공격들 중에 하나로, 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록)를 특정 웹 사이트에 요청하게 하는 공격을 말한다.</p></blockquote><p><a href="https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EA%B0%84_%EC%9A%94%EC%B2%AD_%EC%9C%84%EC%A1%B0">Reference website : XSRF-wikipedia</a></p><p><em><b>네번째,</b></em> <ins>자동으로 request와 response를 변환해준다.</ins></p><p>아래의 예시에서 볼 수 있듯이, data를 JSON으로 자동 convert해주고, 이것을 request body로써 전송해준다.</p><pre><code class="javascript">// send a POST requestaxios(&#123;  method: &quot;post&quot;,  url: &quot;/login&quot;,  data: &#123;    firstName: &quot;Hyungi&quot;,    lastName: &quot;Lee&quot;  &#125;&#125;);</code></pre><p><em><b>다섯번째</b></em> <ins>Axios는 각기 다른 HTTP requests를 위한 shorthand methods를 제공한다.</ins></p><ul><li>axios.<strong>request</strong>(config)</li><li>axios.<strong>get</strong>(url[, config])</li><li>axios.<strong>delete</strong>(url[, config])</li><li>axios.<strong>head</strong>(url[, config])</li><li>axios.<strong>options</strong>(url[, config])</li><li>axios.<strong>post</strong>(url[, data[, config]])</li><li>axios.<strong>put</strong>(url[, data[, config]])</li><li>axios.<strong>patch</strong>(url[, data[, config]])</li></ul><p>예를들어, post방식으로 /login 에 입력받은 firstName과 lastname을 request body에 담아 보내고자 한다면 아래와 같이 간단하게 작성해 줄 수 있다.</p><pre><code class="javascript">axios  .post(&quot;/login&quot;, &#123;    firstName: &quot;Hyungi&quot;,    lastName: &quot;Lee&quot;  &#125;)  .then(    (response) =&gt; &#123;      console.log(response);    &#125;,    (error) =&gt; &#123;      console.log(error);    &#125;  );</code></pre><p>axios.post는 아래의 response 정보를 반환해준다.</p><pre><code class="json">// `data` is the response that was provided by the server  data: &#123;&#125;,  // `status` is the HTTP status code from the server response  status: 200,  // `statusText` is the HTTP status message from the server response  statusText: &#39;OK&#39;,  // `headers` the headers that the server responded with  // All header names are lower cased  headers: &#123;&#125;,  // `config` is the config that was provided to `axios` for the request  config: &#123;&#125;,  // `request` is the request that generated this response  // It is the last ClientRequest instance in node.js (in redirects)  // and an XMLHttpRequest instance the browser  request: &#123;&#125;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/react-js-logo.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</summary>
+      
+    
+    
+    
+    <category term="ReactJS" scheme="https://leehyungi0622.github.io/categories/ReactJS/"/>
+    
+    
+    <category term="ReactJS" scheme="https://leehyungi0622.github.io/tags/ReactJS/"/>
+    
+    <category term="ReactJS-Axios" scheme="https://leehyungi0622.github.io/tags/ReactJS-Axios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210207 Side Project Diary 2일차</title>
+    <link href="https://leehyungi0622.github.io/2021/02/07/202102/210207_side_project_diary/"/>
+    <id>https://leehyungi0622.github.io/2021/02/07/202102/210207_side_project_diary/</id>
+    <published>2021-02-07T03:16:42.000Z</published>
+    <updated>2021-02-07T05:52:34.333Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-2일차"><a href="#Side-Project-Diary-2일차" class="headerlink" title="Side Project Diary 2일차"></a><strong>Side Project Diary 2일차</strong></h2><p>오늘은 어제 <code>새로 kick-off한 ReactJS project로 시작을 할 계획</code>이다. 새로 만든 GitHub 계정에서의 첫 번째 나의 Side Project이기 때문에 README 파일 작성, Commit, Pull Request, Issue, Branch 관리 등 전반적으로 제대로 구성해서 진행해 볼 것이다.<br>그래서 오늘은 <code>Issue3</code>(Organize the fundamental folder structure of project.)에 해당하는 작업과 추가적으로 <code>Open API 관련 method를 작성하는 새로운 Issue4를 추가</code>하여, <code>Issue2</code>와 Issue6를 같이 진행해 볼 것이다.<br>그리고 추가적으로 이전에 진행할 계획이었던 Pandas를 활용한 데이터 시각화 프로젝트를 같이 진행해 볼 계획이다. 두 프로젝트 모두 미니 프로젝트 형태로 진행이 되기 때문에 같이 진행해도 괜찮을 것 같다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Side-Project-Diary-2일차&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-2일차&quot; class=&quot;h</summary>
+      
+    
+    
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210207 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/07/202102/210207-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/07/202102/210207-Self-development_til/</id>
+    <published>2021-02-07T02:47:42.000Z</published>
+    <updated>2021-02-07T07:04:30.836Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>인생의 마법은 앞을 내다보는 것이지, 무엇이 잘못되었나 주위를 둘러보거나 과거에 대해 슬픔을 갖는 것이 아니다.</strong><br/> (The magic of life is about looking forward, Neither looking around and worrying what is about to go wrong nor having sorrows of the past.)<br/> <strong>-DR.JOE G.VETHANAYAGAM</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><p><img src="/images/post_images/210207_twosome_coffee.png"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 오전 10시 30분에 헬스장에 가서 운동하고 바로 11시 50분경에 집 앞에 있는 투썸 플레이스에 왔다.<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 2일차 작성 (``)</li><li>Python + Pandas, Plotly Library project 프로젝트<ul><li>프로젝트 진척<ul><li>프로젝트 Repository 생성하기 (``)</li><li>프로젝트 덩어리(Chunk) 단위로 Task category 분류하기 (``)</li><li>프로젝트 Chunk Task Category를 세부 Task 항목으로 분류하며 프로젝트 진행하기 (``)</li></ul></li></ul></li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>새로운 Task에 대한 Issue 작성하기 (``)</li><li>Jest를 사용한 Unit Test 공부하기 (``)</li></ul></li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>HackerRank (<code>과제 체크하기</code>)</li></ul></li><li><ins><strong>이전 블로그 개발내용 관련 글 중에서 ReactJS axios 관련 내용 이전 작업하기(ReactJS)</strong></ins> (<code>완료</code>)</li><li><ins><strong>npm과 yarn의 차이점에 대해서 블로그 글 정리하기</strong></ins> (``)</li></ul><p><a href="https://www.geeksforgeeks.org/difference-between-npm-and-yarn/">https://www.geeksforgeeks.org/difference-between-npm-and-yarn/</a><br><br/></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210206 ReactJS의 개념과 기본사용</title>
     <link href="https://leehyungi0622.github.io/2021/02/06/202102/210206-ReactJS_start/"/>
     <id>https://leehyungi0622.github.io/2021/02/06/202102/210206-ReactJS_start/</id>
     <published>2021-02-06T06:53:42.000Z</published>
-    <updated>2021-02-06T13:51:44.288Z</updated>
+    <updated>2021-02-07T07:04:12.463Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/react-js-logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><ul><li><h1 id="ReactJS"><a href="#ReactJS" class="headerlink" title="ReactJS"></a>ReactJS</h1></li></ul><p>NPM에서 React library를 살펴보면, 매주 400만건 이상의 유저가 React Library를 다운받고 있고, Facebook에 의해서 관리가 되고 있다. React를 가장 좋은 기술로 만들기 위해 Facebook에서 전적으로 자원과 커뮤니티, 서포트를 아끼지 않고 있다.</p><table>  <tr>    <td>      <img src="/images/post_images/210206_front_end_library_ranking.png" alt="front_end_library_ranking"/>    </td>    <td>      <img src="/images/post_images/210206_front_end_library_usage_ranking.png" alt="front_end_library_usage_ranking"/>    </td>  </tr> </table><p>Front-end 개발의 생태계를 보면, 71.7%의 사용자가 이미 React를 이용했고, 다른 비슷한 프레임워크와 비교를 했을때 압도적으로 높은 수치의 사용자가 사용하고 있다.</p><p>요즘 회사들의 대부분이 React를 사용하고 있고, Netflix, Slack과 같은 대형 회사들 또한 React를 사용하고 있다.<br>React만을 위해 존재하는 것은 모두 JavaScript로 구성되어 있기 때문에 쉽게 배울 수 있다는 장점이 있다.</p><p>기본적으로 browser는 React의 코드를 이해할 수 없기 때문에 <code>web pack, babel</code>을 이용해서 React code를 compile한 뒤에 비로소 browser가 이해를 할 수 있다.</p><br/><ul><li><h1 id="ReactJS-프로젝트-생성"><a href="#ReactJS-프로젝트-생성" class="headerlink" title="ReactJS 프로젝트 생성"></a><strong>ReactJS 프로젝트 생성</strong></h1></li></ul><p><i>방법1)</i> <strong>local환경에 create-react-app 설치후 ReactJS 프로젝트 생성</strong></p><pre><code class="bash"># create-react-app 설치$ npm i create-react-app# create-react-app를 사용하여 새로운 ReactJS 프로젝트 생성$ create-react-app [Project_folder_name]</code></pre><p><i>방법2)</i> <strong>별도로 create-react-app를 local환경에 설치하지 않고, npx를 사용해서 가장 최신버전의 create-react-app로 ReactJS 프로젝트 생성</strong></p><pre><code class="bash"># create-react-app를 사용하여 새로운 ReactJS 프로젝트 생성$ npx create-react-app [Project_folder_name]</code></pre><table>  <tr>    <td>      <img src="/images/post_images/210206_react_start.png" alt="front_end_library_ranking"/>    </td>    <td>      <img src="/images/post_images/210206_react_start_terminal.png" alt="front_end_library_ranking"/>    </td>  </tr></table><p>설치가 끝난 뒤에 terminal에서 <code>$ npm start</code> 해주면 아래와 같이 default 3000 port로 ReactJS 어플리케이션이 활성화되는 것을 확인할 수 있다. Network로 할당되는 별도의 IP주소로 휴대폰을 이용해서도 접속이 가능하다.</p><br/><ul><li><h1 id="ReactJS-프로젝트의-동작원리"><a href="#ReactJS-프로젝트의-동작원리" class="headerlink" title="ReactJS 프로젝트의 동작원리"></a><strong>ReactJS 프로젝트의 동작원리</strong></h1></li></ul><p>ReactJS의 프로젝트의 동작원리를 내부 파일들을 분석해서 알아보자.<br>우선 public&gt;index.html 파일 내부의 <code>&lt;body&gt;태그</code>를 보면, 아래와 같이 <code>id가 root인 &lt;div&gt;태그</code>를 찾을 수 있다.</p><p><strong>public/index.html</strong></p><pre><code class="html">&lt;body&gt;  &lt;noscript&gt;You need to enable JavaScript to run this app.&lt;/noscript&gt;  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;  &lt;!--      This HTML file is a template.      If you open it directly in the browser, you will see an empty page.      You can add webfonts, meta tags, or analytics to this file.      The build step will place the bundled scripts into the &lt;body&gt; tag.      To begin the development, run `npm start` or `yarn start`.      To create a production bundle, use `npm run build` or `yarn build`.    --&gt;&lt;/body&gt;</code></pre><p>이제 src&gt;index.js파일 내부를 보면 아래와 같이 <code>&quot;root&quot;라는 id를 가진 요소</code>에 <code>&lt;App/&gt; component를 rendering</code>해주고 있음을 알 수 있다.</p><p><strong>src/index.js</strong></p><pre><code class="javascript">ReactDOM.render(&lt;App /&gt;, document.getElementById(&quot;root&quot;));</code></pre><p><App/> component의 내용은 src&gt;App.js 파일의 내부에 정의가 되어있다.</p><p><strong>src/App.js</strong></p><pre><code class="javascript">import React from &quot;react&quot;;function App() &#123;  return (    &lt;div&gt;      &lt;h1&gt;Hello!!!!!&lt;/h1&gt;    &lt;/div&gt;  );&#125;export default App;</code></pre><p>위와같이 기존의 <code>&lt;App/&gt; component의 반환부분에 &lt;h1&gt;태그로 Hello!!!!! 문자를 넣어주면</code> 아래와 같이 웹 페이지에 해당 문자열이 출력됨을 알 수 있다.</p><p><img src="/images/post_images/210206_react_start_hello_webscreenshot.png"></p><p>이처럼 React는 component로 분리되서 어플리케이션이 구성되어 있으며, 처음부터 화면에 보여질 HTML 코드를 넣지 않고, Virtual DOM(Virtual Document Object Mode) 개념으로 실제로 소스코드 상에는 존재 하지 않지만, 화면이 rendering될때 component로 작성된 부분이 화면에 보여지게 된다.</p><p>chrome browser에서 inspection을 사용해서 화면의 요소검사를 하면 실제 화면에 존재하는 요소로 나오지만, 실제 코드를 보면 실제 화면에 표시되는 요소들은 나오지 않는다.</p><p><strong>자 그럼 앞의 설명에서 자주 언급된 Component에 대한 개념을 정리해보자.</strong></p><br/><ul><li><h1 id="Component"><a href="#Component" class="headerlink" title="Component?"></a><strong>Component?</strong></h1></li></ul><p>component는 HTML을 반환하는 함수라고 이해하면 된다. 앞에서 살펴보았던 <App/> component의 내부에서 실제 화면에 보여질 html코드를 가지고 있었던 것처럼 Component는 HTML코드를 반환하는 형태를 하고 있다.</p><p>이처럼 React는 화면에 보여질 각 구성요소들을 Component단위로 쪼개서 재사용이 가능한 형태로 화면을 구성한다.</p><p>모든 Component 파일은 <code>import React from &quot;react&quot;</code>를 포함해야하며,<br>React에서는 오직 한 번에 하나의 Component만을 rendering할 수 있다. 따라서 반환해주는 부분(return)에서 jsx코드를 하나의 객체로 묶어서 반환해줘야 한다.<code>(&lt;&gt;&lt;/&gt; fragment로 묶어주기)</code></p><br/><ul><li><h1 id="JSX"><a href="#JSX" class="headerlink" title="JSX?"></a><strong>JSX?</strong></h1></li></ul><p>React에서는 이처럼 JavaScript 코드 내부에서 HTML을 혼합해서 사용을 하는데 이러한 코드를 jsx코드로 정의한다.</p><ul><li><h2 id="JSX의-특징"><a href="#JSX의-특징" class="headerlink" title="JSX의 특징"></a><strong>JSX의 특징</strong></h2></li></ul><p>정의된 Component에는 아래와 같이 Props라는 형태로 데이터를 전달할 수 있다.</p><pre><code class="javascript">function NewComponent(props) &#123;  console.log(props);  return &lt;h1&gt;NewComponent Message&lt;/h1&gt;;&#125;/**props : &#123;fmessage: &quot;message1&quot;, smessage: true, tmessage: Array(3)&#125;*/function App() &#123;  return (    &lt;div&gt;      &lt;h1&gt;App h1 message&lt;/h1&gt;      &lt;NewComponent        fmessage=&quot;message1&quot;        smessage=&#123;true&#125;        tmessage=&#123;[&quot;hello&quot;, 7, true]&#125;      /&gt;    &lt;/div&gt;  );&#125;</code></pre><p>Component에서 선언한 속성을 아래와 같이 <strong>parameter부분에서 destructuring해서</strong> 필요한 props 요소만 가져다가 사용할 수도 있다.</p><pre><code class="javascript">function NewComponent(&#123; fmessage &#125;) &#123;  return &lt;h1&gt;NewComponent Message : &#123;fmessage&#125;&lt;/h1&gt;;&#125;</code></pre><p>Component를 활용해서 동적 데이터를 처리할때에도 <code>JSX + Props</code>의 특성을 활용하면 쉽게 처리할 수 있다.</p>]]></content>
     
@@ -40,24 +121,22 @@
     
     <category term="ReactJS" scheme="https://leehyungi0622.github.io/tags/ReactJS/"/>
     
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
-    
   </entry>
   
   <entry>
-    <title>210206 Side Project Diary 나의 첫 번째 이야기</title>
+    <title>210206 Side Project Diary 1일차</title>
     <link href="https://leehyungi0622.github.io/2021/02/06/202102/210206_side_project_diary/"/>
     <id>https://leehyungi0622.github.io/2021/02/06/202102/210206_side_project_diary/</id>
     <published>2021-02-06T03:23:42.000Z</published>
-    <updated>2021-02-06T04:40:21.771Z</updated>
+    <updated>2021-02-07T03:18:35.307Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-첫-번째-일기"><a href="#Side-Project-Diary-첫-번째-일기" class="headerlink" title="Side Project Diary 첫 번째 일기"></a><strong>Side Project Diary 첫 번째 일기</strong></h2><p>이전에 GitHub로 Repository를 생성해서 개인프로젝트를 하면서 <strong>조금 아쉬웠던 부분이 뭔가 내가 프로젝트를 진행했을 당시에 느꼈던 느낌과 생각이 시간이 지나면 잊혀진다는 것이었다.</strong> 물론 Repository에 commit된 내용과 README 파일의 내용을 보면 “아, 이때 이 기능을 넣었지”라고 생각은 할 수 있지만, 뭔가 그 사이 사이에 느꼈던 느낌까지 세세하게 채우는 것은 어렵다고 생각한다.<br>그래서 이번 Side Project를 시작하면서 새롭게 Side Project Diary를 작성하려고 한다.<br>매일 매일 일기로 기록을 남기면 자연스럽게 프로젝트의 진행에 대해 스스로 self feedback하는 시간도 갖을 수 있을 것 같다.</p><p>훗날 회사에 가서 일을 할때 참여하는 프로젝트도 보안상 세부적인 내용은 남길 수 없겠지만, 대략적인 내용으로 일기를 써볼 수 있을 것 같다. 그럼 내가 개발자로서 어떻게 성장을 해왔는지 다시 되돌아보며 더욱 성장해나갈 수 있는 발판이 될 수 있을 것 같다.</p><p>그럼 나의 첫번째 Side Project Diary를 시작해본다.</p><p>이번 첫 프로젝트는 ReactJS를 사용한 간단한 책 정보 검색 사이트를 만들어 보려고 한다.<br>어제 강사님이 개발자를 위한 책을 추천해주셨는데, 이때 간단하게 요즘 IT/개발 관련 서적들 중에 어떤 책이 베스트샐러이고, 새로 출간되었는지 볼 수 있는 사이트가 있으면 좋지 않을까 생각되어 이 아이디어를 구상하게 되었다.<br>물론 이미 좋은 여러 책 관련 사이트들이 많지만, 나는 심플하게 개발과 컴퓨터 공학 관련 서적들 위주로 main category를 구성해서 웹 어플리케이션을 만들어보려고 한다.</p><p>이렇듯 개발이란 무언가 필요에 의해서 시작되는 것 같다. 나중에 회사에 가면 고객의 needs에 의해서 개발을 시작하겠고, 지금은 나의 일상에서 뭔가 필요하다고 생각되는 부분에서 아이디어를 착안해서 side project의 개발 아이템으로 시작을 하면 되는 것 같다.</p><p>솔직히 이번에 개발 블로그를 시작하면서 단순 코더가 아닌 생각할 줄 아는 개발자가 될 수 있을 것 같다는 생각이 많이 들었다.<br>이전에 많은 회의감이 들었었고, 찐 개발자가 되려면 노력이 많이 필요하다는 것은 알고 있기 때문에 남들보다 100배는 열심히 해야 겠다는 생각이 들었다.</p><table>  <tr>    <td>      <img src="/images/post_images/210206_book_recommendation_project_start.png" alt="210206_book_recommendation_project_start.png">    </td>  </tr>  <tr>    <td align="center">      <b>첫 번째 프로젝트 구상내용 적어보기</b>    </td>  </tr></table><p>우선 프로젝트의 주제는 앞에서 언급했듯이 개발자를 위한 책 정보제공 사이트이다. 카테고리의 구성은 개발 서적, 컴퓨터 공학 서적을 메인 카테고리로 하고, 검색하는 메뉴를 하나 추가하려고 한다.<br>Open API 중에 적절한 API를 찾던 중에 <code>InterPark에서 제공하는 Book Open API</code>가 있어서 이 API를 사용하기로 했다.<br>언어로는 HTML, CSS, JavaScript,그리고 Library는 ReactJS를 사용하려고 한다.<br>전체적인 프로젝트의 디자인 패턴은 React의 Container-Presenter Pattern을 사용할 것이다.<br>간단한 Application이지만, Data logic 부분과 View 부분을 분리해서 작성하면 코드의 가독성과 유지보수시에도 도움이 될 것이기 때문이다.</p><img src="/images/post_images/210206_Container-Presenter-pattern.png" alt="210206_book_recommendation_project_start" width=250 height=250><h3 id="Task를-Category별로-분류하기-Functional-Classification"><a href="#Task를-Category별로-분류하기-Functional-Classification" class="headerlink" title="Task를 Category별로 분류하기 (Functional Classification)"></a><strong>Task를 Category별로 분류하기 (Functional Classification)</strong></h3><ul><li>프로젝트 기본 폴더구조 구성 <strong>(Project basic folder structure)</strong></li><li>API<ul><li>interpark Open API의 사용법 API menual 참고</li><li>API 호출하는 Method 작성</li></ul></li><li>소프트웨어 개발 카테고리 <strong>(Software Development Category)</strong><ul><li>Category별 베스트샐러 서적, 새로 출간된 서적 등의 category로 나눠서 출력하는 페이지(category-main-page)</li><li>각 Category별 책의 세부 정보 페이지</li></ul></li><li>컴퓨터 공학 카테고리 <strong>(Computer Engineering Category)</strong><ul><li>Category별 베스트샐러 서적, 새로 출간된 서적 등의 category로 나눠서 출력하는 페이지(category-main-page)</li><li>각 Category별 책의 세부 정보 페이지</li></ul></li><li>검색 카테고리 <strong>(Search Category)</strong><ul><li>검색 결과출력 페이지</li></ul></li></ul><p><strong>처음부터 너무 세세하게 Task를 분류할 수 없기 때문에 우선, 큰 덩어리(Chunk)로 나눠서 Task를 분류해보았다.<br>이제 이 Task를 기준으로 세부 Task항목으로 쪼개서 프로젝트를 진행해 볼 것이다.</strong></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-1일차"><a href="#Side-Project-Diary-1일차" class="headerlink" title="Side Project Diary 1일차"></a><strong>Side Project Diary 1일차</strong></h2><p>이전에 GitHub로 Repository를 생성해서 개인프로젝트를 하면서 <strong>조금 아쉬웠던 부분이 뭔가 내가 프로젝트를 진행했을 당시에 느꼈던 느낌과 생각이 시간이 지나면 잊혀진다는 것이었다.</strong> 물론 Repository에 commit된 내용과 README 파일의 내용을 보면 “아, 이때 이 기능을 넣었지”라고 생각은 할 수 있지만, 뭔가 그 사이 사이에 느꼈던 느낌까지 세세하게 채우는 것은 어렵다고 생각한다.<br>그래서 이번 Side Project를 시작하면서 새롭게 Side Project Diary를 작성하려고 한다.<br>매일 매일 일기로 기록을 남기면 자연스럽게 프로젝트의 진행에 대해 스스로 self feedback하는 시간도 갖을 수 있을 것 같다.</p><p>훗날 회사에 가서 일을 할때 참여하는 프로젝트도 보안상 세부적인 내용은 남길 수 없겠지만, 대략적인 내용으로 일기를 써볼 수 있을 것 같다. 그럼 내가 개발자로서 어떻게 성장을 해왔는지 다시 되돌아보며 더욱 성장해나갈 수 있는 발판이 될 수 있을 것 같다.</p><p>그럼 나의 첫번째 Side Project Diary를 시작해본다.</p><p>이번 첫 프로젝트는 ReactJS를 사용한 간단한 책 정보 검색 사이트를 만들어 보려고 한다.<br>어제 강사님이 개발자를 위한 책을 추천해주셨는데, 이때 간단하게 요즘 IT/개발 관련 서적들 중에 어떤 책이 베스트샐러이고, 새로 출간되었는지 볼 수 있는 사이트가 있으면 좋지 않을까 생각되어 이 아이디어를 구상하게 되었다.<br>물론 이미 좋은 여러 책 관련 사이트들이 많지만, 나는 심플하게 개발과 컴퓨터 공학 관련 서적들 위주로 main category를 구성해서 웹 어플리케이션을 만들어보려고 한다.</p><p>이렇듯 개발이란 무언가 필요에 의해서 시작되는 것 같다. 나중에 회사에 가면 고객의 needs에 의해서 개발을 시작하겠고, 지금은 나의 일상에서 뭔가 필요하다고 생각되는 부분에서 아이디어를 착안해서 side project의 개발 아이템으로 시작을 하면 되는 것 같다.</p><p>솔직히 이번에 개발 블로그를 시작하면서 단순 코더가 아닌 생각할 줄 아는 개발자가 될 수 있을 것 같다는 생각이 많이 들었다.<br>이전에 많은 회의감이 들었었고, 찐 개발자가 되려면 노력이 많이 필요하다는 것은 알고 있기 때문에 남들보다 100배는 열심히 해야 겠다는 생각이 들었다.</p><table>  <tr>    <td>      <img src="/images/post_images/210206_book_recommendation_project_start.png" alt="210206_book_recommendation_project_start.png">    </td>  </tr>  <tr>    <td align="center">      <b>첫 번째 프로젝트 구상내용 적어보기</b>    </td>  </tr></table><p>우선 프로젝트의 주제는 앞에서 언급했듯이 개발자를 위한 책 정보제공 사이트이다. 카테고리의 구성은 개발 서적, 컴퓨터 공학 서적을 메인 카테고리로 하고, 검색하는 메뉴를 하나 추가하려고 한다.<br>Open API 중에 적절한 API를 찾던 중에 <code>InterPark에서 제공하는 Book Open API</code>가 있어서 이 API를 사용하기로 했다.<br>언어로는 HTML, CSS, JavaScript,그리고 Library는 ReactJS를 사용하려고 한다.<br>전체적인 프로젝트의 디자인 패턴은 React의 Container-Presenter Pattern을 사용할 것이다.<br>간단한 Application이지만, Data logic 부분과 View 부분을 분리해서 작성하면 코드의 가독성과 유지보수시에도 도움이 될 것이기 때문이다.</p><img src="/images/post_images/210206_Container-Presenter-pattern.png" alt="210206_book_recommendation_project_start" width=250 height=250><h3 id="Task를-Category별로-분류하기-Functional-Classification"><a href="#Task를-Category별로-분류하기-Functional-Classification" class="headerlink" title="Task를 Category별로 분류하기 (Functional Classification)"></a><strong>Task를 Category별로 분류하기 (Functional Classification)</strong></h3><ul><li>프로젝트 기본 폴더구조 구성 <strong>(Project basic folder structure)</strong></li><li>API<ul><li>interpark Open API의 사용법 API menual 참고</li><li>API 호출하는 Method 작성</li></ul></li><li>소프트웨어 개발 카테고리 <strong>(Software Development Category)</strong><ul><li>Category별 베스트샐러 서적, 새로 출간된 서적 등의 category로 나눠서 출력하는 페이지(category-main-page)</li><li>각 Category별 책의 세부 정보 페이지</li></ul></li><li>컴퓨터 공학 카테고리 <strong>(Computer Engineering Category)</strong><ul><li>Category별 베스트샐러 서적, 새로 출간된 서적 등의 category로 나눠서 출력하는 페이지(category-main-page)</li><li>각 Category별 책의 세부 정보 페이지</li></ul></li><li>검색 카테고리 <strong>(Search Category)</strong><ul><li>검색 결과출력 페이지</li></ul></li></ul><p><strong>처음부터 너무 세세하게 Task를 분류할 수 없기 때문에 우선, 큰 덩어리(Chunk)로 나눠서 Task를 분류해보았다.<br>이제 이 Task를 기준으로 세부 Task항목으로 쪼개서 프로젝트를 진행해 볼 것이다.</strong></p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Side-Project-Diary-첫-번째-일기&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-첫-번째-일기&quot; </summary>
+&lt;h2 id=&quot;Side-Project-Diary-1일차&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-1일차&quot; class=&quot;h</summary>
       
     
     
@@ -120,9 +199,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -150,9 +229,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -181,9 +260,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -332,9 +411,9 @@ df = pd.read_csv(</summary>
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -360,9 +439,9 @@ df = pd.read_csv(</summary>
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -387,9 +466,9 @@ df = pd.read_csv(</summary>
     <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Git-Stash" scheme="https://leehyungi0622.github.io/tags/Git-Stash/"/>
     
@@ -486,9 +565,9 @@ df = pd.read_csv(</summary>
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -512,98 +591,9 @@ df = pd.read_csv(</summary>
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210203 Git PR template</title>
-    <link href="https://leehyungi0622.github.io/2021/02/03/202102/210203-Git-pull-request-template/"/>
-    <id>https://leehyungi0622.github.io/2021/02/03/202102/210203-Git-pull-request-template/</id>
-    <published>2021-02-02T22:12:42.000Z</published>
-    <updated>2021-02-03T01:09:23.823Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210203_pull_request_img.png"></p><p>다양한 사람들과 협업을 할 때 중요한 것은 <code>문서작성 능력</code>과 <code>커뮤니케이션 능력</code>이다. <br/></p><p>Github 프로젝트를 다른 사람들과 같이 진행을 할때, pull request나 commit 메시지를 작성하는데, <br/></p><p>적절한 format과 convention을 따라 작성을 하는 것은 매우 중요하다. 실제로 업무를 할때에도 이 convention을 따라 적절한 format으로 작성을 하게 되면, 해당 pull request나 commit 메시지를 확인하는 사람에게 업무처리에 대한 깔끔한 인상과 명확하게 처리한 업무에 대한 내용 전달을 할 수 있다. <br/></p><br/><p>따라서 이번 포스팅에서는 Github project에서 어떻게 문서를 관리하는지와 PR Template을 어떻게 자동으로 generate하는지에 대해서 살펴보고, 잘 formatting된 Template의 sample을 살펴보며 어떻게 하면 좀 더 전달력있는 Pull Requst message를 작성할 수 있는지에 대해서 배워보도록 하겠다.</p><h2 id="PR-Template-생성하기"><a href="#PR-Template-생성하기" class="headerlink" title="PR Template 생성하기"></a>PR Template 생성하기</h2><p>Github 프로젝트를 위한 PR Template를 만들어보도록 하겠다.</p><p>프로젝트를 위한 PR template을 생성하는 방법은 간단하다. PULL_REQUEST_TEMPLATE 파일을 생성해서 아래의 세 가지 위치 중에 한 곳에 위치시켜주면 된다.</p><p>GitHub가 <code>PULL_REQUEST_TEMPLATE</code>파일을 프로젝트 내에 있다는 것을 알고 새로운 PR을 생성할때 auto-populate 해 줄 것이다.</p><blockquote><p>(1) The root of your project<br>(2) .github folder<br>(3) docs folder</p></blockquote><p>나는 project의 root에 .github folder를 생성해서 PULL_REQUEST_TEMPLATE 파일과 ISSUE_TEMPLATE 파일을 작성해서 관리할 것이다.</p><h2 id="PR를-작성할때-고려되어야-할-내용들"><a href="#PR를-작성할때-고려되어야-할-내용들" class="headerlink" title="PR를 작성할때 고려되어야 할 내용들"></a>PR를 작성할때 고려되어야 할 내용들</h2><ul><li>What is this change?</li><li>What does it fix?</li><li>Is this a bug fix or a feature? Does it break any existing - functionality or force me to update to a new version?</li><li>How has it been tested?</li></ul><br/>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210203_pull_request_img.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;다양한 사람들과 협업을 할 때 중요한 것은 &lt;code&gt;문서작성 능력&lt;/code&gt;과 &lt;code&gt;커뮤니케이션 능력&lt;/code&gt;이다</summary>
-      
-    
-    
-    
-    <category term="TIL:Git" scheme="https://leehyungi0622.github.io/categories/TIL-Git/"/>
-    
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Git" scheme="https://leehyungi0622.github.io/tags/Git/"/>
-    
-    <category term="Pull-Request" scheme="https://leehyungi0622.github.io/tags/Pull-Request/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210201 Plotly + Pandas Project</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/202102/210202-Plotly_Pandas/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/202102/210202-Plotly_Pandas/</id>
-    <published>2021-02-02T10:52:42.000Z</published>
-    <updated>2021-02-02T21:58:36.692Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210202_pandas_plotly_logo.jpeg"></p><br/><ul><li><h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><ul><li><p>방대한 양의 데이터를 가져와서 데이터를 깔끔하게 만들고, 처리하고, 구조를 변경(데이터 가공)하는데 사용된다.</p></li><li><p>데이터 분석과 처리를 쉽게 할 수 있도록 도와준다.</p></li></ul><pre><code class="bash">$ pip install pandas</code></pre></li></ul><br/><ul><li><h1 id="Plotly"><a href="#Plotly" class="headerlink" title="Plotly"></a>Plotly</h1><ul><li>모든 그래픽(그래프)를 만드는데에 사용된다.</li><li>No JavaScript required</li></ul><pre><code class="bash">$ pip install dash==1.14.0</code></pre></li></ul><br/><ul><li><h1 id="Project-setting"><a href="#Project-setting" class="headerlink" title="Project setting"></a>Project setting</h1><h2 id="virtualenv-amp-virtualenvwrapper-설치-및-환경설정"><a href="#virtualenv-amp-virtualenvwrapper-설치-및-환경설정" class="headerlink" title="virtualenv &amp; virtualenvwrapper 설치 및 환경설정"></a>virtualenv &amp; virtualenvwrapper 설치 및 환경설정</h2><ul><li><p>virtualenvwrapper는 virtualenv 도구에 대한 확장 세트이기 때문에 우선적으로 <code>virtualenv</code>를 설치해줘야 한다.</p><pre><code class="python">$ pip install virtualenv</code></pre></li><li><p>virtualenv의 위치에 대한 환경설정을 해줘야 한다.</p><pre><code class="python">$ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv</code></pre><p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper reference</a></p></li><li><p><strong>virtualenvwrapper</strong> : virtualenvwrapper는 lan Bicking의 <code>virtualenv 도구에 대한 확장 세트</code>이다. 확장된 기능에는 가상 환경을 생성 및 삭제하고 개발 work flow를 관리하기 위한 wrapper가 포함되어있어 종속성에 충돌을 일으키지 않고 한 번에 둘 이상의 프로젝트에서 더 쉽게 작업을 할 수 있다.</p><pre><code class="bash">$ pip install virtualenvwrapper...$ export WORKON_HOME=~/Envs$ mkdir -p $WORKON_HOME$ source /usr/local/bin/virtualenvwrapper.sh$ mkvirtualenv env1Installingsetuptools.................................................................................................................................................................................done.virtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/predeactivatevirtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/postdeactivatevirtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/preactivatevirtualenvwrapper.user_scripts Creating /Users/dhellmann/Envs/env1/bin/postactivate  New python executable in env1/bin/python(env1)$ ls $WORKON_HOMEenv1 hook.log</code></pre><ul><li>zsh환경설정 파일에 virtualenv 관련 환경설정 넣기 (<code>~/.zshrc</code>)</li></ul><pre><code class="bash"># Setting PATH for Python 3 installed by brewexport PATH=/usr/local/share/python:$PATH# Configuration for virtualenvexport WORKON_HOME=$HOME/.virtualenvsexport VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenvsource /usr/local/bin/virtualenvwrapper.sh</code></pre><p><a href="https://stackoverflow.com/questions/49470367/install-virtualenv-and-virtualenvwrapper-on-macos">virtualenv setting</a></p><ul><li>env1 가상 환경에 설치된 패키지 리스트 확인하기</li></ul><pre><code class="bash">(env1)$ lssitepackages</code></pre><ul><li>가상환경 간 전환하기</li></ul><pre><code class="bash">$ workon env2</code></pre><p>가상환경으로 설정을 변경하면 VSCode에서 Python관련 파일을 생성시, 자동으로 Interpreter설정을 바꾸는 알람이 뜨는데, 이곳에서 가상환경의 Python interpreter를 선택할 수 있다.<br><code>~/.virtualenvs/env1/bin/python</code></p></li></ul><h2 id="Jupyterlab-설치"><a href="#Jupyterlab-설치" class="headerlink" title="Jupyterlab 설치"></a>Jupyterlab 설치</h2><pre><code class="bash">$ pip install jupyterlab</code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210202_pandas_plotly_logo.jpeg&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h1 id=&quot;Pandas&quot;&gt;&lt;a href=&quot;#Pandas&quot; class=&quot;headerlink&quot; t</summary>
-      
-    
-    
-    
-    <category term="TIL:Pandas" scheme="https://leehyungi0622.github.io/categories/TIL-Pandas/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="Plotly" scheme="https://leehyungi0622.github.io/tags/Plotly/"/>
-    
-    <category term="Pandas" scheme="https://leehyungi0622.github.io/tags/Pandas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 1966번 프린터 큐 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/02/02/202102/210202-Algorithm_baekjoon_1966/"/>
-    <id>https://leehyungi0622.github.io/2021/02/02/202102/210202-Algorithm_baekjoon_1966/</id>
-    <published>2021-02-02T03:53:42.000Z</published>
-    <updated>2021-02-02T10:44:21.434Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-1966번-프린터-큐-문제-Pseudo-code-Python-code"><a href="#백준-저지-1966번-프린터-큐-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 1966번 프린터 큐 문제 Pseudo code + Python code"></a>백준 저지 1966번 프린터 큐 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210202_baekjoon_1966.png"></p><pre><code class="python">test_case = int(input())for _ in range(test_case):    task_num, search_index = map(int, input().split())    test_priority_list = list(map(int, input().split()))    print_task_list = [(p, i) for i, p in enumerate(test_priority_list)]    print_task_count = 0    while True:        if print_task_list[0][0] == max(print_task_list, key=lambda x: x[0])[0]:            print_task_count += 1            if print_task_list[0][1] == search_index:                print(print_task_count)                break            else:                print_task_list.pop(0)        else:            print_task_list.append(print_task_list.pop(0))</code></pre><p>이 문제는 프린트의 task에 priority를 부여하여, 기존에 FIFO 정책으로 동작하는 프린트를 우선순위 우선 방식으로 프린트가 작동하도록 만드는 프로그램을 작성하는 문제였다. max 내에서 tuple의 첫 번째 요소(우선순위 값)를 기준으로 최대값을 찾고 [0] (priority) 값이 우선인 프린트를 우선적으로 프린트 될 수 있도록 작성하는 부분이 포인트이다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-1966번-프린터-큐-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-1966번-프린터-큐-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
     
   </entry>
   
