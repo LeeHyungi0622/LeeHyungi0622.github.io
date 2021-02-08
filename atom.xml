@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-07T07:04:18.712Z</updated>
+  <updated>2021-02-08T04:49:44.269Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210208 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/08/202102/210208-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/08/202102/210208-Self-development_til/</id>
+    <published>2021-02-08T04:30:00.000Z</published>
+    <updated>2021-02-08T04:49:44.269Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>인생의 마법은 앞을 내다보는 것이지, 무엇이 잘못되었나 주위를 둘러보거나 과거에 대해 슬픔을 갖는 것이 아니다.</strong><br/> (The magic of life is about looking forward, Neither looking around and worrying what is about to go wrong nor having sorrows of the past.)<br/> <strong>-DR.JOE G.VETHANAYAGAM</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 하루종일 자습을 하였다.<br>자습의 시작은 JavaScript test framework인 Jest의 간단한 사용법과 실습한 내용을 정리하는 것으로 시작했다.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~ (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 3일차 작성</li><li>Python + Pandas, Plotly Library project 프로젝트<ul><li>프로젝트 진척<ul><li>프로젝트 Repository 생성하기 (<code>완료</code>)</li><li>프로젝트 덩어리(Chunk) 단위로 Task category 분류하기 (<code>예정</code>)</li><li>프로젝트 Chunk Task Category를 세부 Task 항목으로 분류하며 프로젝트 진행하기 (<code>예정</code>)</li></ul></li></ul></li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li><del>Jest를 사용한 Unit Test 공부 및 블로그에 실습한 내용 정리해서 글 올리기</del>(<code>완료</code>)</li></ul></li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><br>(1) <ins>HackerRank 30 Days of Code</ins> (<a href="https://www.hackerrank.com/domains/tutorials/30-days-of-code">30-days-of-code link</a>) - <strong>Day 3: Intro to Conditional Statement</strong><br>(2) <ins>벡터연산 관련 문제</ins><br>→ <a href="https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem">https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem</a><br>(3) <ins>성수역 지하철 열차 시스템 Class 설계</ins><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210208 Jest의 개념과 기본사용</title>
+    <link href="https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/"/>
+    <id>https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/</id>
+    <published>2021-02-08T00:33:42.000Z</published>
+    <updated>2021-02-08T04:30:20.227Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><h1 id="Jest"><a href="#Jest" class="headerlink" title="Jest"></a>Jest</h1><p>Jest는 Facebook에 의해서 개발된 JavaScript 테스트 프레임워크이며, 대규모 Web application의 테스트를 좀 더 심플하게 할 수 있도록 도와준다.</p><h2 id="Jest-framework의-사용"><a href="#Jest-framework의-사용" class="headerlink" title="Jest framework의 사용"></a>Jest framework의 사용</h2><p>간단한 JavaScript 코드를 Jest framework를 사용해서 테스트 해보도록 하자.</p><h1 id="실습-내용"><a href="#실습-내용" class="headerlink" title="실습 내용"></a><strong>실습 내용</strong></h1><p><strong>실습 Repository</strong> : <a href="https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo">https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo</a></p><ol><li><p>프로젝트의 branch 기본 구성은 master branch로 구성한다.</p></li><li><p>README.md 파일의 documentation작업을 제외한 모든 작업은 별도의 branch를 새로 끊어서 작업을 시작한다.</p></li></ol><br/><h1 id="Basic-setting-in-project"><a href="#Basic-setting-in-project" class="headerlink" title="Basic setting in project"></a>Basic setting in project</h1><ol start="3"><li><p>Jest 프레임워크를 활용한 테스트를 위해 간단한 JavaScript 파일들을 추가해준다.<br> (Add simple javascript files to do unit test using Jest framework.)</p></li><li><p>프로젝트에 새로운 npm package를 초기화 시켜준다.<br> (Generate project folder without asking any questions.)</p><pre><code class="bash">$ npm init -y</code></pre></li><li><p>Jest를 developer dependency로 구분해서 설치해준다.</p><pre><code class="bash">$ npm i -D jest</code></pre></li><li><p>package.json의 test script를 “jest”로 해준다.</p><pre><code class="bash">&quot;scripts&quot;: &#123;    &quot;test&quot;: &quot;jest&quot;&#125;,</code></pre></li><li><p>기본적으로 Jest에서는 <strong>test</strong> 폴더 아래에 있는 테스트 파일들을 검사하기 때문에 테스트를 하기 위해 작성한 파일들은 <strong>test</strong> 폴더의 아래에 위치시키도록 한다.</p><ul><li>작성하는 테스트 파일의 이름은 테스트 하고자 하는 function이 위치한 파일명.test.js 와 같은 형태로 파일명을 지어주도록 한다.</li></ul></li><li><p><strong>test code의 기본 작성법</strong> - 작성한 test file에서는 테스트하고자 하는 function을 가진 파일을 import해서 해당 function를 테스트해야 한다.</p><pre><code class="javascript">const &#123; test, expect &#125; = require(&quot;@jest/globals&quot;);const sum = require(&quot;../sum&quot;);// 작성한 테스트코드가 무엇을 하는지에 대해서 첫번째 parameter로 작성해준다.test(&quot;properly adds two numbers&quot;, () =&gt; &#123;  // expected result  expect(sum(1, 2)).toBe(3);&#125;);</code></pre><p> 테스트하고자 하는 function은 위와 같이 <code>expect()</code>에 인자와 함께 넣어주고, 예상되는 값을 <code>toBe()</code>의 인자로 넣어서 검사를 하게 된다. toBe() 외에도 다양한 검사 조건이 있다.</p></li><li><p>Test 결과 확인</p><pre><code class="bash">&gt; jestPASS  __test__/sum.test.js✓ properly adds two numbers (2 ms)Test Suites: 1 passed, 1 totalTests:       1 passed, 1 totalSnapshots:   0 totalTime:        1.844 sRan all test suites.</code></pre></li><li><p>구체적인 Test의 결과 확인<br>package.json에서 test command script를 아래와 같이 수정을 해준다.<br>다음의 –coverage 옵션을 넣어주면 각 test파일별로 구체적인 test의 정보를 확인할 수 있다.</p><pre><code class="bash">&quot;scripts&quot;: &#123;    &quot;test&quot;: &quot;jest --coverage&quot;&#125;</code></pre><pre><code class="bash">&gt; jest --coveragePASS  __test__/cloneArray.test.jsPASS  __test__/sum.test.jsPASS  __test__/subtract.test.js---------------|---------|----------|---------|---------|-------------------File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s---------------|---------|----------|---------|---------|-------------------All files      |     100 |      100 |     100 |     100 |cloneArray.js  |     100 |      100 |     100 |     100 |subtract.js    |     100 |      100 |     100 |     100 |sum.js         |     100 |      100 |     100 |     100 |---------------|---------|----------|---------|---------|-------------------Test Suites: 3 passed, 3 totalTests:       3 passed, 3 totalSnapshots:   0 totalTime:        3.778 s</code></pre><p>자동생성된 coverage 폴더의 Icov-report 폴더 내부의 index.html 파일을 열어보면 아래와 같이 test 정보를 웹 페이지에서 확인할 수 있다.</p><p><img src="/images/post_images/210208_test_coverage_page.png"></p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/jest_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h1 id=&quot;Jest&quot;&gt;&lt;a href=&quot;#Jest&quot; class=&quot;headerlink&quot; title=&quot;Jest&quot;&gt;&lt;/a&gt;Jest&lt;/h1&gt;&lt;p&gt;Je</summary>
+      
+    
+    
+    
+    <category term="JavaScript-Test" scheme="https://leehyungi0622.github.io/categories/JavaScript-Test/"/>
+    
+    
+    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
+    
+    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
+    
+  </entry>
   
   <entry>
     <title>210207 API &amp; Networking with Axios instance</title>
@@ -76,7 +131,7 @@
     <link href="https://leehyungi0622.github.io/2021/02/07/202102/210207-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/07/202102/210207-Self-development_til/</id>
     <published>2021-02-07T02:47:42.000Z</published>
-    <updated>2021-02-07T21:54:45.322Z</updated>
+    <updated>2021-02-08T04:28:40.358Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>인생의 마법은 앞을 내다보는 것이지, 무엇이 잘못되었나 주위를 둘러보거나 과거에 대해 슬픔을 갖는 것이 아니다.</strong><br/> (The magic of life is about looking forward, Neither looking around and worrying what is about to go wrong nor having sorrows of the past.)<br/> <strong>-DR.JOE G.VETHANAYAGAM</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><p><img src="/images/post_images/210207_twosome_coffee.png"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 오전 10시 30분에 헬스장에 가서 운동하고 바로 11시 50분경에 집 앞에 있는 투썸 플레이스에 왔다.<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~ (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 2일차 작성 (<code>완료</code>)</li><li>Python + Pandas, Plotly Library project 프로젝트<ul><li>프로젝트 진척<ul><li>프로젝트 Repository 생성하기 (<code>예정</code>)</li><li>프로젝트 덩어리(Chunk) 단위로 Task category 분류하기 (<code>예정</code>)</li><li>프로젝트 Chunk Task Category를 세부 Task 항목으로 분류하며 프로젝트 진행하기 (<code>예정</code>)</li></ul></li></ul></li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>새로운 Task에 대한 Issue 작성하기(Issue#6) (<code>완료</code>)</li><li>Jest를 사용한 Unit Test 공부하기 (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>HackerRank (<code>예정</code>)<ul><li>30 Days of Code (<a href="https://www.hackerrank.com/domains/tutorials/30-days-of-code">30-days-of-code link</a>) - <strong>Day 3: Intro to Conditional Statement</strong></li></ul></li></ul></li><li><ins><strong>이전 블로그 개발내용 관련 글 중에서 ReactJS axios 관련 내용 이전 작업하기(ReactJS)</strong></ins> (<code>완료</code>)</li><li><ins><strong>npm과 yarn의 차이점에 대해서 블로그 글 정리하기</strong></ins> (<code>예정</code>)<br><a href="https://www.geeksforgeeks.org/difference-between-npm-and-yarn/">https://www.geeksforgeeks.org/difference-between-npm-and-yarn/</a><br/></li></ul>]]></content>
     
@@ -537,63 +592,6 @@ df = pd.read_csv(</summary>
     <category term="Pandas" scheme="https://leehyungi0622.github.io/tags/Pandas/"/>
     
     <category term="Resolved-Error" scheme="https://leehyungi0622.github.io/tags/Resolved-Error/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210203 Python Assignment</title>
-    <link href="https://leehyungi0622.github.io/2021/02/03/202102/210203-Python_assignment/"/>
-    <id>https://leehyungi0622.github.io/2021/02/03/202102/210203-Python_assignment/</id>
-    <published>2021-02-03T07:27:41.000Z</published>
-    <updated>2021-02-03T07:37:23.519Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="공공데이터포털의-csv파일을-json으로-converting하기"><a href="#공공데이터포털의-csv파일을-json으로-converting하기" class="headerlink" title="공공데이터포털의 csv파일을 json으로 converting하기"></a>공공데이터포털의 csv파일을 json으로 converting하기</h2><p><code>경기도 성남시_인구및세대_현황</code></p><pre><code class="python">import csvimport jsonpopulation = &#123;&#39;sungnam_population&#39;: []&#125;# csv 파일을 csv module로 읽어오기with open(&#39;20210201_sungnam.csv&#39;, &#39;r&#39;, encoding=&#39;euc-kr&#39;) as f:    sungnam_population = csv.reader(f)    # list -&gt; dictionary    sungnam_population_list = list(sungnam_population)    for row in sungnam_population_list[1:]:        population_dict_row = dict()        # 0번째 열에 있는 key값과 index를 이용해서 dictionary 데이터 만들기        for index, key in enumerate(sungnam_population_list[0]):            population_dict_row[key.replace(                &quot; &quot;, &quot;&quot;)] = row[index].replace(&quot; &quot;, &quot;&quot;)        population[&#39;sungnam_population&#39;].append(population_dict_row)# json.dump()를 활용해서 dictionary type의 데이터를 json 파일로 추출하기with open(&#39;sungnam_population.json&#39;, &#39;w&#39;, encoding=&#39;euc-kr&#39;) as f:    json.dump(population, f)# 추출된 json 파일을 읽고 출력하기with open(&#39;sungnam_population.json&#39;, &#39;r&#39;, encoding=&#39;euc-kr&#39;) as f:    des_data = json.load(f)print(des_data)</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h2 id=&quot;공공데이터포털의-csv파일을-json으로-converting하기&quot;&gt;&lt;a href=&quot;#공공데이터포털의-csv파일을-json으로-</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210203 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/03/202102/210203-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/03/202102/210203-Self-development_til/</id>
-    <published>2021-02-03T00:30:42.000Z</published>
-    <updated>2021-02-03T07:35:39.485Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다. <br/> (it always seems impossible until it’s done)</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h1 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h1><p>오늘은 동네에 있는 BLACK DUCK 카페에서 AM 9시 20분에 하루를 시작했다.</p><p>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h1 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h1><ul><li>Python + Pandas, Plotly Library project (Personal Side Project) (<code>진행중</code>)</li><li>Git PR template관련 블로그 글 작성하고 프로젝트에 적용시켜보기 (<code>완료</code>)</li><li>이전 블로그 개발내용 관련 글 내용 이전 작업하기 (JavaScript, ReactJS, NodeJS) (<code>진행중</code>)</li><li>Python 과제 - 공공데이터포털의 csv파일을 json으로 converting하기 (<code>완료</code>)</li></ul><br/>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
