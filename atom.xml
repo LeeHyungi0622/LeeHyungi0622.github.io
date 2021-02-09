@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-09T08:13:35.778Z</updated>
+  <updated>2021-02-09T13:36:27.383Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210209 RTL(React Testing Library)를 활용한 Axios Mockup 테스트</title>
+    <link href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/"/>
+    <id>https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/</id>
+    <published>2021-02-09T13:29:42.000Z</published>
+    <updated>2021-02-09T13:36:27.383Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210209_react_testing_library.png"></p><br/><p><strong>실습 Repository :</strong><a href="https://github.com/LeeHyungi0622/react_testing_library_mock_axios_request_practice_repo">https://github.com/LeeHyungi0622/react_testing_library_mock_axios_request_practice_repo</a></p><h3 id="React-Testing-Library-설치"><a href="#React-Testing-Library-설치" class="headerlink" title="React Testing Library 설치"></a><ins><strong>React Testing Library 설치</strong></ins></h3><pre><code class="bash">$ npm install --save-dev @testing-library/react</code></pre><br/><h3 id="1-react-testing-library에서-지원하는-render-function을-이용해서-테스트하고자-하는-component의-rendering-테스트하기"><a href="#1-react-testing-library에서-지원하는-render-function을-이용해서-테스트하고자-하는-component의-rendering-테스트하기" class="headerlink" title="(1) react-testing-library에서 지원하는 render()function을 이용해서 테스트하고자 하는 component의 rendering 테스트하기"></a>(1) <ins><strong>react-testing-library에서 지원하는 render()function을 이용해서 테스트하고자 하는 component의 rendering 테스트하기</strong></ins></h3><pre><code class="javascript">import &#123; render &#125; from &quot;@testing-library/react&quot;;import Fetch from &quot;./Fetch&quot;;....const &#123; getByTestId &#125; = render(&lt;Fetch url=&#123;url&#125; /&gt;);</code></pre><br/><h3 id="2-rendering한-component의-요소에-data-testid를-지정해서-해당요소를-검사할-수-있다"><a href="#2-rendering한-component의-요소에-data-testid를-지정해서-해당요소를-검사할-수-있다" class="headerlink" title="(2) rendering한 component의 요소에 data-testid를 지정해서 해당요소를 검사할 수 있다. "></a>(2) <ins><b>rendering한 component의 요소에 <code>data-testid</code>를 지정해서 해당요소를 검사할 수 있다. </b></ins></h3><pre><code class="javascript">import &quot;@testing-library/jest-dom/extend-expect&quot;;it(&quot;fetches and displays data&quot;, async () =&gt; &#123;  const url = &quot;/greeting&quot;;  // Fetch component를 rendering하게 되면 rendering된 객체를 확인할 수 있다.  // rendering된 객체 중에 속성으로 data-testid로 id를 지정해준 부분을 체크할 수 있다.  const &#123; getByTestId &#125; = render(&lt;Fetch url=&#123;url&#125; /&gt;);  expect(getByTestId(&quot;loading&quot;)).toHaveTextContent(&quot;Loading data...&quot;);&#125;);</code></pre><br/><h3 id="3-각-테스트-단계가-끝나면-테스트-상태를-초기화-시키기-위해서-afterEach-cleanup-를-사용한다-cleanup은-react-testing-library에서-지원한다"><a href="#3-각-테스트-단계가-끝나면-테스트-상태를-초기화-시키기-위해서-afterEach-cleanup-를-사용한다-cleanup은-react-testing-library에서-지원한다" class="headerlink" title="(3) 각 테스트 단계가 끝나면 테스트 상태를 초기화 시키기 위해서 afterEach(cleanup)를 사용한다. (cleanup은 react-testing-library에서 지원한다)"></a>(3) <ins><b>각 테스트 단계가 끝나면 테스트 상태를 초기화 시키기 위해서 <code>afterEach(cleanup)</code>를 사용한다. (cleanup은 react-testing-library에서 지원한다)</b></ins></h3><pre><code class="javascript">import &#123; cleanup &#125; from &quot;@testing-library/react&quot;;afterEach(cleanup);</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210209_react_testing_library.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;&lt;strong&gt;실습 Repository :&lt;/strong&gt;&lt;a href=&quot;https://github.co</summary>
+      
+    
+    
+    
+    <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
+    
+    
+    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
+    
+    <category term="React-Jest" scheme="https://leehyungi0622.github.io/tags/React-Jest/"/>
+    
+    <category term="API-Testing" scheme="https://leehyungi0622.github.io/tags/API-Testing/"/>
+    
+  </entry>
   
   <entry>
     <title>210209 Python Assignment</title>
@@ -70,36 +101,6 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210209 ReactJS with Jest | API Testing (작성중...)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_Jest_start/"/>
-    <id>https://leehyungi0622.github.io/2021/02/09/202102/210209-React_Jest_start/</id>
-    <published>2021-02-08T20:40:42.000Z</published>
-    <updated>2021-02-09T03:56:38.396Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/react-jest-logo.png"></p><br/>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/react-jest-logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-</summary>
-      
-    
-    
-    
-    <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
-    
-    
-    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
-    
-    <category term="React-Jest" scheme="https://leehyungi0622.github.io/tags/React-Jest/"/>
-    
-    <category term="API-Testing" scheme="https://leehyungi0622.github.io/tags/API-Testing/"/>
     
   </entry>
   
@@ -165,7 +166,7 @@
     <link href="https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/"/>
     <id>https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/</id>
     <published>2021-02-08T00:33:42.000Z</published>
-    <updated>2021-02-08T04:30:20.227Z</updated>
+    <updated>2021-02-09T13:26:40.621Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><h1 id="Jest"><a href="#Jest" class="headerlink" title="Jest"></a>Jest</h1><p>Jest는 Facebook에 의해서 개발된 JavaScript 테스트 프레임워크이며, 대규모 Web application의 테스트를 좀 더 심플하게 할 수 있도록 도와준다.</p><h2 id="Jest-framework의-사용"><a href="#Jest-framework의-사용" class="headerlink" title="Jest framework의 사용"></a>Jest framework의 사용</h2><p>간단한 JavaScript 코드를 Jest framework를 사용해서 테스트 해보도록 하자.</p><h1 id="실습-내용"><a href="#실습-내용" class="headerlink" title="실습 내용"></a><strong>실습 내용</strong></h1><p><strong>실습 Repository</strong> : <a href="https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo">https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo</a></p><ol><li><p>프로젝트의 branch 기본 구성은 master branch로 구성한다.</p></li><li><p>README.md 파일의 documentation작업을 제외한 모든 작업은 별도의 branch를 새로 끊어서 작업을 시작한다.</p></li></ol><br/><h1 id="Basic-setting-in-project"><a href="#Basic-setting-in-project" class="headerlink" title="Basic setting in project"></a>Basic setting in project</h1><ol start="3"><li><p>Jest 프레임워크를 활용한 테스트를 위해 간단한 JavaScript 파일들을 추가해준다.<br> (Add simple javascript files to do unit test using Jest framework.)</p></li><li><p>프로젝트에 새로운 npm package를 초기화 시켜준다.<br> (Generate project folder without asking any questions.)</p><pre><code class="bash">$ npm init -y</code></pre></li><li><p>Jest를 developer dependency로 구분해서 설치해준다.</p><pre><code class="bash">$ npm i -D jest</code></pre></li><li><p>package.json의 test script를 “jest”로 해준다.</p><pre><code class="bash">&quot;scripts&quot;: &#123;    &quot;test&quot;: &quot;jest&quot;&#125;,</code></pre></li><li><p>기본적으로 Jest에서는 <strong>test</strong> 폴더 아래에 있는 테스트 파일들을 검사하기 때문에 테스트를 하기 위해 작성한 파일들은 <strong>test</strong> 폴더의 아래에 위치시키도록 한다.</p><ul><li>작성하는 테스트 파일의 이름은 테스트 하고자 하는 function이 위치한 파일명.test.js 와 같은 형태로 파일명을 지어주도록 한다.</li></ul></li><li><p><strong>test code의 기본 작성법</strong> - 작성한 test file에서는 테스트하고자 하는 function을 가진 파일을 import해서 해당 function를 테스트해야 한다.</p><pre><code class="javascript">const &#123; test, expect &#125; = require(&quot;@jest/globals&quot;);const sum = require(&quot;../sum&quot;);// 작성한 테스트코드가 무엇을 하는지에 대해서 첫번째 parameter로 작성해준다.test(&quot;properly adds two numbers&quot;, () =&gt; &#123;  // expected result  expect(sum(1, 2)).toBe(3);&#125;);</code></pre><p> 테스트하고자 하는 function은 위와 같이 <code>expect()</code>에 인자와 함께 넣어주고, 예상되는 값을 <code>toBe()</code>의 인자로 넣어서 검사를 하게 된다. toBe() 외에도 다양한 검사 조건이 있다.</p></li><li><p>Test 결과 확인</p><pre><code class="bash">&gt; jestPASS  __test__/sum.test.js✓ properly adds two numbers (2 ms)Test Suites: 1 passed, 1 totalTests:       1 passed, 1 totalSnapshots:   0 totalTime:        1.844 sRan all test suites.</code></pre></li><li><p>구체적인 Test의 결과 확인<br>package.json에서 test command script를 아래와 같이 수정을 해준다.<br>다음의 –coverage 옵션을 넣어주면 각 test파일별로 구체적인 test의 정보를 확인할 수 있다.</p><pre><code class="bash">&quot;scripts&quot;: &#123;    &quot;test&quot;: &quot;jest --coverage&quot;&#125;</code></pre><pre><code class="bash">&gt; jest --coveragePASS  __test__/cloneArray.test.jsPASS  __test__/sum.test.jsPASS  __test__/subtract.test.js---------------|---------|----------|---------|---------|-------------------File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s---------------|---------|----------|---------|---------|-------------------All files      |     100 |      100 |     100 |     100 |cloneArray.js  |     100 |      100 |     100 |     100 |subtract.js    |     100 |      100 |     100 |     100 |sum.js         |     100 |      100 |     100 |     100 |---------------|---------|----------|---------|---------|-------------------Test Suites: 3 passed, 3 totalTests:       3 passed, 3 totalSnapshots:   0 totalTime:        3.778 s</code></pre><p>자동생성된 coverage 폴더의 Icov-report 폴더 내부의 index.html 파일을 열어보면 아래와 같이 test 정보를 웹 페이지에서 확인할 수 있다.</p><p><img src="/images/post_images/210208_test_coverage_page.png"></p></li></ol>]]></content>
     
