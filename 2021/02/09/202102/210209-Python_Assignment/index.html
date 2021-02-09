@@ -53,30 +53,30 @@ class SubwayLine:
         self.direct = &#39;CW&#39;
         self.drive_flag = False
         self.stop_flag = True
-        # 지하철 운행
-        def drive(self, distance):
-            self.drive_flag = True
-            self.stop_flag = False
-            self.acc_dis += distance
-        # 지하철 정차
-        def stop(self):
-            self.drive_flag = False
-            self.stop_flag = True
-        # 방향 재설정
-        def setDirection(self):
-            if self.direct == &#39;CW&#39;:
-                self.direct = &#39;CCW&#39;
-            else:
-                self.direct = &#39;CW&#39;
-        # 지하철의 속도 조정
-        def setSpeed(self, _speed):
-            self.speed = _speed
-        # 이전 출발역 업데이트
-        def setDepartStation(self, _dep_stn):
-            self.dep_stn = _dep_stn
-        # 도착역 업데이트
-        def setArrStation(self, _arr_stn):
-            self.arr_stn = _arr_stn</code></pre>
+    # 지하철 운행
+    def drive(self, distance):
+        self.drive_flag = True
+        self.stop_flag = False
+        self.acc_dis += distance
+    # 지하철 정차
+    def stop(self):
+        self.drive_flag = False
+        self.stop_flag = True
+    # 방향 재설정
+    def setDirection(self):
+        if self.direct == &#39;CW&#39;:
+            self.direct = &#39;CCW&#39;
+        else:
+            self.direct = &#39;CW&#39;
+    # 지하철의 속도 조정
+    def setSpeed(self, _speed):
+        self.speed = _speed
+    # 이전 출발역 업데이트
+    def setDepartStation(self, _dep_stn):
+        self.dep_stn = _dep_stn
+    # 도착역 업데이트
+    def setArrStation(self, _arr_stn):
+        self.arr_stn = _arr_stn</code></pre>
 <h2 id="과제2-Hacker-rank-class2-Find-the-Torsional-Angle"><a href="#과제2-Hacker-rank-class2-Find-the-Torsional-Angle" class="headerlink" title="과제2) Hacker rank class2 - Find the Torsional Angle"></a>과제2) Hacker rank class2 - Find the Torsional Angle</h2><img src="/images/post_images/210209_hackerrank_find_torsional_angle.png" alt="210209_hackerrank_find_torsional_angle">
 
 <pre><code class="python">import math
