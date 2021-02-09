@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-09T02:57:09.690Z</updated>
+  <updated>2021-02-09T03:42:48.642Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/09/202102/210209-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/09/202102/210209-Self-development_til/</id>
     <published>2021-02-09T02:44:00.000Z</published>
-    <updated>2021-02-09T02:57:09.690Z</updated>
+    <updated>2021-02-09T03:42:48.642Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>현명한 자라면 찾아낸 기회보다 더 많은 기회를 만들 것이다.</strong><br/> (A wise man will make more opportunities than he finds)<br/> <strong>공자/Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘도 하루종일 자습을 하였다.<br>오전에는 Jest framework의 사용법에 대한 공부와 ReactJS side project를 진행하였다. 오후에는 Python 메인 강사님 과제와 ReactJS에서 Jest의 Mock module을 활용해서 Async API 코드를 unit test하는 방법에 대해서 정리를 해 볼 것이다.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~ (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 3/4일차 작성 (<code>예정</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Jest in React 공부(Mock module을 활용해서 Async API 코드를 unit test하는 방법)</li></ul></li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><br>(1) <ins>HackerRank 30 Days of Code</ins> (<a href="https://www.hackerrank.com/domains/tutorials/30-days-of-code">30-days-of-code link</a>) - <strong>Day 3: Intro to Conditional Statement</strong><br>(2) <ins>벡터연산 관련 문제</ins><br>→ <a href="https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem">https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem</a><br>(3) <ins>성수역 지하철 열차 시스템 Class 설계</ins><br/></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>현명한 자라면 찾아낸 기회보다 더 많은 기회를 만들 것이다.</strong><br/> (A wise man will make more opportunities than he finds)<br/> <strong>공자/Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘도 하루종일 자습을 하였다.<br>오전에는 Jest framework의 사용법에 대한 공부와 ReactJS side project를 진행하였다. 오후에는 Python 메인 강사님 과제와 ReactJS에서 Jest의 Mock module을 활용해서 Async API 코드를 unit test하는 방법에 대해서 정리를 해 볼 것이다.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~ (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 3/4일차 작성 (<code>예정</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Jest in React 공부(Mock module을 활용해서 Async API 코드를 unit test하는 방법)</li></ul></li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><br>(1) <ins>벡터연산 관련 문제</ins><br>→ <a href="https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem">https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem</a><br>(2) <ins>성수역 지하철 열차 시스템 Class 설계</ins><br/></li></ul>]]></content>
     
     
       
@@ -43,21 +43,20 @@
   </entry>
   
   <entry>
-    <title>210209 ReactJS with Jest | API Testing</title>
+    <title>210209 ReactJS with Jest | API Testing (작성중...)</title>
     <link href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_Jest_start/"/>
     <id>https://leehyungi0622.github.io/2021/02/09/202102/210209-React_Jest_start/</id>
     <published>2021-02-08T20:40:42.000Z</published>
-    <updated>2021-02-08T21:17:12.080Z</updated>
+    <updated>2021-02-09T03:56:38.396Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/react-jest-logo.png"></p><br/><h2 id="React에서-Jest와-Babel을-사용하기-위한-준비하기"><a href="#React에서-Jest와-Babel을-사용하기-위한-준비하기" class="headerlink" title="React에서 Jest와 Babel을 사용하기 위한 준비하기."></a>React에서 Jest와 Babel을 사용하기 위한 준비하기.</h2><ul><li><strong>module 설치</strong></li></ul><pre><code class="bash">$ npm install --save-dev jest babel-jest @babel/core @babel/preset-env @babel/preset-react</code></pre><ul><li><strong>프로젝트에 babel.config.js 파일 추가하기</strong></li></ul><p><strong>babel.config.js</strong></p><pre><code class="javascript">module.exports = &#123;  presets: [&quot;@babel/preset-env&quot;, &quot;@babel/preset-react&quot;]&#125;;</code></pre><h2 id="React에서-Jest를-사용하여-API-Testing하기"><a href="#React에서-Jest를-사용하여-API-Testing하기" class="headerlink" title="React에서 Jest를 사용하여 API Testing하기"></a>React에서 Jest를 사용하여 API Testing하기</h2>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/react-jest-logo.png"></p><br/>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/react-jest-logo.png&quot;&gt;&lt;/p&gt;
 &lt;br/&gt;
-
-&lt;h2 id=&quot;React에서-Jest와-Babel을-사용하기-위한-준비하기&quot;&gt;&lt;a href=&quot;#React에서-Jest와-Babel을-</summary>
+</summary>
       
     
     
