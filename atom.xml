@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-10T02:50:12.457Z</updated>
+  <updated>2021-02-10T08:01:40.344Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210210 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til%20copy/"/>
+    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til%20copy/</id>
+    <published>2021-02-10T04:26:41.000Z</published>
+    <updated>2021-02-10T08:01:40.344Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="class-object"><a href="#class-object" class="headerlink" title="class object"></a>class object</h2><ul><li><h3 id="mutable한-class-variable"><a href="#mutable한-class-variable" class="headerlink" title="mutable한 class variable"></a>mutable한 class variable</h3></li><li><h3 id="mutable한-instance-variable"><a href="#mutable한-instance-variable" class="headerlink" title="mutable한 instance variable"></a>mutable한 instance variable</h3></li></ul><h2 id="Deconstructor"><a href="#Deconstructor" class="headerlink" title="Deconstructor"></a>Deconstructor</h2><pre><code class="python"># Deconstructor의 형태def __del__(self):  pass</code></pre><h2 id="class-내의-method에서-class-내의-다른-method에-접근"><a href="#class-내의-method에서-class-내의-다른-method에-접근" class="headerlink" title="class 내의 method에서 class 내의 다른 method에 접근"></a>class 내의 method에서 class 내의 다른 method에 접근</h2><h2 id="Hide-Information"><a href="#Hide-Information" class="headerlink" title="Hide Information"></a>Hide Information</h2><p>클래스 내부의 정보를 <em>()</em>, _(), __()와 같이 class 내부의 method명 앞에 underscore를 붙여줌으로써 접근제어를 할 수 있다.</p><ul><li>_()_ (public)</li><li>_() (protected)</li><li>__() (private)</li></ul><h2 id="상속-Inheritance"><a href="#상속-Inheritance" class="headerlink" title="상속(Inheritance)"></a>상속(Inheritance)</h2><p>부모 클래스의 속성을 물려받아서 새로운 instance를 생성하는 것을 말한다.</p><ul><li><h3 id="상속의-특징"><a href="#상속의-특징" class="headerlink" title="상속의 특징"></a><strong>상속의 특징</strong></h3><ul><li>부모 클래스로부터 <code>상속받은 method를 override</code>할 수 있다.</li><li>Python에는 <code>오버로드(Overload)의 개념이 없다.</code><br>오버로드 : method의 이름은 같지만 parameter의 인자가 다르다면 중복 적재가 가능하다는 개념</li></ul></li></ul><pre><code class="python">class Fried:  passclass Seasoned(Fried):  pass</code></pre><ul><li><h3 id="is-A-Inheritance"><a href="#is-A-Inheritance" class="headerlink" title="is-A(Inheritance)"></a>is-A(Inheritance)</h3></li><li><h3 id="has-A-Composition-Aggregation"><a href="#has-A-Composition-Aggregation" class="headerlink" title="has-A(Composition, Aggregation)"></a>has-A(Composition, Aggregation)</h3><ul><li><p><strong>Composition</strong></p><pre><code class="python">class AP:  passclass Cam:  passclass SmartPhone:  def __init__(self):    self.ap = AP()    self.cam = Cam()</code></pre></li><li><p><strong>Aggregation</strong></p><pre><code class="python">class Hammer:  def __init__(self, name):      self.name = name  def fly(self):      print(&#39;Flying..&#39;)</code></pre></li></ul></li></ul><pre><code>class Thor:  def __init__(self):      self.weapon = None  def recall_hammer(self, weapon):      self.weapon = weapon  def throw_hammer(self):      weapon = self.weapon      self.weapon = None      return weapon  def fly(self):      if self.weapon:          self.weapon.fly()      else:          print(&quot;You can&#39;t do this&quot;)```</code></pre><h2 id="Class-instance-static-Method"><a href="#Class-instance-static-Method" class="headerlink" title="Class, instance, static Method"></a>Class, instance, static Method</h2><ul><li><h3 id="Class-Method"><a href="#Class-Method" class="headerlink" title="Class Method"></a>Class Method</h3><p>@classmethod decorator 이용</p></li><li><h3 id="Instance-Method"><a href="#Instance-Method" class="headerlink" title="Instance Method"></a>Instance Method</h3></li><li><h3 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h3></li></ul><h3 id="mutable-immutable-객체에-대한-이해"><a href="#mutable-immutable-객체에-대한-이해" class="headerlink" title="mutable, immutable 객체에 대한 이해"></a>mutable, immutable 객체에 대한 이해</h3><h3 id="얕은복사-깊은복사"><a href="#얕은복사-깊은복사" class="headerlink" title="얕은복사, 깊은복사"></a>얕은복사, 깊은복사</h3><ul><li>참조변수에 대해서 type casting을 하게 되면 참조한 변수에 대해서 새로운 객체로 참조된다.</li></ul><pre><code class="python">fruits = [&#39;apple&#39;]a = fruitsprint(a) #[&#39;apple&#39;]b = fruitsb.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre><p>fruits 변수가 b에서 업데이트된 값으로 초기화가 되었다.<br>이러한 경우는 얕은 복사로, 깊은 복사를 해주기 위해서는 아래와 같이 작성을 해줘야 한다.</p><pre><code class="python">fruits = [&#39;apple&#39;]a = list(fruits)print(a) #[&#39;apple&#39;]b = list(fruits)b.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre><p>클래스 변수에서 mutable 객체를 위치시켰을때의 문제</p><p>클래스 변수로써 선언을 하게 되면, class instance를 생성할때마다<br>공통 변수로써 참조하게 된다.</p><h3 id="IronMan-클래스에-얕은-복사-개념-적용시키기"><a href="#IronMan-클래스에-얕은-복사-개념-적용시키기" class="headerlink" title="IronMan 클래스에 얕은 복사 개념 적용시키기"></a>IronMan 클래스에 얕은 복사 개념 적용시키기</h3><pre><code class="python">class Hero():  health = 100  inventory = []  def __init__(self, ...):    ...</code></pre><h3 id="IronMan-클래스에-깊은-복사-개념-적용시키기"><a href="#IronMan-클래스에-깊은-복사-개념-적용시키기" class="headerlink" title="IronMan 클래스에 깊은 복사 개념 적용시키기"></a>IronMan 클래스에 깊은 복사 개념 적용시키기</h3><pre><code class="python">class Hero():  health = 100  def __init__(self, ...):    inventory = []</code></pre><h3 id="절차에-따라-소멸해야-될때-del-이라는-소멸자-Deconstructor-를-사용한다"><a href="#절차에-따라-소멸해야-될때-del-이라는-소멸자-Deconstructor-를-사용한다" class="headerlink" title="절차에 따라 소멸해야 될때 del 이라는 소멸자(Deconstructor)를 사용한다."></a>절차에 따라 소멸해야 될때 <strong>del</strong> 이라는 소멸자(Deconstructor)를 사용한다.</h3><pre><code class="python">class Hero():  ...  def __del__(self):    print(&quot;I love you 3000.&quot;)  ...IronMan = Hero(...)IronMan.__del__()</code></pre><h3 id="class내의-method에-반복처리하는-구문-처리하기"><a href="#class내의-method에-반복처리하는-구문-처리하기" class="headerlink" title="class내의 method에 반복처리하는 구문 처리하기"></a>class내의 method에 반복처리하는 구문 처리하기</h3><pre><code class="python">class Hero():  def save_item_multiple(self, item, num):    for _ in range(num):      self.save_item(item)  def save_items(self, *items):    for item in items:      self.save_item(item)      print(&#39;&#123;&#125; has saved to inventory&#39;.format(item))IronMan = Hero(&#39;iron man&#39;, &#39;suit&#39;)IronMan.inventory# 반복하는 처리를 할 수 있다.IronMan.save_items(&#39;$10,000&#39;, &#39;2btc&#39;, &#39;3eth&#39;, &#39;10000 xrp&#39;)IronMan.inventory</code></pre><p>Hide Information : 일부 행동을 제어하고 싶을때 사용한다.<br>underscore가 한 개인 경우, 외부에서 class instance를 통해서 접근해서 사용은 할 수 있다. 하지만 이 class method는 dir([class])로 확인을 해보면, 해당 클래스에 있는 메소드 리스트를 출력해준다.</p><p>[class].<strong>dir</strong>()</p><p>underscore 두 개인 경우, 외부에서 class instance를 통해서 접근해서 사용할 수 없다.</p><pre><code class="python"></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;오늘-배운내용&quot;&gt;&lt;a href=&quot;#오늘-배운내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 배운내용&quot;&gt;&lt;/a&gt;오늘 </summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210210 Python TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til/</id>
+    <published>2021-02-10T04:26:41.000Z</published>
+    <updated>2021-02-10T08:01:44.560Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="class-object"><a href="#class-object" class="headerlink" title="class object"></a>class object</h2><ul><li>class variable<ul><li>Mutable 한 데이터 타입으로 class variable을 정의하는 경우<br>→ class instance를 생성할때 마다 같은 class variable</li></ul></li></ul><h2 id="Deconstructor"><a href="#Deconstructor" class="headerlink" title="Deconstructor"></a>Deconstructor</h2><h2 id="Hide-Information"><a href="#Hide-Information" class="headerlink" title="Hide Information"></a>Hide Information</h2><h2 id="상속-Inheritance"><a href="#상속-Inheritance" class="headerlink" title="상속(Inheritance)"></a>상속(Inheritance)</h2><p>부모 클래스의 속성을 물려받아서 새로운 instance를 생성하는 것</p><p>예시로, </p><pre><code class="python">class Fried:  passclass Seasoned(Fried):  pass</code></pre><h3 id="mutable-immutable-객체에-대한-이해"><a href="#mutable-immutable-객체에-대한-이해" class="headerlink" title="mutable, immutable 객체에 대한 이해"></a>mutable, immutable 객체에 대한 이해</h3><h3 id="얕은복사-깊은복사"><a href="#얕은복사-깊은복사" class="headerlink" title="얕은복사, 깊은복사"></a>얕은복사, 깊은복사</h3><ul><li>참조변수에 대해서 type casting을 하게 되면 참조한 변수에 대해서 새로운 객체로 참조된다.</li></ul><pre><code class="python">fruits = [&#39;apple&#39;]a = fruitsprint(a) #[&#39;apple&#39;]b = fruitsb.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre><p>fruits 변수가 b에서 업데이트된 값으로 초기화가 되었다.<br>이러한 경우는 얕은 복사로, 깊은 복사를 해주기 위해서는 아래와 같이 작성을 해줘야 한다.</p><pre><code class="python">fruits = [&#39;apple&#39;]a = list(fruits)print(a) #[&#39;apple&#39;]b = list(fruits)b.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre><p>클래스 변수에서 mutable 객체를 위치시켰을때의 문제</p><p>클래스 변수로써 선언을 하게 되면, class instance를 생성할때마다<br>공통 변수로써 참조하게 된다.</p><h3 id="IronMan-클래스에-얕은-복사-개념-적용시키기"><a href="#IronMan-클래스에-얕은-복사-개념-적용시키기" class="headerlink" title="IronMan 클래스에 얕은 복사 개념 적용시키기"></a>IronMan 클래스에 얕은 복사 개념 적용시키기</h3><pre><code class="python">class Hero():  health = 100  inventory = []  def __init__(self, ...):    ...</code></pre><h3 id="IronMan-클래스에-깊은-복사-개념-적용시키기"><a href="#IronMan-클래스에-깊은-복사-개념-적용시키기" class="headerlink" title="IronMan 클래스에 깊은 복사 개념 적용시키기"></a>IronMan 클래스에 깊은 복사 개념 적용시키기</h3><pre><code class="python">class Hero():  health = 100  def __init__(self, ...):    inventory = []</code></pre><h3 id="절차에-따라-소멸해야-될때-del-이라는-소멸자-Deconstructor-를-사용한다"><a href="#절차에-따라-소멸해야-될때-del-이라는-소멸자-Deconstructor-를-사용한다" class="headerlink" title="절차에 따라 소멸해야 될때 del 이라는 소멸자(Deconstructor)를 사용한다."></a>절차에 따라 소멸해야 될때 <strong>del</strong> 이라는 소멸자(Deconstructor)를 사용한다.</h3><pre><code class="python">class Hero():  ...  def __del__(self):    print(&quot;I love you 3000.&quot;)  ...IronMan = Hero(...)IronMan.__del__()</code></pre><h3 id="class내의-method에-반복처리하는-구문-처리하기"><a href="#class내의-method에-반복처리하는-구문-처리하기" class="headerlink" title="class내의 method에 반복처리하는 구문 처리하기"></a>class내의 method에 반복처리하는 구문 처리하기</h3><pre><code class="python">class Hero():  def save_item_multiple(self, item, num):    for _ in range(num):      self.save_item(item)  def save_items(self, *items):    for item in items:      self.save_item(item)      print(&#39;&#123;&#125; has saved to inventory&#39;.format(item))IronMan = Hero(&#39;iron man&#39;, &#39;suit&#39;)IronMan.inventory# 반복하는 처리를 할 수 있다.IronMan.save_items(&#39;$10,000&#39;, &#39;2btc&#39;, &#39;3eth&#39;, &#39;10000 xrp&#39;)IronMan.inventory</code></pre><p>Hide Information : 일부 행동을 제어하고 싶을때 사용한다.<br>underscore가 한 개인 경우, 외부에서 class instance를 통해서 접근해서 사용은 할 수 있다. 하지만 이 class method는 dir([class])로 확인을 해보면, 해당 클래스에 있는 메소드 리스트를 출력해준다.</p><p>[class].<strong>dir</strong>()</p><p>underscore 두 개인 경우, 외부에서 class instance를 통해서 접근해서 사용할 수 없다.</p><pre><code class="python"></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;오늘-배운내용&quot;&gt;&lt;a href=&quot;#오늘-배운내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 배운내용&quot;&gt;&lt;/a&gt;오늘 </summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
   
   <entry>
     <title>210210 Side Project Diary 3/4/5일차</title>
@@ -520,64 +582,6 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 1236번 성 지키기 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/02/05/202102/210204-Algorithm_baekjoon_1236/"/>
-    <id>https://leehyungi0622.github.io/2021/02/05/202102/210204-Algorithm_baekjoon_1236/</id>
-    <published>2021-02-05T01:06:42.000Z</published>
-    <updated>2021-02-05T01:22:26.603Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code"><a href="#백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 1236번 성 지키기 문제 Pseudo code + Python code"></a>백준 저지 1236번 성 지키기 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210205_baekjoon_1236.png"></p><p>손 코딩에서 이중 for문 처리하는 부분에서 수정이 필요하다. 이중 for문에서 i,j를 이용해서 내부 반복처리를 해야하는데, 손 코딩할때 n과 m을 넣어 처리를 했다. 이 부분을 i와 j로 수정해서 넣어줘야 한다.</p><pre><code class="python">n, m = map(int, input().split())security_in_castle_list = []for _ in range(n):    security_in_castle_list.append(input())castle_row = [0]*ncastle_column = [0]*mfor i in range(n):    for j in range(m):        if security_in_castle_list[i][j] == &#39;X&#39;:            castle_row[i] += 1            castle_column[j] += 1castle_zero_row = 0for row in castle_row:    if row == 0:        castle_zero_row += 1castle_zero_column = 0for col in castle_column:    if col == 0:        castle_zero_column += 1print(max(castle_zero_row, castle_zero_column))</code></pre><p>이 문제는 (n x m) 행렬로 구성된 성 내부에서 각 행과 열에 최소 한 명의 경비원을 배치하도록 하는 문제이다. 문제 해결을 위해서는 행과 열의 크기만큼 리스트를 각각 선언하여 경비원이 아예 배치되어있지 않은 행과 열의 갯수를 구해야 한다.<br>구해진 행과 열의 갯수 중에 최대값을 출력하면 최소 배치해야 되는 경비원의 수를 구할 수 있다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210204 HTTP - Request/Response</title>
-    <link href="https://leehyungi0622.github.io/2021/02/04/202102/210204-HTTP_Request_Response/"/>
-    <id>https://leehyungi0622.github.io/2021/02/04/202102/210204-HTTP_Request_Response/</id>
-    <published>2021-02-04T13:03:42.000Z</published>
-    <updated>2021-02-04T13:34:06.729Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210204_http_request_response.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h3 id="GET-POST-방식-비교표"><a href="#GET-POST-방식-비교표" class="headerlink" title="GET/POST 방식 비교표"></a><strong>GET/POST 방식 비교표</strong></h3><p><img src="/images/post_images/210204_get_post_comparision.png"></p><p>GET 방식과 POST 방식은 위와같이 정보 전송방식과 보안적 측면, 전송할 수 있는 데이터의 길이, 전송데이터의 Caching 가능 유/무 등에서 차이점을 보인다.</p><p>HTTP의 동작방식에서 URL을 통해서 browser에 접속하게 되면, browser가 GET method 방식으로 Browser의 Page를 읽어온다.</p><p>로그인과 같이 중요한 정보를 전송할때에는 POST method로 browser에서 server로 정보를 전달하게 된다.</p><p>간단하게 browser상에서 /(root) 경로로 이동했을때의 처리를 작성해보자.</p><p><strong>index.js</strong></p><pre><code class="javascript">const handleHome = () =&gt; &#123;  console.log(&quot;Hi from home!&quot;);&#125;;app.get(&quot;/&quot;, handleHome);</code></pre><p>위와같이 작성을 해주면, console에서는 “Hi from home!”이라는 메시지를 확인할 수 있지만, 서버로 보내는 특정 response가 없기 때문에 웹 페이지가 무한 loading상태임을 확인할 수 있다.</p><pre><code class="javascript">const handleHome = (req, res) =&gt; &#123;  console.log(req);  res.send(&quot;Hello from home&quot;);&#125;;const handleProfile = (req, res) =&gt; &#123;  res.send(&quot;You are on my profile&quot;);&#125;;app.get(&quot;/&quot;, handleHome);app.get(&quot;/profile&quot;, handleProfile);</code></pre><p>위와같이 NodeJS는 서버와 Route를 생성하고 그것에 응답하는 방식으로 작동한다.</p><p>지금은 간단한 동작 확인을 위해서 위와같이 callback function과 router 처리를 같은 파일에서 작성을 해주었지만, 프로젝트 구성시에는 callback function은 controller로써 기능별로 분류를 해주고, router 기능을 하는 부분도 별도로 분류해서 작성을 해 줄 것이다.</p><p>실제로 웹 서버를 동작시킬때에는 위와같이 <code>res.send(&quot;[text]&quot;)</code>가 아닌 완전한 HTML파일을 rendering해준다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210204_http_request_response.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다</summary>
-      
-    
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
-    
-    <category term="Express-Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
-    
-    <category term="HTTP-Request-Response" scheme="https://leehyungi0622.github.io/tags/HTTP-Request-Response/"/>
     
   </entry>
   
