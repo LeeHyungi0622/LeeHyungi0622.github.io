@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-11T22:22:02.693Z</updated>
+  <updated>2021-02-11T22:25:25.155Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210212 Side Project Diary 6/7일차</title>
+    <link href="https://leehyungi0622.github.io/2021/02/12/202102/210211_side_project_diary/"/>
+    <id>https://leehyungi0622.github.io/2021/02/12/202102/210211_side_project_diary/</id>
+    <published>2021-02-11T22:25:42.000Z</published>
+    <updated>2021-02-11T22:25:25.155Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-6-7일차"><a href="#Side-Project-Diary-6-7일차" class="headerlink" title="Side Project Diary 6/7일차"></a><strong>Side Project Diary 6/7일차</strong></h2><p>오늘은 어제 강사님으로부터 개인 프로젝트 진행과 관련하여 advice 받은 내용들을 정리하는 것을 시작으로 Side Project Diary의 내용을 시작하려고 한다.<br>우선 첫번째, Git branch 관리의 경우, <code>많은 기업들이 git flow model을 사용</code>하고 있으므로, <ins><b>복잡하더라도 git flow model을 사용해서 프로젝트를 진행하는 것이 좋겠다고 하셨다.</b></ins> 그래서 개인적인 판단에 프로젝트가 simple하다면, github flow를, 비교적 프로젝트가 어느정도의 복잡성을 가진다면, git flow model을 사용할 예정이다. 적절히 두 가지 git branch model을 사용해서 프로젝트를 진행하기로 결정했다.<br>두번째, 각 프로젝트별로 다양한 프레임워크를 사용해서 개발을 하는 것이 좋은지에 대해서 여쭤보았는데, 이 부분에 대해서는 최대한 해당 프레임워크의 특징을 잘 살려서 개발을 하는 것이 중요하다고 하셨다. 그리고 단순히 개발에만 그치는 것이 아니라 각 각의 프레임워크의 장단점들을 서로 비교해서 설명할 수 있어야 한다고 하셨다. <ins><b>그래서 이 부분에 대해서는 각 프로젝트의 README 파일의 Project reflection 부분에 면접 대비해서 내용을 정리해보기로 했다.</b></ins><br>세번째, 프로젝트를 진행할때 <code>각 각의 프레임워크별로 궁합이 좋은 Database</code>가 있으니, 이 부분을 잘 고려하여 프로젝트를 진행하는 것이 좋다고 하셨다. 예를들어, NodeJS의 경우에는 NoSQL인 MongoDB가 궁합이 잘 맞고 NestJS는 PostgreSQL이 궁합에 잘 맞는데 이러한 부분을 잘 고려해서 프로젝트 설계를 하는 것이 중요하다고 하셨다. 이 부분도 프로젝트 초기 설계단계에서 최대한 반영해서 개발을 진행해야겠다.<br><code>항상 개발분야는 트렌드가 빠르게 바뀌기 때문에 이러한 변화의 흐름을 잘 타면서 스스로 자기개발을 하고, 발전을 할 수 있는 개발자라는 인식을 주는 것이 중요한 것 같다.</code></p><p>자 그럼 advice 받은 내용은 어느정도 정리가 되었으니, 이제 side project의 진행에 대해서 정리를 해보자.<br>오늘은 ReactJS side project의 Issue #8, #9를 진행할 계획이다. 두 issue가 close되었다면 이어서 새로운 issue를 추가해서 작업을 이어가야겠다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Side-Project-Diary-6-7일차&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-6-7일차&quot; clas</summary>
+      
+    
+    
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
+    
+  </entry>
   
   <entry>
     <title>210212 Self Development TIL</title>
@@ -66,33 +93,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Python-Assignment" scheme="https://leehyungi0622.github.io/tags/Python-Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210211 Side Project Diary 6일차</title>
-    <link href="https://leehyungi0622.github.io/2021/02/11/202102/210211_side_project_diary/"/>
-    <id>https://leehyungi0622.github.io/2021/02/11/202102/210211_side_project_diary/</id>
-    <published>2021-02-11T03:16:42.000Z</published>
-    <updated>2021-02-11T22:19:46.710Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-6일차"><a href="#Side-Project-Diary-6일차" class="headerlink" title="Side Project Diary 6일차"></a><strong>Side Project Diary 6일차</strong></h2><p>오늘은 어제 강사님으로부터 개인 프로젝트 진행과 관련하여 advice 받은 내용들을 정리하는 것을 시작으로 Side Project Diary의 내용을 시작하려고 한다.<br>우선 첫번째, Git branch 관리의 경우, <code>많은 기업들이 git flow model을 사용</code>하고 있으므로, <ins><b>복잡하더라도 git flow model을 사용해서 프로젝트를 진행하는 것이 좋겠다고 하셨다.</b></ins> 그래서 개인적인 판단에 프로젝트가 simple하다면, github flow를, 비교적 프로젝트가 어느정도의 복잡성을 가진다면, git flow model을 사용할 예정이다. 적절히 두 가지 git branch model을 사용해서 프로젝트를 진행하기로 결정했다.<br>두번째, 각 프로젝트별로 다양한 프레임워크를 사용해서 개발을 하는 것이 좋은지에 대해서 여쭤보았는데, 이 부분에 대해서는 최대한 해당 프레임워크의 특징을 잘 살려서 개발을 하는 것이 중요하다고 하셨다. 그리고 단순히 개발에만 그치는 것이 아니라 각 각의 프레임워크의 장단점들을 서로 비교해서 설명할 수 있어야 한다고 하셨다. <ins><b>그래서 이 부분에 대해서는 각 프로젝트의 README 파일의 Project reflection 부분에 면접 대비해서 내용을 정리해보기로 했다.</b></ins><br>세번째, 프로젝트를 진행할때 <code>각 각의 프레임워크별로 궁합이 좋은 Database</code>가 있으니, 이 부분을 잘 고려하여 프로젝트를 진행하는 것이 좋다고 하셨다. 예를들어, NodeJS의 경우에는 NoSQL인 MongoDB가 궁합이 잘 맞고 NestJS는 PostgreSQL이 궁합에 잘 맞는데 이러한 부분을 잘 고려해서 프로젝트 설계를 하는 것이 중요하다고 하셨다. 이 부분도 프로젝트 초기 설계단계에서 최대한 반영해서 개발을 진행해야겠다.<br><code>항상 개발분야는 트렌드가 빠르게 바뀌기 때문에 이러한 변화의 흐름을 잘 타면서 스스로 자기개발을 하고, 발전을 할 수 있는 개발자라는 인식을 주는 것이 중요한 것 같다.</code></p><p>자 그럼 advice 받은 내용은 어느정도 정리가 되었으니, 이제 side project의 진행에 대해서 정리를 해보자.<br>오늘은 ReactJS side project의 Issue #8, #9를 진행할 계획이다. 두 issue가 close되었다면 이어서 새로운 issue를 추가해서 작업을 이어가야겠다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Side-Project-Diary-6일차&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-6일차&quot; class=&quot;h</summary>
-      
-    
-    
-    
-    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
     
   </entry>
   
