@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-11T03:59:45.275Z</updated>
+  <updated>2021-02-11T10:42:47.341Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210211 Blackjack game Class Design</title>
+    <link href="https://leehyungi0622.github.io/2021/02/11/202102/210211-black_jack_game/"/>
+    <id>https://leehyungi0622.github.io/2021/02/11/202102/210211-black_jack_game/</id>
+    <published>2021-02-11T08:11:00.000Z</published>
+    <updated>2021-02-11T10:42:47.341Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210211_blackjack_img.jpg"></p><h2 id="Blackjack-Class-Design"><a href="#Blackjack-Class-Design" class="headerlink" title="Blackjack Class Design"></a>Blackjack Class Design</h2><table>  <tr>    <td>      <img src="/images/post_images/210211_black_jack_handwriting.png" alt="210211_black_jack_handwriting">    </td>  </tr>  <tr>    <td align="center">      <b>< Blackjack class design Handwriting ></b>    </td>  </tr></table><table>  <tr>    <td>      <img src="/images/post_images/210211_blackjack_uml.png" alt="210211_blackjack_uml">    </td>  </tr>  <tr>    <td align="center">      <b>< Blackjack class design UML ></b>    </td>  </tr></table>이번 과제에서는 저번 시간의 수업시간의 개념을 최대한 반영해서 class를 설계한다.<p><ins><b>우선, Player와 Dealer의 공통적 행위 및 요소를 <code>PersonInCasino 추상 클래스(Abstract class)에 정의</code>한다.</b></ins><br>각 각의 Player, Dealer class는 PersonInCasino abstract class를 상속받아 공통된 행위에 대한 다른 행동을 method 오버라이드(override)를 통해서 method를 재정의한다.<br>method명은 Blackjack 게임의 룰에 따라 카드의 숫자의 합이 21을 넘지 않는 경우, 카드를 계속 뽑는 경우를 <code>Hit</code>, 멈추는 것을 <code>Stay</code>로 하기 때문에 <code>doHit()</code> <code>doStay()</code>로 정의하였다. 이외에 카드 숫자의 합이 21을 초과하는 경우 <code>Burst</code>라고 한다.</p><p>앞의 Handwriting의 Blackjack 게임의 룰에서도 정리를 하였지만, Dealer는 <code>Dealer hit rule</code>이라는 규칙을 가지고 있기 때문에, 카드의 숫자합이 16이하이면 Hit, 17이상이면 무조건 Stay하도록 한다. 이는 상대 Player의 카드 상태와 상관없이 무조건적으로 Dealer가 지켜야하는 Rule이다.</p><p><ins><b>한 번 개인적으로 생각해서 재미있는 기능을 넣어보았는데, 이 기능은 사람 클래스에 각자의 인격을 정의할 수 있는 personality를 적용하는 것이다.</b></ins></p><blockquote><p>PersonInCasino 추상 클래스에 personality라는 class variable이 있는데, 이는 사람 성격에 따라 21미만의 카드를 뽑은 상태에서 카드를 계속 뽑을지(<code>Hit</code>) 아니면 멈출지(<code>Stay</code>)를 각기 다른 확률을 적용한다. <br/> 예를들어 소심한 사람은 20~30%, 평범한 사람은 50%, 욕심이 많은 사람은 80~90%의 확률로 카드를 계속 뽑는 결정을 하게 된다. <br/> 구체적인 구현 방법은 Python의 randchoice method에서 주어진 리스트에 대해 각 각 weight를 부여해서 확률을 조정할 수 있는데, 이를 활용해서 각기다른 성격을 가진 사람들이 다른 확률로 <code>Hit</code>을 한다.</p></blockquote><p><ins><b>has-A 의존관계 중에 클래스간의 응집력이 높은 <code>Composition의 형태</code>로 Hand, Card, Game class로 Player와 Dealer의 대응되는 각 각의 instance variable을 초기화시켜줬다.</b></ins></p><p>Card class는 Player와 Dealer 모두 동일한 카드 뭉치로부터 카드를 받고 있기 때문에 Card class의 cardList는 class 변수로써 선언을 하였다.</p><p>가능한 한 설계 단계에서 생각할 수 있는 경우의 수를 토대로 클래스 설계를 해보았다. 좀 더 가시적으로 클래스 관계를 이해할 수 있도록 Class UML(Unified Modeling Language)를 만들어서 첨부하였다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210211_blackjack_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Blackjack-Class-Design&quot;&gt;&lt;a href=&quot;#Blackjack-Class-Design&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Python-Assignment" scheme="https://leehyungi0622.github.io/tags/Python-Assignment/"/>
+    
+  </entry>
   
   <entry>
     <title>210211 Side Project Diary 6일차 (작성중...)</title>
@@ -48,9 +75,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/11/202102/210211-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/11/202102/210211-Self-development_til/</id>
     <published>2021-02-10T22:57:00.000Z</published>
-    <updated>2021-02-11T03:01:25.032Z</updated>
+    <updated>2021-02-11T10:46:02.323Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>좋아하는 직업을 택하면 평생 하루도 일하지 않아도 될 것이니라.</strong><br/> (Choose a job you love, and you will never have to work a day in your life.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 7시 50분에 하루를 시작했다.<br>나태해지지 않기 위해 꾸준히 하는 습관을 만들어가자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Side Project 시작</strong></ins></p><ul><li>Side Project Diary 6일차 작성 (<code>예정</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Issue #8)Create header,router components and update app component (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><p><ins><strong>자료구조 및 알고리즘 개념</strong></ins></p><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li><li><p><ins><del><strong>210210분 Python TIL작성</strong></del></ins></p><ul><li><del>Python TIL 블로그 포스팅</del> (<code>완료</code>)</li></ul></li></ul><br/>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>좋아하는 직업을 택하면 평생 하루도 일하지 않아도 될 것이니라.</strong><br/> (Choose a job you love, and you will never have to work a day in your life.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 7시 50분에 하루를 시작했다.<br>나태해지지 않기 위해 꾸준히 하는 습관을 만들어가자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><del><strong>210210분 Python TIL작성</strong></del></ins><ul><li><del>Python TIL 블로그 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계</del> (<code>완료</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 6일차 작성 (<code>예정</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Issue #8)Create header,router components and update app component (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li></ul><br/>]]></content>
     
     
       
@@ -548,35 +575,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210206 What is difference between Framework and Library?</title>
-    <link href="https://leehyungi0622.github.io/2021/02/06/202102/210206-Self-Framework_and_Library_Difference/"/>
-    <id>https://leehyungi0622.github.io/2021/02/06/202102/210206-Self-Framework_and_Library_Difference/</id>
-    <published>2021-02-06T01:42:42.000Z</published>
-    <updated>2021-02-06T02:09:22.994Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210206_difference_between_framework_and_library.webp"></p><h2 id="What-is-difference-between-Framework-and-Library"><a href="#What-is-difference-between-Framework-and-Library" class="headerlink" title="What is difference between Framework and Library?"></a><strong>What is difference between Framework and Library?</strong></h2><p>이전에 개발을 하면서 내가 사용하고 있는 것이 프레임워크인지 라이브러리인지 헷갈렸던 경험이 있었기 때문에, 나같은 사람이 없을 수도 있겠지만, 혹시 나와 같은 의문을 가진 사람들을 위해 프레임워크와 라이브러리의 차이에 대해서 정리해보려고 한다.</p><p>우선 메인으로 첨부한 그림을 보면 대략적으로 알 수 있듯이 <strong>Framework는</strong> 내가 작성한 Application을 감싸안고 포함고 있는 개념이라면, <strong>Library는</strong> 내가 작성한 Application과 아래의 우주선과 같이 도킹(docking)되어 있는 것이라고 정의할 수 있겠다.<br>따지고 보면 국제 <code>우주정거장 == Application</code>이 되겠고, <code>크루드래곤 == Library</code> 라고 생각하면 될 것이다.<br><br/></p><p><img src="/images/post_images/210206_spacex_crew-dragon_docking.jpg"><br><strong><ins>위 사진은 작년에 2020년 5월 31일 스페이스 X의 크루드래곤이 국제 우주정거장에 도킹을 성공하는 실제 장면이다.</ins></strong></p><p>이제 프레임워크와 라이브러리의 기본적인 형태에 대해서 이해가 되었으니, 내부 동작에 있어서는 어떤 차이가 있는지 살펴보자.</p><p><img src="/images/post_images/210206_library_vs_framework.jpg"></p><p>위에 첨부한 그림에서 알 수 있듯이 <code>우선 Libary는 Framework에 포함된 개념</code>이다.<br>Framework자체를 개발에 필요한 여러 Library의 집합으로 정의를 할 수도 있습니다.<br>Libray를 사용하기 위해서는 코드에서 호출을 해야하지만 Framework는 애플리케이션의 골격으로, 해당 골격과 맞지 않으면 Framework에서 애플리케이션 코드로 호출을 해서 알려주게 됩니다.</p><p>이상, 간단하게 Library와 Framework의 컨셉과 차이점에 대해서 정리해보았습니다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210206_difference_between_framework_and_library.webp&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;What-is-difference-between-Framework-and</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Framework" scheme="https://leehyungi0622.github.io/tags/Framework/"/>
-    
-    <category term="Library" scheme="https://leehyungi0622.github.io/tags/Library/"/>
     
   </entry>
   
