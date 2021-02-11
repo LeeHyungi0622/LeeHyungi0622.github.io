@@ -36,9 +36,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -72,11 +72,11 @@
   </entry>
   
   <entry>
-    <title>210210 Python TIL (2)</title>
+    <title>210210 Python TIL 2/2</title>
     <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(2)/"/>
     <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(2)/</id>
     <published>2021-02-10T05:26:41.000Z</published>
-    <updated>2021-02-11T02:46:02.131Z</updated>
+    <updated>2021-02-11T03:03:20.464Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><p>오늘 배운 내용은 전반적으로 객체지향 프로그래밍 언어로써 Python을 잘 활용하기 위해 중요한 내용이기 때문에 포스팅을 두 개로 나눠서 작성해보았다.</p><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="Class-instance-static-method"><a href="#Class-instance-static-method" class="headerlink" title="Class, instance, static method"></a>Class, instance, static method</h2><ul><li><h3 id="Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용"><a href="#Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용" class="headerlink" title="Class method: @classmethod decorator를 사용하며, cls를 인자로 사용"></a>Class method: @classmethod decorator를 사용하며, cls를 인자로 사용</h3><ul><li>cls 인자를 받는다.</li><li>class variable과 연관된 일을 할때 사용이 된다.</li></ul></li><li><h3 id="Instance-method-self를-인자로-사용"><a href="#Instance-method-self를-인자로-사용" class="headerlink" title="Instance method: self를 인자로 사용"></a>Instance method: self를 인자로 사용</h3>-객체의 고유 속성값을 사용한다.</li><li><h3 id="Static-method-아무-인자-없이-사용"><a href="#Static-method-아무-인자-없이-사용" class="headerlink" title="Static method: 아무 인자 없이 사용"></a>Static method: 아무 인자 없이 사용</h3><ul><li>일반 함수와 같은 역할을 한다.</li><li>class와 관련있는 함수로써, class내부에서 정의하고자 할 때 사용된다.</li></ul></li></ul><pre><code class="python">class Wallet:  def __init__(self, account):      self.account = account  balance = 0  name = &#39;Your wallet&#39;  @classmethod  def set_default(cls, amount):      while amount &lt; 1:          print(&quot;Err: You should set default value over 1. Try again!&quot;)          amount = int(input(&quot;Set default value: &quot;))      cls.balance = amount      print(&#39;Set default balance to &#123;&#125;&#39;.format(amount))  #instance method  def add_to_account(self, amount):      self.account += amount      print(&#39;Your total balance is &#123;&#125;&#39;.format(self.account + Wallet.balance))  @staticmethod  def see_static_name():      print(Wallet.name)  def get_class_name(cls):      print(cls.name)class MyWallet(Wallet):  name = &#39;My wallet&#39;</code></pre><h2 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h2><p>앞의 포스팅에서 정리한 method의 override가 가능한 이유가 바로 이 다형성(Polymorphism)이라는 특성때문이다. 각 object가 상속받은 부모클래스의 method를 다르게 재정의 함으로써 본래 정의되어있던 method와 다른 행동과 기능 그리고 결과를 나타낸다.</p><h2 id="추상-클래스-Abstract-Base-Class"><a href="#추상-클래스-Abstract-Base-Class" class="headerlink" title="추상 클래스(Abstract Base Class)"></a>추상 클래스(Abstract Base Class)</h2><p><a href="https://docs.python.org/3/library/abc.html">https://docs.python.org/3/library/abc.html</a></p><p>공통 특성을 가진 부모 클래스인데, 가지고 있는 method들이 모두 method로서의 기능이 없고, 선언만 되어있는 클래스를 말한다. 추상 클래스는 한 개 이상의 추상 클래스를 포함하고 있어야 하며, 별도의 class instance를 생성할 수 없다.</p><ul><li><h3 id="추상-클래스-Abstract-class의-정의와-사용"><a href="#추상-클래스-Abstract-class의-정의와-사용" class="headerlink" title="추상 클래스(Abstract class의 정의와 사용)"></a>추상 클래스(Abstract class의 정의와 사용)</h3><pre><code class="python">from abc import ABCclass MyABC(ABC):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import ABCMetaclass MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import *class MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre></li></ul>]]></content>
     
@@ -96,18 +96,18 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
   <entry>
-    <title>210210 Python TIL (1)</title>
+    <title>210210 Python TIL 1/2</title>
     <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(1)/"/>
     <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(1)/</id>
     <published>2021-02-10T04:26:41.000Z</published>
-    <updated>2021-02-11T02:25:18.286Z</updated>
+    <updated>2021-02-11T03:03:14.627Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="class-object"><a href="#class-object" class="headerlink" title="class object"></a>class object</h2><ul><li><h3 id="얕은복사-shallow-copy-vs-깊은복사-deep-copy"><a href="#얕은복사-shallow-copy-vs-깊은복사-deep-copy" class="headerlink" title="얕은복사(shallow copy) vs 깊은복사(deep copy)"></a>얕은복사(shallow copy) vs 깊은복사(deep copy)</h3><pre><code class="python">fruits = [&#39;apple&#39;]a = fruitsprint(a) #[&#39;apple&#39;]b = fruitsb.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre><p>fruits 변수가 b에 의해서 업데이트된 값으로 초기화가 되었다.<br>이러한 경우는 얕은 복사(shallow copy)로, 깊은 복사(deep copy)를 해주기 위해서는 아래와 같이 <code>참조변수에 대해서 type casting을 하게 되면 참조한 변수에 대해서 새로운 객체로 참조</code>된다.</p><pre><code class="python">fruits = [&#39;apple&#39;]a = list(fruits)print(a) #[&#39;apple&#39;]b = list(fruits)b.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre></li></ul><br/><ul><li><h3 id="dir-object"><a href="#dir-object" class="headerlink" title="dir([object])"></a>dir([object])</h3><p><a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a></p><blockquote><p>Without arguments, return the list of names in the current local scope. With an argument, attempt to return a list of valid attributes for that object.</p></blockquote><ul><li>argument를 넣어주지 않으면 현재 local scope 내의 이름을 리스트로 반환해준다.</li><li>argument를 같이 넣어주면 argument로 넣어준 object의 속성에 대한 리스트를 반환해준다.</li></ul><pre><code class="python">class SeeAttributes:    &quot;&quot;&quot;    You can see docstring.    &quot;&quot;&quot;    # good job    integer = 1024 # attribute    def function(self): # attribute        return &#39;fastcampus&#39;LetsSee = SeeAttributes()print(dir()) # show the names in the module namespace&quot;&quot;&quot;[&#39;LetsSee&#39;, &#39;SeeAttributes&#39;, &#39;__annotations__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;]&quot;&quot;&quot;print(dir(LetsSee)) # show the names in the struct module&quot;&quot;&quot;[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;, &#39;function&#39;, &#39;integer&#39;]&quot;&quot;&quot;</code></pre><br/></li><li><h3 id="object-doc"><a href="#object-doc" class="headerlink" title="([object]).__doc__"></a>([object]).__doc__</h3><p>struct module 내에 정의된 documentation정보를 출력한다.</p><pre><code class="python">print(LetsSee.__doc__)# struct module 내에 정의된 documentation정보를 출력&quot;&quot;&quot;&quot;    You can see docstring.&quot;&quot;&quot;</code></pre></li></ul><br/><h2 id="mutable한-class-variable"><a href="#mutable한-class-variable" class="headerlink" title="mutable한 class variable"></a>mutable한 class variable</h2><p>mutable한 variable을 class variable로 선언을 해주게 되면, 해당 class로 class instance들 생성한 객체들은 모두 같은 class variable을 공유하며 사용을 하게 된다.</p><pre><code class="python"># 예제 코드에서 inventory list variable은 class variable로 선언이 되었다.class Hero: # class    health = 100 # class variable    inventory = []    def __init__(self, name, weapon):        self.name = name # instance variable        self.weapon = weapon    def attack(self): # instance method        print(&quot;attack with &#123;&#125;&quot;.format(self.weapon))    def save_item(self, item):        self.inventory.append(item)</code></pre><br/><h2 id="mutable한-instance-variable"><a href="#mutable한-instance-variable" class="headerlink" title="mutable한 instance variable"></a>mutable한 instance variable</h2><p>mutable한 variable을 class variable로 사용했을때의 문제점을 해결하기 위해서 constructor에서 사용할 변수를 초기화시켜서 instance variable로써 사용될 수 있도록 해야 한다.</p><pre><code class="python"># 아래 코드에서 inventory variable은 instance variable로써 class를 사용해서 instance를 생성했을때 초기화가 될 수 있도록 작성하였다.class Hero: # class    health = 100 # class variable    def __init__(self, name, weapon, inventory):        self.name = name # instance variable        self.weapon = weapon        self.inventory = []    def attack(self): # instance method        print(&quot;attack with &#123;&#125;&quot;.format(self.weapon))    def save_item(self, item):        self.inventory.append(item)</code></pre><h2 id="Deconstructor-소멸자"><a href="#Deconstructor-소멸자" class="headerlink" title="Deconstructor (소멸자)"></a>Deconstructor (소멸자)</h2><p>constructor(생성자)가 존재하면, deconstructor(소멸자)도 존재한다. 생성자가 해당 class instance를 생성할때 호출되는 함수라면, 소멸자는 해당 class instance를 사용 후에 소멸시킬때 사용된다.</p><pre><code class="python"># Deconstructor의 형태def __del__(self):  pass</code></pre><h2 id="class-내의-method에서-class-내의-다른-method에-접근"><a href="#class-내의-method에서-class-내의-다른-method에-접근" class="headerlink" title="class 내의 method에서 class 내의 다른 method에 접근"></a>class 내의 method에서 class 내의 다른 method에 접근</h2><p>class 내에서 선언된 함수에서 class 내의 다른 method를 호출해서 사용할 수 있다.</p><pre><code class="python">class Hero: # class    health = 100 # class variable    def __init__(self, name, weapon, inventory):        self.name = name # instance variable        self.weapon = weapon        self.inventory = []    ......    def save_item(self, item):        self.inventory.append(item)    def save_item_multiple(self, item, num):      for _ in range(num):        self.save_item(item)</code></pre><h2 id="Hide-Information"><a href="#Hide-Information" class="headerlink" title="Hide Information"></a>Hide Information</h2><p>다른 언어와 달리 Python은 private, public, protected와 같은 접근제어자 키워드가 존재하지 않고, naming으로 접근제어를 합니다. naming의 기준은 variable, method name의 접두사(prefix)에 _(underscore)가 붙어있는지 유/무와 한 개 또는 두 개의 _(underscore)가 붙느냐에 따라서도 달라진다.</p><ul><li>() (public) : public은 접두사에 _(underscore)가 없는 경우</li><li>_() (protected) : protected는 접두사에 _(underscore)가 하나 붙어있는 경우</li><li>__() (private) : private는 접두사에 _(underscore)가 두 개 붙어있는 경우</li></ul><p><code>protected와 private의 접미사는 _(underscore)를 한 개까지만 허용하고, private의 접미사가 _(underscore) 2개라면, public으로 간주한다.</code></p><pre><code class="python">class AccessControl:    def __init__(self):        self.public = &quot;PUBLIC&quot;        self.__private = &quot;PRIVATE&quot;        self._protected = &quot;PROTECTED&quot;    def print_test(self):        print(self.public)        print(self.__private)        print(self._protected)obj = AccessControl()obj.print_test()&quot;&quot;&quot;PUBLICPRIVATEPROTECTED&quot;&quot;&quot;# print(obj.public)print(obj._protected)  # PROTECTED# AccessControl 객체 외부에서는 __private가 보이지 않기 때문에 접근할 수 없다.# AttributeError: &#39;AccessControl&#39; object has no attribute &#39;__private&#39;print(obj.__private)</code></pre><h2 id="상속-Inheritance"><a href="#상속-Inheritance" class="headerlink" title="상속(Inheritance)"></a>상속(Inheritance)</h2><p>부모 클래스의 속성을 물려받아서 새로운 instance를 생성하는 것을 말한다.</p><ul><li><h3 id="상속의-특징"><a href="#상속의-특징" class="headerlink" title="상속의 특징"></a><strong>상속의 특징</strong></h3><ul><li>상속은 두 클래스 간에 <code>is-A</code> 관계가 성립한다.<br>ex) 사자(<code>자식 클래스</code>)는 동물(<code>부모 클래스</code>)이다. (<code>상속관계 성림</code>)</li><li>부모 클래스로부터 <code>상속받은 method를 override</code>할 수 있다.</li><li>Python에는 <code>오버로드(Overload)의 개념이 없다.</code><br>오버로드 : method의 이름은 같지만 parameter의 인자가 다르다면 중복 적재가 가능하다는 개념</li></ul><p>Python에서의 상속은 별도의 키워드 없이 class이름에 ()를 붙여서 내부에 상속하고자 하는 클래스의 이름을 넣어주면 된다.</p><pre><code class="python">class DerivedClassName(BaseClassName):  #Statements</code></pre><p>치킨을 예로들어, 튀겨진 치킨을 부모 클래스로 하고, 각기 다른 Seasoning을 첨가한 치킨을 자식 클래스로 정의하여 클래스의 관계를 정의한다.</p><pre><code class="python">class Fried:  def __init__(self, mixture, ,chicken):    self.mixture = mixture    self.chicken = chicken  def place_into_fryer(self):    print(&#39;chicken is now frying for 15 min..&#39;)class Seasoned(Fried):  def __init__(self, mixture, chicken, sauce=&#39;red chili&#39;):    # 자식 클래스의 생성자에서는 부모 생성자의 생성자를 아래와 같이 정의한다. (=super())    Fried.__init__(self, mixture, chicken)    # 부모 생성자의 초기화에 사용되는 인자를 제외한 요소는 자식 클래스의 생성자에서 초기화시켜준다.    self.sauce  = sauce  def place_into_fryer(self):    print(&#39;chicken is now frying for 13 min..&#39;)  def mix_with_sauce(self):    print(&#39;mix with &#123;&#125;&#39;.format(self.sauce))</code></pre><p>스마트폰을 예로들어 SmartPhone 부모 클래스를 상속받는 Iphone 클래스와 Galaxy 클래스를 정의해본다.</p><pre><code class="python">class SmartPhone:  def __init__(self, ap, cam):    self.ap = ap    self.cam = cam  def open_ai(self):    print(&#39;Default Setting&#39;)  def __str__(self):    return &#39;I am &#123;&#125;&#39;.format(self.__class__.__name__)</code></pre><p>Iphone 클래스</p><pre><code class="python">class Iphone(SmartPhone):  def __init__(self, ap, cam, touch_id):    SmartPhone.__init__(self, ap, cam)    self.touch_id = touch_id  def open_ai(self):    print(&#39;Hey, Siri&#39;)  def __str__(self):    return super(Iphone, self).__str__()</code></pre><p>Galaxy 클래스</p><pre><code class="python">class Galaxy(SmartPhone):  def __init__(self, ap, cam, sam_pay):    # with super() 위에서는 상속하는 클래스 이름에 .__init__을 해줬지만,    # super()를 사용하면 자식클래스의 이름과 self를 super의 인자로 넘겨준다.    super(Galaxy, self).__init__(ap, cam)    self.sam_pay = sam_pay  def open_ai(self):    print(&#39;Hi, Bixby!&#39;)  def __str__(self):    # 부모의 __str__() method를 호출한다.    return super().__str__()</code></pre></li></ul><h2 id="또-다른-의존관계로-has-A-Aggregation-Composition-관계가-있다"><a href="#또-다른-의존관계로-has-A-Aggregation-Composition-관계가-있다" class="headerlink" title="또 다른 의존관계로 has-A(Aggregation, Composition) 관계가 있다."></a>또 다른 의존관계로 has-A(Aggregation, Composition) 관계가 있다.</h2><p>이 has-A 관계는 Attribute로 사용하는 경우를 예로 한다. has-A관계를 <code>Aggregation</code>과 <code>Composition</code> 이 두 측면으로 살펴볼 수 있다. 좀 더 쉽게 이해하기 쉽게 자동차의 튜닝과 바퀴를 예로들어 작성해보겠다.</p><ul><li><h3 id="Aggregation-Composition보다-좀-더-느슨한-관계이다-응집력이-약하다"><a href="#Aggregation-Composition보다-좀-더-느슨한-관계이다-응집력이-약하다" class="headerlink" title="Aggregation : Composition보다 좀 더 느슨한 관계이다. (응집력이 약하다.)"></a><strong>Aggregation</strong> : Composition보다 좀 더 느슨한 관계이다. (응집력이 약하다.)</h3><p>예를들어, 자동차 구매한 후에 개인적으로 자동차를 튜닝했다고 가정하자. 어느날 튜닝한 것이 마음에 안들어서 제거를 했을때, 제거를 한다고 해도 자동차의 객체에는 문제가 되지 않는다.</p><ul><li>A(container)와 B(contained class)의 관계에서 A(container)가 사라져도 B(contained class)는 사라지지 않는다.</li><li>contained class는 container에 강한 dependency를 가지지 않는다.</li><li>전체와 부분이 독립적인 객체로써 존재할 수 있다.</li><li>전체를 여러개의 객체로 볼 수 있다.</li></ul><pre><code class="python"># 종속관계에 있는 클래스를 생성자에서 초기화시켜주지 않고, instance객체를 생성한 다음에 argument로써 넘겨서 초기화를 시켜준다.class Hammer:  def __init__(self, name):      self.name = name  def fly(self):      print(&#39;Flying..&#39;)class Thor:  def __init__(self):      self.weapon = None  def recall_hammer(self, weapon):      self.weapon = weapon  def throw_hammer(self):      weapon = self.weapon      self.weapon = None      return weapon  def fly(self):      if self.weapon:          self.weapon.fly()      else:          print(&quot;You can&#39;t do this&quot;)Thor = Thor()molnir = Hammer(&#39;molnir&#39;)Thor.recall_hammer(molnir)Thor.fly()Thor.throw_hammer()Thor.fly()</code></pre></li></ul><br/><ul><li><h3 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a><strong>Composition</strong></h3><p>예를들어, 자동차의 일부 바퀴를 제거했다고 가정하자. 그럼 운전한다는 자동차의 본질적인 객체의 특성을 잃게 된다.</p><ul><li>A(container)와 B(contained class)의 관계에서 A(container)가 사라지면 B(contained class)도 사라진다.</li><li>Aggregation 보다 좀 더 구체적인 관계를 정의한다.</li><li>container class와 contained class가 강한 dependency를 가진다.</li><li>container가 없어지면, 포함하고 있는 모든 contained clas도 없어진다.</li><li>전체는 단일 객체로써 본다.</li><li>전체를 통해서만 부분이 인식된다.</li></ul><pre><code class="python"># 종속관계에 있는 class 객체 자체를 class의 생성자에서 직접적으로 초기화시켜주는 경우를 Composition이라고 한다.class AP:  passclass Cam:  passclass SmartPhone:  def __init__(self):    self.ap = AP()    self.cam = Cam()</code></pre></li></ul>]]></content>
     
@@ -127,9 +127,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -210,9 +210,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -298,9 +298,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -355,9 +355,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -465,9 +465,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -573,9 +573,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
