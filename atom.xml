@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-10T02:50:12.457Z</updated>
+  <updated>2021-02-11T03:01:25.032Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,123 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210210 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/11/202102/210211-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/11/202102/210211-Self-development_til/</id>
+    <published>2021-02-10T22:57:00.000Z</published>
+    <updated>2021-02-11T03:01:25.032Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>좋아하는 직업을 택하면 평생 하루도 일하지 않아도 될 것이니라.</strong><br/> (Choose a job you love, and you will never have to work a day in your life.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 7시 50분에 하루를 시작했다.<br>나태해지지 않기 위해 꾸준히 하는 습관을 만들어가자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Side Project 시작</strong></ins></p><ul><li>Side Project Diary 6일차 작성 (<code>예정</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Issue #8)Create header,router components and update app component (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><p><ins><strong>자료구조 및 알고리즘 개념</strong></ins></p><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li><li><p><ins><del><strong>210210분 Python TIL작성</strong></del></ins></p><ul><li><del>Python TIL 블로그 포스팅</del> (<code>완료</code>)</li></ul></li></ul><br/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210210 Hexo Image Optimization</title>
+    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Image-Optimization/"/>
+    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Image-Optimization/</id>
+    <published>2021-02-10T08:00:00.000Z</published>
+    <updated>2021-02-11T03:00:18.762Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210210_image_optimization.png"></p><br/><p>Hexo 블로그를 운영하면서 업로드한 이미지들 때문에 웹 페이지의 로딩시간이 이전보다 많이 느려졌다.<br>그래서 업로드한 이미지 파일들을 모두 compression해서 파일크기를 1/4 사이즈로 만든다음에 업로드하였다. 그런데도 웹 페이지 로딩시간이 생각보다 오래 걸려서 한 번 Googling을 해보았다.</p><p>그래서 발견한 것이 <code>Hexo Image Optimization</code>이다.</p><p>Hexo 내에 존재하는 모든 image파일 확장자를 가진 파일들을 최적화 시켜주고, 별도의 설정으로 post의 thumbnail 이미지도 최적화 시켜준다고 한다.</p><p>그래서 친절하게 설명되어 있는 설명을 보며, 최적화 설정을 모두 마쳤다.</p><p>혹시 나와같이 블로그를 운영하다가 같은 문제로 고민이 있는 사람을 위해 참고한 GitHub 주소를 첨부한다.</p><p>요즘에 블로그 포스팅을 하면서, 이전에 우연히 보게 된 영상에서 개발자 유튜버가 하신 말씀이 생각난다.<br><code>&quot;개발자는 알고있는 지식을 소유하는 것이 아니라 공유하는 것이다.&quot;</code></p><p>아직은 아는 것이 많이 없지만, 이제부터 새롭게 알게 되거나 유익한 내용들을 블로그를 통해서 많이 공유해야겠다.</p><br/><p><strong>[Hexo-img-optimization GitHub URL]</strong><br><a href="https://github.com/vkuznecovas/hexo-img-optimization">https://github.com/vkuznecovas/hexo-img-optimization</a></p><p><img src="/images/post_images/210211_img_optimization.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210210_image_optimization.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;Hexo 블로그를 운영하면서 업로드한 이미지들 때문에 웹 페이지의 로딩시간이 이전보다 많이 느려졌다.&lt;br&gt;그</summary>
+      
+    
+    
+    
+    <category term="TIL:Hexo" scheme="https://leehyungi0622.github.io/categories/TIL-Hexo/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Hexo-Image-Optimization" scheme="https://leehyungi0622.github.io/tags/Hexo-Image-Optimization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210210 Python TIL (2)</title>
+    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(2)/"/>
+    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(2)/</id>
+    <published>2021-02-10T05:26:41.000Z</published>
+    <updated>2021-02-11T02:46:02.131Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><p>오늘 배운 내용은 전반적으로 객체지향 프로그래밍 언어로써 Python을 잘 활용하기 위해 중요한 내용이기 때문에 포스팅을 두 개로 나눠서 작성해보았다.</p><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="Class-instance-static-method"><a href="#Class-instance-static-method" class="headerlink" title="Class, instance, static method"></a>Class, instance, static method</h2><ul><li><h3 id="Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용"><a href="#Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용" class="headerlink" title="Class method: @classmethod decorator를 사용하며, cls를 인자로 사용"></a>Class method: @classmethod decorator를 사용하며, cls를 인자로 사용</h3><ul><li>cls 인자를 받는다.</li><li>class variable과 연관된 일을 할때 사용이 된다.</li></ul></li><li><h3 id="Instance-method-self를-인자로-사용"><a href="#Instance-method-self를-인자로-사용" class="headerlink" title="Instance method: self를 인자로 사용"></a>Instance method: self를 인자로 사용</h3>-객체의 고유 속성값을 사용한다.</li><li><h3 id="Static-method-아무-인자-없이-사용"><a href="#Static-method-아무-인자-없이-사용" class="headerlink" title="Static method: 아무 인자 없이 사용"></a>Static method: 아무 인자 없이 사용</h3><ul><li>일반 함수와 같은 역할을 한다.</li><li>class와 관련있는 함수로써, class내부에서 정의하고자 할 때 사용된다.</li></ul></li></ul><pre><code class="python">class Wallet:  def __init__(self, account):      self.account = account  balance = 0  name = &#39;Your wallet&#39;  @classmethod  def set_default(cls, amount):      while amount &lt; 1:          print(&quot;Err: You should set default value over 1. Try again!&quot;)          amount = int(input(&quot;Set default value: &quot;))      cls.balance = amount      print(&#39;Set default balance to &#123;&#125;&#39;.format(amount))  #instance method  def add_to_account(self, amount):      self.account += amount      print(&#39;Your total balance is &#123;&#125;&#39;.format(self.account + Wallet.balance))  @staticmethod  def see_static_name():      print(Wallet.name)  def get_class_name(cls):      print(cls.name)class MyWallet(Wallet):  name = &#39;My wallet&#39;</code></pre><h2 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h2><p>앞의 포스팅에서 정리한 method의 override가 가능한 이유가 바로 이 다형성(Polymorphism)이라는 특성때문이다. 각 object가 상속받은 부모클래스의 method를 다르게 재정의 함으로써 본래 정의되어있던 method와 다른 행동과 기능 그리고 결과를 나타낸다.</p><h2 id="추상-클래스-Abstract-Base-Class"><a href="#추상-클래스-Abstract-Base-Class" class="headerlink" title="추상 클래스(Abstract Base Class)"></a>추상 클래스(Abstract Base Class)</h2><p><a href="https://docs.python.org/3/library/abc.html">https://docs.python.org/3/library/abc.html</a></p><p>공통 특성을 가진 부모 클래스인데, 가지고 있는 method들이 모두 method로서의 기능이 없고, 선언만 되어있는 클래스를 말한다. 추상 클래스는 한 개 이상의 추상 클래스를 포함하고 있어야 하며, 별도의 class instance를 생성할 수 없다.</p><ul><li><h3 id="추상-클래스-Abstract-class의-정의와-사용"><a href="#추상-클래스-Abstract-class의-정의와-사용" class="headerlink" title="추상 클래스(Abstract class의 정의와 사용)"></a>추상 클래스(Abstract class의 정의와 사용)</h3><pre><code class="python">from abc import ABCclass MyABC(ABC):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import ABCMetaclass MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import *class MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;오늘 배운 내용은 전반적으로 객체지향 프로그래밍 언어로써 Python을 잘 활용하기 위해 중요한 내용이기 때문에 포스팅을 두 개로 나눠</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210210 Python TIL (1)</title>
+    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(1)/"/>
+    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(1)/</id>
+    <published>2021-02-10T04:26:41.000Z</published>
+    <updated>2021-02-11T02:25:18.286Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="class-object"><a href="#class-object" class="headerlink" title="class object"></a>class object</h2><ul><li><h3 id="얕은복사-shallow-copy-vs-깊은복사-deep-copy"><a href="#얕은복사-shallow-copy-vs-깊은복사-deep-copy" class="headerlink" title="얕은복사(shallow copy) vs 깊은복사(deep copy)"></a>얕은복사(shallow copy) vs 깊은복사(deep copy)</h3><pre><code class="python">fruits = [&#39;apple&#39;]a = fruitsprint(a) #[&#39;apple&#39;]b = fruitsb.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre><p>fruits 변수가 b에 의해서 업데이트된 값으로 초기화가 되었다.<br>이러한 경우는 얕은 복사(shallow copy)로, 깊은 복사(deep copy)를 해주기 위해서는 아래와 같이 <code>참조변수에 대해서 type casting을 하게 되면 참조한 변수에 대해서 새로운 객체로 참조</code>된다.</p><pre><code class="python">fruits = [&#39;apple&#39;]a = list(fruits)print(a) #[&#39;apple&#39;]b = list(fruits)b.append(&#39;banana&#39;)print(b) #[&#39;apple&#39;, &#39;banana&#39;]print(fruits) #[&#39;apple&#39;, &#39;banana&#39;]</code></pre></li></ul><br/><ul><li><h3 id="dir-object"><a href="#dir-object" class="headerlink" title="dir([object])"></a>dir([object])</h3><p><a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a></p><blockquote><p>Without arguments, return the list of names in the current local scope. With an argument, attempt to return a list of valid attributes for that object.</p></blockquote><ul><li>argument를 넣어주지 않으면 현재 local scope 내의 이름을 리스트로 반환해준다.</li><li>argument를 같이 넣어주면 argument로 넣어준 object의 속성에 대한 리스트를 반환해준다.</li></ul><pre><code class="python">class SeeAttributes:    &quot;&quot;&quot;    You can see docstring.    &quot;&quot;&quot;    # good job    integer = 1024 # attribute    def function(self): # attribute        return &#39;fastcampus&#39;LetsSee = SeeAttributes()print(dir()) # show the names in the module namespace&quot;&quot;&quot;[&#39;LetsSee&#39;, &#39;SeeAttributes&#39;, &#39;__annotations__&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;]&quot;&quot;&quot;print(dir(LetsSee)) # show the names in the struct module&quot;&quot;&quot;[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;, &#39;function&#39;, &#39;integer&#39;]&quot;&quot;&quot;</code></pre><br/></li><li><h3 id="object-doc"><a href="#object-doc" class="headerlink" title="([object]).__doc__"></a>([object]).__doc__</h3><p>struct module 내에 정의된 documentation정보를 출력한다.</p><pre><code class="python">print(LetsSee.__doc__)# struct module 내에 정의된 documentation정보를 출력&quot;&quot;&quot;&quot;    You can see docstring.&quot;&quot;&quot;</code></pre></li></ul><br/><h2 id="mutable한-class-variable"><a href="#mutable한-class-variable" class="headerlink" title="mutable한 class variable"></a>mutable한 class variable</h2><p>mutable한 variable을 class variable로 선언을 해주게 되면, 해당 class로 class instance들 생성한 객체들은 모두 같은 class variable을 공유하며 사용을 하게 된다.</p><pre><code class="python"># 예제 코드에서 inventory list variable은 class variable로 선언이 되었다.class Hero: # class    health = 100 # class variable    inventory = []    def __init__(self, name, weapon):        self.name = name # instance variable        self.weapon = weapon    def attack(self): # instance method        print(&quot;attack with &#123;&#125;&quot;.format(self.weapon))    def save_item(self, item):        self.inventory.append(item)</code></pre><br/><h2 id="mutable한-instance-variable"><a href="#mutable한-instance-variable" class="headerlink" title="mutable한 instance variable"></a>mutable한 instance variable</h2><p>mutable한 variable을 class variable로 사용했을때의 문제점을 해결하기 위해서 constructor에서 사용할 변수를 초기화시켜서 instance variable로써 사용될 수 있도록 해야 한다.</p><pre><code class="python"># 아래 코드에서 inventory variable은 instance variable로써 class를 사용해서 instance를 생성했을때 초기화가 될 수 있도록 작성하였다.class Hero: # class    health = 100 # class variable    def __init__(self, name, weapon, inventory):        self.name = name # instance variable        self.weapon = weapon        self.inventory = []    def attack(self): # instance method        print(&quot;attack with &#123;&#125;&quot;.format(self.weapon))    def save_item(self, item):        self.inventory.append(item)</code></pre><h2 id="Deconstructor-소멸자"><a href="#Deconstructor-소멸자" class="headerlink" title="Deconstructor (소멸자)"></a>Deconstructor (소멸자)</h2><p>constructor(생성자)가 존재하면, deconstructor(소멸자)도 존재한다. 생성자가 해당 class instance를 생성할때 호출되는 함수라면, 소멸자는 해당 class instance를 사용 후에 소멸시킬때 사용된다.</p><pre><code class="python"># Deconstructor의 형태def __del__(self):  pass</code></pre><h2 id="class-내의-method에서-class-내의-다른-method에-접근"><a href="#class-내의-method에서-class-내의-다른-method에-접근" class="headerlink" title="class 내의 method에서 class 내의 다른 method에 접근"></a>class 내의 method에서 class 내의 다른 method에 접근</h2><p>class 내에서 선언된 함수에서 class 내의 다른 method를 호출해서 사용할 수 있다.</p><pre><code class="python">class Hero: # class    health = 100 # class variable    def __init__(self, name, weapon, inventory):        self.name = name # instance variable        self.weapon = weapon        self.inventory = []    ......    def save_item(self, item):        self.inventory.append(item)    def save_item_multiple(self, item, num):      for _ in range(num):        self.save_item(item)</code></pre><h2 id="Hide-Information"><a href="#Hide-Information" class="headerlink" title="Hide Information"></a>Hide Information</h2><p>다른 언어와 달리 Python은 private, public, protected와 같은 접근제어자 키워드가 존재하지 않고, naming으로 접근제어를 합니다. naming의 기준은 variable, method name의 접두사(prefix)에 _(underscore)가 붙어있는지 유/무와 한 개 또는 두 개의 _(underscore)가 붙느냐에 따라서도 달라진다.</p><ul><li>() (public) : public은 접두사에 _(underscore)가 없는 경우</li><li>_() (protected) : protected는 접두사에 _(underscore)가 하나 붙어있는 경우</li><li>__() (private) : private는 접두사에 _(underscore)가 두 개 붙어있는 경우</li></ul><p><code>protected와 private의 접미사는 _(underscore)를 한 개까지만 허용하고, private의 접미사가 _(underscore) 2개라면, public으로 간주한다.</code></p><pre><code class="python">class AccessControl:    def __init__(self):        self.public = &quot;PUBLIC&quot;        self.__private = &quot;PRIVATE&quot;        self._protected = &quot;PROTECTED&quot;    def print_test(self):        print(self.public)        print(self.__private)        print(self._protected)obj = AccessControl()obj.print_test()&quot;&quot;&quot;PUBLICPRIVATEPROTECTED&quot;&quot;&quot;# print(obj.public)print(obj._protected)  # PROTECTED# AccessControl 객체 외부에서는 __private가 보이지 않기 때문에 접근할 수 없다.# AttributeError: &#39;AccessControl&#39; object has no attribute &#39;__private&#39;print(obj.__private)</code></pre><h2 id="상속-Inheritance"><a href="#상속-Inheritance" class="headerlink" title="상속(Inheritance)"></a>상속(Inheritance)</h2><p>부모 클래스의 속성을 물려받아서 새로운 instance를 생성하는 것을 말한다.</p><ul><li><h3 id="상속의-특징"><a href="#상속의-특징" class="headerlink" title="상속의 특징"></a><strong>상속의 특징</strong></h3><ul><li>상속은 두 클래스 간에 <code>is-A</code> 관계가 성립한다.<br>ex) 사자(<code>자식 클래스</code>)는 동물(<code>부모 클래스</code>)이다. (<code>상속관계 성림</code>)</li><li>부모 클래스로부터 <code>상속받은 method를 override</code>할 수 있다.</li><li>Python에는 <code>오버로드(Overload)의 개념이 없다.</code><br>오버로드 : method의 이름은 같지만 parameter의 인자가 다르다면 중복 적재가 가능하다는 개념</li></ul><p>Python에서의 상속은 별도의 키워드 없이 class이름에 ()를 붙여서 내부에 상속하고자 하는 클래스의 이름을 넣어주면 된다.</p><pre><code class="python">class DerivedClassName(BaseClassName):  #Statements</code></pre><p>치킨을 예로들어, 튀겨진 치킨을 부모 클래스로 하고, 각기 다른 Seasoning을 첨가한 치킨을 자식 클래스로 정의하여 클래스의 관계를 정의한다.</p><pre><code class="python">class Fried:  def __init__(self, mixture, ,chicken):    self.mixture = mixture    self.chicken = chicken  def place_into_fryer(self):    print(&#39;chicken is now frying for 15 min..&#39;)class Seasoned(Fried):  def __init__(self, mixture, chicken, sauce=&#39;red chili&#39;):    # 자식 클래스의 생성자에서는 부모 생성자의 생성자를 아래와 같이 정의한다. (=super())    Fried.__init__(self, mixture, chicken)    # 부모 생성자의 초기화에 사용되는 인자를 제외한 요소는 자식 클래스의 생성자에서 초기화시켜준다.    self.sauce  = sauce  def place_into_fryer(self):    print(&#39;chicken is now frying for 13 min..&#39;)  def mix_with_sauce(self):    print(&#39;mix with &#123;&#125;&#39;.format(self.sauce))</code></pre><p>스마트폰을 예로들어 SmartPhone 부모 클래스를 상속받는 Iphone 클래스와 Galaxy 클래스를 정의해본다.</p><pre><code class="python">class SmartPhone:  def __init__(self, ap, cam):    self.ap = ap    self.cam = cam  def open_ai(self):    print(&#39;Default Setting&#39;)  def __str__(self):    return &#39;I am &#123;&#125;&#39;.format(self.__class__.__name__)</code></pre><p>Iphone 클래스</p><pre><code class="python">class Iphone(SmartPhone):  def __init__(self, ap, cam, touch_id):    SmartPhone.__init__(self, ap, cam)    self.touch_id = touch_id  def open_ai(self):    print(&#39;Hey, Siri&#39;)  def __str__(self):    return super(Iphone, self).__str__()</code></pre><p>Galaxy 클래스</p><pre><code class="python">class Galaxy(SmartPhone):  def __init__(self, ap, cam, sam_pay):    # with super() 위에서는 상속하는 클래스 이름에 .__init__을 해줬지만,    # super()를 사용하면 자식클래스의 이름과 self를 super의 인자로 넘겨준다.    super(Galaxy, self).__init__(ap, cam)    self.sam_pay = sam_pay  def open_ai(self):    print(&#39;Hi, Bixby!&#39;)  def __str__(self):    # 부모의 __str__() method를 호출한다.    return super().__str__()</code></pre></li></ul><h2 id="또-다른-의존관계로-has-A-Aggregation-Composition-관계가-있다"><a href="#또-다른-의존관계로-has-A-Aggregation-Composition-관계가-있다" class="headerlink" title="또 다른 의존관계로 has-A(Aggregation, Composition) 관계가 있다."></a>또 다른 의존관계로 has-A(Aggregation, Composition) 관계가 있다.</h2><p>이 has-A 관계는 Attribute로 사용하는 경우를 예로 한다. has-A관계를 <code>Aggregation</code>과 <code>Composition</code> 이 두 측면으로 살펴볼 수 있다. 좀 더 쉽게 이해하기 쉽게 자동차의 튜닝과 바퀴를 예로들어 작성해보겠다.</p><ul><li><h3 id="Aggregation-Composition보다-좀-더-느슨한-관계이다-응집력이-약하다"><a href="#Aggregation-Composition보다-좀-더-느슨한-관계이다-응집력이-약하다" class="headerlink" title="Aggregation : Composition보다 좀 더 느슨한 관계이다. (응집력이 약하다.)"></a><strong>Aggregation</strong> : Composition보다 좀 더 느슨한 관계이다. (응집력이 약하다.)</h3><p>예를들어, 자동차 구매한 후에 개인적으로 자동차를 튜닝했다고 가정하자. 어느날 튜닝한 것이 마음에 안들어서 제거를 했을때, 제거를 한다고 해도 자동차의 객체에는 문제가 되지 않는다.</p><ul><li>A(container)와 B(contained class)의 관계에서 A(container)가 사라져도 B(contained class)는 사라지지 않는다.</li><li>contained class는 container에 강한 dependency를 가지지 않는다.</li><li>전체와 부분이 독립적인 객체로써 존재할 수 있다.</li><li>전체를 여러개의 객체로 볼 수 있다.</li></ul><pre><code class="python"># 종속관계에 있는 클래스를 생성자에서 초기화시켜주지 않고, instance객체를 생성한 다음에 argument로써 넘겨서 초기화를 시켜준다.class Hammer:  def __init__(self, name):      self.name = name  def fly(self):      print(&#39;Flying..&#39;)class Thor:  def __init__(self):      self.weapon = None  def recall_hammer(self, weapon):      self.weapon = weapon  def throw_hammer(self):      weapon = self.weapon      self.weapon = None      return weapon  def fly(self):      if self.weapon:          self.weapon.fly()      else:          print(&quot;You can&#39;t do this&quot;)Thor = Thor()molnir = Hammer(&#39;molnir&#39;)Thor.recall_hammer(molnir)Thor.fly()Thor.throw_hammer()Thor.fly()</code></pre></li></ul><br/><ul><li><h3 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a><strong>Composition</strong></h3><p>예를들어, 자동차의 일부 바퀴를 제거했다고 가정하자. 그럼 운전한다는 자동차의 본질적인 객체의 특성을 잃게 된다.</p><ul><li>A(container)와 B(contained class)의 관계에서 A(container)가 사라지면 B(contained class)도 사라진다.</li><li>Aggregation 보다 좀 더 구체적인 관계를 정의한다.</li><li>container class와 contained class가 강한 dependency를 가진다.</li><li>container가 없어지면, 포함하고 있는 모든 contained clas도 없어진다.</li><li>전체는 단일 객체로써 본다.</li><li>전체를 통해서만 부분이 인식된다.</li></ul><pre><code class="python"># 종속관계에 있는 class 객체 자체를 class의 생성자에서 직접적으로 초기화시켜주는 경우를 Composition이라고 한다.class AP:  passclass Cam:  passclass SmartPhone:  def __init__(self):    self.ap = AP()    self.cam = Cam()</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;class-object&quot;&gt;&lt;a href=&quot;#class-object&quot; class=&quot;headerlink&quot; title=&quot;class </summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
   
   <entry>
     <title>210210 Side Project Diary 3/4/5일차</title>
@@ -78,9 +195,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Self-development_til/</id>
     <published>2021-02-10T00:41:00.000Z</published>
-    <updated>2021-02-10T02:50:45.405Z</updated>
+    <updated>2021-02-10T23:14:21.822Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>게으름은 즐겁지만 괴로운 상태다. 우리는 행복해지기 위해 무엇인가 하고 있어야 한다.</strong><br/> (Indolence is a delightful but distressing state; we must be doing something to be happy.)<br/> <strong>마하트마 간디 / Mahatma Gandhi</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 지하철을 타고 오면서 간단한 알고리즘 한 문제를 풀었다. 생각보다 지하철에 사람이 없어서 쾌적하게 올 수 있었던 것 같다.<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Side Project 시작</strong></ins></p><ul><li><del>Side Project Diary 3/4/5일차 작성</del> (<code>완료</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li><del>react-testing-library 공부(Mock module을 활용해서 Async API 코드를 unit test하는 방법)</del> (<code>완료</code>)<br>→ <a href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/">https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/</a></li><li>Issue #8)Create header,router components and update app component (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li><del>백준 알고리즘 1302번 베스트 샐러 문제</del> (<code>완료</code>)<br>→ <a href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Algorithm_baekjoon_1302/">https://leehyungi0622.github.io/2021/02/10/202102/210210-Algorithm_baekjoon_1302/</a></li></ul></li><li><p><ins><strong>자료구조 및 알고리즘 개념</strong></ins></p><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>게으름은 즐겁지만 괴로운 상태다. 우리는 행복해지기 위해 무엇인가 하고 있어야 한다.</strong><br/> (Indolence is a delightful but distressing state; we must be doing something to be happy.)<br/> <strong>마하트마 간디 / Mahatma Gandhi</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 지하철을 타고 오면서 간단한 알고리즘 한 문제를 풀었다. 생각보다 지하철에 사람이 없어서 쾌적하게 올 수 있었던 것 같다.<br>오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Side Project 시작</strong></ins></p><ul><li><del>Side Project Diary 3/4/5일차 작성</del> (<code>완료</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li><del>react-testing-library 공부(Mock module을 활용해서 Async API 코드를 unit test하는 방법)</del> (<code>완료</code>)<br>→ <a href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/">https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/</a></li><li>Issue #8)Create header,router components and update app component (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li><del>백준 알고리즘 1302번 베스트 샐러 문제</del> (<code>완료</code>)<br>→ <a href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Algorithm_baekjoon_1302/">https://leehyungi0622.github.io/2021/02/10/202102/210210-Algorithm_baekjoon_1302/</a></li></ul></li><li><p><ins><strong>자료구조 및 알고리즘 개념</strong></ins></p><ul><li><p>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</p><br/></li></ul></li></ul>]]></content>
     
     
       
@@ -459,125 +576,6 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210205 Book recommendation</title>
-    <link href="https://leehyungi0622.github.io/2021/02/05/202102/210205-Book_Recommendation/"/>
-    <id>https://leehyungi0622.github.io/2021/02/05/202102/210205-Book_Recommendation/</id>
-    <published>2021-02-05T10:22:41.000Z</published>
-    <updated>2021-02-05T10:49:04.037Z</updated>
-    
-    <content type="html"><![CDATA[<br/><h2 id="개발-관련-책-추천"><a href="#개발-관련-책-추천" class="headerlink" title="개발 관련 책 추천"></a>개발 관련 책 추천</h2><p>오늘은 평소에 내가 관심이 많이 있었던 Clean code, TypeScript 등 개발과 관련해서 강사님이 수업도중에 여러 책들을 추천해주셨다.</p><p>Clean code는 이전부터 관심이 있던 내용이고, TypeScript는 최근에 공부를 시작해서 관심이 있던 내용이라 추천해주셨을때 너무 좋았다. 요즘 무슨 책을 읽어볼까 고민하던 참이었는데, 온라인 북으로 구매해서 아이패드에 넣고 통학시간이나 주말, 머리식힐때 읽어봐야겠다.</p><p>읽은 내용에서 유익한 내용이 있으면, 블로그에 포스팅해봐야겠다.</p><p>추천해주신 책은 아래와 같다. <code>일단 내가 최근에 공부를 시작한 TypeScript와 Clean code 책을 구매해서 읽어 볼 생각</code>이다. 생각에서 끝나지 않기 위해서 내일 오전에 공부 시작할때 당장 구매해서 읽어봐야 겠다.</p><table>  <tr>    <td><img src="/images/post_images/210205_cleancode_cover_img.jpg" width=200 height=200/></td>    <td><img src="/images/post_images/210205clean_code_tdd_cover.jpg" width=200 height=200/></td>  </tr>  <tr>    <td align="center"> <b>Code 코드</b> </td>    <td align="center"> <b>파이썬을 이용한 클린 코드를 위한 테스트 주도 개발</b> </td>  </tr>  <tr>    <td align="center"><img src="/images/post_images/210205_typescript_cover.jpg" width=200 height=200/></td>    <td align="center"><img src="/images/post_images/210205_Two_Scoops_of_Django.jpg" width=200 height=200/></td>  </tr>    <tr>    <td align="center"><b>TypeScript Programming</b></td>    <td align="center">      <b>Two Scoops of Django</b>    </td>  </tr></table><ins>Two Scoops of Django책에서 다루고 있는 장고의 버전이 낮기 때문에 google에서 Two Scoops of Django를 검색해서 two scoops-of-django-3.x github의 코드파일을 참고하는 것을 추천한다. </ins><p><a href="https://github.com/feldroy/two-scoops-of-django-3.x">https://github.com/feldroy/two-scoops-of-django-3.x</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;br/&gt;
-
-&lt;h2 id=&quot;개발-관련-책-추천&quot;&gt;&lt;a href=&quot;#개발-관련-책-추천&quot; class=&quot;headerlink&quot; title=&quot;개발 관련 책 추천&quot;&gt;&lt;/a&gt;개발 관련 책 추천&lt;/h2&gt;&lt;p&gt;오늘은 평소에 내가 관심이 많이 있었던 Clean cod</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210205 Python TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/05/202102/210205-Python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/05/202102/210205-Python_til/</id>
-    <published>2021-02-05T05:25:41.000Z</published>
-    <updated>2021-02-05T10:54:31.314Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><ul><li><strong>Section1)</strong> filter, reduce</li><li><strong>Section2)</strong> OOP, Class</li></ul><h2 id="filter-reduce"><a href="#filter-reduce" class="headerlink" title="filter, reduce"></a>filter, reduce</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p><strong>filter의 기본 사용 format :</strong> <code>filter([function], [iterable object])</code></p><h4 id="1부터-10까지의-수-중에-짝수인-수로-구성된-리스트-만들기"><a href="#1부터-10까지의-수-중에-짝수인-수로-구성된-리스트-만들기" class="headerlink" title="1부터 10까지의 수 중에 짝수인 수로 구성된 리스트 만들기"></a>1부터 10까지의 수 중에 짝수인 수로 구성된 리스트 만들기</h4><pre><code class="python">def even_selector(x):  if x % 2 == 0:    return True  else:    return False# 선언한 function을 인자로 넣기list(filter(even_selector, range(1, 10+1)))# lambda function로 별도의 함수 선언없이 함수처리list(filter(lambda a:a%2==0, range(1, 10+1)))</code></pre><h4 id="isinstance-‘-check-value-’-check-type"><a href="#isinstance-‘-check-value-’-check-type" class="headerlink" title="isinstance(‘[check value]’, [check type])"></a>isinstance(‘[check value]’, [check type])</h4><pre><code class="python">**isinstance의 사용예)** isinstance(&#39;1&#39;, int) # True**isinstance의 사용예)** isinstance(&#39;1&#39;, float) # False# isinstance는 리스트 내부에 다양한 타입의 데이터가 존재할때 유용하게 사용이 가능하다.some_list = [1, 3.14, 2.71828, &#39;tau&#39;, &#39;lambda&#39;, [1, 0, 0, 1], &#123;&#39;kay&#39;: &#39;bamboo&#39;&#125;]# float인 요소만 filter해보기def validation_check(x):    if isinstance(x, float):        return Trueprint(list(filter(validation_check, some_list)))# filter는 반드시 lambda 함수식의 반환부분에서 True 또는 False를 반환해야 한다.print(list(filter(lambda x: isinstance(x, float), some_list)))</code></pre><br/><h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p><strong>reduce의 기본 사용 format :</strong> <code>reduce([function], [iterable object])</code></p><ul><li>iterable object의 모든 element에 대하여 연산결과를 출력</li><li>reduce는 Python3의 기본 내장함수에서 제외되어, functools에서 별도로 import해서 사용한다.<br><code>from functools import reduce</code><ul><li>Rossum은 map, filter, reduce에 대해 readibility가 떨어진다는 이유로 제외 기본 내장함수에서 제외하였다.</li></ul></li></ul><p><strong>reduce 사용하지 않고 단순 반복문으로 1부터 100까지의 합을 구하기</strong></p><pre><code class="python">sum = 0for i in range(1, 100+1):  sum += iprint(sum)</code></pre><p><strong>reduce를 사용하여 1부터 100까지의 합을 구하기</strong></p><pre><code class="python">from functools import reduce# reduce(function, iter)def accumulator(x,y):  return x+y# reduce의 function은 두 개의 인자(x,y)를 받고 하나의 값(x+y)을 반환하는 구조이다.print(reduce(accumulator, range(1, 100+1)))# lambdaprint(reduce(lambda x,y:x+y, range(1, 100+1))) # 5050# 세번째 argument값으로 initial value를 줄 수 있다. (default:0)print(reduce(lambda x,y:x+y, range(1, 100+1), 100)) # 5150</code></pre><p><strong>옆 사람이랑 같이 pair coding하기</strong><br>아래의 간단한 예제 문제를 옆 사람과 해결방향을 모색해가며 문제해결을 한다.</p><pre><code class="python">recycle_bin = [1, 2, &quot;Fastcampus&quot;, [&#39;dog&#39;, &#39;cat&#39;, &#39;pig&#39;], 5, 4, 5.6, False,&quot;패스트캠퍼스&quot;, 100, 3.14, 2.71828, &#123;&#39;name&#39;:&#39;Kim&#39;&#125;, True,]# 정수이거나 실수인 수들로만 이루어진 리스트 생성# True(1), Flase(0) 또한 integer로써 인식이 되기 때문에 별도로 bool type이 아니라는 조건을 추가해줘야 한다.def validation_check(x):    if (isinstance(x, int) or isinstance(x, float)) and not isinstance(x, bool):        return Trueprint(list(filter(validation_check, recycle_bin)))# lambda function 방식으로 위의 코드 refactoring한다.print(list(filter(lambda x: (isinstance(x, int) or isinstance(x, float)) and not isinstance(x, bool), recycle_bin)))# 정수로만 이루어진 리스트의 각 요소를 제곱해서 리스트 생성# True(1), Flase(0) 또한 integer로써 인식이 되기 때문에 별도로 bool type이 아니라는 조건을 추가해줘야 한다.def validation_check_second(x):    if isinstance(x, int) and not isinstance(x, bool):        return x**2result = list(filter(validation_check_second, recycle_bin))# lambda function 방식으로 위의 코드를 refactoring한다.result = list(filter(lambda x: isinstance(x, int) and not isinstance(x, bool) , recycle_bin))print(result)# sum() function을 이용해서 리스트의 모든 구성요소의 합을 구한다.result_sum = sum(result)print(result_sum)</code></pre><pre><code class="python"># 위에서 작성한 방식과 다르게 filter해서 나온 결과 리스트를 다시 filter하는 방식으로 처리result = list(filter(lambda b: not isinstance(b, bool),              filter(lambda a:isinstance(a, (int, float)),              recycle_bin)))print(result)</code></pre><pre><code class="python"># 위에서 작성한 방식과 다르게 filter해서 나온 결과 리스트를 다시 filter하는 방식으로 처리result = list(map(lambda x:x**2, filter(lambda b: not isinstance(b, bool),                                 filter(lambda a:isinstance(a,int),                                 recycle_bin))))print(result)</code></pre><br/><h3 id="OOP-Object-Oriented-Programming-객체지향-프로그래밍"><a href="#OOP-Object-Oriented-Programming-객체지향-프로그래밍" class="headerlink" title="OOP(Object-Oriented-Programming) : 객체지향 프로그래밍"></a>OOP(Object-Oriented-Programming) : 객체지향 프로그래밍</h3><ul><li>특징<ul><li><strong>Encapsulation</strong><ul><li>구현한 것을 드러나지 않도록 함</li><li>Information hiding: public, _protected, __private</li></ul></li><li><strong>Abstraction</strong><ul><li>인터페이스로 클래스의 공통 특성을 묶어 표현</li></ul></li><li><strong>Inheritance</strong><ul><li>자식 클래스가 부모 클래스의 특성과 기능을 물어본다.</li></ul></li><li><strong>Polymorphism</strong><ul><li>변수, method가 다른 상태를 가지는 것</li></ul></li></ul></li><li>프로그래밍 언어의 변천<ul><li>Imperative Programming(명령적 프로그래밍)</li><li>Procedural programming(절차지향 프로그래밍)</li><li>Object-Oriented Progrmming(객체지향 프로그래밍)</li><li>Functional Programming(함수형 프로그래밍)</li></ul></li></ul><h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><ul><li><strong>local :</strong> outer_scope(함수내의 변수)의 binding을 바꾸지 못한다.</li><li><strong>nonlocal :</strong> outer_scope(함수내의 변수)의 binding을 바꾼다.</li><li><strong>global :</strong> 전역 binding을 바꾼다.</li></ul><p><strong>아래의 간단한 예제를 통해 <code>global, local, nonlocal</code>의 키워드에 대해서 이해한다.</strong></p><pre><code class="python">## Scopemsg = &quot;fastcampus&quot;def outer_scope():    def inner_local():        msg = &quot;Fast&quot;    def inner_nonlocal():        nonlocal msg        msg = &quot;Campus&quot;    def inner_global():        global msg        msg = &quot;FastCampus&quot;    msg = &quot;Seong-Su&quot;    inner_local()    # method가 내부 변수(msg)에 영향을 주지 않는다.    print(&#39;inner local:&#39;, msg)    inner_nonlocal()    # nonlocal로 설정해주면 내부 변수에 영향을 준다.    # Seong-Su를 Campus로 업데이트    print(&#39;inner nonlocal:&#39;, msg)    # 외부에 선언된 msg 변수에 대해 처리    inner_global()    # inner_global에서의 msg는 &quot;fastcampus&quot;이다.    print(&#39;inner global:&#39;, msg)outer_scope()&quot;&quot;&quot;inner local: Seong-Suinner nonlocal: Campusinner global: Campus&quot;&quot;&quot;</code></pre><br/><h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a><strong>Class</strong></h3><ul><li><strong>SOLID</strong><ul><li>Single Responsibility Principle<ul><li>한 클래스는 하나의 책임만 가져야 한다.(goto 19)</li></ul></li><li>Open/Closed Principle<ul><li>확장에는 열려있지만, 변경에는 닫혀 있어야 한다.(override)</li></ul></li><li>Liskov’s Substitution Principle<ul><li>프로그램의 정확성을 깨트리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.(is-A)</li></ul></li><li>Interface Segregation Principle<ul><li>사용하지 않는 method는 분리해야 한다.(Abstract)</li></ul></li><li>Dependency Inversion Principle<ul><li>추상화에 의존하고, 구체화에 의존하지 않는다.</li></ul></li></ul></li><li><strong>구성요소</strong><ul><li>Class</li><li>Object</li><li>Method</li></ul></li></ul><pre><code class="python"># class의 기본형태class ClassName: #CamelCase  pass # statement  # hello_world: snake_case</code></pre><br/><h4 id="Class-작성-및-인스턴스-생성"><a href="#Class-작성-및-인스턴스-생성" class="headerlink" title="Class 작성 및 인스턴스 생성"></a>Class 작성 및 인스턴스 생성</h4><pre><code class="python">class Hero:  passIronMan = Hero()CaptainAmerica = Hero()Thor = Hero()</code></pre><br/><h4 id="Class-작성-및-인스턴스-생성-인스턴스-변수-초기화-및-Class-내부-method-작성"><a href="#Class-작성-및-인스턴스-생성-인스턴스-변수-초기화-및-Class-내부-method-작성" class="headerlink" title="Class 작성 및 인스턴스 생성(+인스턴스 변수 초기화) 및 Class 내부 method 작성"></a>Class 작성 및 인스턴스 생성(+인스턴스 변수 초기화) 및 Class 내부 method 작성</h4><pre><code class="python">class Hero:  hp = 100 # class variable  def __init__(self, name, weapon):    self.name = name # instance variable    self.weapon = weapon  # instance의 행동을 정의  def attack(self):    print(&#39;attack with &#123;&#125;&#39;,format(self.weapon))  def get_damaged(self):    passIronMan = Hero(&#39;IronMan&#39;, &#39;Suit&#39;)print(IronMan.attack())print(IronMan.name)print(IronMan.weapon)</code></pre><br/><h4 id="인스턴스-객체-참조를-통한-class-내부-변수의-값-변경하기"><a href="#인스턴스-객체-참조를-통한-class-내부-변수의-값-변경하기" class="headerlink" title="인스턴스 객체 참조를 통한 class 내부 변수의 값 변경하기"></a>인스턴스 객체 참조를 통한 class 내부 변수의 값 변경하기</h4><pre><code class="python">class LetsSeeAttributes:  &quot;&quot;&quot;  This is docstring  &quot;&quot;&quot;  integer = 1024  def function():    return &#39;fastcampus&#39;fast = LetsSeeAttributes()print(fast.integer) # 1024fast.integer = 2048print(fast.integer) # class 내부 변수의 값이 업데이트 된다.campus = LetsSeeAttributes()campus.integer # 1024</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h2 id=&quot;오늘-배운내용&quot;&gt;&lt;a href=&quot;#오늘-배운내용&quot; class=&quot;headerlink&quot; title=&quot;오늘 배운내용&quot;&gt;&lt;/a&gt;오늘 </summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 1236번 성 지키기 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/02/05/202102/210204-Algorithm_baekjoon_1236/"/>
-    <id>https://leehyungi0622.github.io/2021/02/05/202102/210204-Algorithm_baekjoon_1236/</id>
-    <published>2021-02-05T01:06:42.000Z</published>
-    <updated>2021-02-05T01:22:26.603Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code"><a href="#백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 1236번 성 지키기 문제 Pseudo code + Python code"></a>백준 저지 1236번 성 지키기 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210205_baekjoon_1236.png"></p><p>손 코딩에서 이중 for문 처리하는 부분에서 수정이 필요하다. 이중 for문에서 i,j를 이용해서 내부 반복처리를 해야하는데, 손 코딩할때 n과 m을 넣어 처리를 했다. 이 부분을 i와 j로 수정해서 넣어줘야 한다.</p><pre><code class="python">n, m = map(int, input().split())security_in_castle_list = []for _ in range(n):    security_in_castle_list.append(input())castle_row = [0]*ncastle_column = [0]*mfor i in range(n):    for j in range(m):        if security_in_castle_list[i][j] == &#39;X&#39;:            castle_row[i] += 1            castle_column[j] += 1castle_zero_row = 0for row in castle_row:    if row == 0:        castle_zero_row += 1castle_zero_column = 0for col in castle_column:    if col == 0:        castle_zero_column += 1print(max(castle_zero_row, castle_zero_column))</code></pre><p>이 문제는 (n x m) 행렬로 구성된 성 내부에서 각 행과 열에 최소 한 명의 경비원을 배치하도록 하는 문제이다. 문제 해결을 위해서는 행과 열의 크기만큼 리스트를 각각 선언하여 경비원이 아예 배치되어있지 않은 행과 열의 갯수를 구해야 한다.<br>구해진 행과 열의 갯수 중에 최대값을 출력하면 최소 배치해야 되는 경비원의 수를 구할 수 있다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-1236번-성-지키기-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준 저</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210204 HTTP - Request/Response</title>
-    <link href="https://leehyungi0622.github.io/2021/02/04/202102/210204-HTTP_Request_Response/"/>
-    <id>https://leehyungi0622.github.io/2021/02/04/202102/210204-HTTP_Request_Response/</id>
-    <published>2021-02-04T13:03:42.000Z</published>
-    <updated>2021-02-04T13:34:06.729Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210204_http_request_response.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><h3 id="GET-POST-방식-비교표"><a href="#GET-POST-방식-비교표" class="headerlink" title="GET/POST 방식 비교표"></a><strong>GET/POST 방식 비교표</strong></h3><p><img src="/images/post_images/210204_get_post_comparision.png"></p><p>GET 방식과 POST 방식은 위와같이 정보 전송방식과 보안적 측면, 전송할 수 있는 데이터의 길이, 전송데이터의 Caching 가능 유/무 등에서 차이점을 보인다.</p><p>HTTP의 동작방식에서 URL을 통해서 browser에 접속하게 되면, browser가 GET method 방식으로 Browser의 Page를 읽어온다.</p><p>로그인과 같이 중요한 정보를 전송할때에는 POST method로 browser에서 server로 정보를 전달하게 된다.</p><p>간단하게 browser상에서 /(root) 경로로 이동했을때의 처리를 작성해보자.</p><p><strong>index.js</strong></p><pre><code class="javascript">const handleHome = () =&gt; &#123;  console.log(&quot;Hi from home!&quot;);&#125;;app.get(&quot;/&quot;, handleHome);</code></pre><p>위와같이 작성을 해주면, console에서는 “Hi from home!”이라는 메시지를 확인할 수 있지만, 서버로 보내는 특정 response가 없기 때문에 웹 페이지가 무한 loading상태임을 확인할 수 있다.</p><pre><code class="javascript">const handleHome = (req, res) =&gt; &#123;  console.log(req);  res.send(&quot;Hello from home&quot;);&#125;;const handleProfile = (req, res) =&gt; &#123;  res.send(&quot;You are on my profile&quot;);&#125;;app.get(&quot;/&quot;, handleHome);app.get(&quot;/profile&quot;, handleProfile);</code></pre><p>위와같이 NodeJS는 서버와 Route를 생성하고 그것에 응답하는 방식으로 작동한다.</p><p>지금은 간단한 동작 확인을 위해서 위와같이 callback function과 router 처리를 같은 파일에서 작성을 해주었지만, 프로젝트 구성시에는 callback function은 controller로써 기능별로 분류를 해주고, router 기능을 하는 부분도 별도로 분류해서 작성을 해 줄 것이다.</p><p>실제로 웹 서버를 동작시킬때에는 위와같이 <code>res.send(&quot;[text]&quot;)</code>가 아닌 완전한 HTML파일을 rendering해준다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210204_http_request_response.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다</summary>
-      
-    
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/categories/NodeJS/"/>
-    
-    
-    <category term="NodeJS" scheme="https://leehyungi0622.github.io/tags/NodeJS/"/>
-    
-    <category term="Express-Framework" scheme="https://leehyungi0622.github.io/tags/Express-Framework/"/>
-    
-    <category term="HTTP-Request-Response" scheme="https://leehyungi0622.github.io/tags/HTTP-Request-Response/"/>
     
   </entry>
   
