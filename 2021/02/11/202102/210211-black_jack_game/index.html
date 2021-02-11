@@ -33,6 +33,7 @@
 <blockquote>
 <p>PersonInCasino 추상 클래스에 personality라는 class variable이 있는데, 이는 사람 성격에 따라 21미만의 카드를 뽑은 상태에서 카드를 계속 뽑을지(<code>Hit</code>) 아니면 멈출지(<code>Stay</code>)를 각기 다른 확률을 적용한다. <br/> 예를들어 소심한 사람은 20~30%, 평범한 사람은 50%, 욕심이 많은 사람은 80~90%의 확률로 카드를 계속 뽑는 결정을 하게 된다. <br/> 구체적인 구현 방법은 Python의 randchoice method에서 주어진 리스트에 대해 각 각 weight를 부여해서 확률을 조정할 수 있는데, 이를 활용해서 각기다른 성격을 가진 사람들이 다른 확률로 <code>Hit</code>을 한다.</p>
 </blockquote>
+<p>Hand class의 ring finger, middle finger, back of hand를 정의한 이유는 게임을 할때 player의 gesture가 있기 때문이다.<br>ring finger(검지)로 테이블을 톡 내려주는 gesture를 취하는 경우는 <ins><b>Hit</b></ins>, 검지와 중지(middle finger + ring finger)를 테이블에 향하여 친 후 손가락을 떼는 gesture는 <ins><b>Split</b></ins>을 의미한다. 그리고 손등(back of hand)이 위로 보이게 해서 손목스냅을 이용해 테이블을 한번 훑어주는 모션은 <ins><b>Stay</b></ins>이다.</p>
 <p><ins><b>has-A 의존관계 중에 클래스간의 응집력이 높은 <code>Composition의 형태</code>로 Hand, Card, Game class로 Player와 Dealer의 대응되는 각 각의 instance variable을 초기화시켜줬다.</b></ins></p>
 <p>Card class는 Player와 Dealer 모두 동일한 카드 뭉치로부터 카드를 받고 있기 때문에 Card class의 cardList는 class 변수로써 선언을 하였다.</p>
 <p>가능한 한 설계 단계에서 생각할 수 있는 경우의 수를 토대로 클래스 설계를 해보았다. 좀 더 가시적으로 클래스 관계를 이해할 수 있도록 Class UML(Unified Modeling Language)를 만들어서 첨부하였다.</p>
