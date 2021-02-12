@@ -16,17 +16,17 @@
 <pre><code class="bash">$ yarn add react-router-dom</code></pre>
 <br/>
 </li>
-<li><h3 id="Router-js-작성하기"><a href="#Router-js-작성하기" class="headerlink" title="Router.js 작성하기"></a><ins><b>Router.js 작성하기</b></ins></h3><p>path와 해당 path로 이동했을때 화면에 보여질 component를 정의한다.</p>
+<li><h3 id="Router-js-작성하기"><a href="#Router-js-작성하기" class="headerlink" title="Router.js 작성하기"></a><ins><b>Router.js 작성하기</b></ins></h3><p>Router와 Route를 사용하여 path와 해당 path로 이동했을때 화면에 보여질 component를 정의한다.</p>
 <pre><code class="javascript">import React from &quot;react&quot;;
 import &#123; HashRouter as Router, Route &#125; from &quot;react-router-dom&quot;;
 import Home from &quot;Screens/Home&quot;;
 
 export default () =&gt; &#123;
   &lt;Router&gt;
-    &lt;Route path=&quot;/&quot; exact component=&#123;Home&#125; /&gt;
+    &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;
   &lt;/Router&gt;;
 &#125;;</code></pre>
-<p><code>Switch</code>는 child component의 Route에 match되는 첫번째 요소를 rendering해준다. Switch를 사용하면, 하나의 match되는 Route만 rendering되는 것을 보장한다.</p>
+<p><code>Switch</code>는 child component의 Route에 match되는 첫번째 요소를 rendering해준다. Switch를 사용하면, 하나의 match되는 Route가 rendering되는 것을 보장한다.</p>
 <pre><code class="javascript">import React from &quot;react&quot;;
 import &#123; HashRouter as Router, Route &#125; from &quot;react-router-dom&quot;;
 import Home from &quot;Screens/Home&quot;;
@@ -43,7 +43,7 @@ export default () =&gt; &#123;
 <ul>
 <li><h4 id="Switch와-exact-사용의-차이"><a href="#Switch와-exact-사용의-차이" class="headerlink" title="Switch와 exact 사용의 차이"></a><ins><b>Switch와 exact 사용의 차이</b></ins></h4><p>그럼 <code>Switch</code>의 사용과 Route의 속성으로 <code>exact</code>으로 넣어주는 것은 어떤 차이가 있을까?</p>
 <pre><code class="javascript">// 아래 두 경우는 모두 같은 결과를 보여준다.
-// Switch 사용
+// Switch와 exact 사용
 &lt;Switch&gt;
   &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;
   &lt;Route path=&quot;/a&quot; component=&#123;A&#125; /&gt;
@@ -53,15 +53,17 @@ export default () =&gt; &#123;
 &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;
 &lt;Route path=&quot;/a&quot; component=&#123;A&#125; /&gt;
 &lt;Route path=&quot;/b&quot; component=&#123;B&#125; /&gt;</code></pre>
-<p>Switch는 일치하는 경로가 없을때, 특정 구성요소를 rendering해야되는 경우 사용될 수 있다. 또한 Switch의 경우, 첫 번째 일치하는 경로만 rendering하므로 만약 nested route를 사용하지 않는 경우에는 괜찮다.<br>하지만 아래와 같이 Home component의 내부에 중첩된 형태로 Route가 사용된다면, 그리고 사용자가 /dashboard 경로로 /dashboard 페이지에 접근하려고 한다면, Top level의 Route에는 /dashboard 와 일치하는 Route가 없기 때문에 page를 rendering할 수 없다.</p>
-<pre><code class="javascript">const Home = (props) =&gt; (
-  &lt;div&gt;
+<p>만약 nested route를 사용하지 않는 경우에는 상관이 없지만, 아래와 같이 Home component의 내부에 중첩된 형태로 Route가 사용된다면, 그리고 사용자가 /dashboard 경로로 /dashboard 페이지에 접근하려고 한다면, top level의 Route에는 /dashboard와 일치하는 Route가 없기 때문에 page를 rendering할 수 없다.</p>
+<pre><code class="javascript">// top level Router - Route
+&lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;;
+
+// Home component - nested routes
+const Home = (props) =&gt; (
+  &lt;&gt;
     &lt;Route path=&quot;/dashboard&quot; component=&#123;Dashboard&#125; /&gt;
     &lt;Route path=&quot;/layout&quot; component=&#123;Layout&#125; /&gt;
-  &lt;/div&gt;
-);
-// top level Router - Route
-&lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;;</code></pre>
+  &lt;/&gt;
+);</code></pre>
 <p>위와같이 중첩된 Route를 포함하여 모두 확인한 뒤에 일치하는 경로의 component를 rendering해주기 위해서는 아래와 같이 <code>Switch</code> 구문을 사용해서 top-level Route를 감싸줘야 한다.</p>
 <pre><code class="javascript">&lt;Switch&gt;
   &lt;Route path=&quot;/a&quot; component=&#123;A&#125; /&gt;
@@ -70,7 +72,7 @@ export default () =&gt; &#123;
 &lt;/Switch&gt;</code></pre>
 <p><code>&#39;/&#39;(root)에 해당되는 Route를 제일 마지막에 위치시킴으로써 별도로 &#39;/&#39;(root) Route에 exact를 넣어주지 않았다.</code></p>
 <ul>
-<li><h4 id="작성시-주의사항"><a href="#작성시-주의사항" class="headerlink" title="작성시 주의사항"></a><ins>작성시 주의사항</ins></h4><p>SPA(Single Page Application)의 특성을 가진 React는 별도의 화면 전환 없이 페이지에 표시되는 component를 다르게 함으로써 화면 전환이 되는 것 처럼 보여지게 한다.<br>이러한 특징으로인해 Router내에 여러 Route를 정의할때 만약 같은 path주소를 기반으로 시작하는 Route가 복수 개 정의되어있다면, 화면에 중첩되어 표시가 된다. 이러한 문제를 해결하기 위해서 <ins><b>Route의 props에 <code>exact=&#123;true&#125;</code> 혹은 <code>exact</code>속성을 추가해주거나 <code>Switch</code>를 사용해서 Route를 감싸서 처리한다.</b></ins><br>그러면 path주소의 기반이 같더라도 path 전체와 완전히 일치하는 path의 이동시에만 해당 component를 rendering해준다.</p>
+<li><h4 id="작성시-주의사항"><a href="#작성시-주의사항" class="headerlink" title="작성시 주의사항"></a><ins>작성시 주의사항</ins></h4><p>SPA(Single Page Application)의 특성을 가진 React는 별도의 화면 전환 없이 페이지에 표시되는 component를 다르게 함으로써 화면 전환이 되는 것 처럼 보여지게 한다.<br>이러한 특징으로인해 Router내에 여러 Route를 정의할때 만약 같은 path주소를 기반으로 시작하는 Route가 복수 개 정의되어있다면, 화면에 중첩되어 표시가 된다. 이러한 문제를 해결하기 위해서 <ins><b>Route의 props에 <code>exact=&#123;true&#125;</code> 혹은 <code>exact</code>속성을 추가해주거나 <code>Switch</code>를 사용해서 Route를 감싸서 처리한다.</b></ins><br>그러면 path주소의 기반 주소가 같더라도 path 전체와 완전히 일치하는 경우에만 해당 component를 rendering해준다.</p>
 </li>
 </ul>
 </li>
@@ -109,7 +111,7 @@ export default () =&gt; &#123;
 
 <ul>
 <li><h3 id="withRouter의-사용"><a href="#withRouter의-사용" class="headerlink" title="withRouter의 사용"></a><ins><b>withRouter의 사용</b></ins></h3><ul>
-<li>Router component의 하위에 있지 않은데 route 기능을 사용해야될때 사용된다.</li>
+<li>Router component의 하위에 있지 않지만, router의 기능을 사용해야될때 사용된다.</li>
 <li>react-router-dom은 withRouter를 제공해주는데 component를 감싸서 Router로부터 어떠한 정보를 전달받는 역할을 한다.</li>
 <li>HOC(Higher-Order-Component)로 with()명명 규칙을 따르며, Component를 인자로 받아서 새로운 Component를 반환하는 함수이다.</li>
 <li>예를들어, Header component를 withRouter로 감싸주게 되면, parameter를 통해 Router의 <code>location</code>정보를 읽어올 수 있다.</li>
@@ -144,7 +146,7 @@ export default withRouter(Header);</code></pre>
 ));</code></pre>
 <br/>
 </li>
-<li><h3 id="lt-a-gt-tag-말고-react-router-dom의-lt-Link-gt-사용하기"><a href="#lt-a-gt-tag-말고-react-router-dom의-lt-Link-gt-사용하기" class="headerlink" title="&lt;a&gt; tag 말고 react-router-dom의 &lt;Link&gt; 사용하기"></a><ins><b>&lt;a&gt; tag 말고 react-router-dom의 &lt;Link&gt; 사용하기</b></ins></h3><p>일반적인 웹 어플리케이션에서 특정 링크로 화면을 전이하기 위해서는 a 태그가 사용된다. 하지만 React에서는 <code>react-router-dom module에서 Link를 제공</code>한다.<br>a tag를 이용한 페이지 이동과 Link를 이용한 페이지 이동의 차이는 a tag를 이용한 페이지 이동은 매번 페이지가 이동이 될때마다 기존의 React가 새 페이지와 함께 새로고침되는 현상이 일어난다.<br>기존의 React의 상태를 보존시키면서 페이지를 전이시키기 위해서 Link를 이용해서 페이지를 이동시키도록 한다.<br><code>Link의 사용조건은 반드시 Router 내부에서 사용이 되어야 한다는 것이다.</code><br>그래서 Link가 사용이 된 Navigation component가 Router가 사용된 Header component내부에 종속되어 사용이 되었다.</p>
+<li><h3 id="lt-a-gt-tag-말고-react-router-dom의-lt-Link-gt-사용하기"><a href="#lt-a-gt-tag-말고-react-router-dom의-lt-Link-gt-사용하기" class="headerlink" title="&lt;a&gt; tag 말고 react-router-dom의 &lt;Link&gt; 사용하기"></a><ins><b>&lt;a&gt; tag 말고 react-router-dom의 &lt;Link&gt; 사용하기</b></ins></h3><p>일반적인 웹 어플리케이션에서 특정 링크로 화면을 전이하기 위해서는 a 태그가 사용된다. 하지만 React에서는 <code>react-router-dom module에서 Link를 제공</code>한다.<br>a tag를 이용한 페이지 이동과 Link를 이용한 페이지 이동의 차이는 a tag를 이용한 페이지 이동은 매번 페이지가 이동이 될때마다 기존의 React가 새 페이지와 함께 새로고침되는 현상이 일어난다.<br>기존의 React의 상태를 보존시키면서 페이지를 전이시키기 위해서 Link를 이용해서 페이지를 이동시키도록 한다.<br><code>Link의 사용조건은 반드시 Router 내부에서 사용이 되어야 한다는 것이다.</code><br>그래서 Link가 사용이 된 Navigation component가 Router가 사용된 Router component내부에 종속되어 사용이 되었다.</p>
 <pre><code class="javascript">import React from &quot;react&quot;;
 import &#123; Link &#125; from &quot;react-router-dom&quot;;
 
@@ -195,4 +197,4 @@ class DetailPage extends React.Component &#123;
 </li>
 </ul>
 <br/>
-</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2021/02/12/202102/210211_side_project_diary/" title="210212 Side Project Diary 6/7일차"><span class="has-text-weight-semibold">Next: 210212 Side Project Diary 6/7일차</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/12/202102/210212-React_testing_library_router_test/" title="210212 React Router Unit Test"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210212 React Router Unit Test</span></a><a class="button is-default" href="/2021/02/12/202102/210211_side_project_diary/" title="210212 Side Project Diary 6/7일차"><span class="has-text-weight-semibold">Next: 210212 Side Project Diary 6/7일차</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
