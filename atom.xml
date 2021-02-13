@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-12T23:38:24.751Z</updated>
+  <updated>2021-02-13T02:58:46.436Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,50 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210213 Bundle size와 Lazy loading</title>
+    <link href="https://leehyungi0622.github.io/2021/02/13/202102/210213-React_testing_library_lazy_suspense/"/>
+    <id>https://leehyungi0622.github.io/2021/02/13/202102/210213-React_testing_library_lazy_suspense/</id>
+    <published>2021-02-13T02:40:42.000Z</published>
+    <updated>2021-02-13T02:58:46.436Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210213_lazy_loading.jpeg"></p><br/><h3 id="Bundle-size와-Lazy-loading"><a href="#Bundle-size와-Lazy-loading" class="headerlink" title="Bundle size와 Lazy loading"></a><ins><strong>Bundle size와 Lazy loading</strong></ins></h3><p>React routing test를 하면서 각 각의 Component를 lazy loading하여 테스트를 진행하였다.</p><p>이 <ins><b>lazy loading(지연로딩)에 대해서 좀 더 자세하게 알아두고자 포스팅으로 정리</b></ins>를 해둔다.</p><p>React app의 크기가 커짐에 따라 개발자는 bundle size에 대한 걱정을 시작해야 할 수 있다. 이 bundle size란 사용자가 React app을 load하기 위해 download해야만 하는 JavaScript의 양을 의미한다.<br>이 Bundle size가 클수록 사용자가 app으르 보는데 시간이 오래걸린다.</p><p>따라서 이 Lazy를 사용해서 component가 rendering 될때에 <ins><b>사용되지 않는 구성요소에 대한 로드를 지연시킬</b></ins> 수 있다.</p><blockquote><p>As your React app gets larger, you may have to start worrying about its bundle size. An app’s bundle size is the amount of JavaScript a user will have to download to load your app. The bigger the bundle size is, the longer it will take before a user can view your app.</p></blockquote><p><code>Googling하면서 React app의 bundle 사이즈를 분석하고 코드 분할(Code splitting)을 통해 bundle 사이즈를 줄이는 것과 관련된 괜찮은 내용의 블로그를 찾아서 아래에 첨부해두었다.</code></p><p>React.lazy와 Suspense를 사용한 Code-splitting도 bundle size를 줄이는 방법 중에 하나이다.</p><p><a href="https://www.emgoto.com/react-bundles-and-code-splitting/#:~:text=As%20your%20React%20app%20gets,user%20can%20view%20your%20app.">https://www.emgoto.com/react-bundles-and-code-splitting/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210213_lazy_loading.jpeg&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h3 id=&quot;Bundle-size와-Lazy-loading&quot;&gt;&lt;a href=&quot;#Bundle-size와-Lazy-loadin</summary>
+      
+    
+    
+    
+    <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
+    
+    
+    <category term="React-testing-library" scheme="https://leehyungi0622.github.io/tags/React-testing-library/"/>
+    
+    <category term="React-router-test" scheme="https://leehyungi0622.github.io/tags/React-router-test/"/>
+    
+    <category term="Unit-testing" scheme="https://leehyungi0622.github.io/tags/Unit-testing/"/>
+    
+    <category term="Bundle-size" scheme="https://leehyungi0622.github.io/tags/Bundle-size/"/>
+    
+    <category term="Lazy" scheme="https://leehyungi0622.github.io/tags/Lazy/"/>
+    
+    <category term="Suspense" scheme="https://leehyungi0622.github.io/tags/Suspense/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210213 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/02/13/202102/210213-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/13/202102/210213-Self-development_til/</id>
     <published>2021-02-12T23:07:00.000Z</published>
-    <updated>2021-02-12T23:38:24.751Z</updated>
+    <updated>2021-02-13T03:01:51.948Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li>Blackjack game class 설계한 내용 코드로 구현하기 (<code>예정</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test 관련 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong>ReactJS project 프로젝트</strong></ins><ul><li>프로젝트 진척<ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li>Write unit testing code for router function.(<code>예장</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li>Blackjack game class 설계한 내용 코드로 구현하기 (<code>예정</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong>ReactJS project 프로젝트</strong></ins><ul><li>프로젝트 진척<ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li>Write unit testing code for router function.(<code>예정</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
     
     
       
@@ -36,9 +73,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -47,9 +84,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/12/202102/210212-React_testing_library_router_test/"/>
     <id>https://leehyungi0622.github.io/2021/02/12/202102/210212-React_testing_library_router_test/</id>
     <published>2021-02-12T13:46:42.000Z</published>
-    <updated>2021-02-12T15:39:36.077Z</updated>
+    <updated>2021-02-13T02:30:24.291Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210212_react_testing_library.jpg"></p><br/><h3 id="React-Router-Test"><a href="#React-Router-Test" class="headerlink" title="React Router Test"></a><ins><strong>React Router Test</strong></ins></h3><p>이번 포스팅에서는 React router testing에 대해서 정리해보려고 한다.<br>React router test파일은 <code>&lt;App/&gt; component에 대한 test file을 작성</code>한다.</p><ul><li><h4 id="우선-기본적으로-작성할-테스트-케이스의-내용을-정리해보자"><a href="#우선-기본적으로-작성할-테스트-케이스의-내용을-정리해보자" class="headerlink" title="우선 기본적으로 작성할 테스트 케이스의 내용을 정리해보자."></a>우선 기본적으로 작성할 테스트 케이스의 내용을 정리해보자.</h4><ul><li><strong>(Test case 1)</strong> 처음 &lt;App/&gt; component가 rendering될때 root path와 matching되는 Home component가 rendering되는가?</li><li><strong>(Test case 2)</strong> &lt;nav&gt; 태그로 만든 각 menu를 클릭했을때 각 각의 matching되는 component로 rendering이 되는가?</li><li><strong>(Test case 3)</strong> route에 해당하는 path가 없는 경우에는 <code>404 Not Found</code> component가 rendering되는가?</li><li><strong>(Test case 4)</strong> 페이지가 loading되는 동안 &lt;Loading /&gt; component가 페이지가 표시되는가?</li></ul><p><ins><b>Test case 4의 Loading component가 DOM에 그려지는 것을 확인하기 위해서 component를 Lazy하게 가져와야 한다.</b></ins></p></li></ul><br/><ul><li><h4 id="Component를-Lazy하게-가져오기"><a href="#Component를-Lazy하게-가져오기" class="headerlink" title="Component를 Lazy하게 가져오기"></a>Component를 Lazy하게 가져오기</h4><pre><code class="javascript">import React, &#123; Suspense, lazy &#125; from &quot;react&quot;;import &#123; Route, Redirect, Switch &#125; from &quot;react-router-dom&quot;;import Loading from &quot;./Loading&quot;;// page component를 가져올때 lazy하게 가져온다.const Home = lazy(() =&gt; import(&quot;../../pages/Home&quot;));const Menu1 = lazy(() =&gt; import(&quot;../../pages/Menu1&quot;));const Menu2 = lazy(() =&gt; import(&quot;../../pages/Menu2&quot;));const NotFound = lazy(() =&gt; import(&quot;../../pages/NotFound&quot;));// 기본적으로 component를 lazy하게 가져오기 위해서는 아래와 같이// Suspense의 fallback속성으로 Loading component를 넣어서// Switch를 감싸줘야 한다.&lt;Suspense fallback=&#123;&lt;Loading /&gt;&#125;&gt;  &lt;Switch&gt;    &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;    &lt;Route path=&quot;/menu1&quot; component=&#123;Menu1&#125; /&gt;    &lt;Route path=&quot;/menu2&quot; component=&#123;Menu2&#125; /&gt;    &lt;Route path=&quot;/notfound&quot; component=&#123;Notfound&#125; /&gt;    &lt;Redirect to=&quot;/notfound&quot; /&gt;  &lt;/Switch&gt;&lt;/Suspense&gt;;</code></pre></li></ul><h3 id="history-createMemoryHistory"><a href="#history-createMemoryHistory" class="headerlink" title="history - createMemoryHistory"></a>history - createMemoryHistory</h3><p>createMemoryHistory() 객체를 만들어서 전이될 화면에 대한 정보를 push()를 이용해서 넣어 줄 수 있다. 준비된 history 객체는 Router의 history property로 넣어주면 자동으로 Route에서 해당 경로(path)에 맞는 component를 rendering을 해주게 되고, 결과적으로 화면에 표시된 정보를 확인할 수 있다.</p><h3 id="testing-library-react-fireEvent"><a href="#testing-library-react-fireEvent" class="headerlink" title="@testing-library/react - fireEvent"></a>@testing-library/react - fireEvent</h3><p><a href="https://testing-library.com/docs/dom-testing-library/api-events/">https://testing-library.com/docs/dom-testing-library/api-events/</a></p><p>fireEvent는 화면상에서 Click과 같은 Event를 발생시킬때 사용된다.<br>이벤트를 발생시키고자 하는 <code>Component에 data-testid 속성으로 id를 지정</code>한 다음에 <code>test하는 component를 render시킴으로써 getByTestId로부터 해당 id에 접근을 해서 fireEvent를 통해 event를 발생</code>시킬 수 있다.</p><h3 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h3><p>wait()함수는 Promise를 객체를 반환하고 기본적으로 50ms마다 wait()에 넘겨준 callback을 실행하고 timeout은 4500ms이다. wait()에 argument로 별도로 넘겨주는 callback 함수가 없다면, 빈 함수를 실행한다.<br>서버와 api 통신하는 경우에는 timeout이 발생할 수 있으므로, 이 경우에는 별도로 callback함수를 넣어서 처리해준다.<br>testing-library의 version이 10이상인 경우에는 <code>waitFor()</code>함수를 사용하고, 이전 버전을 사용하는 경우에는 <code>wait()</code>함수를 사용하도록 하자.</p><h3 id="Sample-Test-code"><a href="#Sample-Test-code" class="headerlink" title="Sample Test code"></a><strong>Sample Test code</strong></h3><pre><code class="javascript">import React from &#39;react&#39;;import &#123; render, cleanup, wait, ,fireEvent &#125; from &#39;@testing-library/react&#39;;import &#123; createMemoryHistory &#125; from &#39;history&#39;;import &#123; Route, Router, Switch &#125; from &#39;react-router-dom&#39;;import App from &#39;./App&#39;;// page componentsimport Home from &#39;../pages/Home&#39;;import Menu1 from &#39;../pages/Menu1&#39;;import Menu2 from &#39;../pages/Menu2&#39;;import NotFound from &#39;../pages/NotFound&#39;;// 각 테스트가 끝난뒤에 초기화afterEach(cleanup);describe(&#39;&lt;App /&gt;&#39;, () =&gt; &#123;  // Test case 1  test(&#39;&lt;App /&gt; rendering시에 /(root)로 rendering이 되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId, getByText &#125; = render(&lt;App /&gt;);    const navbar = getByTestId(&#39;navbar&#39;);    const link = getByTestId(&#39;HOME&#39;);    // 각 각의 page componet를 lazy하게 가져오고 있기 때문에, 비동기로 wait() 처리를 해준다.    await wait();    expect(getByText(/Hello world/i)).toBeInTheDocument();    expect(navbar).toContainElement(link);  &#125;);  // Test case 2  test(&#39;MENU1 menu를 클릭시, MENU1 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU1&#39;));    await wait();    // menu1-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu1-wrapper&#39;)).toBeInTheDocument();  &#125;);  // Test case 2  test(&#39;MENU2 menu를 클릭시, MENU2 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU2&#39;));    await wait();    // menu2-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu2-wrapper&#39;)).toBeInTheDocument();  &#125;);  // Test case 3  test(&#39;Route에 해당되는 path가 없는 경우, /notfound component로 rendering되는가?&#39;, async() =&gt; &#123;    const history = createMemoryHistory();    history.push(&#39;/not/found&#39;);    const &#123; getByTestId &#125; = render(      &lt;Router history=&#123;history&#125;&gt;        &lt;Switch&gt;          &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;          &lt;Route path=&quot;/menu1&quot; component=&#123;Menu1&#125; /&gt;          &lt;Route path=&quot;/menu2&quot; component=&#123;Menu2&#125; /&gt;          &lt;Route component=&#123;NotFound&#125; /&gt;        &lt;/Switch&gt;      &lt;/Router&gt;    );    await wait();    expect(getByTestId(&#39;404-notfound&#39;)).toBeInTheDocument();  &#125;);&#125;);</code></pre>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210212_react_testing_library.jpg"></p><br/><h3 id="React-Router-Test"><a href="#React-Router-Test" class="headerlink" title="React Router Test"></a><ins><strong>React Router Test</strong></ins></h3><p>이번 포스팅에서는 React router testing에 대해서 정리해보려고 한다.<br>React router test파일은 <code>&lt;App/&gt; component에 대한 test file을 작성</code>한다.</p><ul><li><h4 id="우선-기본적으로-작성할-테스트-케이스의-내용을-정리해보자"><a href="#우선-기본적으로-작성할-테스트-케이스의-내용을-정리해보자" class="headerlink" title="우선 기본적으로 작성할 테스트 케이스의 내용을 정리해보자."></a>우선 기본적으로 작성할 테스트 케이스의 내용을 정리해보자.</h4><ul><li><strong>(Test case 1)</strong> 처음 &lt;App/&gt; component가 rendering될때 root path와 matching되는 Home component가 rendering되는가?</li><li><strong>(Test case 2)</strong> &lt;nav&gt; 태그로 만든 각 menu를 클릭했을때 각 각의 matching되는 component로 rendering이 되는가?</li><li><strong>(Test case 3)</strong> route에 해당하는 path가 없는 경우에는 <code>404 Not Found</code> component가 rendering되는가?</li><li><strong>(Test case 4)</strong> 페이지가 loading되는 동안 &lt;Loading /&gt; component가 페이지가 표시되는가?</li></ul><p><ins><b>Test case 4의 Loading component가 DOM에 그려지는 것을 확인하기 위해서 component를 Lazy하게 가져와야 한다.</b></ins></p></li></ul><br/><ul><li><h4 id="Component를-Lazy하게-가져오기"><a href="#Component를-Lazy하게-가져오기" class="headerlink" title="Component를 Lazy하게 가져오기"></a>Component를 Lazy하게 가져오기</h4><pre><code class="javascript">import React, &#123; Suspense, lazy &#125; from &quot;react&quot;;import &#123; Route, Redirect, Switch &#125; from &quot;react-router-dom&quot;;import Loading from &quot;./Loading&quot;;// page component를 가져올때 lazy하게 가져온다.const Home = lazy(() =&gt; import(&quot;../../pages/Home&quot;));const Menu1 = lazy(() =&gt; import(&quot;../../pages/Menu1&quot;));const Menu2 = lazy(() =&gt; import(&quot;../../pages/Menu2&quot;));const NotFound = lazy(() =&gt; import(&quot;../../pages/NotFound&quot;));// 기본적으로 component를 lazy하게 가져오기 위해서는 아래와 같이// Suspense의 fallback속성으로 Loading component를 넣어서// Switch를 감싸줘야 한다.&lt;Suspense fallback=&#123;&lt;Loading /&gt;&#125;&gt;  &lt;Switch&gt;    &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;    &lt;Route path=&quot;/menu1&quot; component=&#123;Menu1&#125; /&gt;    &lt;Route path=&quot;/menu2&quot; component=&#123;Menu2&#125; /&gt;    &lt;Route path=&quot;/notfound&quot; component=&#123;Notfound&#125; /&gt;    &lt;Redirect to=&quot;/notfound&quot; /&gt;  &lt;/Switch&gt;&lt;/Suspense&gt;;</code></pre></li></ul><h3 id="history-createMemoryHistory"><a href="#history-createMemoryHistory" class="headerlink" title="history - createMemoryHistory"></a>history - createMemoryHistory</h3><p>createMemoryHistory() 객체를 만들어서 전이될 화면에 대한 정보를 push()를 이용해서 넣어 줄 수 있다. 준비된 history 객체는 Router의 history property로 넣어주면 자동으로 Route에서 해당 경로(path)에 맞는 component를 rendering을 해주게 되고, 결과적으로 화면에 표시된 정보를 확인할 수 있다.</p><h3 id="testing-library-react-fireEvent"><a href="#testing-library-react-fireEvent" class="headerlink" title="@testing-library/react - fireEvent"></a>@testing-library/react - fireEvent</h3><p><a href="https://testing-library.com/docs/dom-testing-library/api-events/">https://testing-library.com/docs/dom-testing-library/api-events/</a></p><p>fireEvent는 화면상에서 Click과 같은 Event를 발생시킬때 사용된다.<br>이벤트를 발생시키고자 하는 <code>Component에 data-testid 속성으로 id를 지정</code>한 다음에 <code>test하는 component를 render시킴으로써 getByTestId로부터 해당 id에 접근을 해서 fireEvent를 통해 event를 발생</code>시킬 수 있다.</p><h3 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h3><p>wait()함수는 Promise를 객체를 반환하고 기본적으로 50ms마다 wait()에 넘겨준 callback을 실행하고 timeout은 4500ms이다. wait()에 argument로 별도로 넘겨주는 callback 함수가 없다면, 빈 함수를 실행한다.<br>서버와 api 통신하는 경우에는 timeout이 발생할 수 있으므로, 이 경우에는 별도로 callback함수를 넣어서 처리해준다.<br>testing-library의 version이 10이상인 경우에는 <code>waitFor()</code>함수를 사용하고, 이전 버전을 사용하는 경우에는 <code>wait()</code>함수를 사용하도록 하자.</p><h3 id="Lazy-amp-Suspense"><a href="#Lazy-amp-Suspense" class="headerlink" title="Lazy &amp; Suspense"></a>Lazy &amp; Suspense</h3><p><a href="https://ja.reactjs.org/docs/react-api.html#reactlazy">https://ja.reactjs.org/docs/react-api.html#reactlazy</a></p><p>React.lazy()를 사용하면 동적으로 된 구성요소를 정의할 수 있다. 이렇게 정의를 하게되면, bundle의 크기가 감소하여 최초 render시에 사용되지 않는 구성요소의 로드를 지연시킬 수 있다.</p><p>Suspense를 사용하면 component가 rendering되기 전에 다른 작업이 먼저 이루어지도록 대기한다. 또한 React.lazy를 사용하여 Component를 동적으로 불러오는 것을 지원합니다.</p><h3 id="Sample-Test-code"><a href="#Sample-Test-code" class="headerlink" title="Sample Test code"></a><strong>Sample Test code</strong></h3><pre><code class="javascript">import React from &#39;react&#39;;import &#123; render, cleanup, wait, ,fireEvent &#125; from &#39;@testing-library/react&#39;;import &#123; createMemoryHistory &#125; from &#39;history&#39;;import &#123; Route, Router, Switch &#125; from &#39;react-router-dom&#39;;import App from &#39;./App&#39;;// page componentsimport Home from &#39;../pages/Home&#39;;import Menu1 from &#39;../pages/Menu1&#39;;import Menu2 from &#39;../pages/Menu2&#39;;import NotFound from &#39;../pages/NotFound&#39;;// 각 테스트가 끝난뒤에 초기화afterEach(cleanup);describe(&#39;&lt;App /&gt;&#39;, () =&gt; &#123;  // Test case 1  test(&#39;&lt;App /&gt; rendering시에 /(root)로 rendering이 되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId, getByText &#125; = render(&lt;App /&gt;);    const navbar = getByTestId(&#39;navbar&#39;);    const link = getByTestId(&#39;HOME&#39;);    // 각 각의 page componet를 lazy하게 가져오고 있기 때문에, 비동기로 wait() 처리를 해준다.    await wait();    expect(getByText(/Hello world/i)).toBeInTheDocument();    expect(navbar).toContainElement(link);  &#125;);  // Test case 2  test(&#39;MENU1 menu를 클릭시, MENU1 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU1&#39;));    await wait();    // menu1-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu1-wrapper&#39;)).toBeInTheDocument();  &#125;);  // Test case 2  test(&#39;MENU2 menu를 클릭시, MENU2 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU2&#39;));    await wait();    // menu2-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu2-wrapper&#39;)).toBeInTheDocument();  &#125;);  // Test case 3  test(&#39;Route에 해당되는 path가 없는 경우, /notfound component로 rendering되는가?&#39;, async() =&gt; &#123;    const history = createMemoryHistory();    history.push(&#39;/not/found&#39;);    const &#123; getByTestId &#125; = render(      &lt;Router history=&#123;history&#125;&gt;        &lt;Switch&gt;          &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;          &lt;Route path=&quot;/menu1&quot; component=&#123;Menu1&#125; /&gt;          &lt;Route path=&quot;/menu2&quot; component=&#123;Menu2&#125; /&gt;          &lt;Route component=&#123;NotFound&#125; /&gt;        &lt;/Switch&gt;      &lt;/Router&gt;    );    await wait();    expect(getByTestId(&#39;404-notfound&#39;)).toBeInTheDocument();  &#125;);&#125;);</code></pre>]]></content>
     
     
       
@@ -135,7 +172,7 @@
     <link href="https://leehyungi0622.github.io/2021/02/12/202102/210212-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/12/202102/210212-Self-development_til/</id>
     <published>2021-02-11T22:20:00.000Z</published>
-    <updated>2021-02-12T23:08:30.137Z</updated>
+    <updated>2021-02-13T03:00:13.602Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>모든 천재들에게는 약간의 미친 구석이 있다.</strong><br/> (There is no great genius without some touch of madness.)<br/> <strong>세네카 / Seneca</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Side Project 시작</strong></ins><ul><li><del>Side Project Diary 6/7일차 작성</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Blog내용 이전하기</strong></ins><ul><li><del>React router관련 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>Blackjack game class 설계한 내용 코드로 구현하기 (<code>예정</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li></ul>]]></content>
     
@@ -150,9 +187,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -203,9 +240,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -214,9 +251,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Image-Optimization/"/>
     <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Image-Optimization/</id>
     <published>2021-02-10T08:00:00.000Z</published>
-    <updated>2021-02-11T03:00:18.762Z</updated>
+    <updated>2021-02-13T03:04:03.796Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210210_image_optimization.png"></p><br/><p>Hexo 블로그를 운영하면서 업로드한 이미지들 때문에 웹 페이지의 로딩시간이 이전보다 많이 느려졌다.<br>그래서 업로드한 이미지 파일들을 모두 compression해서 파일크기를 1/4 사이즈로 만든다음에 업로드하였다. 그런데도 웹 페이지 로딩시간이 생각보다 오래 걸려서 한 번 Googling을 해보았다.</p><p>그래서 발견한 것이 <code>Hexo Image Optimization</code>이다.</p><p>Hexo 내에 존재하는 모든 image파일 확장자를 가진 파일들을 최적화 시켜주고, 별도의 설정으로 post의 thumbnail 이미지도 최적화 시켜준다고 한다.</p><p>그래서 친절하게 설명되어 있는 설명을 보며, 최적화 설정을 모두 마쳤다.</p><p>혹시 나와같이 블로그를 운영하다가 같은 문제로 고민이 있는 사람을 위해 참고한 GitHub 주소를 첨부한다.</p><p>요즘에 블로그 포스팅을 하면서, 이전에 우연히 보게 된 영상에서 개발자 유튜버가 하신 말씀이 생각난다.<br><code>&quot;개발자는 알고있는 지식을 소유하는 것이 아니라 공유하는 것이다.&quot;</code></p><p>아직은 아는 것이 많이 없지만, 이제부터 새롭게 알게 되거나 유익한 내용들을 블로그를 통해서 많이 공유해야겠다.</p><br/><p><strong>[Hexo-img-optimization GitHub URL]</strong><br><a href="https://github.com/vkuznecovas/hexo-img-optimization">https://github.com/vkuznecovas/hexo-img-optimization</a></p><p><img src="/images/post_images/210211_img_optimization.png"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210210_image_optimization.png"></p><br/><p>Hexo 블로그를 운영하면서 업로드한 이미지들 때문에 웹 페이지의 로딩시간이 이전보다 많이 느려졌다.<br>그래서 업로드한 이미지 파일들을 모두 compression해서 파일크기를 1/4 사이즈로 만든다음에 업로드하였다. 그런데도 웹 페이지 로딩시간이 생각보다 오래 걸려서 한 번 Googling을 해보았다.</p><p>그래서 발견한 것이 <code>Hexo Image Optimization</code>이다.</p><p>Hexo 내에 존재하는 모든 image파일 확장자를 가진 파일들을 최적화 시켜주고, 별도의 설정으로 post의 thumbnail 이미지도 최적화 시켜준다고 한다.</p><p>그래서 친절하게 설명되어 있는 설명을 보며, 최적화 설정을 모두 마쳤다.</p><pre><code class="bash">$ hexo generate &amp;&amp; hexo img</code></pre><p>혹시 나와같이 블로그를 운영하다가 같은 문제로 고민이 있는 사람을 위해 참고한 GitHub 주소를 첨부한다.</p><p>요즘에 블로그 포스팅을 하면서, 이전에 우연히 보게 된 영상에서 개발자 유튜버가 하신 말씀이 생각난다.<br><code>&quot;개발자는 알고있는 지식을 소유하는 것이 아니라 공유하는 것이다.&quot;</code></p><p>아직은 아는 것이 많이 없지만, 이제부터 새롭게 알게 되거나 유익한 내용들을 블로그를 통해서 많이 공유해야겠다.</p><br/><p><strong>[Hexo-img-optimization GitHub URL]</strong><br><a href="https://github.com/vkuznecovas/hexo-img-optimization">https://github.com/vkuznecovas/hexo-img-optimization</a></p><p><img src="/images/post_images/210211_img_optimization.png"></p>]]></content>
     
     
       
@@ -263,9 +300,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -294,9 +331,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -377,9 +414,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -465,9 +502,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -522,9 +559,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -554,34 +591,6 @@
     <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
     
     <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210207 API &amp; Networking with Axios instance</title>
-    <link href="https://leehyungi0622.github.io/2021/02/07/202102/210207-ReactJS_axios/"/>
-    <id>https://leehyungi0622.github.io/2021/02/07/202102/210207-ReactJS_axios/</id>
-    <published>2021-02-07T05:55:42.000Z</published>
-    <updated>2021-02-07T07:04:18.712Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/react-js-logo.png"></p><blockquote><p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p></blockquote><br/><ul><li><h1 id="Axios-vs-Fetch"><a href="#Axios-vs-Fetch" class="headerlink" title="Axios vs Fetch"></a>Axios vs Fetch</h1></li></ul><br/><ul><li><h1 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch()"></a>Fetch()</h1></li></ul><p>Fetch API는 Request나 Response와 같은 HTTP Pipeline에 접근 및 조작을 하기 위한 JavaScript interface를 제공한다.<br>Network를 통해 비동기방식으로 resource를 fetch하기 위해서 사용된다고 이해하면 된다.</p><p>사용방법은 아래와 같이 fetch() method에 자원을 얻기 위한 path를 넣어주고 request, response에 접근하면 된다.</p><pre><code class="javascript">// fetch의 기본적인 사용fetch(&quot;examples/example.json&quot;)  .then((response) =&gt; &#123;    // Do stuff with the response  &#125;)  .catch((error) =&gt; &#123;    console.log(&quot;Looks like there was a problem: \n&quot;, error);  &#125;);</code></pre><h2 id="Request-object"><a href="#Request-object" class="headerlink" title="Request object"></a>Request object</h2><pre><code class="javascript">// Request object&#123;  method: &#39;POST&#39;, // *GET, POST, PUT, DELETE, etc.  mode: &#39;cors&#39;, // no-cors, *cors, same-origin  cache: &#39;no-cache&#39;, // *default, no-cache, reload, force-cache, only-if-cached  credentials: &#39;same-origin&#39;, // include, *same-origin, omit  headers: &#123;   &#39;Content-Type&#39;: &#39;application/json&#39;  &#125;,  redirect: &#39;follow&#39;, // manual, *follow, error  referrerPolicy: &#39;no-referrer&#39;, // no-referrer, *client  body: JSON.stringify(data) // body data type must match &quot;Content-Type&quot; header&#125;</code></pre><h2 id="Response-object"><a href="#Response-object" class="headerlink" title="Response object"></a>Response object</h2><p>아래와같이 Response 객체를 통해서 서버로부터 넘겨받은 데이터를 여러 형식으로 받아 올 수 있다.<br>response.json(): Parse the response as JSON<br>response.text(): Read the response and return as text<br>response.formData(): Return the response as FormData object<br>response.blob(): Return the response as Blob<br>response.arrayBuffer(): Return the response as ArrayBuffer</p><br/><ul><li><h1 id="Axios"><a href="#Axios" class="headerlink" title="Axios?"></a>Axios?</h1></li></ul><p>Axios는 native JavaScript API가 아니기 때문에 사용하려면 우선 <code>npm i axios</code>를 통해 Axios를 설치해줘야 한다. Axios는 JavaScript library로, node.js 또는 XMLHttpRequests로부터 http requests 만들때 사용이 된다.</p><p><code>그럼 Fetch() method와 비교했을때 Axios library는 어떤 장점이 있을까?</code></p><p><em><b>첫번재,</b></em> <ins>Fetch() method에서는 사용할때마다 매번 인자로 resource를 가져올 path를 넣어줘야 하는데, Axios는 baseURL과 기타 설정 부분을 공통처리해서 만든 <code>instance 객체로 재사용해서 사용이 가능</code>하다는 점이다.</ins></p><p><img src="/images/post_images/210207_axios_instance_creation.png"></p><pre><code class="javascript">import axios from &quot;axios&quot;;const api = axios.create(&#123;  baseURL: &quot;https://api.baseurl.com/&quot;,  params: &#123;    api_key: &quot;06e43891a2b919ee11ba3f3894d63374&quot;,    language: &quot;euc-kr&quot;  &#125;&#125;);api.get(&quot;test&quot;);export default api;</code></pre><p><em><b>두번째,</b></em> <ins>Axios는 download progress를 관리할 수 있는 build-in function이 있다.</ins></p><p><em><b>세번째,</b></em> <ins>Axios는 XSRF에 대항하여 client-side 보호가 가능하다.</ins></p><p><strong>XSRF?</strong></p><blockquote><p>사이트 간 요청 위조(또는 크로스 사이트 요청 위조, Cross-site request forgery, CSRF, XSRF)라고 한다. 웹 사이트 취약점 공격들 중에 하나로, 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록)를 특정 웹 사이트에 요청하게 하는 공격을 말한다.</p></blockquote><p><a href="https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EA%B0%84_%EC%9A%94%EC%B2%AD_%EC%9C%84%EC%A1%B0">Reference website : XSRF-wikipedia</a></p><p><em><b>네번째,</b></em> <ins>자동으로 request와 response를 변환해준다.</ins></p><p>아래의 예시에서 볼 수 있듯이, data를 JSON으로 자동 convert해주고, 이것을 request body로써 전송해준다.</p><pre><code class="javascript">// send a POST requestaxios(&#123;  method: &quot;post&quot;,  url: &quot;/login&quot;,  data: &#123;    firstName: &quot;Hyungi&quot;,    lastName: &quot;Lee&quot;  &#125;&#125;);</code></pre><p><em><b>다섯번째</b></em> <ins>Axios는 각기 다른 HTTP requests를 위한 shorthand methods를 제공한다.</ins></p><ul><li>axios.<strong>request</strong>(config)</li><li>axios.<strong>get</strong>(url[, config])</li><li>axios.<strong>delete</strong>(url[, config])</li><li>axios.<strong>head</strong>(url[, config])</li><li>axios.<strong>options</strong>(url[, config])</li><li>axios.<strong>post</strong>(url[, data[, config]])</li><li>axios.<strong>put</strong>(url[, data[, config]])</li><li>axios.<strong>patch</strong>(url[, data[, config]])</li></ul><p>예를들어, post방식으로 /login 에 입력받은 firstName과 lastname을 request body에 담아 보내고자 한다면 아래와 같이 간단하게 작성해 줄 수 있다.</p><pre><code class="javascript">axios  .post(&quot;/login&quot;, &#123;    firstName: &quot;Hyungi&quot;,    lastName: &quot;Lee&quot;  &#125;)  .then(    (response) =&gt; &#123;      console.log(response);    &#125;,    (error) =&gt; &#123;      console.log(error);    &#125;  );</code></pre><p>axios.post는 아래의 response 정보를 반환해준다.</p><pre><code class="json">// `data` is the response that was provided by the server  data: &#123;&#125;,  // `status` is the HTTP status code from the server response  status: 200,  // `statusText` is the HTTP status message from the server response  statusText: &#39;OK&#39;,  // `headers` the headers that the server responded with  // All header names are lower cased  headers: &#123;&#125;,  // `config` is the config that was provided to `axios` for the request  config: &#123;&#125;,  // `request` is the request that generated this response  // It is the last ClientRequest instance in node.js (in redirects)  // and an XMLHttpRequest instance the browser  request: &#123;&#125;&#125;</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/react-js-logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</summary>
-      
-    
-    
-    
-    <category term="ReactJS" scheme="https://leehyungi0622.github.io/categories/ReactJS/"/>
-    
-    
-    <category term="ReactJS" scheme="https://leehyungi0622.github.io/tags/ReactJS/"/>
-    
-    <category term="ReactJS-Axios" scheme="https://leehyungi0622.github.io/tags/ReactJS-Axios/"/>
     
   </entry>
   
