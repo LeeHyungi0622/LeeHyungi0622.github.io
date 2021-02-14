@@ -1,0 +1,268 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210214 Blackjack CLI Based Game</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210214 Blackjack CLI Based Game</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Blackjack-CLI-Based-Game"><span class="toc-text">Blackjack CLI Based Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B2%8C%EC%9E%84-%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC-%ED%99%94%EB%A9%B4"><span class="toc-text">게임 실행결과 화면</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">Blackjack으로 게임을 종료하는 경우</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text">뽑은 카드들의 수의 합이 21을 초과하여 상대편이 이기는 경우</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BD%94%EB%93%9C-Python"><span class="toc-text">코드 (Python)</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Python-Assignment"><i class="tag post-item-tag">Python-Assignment</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210214 Blackjack CLI Based Game</h1><time class="has-text-grey" datetime="2021-02-14T02:04:00.000Z">2021-02-14</time><article class="mt-2 post-content"><p><img src="/images/post_images/210214_blackjack_play_img.jpg"></p>
+<h2 id="Blackjack-CLI-Based-Game"><a href="#Blackjack-CLI-Based-Game" class="headerlink" title="Blackjack CLI Based Game"></a>Blackjack CLI Based Game</h2><p>이번 과제는 Python을 활용해서 간단한 CLI Based Game을 만드는 것이다.</p>
+<h2 id="게임-실행결과-화면"><a href="#게임-실행결과-화면" class="headerlink" title="게임 실행결과 화면"></a>게임 실행결과 화면</h2><table>
+    <tr>
+        <td>
+            <h4><b>Blackjack으로 게임을 종료하는 경우</b></h4>
+        </td>
+        <td>
+            <h4><b>뽑은 카드들의 수의 합이 21을 초과하여 상대편이 이기는 경우</b></h4>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img src="/images/post_images/210214_1.png" alt="210214_1" />
+        </td>
+        <td>
+            <img src="/images/post_images/210214_2-1.png" alt="210214_2-1" />
+            <img src="/images/post_images/210214_2-2.png" alt="210214_2-2" />
+            <img src="/images/post_images/210214_2-3.png" alt="210214_2-3" />
+        </td>
+    </tr>
+</table>
+
+<h2 id="코드-Python"><a href="#코드-Python" class="headerlink" title="코드 (Python)"></a>코드 (Python)</h2><pre><code class="python">from random import shuffle
+import re
+import sys
+
+# player와 bank의 게임진행 상태
+player_play = True
+bank_play = True
+# 뽑은 카드의 숫자 합이 21을 초과하는 경우의 palyer와 bank
+player_lose = False
+bank_lose = False
+turn = 0
+
+# card_deck에 카드를 준비
+def prepareCards():
+    for i in range(2, 11+1):
+        for _ in range(4):
+            card_deck.append(&#39;A&#39; if i == 11 else i)
+
+# card deck을 3회 shuffle
+def shuffleCardsTreeTimes():
+    return [shuffle(card_deck) for _ in range(3)]
+
+# card deck에 남아있는 카드가 10장 미만일 경우에 card deck을 reset하고 다시 shuffle한다.
+def resetCards():
+    # 카드를 다시 준비한다.
+    prepareCards()
+    # 카드를 다시 3회 섞는다.
+    shuffleCards()
+
+# 사용자로부터 Y(y) or N(n)를 올바르게 입력받았는지 정규표현검사
+def regexCheck(value):
+    answer_check = re.compile(r&#39;^(?:Y|N)$&#39;, re.I)
+    return answer_check.match(value)
+
+# 사용자로부터 한 번 더 shuffle할 것인지 물어보는 처리
+def askMoreShuffle():
+    # 사용자로부터 한 번 더 shuffle을 할 것인지 묻기
+    while True:
+        shuffle_more = input(
+            &#39;✨✨✨✨✨✨✨Shuffle을 한 번 더 하길 원하십니까? (Y(y)/N(n))✨✨✨✨✨✨✨&#39;)
+        # 사용자로부터 입력받을 Y/N를 정규표현식으로 검사
+        answer = regexCheck(shuffle_more)
+        if answer:
+            if answer.group() == &#39;Y&#39; or answer.group() == &#39;y&#39;:
+                print(&quot;✨✨✨✨✨✨✨한 번 더 card deck의 shuffle을 진행합니다.✨✨✨✨✨✨✨&quot;)
+                shuffle(card_deck)
+                break
+            else:
+                print(&quot;✨✨✨✨✨✨✨추가적인 card deck의 shuffle을 진행하지 않습니다.✨✨✨✨✨✨✨&quot;)
+                break
+        else:
+            print(&quot;🥲🥲🥲🥲🥲🥲🥲 입력을 확인후 다시 입력해주세요.🥲🥲🥲🥲🥲🥲🥲&quot;)
+
+# 뽑은 카드들의 숫자 합을 반환한다.
+def getSumOfCards(cards):
+    sum_of_cards = 0
+    for idx, card in enumerate(cards):
+        if card == &#39;A&#39;:
+            # 우선 Ace 카드를 11로 치환해서 A 카드를 제외한 카드들의 숫자 합에 더해준다.
+            sum_of_cards += 11
+            # 카드의 합이 21을 초과하는 경우,
+            if sum_of_cards &gt; 21:
+                # Ace카드를 1로 치환해서 더해준다.
+                sum_of_cards -= 10
+        else:
+            sum_of_cards += card
+    return sum_of_cards
+
+# 뽑은 카드들의 숫자 합을 기준으로 결과를 판별한다.
+def checkSumOfCards(player, sum_of_cards):
+    if sum_of_cards &gt; 21:
+        print(
+            &quot;😵‍💫😵‍💫😵‍💫😵‍💫😵‍💫&#123;0&#125;가 받은 카드들의 숫자 합이 21을 초과했습니다. &#123;0&#125;의 턴을 종료합니다.😵‍💫😵‍💫😵‍💫😵‍💫😵‍💫&quot;.format(player))
+        if player == &#39;뱅크&#39;:
+            global player_lose
+            bank_lose = True
+            if player_lose:
+                print(&quot;😮‍💨😮‍💨😮‍💨😮‍💨😮‍💨 사용자와 뱅크는 서로 비겼습니다. 😮‍💨😮‍💨😮‍💨😮‍💨😮‍💨&quot;)
+                sys.exit(0)
+            else:
+                print(&quot;🎉🎉🎉🎉🎉🎉🎉 사용자가 이겼습니다. 🎉🎉🎉🎉🎉🎉🎉&quot;)
+                sys.exit(0)
+        else:
+            player_lose = True
+    elif sum_of_cards == 21:
+        print(
+            &quot;👍👍👍👍👍 &#123;0&#125;가 받은 카드들의 숫자 합이 21입니다. Blackjack으로 &#123;0&#125;가 승리하였습니다. 👍👍👍👍👍&quot;.format(player))
+        sys.exit(0)
+    else:
+        print(&quot;&#123;0&#125;가 받은 카드들의 숫자 합은 &#123;1&#125;입니다.&quot;.format(player, sum_of_cards))
+
+
+# 딜러로부터 카드를 받는 처리
+def receiveCard(player, cards):
+    print(&quot;\n&quot;)
+    print(&quot;🌱🌱🌱🌱🌱🌱🌱 &lt;&lt; &#123;0&#125;의 &#123;1&#125;번째 카드 분배입니다. &gt;&gt;🌱🌱🌱🌱🌱🌱🌱&quot;.format(
+        player, turn+2))
+    print(&quot;그 다음으로 &#123;&#125; 측 게임을 진행합니다. &quot;.format(player))
+    # 카드를 점검합니다. 카드 덱에 남아있는 카드가 10장 미만인 경우,
+    # 카드덱의 상태를 재정비합니다.
+    if len(card_deck) &lt; 10:
+        resetCards()
+    card = card_deck.pop()
+    print(&#39;😃😃😃😃😃😃😃&#123;0:&gt;3&#125;는 &#123;1:&gt;2&#125; 카드를 받았습니다.😃😃😃😃😃😃😃&#39;.format(player, card))
+    cards.append(card)
+    print(&quot;💡💡💡💡💡💡&#123;&#125;의 Card deck을 확인 =&gt; &#123;&#125;💡💡💡💡💡💡&quot;.format(player, cards))
+
+
+# 카드를 뽑고, 카드의 합을 구하고, 카드의 합이 21을 초과하는지 검사하는 공통화 처리
+def commonCardGameProcess(player, cards, sum_of_cards):
+    # card deck으로부터 카드를 뽑습니다.
+    receiveCard(player, cards)
+    # 여지까지 뽑은 카드의 합을 구합니다.
+    sum_of_cards = getSumOfCards(cards)
+    # 여기서 cards의 숫자의 합이 21을 초과하는지 검사한다.
+    checkSumOfCards(player, sum_of_cards)
+
+
+# player와 bank의 게임
+def cardPlay(player, sum_of_cards, cards):
+    global turn, player_play, bank_play
+    print(&quot;\n&quot;)
+    print(&quot;🌱🌱🌱🌱🌱🌱🌱&lt; &#123;0&#125;의 &#123;1&#125;번째 카드 분배입니다. &gt;&gt;🌱🌱🌱🌱🌱🌱🌱&quot;.format(
+        player, turn+2))
+    print(&quot;🔥🔥🔥🔥🔥🔥🔥 다음은 &#123;&#125;의 순서입니다. 🔥🔥🔥🔥🔥🔥🔥&quot;.format(player))
+    if player == &quot;뱅크&quot; and sum_of_cards &lt; 16:
+        print(&quot;Dealer hit rule에 의해 카드의 합이 16을 넘지 않으므로, 카드를 뽑습니다.&quot;)
+        # 카드를 뽑고, 뽑은 카드의 합을 구하고, 그 합이 21을 초과하지 않는지 검사
+        commonCardGameProcess(player, cards, sum_of_cards)
+        # 사용자, 뱅크 모두 순회를 끝냈다면 turn 값을 1증가시켜준다.
+        turn += 1
+    else:
+        more_card = input(
+            &quot;✊✊✊✊✊✊ 카드를 더 뽑으시겠습니까? (Y(y)/N(n)) ✊✊✊✊✊✊&quot;)
+        result = regexCheck(more_card)
+        if result.group() == &#39;Y&#39; or result.group() == &#39;y&#39;:
+            # 카드를 뽑고, 뽑은 카드의 합을 구하고, 그 합이 21을 초과하지 않는지 검사
+            commonCardGameProcess(player, cards, sum_of_cards)
+            # 사용자, 뱅크 모두 순회를 끝냈다면 turn 값을 1증가시켜준다.
+            if player == &quot;뱅크&quot;:
+                turn += 1
+        else:
+            if player == &quot;사용자&quot;:
+                player_play = False
+            else:
+                bank_play = False
+            result_dict[player] = sum_of_cards
+            if player == &quot;사용자&quot;:
+                player_play = False
+            if player == &quot;뱅크&quot;:
+                bank_play = False
+
+
+# 게임의 순번에 따라 게임을 진행
+# arg: player -&gt; 사용자, 뱅크
+# arg: cards  -&gt; 사용자(cards_for_bank), 뱅크(cards_for_bank)
+def rotateTurnOfGames(player, cards):
+    global turn
+    global player_play
+    global bank_play
+
+    # print(&#39;&#123;0&#125;의 카드 수의 총 합은 &#123;1&#125;입니다.&#39;.format(player, sum_of_cards))
+    sum_of_cards = getSumOfCards(cards)
+
+    if turn &gt; 0:
+        if (player == &quot;사용자&quot; and (player_lose != True and player_play != False)):
+            cardPlay(player, sum_of_cards, cards)
+        elif (player == &quot;뱅크&quot; and (bank_lose != True and bank_play != False)):
+            cardPlay(player, sum_of_cards, cards)
+
+    else:
+       # 카드를 뽑고, 뽑은 카드의 합을 구하고, 그 합이 21을 초과하지 않는지 검사
+        commonCardGameProcess(player, cards, sum_of_cards)
+        # 사용자, 뱅크 모두 순회를 끝냈다면 turn 값을 1증가시켜준다.
+        if player == &quot;뱅크&quot;:
+            turn += 1
+
+
+# 게임 실행
+card_deck = []
+print(&quot;👨👨👨👨👨👨👨👨👨 카드를 준비합니다. 👨👨👨👨👨👨👨👨👨&quot;)
+prepareCards()
+# card_deck을 3회 섞는다.
+print(&quot;✨✨✨✨✨✨✨✨ 준비된 카드를 3회 섞습니다. ✨✨✨✨✨✨✨✨&quot;)
+shuffleCardsTreeTimes()
+
+# 카드를 한 번 더 섞을 것인지 사용자로부터 확인한다.
+askMoreShuffle()
+
+print(&quot;✨✨✨✨✨✨✨✨ 카드섞기를 완료하였습니다. ✨✨✨✨✨✨✨✨&quot;)
+# card shuffle이 완성된 후에는 tuple로 카드의 순서를 고정한다.
+card_deck = tuple(card_deck)
+print(&quot;\n&quot;)
+print(&quot;💪💪💪💪💪💪💪💪 &lt; Blackjack Game Start &gt;&gt; 💪💪💪💪💪💪💪💪&quot;)
+print(&quot;게임이 시작됩니다. 사용자와 뱅크는 각 각 한 장의 카드를 받습니다.&quot;)
+# 뱅크와 user의 card를 보관할 리스트를 정의한다.
+cards_for_bank = list()
+cards_for_user = list()
+
+# 게임이 시작되면 bank와 user는 카드를 한 장씩 받게 된다.
+# 카드는 한쪽방향으로 꺼내기때문에 pop()으로 꺼내도록 한다.
+card_deck = list(card_deck)
+card_for_user = card_deck.pop()
+card_for_bank = card_deck.pop()
+
+cards_for_user.append(card_for_user)
+cards_for_bank.append(card_for_bank)
+
+# 받은 카드는 출력을 하도록 한다.
+print(&#39;&#123;0:&gt;3&#125;는 &#123;1:&gt;2&#125; 카드를 받았습니다.&#39;.format(&quot;사용자&quot;, card_for_user))
+print(&#39;&#123;0:&gt;4&#125;는 &#123;1:&gt;2&#125; 카드를 받았습니다.&#39;.format(&quot;뱅크&quot;, card_for_bank))
+
+sum_of_user_cards = 0
+sum_of_bank_cards = 0
+
+# cards_for_bank, cards_for_user
+player = &#123;&#39;사용자&#39;: cards_for_user, &#39;뱅크&#39;: cards_for_bank&#125;
+
+turn = 0
+
+result_dict = &#123;&#125;
+
+while player_play or bank_play:
+    for k, v in player.items():
+        result = rotateTurnOfGames(k, v)
+        # print(result)
+
+print(&quot;\n&quot;)
+
+print(&quot;✨✨✨✨✨✨✨✨✨✨✨✨✨✨&lt; Blackjack Game End &gt;&gt;✨✨✨✨✨✨✨✨✨✨✨✨✨✨&quot;)
+print(&quot;✨✨✨✨✨✨ 사용자가 뽑은 카드 수의 합은 &#123;사용자&#125;, 뱅크가 뽑은 카드 수의 합은 &#123;뱅크&#125;입니다. ✨✨✨✨✨✨&quot;.format(
+    **result_dict))
+
+game_result = [(k, v) for k, v in result_dict.items()]
+
+if result_dict[&#39;사용자&#39;] == result_dict[&#39;뱅크&#39;]:
+    print(&quot;🎉🎉🎉🎉🎉🎉🎉 사용자와 뱅크는 비겼습니다. 🎉🎉🎉🎉🎉🎉🎉&quot;)
+else:
+    sorted_result = sorted(game_result, key=lambda x: x[1], reverse=True)
+    print(&quot;\n&quot;)
+    print(&quot;🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉게임의 승리자는 &#123;&#125;입니다.🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉&quot;.format(
+        sorted_result[0][0]))
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2021/02/14/202102/210214-Self-development_til/" title="210214 Self Development TIL"><span class="has-text-weight-semibold">Next: 210214 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

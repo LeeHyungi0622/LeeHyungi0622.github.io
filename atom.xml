@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-13T02:58:46.436Z</updated>
+  <updated>2021-02-14T03:48:41.013Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210214 Blackjack CLI Based Game</title>
+    <link href="https://leehyungi0622.github.io/2021/02/14/202102/210214-black_jack_cli_game/"/>
+    <id>https://leehyungi0622.github.io/2021/02/14/202102/210214-black_jack_cli_game/</id>
+    <published>2021-02-14T02:04:00.000Z</published>
+    <updated>2021-02-14T03:48:41.013Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210214_blackjack_play_img.jpg"></p><h2 id="Blackjack-CLI-Based-Game"><a href="#Blackjack-CLI-Based-Game" class="headerlink" title="Blackjack CLI Based Game"></a>Blackjack CLI Based Game</h2><p>이번 과제는 Python을 활용해서 간단한 CLI Based Game을 만드는 것이다.</p><h2 id="게임-실행결과-화면"><a href="#게임-실행결과-화면" class="headerlink" title="게임 실행결과 화면"></a>게임 실행결과 화면</h2><table>    <tr>        <td>            <h4><b>Blackjack으로 게임을 종료하는 경우</b></h4>        </td>        <td>            <h4><b>뽑은 카드들의 수의 합이 21을 초과하여 상대편이 이기는 경우</b></h4>        </td>    </tr>    <tr>        <td>            <img src="/images/post_images/210214_1.png" alt="210214_1" />        </td>        <td>            <img src="/images/post_images/210214_2-1.png" alt="210214_2-1" />            <img src="/images/post_images/210214_2-2.png" alt="210214_2-2" />            <img src="/images/post_images/210214_2-3.png" alt="210214_2-3" />        </td>    </tr></table><h2 id="코드-Python"><a href="#코드-Python" class="headerlink" title="코드 (Python)"></a>코드 (Python)</h2><pre><code class="python">from random import shuffleimport reimport sys# player와 bank의 게임진행 상태player_play = Truebank_play = True# 뽑은 카드의 숫자 합이 21을 초과하는 경우의 palyer와 bankplayer_lose = Falsebank_lose = Falseturn = 0# card_deck에 카드를 준비def prepareCards():    for i in range(2, 11+1):        for _ in range(4):            card_deck.append(&#39;A&#39; if i == 11 else i)# card deck을 3회 shuffledef shuffleCardsTreeTimes():    return [shuffle(card_deck) for _ in range(3)]# card deck에 남아있는 카드가 10장 미만일 경우에 card deck을 reset하고 다시 shuffle한다.def resetCards():    # 카드를 다시 준비한다.    prepareCards()    # 카드를 다시 3회 섞는다.    shuffleCards()# 사용자로부터 Y(y) or N(n)를 올바르게 입력받았는지 정규표현검사def regexCheck(value):    answer_check = re.compile(r&#39;^(?:Y|N)$&#39;, re.I)    return answer_check.match(value)# 사용자로부터 한 번 더 shuffle할 것인지 물어보는 처리def askMoreShuffle():    # 사용자로부터 한 번 더 shuffle을 할 것인지 묻기    while True:        shuffle_more = input(            &#39;✨✨✨✨✨✨✨Shuffle을 한 번 더 하길 원하십니까? (Y(y)/N(n))✨✨✨✨✨✨✨&#39;)        # 사용자로부터 입력받을 Y/N를 정규표현식으로 검사        answer = regexCheck(shuffle_more)        if answer:            if answer.group() == &#39;Y&#39; or answer.group() == &#39;y&#39;:                print(&quot;✨✨✨✨✨✨✨한 번 더 card deck의 shuffle을 진행합니다.✨✨✨✨✨✨✨&quot;)                shuffle(card_deck)                break            else:                print(&quot;✨✨✨✨✨✨✨추가적인 card deck의 shuffle을 진행하지 않습니다.✨✨✨✨✨✨✨&quot;)                break        else:            print(&quot;🥲🥲🥲🥲🥲🥲🥲 입력을 확인후 다시 입력해주세요.🥲🥲🥲🥲🥲🥲🥲&quot;)# 뽑은 카드들의 숫자 합을 반환한다.def getSumOfCards(cards):    sum_of_cards = 0    for idx, card in enumerate(cards):        if card == &#39;A&#39;:            # 우선 Ace 카드를 11로 치환해서 A 카드를 제외한 카드들의 숫자 합에 더해준다.            sum_of_cards += 11            # 카드의 합이 21을 초과하는 경우,            if sum_of_cards &gt; 21:                # Ace카드를 1로 치환해서 더해준다.                sum_of_cards -= 10        else:            sum_of_cards += card    return sum_of_cards# 뽑은 카드들의 숫자 합을 기준으로 결과를 판별한다.def checkSumOfCards(player, sum_of_cards):    if sum_of_cards &gt; 21:        print(            &quot;😵‍💫😵‍💫😵‍💫😵‍💫😵‍💫&#123;0&#125;가 받은 카드들의 숫자 합이 21을 초과했습니다. &#123;0&#125;의 턴을 종료합니다.😵‍💫😵‍💫😵‍💫😵‍💫😵‍💫&quot;.format(player))        if player == &#39;뱅크&#39;:            global player_lose            bank_lose = True            if player_lose:                print(&quot;😮‍💨😮‍💨😮‍💨😮‍💨😮‍💨 사용자와 뱅크는 서로 비겼습니다. 😮‍💨😮‍💨😮‍💨😮‍💨😮‍💨&quot;)                sys.exit(0)            else:                print(&quot;🎉🎉🎉🎉🎉🎉🎉 사용자가 이겼습니다. 🎉🎉🎉🎉🎉🎉🎉&quot;)                sys.exit(0)        else:            player_lose = True    elif sum_of_cards == 21:        print(            &quot;👍👍👍👍👍 &#123;0&#125;가 받은 카드들의 숫자 합이 21입니다. Blackjack으로 &#123;0&#125;가 승리하였습니다. 👍👍👍👍👍&quot;.format(player))        sys.exit(0)    else:        print(&quot;&#123;0&#125;가 받은 카드들의 숫자 합은 &#123;1&#125;입니다.&quot;.format(player, sum_of_cards))# 딜러로부터 카드를 받는 처리def receiveCard(player, cards):    print(&quot;\n&quot;)    print(&quot;🌱🌱🌱🌱🌱🌱🌱 &lt;&lt; &#123;0&#125;의 &#123;1&#125;번째 카드 분배입니다. &gt;&gt;🌱🌱🌱🌱🌱🌱🌱&quot;.format(        player, turn+2))    print(&quot;그 다음으로 &#123;&#125; 측 게임을 진행합니다. &quot;.format(player))    # 카드를 점검합니다. 카드 덱에 남아있는 카드가 10장 미만인 경우,    # 카드덱의 상태를 재정비합니다.    if len(card_deck) &lt; 10:        resetCards()    card = card_deck.pop()    print(&#39;😃😃😃😃😃😃😃&#123;0:&gt;3&#125;는 &#123;1:&gt;2&#125; 카드를 받았습니다.😃😃😃😃😃😃😃&#39;.format(player, card))    cards.append(card)    print(&quot;💡💡💡💡💡💡&#123;&#125;의 Card deck을 확인 =&gt; &#123;&#125;💡💡💡💡💡💡&quot;.format(player, cards))# 카드를 뽑고, 카드의 합을 구하고, 카드의 합이 21을 초과하는지 검사하는 공통화 처리def commonCardGameProcess(player, cards, sum_of_cards):    # card deck으로부터 카드를 뽑습니다.    receiveCard(player, cards)    # 여지까지 뽑은 카드의 합을 구합니다.    sum_of_cards = getSumOfCards(cards)    # 여기서 cards의 숫자의 합이 21을 초과하는지 검사한다.    checkSumOfCards(player, sum_of_cards)# player와 bank의 게임def cardPlay(player, sum_of_cards, cards):    global turn, player_play, bank_play    print(&quot;\n&quot;)    print(&quot;🌱🌱🌱🌱🌱🌱🌱&lt; &#123;0&#125;의 &#123;1&#125;번째 카드 분배입니다. &gt;&gt;🌱🌱🌱🌱🌱🌱🌱&quot;.format(        player, turn+2))    print(&quot;🔥🔥🔥🔥🔥🔥🔥 다음은 &#123;&#125;의 순서입니다. 🔥🔥🔥🔥🔥🔥🔥&quot;.format(player))    if player == &quot;뱅크&quot; and sum_of_cards &lt; 16:        print(&quot;Dealer hit rule에 의해 카드의 합이 16을 넘지 않으므로, 카드를 뽑습니다.&quot;)        # 카드를 뽑고, 뽑은 카드의 합을 구하고, 그 합이 21을 초과하지 않는지 검사        commonCardGameProcess(player, cards, sum_of_cards)        # 사용자, 뱅크 모두 순회를 끝냈다면 turn 값을 1증가시켜준다.        turn += 1    else:        more_card = input(            &quot;✊✊✊✊✊✊ 카드를 더 뽑으시겠습니까? (Y(y)/N(n)) ✊✊✊✊✊✊&quot;)        result = regexCheck(more_card)        if result.group() == &#39;Y&#39; or result.group() == &#39;y&#39;:            # 카드를 뽑고, 뽑은 카드의 합을 구하고, 그 합이 21을 초과하지 않는지 검사            commonCardGameProcess(player, cards, sum_of_cards)            # 사용자, 뱅크 모두 순회를 끝냈다면 turn 값을 1증가시켜준다.            if player == &quot;뱅크&quot;:                turn += 1        else:            if player == &quot;사용자&quot;:                player_play = False            else:                bank_play = False            result_dict[player] = sum_of_cards            if player == &quot;사용자&quot;:                player_play = False            if player == &quot;뱅크&quot;:                bank_play = False# 게임의 순번에 따라 게임을 진행# arg: player -&gt; 사용자, 뱅크# arg: cards  -&gt; 사용자(cards_for_bank), 뱅크(cards_for_bank)def rotateTurnOfGames(player, cards):    global turn    global player_play    global bank_play    # print(&#39;&#123;0&#125;의 카드 수의 총 합은 &#123;1&#125;입니다.&#39;.format(player, sum_of_cards))    sum_of_cards = getSumOfCards(cards)    if turn &gt; 0:        if (player == &quot;사용자&quot; and (player_lose != True and player_play != False)):            cardPlay(player, sum_of_cards, cards)        elif (player == &quot;뱅크&quot; and (bank_lose != True and bank_play != False)):            cardPlay(player, sum_of_cards, cards)    else:       # 카드를 뽑고, 뽑은 카드의 합을 구하고, 그 합이 21을 초과하지 않는지 검사        commonCardGameProcess(player, cards, sum_of_cards)        # 사용자, 뱅크 모두 순회를 끝냈다면 turn 값을 1증가시켜준다.        if player == &quot;뱅크&quot;:            turn += 1# 게임 실행card_deck = []print(&quot;👨👨👨👨👨👨👨👨👨 카드를 준비합니다. 👨👨👨👨👨👨👨👨👨&quot;)prepareCards()# card_deck을 3회 섞는다.print(&quot;✨✨✨✨✨✨✨✨ 준비된 카드를 3회 섞습니다. ✨✨✨✨✨✨✨✨&quot;)shuffleCardsTreeTimes()# 카드를 한 번 더 섞을 것인지 사용자로부터 확인한다.askMoreShuffle()print(&quot;✨✨✨✨✨✨✨✨ 카드섞기를 완료하였습니다. ✨✨✨✨✨✨✨✨&quot;)# card shuffle이 완성된 후에는 tuple로 카드의 순서를 고정한다.card_deck = tuple(card_deck)print(&quot;\n&quot;)print(&quot;💪💪💪💪💪💪💪💪 &lt; Blackjack Game Start &gt;&gt; 💪💪💪💪💪💪💪💪&quot;)print(&quot;게임이 시작됩니다. 사용자와 뱅크는 각 각 한 장의 카드를 받습니다.&quot;)# 뱅크와 user의 card를 보관할 리스트를 정의한다.cards_for_bank = list()cards_for_user = list()# 게임이 시작되면 bank와 user는 카드를 한 장씩 받게 된다.# 카드는 한쪽방향으로 꺼내기때문에 pop()으로 꺼내도록 한다.card_deck = list(card_deck)card_for_user = card_deck.pop()card_for_bank = card_deck.pop()cards_for_user.append(card_for_user)cards_for_bank.append(card_for_bank)# 받은 카드는 출력을 하도록 한다.print(&#39;&#123;0:&gt;3&#125;는 &#123;1:&gt;2&#125; 카드를 받았습니다.&#39;.format(&quot;사용자&quot;, card_for_user))print(&#39;&#123;0:&gt;4&#125;는 &#123;1:&gt;2&#125; 카드를 받았습니다.&#39;.format(&quot;뱅크&quot;, card_for_bank))sum_of_user_cards = 0sum_of_bank_cards = 0# cards_for_bank, cards_for_userplayer = &#123;&#39;사용자&#39;: cards_for_user, &#39;뱅크&#39;: cards_for_bank&#125;turn = 0result_dict = &#123;&#125;while player_play or bank_play:    for k, v in player.items():        result = rotateTurnOfGames(k, v)        # print(result)print(&quot;\n&quot;)print(&quot;✨✨✨✨✨✨✨✨✨✨✨✨✨✨&lt; Blackjack Game End &gt;&gt;✨✨✨✨✨✨✨✨✨✨✨✨✨✨&quot;)print(&quot;✨✨✨✨✨✨ 사용자가 뽑은 카드 수의 합은 &#123;사용자&#125;, 뱅크가 뽑은 카드 수의 합은 &#123;뱅크&#125;입니다. ✨✨✨✨✨✨&quot;.format(    **result_dict))game_result = [(k, v) for k, v in result_dict.items()]if result_dict[&#39;사용자&#39;] == result_dict[&#39;뱅크&#39;]:    print(&quot;🎉🎉🎉🎉🎉🎉🎉 사용자와 뱅크는 비겼습니다. 🎉🎉🎉🎉🎉🎉🎉&quot;)else:    sorted_result = sorted(game_result, key=lambda x: x[1], reverse=True)    print(&quot;\n&quot;)    print(&quot;🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉게임의 승리자는 &#123;&#125;입니다.🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉&quot;.format(        sorted_result[0][0]))</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210214_blackjack_play_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Blackjack-CLI-Based-Game&quot;&gt;&lt;a href=&quot;#Blackjack-CLI-Based-Game&quot; c</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Python-Assignment" scheme="https://leehyungi0622.github.io/tags/Python-Assignment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210214 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/14/202102/210214-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/14/202102/210214-Self-development_til/</id>
+    <published>2021-02-13T23:55:00.000Z</published>
+    <updated>2021-02-13T23:56:29.847Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계한 내용 코드로 구현하기</del> (<code>완료</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>210213 Bundle size와 Lazy loading</title>
@@ -58,9 +111,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/13/202102/210213-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/13/202102/210213-Self-development_til/</id>
     <published>2021-02-12T23:07:00.000Z</published>
-    <updated>2021-02-13T06:37:06.233Z</updated>
+    <updated>2021-02-13T13:06:07.311Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li>Blackjack game class 설계한 내용 코드로 구현하기 (<code>예정</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계한 내용 코드로 구현하기</del> (<code>완료</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
     
     
       
@@ -73,9 +126,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -187,9 +240,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -240,9 +293,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -300,9 +353,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -331,9 +384,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -414,9 +467,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -502,9 +555,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -534,61 +587,6 @@
     <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
     
     <category term="Jest-matcher" scheme="https://leehyungi0622.github.io/tags/Jest-matcher/"/>
-    
-    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210208 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/08/202102/210208-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/08/202102/210208-Self-development_til/</id>
-    <published>2021-02-08T04:30:00.000Z</published>
-    <updated>2021-02-08T13:05:43.276Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>좋아하는 직업으르 택하면 평생 하루도 일하지 않아도 될 것이니라.</strong><br/> (Choose a job you love, and you will never have to work a day in your life.)<br/> <strong>공자/Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 하루종일 자습을 하였다.<br>자습의 시작은 JavaScript test framework인 Jest의 간단한 사용법과 실습한 내용을 정리하는 것으로 시작했다.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>TypeScript 공부</strong></ins> <strong>(Understanding TypeScript - 2021 Edition)</strong><ul><li><b>Section 1.8.</b>Setting Up A Code Editor / IDE ~ (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 3일차 작성 (<code>예정</code>)</li><li>Python + Pandas, Plotly Library project 프로젝트<ul><li>프로젝트 진척<ul><li>프로젝트 Repository 생성하기 (<code>완료</code>)</li><li>프로젝트 덩어리(Chunk) 단위로 Task category 분류하기 (<code>예정</code>)</li><li>프로젝트 Chunk Task Category를 세부 Task 항목으로 분류하며 프로젝트 진행하기 (<code>예정</code>)</li></ul></li></ul></li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li><del>Jest를 사용한 Unit Test 공부 및 블로그에 실습한 내용 정리해서 글 올리기</del>(<code>완료</code>)</li><li>Jest in React 공부</li><li>프로젝트에 babel 설치(+babel-jest) 및 babel config file 추가하기</li></ul></li></ul></li></ul></li><li><ins><strong>Python 과제</strong></ins><br>(1) <ins>HackerRank 30 Days of Code</ins> (<a href="https://www.hackerrank.com/domains/tutorials/30-days-of-code">30-days-of-code link</a>) - <strong>Day 3: Intro to Conditional Statement</strong><br>(2) <ins>벡터연산 관련 문제</ins><br>→ <a href="https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem">https://www.hackerrank.com/challenges/class-2-find-the-torsional-angle/problem</a><br>(3) <ins>성수역 지하철 열차 시스템 Class 설계</ins><br/></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210208 Jest의 개념과 기본사용</title>
-    <link href="https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/"/>
-    <id>https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/</id>
-    <published>2021-02-08T00:33:42.000Z</published>
-    <updated>2021-02-09T13:26:40.621Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><h1 id="Jest"><a href="#Jest" class="headerlink" title="Jest"></a>Jest</h1><p>Jest는 Facebook에 의해서 개발된 JavaScript 테스트 프레임워크이며, 대규모 Web application의 테스트를 좀 더 심플하게 할 수 있도록 도와준다.</p><h2 id="Jest-framework의-사용"><a href="#Jest-framework의-사용" class="headerlink" title="Jest framework의 사용"></a>Jest framework의 사용</h2><p>간단한 JavaScript 코드를 Jest framework를 사용해서 테스트 해보도록 하자.</p><h1 id="실습-내용"><a href="#실습-내용" class="headerlink" title="실습 내용"></a><strong>실습 내용</strong></h1><p><strong>실습 Repository</strong> : <a href="https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo">https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo</a></p><ol><li><p>프로젝트의 branch 기본 구성은 master branch로 구성한다.</p></li><li><p>README.md 파일의 documentation작업을 제외한 모든 작업은 별도의 branch를 새로 끊어서 작업을 시작한다.</p></li></ol><br/><h1 id="Basic-setting-in-project"><a href="#Basic-setting-in-project" class="headerlink" title="Basic setting in project"></a>Basic setting in project</h1><ol start="3"><li><p>Jest 프레임워크를 활용한 테스트를 위해 간단한 JavaScript 파일들을 추가해준다.<br> (Add simple javascript files to do unit test using Jest framework.)</p></li><li><p>프로젝트에 새로운 npm package를 초기화 시켜준다.<br> (Generate project folder without asking any questions.)</p><pre><code class="bash">$ npm init -y</code></pre></li><li><p>Jest를 developer dependency로 구분해서 설치해준다.</p><pre><code class="bash">$ npm i -D jest</code></pre></li><li><p>package.json의 test script를 “jest”로 해준다.</p><pre><code class="bash">&quot;scripts&quot;: &#123;    &quot;test&quot;: &quot;jest&quot;&#125;,</code></pre></li><li><p>기본적으로 Jest에서는 <strong>test</strong> 폴더 아래에 있는 테스트 파일들을 검사하기 때문에 테스트를 하기 위해 작성한 파일들은 <strong>test</strong> 폴더의 아래에 위치시키도록 한다.</p><ul><li>작성하는 테스트 파일의 이름은 테스트 하고자 하는 function이 위치한 파일명.test.js 와 같은 형태로 파일명을 지어주도록 한다.</li></ul></li><li><p><strong>test code의 기본 작성법</strong> - 작성한 test file에서는 테스트하고자 하는 function을 가진 파일을 import해서 해당 function를 테스트해야 한다.</p><pre><code class="javascript">const &#123; test, expect &#125; = require(&quot;@jest/globals&quot;);const sum = require(&quot;../sum&quot;);// 작성한 테스트코드가 무엇을 하는지에 대해서 첫번째 parameter로 작성해준다.test(&quot;properly adds two numbers&quot;, () =&gt; &#123;  // expected result  expect(sum(1, 2)).toBe(3);&#125;);</code></pre><p> 테스트하고자 하는 function은 위와 같이 <code>expect()</code>에 인자와 함께 넣어주고, 예상되는 값을 <code>toBe()</code>의 인자로 넣어서 검사를 하게 된다. toBe() 외에도 다양한 검사 조건이 있다.</p></li><li><p>Test 결과 확인</p><pre><code class="bash">&gt; jestPASS  __test__/sum.test.js✓ properly adds two numbers (2 ms)Test Suites: 1 passed, 1 totalTests:       1 passed, 1 totalSnapshots:   0 totalTime:        1.844 sRan all test suites.</code></pre></li><li><p>구체적인 Test의 결과 확인<br>package.json에서 test command script를 아래와 같이 수정을 해준다.<br>다음의 –coverage 옵션을 넣어주면 각 test파일별로 구체적인 test의 정보를 확인할 수 있다.</p><pre><code class="bash">&quot;scripts&quot;: &#123;    &quot;test&quot;: &quot;jest --coverage&quot;&#125;</code></pre><pre><code class="bash">&gt; jest --coveragePASS  __test__/cloneArray.test.jsPASS  __test__/sum.test.jsPASS  __test__/subtract.test.js---------------|---------|----------|---------|---------|-------------------File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s---------------|---------|----------|---------|---------|-------------------All files      |     100 |      100 |     100 |     100 |cloneArray.js  |     100 |      100 |     100 |     100 |subtract.js    |     100 |      100 |     100 |     100 |sum.js         |     100 |      100 |     100 |     100 |---------------|---------|----------|---------|---------|-------------------Test Suites: 3 passed, 3 totalTests:       3 passed, 3 totalSnapshots:   0 totalTime:        3.778 s</code></pre><p>자동생성된 coverage 폴더의 Icov-report 폴더 내부의 index.html 파일을 열어보면 아래와 같이 test 정보를 웹 페이지에서 확인할 수 있다.</p><p><img src="/images/post_images/210208_test_coverage_page.png"></p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/jest_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h1 id=&quot;Jest&quot;&gt;&lt;a href=&quot;#Jest&quot; class=&quot;headerlink&quot; title=&quot;Jest&quot;&gt;&lt;/a&gt;Jest&lt;/h1&gt;&lt;p&gt;Je</summary>
-      
-    
-    
-    
-    <category term="JavaScript-Test" scheme="https://leehyungi0622.github.io/categories/JavaScript-Test/"/>
-    
-    
-    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
     
     <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
     
