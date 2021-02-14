@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-14T03:48:41.013Z</updated>
+  <updated>2021-02-14T05:44:42.616Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210214 Python HackerRank Assignment</title>
+    <link href="https://leehyungi0622.github.io/2021/02/14/202102/210214-Python_HackerRank_assignment/"/>
+    <id>https://leehyungi0622.github.io/2021/02/14/202102/210214-Python_HackerRank_assignment/</id>
+    <published>2021-02-14T03:59:41.000Z</published>
+    <updated>2021-02-14T05:44:42.616Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/hackerrank-logo.jpg"></p><br/><p>설날 과제로 강사님이 내주신 HackerRank의 과제에 대해서 정리한다.</p><h2 id="문제-1"><a href="#문제-1" class="headerlink" title="문제 1"></a>문제 1</h2><p><a href="https://www.hackerrank.com/challenges/30-inheritance/problem"><strong>Problem1 Link(HackerRank)</strong></a></p><p>이 문제는 주어진 클래스의 상속관계를 완성하고, 주어진 조건으로 내부에 method를 완성시키면 되는 간단한 문제이다.</p><pre><code class="python">class Student(Person):    #   Class Constructor    #    #   Parameters:    #   firstName - A string denoting the Person&#39;s first name.    #   lastName - A string denoting the Person&#39;s last name.    #   id - An integer denoting the Person&#39;s ID number.    #   scores - An array of integers denoting the Person&#39;s test scores.    #    # Write your constructor here    def __init__(self, _firstName, _lastName, _id, _scores):        Person.__init__(self, _firstName, _lastName, _id)        self.scores = _scores    #   Function Name: calculate    #   Return: A character denoting the grade.    #    # Write your function here    def calculate(self):        average = sum(self.scores) / len(self.scores)        if 90 &lt;= average &lt;= 100:            grade = &quot;O&quot;        elif 80 &lt;= average &lt; 90:            grade = &quot;E&quot;        elif 70 &lt;= average &lt; 80:            grade = &quot;A&quot;        elif 55 &lt;= average &lt; 70:            grade = &quot;P&quot;        elif 40 &lt;= average &lt; 55:            grade = &quot;D&quot;        else:            grade = &quot;T&quot;        return grade</code></pre><h2 id="문제-2"><a href="#문제-2" class="headerlink" title="문제 2"></a>문제 2</h2><p><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem"><strong>Problem2 Link(HackerRank)</strong></a></p><p>이 문제는 추상클래스 관련 문제로, Book 추상 클래스를 MyBook에서 구현하는 문제이다.</p><pre><code class="python">from abc import ABCMeta, abstractmethodclass Book:    __metaclass__ = ABCMeta    def __init__(self,title,author):        self.title=title        self.author=author    @abstractmethod    def display(): pass#Write MyBook classclass MyBook(Book):    def __init__(self, _title, _author, _price):        Book.__init__(self, _title, _author)        self.price = _price    def display(self):        print(&quot;Title: &#123;&#125;&quot;.format(self.title))        print(&quot;Author: &#123;&#125;&quot;.format(self.author))        print(&quot;Price: &#123;&#125;&quot;.format(self.price))</code></pre><h2 id="문제-3"><a href="#문제-3" class="headerlink" title="문제 3"></a>문제 3</h2><p><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem"><strong>Problem3 Link(HackerRank)</strong></a></p><p>이 문제는</p><pre><code class="python"></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/hackerrank-logo.jpg&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;설날 과제로 강사님이 내주신 HackerRank의 과제에 대해서 정리한다.&lt;/p&gt;
+&lt;h2 id=&quot;문제-1&quot;&gt;&lt;a href=&quot;#문</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
+    
+  </entry>
   
   <entry>
     <title>210214 Blackjack CLI Based Game</title>
@@ -48,9 +82,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/14/202102/210214-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/14/202102/210214-Self-development_til/</id>
     <published>2021-02-13T23:55:00.000Z</published>
-    <updated>2021-02-13T23:56:29.847Z</updated>
+    <updated>2021-02-14T03:57:04.176Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계한 내용 코드로 구현하기</del> (<code>완료</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계한 내용 코드로 구현하기</del> (<code>완료</code>)</li><li><del>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)</del> (<code>완료</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
     
     
       
@@ -63,9 +97,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -126,9 +160,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -240,9 +274,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -293,9 +327,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -333,9 +367,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(2)/"/>
     <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Python_til(2)/</id>
     <published>2021-02-10T05:26:41.000Z</published>
-    <updated>2021-02-13T09:15:56.984Z</updated>
+    <updated>2021-02-14T05:42:50.869Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><p>오늘 배운 내용은 전반적으로 객체지향 프로그래밍 언어로써 Python을 잘 활용하기 위해 중요한 내용이기 때문에 포스팅을 두 개로 나눠서 작성해보았다.</p><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="Class-instance-static-method"><a href="#Class-instance-static-method" class="headerlink" title="Class, instance, static method"></a>Class, instance, static method</h2><ul><li><h3 id="Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용"><a href="#Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용" class="headerlink" title="Class method: @classmethod decorator를 사용하며, cls를 인자로 사용"></a>Class method: @classmethod decorator를 사용하며, cls를 인자로 사용</h3><ul><li>cls 인자를 받는다.</li><li>class variable과 연관된 일을 할때 사용이 된다.</li></ul></li><li><h3 id="Instance-method-self를-인자로-사용"><a href="#Instance-method-self를-인자로-사용" class="headerlink" title="Instance method: self를 인자로 사용"></a>Instance method: self를 인자로 사용</h3>-객체의 고유 속성값을 사용한다.</li><li><h3 id="Static-method-아무-인자-없이-사용"><a href="#Static-method-아무-인자-없이-사용" class="headerlink" title="Static method: 아무 인자 없이 사용"></a>Static method: 아무 인자 없이 사용</h3><ul><li>일반 함수와 같은 역할을 한다.</li><li>class와 관련있는 함수로써, class내부에서 정의하고자 할 때 사용된다.</li></ul></li></ul><pre><code class="python">class Wallet:  def __init__(self, account):      self.account = account  balance = 0  name = &#39;Your wallet&#39;  @classmethod  def set_default(cls, amount):      while amount &lt; 1:          print(&quot;Err: You should set default value over 1. Try again!&quot;)          amount = int(input(&quot;Set default value: &quot;))      cls.balance = amount      print(&#39;Set default balance to &#123;&#125;&#39;.format(amount))  #instance method  def add_to_account(self, amount):      self.account += amount      print(&#39;Your total balance is &#123;&#125;&#39;.format(self.account + Wallet.balance))  @staticmethod  def see_static_name():      print(Wallet.name)  def get_class_name(cls):      print(cls.name)class MyWallet(Wallet):  name = &#39;My wallet&#39;</code></pre><h2 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h2><p>앞의 포스팅에서 정리한 method의 override가 가능한 이유가 바로 이 다형성(Polymorphism)이라는 특성때문이다. 각 object가 상속받은 부모클래스의 method를 다르게 재정의 함으로써 본래 정의되어있던 method와 다른 행동과 기능 그리고 결과를 나타낸다.</p><h2 id="추상-클래스-Abstract-Base-Class"><a href="#추상-클래스-Abstract-Base-Class" class="headerlink" title="추상 클래스(Abstract Base Class)"></a>추상 클래스(Abstract Base Class)</h2><p><a href="https://docs.python.org/3/library/abc.html">https://docs.python.org/3/library/abc.html</a></p><p>공통 특성을 가진 부모 클래스인데, 가지고 있는 method들이 모두 method로서의 기능이 없고, 선언만 되어있는 클래스를 말한다. 추상 클래스는 한 개 이상의 추상 클래스를 포함하고 있어야 하며, 별도의 class instance를 생성할 수 없다.</p><ul><li><h3 id="추상-클래스-Abstract-class의-정의와-사용"><a href="#추상-클래스-Abstract-class의-정의와-사용" class="headerlink" title="추상 클래스(Abstract class의 정의와 사용)"></a>추상 클래스(Abstract class의 정의와 사용)</h3><pre><code class="python">from abc import ABCclass MyABC(ABC):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import ABCMetaclass MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import *class MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre><h2 id="추상클래스-예시"><a href="#추상클래스-예시" class="headerlink" title="추상클래스 예시"></a>추상클래스 예시</h2><pre><code class="python">  from abc import ABCMeta, abstractmethod</code></pre></li></ul><p>  class AbstractClassExample(metaclass=ABCMeta):</p><pre><code>  def __init__(self, value):      self.value = value  @abstractmethod  def do_something(self):      pass</code></pre><p>  class DoAdd42(AbstractClassExample):<br>      def do_something(self):<br>          return self.value + 42</p><p>  class DoMul42(AbstractClassExample):<br>      def do_something(self):<br>          return self.value * 42</p><p>  x = DoAdd42(10)<br>  y = DoMul42(10)</p><p>  print(x.do_something()) # 52<br>  print(y.do_something()) # 420</p><pre><code></code></pre>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><p>오늘 배운 내용은 전반적으로 객체지향 프로그래밍 언어로써 Python을 잘 활용하기 위해 중요한 내용이기 때문에 포스팅을 두 개로 나눠서 작성해보았다.</p><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="Class-instance-static-method"><a href="#Class-instance-static-method" class="headerlink" title="Class, instance, static method"></a>Class, instance, static method</h2><ul><li><h3 id="Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용"><a href="#Class-method-classmethod-decorator를-사용하며-cls를-인자로-사용" class="headerlink" title="Class method: @classmethod decorator를 사용하며, cls를 인자로 사용"></a>Class method: @classmethod decorator를 사용하며, cls를 인자로 사용</h3><ul><li>cls 인자를 받는다.</li><li>class variable과 연관된 일을 할때 사용이 된다.</li></ul></li><li><h3 id="Instance-method-self를-인자로-사용"><a href="#Instance-method-self를-인자로-사용" class="headerlink" title="Instance method: self를 인자로 사용"></a>Instance method: self를 인자로 사용</h3>-객체의 고유 속성값을 사용한다.</li><li><h3 id="Static-method-아무-인자-없이-사용"><a href="#Static-method-아무-인자-없이-사용" class="headerlink" title="Static method: 아무 인자 없이 사용"></a>Static method: 아무 인자 없이 사용</h3><ul><li>일반 함수와 같은 역할을 한다.</li><li>class와 관련있는 함수로써, class내부에서 정의하고자 할 때 사용된다.</li></ul></li></ul><pre><code class="python">class Wallet:  def __init__(self, account):      self.account = account  balance = 0  name = &#39;Your wallet&#39;  @classmethod  def set_default(cls, amount):      while amount &lt; 1:          print(&quot;Err: You should set default value over 1. Try again!&quot;)          amount = int(input(&quot;Set default value: &quot;))      cls.balance = amount      print(&#39;Set default balance to &#123;&#125;&#39;.format(amount))  #instance method  def add_to_account(self, amount):      self.account += amount      print(&#39;Your total balance is &#123;&#125;&#39;.format(self.account + Wallet.balance))  @staticmethod  def see_static_name():      print(Wallet.name)  def get_class_name(cls):      print(cls.name)class MyWallet(Wallet):  name = &#39;My wallet&#39;</code></pre><h2 id="다형성-Polymorphism"><a href="#다형성-Polymorphism" class="headerlink" title="다형성(Polymorphism)"></a>다형성(Polymorphism)</h2><p>앞의 포스팅에서 정리한 method의 override가 가능한 이유가 바로 이 다형성(Polymorphism)이라는 특성때문이다. 각 object가 상속받은 부모클래스의 method를 다르게 재정의 함으로써 본래 정의되어있던 method와 다른 행동과 기능 그리고 결과를 나타낸다.</p><h2 id="추상-클래스-Abstract-Base-Class"><a href="#추상-클래스-Abstract-Base-Class" class="headerlink" title="추상 클래스(Abstract Base Class)"></a>추상 클래스(Abstract Base Class)</h2><p><a href="https://docs.python.org/3/library/abc.html">https://docs.python.org/3/library/abc.html</a></p><p>공통 특성을 가진 부모 클래스인데, 가지고 있는 method들이 모두 method로서의 기능이 없고, 선언만 되어있는 클래스를 말한다. 추상 클래스는 한 개 이상의 추상 클래스를 포함하고 있어야 하며, 별도의 class instance를 생성할 수 없다.</p><ul><li><h3 id="추상-클래스-Abstract-class의-정의와-사용"><a href="#추상-클래스-Abstract-class의-정의와-사용" class="headerlink" title="추상 클래스(Abstract class의 정의와 사용)"></a>추상 클래스(Abstract class의 정의와 사용)</h3><pre><code class="python">from abc import ABCclass MyABC(ABC):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import ABCMetaclass MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre><pre><code class="python">from abc import *class MyABC(metaclass=ABCMeta):  @abstractmethod  def abstract_method(self):      pass</code></pre><h2 id="추상클래스-예시"><a href="#추상클래스-예시" class="headerlink" title="추상클래스 예시"></a>추상클래스 예시</h2><pre><code class="python">from abc import ABCMeta, abstractmethodclass AbstractClassExample(metaclass=ABCMeta):    def __init__(self, value):        self.value = value    @abstractmethod    def do_something(self):        passclass DoAdd42(AbstractClassExample):    def do_something(self):        return self.value + 42class DoMul42(AbstractClassExample):    def do_something(self):        return self.value * 42x = DoAdd42(10)y = DoMul42(10)print(x.do_something()) # 52print(y.do_something()) # 420</code></pre></li></ul>]]></content>
     
     
       
@@ -353,9 +387,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -384,9 +418,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -467,9 +501,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -555,40 +589,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210208 Jest의 다양한 matcher</title>
-    <link href="https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_matchers/"/>
-    <id>https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_matchers/</id>
-    <published>2021-02-08T12:57:42.000Z</published>
-    <updated>2021-02-08T13:03:21.710Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><h1 id="Jest-Matcher"><a href="#Jest-Matcher" class="headerlink" title="Jest Matcher"></a><strong>Jest Matcher</strong></h1><p>이전에 사용했던 toBe() matcher는 숫자나 문자와 같은 기본 타입(Primitive Type)의 데이터를 비교할때 사용했다. 그럼 그 외에 다른 matcher에는 어떤 것들이 있는지 알아보고 실습을 해보도록 하겠다.</p><h3 id="Jest의-다양한-matcher"><a href="#Jest의-다양한-matcher" class="headerlink" title="Jest의 다양한 matcher"></a><strong>Jest의 다양한 matcher</strong></h3><ul><li><p><strong>toEqual()</strong> : primitive type의 변수나 객체를 비교할때 사용된다.<br>객체는 참조변수이기 때문에 값은 같더라도 참조하는 주소가 다르다.</p></li><li><p><strong>toStrictEqual()</strong> : 객체를 좀 더 엄격하게 검사할때 사용된다.</p><pre><code class="javascript">// makeUser()를 toEqual()로 검사를 하게 되면 passed// toStrictEqual()를 toEqual()로 검사를 하게 되면 failedconst fn = &#123;  add: (a, b) =&gt; a + b,  makeUser: (name, age) =&gt; (&#123; name, age, gender: undefined &#125;),  throwErr: () =&gt; &#123;    throw new Error(&quot;xx&quot;);  &#125;&#125;;</code></pre></li></ul><br/><ul><li><p><strong>toBeNull()</strong> : Null이 되는 경우를 검사한다.</p><pre><code class="javascript">test(&quot;null은 null입니다.&quot;, () =&gt; &#123;  expect(null).toBeNull();&#125;);</code></pre></li><li><p><strong>toBeUndefined()</strong></p></li><li><p><strong>toBeDefined()</strong></p></li></ul><br/><ul><li><p><strong>toBeTruthy()</strong></p><pre><code class="javascript">// 빈 문자열이 아닌, helloworld 문자열을 반환하기 때문에 true를 반환한다.test(&quot;helloworld 문자열은 True입니다.&quot;, () =&gt; &#123;  expect(fn.add(&quot;hello&quot;, &quot;world&quot;)).toBeTruthy();&#125;);</code></pre></li><li><p><strong>toBeFalsy()</strong></p><pre><code class="javascript">test(&quot;0은 false입니다.&quot;, () =&gt; &#123;  expect(fn.add(1, -1)).toBeFalsy();&#125;);// .not.toBeFalsy()test(&quot;helloworld 문자열은 False가 아닙니다.&quot;, () =&gt; &#123;  expect(fn.add(&quot;hello&quot;, &quot;world&quot;)).not.toBeFalsy();&#125;);</code></pre></li></ul><br/><ul><li><p><strong>toBeGreaterThan()</strong> : 초과</p></li><li><p><strong>toBeGreaterThanOrEqual()</strong> : 이상</p></li><li><p><strong>toBeLessThan()</strong> : 미만</p></li><li><p><strong>toBeLessThanOrEqual()</strong> : 이하</p><pre><code class="javascript">test(&quot;입력한 ID는 10자 이하여야 합니다.&quot;, () =&gt; &#123;  const id = &quot;USER_ID&quot;;  expect(id.length).toBeLessThanOrEqual(10);&#125;);</code></pre></li></ul><br/><ul><li><strong>toBeCloseTo()</strong><br>JavaScript에서는 0.1 + 0.2가 0.3이 아니다.<br>&lt;&gt;Expected: 0.3&lt;/&gt;<br><b>Received: 0.30000000000000004</b><br>컴퓨터는 이진법을 사용하기 때문에 몇 몇 연산은 무한소수로 표현되어 버린다.<br>이러한 경우에 <code>toBeClose()</code>를 사용하면 된다.<pre><code class="javascript">test(&quot;0.1 더하기 0.2은 0.3이다.&quot;, () =&gt; &#123;  expect(fn.add(0.1, 0.2)).toBeCloseTo(0.3);&#125;);</code></pre></li></ul><br/><ul><li><strong>toMatch()</strong><br>정규표현식과 toMatch()를 사용해서 정규식 검사를 할 수 있다.<br>정규표현식의 대소문자 구분을 안하기 위해서는 정규표현식 뒤에 i 옵션을 붙여주면 된다.<pre><code class="javascript">test(&quot;Hello World 에 &#39;a&#39;라는 글자가 있는지 확인&quot;, () =&gt; &#123;  expect(&quot;Hello World&quot;).toMatch(/h/i);&#125;);</code></pre></li></ul><br/><ul><li><strong>toContain()</strong><br>배열에서 특정 요소가 있는지 확인한다.<pre><code class="javascript">test(&quot;유저 리스트에 Mike 사용자가 있는지 확인&quot;, () =&gt; &#123;  const user = &quot;Mike&quot;;  const userList = [&quot;Tom&quot;, &quot;Mike&quot;, &quot;Kai&quot;];  expect(userList).toContain(user);&#125;);</code></pre></li></ul><br/><ul><li><strong>toThrow()</strong><br>함수실행시 예외가 발생하는 경우,<br>toThrow()를 사용해서 에러가 발생하는지 확인할 수 있다.<br>toThrow()의 인자로 발생한 에러를 비교할 수도 있다.<pre><code class="javascript">test(&quot;이거 에러 나나요?&quot;, () =&gt; &#123;  expect(() =&gt; fn.throwErr()).toThrow(&quot;xx&quot;);&#125;);</code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/jest_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h1 id=&quot;Jest-Matcher&quot;&gt;&lt;a href=&quot;#Jest-Matcher&quot; class=&quot;headerlink&quot; title=&quot;Jest Mat</summary>
-      
-    
-    
-    
-    <category term="JavaScript-Test" scheme="https://leehyungi0622.github.io/categories/JavaScript-Test/"/>
-    
-    
-    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
-    
-    <category term="Jest-matcher" scheme="https://leehyungi0622.github.io/tags/Jest-matcher/"/>
-    
-    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
