@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-15T02:49:07.179Z</updated>
+  <updated>2021-02-15T08:03:48.103Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210215 Python TIL (작성중...)</title>
+    <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til/</id>
+    <published>2021-02-15T04:06:41.000Z</published>
+    <updated>2021-02-15T08:03:48.103Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><p>오늘 배운 내용은</p><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a>오늘 배운내용</h2><h2 id="Module-Package"><a href="#Module-Package" class="headerlink" title="Module, Package,"></a>Module, Package,</h2><ul><li><h3 id="Module-amp-Package"><a href="#Module-amp-Package" class="headerlink" title="Module &amp; Package"></a>Module &amp; Package</h3><p><strong>실습내용</strong><br>fibo.py와 main.py 파일을 만들어서 실습을 진행한다.</p><pre><code class="python">from fibo import textprint(text)</code></pre><p>fibo와 directory 내에 binet.py와 rec.py 파일 생성해서 main.py에서 moulde로써 import해서 사용한다. (module로써 사용할 디렉토리내에는 __init__.py파일을 넣어준다.)</p><pre><code class="python">#from fibos import fibo#from fibos import binet as bn#from fibos import fibo, binet#from fibos import *#import print_something#from . import print_something</code></pre></li><li><h3 id="Library-amp-Framework"><a href="#Library-amp-Framework" class="headerlink" title="Library &amp; Framework"></a>Library &amp; Framework</h3><p>라이브러리와 프레임워크의 차이에 대해서 알아보았다.<br>이전에 개인적으로 블로그에 포스팅했던 내용이 있는데, 참고해도 좋을 것 같다.</p><ul><li>Framework<ul><li>개념들의 추상화를 제공하는 클래스와 컴포넌트로 구성되어 있다.</li><li>Framework is in control, it calls you</li></ul></li></ul></li><li><h3 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h3></li></ul><p><code>Node.js에서 package.json과 같은 역할을 하는 것이 Django의 requirements.txt인데, Poetry를 사용해서 requirements.txt의 관리를 좀 더 편하게 할 수 있다.</code></p><ul><li><h3 id="poetry-설치"><a href="#poetry-설치" class="headerlink" title="poetry 설치"></a>poetry 설치</h3><p>설치를 완료하고 poetry init 까지 완료되었다면, pyproject.toml config파일을 확인할 수 있다. 이 파일을 통해서 설치된 dependency를 관리할 수 있다.</p><pre><code class="bash">  [too.poetry.dependencies]  python = &quot;^3.9&quot;  # 프로젝트 실행을 위한 dependencies  [tool.poetry.dev-dependencies]  # 개발을 위한 dependencies</code></pre><p><a href="https://python-poetry.org/docs/">poetry installation reference</a></p><pre><code class="bash"># Poetry 설치하기$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -# shell 설정파일에 poetry bin폴더의 경로를 설정$ echo &#39;$HOME/.poetry/bin:$PATH&#39; &gt;&gt; ~/.zshrc</code></pre><p>pyenv에서 zsh configuration 파일에 붙여넣기</p><pre><code class="bash"># pyenv의 PATHexport PYENV_PATH=$HOME/.pyenvif which pyenv &gt; /dev/null; then eval &quot;$(pyenv init -)&quot;; fiif which pyenv-virtualenv-init &gt; /dev/null; then eval &quot;$(pyenv virtualenv-init -)&quot;; fi# poetry실행파일의 PATH가 pyenv의 PATH보다 우선되도록 설정export PATH=$HOME/.poetry/bin:$PATH</code></pre><p><code>.commonrc 파일을 생성해서 관리를 하면 공통적인 개발환경을 관리하기 좋기 때문에 좋다.</code><br>global하게 사용할 가상환경과 local하게 프로젝트별로 사용할 가상환경을 구분해서 설정해놓는 것이 좋다.</p><p>pyproject.toml 파일이 있는 위치에서 <code>poetry add django==1.11</code>로 django package를 설치해주면 아래와 같이 설치된 package를 확인할 수 있다.</p><pre><code class="bash">[tool.poetry]name = &quot;practice_project&quot;version = &quot;0.1.0&quot;description = &quot;&quot;authors = [&quot;Lee Hyungi &lt;hyungi.lee.622@gmail.com&gt;&quot;][tool.poetry.dependencies]# ^표시는 2.7이상의 python에서 실행해야 된다는 의미이다.python = &quot;^2.7&quot;Django = &quot;1.11&quot;[tool.poetry.dev-dependencies][build-system]requires = [&quot;poetry-core&gt;=1.0.0&quot;]build-backend = &quot;poetry.core.masonry.api&quot;</code></pre><ul><li><h3 id="Poetry-Commands"><a href="#Poetry-Commands" class="headerlink" title="Poetry Commands"></a>Poetry Commands</h3></li></ul><pre><code class="bash"># initialize$ poetry init# add package$ poetry add &lt;package name&gt;# remove package$ poetry remove &lt;package name&gt;# show installed package$ poetry show --no-dev --tree# export package list to requirements.txt$ poetry export -f requirements.txt &gt; requirements.txt</code></pre><ul><li><h3 id="Poetry-실습-순서"><a href="#Poetry-실습-순서" class="headerlink" title="Poetry 실습 순서"></a>Poetry 실습 순서</h3></li></ul><pre><code class="bash">(1) 가상환경 생성하기(2) 프로젝트 디렉토리 만들기(3) poetry init(4) poetry add &lt;package name&gt;requestsflaskpillowbeautifulsoup4locust( poetry add --dev locust )</code></pre><pre><code class="bash"># awesome-390이름의 가상환경을 pyenv로 설치한 3.9.0로 생성해준다.$ virtualenv 3.9.0 awesome-390</code></pre></li></ul><h2 id="Decorator"><a href="#Decorator" class="headerlink" title="Decorator"></a>Decorator</h2><ul><li><p>Function을 First-class function으로써 사용할 수 있는 이유는<br>언어가 함수를 일급시민(first class citizen)으로 취급</p><pre><code class="python">def make_difference(operator):  if operator == &#39;+&#39;:    return lambda x,y:x+y  if operator == &#39;-&#39;:    return lambda x,y:x-yplus = make_difference(&#39;+&#39;)# lambda는 기본적으로 heap에 저장이 되지만, 변수로 다시 넣기 때문에 데이터의 영역으로 저장이 된다.print(plus(1,2)) #3</code></pre><p>파이썬은 Call by object reference방식이기때문에 같은 주소를 참조한다.</p><pre><code class="python">def print_hello(msg):  print(msg)f = print_helloprint(f, print_hello)</code></pre></li></ul><h2 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a>Closure</h2><ul><li>함수와 함께 함수 자신의 주변 환경을 저장한 레코드를 의미한다.</li></ul><pre><code class="python">def outer():  text_a = &#39;John&#39;  def inner():    b = &#39;Doe&#39;    print(&quot;My name is &#123;&#125; &#123;&#125;.&quot;.format(text_a, b))  return inner #함수 객체를 전달해줘야 한다.func = outer()print(func) #print(func.__dir__())print(func.__closure__)print(func.__closure__[0].cell_contents) # John이 출력된다.# inner function에서는 outer function의 text_a를 가져와서 사용하고 있다.# text_a는 closure라는 개념때문에 가능하다.# closure의 element에 접근</code></pre><h2 id="Syntax-of-decorator"><a href="#Syntax-of-decorator" class="headerlink" title="Syntax of decorator"></a>Syntax of decorator</h2><pre><code class="python"># decorator1이라는 decorator 만들기def decorator1(func):  def wrapper():    # statements  return wrapper()@decorator1def actual_work():  # statements</code></pre><pre><code class="python">def rapper(func):  def wrapper():    print(&#39;너와 나의 연결고리..&#39;)    func()  return wrapper@rapperdef dok2():  print(&#39;이건 우리 안의 소리&#39;)dok2()# 너와나의 연결고리..# 이건 우리 안의 소리# 만약에 func()를 &#39;너와 나의 연결고리..&#39;의 위에 위치시키면 반대로 출력이 된다.rapper(dok2)()# 너와나의 연결고리..# 이건 우리 안의 소리# 너와나의 연결고리..# @rapper decorator를 doc2() function에 처리해주었기 때문에# 기본적으로 doc2()는 rapper()를 실행해준다.</code></pre><h2 id="memoization"><a href="#memoization" class="headerlink" title="memoization"></a>memoization</h2><pre><code class="python">def fibo_rec(num):  if num &lt; 2:    return num  else:    return fibo_rec(num-2) + fibo_rec(num-1)</code></pre><pre><code class="python">def memoize(func):  memo = &#123;&#125;  def wrapper(seq):    if seq not in memo:      # memo dictionary 객체에 해당 seq를 키값으로 하는 값이 없다면, func(seq)의 값을 넣어준다.      memo[seq] = func(seq)    return memo[seq]  return wrapper@memoizedef fibo_memo(num):  if num &lt; 2:    return num  else:    return fibo_memo(num-2) + fibo_memo(num-1)# decoorator로 사용된 function을 먼저 실행해준 다음에 fibo_memo()를 실행시켜주기 때문에, 빠르게 처리를 해줄 수 있다.</code></pre><p>이 부분 코드 다시 생각해보기<br>python decorator 사용법 공부하고, 반복문을 사용하지 않고 아래 결과값이 나올 수 있는 방법에 대해서 생각해보고 구현해보기</p><pre><code class="python"># 1호차입니다. ~ 5호차 입니다.def call_train(func):  car_list = []  def wrapper(num):    car_list.append(num)    return car_list  return wrapper@call_traindef print_train(num):  if num &lt; 6:    return num  else:    return print_train(num-1)#decorator를 두 번 쓰면, call_train(call_train(print_train))</code></pre><pre><code class="python">#decorator function에서 inner function에는 반복되는 작업을 작성해준다. from time import time def time_checker(func):   def wrapper():     start_at = time()     result = func()     end_at = time()     print(&quot;execution time: &#123;&#125;sec&quot;.format(end_at-start_at))     return result  return wrapper  @time_checker  def fibo_rec(num):    if num &lt; 2:      return num    else:      fibo_rec(num-2) + fibo_rec(num-1)  fibo_rec(10)  #fibo_rec는 time_checker에서 func parameter이다.  # 그런데 time_checker function의 내부에서 사용된 func()내부에는  # parameter가 없기 때문에 wrapper에 num을 인자로 넘겨준다.  # outer function은 decoratorated function(실행될 함수객체)을 넘겨받기 위한 역할을 하고  # inner function은 실제로 넘겨받은 decorated function을 실행하기 위한 역할을 한다.  def time_checker(func):   def wrapper(num):     start_at = time(num)     result = func()     end_at = time()     print(&quot;execution time: &#123;&#125;sec&quot;.format(end_at-start_at))     return result  return wrapper</code></pre><p>recursion 방식에서는 보통 decorator를 사용하지 않는다.<br>반복 출력에 대한 문제를 해결하기 위해서 아래와 같이 작성을 해준다.</p><pre><code class="python"># 한 번만 시간이 실행이 된다.# decorator로 구현된 함수를 직접 인자로 넣어서 처리를 해준다.time_checker(fibo_rec)(10)</code></pre><p>이후의 코드는 강사님 노트보고 정리하기</p><pre><code class="python">def time_checker(func):</code></pre><p>Do it yourself!<br/><br>“Hi, {name}. You might be loved with {lang}” 이라는 문자열이 존재할 때,<br>이 문자열의 앞 뒤로 &lt;h1&gt;, &lt;em&gt; 태그가 붙도록 하는 데코레이터를 생성하세요 <br/><br>ex output) <br/></p><p>&lt;h1&gt;&lt;em&gt;  &lt;/em&gt;&lt;/h1&gt;<br/><br>Advanced problem: Decorator 하나로 html 태그 이름을 지정할 수 있도록 수정 <br/></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;오늘 배운 내용은&lt;/p&gt;
+&lt;h2 id=&quot;오늘-배운내용&quot;&gt;&lt;a href=&quot;#오늘-배운내용&quot; class=&quot;headerlink&quot; title=</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+  </entry>
   
   <entry>
     <title>210215 TypeScript Book TIL</title>
@@ -51,9 +83,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/</id>
     <published>2021-02-14T21:47:00.000Z</published>
-    <updated>2021-02-15T01:45:34.916Z</updated>
+    <updated>2021-02-15T06:35:32.958Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li>!OReilly TypeScript 17P 연습문제 실습~ (<code>완료</code>)</li><li>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>(1)</li><li>(2)</li></ul></li><li><ins><strong>ReactJS project</strong></ins><ul><li>프로젝트 진척<ul><li>(1)</li><li>(2)<br/></li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li>!OReilly TypeScript 17P 연습문제 실습~ (<code>완료</code>)</li><li>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>(1)</li><li>(2)</li></ul></li><li><ins><strong>ReactJS project</strong></ins><ul><li>프로젝트 진척<ul><li>(1)</li><li>(2)</li></ul></li></ul></li><li><ins><strong>블로그에 포스팅하기</strong></ins><ul><li>pyenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>) - 이전에 작성했던 내용 참고하기</li><li>virtualenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)</li><li>poetry 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)<ul><li>tab completion 설치하기 (Tab으로 자동완성)<br/></li></ul></li></ul></li></ul>]]></content>
     
     
       
@@ -66,9 +98,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -98,9 +130,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -153,9 +185,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -216,9 +248,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -330,9 +362,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -383,9 +415,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -443,9 +475,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -474,9 +506,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -557,40 +589,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210209 RTL(React Testing Library)를 활용한 Axios Mockup 테스트</title>
-    <link href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/"/>
-    <id>https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/</id>
-    <published>2021-02-09T13:29:42.000Z</published>
-    <updated>2021-02-09T21:52:46.793Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210209_react_testing_library.png"></p><br/><p><strong>실습 Repository :</strong><a href="https://github.com/LeeHyungi0622/react_testing_library_mock_axios_request_practice_repo">https://github.com/LeeHyungi0622/react_testing_library_mock_axios_request_practice_repo</a></p><h3 id="React-Testing-Library-설치"><a href="#React-Testing-Library-설치" class="headerlink" title="React Testing Library 설치"></a><ins><strong>React Testing Library 설치</strong></ins></h3><pre><code class="bash">$ npm install --save-dev @testing-library/react</code></pre><br/><h3 id="1-react-testing-library에서-지원하는-render-function을-이용해서-테스트하고자-하는-component의-rendering-테스트하기"><a href="#1-react-testing-library에서-지원하는-render-function을-이용해서-테스트하고자-하는-component의-rendering-테스트하기" class="headerlink" title="(1) react-testing-library에서 지원하는 render()function을 이용해서 테스트하고자 하는 component의 rendering 테스트하기"></a>(1) <ins><strong>react-testing-library에서 지원하는 render()function을 이용해서 테스트하고자 하는 component의 rendering 테스트하기</strong></ins></h3><pre><code class="javascript">import &#123; render &#125; from &quot;@testing-library/react&quot;;import Fetch from &quot;./Fetch&quot;;....const &#123; getByTestId &#125; = render(&lt;Fetch url=&#123;url&#125; /&gt;);</code></pre><br/><h3 id="2-rendering한-component의-요소에-data-testid를-지정해서-해당요소를-검사할-수-있다"><a href="#2-rendering한-component의-요소에-data-testid를-지정해서-해당요소를-검사할-수-있다" class="headerlink" title="(2) rendering한 component의 요소에 data-testid를 지정해서 해당요소를 검사할 수 있다. "></a>(2) <ins><b>rendering한 component의 요소에 <code>data-testid</code>를 지정해서 해당요소를 검사할 수 있다. </b></ins></h3><pre><code class="javascript">import &quot;@testing-library/jest-dom/extend-expect&quot;;it(&quot;fetches and displays data&quot;, async () =&gt; &#123;  const url = &quot;/greeting&quot;;  // Fetch component를 rendering하게 되면 rendering된 객체를 확인할 수 있다.  // rendering된 객체 중에 속성으로 data-testid로 id를 지정해준 부분을 체크할 수 있다.  const &#123; getByTestId &#125; = render(&lt;Fetch url=&#123;url&#125; /&gt;);  expect(getByTestId(&quot;loading&quot;)).toHaveTextContent(&quot;Loading data...&quot;);&#125;);</code></pre><br/><h3 id="3-각-테스트-단계가-끝나면-테스트-상태를-초기화-시키기-위해서-afterEach-cleanup-를-사용한다-cleanup은-react-testing-library에서-지원한다"><a href="#3-각-테스트-단계가-끝나면-테스트-상태를-초기화-시키기-위해서-afterEach-cleanup-를-사용한다-cleanup은-react-testing-library에서-지원한다" class="headerlink" title="(3) 각 테스트 단계가 끝나면 테스트 상태를 초기화 시키기 위해서 afterEach(cleanup)를 사용한다. (cleanup은 react-testing-library에서 지원한다)"></a>(3) <ins><b>각 테스트 단계가 끝나면 테스트 상태를 초기화 시키기 위해서 <code>afterEach(cleanup)</code>를 사용한다. (cleanup은 react-testing-library에서 지원한다)</b></ins></h3><pre><code class="javascript">import &#123; cleanup &#125; from &quot;@testing-library/react&quot;;afterEach(cleanup);</code></pre><br/><h3 id="4-component에-전달할-props를-직접-작성한-뒤에-주입해서-테스트할-수-있다"><a href="#4-component에-전달할-props를-직접-작성한-뒤에-주입해서-테스트할-수-있다" class="headerlink" title="(4) component에 전달할 props를 직접 작성한 뒤에 주입해서 테스트할 수 있다."></a>(4) <ins><strong>component에 전달할 props를 직접 작성한 뒤에 주입해서 테스트할 수 있다.</strong></ins></h3><pre><code class="javascript">it(&quot;fetches and displays data&quot;, async () =&gt; &#123;  // Fetch component에 전달할 url props  const url = &quot;/greeting&quot;;  const &#123; getByTestId &#125; = render(&lt;Fetch url=&#123;url&#125; /&gt;);  expect(getByTestId(&quot;loading&quot;)).toHaveTextContent(&quot;Loading data...&quot;);&#125;);</code></pre><br/><h3 id="5-Axios를-통한-데이터-처리를-테스트할때-실제-HTTP를-통한-데이터-취득은-이루어지지-않는다-그-이유는-실제-서버로부터-데이터를-취득하면-시간도-상대적으로-오래-걸리는-경우도-있기-때문이다"><a href="#5-Axios를-통한-데이터-처리를-테스트할때-실제-HTTP를-통한-데이터-취득은-이루어지지-않는다-그-이유는-실제-서버로부터-데이터를-취득하면-시간도-상대적으로-오래-걸리는-경우도-있기-때문이다" class="headerlink" title="(5) Axios를 통한 데이터 처리를 테스트할때 실제 HTTP를 통한 데이터 취득은 이루어지지 않는다. 그 이유는 실제 서버로부터 데이터를 취득하면 시간도 상대적으로 오래 걸리는 경우도 있기 때문이다."></a>(5) <ins><b>Axios를 통한 데이터 처리를 테스트할때 실제 HTTP를 통한 데이터 취득은 이루어지지 않는다. 그 이유는 실제 서버로부터 데이터를 취득하면 시간도 상대적으로 오래 걸리는 경우도 있기 때문이다.</b></ins></h3><p><strong>따라서 Axios를 통한 데이터 취득을 할때, 실제 서버로부터 취득하는 데이터를 mockup해서 테스트를 진행한다.</strong></p><ul><li>Step1) src 폴더 아래에 <strong>mocks</strong> 폴더를 만들고, axios module의 mockup을 위해 <code>axios.js</code>파일을 생성한다.</li></ul><p><strong>axios.js</strong></p><pre><code class="javascript">export default &#123;  // axios get() mockup function  get: jest.fn().mockResolvedValue(&#123; data: &#123;&#125; &#125;)&#125;;</code></pre><p>이렇게 <strong>mocks</strong> 폴더 내부에서 mockup axios 파일을 만들어주면, 테스트 파일내에서 axios module을 호출할때, 실제 axios module이 아닌, <code>__mocks__</code> 폴더내에서 mockup한 axios module을 호출하게 된다.</p><br/><p>테스트 파일에서 이 mockup한 axios module을 override해서 값을 새롭게 정의한 다음에 새롭게 customize된 값을 가진 axios module을 이용해서 테스트를 진행할 수 있다.</p><pre><code class="javascript">axiosMock.get.mockResolvedValueOnce(&#123; data: &#123; greeting: &quot;hello world&quot; &#125; &#125;);</code></pre><br/><h3 id="6-비동기-처리부분을-테스트하는-경우-해당-부분이-화면에-rendering되는-것을-기다려줘야-한다-waitForElement-은-deprecated되었기-때문에-waitFor-로-대체-사용한다"><a href="#6-비동기-처리부분을-테스트하는-경우-해당-부분이-화면에-rendering되는-것을-기다려줘야-한다-waitForElement-은-deprecated되었기-때문에-waitFor-로-대체-사용한다" class="headerlink" title="(6) 비동기 처리부분을 테스트하는 경우, 해당 부분이 화면에 rendering되는 것을 기다려줘야 한다. (waitForElement()은 deprecated되었기 때문에 waitFor()로 대체 사용한다)"></a>(6) <ins><b>비동기 처리부분을 테스트하는 경우, 해당 부분이 화면에 rendering되는 것을 기다려줘야 한다.</b></ins> (<code>waitForElement()</code>은 deprecated되었기 때문에 <code>waitFor()</code>로 대체 사용한다)</h3><pre><code class="javascript">// 실제 데이터가 넘어갔을때 화면에 보여지는 tag 부분에 &quot;resolved&quot; id를 삽입하였다.const resolvedSpan = await waitFor(() =&gt; getByTestId(&quot;resolved&quot;));// 이제 mockup으로 넣어준 데이터가 테스트 component의 span tag에 제대로 출력이 되는지 요소검사를 한다.expect(resolvedSpan).toHaveTextContent(&quot;hello world&quot;);</code></pre><br/><h3 id="7-mockup-axios-function이-제대로-호출되고-있는지-확인한다"><a href="#7-mockup-axios-function이-제대로-호출되고-있는지-확인한다" class="headerlink" title="(7) mockup axios function이 제대로 호출되고 있는지 확인한다."></a>(7) <ins><b>mockup axios function이 제대로 호출되고 있는지 확인한다.</b></ins></h3><pre><code class="javascript">// axiosMock.get mockup function이 한 번 호출되었는지 체크expect(axiosMock.get).toHaveBeenCalledTimes(1);// axiosMock.get이 호출될때 같이 넘겨준 argument를 체크// axios.get() function의 argument로 지정 url을 넘겨주었는지 체크expect(axiosMock.get).toHaveBeenCalledWith(url);</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210209_react_testing_library.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;p&gt;&lt;strong&gt;실습 Repository :&lt;/strong&gt;&lt;a href=&quot;https://github.co</summary>
-      
-    
-    
-    
-    <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
-    
-    
-    <category term="React-Jest" scheme="https://leehyungi0622.github.io/tags/React-Jest/"/>
-    
-    <category term="API-Testing" scheme="https://leehyungi0622.github.io/tags/API-Testing/"/>
-    
-    <category term="React-testing-library" scheme="https://leehyungi0622.github.io/tags/React-testing-library/"/>
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
