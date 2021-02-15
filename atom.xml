@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-15T01:27:52.896Z</updated>
+  <updated>2021-02-15T02:41:25.211Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210215 TypeScript Book TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Typescript/"/>
+    <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Typescript/</id>
+    <published>2021-02-15T01:30:42.000Z</published>
+    <updated>2021-02-15T02:41:25.211Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책에서 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul><li><h3 id="컴파일과-실행에-대한-이해"><a href="#컴파일과-실행에-대한-이해" class="headerlink" title="컴파일과 실행에 대한 이해"></a><strong>컴파일과 실행에 대한 이해</strong></h3><p>이번에 읽은 내용에서 가장 유익하다고 느꼈던 내용이다. 실제 코드를 작성하고 실행을 했을때 내부에서 구체적으로 어떤 과정에 의해서 처리가 되는지 잘 몰랐었는데 이번 기회에 제대로 알 수 있었던 것 같다.<br>특히 타입스크립트는 자바스크리트나 자바와 같은 주요 언어와는 다른 방식으로 동작하기 때문에 이 부분에 대해서 정리를 해보려고 한다.</p><ul><li>일반적으로 프로그래머가 작성한 텍스트(코드)는 컴파일러(compiler)라는 프로그램이 파싱(Parsing)하여, AST(Abstract Syntax Tree, AST)라는 자료구조로 변환된다. 이 AST는 공백, 주석, 탭, 공백 등의 결과를 무시한다.<br/><br>컴파일러는 이 AST 자료구조를 바이트 코드(bytecode)라는 하위 수준의 표현으로 변환을 한다.<br>이렇게 만들어진 바이트 코드는 런타임(runtime)이라는 다른 프로그램에 입력해서 평가하고 결과를 얻을 수 있는 것이다.<br/><ol><li><code>텍스트 코드 =&gt; 컴파일러(Compiler) =&gt; AST(Abstract Syntax Tree)</code><br/></li><li><code>AST(Abstract Syntax Tree) =&gt; 컴파일러(Compiler) =&gt; 바이트 코드(bytecode)</code><br/></li><li><code>런타임(Runtime) =&gt; 바이트 코드(bytecode)</code></li></ol></li></ul><p>즉 일반적으로 <b><ins>프로그램을 실행한다는 것은 컴파일러가 소스코드를 파싱해서 AST로 만들고 이 AST를 바이트코드로 변환한 것을 런타임이 평가하도록 지시하는 일련의 과정을 의미</ins></b>한다.</p></li></ul><br/><p>일반적인 프로그램의 실행은 위의 과정을 거친다. 타입스크립트가 다른 언어의 일반적인 실행과 다른 점은 AST가 바이트 코드로 변환되는 것이 아닌, 자바스크립트 코드로 변환된다.</p><blockquote><p>(TS) 1. 타입스크립트 소스 → 타입스크립트 AST (compiler) <code>(소스코드의 타입사용 O)</code> <br/><br>(TS) 2. 타입 검사기(typechecker)가 AST를 검사 (compiler) <code>(소스코드의 타입사용 O)</code><br/><br>(TS) 3. 타입 스크립트 AST → 자바스크립트 소스 <code>(소스코드의 타입사용 X)</code><br/><br>=============================================<br/><br>(JS) 4. 자바스크립트 소스 → 자바스크립트 AST <br/><br>(JS) 5. AST → 바이트코드 <br/><br>(JS) 6. 런타임이 바이트코드를 평가 <br/></p></blockquote><p>보통 자바스크립트 컴파일러와 런타임은 엔진이라는 하나의 프로그램으로 합쳐진다.<br>프로그래머는 주로 이 엔진과 상호작용을 한다.<br><br/></p><ul><li><h3 id="타입시스템에-대한-이해"><a href="#타입시스템에-대한-이해" class="headerlink" title="타입시스템에 대한 이해"></a><strong>타입시스템에 대한 이해</strong></h3><p>타입 시스템에는 명시적 타입 시스템과 추론적 타입 시스템이 있다.<br/><br>타입 스크립트는 두 시스템의 영향을 받은 언어이다. 그말은 즉슨 개발자는 타입을 명시하거나 별도의 명시없이 타입스크립트가 추론하도록 할 수 있다.</p><p>명시적 타입지정은 <code>value:type</code>의 형태로 작성한다. 추론적 타입지정은 별도로 type을 지정하지 않아도 값에 의해서 TypeScript가 추론을 하는 것을 의미한다.</p></li><li><h3 id="자바스크립트와-타입스크립트의-차이"><a href="#자바스크립트와-타입스크립트의-차이" class="headerlink" title="자바스크립트와 타입스크립트의 차이"></a>자바스크립트와 타입스크립트의 차이</h3><p>자바스크립트와 타입스크립트의 차이점은 자바스크립트는 동적 타입 결정방식인 반면에 타입스크립트는 정적 타입 결정방식을 가진다. 그리고 자바스크립트의 타입체크와 에러검출은 런타임 단계에서 이루어지는 반면에 타입스크립트는 컴파일 단계에서 이루어진다.</p><p>이러한 차이로 인해, 타입스크립트는 코드를 실행하지 않고도 코드에 에러가 있음을 알 수 있다.</p></li></ul><h2 id="오늘-실습한-내용"><a href="#오늘-실습한-내용" class="headerlink" title="오늘 실습한 내용"></a><strong>오늘 실습한 내용</strong></h2><blockquote><p>실습 Repository : <a href="https://github.com/LeeHyungi0622/typescript-oreilly-practice">https://github.com/LeeHyungi0622/typescript-oreilly-practice</a></p></blockquote><ul><li><p><strong>TypeScript</strong></p><ul><li><p>TypeScript 프로젝트 생성</p></li><li><p>NPM 프로젝트 초기화</p><pre><code class="bash">$ npm init</code></pre></li><li><p>typescript tslint @types/node 설치</p><pre><code class="bash">$ npm i -D typescript tsline @types/node</code></pre></li><li><p>tsconfig.json 파일생성<br>직접 파일을 생성하여 실습하였지만, <code>./node_modules/.bin/tsc --init</code> 내장명령을 통해서 자동으로 설정을 해줄 수 있다.</p><pre><code class="javascript">&#123;  &quot;compilerOptions&quot;: &#123;      &quot;lib&quot;: [&quot;es2015&quot;],      &quot;module&quot;: &quot;commonjs&quot;,      &quot;outDir&quot;: &quot;dist&quot;,      &quot;sourceMap&quot;: true,      &quot;strict&quot;: true,      &quot;target&quot;: &quot;es2015&quot;  &#125;,  &quot;include&quot;: [      &quot;src&quot;  ]&#125;</code></pre></li><li><p>tslint.json<br>탭을 사용할지 공백을 사용할지 등에 대한 코딩스타일을 정하는 파일로, <code>./node_modules/.bin/tslint --init</code> 내장명령을 통해서 파일을 생성할 수 있다.</p><pre><code class="javascript">&#123;  &quot;defaultSeverity&quot;: &quot;error&quot;,  &quot;extends&quot;: [      &quot;tslint:recommended&quot;  ],  &quot;rules&quot;: &#123;      &quot;semicolon&quot;: false,      &quot;trailing-comma&quot;: false  &#125;&#125;</code></pre><ul><li><p>src 폴더에 index.ts파일을 생성하여 간단한 코드를 작성한다.</p></li><li><p>TSC로 타입스크립트 파일을 컴파일한다.<br/><br>ts-node를 설치하면 명령 한 번으로 타입스크립트를 컴파일하고 실행할 수 있다.</p><pre><code class="javascript">$ ./node_modules/.bin/tsc</code></pre></li><li><p>NodeJS로 컴파일된 자바스크립트 코드를 실행한다.</p><pre><code class="javascript">$ node ./dist/index.js</code></pre></li></ul><p><ins><code>typescript-node-starter와 같은 뼈대(Scafolding) 도구를 이용해서 프로젝트 디렉터리 구조를 빠르게 생성할 수 있다.</code></ins></p></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/typescript_logo.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;이 포스팅은 O’Reilly TypeScript책에서 실습한 내용을 기반으로 작성하였습니다.&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:TypeScript" scheme="https://leehyungi0622.github.io/categories/TIL-TypeScript/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="TypeScript" scheme="https://leehyungi0622.github.io/tags/TypeScript/"/>
+    
+    <category term="self-development" scheme="https://leehyungi0622.github.io/tags/self-development/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210215 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/</id>
     <published>2021-02-14T21:47:00.000Z</published>
-    <updated>2021-02-15T01:27:52.896Z</updated>
+    <updated>2021-02-15T01:45:34.916Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li>OReilly TypeScript 17P 연습문제 실습내용 PUSH (<code>예정</code>)</li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>(1)</li><li>(2)</li></ul></li><li><ins><strong>ReactJS project</strong></ins><ul><li>프로젝트 진척<ul><li>(1)</li><li>(2)<br/></li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li>!OReilly TypeScript 17P 연습문제 실습~ (<code>완료</code>)</li><li>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>(1)</li><li>(2)</li></ul></li><li><ins><strong>ReactJS project</strong></ins><ul><li>프로젝트 진척<ul><li>(1)</li><li>(2)<br/></li></ul></li></ul></li></ul>]]></content>
     
     
       
@@ -36,9 +66,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -68,9 +98,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -123,9 +153,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -186,9 +216,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -300,9 +330,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -353,9 +383,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -413,9 +443,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -444,9 +474,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -527,9 +557,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -561,37 +591,6 @@
     <category term="API-Testing" scheme="https://leehyungi0622.github.io/tags/API-Testing/"/>
     
     <category term="React-testing-library" scheme="https://leehyungi0622.github.io/tags/React-testing-library/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210209 Python Assignment</title>
-    <link href="https://leehyungi0622.github.io/2021/02/09/202102/210209-Python_Assignment/"/>
-    <id>https://leehyungi0622.github.io/2021/02/09/202102/210209-Python_Assignment/</id>
-    <published>2021-02-09T06:29:41.000Z</published>
-    <updated>2021-02-09T08:13:35.778Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="과제1-성수역-지하철-열차-시스템"><a href="#과제1-성수역-지하철-열차-시스템" class="headerlink" title="과제1) 성수역 지하철 열차 시스템"></a>과제1) 성수역 지하철 열차 시스템</h2><img src="/images/post_images/210209_train.png" alt="210209_train"><h3 id="지하철-노선-클래스"><a href="#지하철-노선-클래스" class="headerlink" title="지하철 노선 클래스"></a>지하철 노선 클래스</h3><pre><code class="python"># 2호선 내부순환선 (총 43개 역) 시청역 &lt;-&gt;시청역 (내부순환)# 성수지선 (총 5개 역) 성수역 &lt;-&gt; 신설동# 신정지선 (총 38개 역) 성수역 &lt;-&gt;까치산# class instance를 만들때 각 노선의 최대 정착역의 수를 구한다.class SubwayLine:    def __init__(self, num_of_stn):        # 지하철역의 수 만큼 [0]리스트를 만들어서        # 역별로 정차하고 있는 지하철의 수를 관리        self.num_of_stop_train_list = [0]*num_of_stn    # 해당 index위치의 count값을 1증가 시켜준다.    def increaseNumOfStopTrain(self, idx):        if self.num_of_stop_train_list[idx] == 0:            self.num_of_stop_train_list[idx] += 1        else:            #  위험 알람 method를 호출해서 False값을 반환하도록 한다.            self.setDangerAlert()    def decreaseNumOfStopTrain(self, idx):        if self.num_of_stop_train_list[idx] == 1:            self.num_of_stop_train_list[idx] -= 1    # 해당 index위치에 정차되어있는 지하철의 수를 반환한다.    def getNumOfStopTrain(self, idx):        return self.num_of_stop_train_list[idx]    # 해당 역 위치에 지하철이 정차되어있는 경우, False값을 반환해서 출발할 수 없도록 한다.    def setDangerAlert(self):        return False</code></pre><h3 id="지하철-열차-클래스"><a href="#지하철-열차-클래스" class="headerlink" title="지하철 열차 클래스"></a>지하철 열차 클래스</h3><pre><code class="python">class Subway:    # line : 노선    # train_num : 열차번호    # acc_dis : 누적 거리    # dep_stn : 이전 출발역    # arr_stn : 도착역    # speed : 속도 (기본속도 21km/h)    # direct : 운행방향 (CW:시계 방향, CCW:시계 반대방향)    # drive_flag : 운행유/무    # stop_flag : 정차유/무    def __init__(self, _line, _train_num, _acc_dis, _dep_stn, _arr_stn):        self.line = _line        self.train_num = _train_num        self.acc_dis = acc_dis        self.dep_stn = dep_stn        self.arr_stn = arr_stn        self.speed = 21        self.direct = &#39;CW&#39;        self.drive_flag = False        self.stop_flag = True    # 지하철 운행    def drive(self, distance):        self.drive_flag = True        self.stop_flag = False        self.acc_dis += distance    # 지하철 정차    def stop(self):        self.drive_flag = False        self.stop_flag = True    # 방향 재설정    def setDirection(self):        if self.direct == &#39;CW&#39;:            self.direct = &#39;CCW&#39;        else:            self.direct = &#39;CW&#39;    # 지하철의 속도 조정    def setSpeed(self, _speed):        self.speed = _speed    # 이전 출발역 업데이트    def setDepartStation(self, _dep_stn):        self.dep_stn = _dep_stn    # 도착역 업데이트    def setArrStation(self, _arr_stn):        self.arr_stn = _arr_stn</code></pre><h2 id="과제2-Hacker-rank-class2-Find-the-Torsional-Angle"><a href="#과제2-Hacker-rank-class2-Find-the-Torsional-Angle" class="headerlink" title="과제2) Hacker rank class2 - Find the Torsional Angle"></a>과제2) Hacker rank class2 - Find the Torsional Angle</h2><img src="/images/post_images/210209_hackerrank_find_torsional_angle.png" alt="210209_hackerrank_find_torsional_angle"><pre><code class="python">import mathclass Points(object):    def __init__(self, x, y, z):        self.x = x        self.y = y        self.z = z    def dot(self, no):        return (self.x*no.x)+(self.y*no.y)+(self.z*no.z)    def __sub__(self, no):        return Points(float(self.x - no.x),(self.y - no.y),(self.z - no.z))    def cross(self, no):        return Points((self.y*no.z - self.z*no.y),(self.z*no.x - self.x*no.z),(self.x*no.y - self.y*no.x))    def absolute(self):        return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h2 id=&quot;과제1-성수역-지하철-열차-시스템&quot;&gt;&lt;a href=&quot;#과제1-성수역-지하철-열차-시스템&quot; class=&quot;headerlink&quot; t</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-    <category term="Class-design" scheme="https://leehyungi0622.github.io/tags/Class-design/"/>
     
   </entry>
   
