@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-16T00:58:49.235Z</updated>
+  <updated>2021-02-16T06:29:05.175Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210216 TypeScript Book TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/"/>
+    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/</id>
+    <published>2021-02-16T04:30:42.000Z</published>
+    <updated>2021-02-16T06:29:05.175Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul><li><h3 id="컴파일과-실행에-대한-이해"><a href="#컴파일과-실행에-대한-이해" class="headerlink" title="컴파일과 실행에 대한 이해"></a><strong>컴파일과 실행에 대한 이해</strong></h3><p>이번에 독서를 통해서 타입(type)대해서 다시 정의해 볼 수 있었다. 기존에는 type에 대한 정의를 단순 data의 형식(string, number, list)에 국한된 개념으로만 알고 있었다.<br/><br>하지만 이 책에서는 <code>타입을 값과 이 값으로 할 수 있는 일의 집합</code>으로 정의하고 있다.<br><ins><b>예를들어, number 타입을 정의하자면 number라는 type으로써의 값과 숫자에 적용할 수 있는 모든 연산(+,-,*,/,%,||,&amp;&amp;,?등)과 숫자에 호출할 수 있는 모든 메서드(.concat, .toUpperCase 등)를 포괄적으로 포함하는 개념으로 정의할 수 있다.</b></ins><br/><br>이렇게 정의된 타입(type)의 정의를 통해 타입검사기(typechecker)는 주어진 값으로 할 수 있는 유효한 동작과 유효하지 않은 동작을 구분해서 유효하지 않은 동작이 실행되는 일을 예방할 수 있다.</p><br/><ul><li><h4 id="타입의-종류"><a href="#타입의-종류" class="headerlink" title="타입의 종류"></a><strong>타입의 종류</strong></h4><ul><li><p><strong>any</strong><br>타입들의 대부라고 할 수 있는 any. 이 any type은 꼭 필요한 상황이 아니라면 사용하지 않는 것이 좋다. 타입스크립트에서는 컴파일 타임에 모두가 타입이 있어야 하기 때문에 프로그래머와 타입스크립트 둘 다 타입을 알 수 없는 상황에서 any타입으로 가정한다. any를 사용해서 변수의 타입을 지정하게 되면, 자바스크립트처럼 동작하게 된다.</p><ul><li><strong>(TSC Flag: noImplicitAny)</strong> : 타입스크립트는 기본적으로 any로 추론되는 값을 발견하더라도 예외를 발생시키지 않는다. 만약에 any type에 대한 예외를 발생시키고 싶다면, <code>tsconfig.json</code>에서 strict을 true로 정의하거나 noImplicitAny flag를 활성화시켜주면 된다. (noImplicitAny는 strict의 family이기 때문이다)</li></ul></li></ul><br/><ul><li><strong>unknown</strong><br>타입을 미리 알 수 없는 어떤 값에 대해 타입을 정의할때 <code>any보다는 unknown을 사용하는 것이 권장</code>된다.<br>그 이유는 unknown을 사용해서 타입을 미리 알 수 없는 값에 대한 타입을 정의하게 되면, unknown type을 검사해 정제하기 전까지는 타입스크립트가 unknown 타입의 값을 사용할 수 없게 강제한다. unknown 타입은 비교연산(==,===,||,&amp;&amp;,?)과 반전(!)을 지원하고 다른 타입들과 마찬가지로 typeof, instanceof 연산자로 정제할 수 있다.<pre><code class="javascript">let a: unknown = 30;let c = a + b; // unknown type의 값은 + 연산자를 지원하지 않는다.(a 변수의 타입을 정제한 뒤에 기본 사칙연산 사용가능)// typeof를 사용해서 unknown type의 변수를 정제할 수 있다.if (typeof a === &quot;number&quot;) &#123;  let d = a + 10; // number&#125;</code></pre></li></ul><br/><ul><li><strong>boolean</strong><br>기본적으로 개발자들은 대개 타입스크립트가 타입을 추론하도록 작성한다.<br>타입스크립트에서는 값이 특정 boolean임을 명시적으로 타입스크립트에게 알릴 수 있다.<ul><li><strong>타입 리터럴(type literal)</strong><br>아래의 예시 코드에서 변수 e는 true라는 특정한 하나의 값으로 타입을 한정시켰다. 이처럼 오직 하나의 값을 나타내는 타입을 <code>타입 리터럴(type literal)</code>이라고 한다.<br>이 타입 리터럴은 모든 곳에서 일어날 수 있는 실수를 방지해서 안전성을 추가로 확보해주는 강력한 언어의 기능이다.<pre><code class="javascript">const c = true; // 어떤 값이 특정 boolean인지 타입스크립트가 추론하게 만든다.let e: true = true;let f: true = false; // error TS2322 &#39;false&#39;type을 &#39;true&#39; type에 할당할 수 없다.</code></pre></li></ul></li></ul><br/><ul><li><p><strong>number</strong><br>number type 또한 boolean과 같이 타입스크립트가 타입을 추론하도록 작성을 한다.<br>아래와 같이 number도 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.</p><pre><code class="javascript">let f: 2.218 = 2.218;let g: 2.218 = 10; // error TS2322: &#39;10&#39;타입을 &#39;26.218&#39;타입에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>bigint</strong><br>bigint 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>bigint는 자바스크립트와 타입스크립트에 새롭게 추가된 타입으로, 253까지의 정수를 표현할 수 있는 number 대비 bigint를 사용하면 더 큰 수도 표현할 수 있다.<br>bigint는 기본 사칙연산을 포함한 연산을 지원한다.<br><code>일부 자바스크립트 엔진에서는 지원을 안할 수도 있기 때문에 사용하기 전에 대상 플랫폼이 지원을 하는지 확인이 필요하다.</code></p><pre><code class="javascript">let a = 1234n; //bigintconst b = 5678n; //bigintvar c = a + b; //bigintlet g: 100n = 100n;let h: bigint = 100; // 100 type은 bigint 타입에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>string</strong><br>string 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>string은 모든 문자열의 집합으로 연결(+)과 슬라이스(.slice)등의 연산을 수행할 수 있다.</p><pre><code class="javascript">let f: &quot;john&quot; = &quot;john&quot;; // &#39;john&#39;let g: &quot;john&quot; = &quot;zoe&quot;; // &#39;zoe&#39;type을 &#39;john&#39;type에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>symbol</strong><br>symbol은 실무에서는 자주 사용하지 않는다.<br>주로 객체와 맵에서 문자열 키 를 대신하는 용도로 사용된다.<br>Symbol(‘a’)는 주어진 이름으로 새로운 symbol(unique)을 만든다는 의미이다. Symbol타입의 값을 타입스크립트가 추론하도록 코드를 작성하면,<br>추론되는 타입이 symbol이 아닌 typeof (variable)로 정의된다.<br>Symbol type의 값을 const 변수에 넣어주면, unique symbol로 정의할 수 있다.</p><pre><code class="javascript">const e = Symbol(&#39;e&#39;) // typeof econst f: unique symbol = Symbol(&#39;f&#39;) // typeof f</code></pre></li></ul><br/><ul><li><p><strong>객체</strong><br>타입스크립트의 객체(Object) 타입은 객체의 형태(Shape)를 정의한다.<br>객체의 타입만으로 간단한 객체({}로 생성)와 복잡한 객체{new로 생성}를 구분할 수 없다.<br>이는 자바스크립트가 <code>구조 기반 타입(structural type</code>을 갖도록 설계가 되었기 때문이다)</p><blockquote><p>구조 기반 타입화에서는 객체의 이름에 상관없이 객체가 어떤 프로퍼티를 갖고 있는지를 따진다. 이를 일부 언어에서는 덕 타이핑(duck typing)이라고 정의한다.</p></blockquote><ul><li><p><strong>객체를 서술하는 방법</strong><br>(1) <strong>object 선언을 통한 객체 서술</strong><br>object는 any보다 조금 더 좁은 타입으로, object로 선언된 객체에 서술한 값에 관한 정보를 참조할 수 없다. 단지 해당 값 자체가 null이 아닌 자바스크립트의 객체라고 명시해준다.</p><p>(2) <strong>타입스크립트가 추론하도록 작성</strong><br><code>객체 리터럴 문법</code>을 사용해서 객체 타입을 만들 수 있다. 타입스크립트가 객체의 형태를 추론하게 하거나 중괄호 안에 명시적으로 지정해 줄 수 있다.<br>객체 리터럴 문법은 “이런 형태의 물건이 있어” 라고 타입스크립트에게 알려주는 기능을 한다.</p><pre><code class="javascript">let a = &#123;  // &#123;b: string&#125;  b: &quot;x&quot;&#125;;let b = &#123;  // &#123;c: &#123;d: string&#125;&#125;  c: &#123;    d: &quot;f&quot;  &#125;&#125;;let c: &#123; firstName: string, lastName: string &#125; = &#123;  firstName: &quot;john&quot;,  lastName: &quot;barrowman&quot;&#125;;class Person &#123;  constructor(    public firstName: string,    public lastName: string  )&#123;&#125;&#125;c = new Person(&#39;matt&#39;, &#39;smith&#39;)// 타입스크립트에서는 형태를 지정해주면 지정해준 형태에 해당하는 값은 반드시 내부에 선언을 해줘야 한다.// 만약에 선택적으로 선언이 되는 속성이라면 아래와 같이 ?로 nullable한 속성이라고 정의를 해주면 된다.let d : &#123; firstName: string, lastName?: string&#125; = &#123;  firstName: &quot;merry&quot;&#125;</code></pre><p><code>인덱스 시그니처(index signature)</code>란 [key: T]: U와 같은 문법을 말한다. 어떤 객체가 여러 키를 가질 수 있음을 알려주며, 해당 객체에서 모든 T 타입의 키는 U 타입의 값을 갖는다고 정의한다. 인덱스 시그니처를 이용하면 명시적으로 정의한 키 외에 다양한 키를 객체에 안전하게 추가할 수 있다.<br>자바스크립트에서는 문자열을 키의 타입으로 사용하고 있기 때문에 인덱스 시그니처의 키(T)는 반드시 number나 string 타입에 할당할 수 있는 타입이어야 한다.</p><pre><code class="javascript">let a: &#123;  b: number  c?:string  [key: number]: boolean&#125;a = &#123;b: 1&#125; // 인덱스 시그니처로 작성한 인자의 경우, optional 하게 넣어줄 수 있다.a = &#123;b: 1, c: undefined&#125;a = &#123;b: 1, c: &#39;d&#39;&#125;a = &#123;b: 1, 10: true&#125;let airplaneSeatingAssignments: &#123;  [seatNumber: string]: string&#125; = &#123;  &quot;34D&quot;: &quot;Boris Cherny&quot;,  &quot;34E&quot;: &quot;Bill Gates&quot;&#125;;</code></pre><p>객체의 타입을 정의할때에 <code>선택형(?)</code>만 사용할 수 있는 것이 아닌 필요하면 <code>readonly 한정자</code>를 이용해서 특정 필드를 읽기 전용으로 정의할 수 있다.<br>즉, readonly로 정의한 특정 필드값은 초깃값을 할당한 다음에 그 값을 바꿀 수 없다.</p><pre><code class="javascript">let user: &#123;  readonly firstName: string&#125; = &#123;  firstName: &#39;abby&#39;&#125;</code></pre></li></ul></li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/typescript_logo.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였</summary>
+      
+    
+    
+    
+    <category term="TIL:TypeScript" scheme="https://leehyungi0622.github.io/categories/TIL-TypeScript/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="TypeScript" scheme="https://leehyungi0622.github.io/tags/TypeScript/"/>
+    
+    <category term="self-development" scheme="https://leehyungi0622.github.io/tags/self-development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210216 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Self-development_til/</id>
+    <published>2021-02-16T04:08:00.000Z</published>
+    <updated>2021-02-16T04:19:41.995Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>고통은 잠깐이다. 포기는 영원히 남는다.</strong><br/> (Pain is temporary. Quitting lasts forever.)<br/> <strong>랜스 암스트롱 / Lance Armstrong</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 17 ~ 33P</del> (<code>완료</code>)</p></li><li><p>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</p></li><li><p>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</p></li><li><p>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</p><br/></li></ul></li><li><p><ins><strong>블로그에 포스팅하기</strong></ins></p><ul><li>pyenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>210215 Python TIL 2/2 - Function, Closure, Decorator</title>
@@ -41,9 +97,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -72,9 +128,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -113,9 +169,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/</id>
     <published>2021-02-14T21:47:00.000Z</published>
-    <updated>2021-02-15T11:17:28.020Z</updated>
+    <updated>2021-02-16T04:16:43.983Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 17P 연습문제 실습</del> (<code>완료</code>)</li><li><del>오늘 배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>(1) 교재에 있는 연습문제 (<code>예정</code>)</li><li>(2) 0216 월간테스트 준비하기 (<code>예정</code>)</li></ul></li><li><ins><strong>블로그에 포스팅하기</strong></ins><ul><li>pyenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>) - 이전에 작성했던 내용 참고하기</li><li>virtualenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)</li><li>poetry 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)<ul><li>tab completion 설치하기 (Tab으로 자동완성)</li></ul></li><li>Python TIL 오늘분 정리하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 17P 연습문제 실습</del> (<code>완료</code>)</li><li><del>오늘 배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li><del>(1) 교재에 있는 연습문제</del> (<code>완료</code>)</li><li><del>(2) 0216 월간테스트 준비하기</del> (<code>완료</code>)</li></ul></li><li><ins><strong>블로그에 포스팅하기</strong></ins><ul><li><del>virtualenv 설치 및 사용관련해서 포스팅하기</del> (<code>완료</code>) - <ins><b>이전에 작성했던 내용으로 대체</b></ins></li><li>pyenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)</li><li><del>poetry 설치 및 사용관련해서 포스팅하기 - Python TIL에 포스팅</del>(<code>완료</code>)<ul><li>tab completion 설치하기 (Tab으로 자동완성 기능)</li></ul></li><li><del>Python TIL 오늘분 정리하기</del> (<code>완료</code>)<ul><li><del><a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/">210215 Python TIL 1/2 - Module &amp; Package, Library &amp; Framework, Poetry, Virtualenv</a></del></li><li><del><a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(2)/">210215 Python TIL 2/2 - Function, Closure, Decorator</a></del><br/></li></ul></li></ul></li></ul>]]></content>
     
     
       
@@ -128,9 +184,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -160,9 +216,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -215,9 +271,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -278,9 +334,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -392,9 +448,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -445,9 +501,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -505,9 +561,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -536,66 +592,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210210 Side Project Diary 3/4/5일차</title>
-    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210_side_project_diary/"/>
-    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210_side_project_diary/</id>
-    <published>2021-02-10T02:03:42.000Z</published>
-    <updated>2021-02-10T02:50:12.457Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-3-4-5일차"><a href="#Side-Project-Diary-3-4-5일차" class="headerlink" title="Side Project Diary 3/4/5일차"></a><strong>Side Project Diary 3/4/5일차</strong></h2><p>오늘은 3,4,5일차에 진행되었던 Side Project의 진행 상황에 대해서 정리해보려고 한다. 우선 Side Project의 진척이 빠르게 진행되지 않는 이유는 단위테스트(Unit Test)를 같이 진행하기 위해서이다. <strong>Jest와 RTL(React-Testing-Libary)를 사용한 JavaScript 코드 및 React component, axios mockup 테스트</strong> 관련해서 별도의 공부가 필요하다고 생각되어, 우선적으로 테스트 관련해서 기본적으로 필요한 공부들을 했다.<br>공부한 내용과 연습용 Repository는 모두 정리해서 블로그에 올렸다.</p><p><a href="https://leehyungi0622.github.io/2021/02/09/202102/210209-React_testing_library_start/">(1) 210209 RTL(React Testing Library)를 활용한 Axios Mockup 테스트</a></p><p><strong><a href="https://github.com/LeeHyungi0622/react_testing_library_mock_axios_request_practice_repo">⮕ 실습 Repository link (1)</a></strong></p><p><a href="https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_start/">(2) 210208 Jest의 개념과 기본사용</a></p><p><a href="https://leehyungi0622.github.io/2021/02/08/202102/210208-JS_Jest_matchers/">(3) 210208 Jest의 다양한 matcher</a></p><p><strong><a href="https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo">⮕ 실습 Repository (2,3)</a></strong></p><p>Side Project에서 처음 진행되었던 부분이 Open API를 통해서 데이터를 fetch해서 가져오는 method를 작성하는 것이었는데, Unit Test할때에는 직접 서버로부터 데이터를 가져와서 테스트를 하지 않고, mockup한 데이터를 사용해서 테스트해야 한다.<br>이 부분을 위해 <code>Jest와 RTL(React Testing Library)를 활용하여 단위 테스트</code>를 어떻게 해야 되는지 공부를 하고, 실습도 하면서 많은 도움이 되었던 것 같다.</p><p>언어와 개발환경은 다르지만, 이전에 PHP Laravel Framework로 작성된 웹 어플리케이션을 운용보수하며 단위 테스트 코드를 작성한 경험이 있었기 때문에 단위테스트의 중요성과 단위테스트에 대한 전반적인 이해는 쉽게 할 수 있었던 것 같다.</p><p>이제 단위 테스트에 대한 기본적인 부분은 공부가 되었으니 혹시 부족한 부분은 중간 중간에 업데이트해가면서 어제 새롭게 업데이트 한 <code>Issue #8, #9를 진행</code>해봐야겠다.</p><p>공부하면서 개별 테스트가 필요한 내용은 별도의 Repository를 만들어서 실습하고, 내용들을 README 파일에 정리해가면서 해보니 나중에 다시 참고할때에도 좋은 것 같다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Side-Project-Diary-3-4-5일차&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-3-4-5일차&quot; </summary>
-      
-    
-    
-    
-    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 1302번 베스트 샐러 문제</title>
-    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Algorithm_baekjoon_1302/"/>
-    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Algorithm_baekjoon_1302/</id>
-    <published>2021-02-10T01:28:42.000Z</published>
-    <updated>2021-02-10T02:00:13.106Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-1302번-베스트-샐러-문제-Pseudo-code-Python-code"><a href="#백준-저지-1302번-베스트-샐러-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 1302번 베스트 샐러 문제 Pseudo code + Python code"></a>백준 저지 1302번 베스트 샐러 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210210_baekjoon_1302.png"></p><blockquote><p>손 코딩을 한 코드에서 sorted로 정렬을 한 뒤에 list로 변환을 하였는데, dictionary type의 데이터를 items()로 하게 되면, 리스트 내에 튜플(key, value쌍)로 변환이 되기 때문에 그럴 필요가 없었다. 정렬된 튜플 데이터 리스트에서 첫번째 요소의 첫번째(book title-(key))를 추출하게 되면 가장 높은 판매 수를 기록한 책의 제목을 추출할 수 있다.</p></blockquote><pre><code class="python">n = int(input())sold_book = dict()for _ in range(n):    book_title = input()    sold_book[book_title] = sold_book.get(book_title, 0) + 1sorted_sold_book = sorted(sold_book.items(), key=lambda x: x[1], reverse=True)print(sorted_sold_book[0][0])</code></pre><p>이 문제는 Python의 dict() 자료형을 활용하여 풀면 간단하게 해결할 수 있는 문제이다. dict() 자료형을 .items()로 변환하여 sorted() function내에서 lambda 함수식을 사용하여 간결하게 정렬하는 부분은 다른 알고리즘 문제에서도 유용하게 사용될 수 있는 부분인 것 같다.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-1302번-베스트-샐러-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-1302번-베스트-샐러-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
