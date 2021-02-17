@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-17T01:18:31.175Z</updated>
+  <updated>2021-02-17T02:24:34.293Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210217 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-Self-development_til/</id>
+    <published>2021-02-17T02:11:00.000Z</published>
+    <updated>2021-02-17T02:24:34.293Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실수 한 적이 없는 사람은 결코 어떠한 새로운 시도도 하지 않는다.</strong><br/> (A person who never made a mistake never tried anything new)<br/><strong>알버트 아인슈타인 / Albert Einstein</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>TDD(Test-Driven Development)에 대해 글 포스팅</del> (<code>완료</code>)</li><li><del>Jest의 test, it, describe의 사용에 대해 글 포스팅</del> (<code>완료</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 33-53P</del> (<code>완료</code>)</p></li><li><p>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</p></li><li><p>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</p></li><li><p>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</p><br/></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li><p>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현</p><br/></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 번 문제<ul><li>Pseudo code &amp; 손코딩 (<code>예정</code>)</li><li>블로그 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>210217 Jest의 test, it, describe</title>
@@ -152,9 +178,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -183,9 +209,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -214,9 +240,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -270,9 +296,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -302,9 +328,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -357,9 +383,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -420,9 +446,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -534,9 +560,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -564,32 +590,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Python-Assignment" scheme="https://leehyungi0622.github.io/tags/Python-Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210211 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/11/202102/210211-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/11/202102/210211-Self-development_til/</id>
-    <published>2021-02-10T22:57:00.000Z</published>
-    <updated>2021-02-11T22:37:05.701Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>좋아하는 직업을 택하면 평생 하루도 일하지 않아도 될 것이니라.</strong><br/> (Choose a job you love, and you will never have to work a day in your life.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="DAILY-RECORD"><a href="#DAILY-RECORD" class="headerlink" title="DAILY RECORD"></a><strong>DAILY RECORD</strong></h2><p>오늘은 7시 50분에 하루를 시작했다.<br>나태해지지 않기 위해 꾸준히 하는 습관을 만들어가자.</p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><del><strong>210210분 Python TIL작성</strong></del></ins><ul><li><del>Python TIL 블로그 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계</del> (<code>완료</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)</li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 6일차 작성 (<code>예정</code>)</li><li>ReactJS project 프로젝트<ul><li>프로젝트 진척<ul><li>Issue #8)Create header,router components and update app component (<code>예정</code>)</li></ul></li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)</li></ul></li></ul><br/>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
