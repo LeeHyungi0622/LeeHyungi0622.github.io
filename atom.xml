@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-17T02:24:34.293Z</updated>
+  <updated>2021-02-17T11:30:33.321Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,77 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210217 Development environment setting(pyenv, virtualenv, autoenv, pip 사용법)</title>
+    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-dev_environment_setting/"/>
+    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-dev_environment_setting/</id>
+    <published>2021-02-17T08:30:00.000Z</published>
+    <updated>2021-02-17T11:30:33.321Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210217_virtualenv.png"></p><p>이번 포스팅에서는 파이썬 가상개발환경을 구성하는데 사용되는 <code>pyenv, virtualenv, autoenv, pip</code>의 사용법에 대해서 정리를 해보겠다.</p><p>우선 가상개발환경을 구축해서 개발환경을 분리하는 이유에 대해서 알아보자.</p><h3 id="왜-개발환경을-가상개발환경으로써-분리해서-관리해야-하는가"><a href="#왜-개발환경을-가상개발환경으로써-분리해서-관리해야-하는가" class="headerlink" title="왜 개발환경을 가상개발환경으로써 분리해서 관리해야 하는가?"></a><strong>왜 개발환경을 가상개발환경으로써 분리해서 관리해야 하는가?</strong></h3><p>파이썬에는 다양한 버전이 존재하고, 각 각의 파이썬 어플리케이션에서 사용되는 파이썬의 버전 또한 다양하기 때문에 가상개발환경을 구축해서 베이스가 되는 파이썬의 버전을 다르게 설정해서 관리해야 한다.<br>그리고 파이썬은 많은 패키지들이 배포되고 있기 때문에 이러한 패키지들을 한 대의 컴퓨터에서 돌릴경우 <code>Python runtime의 version과 Python libray가 서로 충돌을 하는 문제가 발생</code>한다.<br>이러한 문제는 기본적으로 한 대의 컴퓨터에 런타임 및 라이브러리가 전역적으로 설치가 되어 사용이 되기때문에 발생한다.</p><h3 id="그럼-해결책은"><a href="#그럼-해결책은" class="headerlink" title="그럼 해결책은?"></a><strong>그럼 해결책은?</strong></h3><p><ins><b>앞에서 언급한 문제점을 해결하기 위해서는 Python application별로 독립적인 가상개발환경을 구축함으로써 해결할 수 있다.</b></isn><br/></p><p>가상개발환경을 구축하기 위해 필요한 것이 이번 포스팅의 주제인 <code>pyenv, virtualenv, autoenv, pip</code>와 같은 툴이 필요하다.<br/></p><p>자 그럼 각 각의 툴들에 대해서 정리를 해보자.</p><ul><li><p><strong>(1)pyenv</strong></p><ul><li><p>파이썬 버전을 관리하는 툴로 하나의 컴퓨터에 다양한 파이썬 버전을 설치하고 관리할 수 있게 해준다.</p></li><li><p><strong>xcode command line tool과 zlib 설치</strong><br>Mac환경에서 pyenv를 설치하기 위해서는 xcode command line tool과 zlib의 설치가 필요하다.</p><pre><code class="bash">$ sudo xcode-select --install$ brew install homebrew/dupes/zlib</code></pre></li><li><p><strong>homebrew를 이용한 pyenv 설치 및 업그레이드</strong></p><pre><code class="bash">$ brew install pyenv # installation$ brew upgrade pyenv # update</code></pre></li><li><p><strong>환경변수 등록 및 업데이트(zsh기준)</strong></p><pre><code class="bash">$ echo &#39;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#39; &gt;&gt; ~/.zshrc$ echo &#39;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc$ echo &#39;eval &quot;$(pyenv init -)&quot;&#39; &gt;&gt; ~/.zshrc$ source ~/.zshrc</code></pre></li><li><p><strong>설치된 pyenv 점검</strong></p><pre><code class="bash"># 설치된 python version list확인$ pyenv install --list# 설치된 pyenv의 버전확인$ pyenv --version</code></pre></li><li><p><strong>pyenv 사용방법</strong></p><pre><code class="bash">pyenv [서브 명령] [parameters]</code></pre></li></ul><table>  <tr align="center">    <td><b>서브 명령 옵션</b></td>    <td><b>설명</b></td>  </tr>  <tr align="center">    <td>local</td>    <td>현재 directory의 python version 확인 및 지정</td>  </tr>  <tr align="center">    <td>global {version}</td>    <td>전역으로 설정된 python의 버전 확인 및 변경(+version option)</td>  </tr>  <tr align="center">    <td>install {version}</td>    <td>파이썬 버전을 설치</td>  </tr>  <tr align="center">    <td>uninstall</td>    <td>지정한 파이썬 버전을 삭제</td>  </tr>  <tr align="center">    <td>version</td>    <td>현재 활성화된 파이썬 버전 출력</td>  </tr>  <tr align="center">    <td>versions</td>    <td>pyenv로 설치되어 이용가능한 버전을 출력</td>  </tr></table><ul><li><p><strong>pyenv 전역설정</strong></p><pre><code class="bash">$ pyenv versions  # pyenv 활성 버전 확인$ python --version  # 현재 파이썬 버전확인$ pyenv global 3.5.3  # 글로벌 파이썬 설정 변경$ python --version   # 현재 파이썬 버전확인</code></pre></li><li><p><strong>pyenv 로컬설정</strong><br>특정 디렉토리에 활성화되는 파이썬의 버전을 지정한다. 기본적으로 파이썬 버전이 지정되지 않은 디렉토리에는 global 설정이 적용된다.</p><pre><code class="bash"># 특정 디렉토리를 만들고, 디렉토리 안에서 pyenv local [version]으로 local 설정한다.# 그럼 폴더 내부에 .python-version 파일이 생성되어있음을 확인할 수 있다.$ pyenv local 2.7.13</code></pre></li></ul><br/></li><li><p><strong>(2)virtualenv &amp; pyenv-virtualenv</strong></p><ul><li><p>virtualenv는 파이썬 환경을 격리하는 툴이고, pyenv-virtualenv는 virtualenv의 pyenv 확장 플러그인이다.<br>앞에서 살펴본 <code>pyenv를 이용하게 되면</code> 컴퓨터에 파이썬 버전별로 한 개의 파이썬 runtime으르 설치하고 관리할 수 있다. 그리고 <code>virtualenv를 사용하면</code> 파이썬 버전을 세분화하여 여러 개발환경으로 구분하여 관리하는 것이 가능해진다.<br>여기서 말하는 버전의 세분화는 <ins><b>한 개의 파이썬 버전에 여러개의 런타임을 구성하고 그 각 각의 런타임을 각기 다른 어플리케이션에 할당한다는 의미</b></ins>이다.<br>따라서 pyenv와 virtualenv를 같이 사용하면 효과적이기 때문에 pyenv-virtualenv 플러그인을 사용하는 것이 일반적이다.</p></li><li><p><strong>pyenv-virtualenv 설치</strong></p><pre><code class="bash">$ brew install pyenv-virtualenv</code></pre><p>기본적으로 pyenv로 파이썬을 설치하면 .pyenv/versions 디렉토리에 각 각의 설치된 버전들이 관리가 되고, 파이썬 런타임이 관리가 된다. pyenv의 관리 최소단위는 파이썬 버전이고, virtualenv를 사용하면 동일한 파이썬 버전을 여러 개의 개별적인 환경으로 구분하여 관리한다.</p></li><li><p><strong>pyenv-virtualenv 환경변수 설정(zsh기준)</strong></p></li></ul><pre><code class="bash">$ echo &#39;eval &quot;$(pyenv virtualenv-init -)&quot;&#39; &gt;&gt; ~/.zshrc</code></pre><ul><li><strong><ins>(수업시간에 배운 내용)virtualenv를 사용해서도 pyenv로 설치한 python 버전을 지정해서 가상환경을 생성할 수 있다.</ins></strong><br>pyenv로 설치한 python버전을 지정해서 새로운 가상환경 설치</li></ul><pre><code class="bash"># virtualenv name은 사용하는 python 버전이 유추 가능하게 작성하는 것이 좋다.$ virtualenv [python version] [virtualenv name]$ virtualenv 3.9.0 awesome-390</code></pre><ul><li><strong>pyenv-virtualenv 사용</strong><br>virtualenv 플러그인을 사용하면 버전(옵션)과 추가적인 이름을 넣어서 파이썬의 런타임을 관리할 수 있다.<br>pyenv-virtualenv의 특징은 python 프로젝트마다 각 각의 가상환경을 제공해준다는 점이다.</li></ul><pre><code class="bash"># 버전은 샹략 가능하며, 버전을 생략할 경우 현재 시스템 버전으로 가상환경이 설정된다. 이렇게 생성된 가상환경의 경우, activate deactivate 명령을 사용해서 활성화/비활성화를 할 수 있다.$ pyenv virtualenv &lt;vertualenv-name&gt;$ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10# 가상개발환경 활성화$ pyenv activate &lt;vertualenv-name&gt;# 가상개발환경 비활성화$ pyenv deactivate# 가상개발환경 삭제$ pyenv uninstall &lt;vertualenv-name&gt;</code></pre><ul><li><strong>가상환경생성 실습</strong></li></ul><pre><code class="bash">$ pyenv version # 현재 버전확인$ pyenv versions # 설치 버전확인$ pyenv virtualenv 2.7.13 awesome-2713 # awesome-2713 가상환경 생성$ pyenv activate awesome-2713 # 생성한 가상환경 activate$ python -V # awesome-2713 가상환경에서의 파이썬 버전확인$ pyenv deactivate # awesome-2713 가상환경 비 활성화$ python -V # 현재 전역으로 설정되어 있는 파이썬 버전확인# 설치 버전확인$ pyenv versions#2.7.13/envs/awesome-2713#*system# 생성한 가상환경 제거하기$ pyenv uninstall 2.7.13/envs/awesome-2713</code></pre><br/></li><li><p><strong>(3)autoenv</strong></p><ul><li><p>앞서 살펴본 pyenv-virtualenv를 사용하면 새로 생성한 가상환경을 활성화 하기 위해 <code>pyenv activate</code>를 해줘야하는 번거로움이 있다. 이러한 번거로움을 autoenv를 사용해서 Python 프로젝트 진입시점에 자동으로 virtualenv환경을 로딩하는 기능을 제공한다.</p></li><li><p><strong>autoenv 설치 및 환경변수 설정(zsh 기준)</strong></p></li></ul><pre><code class="bash">$ brew install autoenv$ echo &quot;source $(brew --prefix autoenv)/activate.sh&quot; &gt;&gt; ~/.bashrc$ source ~/.bashrc</code></pre><ul><li><p><strong>autoenv 실습하기</strong><br>새롭게 진행할 프로젝트를 위한 디렉토리를 생성하고, <code>.env 파일을 추가</code>한다.<br>이렇게 추가를 해주게 되면, 해당 프로젝트 디렉토리로 이동시 자동으로 해당 가상개발환경으로 activate된다.</p><p><strong>.env</strong></p><pre><code class="bash">echo “***********************************”echo “Python Virtual Env &gt; [가상환경이름]”echo “***********************************”pyenv shell [가상환경이름]pyenv activate</code></pre></li></ul><br/></li><li><p><strong>(4)pip</strong></p><ul><li><p>pip는 파이썬 패키지(라이브러리)를 관리하는 프로그램으로, 라이브러리를 설치할때 의존성을 갖는 모든 라이브러리를 자동으로 설치를 해주며, 개별 버전관리의 기능도 제공한다. (<code>파이썬 2.7.9 버전 이후와 파이썬 3.4 버전 이상에는 기본적으로 설치</code>)</p></li><li><p>pip버전 업데이트</p><pre><code class="bash">$ sudo pip install -U pip</code></pre></li><li><p>pip package list 관리하기<br>pip로 현재 사용중인 파이썬 환경의 모든 라이브러리를 조회하여 <strong>requirement 파일</strong>을 만드는 기능을 제공한다.<br><code>bash # 현재 파이썬 환경에 설치된 모든 라이브러리를 requirements.txt로 export하기 $ pip freeze &gt; requirements.txt </code></p><br/></li></ul></li><li><p><strong>(5)poetry</strong><br>앞서 requirements.txt를 활용하여 파이썬의 패키지를 관리할 수도 있지만, poetry라는 툴을 사용하면 좀 더 간편하게 파이썬의 패키지를 관리할 수 있다.<br>poetry는 파이썬 의존성 관리툴로, <code>단순 의존성 관리를 넘어서 poetry.lock을 사용해서 프로젝트의 의존성을 다른 환경에서도 동일하게 유지</code>해줄 수도 있다.<br>그리고 <code>build와 publish도 지원</code>을 해주고 있다.<br>또한 사용법이 npm과 비슷한 부분이 많아서 npm을 사용해봤다면 빨리 익숙해질 수 있을 것 같다.</p><ul><li><ins><b>[참고]Poetry command와 관련 실습내용은 일전에 수업시간에 배운 내용들과 함께 정리해뒀다.</b></ins><br>→ <a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/">https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/</a></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210217_virtualenv.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이번 포스팅에서는 파이썬 가상개발환경을 구성하는데 사용되는 &lt;code&gt;pyenv, virtualenv, autoenv, pip&lt;/code</summary>
+      
+    
+    
+    
+    <category term="Dev-Environment" scheme="https://leehyungi0622.github.io/categories/Dev-Environment/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Pyenv" scheme="https://leehyungi0622.github.io/tags/Pyenv/"/>
+    
+    <category term="Virtualenv" scheme="https://leehyungi0622.github.io/tags/Virtualenv/"/>
+    
+    <category term="Autoenv" scheme="https://leehyungi0622.github.io/tags/Autoenv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210217 Python TIL (작성중...)</title>
+    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-Python_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-Python_til/</id>
+    <published>2021-02-17T06:10:41.000Z</published>
+    <updated>2021-02-17T11:24:18.713Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="네트워크"><a href="#네트워크" class="headerlink" title="네트워크"></a>네트워크</h2><h2 id="Web-scraping-실습하기"><a href="#Web-scraping-실습하기" class="headerlink" title="Web scraping 실습하기"></a>Web scraping 실습하기</h2><ul><li><h3 id="환경설정"><a href="#환경설정" class="headerlink" title="환경설정"></a>환경설정</h3><ol><li><strong>requests, beautifulsoup4, lxml, jupyter 설치하기</strong></li></ol><pre><code class="bash">$ poetry add requests$ poetry add beautifulsoup4$ poetry add lxml$ poetry add —dev jupiter</code></pre><ol start="2"><li><strong>jupyter notebook 환경에서 requests를 사용해서 Web Scrapping하기</strong></li></ol><pre><code class="python">import requestsurl = &#39;https://api.kurly.com/v2/categories?ver=1&#39;response = requests.get(url)response# response data를 json 형태로 변환하기response.json()&quot;&quot;&quot;&#123;&#39;data&#39;: &#123;&#39;categories&#39;: [&#123;&#39;no&#39;: &#39;907&#39;,  &#39;name&#39;: &#39;채소&#39;,  &#39;show_all_flag&#39;: True,  &#39;pc_icon_url&#39;: &#39;https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive_pc@2x.1586324570.png&#39;,  &#39;icon_url&#39;: &#39;https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive@3x.1586324413.png&#39;,  &#39;pc_icon_active_url&#39;: &#39;https://img-cf.kurly.com/shop/data/  ...(생략)...&quot;&quot;&quot;</code></pre><p>PostgreSQL 데이터베이스는 JSON데이터를 그냥 밀어넣을 수 있기 때문에 Django와 궁합이 좋게 사용된다.<br>response로부터 취득한 text를 파싱하는 도구에는 ‘html.parser’과 ‘lxml’이 있는데, lxml은 c++로 만들어진 html text를 파싱해주는 라이브러리로 파싱하는 속도가 빠르다.</p><pre><code class="python">from bs4 import BeautifulSoupimport lxmlurl = &#39;https://en.wikipedia.org/wiki/Coronavirus&#39;resonse = requests.get(url)html_text = response.textsoup = BeautifulSoup(html_text, &#39;lxml&#39;)</code></pre><ol start="3"><li>Flask를 사용한 routing 실습</li></ol><pre><code class="python">from flask import Flaskapp = Flask(__name__)@app.route(&#39;/&#39;)def index():    return &quot;flask works&quot;@app.route(&#39;/items&#39;)def items():    return &quot;items will be shown shortly&quot;if __name__==&#39;__main__&#39;:    app.run(host=&#39;localhost&#39;, port=8080, debug=True)</code></pre><ol start="4"><li>templates/index.html, items.html 파일생성해서 렌더링하기</li></ol><pre><code class="python">from flask import Flask, render_templateapp = Flask(__name__)@app.route(&#39;/&#39;)def index():    # string을 렌더링한 html파일로 넘겨줄 수 있다.    msg=&#39;hello&#39;    return render_template(&#39;index.html&#39;, msg=msg)@app.route(&#39;/items&#39;)def items():    return render_template(&#39;items.html&#39;)if __name__==&#39;__main__&#39;:    app.run(host=&#39;localhost&#39;, port=8080, debug=True)</code></pre></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;네트워크&quot;&gt;&lt;a href=&quot;#네트워크&quot; class=&quot;headerlink&quot; title=&quot;네트워크&quot;&gt;&lt;/a&gt;네트워크&lt;/h2&gt;&lt;h2</summary>
+      
+    
+    
+    
+    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
+    
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210217 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-Self-development_til/</id>
     <published>2021-02-17T02:11:00.000Z</published>
-    <updated>2021-02-17T02:24:34.293Z</updated>
+    <updated>2021-02-17T08:15:06.244Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실수 한 적이 없는 사람은 결코 어떠한 새로운 시도도 하지 않는다.</strong><br/> (A person who never made a mistake never tried anything new)<br/><strong>알버트 아인슈타인 / Albert Einstein</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>TDD(Test-Driven Development)에 대해 글 포스팅</del> (<code>완료</code>)</li><li><del>Jest의 test, it, describe의 사용에 대해 글 포스팅</del> (<code>완료</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 33-53P</del> (<code>완료</code>)</p></li><li><p>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</p></li><li><p>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</p></li><li><p>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</p><br/></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li><p>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현</p><br/></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 번 문제<ul><li>Pseudo code &amp; 손코딩 (<code>예정</code>)</li><li>블로그 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실수 한 적이 없는 사람은 결코 어떠한 새로운 시도도 하지 않는다.</strong><br/> (A person who never made a mistake never tried anything new)<br/><strong>알버트 아인슈타인 / Albert Einstein</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>TDD(Test-Driven Development)에 대해서 글 포스팅</del> (<code>완료</code>)</li><li><del>Jest의 test, it, describe의 사용에 대해서 글 포스팅</del> (<code>완료</code>)</li><li>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</li><li>virtualenv사용해서 환경구성하는 부분에 대해서 글 포스팅 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 33-53P</del> (<code>완료</code>)</p></li><li><p>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</p></li><li><p>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</p></li><li><p>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</p><br/></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li><p>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현</p><br/></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 번 문제<ul><li>Pseudo code &amp; 손코딩 (<code>예정</code>)</li><li>블로그 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul></li></ul>]]></content>
     
     
       
@@ -36,9 +100,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -178,9 +242,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -209,9 +273,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -240,9 +304,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -296,9 +360,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -328,9 +392,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -383,9 +447,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -446,9 +510,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -537,59 +601,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210212 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/12/202102/210212-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/12/202102/210212-Self-development_til/</id>
-    <published>2021-02-11T22:20:00.000Z</published>
-    <updated>2021-02-13T03:00:13.602Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>모든 천재들에게는 약간의 미친 구석이 있다.</strong><br/> (There is no great genius without some touch of madness.)<br/> <strong>세네카 / Seneca</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Side Project 시작</strong></ins><ul><li><del>Side Project Diary 6/7일차 작성</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Blog내용 이전하기</strong></ins><ul><li><del>React router관련 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li>Blackjack game class 설계한 내용 코드로 구현하기 (<code>예정</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210211 Blackjack game Class Design</title>
-    <link href="https://leehyungi0622.github.io/2021/02/11/202102/210211-black_jack_game/"/>
-    <id>https://leehyungi0622.github.io/2021/02/11/202102/210211-black_jack_game/</id>
-    <published>2021-02-11T08:11:00.000Z</published>
-    <updated>2021-02-13T13:00:08.271Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210211_blackjack_img.jpg"></p><h2 id="Blackjack-Class-Design"><a href="#Blackjack-Class-Design" class="headerlink" title="Blackjack Class Design"></a>Blackjack Class Design</h2><table>  <tr>    <td>      <img src="/images/post_images/210211_black_jack_handwriting.png" alt="210211_black_jack_handwriting">    </td>  </tr>  <tr>    <td align="center">      <b>< Blackjack class design Handwriting ></b>    </td>  </tr></table><table>  <tr>    <td>      <img src="/images/post_images/210211_blackjack_uml.png" alt="210211_blackjack_uml">    </td>  </tr>  <tr>    <td align="center">      <b>< Blackjack class design UML ></b>    </td>  </tr></table>이번 과제에서는 저번 시간의 수업시간의 개념을 최대한 반영해서 class를 설계한다.<p><ins><b>우선, Player와 Dealer의 공통적 행위 및 요소를 <code>PersonInCasino 추상 클래스(Abstract class)에 정의</code>한다.</b></ins><br>각 각의 Player, Dealer class는 PersonInCasino abstract class를 상속받아 공통된 행위에 대한 다른 행동을 method 오버라이드(override)를 통해서 method를 재정의한다.<br>method명은 Blackjack 게임의 룰에 따라 카드의 숫자의 합이 21을 넘지 않는 경우, 카드를 계속 뽑는 경우를 <code>Hit</code>, 멈추는 것을 <code>Stay</code>로 하기 때문에 <code>doHit()</code> <code>doStay()</code>로 정의하였다. 이외에 카드 숫자의 합이 21을 초과하는 경우 <code>Burst</code>라고 한다.</p><p>앞의 Handwriting의 Blackjack 게임의 룰에서도 정리를 하였지만, Dealer는 <code>Dealer hit rule</code>이라는 규칙을 가지고 있기 때문에, 카드의 숫자합이 16이하이면 Hit, 17이상이면 무조건 Stay하도록 한다. 이는 상대 Player의 카드 상태와 상관없이 무조건적으로 Dealer가 지켜야하는 Rule이다.</p><p><ins><b>한 번 개인적으로 생각해서 재미있는 기능을 넣어보았는데, 이 기능은 사람 클래스에 각자의 인격을 정의할 수 있는 personality를 적용하는 것이다.</b></ins></p><blockquote><p>PersonInCasino 추상 클래스에 personality라는 class variable이 있는데, 이는 사람 성격에 따라 21미만의 카드를 뽑은 상태에서 카드를 계속 뽑을지(<code>Hit</code>) 아니면 멈출지(<code>Stay</code>)를 각기 다른 확률을 적용한다. <br/> 예를들어 소심한 사람은 20~30%, 평범한 사람은 50%, 욕심이 많은 사람은 80~90%의 확률로 카드를 계속 뽑는 결정을 하게 된다. <br/> 구체적인 구현 방법은 Python의 randchoice method에서 주어진 리스트에 대해 각 각 weight를 부여해서 확률을 조정할 수 있는데, 이를 활용해서 각기다른 성격을 가진 사람들이 다른 확률로 <code>Hit</code>을 한다.</p></blockquote><p>Hand class의 ring finger, middle finger, back of hand를 정의한 이유는 게임을 할때 player의 gesture가 있기 때문이다.<br>ring finger(검지)로 테이블을 톡 내려주는 gesture를 취하는 경우는 <ins><b>Hit</b></ins>, 검지와 중지(middle finger + ring finger)를 테이블에 향하여 친 후 손가락을 떼는 gesture는 <ins><b>Split</b></ins>을 의미한다. 그리고 손등(back of hand)이 위로 보이게 해서 손목스냅을 이용해 테이블을 한번 훑어주는 모션은 <ins><b>Stay</b></ins>이다.</p><p><ins><b>has-A 의존관계 중에 클래스간의 응집력이 높은 <code>Composition의 형태</code>로 Hand, Card, Game class로 Player와 Dealer의 대응되는 각 각의 instance variable을 초기화시켜줬다.</b></ins></p><p>Card class는 Player와 Dealer 모두 동일한 카드 뭉치로부터 카드를 받고 있기 때문에 Card class의 cardList는 class 변수로써 선언을 하였다.</p><p>가능한 한 설계 단계에서 생각할 수 있는 경우의 수를 토대로 클래스 설계를 해보았다. 좀 더 가시적으로 클래스 관계를 이해할 수 있도록 Class UML(Unified Modeling Language)를 만들어서 첨부하였다.</p><h2 id="코드-구현"><a href="#코드-구현" class="headerlink" title="코드 구현"></a>코드 구현</h2><p><ins><b>실제 게임으로 각 Player 객체를 Dealer 객체가 관리하기 위해 설계단계에서는 고려되지 않았던 <code>Player management class(PlayerMgmt)</code>를 새로 추가하였다. 그리고 기존에 설계했던 class의 일부 method를 새로 추가하였다.</b></ins></p><pre><code class="python">from abc import ABCMeta, abstractmethodfrom random import choices, shuffle# (PersonInCasino Abstract class)# Abstract method# doHit() : 카드를 계속 뽑는다. (단, 카드의 숫자가 21미만인 경우)# doStay() : 카드를 뽑지 않고 머무른다. (단, dealer의 경우, Dealer hit rule 적용)# checkStatusOfHand() : 손의 상태를 확인한다. (gesture : Hit, Stay, Split)# checkStatusOfGame() : 게임의 진행상태를 확인한다. (Hit, Stay, Burst, Blackjack, Split, Double down)# (단, Split과 Double down은 player를 위한 규칙이다)# checkCardsOnDeck() : Deck위에 카드를 확인한다. (완전탐색)# setPersonality() : 사람의 인격을 정의한다.# Player와 Dealer는 모두 Blackjack 카드 게임에 참여하므로, Blackjack게임을 위한# 공통 행동을 abstract class의 abstract method로 정의한다.class PersonInCasino(metaclass=ABCMeta):    @abstractmethod    def doHit():        raise NotImplementedError()    @abstractmethod    def doStay():        raise NotImplementedError()    @abstractmethod    def checkStatusOfHand():        raise NotImplementedError()    @abstractmethod    def checkStatusOfGame():        raise NotImplementedError()    @abstractmethod    def checkCardsOnDeck():        raise NotImplementedError()    @abstractmethod    def setPersonality():        raise NotImplementedError()# Dealer class# Personality는 &quot;timid&quot;(25%확률로 Hit), &quot;normal&quot;(50%확률로 Hit), &quot;greedy&quot;(75%의 확률로 Hit)로 구분하며,# timid =&gt; [0, 1] weight = [0.75, 0.25]# normal =&gt; [0, 1] weight = [0.5, 0.5]# greedy =&gt; [0, 1] weight = [0.25, 0.75]class Dealer(PersonInCasino):    def __init__(self, _personality):        self.personality = _personality        self.statusOfGame = Game()        self.statusOfHand = Hand()        self.cardDeck = CardDeck()        # Dealer가 일괄적으로 Player를 관리할 수 있도록 playerMgmt instance variable을 갖는다.        self.playerMgmt = PlayerMgmt()        # Blackjack 게임에서 사용될 카드들        self.card = Card()    # Player의 카드숫자 합이 21을 초과한 경우에 Player의 Game Status를 Burst로 업데이트하고    # Player리스트에서 제거한 뒤에 BurstPlayer리스트에 업데이트한다.    # Burst를 제외한 게임상태의 업데이트는 Player로부터 한다.    def updateBurstPlayer(self, index):        self.playerMgmt.updateBurstPlayer(index)    def doHit(self):        self.statusOfGame.updateGameStatus(&quot;Hit&quot;)    def doStay(self):        self.statusOfGame.updateGameStatus(&quot;Stay&quot;)    def checkStatusOfHand(self):        return self.statusOfHand    def checkStatusOfGame(self):        return self.statusOfGame    def checkCardsOnDeck(self):        return self.cardDeck    def getDecisionOfHit(self):        weight = &#123;&quot;timid&quot;: [0.75, 0.25], &quot;normal&quot;: [            0.5, 0.5], &quot;greedy&quot;: [0.25, 0.75]&#125;        return choices([0, 1], weights=weight[self.personality])    # 게임 참가자 수 만큼 카드를 한 장씩 나눠주고 1회 턴이 돌았을때    # 각 게임 참가자의 카드를 검사해서 카드 수의 총 합이 21 초과인 경우 burst player로 구분한다.    def pickupAndGiveCardToPlayer(self):        # card 뭉치에서 카드를 pop()으로 뽑느다.        # 우선 카드정보 리스트를 정의할 필요가 있다.        numOfPlayer = self.playerMgmt.playerList        for i in range(len(numOfPlayer)):            if self.card.cardList:                card = self.card.pickupTheCard()                self.playerMgmt.updateCard(i, card)        # 카드를 전체적으로 한 장씩 나눠주고, 각 Player의 카드정보를 확인하여,        # 카드 숫자의 합이 21을 초과하는 사람은 updateBurstPlayer() method를        # 사용하여 burst player로 구분한다.        for j in range(len(numOfPlayer)):            player = self.playerMgmt.checkPlayer(j)            cardList = player[&#39;cardDeck&#39;].checkCardStatusOfUser()            _sum = 0            for n in cardList:                if n == &#39;A&#39;:                    if sum(cardList) &gt; 10:                        sum += 1                    else:                        sum += 11                else:                    sum += n            if _sum &gt; 21:                burstPlayer = self.playerMgmt.playerList.pop(j)                self.playerMgmt.burstPlayerList.append(burstPlayer)# Player class# Personality는 &quot;timid&quot;(25%확률로 Hit), &quot;normal&quot;(50%확률로 Hit), &quot;greedy&quot;(75%의 확률로 Hit)로 구분하며,# timid =&gt; [0, 1] weight = [0.75, 0.25]# normal =&gt; [0, 1] weight = [0.5, 0.5]# greedy =&gt; [0, 1] weight = [0.25, 0.75]class Player(PersonInCasino):    def __init__(self, _personality):        self.personality = _personality        self.statusOfGame = Game()        self.cardDeck = CardDeck()        self.playerMgmt = PlayerMgmt()        # Player 객체 정의와 동시에 Player정보를 player management class의        # Player 정보 리스트에 담아준다.        self.__updatePlayerInfo()    def doHit(self):        self.statusOfGame.updateGameStatus(&quot;Hit&quot;)    def doStay(self):        self.statusOfGame.updateGameStatus(&quot;Stay&quot;)    def checkStatusOfHand(self):        return self.statusOfHand    def checkStatusOfGame(self):        return self.statusOfGame    def checkCardsOnDeck(self):        return self.cardDeck    def getDecisionOfHit(self):        weight = &#123;&quot;timid&quot;: [0.75, 0.25], &quot;normal&quot;: [            0.5, 0.5], &quot;greedy&quot;: [0.25, 0.75]&#125;        return choices([0, 1], weights=weight[self.personality])    # playerMgmt(Player management) class의 Player 정보 리스트를 업데이트    def __updatePlayerInfo(self):        playerInfo = &#123;&quot;statusOfGame&quot;: self.statusOfGame, &quot;statusOfHand&quot;: self.statusOfHand,                      &quot;personality&quot;: self.personality, &quot;cardDeck&quot;: self.cardDeck&#125;        self.playerMgmt.updatePlayerInfo(playerInfo)# Hand class# 약지(ring finger)을 사용해서 gesture를 하는경우 =&gt; Hit# 손등(backOfHand)을 사용해서 gesture를 하는경우 =&gt; Stay# 약지와 중지(ring finger + middle finger)를 사용해서 gesture를 하는 경우 =&gt; Splitclass Hand:    def __init__(self):        self.ringFinger = False        self.middleFinger = False        self.backOfHand = False    def useRingFinger(self):        self.ringFinger = True    def useMiddleFinger(self):        self.middleFinger = True    def useBackOfHand(self):        self.backOfHand = True    def resetStatusOfHand(self):        self.ringFinger = False        self.middleFinger = False        self.backOfHand = False# Card class# 카드의 종류와 상관없이 2~9까지는 각 각 4장씩 넣고# 10은 10(4장) J,Q,K 각 각 4장씩 총 16장을 넣어준다.# Ace의 경우에는 1또는 11로 계산될 수 있기 때문에 &#39;A&#39;로 4장 넣어준다.class Card:    cardList = []    def __init__(self):        self.prepareCards()    @classmethod    def prepareCards(cls):        # 2~9까지 숫자카드를 각 각 4장씩 넣는다.        for i in range(2, 9+1):            for _ in range(4):                cls.cardList.append(i)        # 숫자카드 10을 16장 넣어준다.        for _ in range(16):            cls.cardList.append(10)        # Ace 카드를 4장 넣어준다.        for _ in range(4):            cls.cardList.append(&#39;A&#39;)        # 카드를 섞어준다.        cls.__shuffleCards()    @classmethod    def pickupTheCard(cls):        return cls.cardList.pop()    @classmethod    def __shuffleCards(cls):        shuffle(cls.cardList)# CardDeck classclass CardDeck:    def __init__(self):        self.bettingChipArea = 0        self.cardArea = []    def checkBettingChipArea(self):        return self.bettingChipArea    def checkCardStatusOfUser(self):        return self.cardArea    def updateBettingChipArea(self, chip):        self.bettingChipArea += chip    def updateCardArea(self, card):        self.cardArea.append(card)# Game class# player가 split을 하는 경우, numOfLife를 증가시켜준다.class Game:    def __init__(self):        self.numOfLife = 1        self.status = &quot;&quot;    def updateNumOfLife(self, life):        self.numOfLife += life    def updateGameStatus(self, _status):        self.status = _status# Player객체를 일괄적으로 관리하기 위한 Player management classclass PlayerMgmt:    playerList = []    burstPlayerList = []    # index번째 player의 객체 정보를 참조할 수 있도록 객체를 반환한다.    @classmethod    def checkPlayer(cls, index):        if cls.playerList[index]:            return cls.playerList[index]        else:            print(&quot;해당 Player는 존재하지 않습니다.&quot;)    @classmethod    # Blackjack참가 Player의 객체 정보를 playerList에 업데이트한다.    def updatePlayerInfo(cls, player):        cls.playerList.append(player)    @classmethod    def updateBurstPlayer(cls, index):        # list의 index는 0번째부터 시작하기 때문에 -1을 해서 index-1번째 player를 pop한 뒤에        # burstPlayer list에 업데이트를 해준다.        if cls.playerList[index-1]:            burstPlayer = cls.playerList.pop(index-1)        else:            print(&quot;해당 Player는 존재하지 않습니다.&quot;)    # index번째 Player의 carddeck의 카드를 업데이트한다.    @classmethod    def updateCard(cls, index, card):        cls.playerList[index][&#39;cardDeck&#39;].updateCardArea(card)</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210211_blackjack_img.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Blackjack-Class-Design&quot;&gt;&lt;a href=&quot;#Blackjack-Class-Design&quot; class=&quot;hea</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Python-Assignment" scheme="https://leehyungi0622.github.io/tags/Python-Assignment/"/>
     
   </entry>
   
