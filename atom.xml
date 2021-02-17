@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-16T22:26:56.256Z</updated>
+  <updated>2021-02-17T01:18:31.175Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>210217 TDD(Test-Driven Development) (작성중...)</title>
+    <title>210217 Jest의 test, it, describe</title>
+    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-JS_Jest_test_it/"/>
+    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-JS_Jest_test_it/</id>
+    <published>2021-02-17T01:07:42.000Z</published>
+    <updated>2021-02-17T01:18:31.175Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><p>이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 <code>test와 it 키워드</code>의 사용과 여러 개의 테스트 케이스를 묶을때 사용하는 <code>describe 키워드</code>에 대해서 정리를 해보겠다.</p><h2 id="test와-it-키워드의-사용"><a href="#test와-it-키워드의-사용" class="headerlink" title="test와 it 키워드의 사용"></a><strong>test와 it 키워드의 사용</strong></h2><p>이전 포스팅에서 test라는 키워드를 사용해서 테스트 케이스를 작성해보았다. 이 키워드를 대체해서 it이라는 키워드도 사용될 수 있는데 작동 방식은 같다.</p><pre><code class="javascript">// test keyword를 사용한 테스트 코드 작성const &#123; test, expect &#125; = require(&quot;@jest/globals&quot;);const sum = require(&quot;../sum&quot;);// 작성한 테스트코드가 무엇을 하는지에 대해서 첫번째 parameter로 작성해준다.test(&quot;properly adds two numbers&quot;, () =&gt; &#123;  // expected result  expect(sum(1, 2)).toBe(3);&#125;);// it keyword를 사용한 테스트 코드 작성it(&quot;properly adds two numbers&quot;, () =&gt; &#123;  expect(sum(1, 2)).toBe(3);&#125;);</code></pre><br/><h2 id="describe-키워드의-사용"><a href="#describe-키워드의-사용" class="headerlink" title="describe 키워드의 사용"></a><strong>describe 키워드의 사용</strong></h2><p>describe keyword를 사용해서 작은 단위의 테스트 코드를 그룹화할 수 있다.<br>아래의 테스트 코드는 실제 side project를 하면서 작성했던 component의 rendering 및 routing test를 위해 작성했던 코드이다.<br>이처럼 작성하는 테스트 코드가 특정 component에 속하는 테스트 코드라면 아래와같이 describe 키워드를 사용해서 해당 테스트 코드들을 그룹화하는 것이 좋다. 이렇게 그룹화를 해주게 되면, 나중에 테스트 결과를 확인시 좀 더 가시적으로 보기 편하게 테스트 케이스들을 확인할 수 있다.</p><pre><code class="javascript">describe(&#39;&lt;App /&gt;&#39;, () =&gt; &#123;  // Test case 1  test(&#39;&lt;App /&gt; rendering시에 /(root)로 rendering이 되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId, getByText &#125; = render(&lt;App /&gt;);    const navbar = getByTestId(&#39;navbar&#39;);    const link = getByTestId(&#39;HOME&#39;);    // 각 각의 page componet를 lazy하게 가져오고 있기 때문에, 비동기로 wait() 처리를 해준다.    await wait();    expect(getByText(/Hello world/i)).toBeInTheDocument();    expect(navbar).toContainElement(link);  &#125;);  // Test case 2  test(&#39;MENU1 menu를 클릭시, MENU1 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU1&#39;));    await wait();    // menu1-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu1-wrapper&#39;)).toBeInTheDocument();  &#125;);  ......(생략)......</code></pre><br/><h2 id="코드-리팩토링-Code-Refactoring"><a href="#코드-리팩토링-Code-Refactoring" class="headerlink" title="코드 리팩토링(Code Refactoring)"></a><strong>코드 리팩토링(Code Refactoring)</strong></h2><p>만약에 기존의 소스코드를 리팩토링했다고 가정하자. 코드는 바뀌었지만, 결과적으로 output은 같기 때문에 리팩토링을 한 뒤에 <ins><b>기존의 테스트 코드를 실행시켜서 결과값이 같은지 확인을 하면 쉽게 코드가 제대로 작동을 하는지 검증을 할 수 있다. </b></ins><br>이처럼 테스트 코드의 작성은 코드 리팩토링시에도 빠른 코드 검증을 가능하게 해준다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/jest_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 &lt;code&gt;test와 it 키워드&lt;/code&gt;의 사용과 여러 개의 테스트 케</summary>
+      
+    
+    
+    
+    <category term="JavaScript-Test" scheme="https://leehyungi0622.github.io/categories/JavaScript-Test/"/>
+    
+    
+    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
+    
+    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210217 TDD(Test-Driven Development)</title>
     <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-tdd_development/"/>
     <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-tdd_development/</id>
     <published>2021-02-16T21:50:42.000Z</published>
-    <updated>2021-02-16T22:26:56.256Z</updated>
+    <updated>2021-02-17T01:42:05.365Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210217_tdd_img.webp"></p><br/><h3 id="TDD"><a href="#TDD" class="headerlink" title="TDD?"></a><strong>TDD?</strong></h3><p>이번 포스팅에서는 TDD에 대해서 정리를 해보려고 한다.</p><p>우선 간단하게 개발에서 테스트의 정의는 내가 작성한 코드가 잘 작동한다는 것을 검증하는 단계이다. 가장 기본적으로 만들어진 어플리케이션을 테스트하는 방법은 직접 마우스와 키보드를 사용해서 의도대로 잘 동작하는지 확인할 수 있다.<br>하지만 이렇게 모든 기능을 사람 손으로 하나하나 확인하는 것은 여간 번거로운 일이 아닐 수 없다.</p><p>그래서 테스트 코드라는 것을 작성해서 테스트를 자동화시켜준다. 테스트 자동화란 사람이 직접 어플리케이션의 동작을 확인하는 것이 아닌, 작성한 테스트 코드를 통해서 테스트 시스템이 자동으로 확인을 해주는 것을 말한다.</p><h2 id="테스트-자동화-Automated-Testing"><a href="#테스트-자동화-Automated-Testing" class="headerlink" title="테스트 자동화(Automated Testing)"></a>테스트 자동화(Automated Testing)</h2><ul><li><h3 id="테스트-자동화의-장점"><a href="#테스트-자동화의-장점" class="headerlink" title="테스트 자동화의 장점"></a>테스트 자동화의 장점</h3><ul><li>여러 사람들과 협업하여 작업을할때 각자가 작성한 코드에 문제가 있는지 빠르게 검사를 할 수 있다.</li><li>새로운 기능을 추가하는 작업의 경우, 기존의 기능들을 망가뜨리는 것을 사전에 방지할 수 있다.</li><li>테스트 코드를 적는다는 것은 <ins><b>개발할때 실제 발생할 수 있는 상황에 대하여 미리 정리</b></ins>해놓는 일련의 작업이기 때문에 미리 정리해놓고 그에 상응하는 코드를 작성하게 되면 필요한 사항들을 까먹지 않고 넣어줄 수 있다.</li><li><ins><b>Code Refactoring시에도 좋다.</b></ins> 일부 기능에 대한 코드를 리팩토링할때 기존에 이 기능에 대한 테스트 코드가 존재한다면 리팩토링한 후에도 동일한 동작을 하는지 검사하면 되기 때문에 검증하기가 쉽다.</li></ul></li></ul><br/><h2 id="테스트-종류"><a href="#테스트-종류" class="headerlink" title="테스트 종류"></a><strong>테스트 종류</strong></h2><pre><code>- **Unit Test**</code></pre>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210217_tdd_img.webp"></p><br/><h3 id="TDD"><a href="#TDD" class="headerlink" title="TDD?"></a><strong>TDD?</strong></h3><p>이번 포스팅에서는 TDD에 대해서 정리를 해보려고 한다.</p><p>우선 TDD란 Test Driven Development의 약어로 테스트 주도 개발을 의미한다.<br>즉, <code>테스트가 개발을 이끌어 나가는 형태의 개발론</code>이다.<br>이 TDD방식의 개발은 <code>선 Test code 작성, 후 구현</code>을 의미하며, <ins><b>총 3가지 (실패, 성공, 리팩토링)의 절차로 구성된다.</b></ins> 구체적인 내용에 대해서는 테스트 자동화(Automated Testing)와 테스트의 종류에 관련된 내용을 우선 정리하고 정리해보도록 하겠다.<br>우선 개발에서 테스트의 정의는 내가 작성한 코드가 잘 작동한다는 것을 검증하는 단계이다. 가장 기본적으로 만들어진 어플리케이션을 테스트하는 방법은 직접 마우스와 키보드를 사용해서 의도대로 잘 동작하는지 확인할 수 있다.<br>하지만 이렇게 모든 기능을 사람 손으로 하나하나 확인하는 것은 여간 번거로운 일이 아닐 수 없다.</p><p>그래서 테스트 코드라는 것을 작성해서 테스트를 자동화시켜준다. 테스트 자동화란 사람이 직접 어플리케이션의 동작을 확인하는 것이 아닌, 작성한 테스트 코드를 통해서 테스트 시스템이 자동으로 확인을 해주는 것을 말한다.</p><h2 id="테스트-자동화-Automated-Testing"><a href="#테스트-자동화-Automated-Testing" class="headerlink" title="테스트 자동화(Automated Testing)"></a>테스트 자동화(Automated Testing)</h2><ul><li><h3 id="테스트-자동화의-장점"><a href="#테스트-자동화의-장점" class="headerlink" title="테스트 자동화의 장점"></a>테스트 자동화의 장점</h3><ul><li>여러 사람들과 협업하여 작업을할때 각자가 작성한 코드에 문제가 있는지 빠르게 검사를 할 수 있다.</li><li>새로운 기능을 추가하는 작업의 경우, 기존의 기능들을 망가뜨리는 것을 사전에 방지할 수 있다.</li><li>테스트 코드를 적는다는 것은 <ins><b>개발할때 실제 발생할 수 있는 상황에 대하여 미리 정리</b></ins>해놓는 일련의 작업이기 때문에 미리 정리해놓고 그에 상응하는 코드를 작성하게 되면 필요한 사항들을 까먹지 않고 넣어줄 수 있다.</li><li><ins><b>Code Refactoring시에도 좋다.</b></ins> 일부 기능에 대한 코드를 리팩토링할때 기존에 이 기능에 대한 테스트 코드가 존재한다면 리팩토링한 후에도 동일한 동작을 하는지 검사하면 되기 때문에 검증하기가 쉽다.</li></ul></li></ul><br/><h2 id="테스트-종류"><a href="#테스트-종류" class="headerlink" title="테스트 종류"></a><strong>테스트 종류</strong></h2><br/><ul><li><h3 id="Unit-Test"><a href="#Unit-Test" class="headerlink" title="Unit Test"></a><ins><b>Unit Test</b></ins></h3><p>유닛 테스트는 어플리케이션의 각 기능들을 아주 작은 단위로 쪼개서 작성해서 테스트하는 것을 말한다. 큰 분류의 기능을 작은 단위로 쪼개서 테스트를 하게 되면 세부기능별로 잘 작동을 하는지 확인할 수 있다.<br>테스트시에 보통 한 개의 파일만 불러와서 진행한다.</p><br/><p>ex) <strong>React에서의 Unit Test</strong></p><ul><li>Component가 잘 rendering된다.</li><li>Component의 특정 함수를 실행시키면 해당 상태가 원하는 형태로 바뀐다.</li><li>Redux의 Action 생성 함수가 Action의 객체를 잘 만들어낸다.</li><li>Redux의 Reducer에 상태와 Action 객체를 넣어서 호출하면 새로운 상태를 생성해준다.</li></ul><hr/></li><li><h3 id="Integrated-Test"><a href="#Integrated-Test" class="headerlink" title="Integrated Test"></a><ins><b>Integrated Test</b></ins></h3><p>유닛 테스트가 각 기능의 세부 기능을 테스트했다면, 이제 통합 테스트를 통해서 전체적으로 테스트하는 어플리케이션이 잘 작동하는지 확인을 해야하는데 이때 하는 테스트가 <code>통합 테스트(Integrated Test)</code>이다.<br>테스트시에 여러 파일들을 불러와서 진행된다.</p><br/><p>ex) <strong>React에서의 Integrated Test</strong></p><ul><li>여러 Component들을 rendering하고 서로 상호작용을 하고 있다.</li><li>DOM event를 발생시켰을때 UI에 원하는 변화가 잘 발생한다.</li><li>Redux와 연동된 Container Component의 DOM에 특정 event를 발생시켰을때 기대하는 Action이 제대로 dispatch된다.</li></ul></li></ul><br/><h2 id="TDD의-3단계-절차"><a href="#TDD의-3단계-절차" class="headerlink" title="TDD의 3단계 절차"></a>TDD의 3단계 절차</h2><p><img src="/images/post_images/210217_tdd_desc_img.jpg"></p><p>TDD방식으로 개발을 하기 위해서 우선 <ins><b>첫 번째 단계는 <code>실패하는 테스트 케이스를 먼저 만드는 것</code>이다. 실패하는 테스트 케이스의 작성은 <code>프로젝트 전체의 기능에 대한 테스트 코드가 아닌 당장 구현할 기능</code> 하나씩 테스트 케이스를 작성</b></ins>하는 것을 말한다.</p><p><ins><b>두 번째 단계는 <code>성공하기 위한 코드작성</code>을 하는 단계</b></ins>이다. 첫 번째 단계에서 작성했던 <code>실패하는 테스트 케이스들을 PASS시키기 위해서 실제 기능에 해당하는 코드를 작성</code>하는 단계이다.</p><p><ins><b>세 번째 단계는 <code>작성한 코드를 리팩토링</code>하는 단계</b></ins>이다. 두 번째 단계에서 구현한 코드에 중복되는 코드가 있거나, 혹은 코드를 좀 더 개선시킬 방법이 있다면 리팩토링을 진행한다. 리팩토링 후에 기존의 테스트 코드를 실행해서 문제없이 PASS가 되는지 확인을 한다. 이 단계까지 완료되었다면 다시 첫 번재 단계로 돌아가서 새롭게 추가해야되는 기능에 대한 실패하는 테스트 케이스를 작성하도록 한다.</p><h2 id="TDD가-좋은-점"><a href="#TDD가-좋은-점" class="headerlink" title="TDD가 좋은 점"></a>TDD가 좋은 점</h2><p>TDD로 개발을 진행하게 되면 테스트 케이스를 작성할때 기능을 작은 단위로 나눠서 작성을 하기 때문에 코드를 작성할때에도 코드가 너무 방대해지지 않고, <code>코드의 모듈화</code>가 자연스럽게 잘 이뤄지는 개발로 진행이 된다.<br>앞서 3 STEP에서 살펴보았듯이 실제 기능구현 이전에 테스트 코드를 작성하게 되면, 자연스럽게 Test Coverage가 높아진다. 이렇게 되면 향후에 코드를 리팩토링할때 그리고 유지보수를 할때에도 쉬워진다.<br>이처럼 TDD방식은 프로젝트의 환경을 좋게 구성하는데 일조를 한다.</p><p><code>요구사항 =&gt; 테스트 코드 =&gt; 구현 =&gt; 테스트 코드 실행</code><br>요구사항에 맞춰서 기능을 세분화해서 테스트 코드를 작성하기 때문에 실수로 요구사항을 빼먹거나 하는 실수를 사전에 방지할 수 있다.</p>]]></content>
     
     
       
@@ -65,11 +94,11 @@
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
     
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
-    
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
     <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
+    
+    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
     
   </entry>
   
@@ -108,9 +137,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Self-development_til/</id>
     <published>2021-02-16T04:08:00.000Z</published>
-    <updated>2021-02-16T07:51:48.982Z</updated>
+    <updated>2021-02-17T01:17:56.355Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>고통은 잠깐이다. 포기는 영원히 남는다.</strong><br/> (Pain is temporary. Quitting lasts forever.)<br/> <strong>랜스 암스트롱 / Lance Armstrong</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 17 ~ 33P</del> (<code>완료</code>)</p></li><li><p><del>OReilly TypeScript 예제 코드실습</del> (<code>완료</code>)</p></li><li><p><del>오늘 배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</p></li><li><p><del>오늘 실습한 내용 GitHub에서 관리하기</del> (<code>완료</code>)</p><br/></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 2474번 피보나치 문제<ul><li><del>다양한 방법으로 문제풀이하기 (+memoization, recursive, for)</del>(<code>완료</code>)</li><li>블로그 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>고통은 잠깐이다. 포기는 영원히 남는다.</strong><br/> (Pain is temporary. Quitting lasts forever.)<br/> <strong>랜스 암스트롱 / Lance Armstrong</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 17 ~ 33P</del> (<code>완료</code>)</p></li><li><p><del>OReilly TypeScript 예제 코드실습</del> (<code>완료</code>)</p></li><li><p><del>오늘 배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</p></li><li><p><del>오늘 실습한 내용 GitHub에서 관리하기</del> (<code>완료</code>)</p><br/></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 2474번 피보나치 문제<ul><li><del>다양한 방법으로 문제풀이하기 (+memoization, recursive, for)</del>(<code>완료</code>)</li><li><del>블로그 포스팅하기</del> (<code>완료</code>)<br/></li></ul></li></ul></li></ul>]]></content>
     
     
       
@@ -123,9 +152,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -152,9 +181,9 @@
     <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
@@ -183,9 +212,9 @@
     <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
@@ -241,9 +270,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -271,9 +300,9 @@
     <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
@@ -328,9 +357,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -391,9 +420,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -505,9 +534,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -558,38 +587,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210210 Hexo Image Optimization</title>
-    <link href="https://leehyungi0622.github.io/2021/02/10/202102/210210-Image-Optimization/"/>
-    <id>https://leehyungi0622.github.io/2021/02/10/202102/210210-Image-Optimization/</id>
-    <published>2021-02-10T08:00:00.000Z</published>
-    <updated>2021-02-13T03:04:03.796Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210210_image_optimization.png"></p><br/><p>Hexo 블로그를 운영하면서 업로드한 이미지들 때문에 웹 페이지의 로딩시간이 이전보다 많이 느려졌다.<br>그래서 업로드한 이미지 파일들을 모두 compression해서 파일크기를 1/4 사이즈로 만든다음에 업로드하였다. 그런데도 웹 페이지 로딩시간이 생각보다 오래 걸려서 한 번 Googling을 해보았다.</p><p>그래서 발견한 것이 <code>Hexo Image Optimization</code>이다.</p><p>Hexo 내에 존재하는 모든 image파일 확장자를 가진 파일들을 최적화 시켜주고, 별도의 설정으로 post의 thumbnail 이미지도 최적화 시켜준다고 한다.</p><p>그래서 친절하게 설명되어 있는 설명을 보며, 최적화 설정을 모두 마쳤다.</p><pre><code class="bash">$ hexo generate &amp;&amp; hexo img</code></pre><p>혹시 나와같이 블로그를 운영하다가 같은 문제로 고민이 있는 사람을 위해 참고한 GitHub 주소를 첨부한다.</p><p>요즘에 블로그 포스팅을 하면서, 이전에 우연히 보게 된 영상에서 개발자 유튜버가 하신 말씀이 생각난다.<br><code>&quot;개발자는 알고있는 지식을 소유하는 것이 아니라 공유하는 것이다.&quot;</code></p><p>아직은 아는 것이 많이 없지만, 이제부터 새롭게 알게 되거나 유익한 내용들을 블로그를 통해서 많이 공유해야겠다.</p><br/><p><strong>[Hexo-img-optimization GitHub URL]</strong><br><a href="https://github.com/vkuznecovas/hexo-img-optimization">https://github.com/vkuznecovas/hexo-img-optimization</a></p><p><img src="/images/post_images/210211_img_optimization.png"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210210_image_optimization.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;p&gt;Hexo 블로그를 운영하면서 업로드한 이미지들 때문에 웹 페이지의 로딩시간이 이전보다 많이 느려졌다.&lt;br&gt;그</summary>
-      
-    
-    
-    
-    <category term="TIL:Hexo" scheme="https://leehyungi0622.github.io/categories/TIL-Hexo/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Hexo-Image-Optimization" scheme="https://leehyungi0622.github.io/tags/Hexo-Image-Optimization/"/>
     
   </entry>
   
