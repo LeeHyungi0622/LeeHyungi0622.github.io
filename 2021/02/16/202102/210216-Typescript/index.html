@@ -137,6 +137,12 @@ let airplaneSeatingAssignments: &#123;
 &#125; = &#123;
   firstName: &#39;abby&#39;
 &#125;</code></pre>
+<p><code>2020/02/19 업데이트 내용</code><br>또 다른 객체 리터럴 표기법에는 <code>빈 객체 타입(&#123;&#125;)과 객체: Object</code>이라는 특별한 경우도 있다.<br>빈 객체 타입에는 null과 undefined를 제외한 모든 타입이 할당 될 수 있다. 따라서 가능한 한 빈 객체는 피하는 것이 좋다.<br>두 객체 리터럴 표기법은 서로 비슷하며 사용하는 것을 권장하지 않는다.</p>
+<pre><code class="javascript">let danger: &#123;&#125;;
+danger = &#123;&#125;;
+danger = &#123; x: 1 &#125;;
+danger = [];</code></pre>
+<p><ins><b>object타입과 Object타입을 사용한 객체 정의</b></ins><br/><br>object로 객체를 정의하는 것은 객체의 구체적인 필드 형태는 중요하지 않고 <code>단지 객체 자체가 필요할때</code> 사용된다.</p>
 </li>
 </ul>
 </li>
