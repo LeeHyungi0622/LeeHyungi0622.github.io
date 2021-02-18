@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-17T20:28:15.906Z</updated>
+  <updated>2021-02-18T09:12:44.705Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210218 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/18/202102/210218-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/18/202102/210218-Self-development_til/</id>
+    <published>2021-02-18T00:32:00.000Z</published>
+    <updated>2021-02-18T09:12:44.705Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><p>어제 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</p></li><li><p>과제</p><ul><li><p><del>Wikipedia의 한국 COVID-19 정보 페이지에서 필요한 정보를 Scrapping하기</del> (<code>완료</code>)</p></li><li><p><del>COVID-19관련 Web API의 JSON형식 데이터를 읽고 가공하기</del> (<code>완료</code>)<br>→ <del><a href="https://github.com/LeeHyungi0622/simple-covid19-flask-app">https://github.com/LeeHyungi0622/simple-covid19-flask-app</a></del></p></li><li><p>TIL:Flask 카테고리 따로 만들어서 VSCODE 환경에서의 Flask 개발환경 구축과 Flask Auto-Reload하는 방법에 대해서 포스팅하기 (<code>예정</code>)</p><br/></li></ul></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 50% 예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>오늘 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li><del>OReilly TypeScript 독서 33-53P</del> (<code>완료</code>)</li></ul></li><li><p><strong>어제 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>210217 Development environment setting(pyenv, virtualenv, autoenv, pip, poetry 사용법)</title>
@@ -574,33 +600,6 @@
     <category term="ReactJS" scheme="https://leehyungi0622.github.io/tags/ReactJS/"/>
     
     <category term="React-router" scheme="https://leehyungi0622.github.io/tags/React-router/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210212 Side Project Diary 6/7일차</title>
-    <link href="https://leehyungi0622.github.io/2021/02/12/202102/210211_side_project_diary/"/>
-    <id>https://leehyungi0622.github.io/2021/02/12/202102/210211_side_project_diary/</id>
-    <published>2021-02-11T22:25:42.000Z</published>
-    <updated>2021-02-11T22:26:52.833Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/side_project_diary_img.jpg"></p><h2 id="Side-Project-Diary-6-7일차"><a href="#Side-Project-Diary-6-7일차" class="headerlink" title="Side Project Diary 6/7일차"></a><strong>Side Project Diary 6/7일차</strong></h2><p>오늘은 금요일날 강사님으로부터 개인 프로젝트 진행과 관련하여 advice 받은 내용들을 정리하는 것을 시작으로 Side Project Diary의 내용을 시작하려고 한다.<br>우선 첫번째, Git branch 관리의 경우, <code>많은 기업들이 git flow model을 사용</code>하고 있으므로, <ins><b>복잡하더라도 git flow model을 사용해서 프로젝트를 진행하는 것이 좋겠다고 하셨다.</b></ins> 그래서 개인적인 판단에 프로젝트가 simple하다면, github flow를, 비교적 프로젝트가 어느정도의 복잡성을 가진다면, git flow model을 사용할 예정이다. 적절히 두 가지 git branch model을 사용해서 프로젝트를 진행하기로 결정했다.<br>두번째, 각 프로젝트별로 다양한 프레임워크를 사용해서 개발을 하는 것이 좋은지에 대해서 여쭤보았는데, 이 부분에 대해서는 최대한 해당 프레임워크의 특징을 잘 살려서 개발을 하는 것이 중요하다고 하셨다. 그리고 단순히 개발에만 그치는 것이 아니라 각 각의 프레임워크의 장단점들을 서로 비교해서 설명할 수 있어야 한다고 하셨다. <ins><b>그래서 이 부분에 대해서는 각 프로젝트의 README 파일의 Project reflection 부분에 면접 대비해서 내용을 정리해보기로 했다.</b></ins><br>세번째, 프로젝트를 진행할때 <code>각 각의 프레임워크별로 궁합이 좋은 Database</code>가 있으니, 이 부분을 잘 고려하여 프로젝트를 진행하는 것이 좋다고 하셨다. 예를들어, NodeJS의 경우에는 NoSQL인 MongoDB가 궁합이 잘 맞고 NestJS는 PostgreSQL이 궁합에 잘 맞는데 이러한 부분을 잘 고려해서 프로젝트 설계를 하는 것이 중요하다고 하셨다. 이 부분도 프로젝트 초기 설계단계에서 최대한 반영해서 개발을 진행해야겠다.<br><code>항상 개발분야는 트렌드가 빠르게 바뀌기 때문에 이러한 변화의 흐름을 잘 타면서 스스로 자기개발을 하고, 발전을 할 수 있는 개발자라는 인식을 주는 것이 중요한 것 같다.</code></p><p>자 그럼 advice 받은 내용은 어느정도 정리가 되었으니, 이제 side project의 진행에 대해서 정리를 해보자.<br>오늘은 ReactJS side project의 Issue #8, #9를 진행할 계획이다. 두 issue가 close되었다면 이어서 새로운 issue를 추가해서 작업을 이어가야겠다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Side-Project-Diary-6-7일차&quot;&gt;&lt;a href=&quot;#Side-Project-Diary-6-7일차&quot; clas</summary>
-      
-    
-    
-    
-    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
     
   </entry>
   
