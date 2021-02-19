@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-18T21:52:01.610Z</updated>
+  <updated>2021-02-19T00:22:14.765Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/19/202102/210219-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/19/202102/210219-Self-development_til/</id>
     <published>2021-02-18T21:40:00.000Z</published>
-    <updated>2021-02-18T21:52:01.610Z</updated>
+    <updated>2021-02-19T00:22:14.765Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>객체 리터럴 부분은 저번 포스팅부분에 내용추가하기 (<code>예정</code>)<br>→ <a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Typescript/">https://leehyungi0622.github.io/2021/02/15/202102/210215-Typescript/</a></li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>18일 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>오늘 분 OReilly TypeScript 독서</strong></p><ul><li>OReilly TypeScript 독서 61-</li></ul><br/></li></ul></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><p>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</p></li><li><p>과제</p><ul><li><p>TIL:Flask 카테고리 따로 만들어서 VSCODE 환경에서의 Flask 개발환경 구축과 Flask Auto-Reload하는 방법에 대해서 포스팅하기 (<code>예정</code>)</p><br/></li></ul></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>객체 리터럴 부분은 저번 포스팅부분에 내용추가하기 (<code>예정</code>)<br>→ <a href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/">https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/</a></li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>18일 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>오늘 분 OReilly TypeScript 독서</strong></p><ul><li><del>OReilly TypeScript 독서 61-75P</del> (<code>완료</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><p>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</p></li><li><p>과제</p><ul><li><p>TIL:Flask 카테고리 따로 만들어서 VSCODE 환경에서의 Flask 개발환경 구축과 Flask Auto-Reload하는 방법에 대해서 포스팅하기 (<code>예정</code>)</p><br/></li></ul></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</li></ul></li></ul>]]></content>
     
     
       
@@ -36,9 +36,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -92,9 +92,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -154,9 +154,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
     <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
@@ -182,9 +182,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -324,9 +324,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -355,9 +355,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -386,9 +386,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
   </entry>
   
@@ -442,9 +442,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -474,9 +474,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -529,9 +529,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -592,9 +592,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
