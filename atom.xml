@@ -36,9 +36,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -47,9 +47,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/19/202102/210219-Typescript/"/>
     <id>https://leehyungi0622.github.io/2021/02/19/202102/210219-Typescript/</id>
     <published>2021-02-18T21:35:42.000Z</published>
-    <updated>2021-02-18T22:15:59.140Z</updated>
+    <updated>2021-02-20T09:47:03.648Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><h3 id="타입별칭"><a href="#타입별칭" class="headerlink" title="타입별칭"></a>타입별칭</h3><h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><h3 id="튜플"><a href="#튜플" class="headerlink" title="튜플"></a>튜플</h3><h3 id="null-undefined-void-never"><a href="#null-undefined-void-never" class="headerlink" title="null, undefined, void, never"></a>null, undefined, void, never</h3><h3 id="열거형-enum"><a href="#열거형-enum" class="headerlink" title="열거형(enum)"></a>열거형(enum)</h3><h2 id="연습문제"><a href="#연습문제" class="headerlink" title="연습문제"></a>연습문제</h2>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><pre><code class="javascript"></code></pre><h3 id="타입별칭"><a href="#타입별칭" class="headerlink" title="타입별칭"></a>타입별칭</h3><h4 id="일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다"><a href="#일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다" class="headerlink" title="일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다."></a>일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.</h4><pre><code>```javascripttype Age = numbertype persono = &#123;  name: string  age: Age&#125;``````javascriptlet age: Age = 55let driver: Person = &#123;  name: &#39;James May&#39;,  age: age&#125;```</code></pre><h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><h3 id="튜플"><a href="#튜플" class="headerlink" title="튜플"></a>튜플</h3><h3 id="null-undefined-void-never"><a href="#null-undefined-void-never" class="headerlink" title="null, undefined, void, never"></a>null, undefined, void, never</h3><h3 id="열거형-enum"><a href="#열거형-enum" class="headerlink" title="열거형(enum)"></a>열거형(enum)</h3><h2 id="연습문제"><a href="#연습문제" class="headerlink" title="연습문제"></a>연습문제</h2>]]></content>
     
     
       
@@ -92,9 +92,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -154,9 +154,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
@@ -182,9 +182,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -324,9 +324,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -355,9 +355,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -386,9 +386,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -442,9 +442,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -474,9 +474,9 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
@@ -529,9 +529,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -592,9 +592,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
