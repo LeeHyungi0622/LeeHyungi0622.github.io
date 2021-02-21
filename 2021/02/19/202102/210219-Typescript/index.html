@@ -1,10 +1,9 @@
 <!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210219 TypeScript Book TIL(작성중...)</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
-</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210219 TypeScript Book TIL(작성중...)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EA%B3%B5%EB%B6%80%ED%95%9C-%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 공부한 내용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%83%80%EC%9E%85%EB%B3%84%EC%B9%AD"><span class="toc-text">타입별칭</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9C%BC%EB%A1%9C-%EB%B3%80%EC%88%98%EB%A5%BC-%EC%84%A0%EC%96%B8%ED%95%98%EB%93%AF%EC%9D%B4-type-%ED%82%A4%EC%9B%8C%EB%93%9C%EB%A1%9C-type%EC%9D%84-%EC%84%A0%EC%96%B8%ED%95%B4%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8B%A4"><span class="toc-text">일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B0%B0%EC%97%B4"><span class="toc-text">배열</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8A%9C%ED%94%8C"><span class="toc-text">튜플</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null-undefined-void-never"><span class="toc-text">null, undefined, void, never</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B4%EA%B1%B0%ED%98%95-enum"><span class="toc-text">열거형(enum)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C"><span class="toc-text">연습문제</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/TypeScript"><i class="tag post-item-tag">TypeScript</i></a><a href="/tags/self-development"><i class="tag post-item-tag">self-development</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210219 TypeScript Book TIL(작성중...)</h1><time class="has-text-grey" datetime="2021-02-18T21:35:42.000Z">2021-02-19</time><article class="mt-2 post-content"><p><img src="/images/post_images/typescript_logo.png"></p>
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210219 TypeScript Book TIL(작성중...)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EA%B3%B5%EB%B6%80%ED%95%9C-%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 공부한 내용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%83%80%EC%9E%85%EB%B3%84%EC%B9%AD"><span class="toc-text">타입별칭</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9C%BC%EB%A1%9C-%EB%B3%80%EC%88%98%EB%A5%BC-%EC%84%A0%EC%96%B8%ED%95%98%EB%93%AF%EC%9D%B4-type-%ED%82%A4%EC%9B%8C%EB%93%9C%EB%A1%9C-type%EC%9D%84-%EC%84%A0%EC%96%B8%ED%95%B4%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8B%A4"><span class="toc-text">일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%83%80%EC%9E%85%EC%9D%98-union%EA%B3%BC-intersection-type"><span class="toc-text">타입의 union과 intersection type</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B0%B0%EC%97%B4"><span class="toc-text">배열</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9D%B4%ED%98%95%EB%B0%B0%EC%97%B4-heterogeneous-union"><span class="toc-text">이형배열(heterogeneous) - union</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8A%9C%ED%94%8C"><span class="toc-text">튜플</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9D%BD%EA%B8%B0%EC%A0%84%EC%9A%A9-%EB%B0%B0%EC%97%B4%EA%B3%BC-%ED%8A%9C%ED%94%8C%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-text">읽기전용 배열과 튜플만들기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%8B%A4%EC%96%91%ED%95%9C-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9-%EB%B0%B0%EC%97%B4%EA%B3%BC-%ED%8A%9C%ED%94%8C%EC%9D%98-%EC%84%A0%EC%96%B8%EB%B0%A9%EC%8B%9D"><span class="toc-text">다양한 읽기 전용 배열과 튜플의 선언방식</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null-undefined-void-never"><span class="toc-text">null, undefined, void, never</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B4%EA%B1%B0%ED%98%95-enum"><span class="toc-text">열거형(enum)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C"><span class="toc-text">연습문제</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/TypeScript"><i class="tag post-item-tag">TypeScript</i></a><a href="/tags/self-development"><i class="tag post-item-tag">self-development</i></a><a href="/tags/Incomplete"><i class="tag post-item-tag">Incomplete</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210219 TypeScript Book TIL(작성중...)</h1><time class="has-text-grey" datetime="2021-02-18T21:35:42.000Z">2021-02-19</time><article class="mt-2 post-content"><p><img src="/images/post_images/typescript_logo.png"></p>
 <blockquote>
 <p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p>
 </blockquote>
-<h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><pre><code class="javascript"></code></pre>
-<h3 id="타입별칭"><a href="#타입별칭" class="headerlink" title="타입별칭"></a>타입별칭</h3><h4 id="일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다"><a href="#일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다" class="headerlink" title="일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다."></a>일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.</h4><pre><code>```javascript
+<h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><h3 id="타입별칭"><a href="#타입별칭" class="headerlink" title="타입별칭"></a>타입별칭</h3><h4 id="일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다"><a href="#일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다" class="headerlink" title="일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다."></a>일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.</h4><pre><code>```javascript
 type Age = number
 type persono = &#123;
   name: string
@@ -12,10 +11,76 @@ type persono = &#123;
 &#125;
 ```
 ```javascript
+type Person = &#123;
+  name: string
+  age: number
+&#125;
+type Age = number
 let age: Age = 55
 let driver: Person = &#123;
   name: &#39;James May&#39;,
   age: age
 &#125;
 ```</code></pre>
-<h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><h3 id="튜플"><a href="#튜플" class="headerlink" title="튜플"></a>튜플</h3><h3 id="null-undefined-void-never"><a href="#null-undefined-void-never" class="headerlink" title="null, undefined, void, never"></a>null, undefined, void, never</h3><h3 id="열거형-enum"><a href="#열거형-enum" class="headerlink" title="열거형(enum)"></a>열거형(enum)</h3><h2 id="연습문제"><a href="#연습문제" class="headerlink" title="연습문제"></a>연습문제</h2></article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/19/202102/210219-Self-development_til/" title="210219 Self Development TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210219 Self Development TIL</span></a><a class="button is-default" href="/2021/02/18/202102/210218-Self-development_til/" title="210218 Self Development TIL"><span class="has-text-weight-semibold">Next: 210218 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
+<h4 id="타입의-union과-intersection-type"><a href="#타입의-union과-intersection-type" class="headerlink" title="타입의 union과 intersection type"></a>타입의 union과 intersection type</h4><p>실전에서는 intersection보다는 union을 자주 사용한다.</p>
+<pre><code class="javascript">// 타입의 union과 intersection type
+type Cat = &#123; name: string, purrs: boolean &#125;;
+type Dog = &#123; name: string, barks: boolean, wags: boolean &#125;;
+type CatOrDogOrBoth = Cat | Dog;
+// Union : Cat과 Dog의 모든 속성을 가질 수 있는 변수를 설정할 수 있다.
+let catOrDog: CatOrDogOrBoth = &#123;
+  name: &quot;name&quot;,
+  purrs: false,
+  barks: true,
+  wags: false
+&#125;;</code></pre>
+<p>아래 함수는 조건이 참이면 반환 타입을 string으로, 그렇지 않으면 number로 한다는 의미의 함수이다. 즉, string | number를 반환한다.</p>
+<pre><code class="javascript">function(a: string, b: number)&#123;
+  return a || b
+&#125;</code></pre>
+<h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><h4 id="이형배열-heterogeneous-union"><a href="#이형배열-heterogeneous-union" class="headerlink" title="이형배열(heterogeneous) - union"></a>이형배열(heterogeneous) - union</h4><p>타입스크립트에서는 배열을 동형(homogeneous)로, 배열의 모든 항목이 같은 타입을 갖도록 설계한다.</p>
+<pre><code class="javascript">// 이형배열에서의 union사용
+let a = [1, 2, 3]; // number[]
+var b = [&quot;a&quot;, &quot;b&quot;]; // string[]
+let d = [1, &quot;a&quot;]; //(string | number)[]
+const e = [2, &quot;b&quot;]; // (string | number)[]</code></pre>
+<p>타입스크립트에서는 아래와 같이 우선 배열에서 삽입한 데이터의 타입을 기준으로 배열의 타입을 추론한다.</p>
+<pre><code class="javascript">let f = [&quot;red&quot;]; // string[] array로 정의
+f.push(&quot;blue&quot;);
+f.push(true); // error</code></pre>
+<p>아무 데이터도 넣지 않고 배열을 초기화시키면 <code>any[]</code>type으로 정의된다.</p>
+<pre><code class="javascript">let g = []; // any[]
+g.push(1); // number[]
+g.push(&quot;red&quot;); // (string | number)[]</code></pre>
+<h3 id="튜플"><a href="#튜플" class="headerlink" title="튜플"></a>튜플</h3><p>배열의 서브타입으로, 튜플은 길이가 고정되었고, 각 index의 type이 이미 알려진 배열의 일종이다. 튜플을 선언할때에는 타입을 명시해야 한다.<br>자바스크립트에서의 배열과 튜플은 대괄호를 사용하고, 타입스크립트에서는 대괄호를 배열 타입으로 추론한다.<br>튜플을 잘 활용하면 순수 배열에 비해 안전성을 높일 수 있다. 튜플의 사용은 권장된다.</p>
+<pre><code class="javascript">let b: [string, string, number] = [&quot;malcolm&quot;, &quot;gladwell&quot;, 1963];</code></pre>
+<p>튜플은 타입선언부에 선택적 요소를 지정할 수 있다.</p>
+<pre><code class="javascript">let trainFares: [number, number?][] = [
+  [3.75],
+  [8.25, 7.70],
+  [10.50]
+]
+// 아래의 표현과 위의 표현은 같다.
+let moreTrainFares: ([number] | [number, number])[] = [
+  //.......
+]</code></pre>
+<p>나머지 요소(…)를 사용해서 최소의 길이를 갖도록 설정</p>
+<pre><code class="javascript">let friends: [string, ...string[]] = [&#39;Sara&#39;, &#39;Tali&#39;, &#39;Chloe&#39;, &#39;Claire&#39;]
+// 이형배열
+let list: [number, boolean, ...string[]] = [1, false, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre>
+<h4 id="읽기전용-배열과-튜플만들기"><a href="#읽기전용-배열과-튜플만들기" class="headerlink" title="읽기전용 배열과 튜플만들기"></a>읽기전용 배열과 튜플만들기</h4><p>읽기전용타입의 배열에서는 읽기만 가능하다.</p>
+<pre><code class="javascript">let as: readonly number[] = [1, 2, 3] // readonly number[]
+let bs: readonly number[] = as.concat(4) // readonly number[]
+let three = bs[2] // number</code></pre>
+<h4 id="다양한-읽기-전용-배열과-튜플의-선언방식"><a href="#다양한-읽기-전용-배열과-튜플의-선언방식" class="headerlink" title="다양한 읽기 전용 배열과 튜플의 선언방식"></a>다양한 읽기 전용 배열과 튜플의 선언방식</h4><pre><code class="javascript">type A = readonly string[] // readonly string[]
+type B = ReadonlyArray&lt;string&gt; // readonly string[]
+type C = Readonly&lt;string[]&gt; // readonly string[]
+
+type D = readonly [number, string] // readonly [number, string]
+type E = Readonly&lt;[number, string]&gt; // readonly [number, string]
+</code></pre>
+<h3 id="null-undefined-void-never"><a href="#null-undefined-void-never" class="headerlink" title="null, undefined, void, never"></a>null, undefined, void, never</h3><p>자바스크립트에서의 null과 undefined는 값의 부재를 의미하지만 타입스크립트에서는 undefined 타입의 값은 undefined, null 타입의 값은 오직 null뿐이다.</p>
+<p>undefined: 아직 값을 정의하지 않았음을 의미</p>
+<p>null : 값의 부재를 의미</p>
+<p>void와 never는</p>
+<h3 id="열거형-enum"><a href="#열거형-enum" class="headerlink" title="열거형(enum)"></a>열거형(enum)</h3><h2 id="연습문제"><a href="#연습문제" class="headerlink" title="연습문제"></a>연습문제</h2></article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/19/202102/210219-Self-development_til/" title="210219 Self Development TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210219 Self Development TIL</span></a><a class="button is-default" href="/2021/02/18/202102/210218-Self-development_til/" title="210218 Self Development TIL"><span class="has-text-weight-semibold">Next: 210218 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
