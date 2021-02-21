@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-21T00:04:02.534Z</updated>
+  <updated>2021-02-21T15:00:04.502Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/</id>
     <published>2021-02-20T22:40:00.000Z</published>
-    <updated>2021-02-21T00:04:02.534Z</updated>
+    <updated>2021-02-21T15:00:04.502Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><p><del>회고록 작성하기</del> (<code>완료</code>)</p></li><li><p>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</p></li></ul><br/></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>18일 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>어제의 습관이 오늘의 나를 만들었듯이 오늘의 습관이 10년 후 나를 만든다.</strong><br/> <strong>- 한 줄 명언</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><p><del>회고록 작성하기</del> (<code>완료</code>)</p></li><li><p>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</p></li></ul><br/></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>18일 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><del>Mini project code review 받고 코드 수정하기</del> (<code>완료</code>)</li><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
     
     
       
