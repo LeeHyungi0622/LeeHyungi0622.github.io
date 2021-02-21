@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-19T00:22:14.765Z</updated>
+  <updated>2021-02-21T00:04:02.534Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210221 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/</id>
+    <published>2021-02-20T22:40:00.000Z</published>
+    <updated>2021-02-21T00:04:02.534Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><p><del>회고록 작성하기</del> (<code>완료</code>)</p></li><li><p>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</p></li></ul><br/></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>18일 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210221 Memoirs 블로그 운영 30일차 회고록</title>
+    <link href="https://leehyungi0622.github.io/2021/02/21/202102/210221-memoirs/"/>
+    <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-memoirs/</id>
+    <published>2021-02-20T21:40:00.000Z</published>
+    <updated>2021-02-20T23:58:31.697Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210221_meta_recognition.jpg"></p><h2 id="30일-112개-포스팅"><a href="#30일-112개-포스팅" class="headerlink" title="30일 112개 포스팅"></a><b><ins>30일 112개 포스팅</ins></b></h2><p>2021년 2월 21일 07시 58분 오늘은 블로그를 운영한 30일 동안의 나를 되돌아보며 회고록을 작성하는 것으로 하루를 시작하려고 한다.<br>오늘까지 108개의 포스팅 글과 4개의 미완성 포스팅이 있다.</p><p>우선 내가 왜 이 블로그를 어떤 마음가짐으로 시작을 하게 되었는가에서부터 시작을 해보려고 한다.</p><h2 id="왜-블로그를-시작하게-되었는가"><a href="#왜-블로그를-시작하게-되었는가" class="headerlink" title="왜 블로그를 시작하게 되었는가?"></a><b><ins>왜 블로그를 시작하게 되었는가?</ins></b></h2><p>첫 번째, 내가 이 블로그를 시작하게 된 이유는 내가 알고 있는 것과 모르고 있는 것 그리고 내가 알고 있다고 착각하고 있는 것 이 세 가지를 제대로 파악함으로써 <ins><b><code>메타인지(metacognition)</code>를 높이고자 이 블로그를 시작</b></ins>하였다.<br>이전에도 블로그를 다른 플랫폼으로 한 2번정도 운영해본적이 있었고, 그때는 뭔가 리소스도 부족하고 시간이 지남에 따라 블로그 내용의 일관성 및 관리의 부족으로 접었었다. 아마 그때는 뭔가 내가 블로그를 운영하는 이유가 나의 내면의 발전에 있지 않고, 블로그 포스팅에 목적을 두었었기 때문에 힘들었었던 것 같다. 그래서 이번 블로그는 단순 블로그 글 포스팅에 목적을 두지 않고 나의 메타인지를 높이기 위한 하나의 도구로써 블로그 운영을 시작하게 되었다.</p><br/><h2 id="왜-이렇게-짧은-시간동안-많은-글들을-올렸는가"><a href="#왜-이렇게-짧은-시간동안-많은-글들을-올렸는가" class="headerlink" title="왜 이렇게 짧은 시간동안 많은 글들을 올렸는가?"></a><b><ins>왜 이렇게 짧은 시간동안 많은 글들을 올렸는가?</ins></b></h2><p>아마 이 이유가 나의 블로그 운영하는 이유의 두 번째 이유일 것 같다. 그 두 번째 이유는 <ins><b><code>머리 속에 있는 지식들을 체계화시켜서 정리</code></b></ins>하기 위해서 였다. 사실 이 블로그를 운영하기 직전에 공부할때에는 별도로 블로그에 기록을 하지 않고 노트 어플에 작성을 하며 공부를 했었다. 그리고 시간이 흘러 나름 이것 저것 작성해놓은 노트 하나가 생겼고, 나의 머리 속에는 여러 지식들이 쌓여있었지만 체계적으로 정리가 되지 않았다는 느낌이 들었다.시간이 지나면서 좀 더 앞선 과거에 공부했던 내용들이 최근에 배운 지식들에 의해 잊혀져가면서 다시 복습에 대한 필요성이 생겨, 정리한 노트를 보았는데 생각보다 글을 정제시켜서 작성하지 않아서인지 내가 작성한 글인데도 한 눈에 읽히지 않았다.<br>그래서 과거에 내가 작성해두었던 글들을 여러번 정제해서 지금의 블로그에 복습할겸 다시 포스팅을 하고 있다. 기존에 Private한 공간에 공부한 내용을 정리를 했을때에는 나만 보는 글이었기 때문에 별 부담없이 글을 따로 정제하지 않고 편하게 적어두었는데, 지금은 Public한 공간에 포스팅을 하고 있기 때문에 혹시 나와 비슷한 내용을 공부하고 있는 이에게 도움이 될 수도 있다는 생각에 다른 사람이 봐도 읽기 편하게 여러번 글을 정제하고 다듬어서 글을 포스팅하고 있다.<br>우연히 어떤 개발자분의 포스팅 글을 보다가 <code>개발자는 지식을 소유하는 것이 아닌 다른 사람들과 공유해야 한다.</code>라는 글귀를 보았는데, 나도 이 개발자 분처럼 단순히 지식을 소유하는 개발자가 아닌 내가 알고 있는 것과 느꼈던 것을 다른 사람들과 공유할 줄 아는 그런 개발자가 되고 싶다고 느꼈다. 그래서 지금 이 블로그를 운영함에 있어 좀 더 잘 운영해야겠다는 생각이 들었다.</p><br/><h2 id="앞으로의-계획"><a href="#앞으로의-계획" class="headerlink" title="앞으로의 계획"></a><b><ins>앞으로의 계획</ins></b></h2><p>앞으로 아래의 세 가지를 목표로 블로그를 운영해보려고 한다.<br><strong>첫 번째,</strong> <ins><b>아직 정리되지 않은 나의 이전 공부내용들을 꾸준히 복습을 하며 글을 정제시켜 포스팅을 할 것이다.</b></ins> 아직 이전에 공부했던 내용의 일부의 일부밖에 정리를 못했기 때문에 매일 매일 꾸준히 정리를 할 것이다.<br><strong>두 번째,</strong> <ins><b>블로그를 GitHub와 유기적으로 연결해서 관리를 할 것이다.</b></ins> 현재 운영하고 있는 블로그는 GitHub page로 운영하고 있지만 여기서 유기적으로 연결을 시킨다는 것은 블로그에서 공부한 내용과 실습한 내용들을 GitHub의 Repository에 기록을 하고 정리를 해서 블로그의 글을 읽을때 연관된 repository를 참조할 수 있도록 관리를 한다는 것이다. 그러면 실질적으로 GitHub의 Repository관리 능력도 덩달아 향상될 것이기 때문이다.<br><strong>세 번째,</strong> <ins><b>다른 사람들에게 좀 더 유익한 정보를 제공할 수 있도록 유익한 정보를 재미있게 전달할 수 있는 블로그를 만들 것이다.</b></ins> 블로그의 시작의 이유가 개인적인 측면이 강했지만 이제는 다른 사람들에게도 유익할 수 있는 그런 블로그를 만들어보려고 한다. 몇 일전에 같이 수업을 듣는 한 분이 블로그 너무 잘 보고 있고, 정리가 다른 블로그들보다 잘 정리되어 있어서 도움이 많이 된다는 이야기를 들었는데, 뭔가 뿌듯하고 다른 좋은 내용들을 많은 사람들과 공유하고 싶다는 생각이 들었다.</p><br/><h2 id="회고록을-마무리하며"><a href="#회고록을-마무리하며" class="headerlink" title="회고록을 마무리하며"></a><b><ins>회고록을 마무리하며</ins></b></h2><p>지금 이 회고록을 작성하는 시점이 블로그를 운영을 한지 30일째 되는 날이다. 이 블로그를 운영하는 동안 여러 시행착오도 있었고, 나의 개발자로서의 커리어의 방향을 설계하는데 많은 도움이 되었다. <ins><b>중간 중간에 블로그에 대해 피드백과 여러 유익한 조언들을 주신 파이썬 최우영 강사님께도 너무나도 감사하다.</b></ins> 이제 초심을 다잡았으니, 다음 회고록을 작성하는 날까지 열심히 공부한 내용들을 포스팅하며 좋은 개발자로서 성장하기 위해 노력해야겠다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210221_meta_recognition.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;30일-112개-포스팅&quot;&gt;&lt;a href=&quot;#30일-112개-포스팅&quot; class=&quot;headerlink&quot; title=&quot;3</summary>
+      
+    
+    
+    
+    <category term="Memoirs" scheme="https://leehyungi0622.github.io/categories/Memoirs/"/>
+    
+    
+    <category term="Memoirs" scheme="https://leehyungi0622.github.io/tags/Memoirs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210220 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/20/202102/210220-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/20/202102/210220-Self-development_til/</id>
+    <published>2021-02-20T04:40:00.000Z</published>
+    <updated>2021-02-20T22:47:43.531Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><p>mini project</p><ul><li><del>엘레베이터 문제 구현</del> (<code>완료</code>)</li><li><del>선택과제 - 하노이 타워</del> (<code>완료</code>)</li><li>코드리뷰(Code review) 대기중</li></ul><br/></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>210219 Self Development TIL</title>
@@ -266,11 +343,11 @@
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
     
+    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
+    
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
     <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
     
   </entry>
   
@@ -506,95 +583,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="Python-Assignment" scheme="https://leehyungi0622.github.io/tags/Python-Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210214 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/14/202102/210214-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/14/202102/210214-Self-development_til/</id>
-    <published>2021-02-13T23:55:00.000Z</published>
-    <updated>2021-02-14T21:57:56.548Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계한 내용 코드로 구현하기</del> (<code>완료</code>)</li><li><del>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)</del> (<code>완료</code>)</li><li><del>HackerRank 3문제풀기</del> (<code>완료</code>)<ul><li><del><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></del></li><li><del><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></del></li><li><del><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></del></li></ul></li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210213 Bundle size와 Lazy loading</title>
-    <link href="https://leehyungi0622.github.io/2021/02/13/202102/210213-React_testing_library_lazy_suspense/"/>
-    <id>https://leehyungi0622.github.io/2021/02/13/202102/210213-React_testing_library_lazy_suspense/</id>
-    <published>2021-02-13T02:40:42.000Z</published>
-    <updated>2021-02-13T02:58:46.436Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210213_lazy_loading.jpeg"></p><br/><h3 id="Bundle-size와-Lazy-loading"><a href="#Bundle-size와-Lazy-loading" class="headerlink" title="Bundle size와 Lazy loading"></a><ins><strong>Bundle size와 Lazy loading</strong></ins></h3><p>React routing test를 하면서 각 각의 Component를 lazy loading하여 테스트를 진행하였다.</p><p>이 <ins><b>lazy loading(지연로딩)에 대해서 좀 더 자세하게 알아두고자 포스팅으로 정리</b></ins>를 해둔다.</p><p>React app의 크기가 커짐에 따라 개발자는 bundle size에 대한 걱정을 시작해야 할 수 있다. 이 bundle size란 사용자가 React app을 load하기 위해 download해야만 하는 JavaScript의 양을 의미한다.<br>이 Bundle size가 클수록 사용자가 app으르 보는데 시간이 오래걸린다.</p><p>따라서 이 Lazy를 사용해서 component가 rendering 될때에 <ins><b>사용되지 않는 구성요소에 대한 로드를 지연시킬</b></ins> 수 있다.</p><blockquote><p>As your React app gets larger, you may have to start worrying about its bundle size. An app’s bundle size is the amount of JavaScript a user will have to download to load your app. The bigger the bundle size is, the longer it will take before a user can view your app.</p></blockquote><p><code>Googling하면서 React app의 bundle 사이즈를 분석하고 코드 분할(Code splitting)을 통해 bundle 사이즈를 줄이는 것과 관련된 괜찮은 내용의 블로그를 찾아서 아래에 첨부해두었다.</code></p><p>React.lazy와 Suspense를 사용한 Code-splitting도 bundle size를 줄이는 방법 중에 하나이다.</p><p><a href="https://www.emgoto.com/react-bundles-and-code-splitting/#:~:text=As%20your%20React%20app%20gets,user%20can%20view%20your%20app.">https://www.emgoto.com/react-bundles-and-code-splitting/</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210213_lazy_loading.jpeg&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h3 id=&quot;Bundle-size와-Lazy-loading&quot;&gt;&lt;a href=&quot;#Bundle-size와-Lazy-loadin</summary>
-      
-    
-    
-    
-    <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
-    
-    
-    <category term="React-testing-library" scheme="https://leehyungi0622.github.io/tags/React-testing-library/"/>
-    
-    <category term="React-router-test" scheme="https://leehyungi0622.github.io/tags/React-router-test/"/>
-    
-    <category term="Unit-testing" scheme="https://leehyungi0622.github.io/tags/Unit-testing/"/>
-    
-    <category term="Bundle-size" scheme="https://leehyungi0622.github.io/tags/Bundle-size/"/>
-    
-    <category term="Lazy" scheme="https://leehyungi0622.github.io/tags/Lazy/"/>
-    
-    <category term="Suspense" scheme="https://leehyungi0622.github.io/tags/Suspense/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210213 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/13/202102/210213-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/13/202102/210213-Self-development_til/</id>
-    <published>2021-02-12T23:07:00.000Z</published>
-    <updated>2021-02-13T13:06:07.311Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>가장 큰 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는 데에 있다.</strong><br/> (Our greatest glory is not in never falling. but in rising every time we fall.)<br/> <strong>공자 / Confucius</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>Python 과제</strong></ins><ul><li><del>Blackjack game class 설계한 내용 코드로 구현하기</del> (<code>완료</code>)</li><li>Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(<code>예정</code>)</li><li>HackerRank 3문제풀기 (<code>예정</code>)<ul><li><a href="https://www.hackerrank.com/challenges/30-inheritance/problem">https://www.hackerrank.com/challenges/30-inheritance/problem</a></li><li><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem">https://www.hackerrank.com/challenges/30-abstract-classes/problem</a></li><li><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem">https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem</a></li></ul></li></ul></li><li><ins><strong>Side Project 시작</strong></ins><ul><li>Side Project Diary 8일차 작성 (<code>예정</code>)</li></ul></li><li><ins><strong>개발관련 Blog 포스팅하기</strong></ins><ul><li><del>React router unit test과 관련된 내용 포스팅</del> (<code>완료</code>)</li><li><del>Bundle size와 Lazy loading과 관련된 내용 포스팅</del> (<code>완료</code>)</li></ul></li><li><ins><strong><del>ReactJS project 프로젝트</del></strong></ins><ul><li><del>프로젝트 진척</del><ul><li><del>Issue #8)Create header,router components and update app component</del> (<code>완료</code>)</li><li><del>Issue #10)Write issue for creating test code</del> (<code>완료</code>)</li><li><del>Write unit testing code for router function.</del>(<code>완료</code>)</li></ul></li></ul></li><li><ins><strong>알고리즘 문제풀이</strong></ins><ul><li>백준 알고리즘 번 문제 (<code>예정</code>)<br>→</li></ul></li><li><ins><strong>자료구조 및 알고리즘 개념</strong></ins><ul><li>링크드 리스트(Linked list) 복습 및 블로그에 내용 포스팅하기 (<code>예정</code>)<br/></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
