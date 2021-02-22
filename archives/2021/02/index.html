@@ -48,7 +48,13 @@ mini project
 
 
 
-</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/20/202102/210220-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/19/202102/210219-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/19/202102/210219-Self-development_til/">210219 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-18T21:40:00.000Z">2021-02-19</time><p class="is-flex-grow-2 mt-2">Thought of the day실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다. - 앤드류 매튜스
+</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/20/202102/210220-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/error_solved_img.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/19/202102/210219-pyenv_installation_error/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/error_solved_img.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/Pyenv"><i class="tag post-item-tag">Pyenv</i></a><a href="/tags/Virtualenv"><i class="tag post-item-tag">Virtualenv</i></a><a href="/tags/Installation"><i class="tag post-item-tag">Installation</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/19/202102/210219-pyenv_installation_error/">210219 [PyenvError] Pyenv BUILD FAILED ERROR</a></h2><time class="has-text-grey" datetime="2021-02-19T11:15:42.000Z">2021-02-19</time><p class="is-flex-grow-2 mt-2">
+
+
+Pyenv로 새로운 Python version 설치시에 BUILD FAILED 에러 발생이번에 프로젝트를 진행할때에는 Pyenv를 사용해서 프로젝트별로 파이썬 버전을 다르게 적용하고, Virtualenv로 별도의 가상환경을 구축하여 진행하였다. 문제가 발생한 시점은 Pyenv로 사용할 파이썬 버전을 설치하려고 하는데 아래와 같은 BUILD FAILED에러가 발생하였다.
+문제(Issue)
+해결책(Solution)우선 에러를 보고 어떤 문제인지 이해해보았다.
+python-build: use zlib from xcode sdk 부분 이후에 build failed error가 발생한 것을 보아 뭔가 zlib의 설치에 문제가 있거나 시스..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/19/202102/210219-pyenv_installation_error/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/19/202102/210219-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/19/202102/210219-Self-development_til/">210219 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-18T21:40:00.000Z">2021-02-19</time><p class="is-flex-grow-2 mt-2">Thought of the day실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다. - 앤드류 매튜스
 
 
 
@@ -69,14 +75,11 @@ OReilly TypeScr..</p><a class="button is-default mt-2 has-text-weight-semibold" 
 
 이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.
 
-오늘 공부한 내용타입별칭일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.```javascript
-type Age = number
+오늘 공부한 내용타입별칭일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.type Age = number
 type persono = &amp;#123;
   name: string
   age: Age
 &amp;#125;
-```
-```javascript
 type Person = &amp;#123;
   name: string
   age: number
@@ -84,7 +87,9 @@ type Person = &amp;#123;
 type Age = number
 let age: Age = 55
 let driver: Person = &amp;#123;
-  name: ..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/19/202102/210219-Typescript/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/18/202102/210218-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/18/202102/210218-Self-development_til/">210218 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-18T00:32:00.000Z">2021-02-18</time><p class="is-flex-grow-2 mt-2">Thought of the day실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다. 앤드류 매튜스
+  name: &amp;#39;James May&amp;#39;,
+  age: age
+..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/19/202102/210219-Typescript/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/18/202102/210218-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/18/202102/210218-Self-development_til/">210218 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-18T00:32:00.000Z">2021-02-18</time><p class="is-flex-grow-2 mt-2">Thought of the day실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다. 앤드류 매튜스
 
 
 
@@ -131,16 +136,7 @@ TO DO LIST
 TDD(Test-Driven Development)에 대해서 글 포스팅 (완료)
 Jest의 test, it, describe의 사용에 대해서 글 포스팅 (완료)
 virtualenv사용해서 환경구성하는 부분에 대해서 글 포스팅 (완료)
-Server side rendering, Client side rendering에 대해서 글 포스팅(예정..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/17/202102/210217-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/jest_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/17/202102/210217-JS_Jest_test_it/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/jest_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Jest"><i class="tag post-item-tag">Jest</i></a><a href="/tags/JavaScript-unit-test"><i class="tag post-item-tag">JavaScript-unit-test</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/17/202102/210217-JS_Jest_test_it/">210217 Jest의 test, it, describe</a></h2><time class="has-text-grey" datetime="2021-02-17T01:07:42.000Z">2021-02-17</time><p class="is-flex-grow-2 mt-2">
-
-
-이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 test와 it 키워드의 사용과 여러 개의 테스트 케이스를 묶을때 사용하는 describe 키워드에 대해서 정리를 해보겠다.
-test와 it 키워드의 사용이전 포스팅에서 test라는 키워드를 사용해서 테스트 케이스를 작성해보았다. 이 키워드를 대체해서 it이라는 키워드도 사용될 수 있는데 작동 방식은 같다.
-// test keyword를 사용한 테스트 코드 작성
-const &amp;#123; test, expect &amp;#125; = require(&amp;quot;@jest/globals&amp;quot;);
-const sum = require(&amp;quot;../sum&amp;quot;);
-
-// ..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/17/202102/210217-JS_Jest_test_it/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap"><span class="page-number current">1</span><a class="page-number" href="/archives/2021/02/page/2/">2</a><a class="page-number" href="/archives/2021/02/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2021/02/page/8/">8</a><a class="extend next" rel="next" href="/archives/2021/02/page/2/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">74</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">38</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+Server side rendering, Client side rendering에 대해서 글 포스팅(예정..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/17/202102/210217-Self-development_til/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap"><span class="page-number current">1</span><a class="page-number" href="/archives/2021/02/page/2/">2</a><a class="page-number" href="/archives/2021/02/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2021/02/page/8/">8</a><a class="extend next" rel="next" href="/archives/2021/02/page/2/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">75</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">38</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
     var images = document.querySelectorAll('.js-img-fadeIn')
