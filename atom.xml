@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-21T15:00:04.502Z</updated>
+  <updated>2021-02-22T02:12:13.988Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210222 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/22/202102/210222-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/22/202102/210222-Self-development_til/</id>
+    <published>2021-02-22T02:09:00.000Z</published>
+    <updated>2021-02-22T02:12:13.988Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>어제의 습관이 오늘의 나를 만들었듯이 오늘의 습관이 10년 후 나를 만든다.</strong><br/> <strong>- 한 줄 명언</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>Pyenv BUILD FAILED 에러 관련해서 포스팅하기</del> (<code>완료</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li><del>OReilly TypeScript 예제 코드실습</del> (<code>완료</code>)</li><li><del>배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>Issue # ) (<code>예정</code>)</li><li>Issue # ) (<code>예정</code>)</li></ul></li></ul></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210221 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/</id>
     <published>2021-02-20T22:40:00.000Z</published>
-    <updated>2021-02-21T15:00:04.502Z</updated>
+    <updated>2021-02-22T02:06:09.617Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>어제의 습관이 오늘의 나를 만들었듯이 오늘의 습관이 10년 후 나를 만든다.</strong><br/> <strong>- 한 줄 명언</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><p><del>회고록 작성하기</del> (<code>완료</code>)</p></li><li><p>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</p></li></ul><br/></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li><li><p><strong>18일 분 OReilly TypeScript 독서 53-61P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><del>Mini project code review 받고 코드 수정하기</del> (<code>완료</code>)</li><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>어제의 습관이 오늘의 나를 만들었듯이 오늘의 습관이 10년 후 나를 만든다.</strong><br/> <strong>- 한 줄 명언</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>회고록 작성하기</del> (<code>완료</code>)</li></ul><br/></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><del>Mini project code review 받고 코드 수정하기</del> (<code>완료</code>)</li></ul><br/></li></ul>]]></content>
     
     
       
@@ -555,40 +581,6 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210214 Python HackerRank Assignment</title>
-    <link href="https://leehyungi0622.github.io/2021/02/14/202102/210214-Python_HackerRank_assignment/"/>
-    <id>https://leehyungi0622.github.io/2021/02/14/202102/210214-Python_HackerRank_assignment/</id>
-    <published>2021-02-14T03:59:41.000Z</published>
-    <updated>2021-02-14T06:48:21.037Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/hackerrank-logo.jpg"></p><br/><p>설날 과제로 강사님이 내주신 HackerRank의 과제에 대해서 정리한다.</p><h2 id="문제-1"><a href="#문제-1" class="headerlink" title="문제 1"></a>문제 1</h2><p><a href="https://www.hackerrank.com/challenges/30-inheritance/problem"><strong>Problem1 Link(HackerRank)</strong></a></p><p>이 문제는 주어진 클래스의 상속관계를 완성하고, 주어진 조건으로 내부에 method를 완성시키면 되는 간단한 문제이다.</p><pre><code class="python">class Student(Person):    #   Class Constructor    #    #   Parameters:    #   firstName - A string denoting the Person&#39;s first name.    #   lastName - A string denoting the Person&#39;s last name.    #   id - An integer denoting the Person&#39;s ID number.    #   scores - An array of integers denoting the Person&#39;s test scores.    #    # Write your constructor here    def __init__(self, _firstName, _lastName, _id, _scores):        Person.__init__(self, _firstName, _lastName, _id)        self.scores = _scores    #   Function Name: calculate    #   Return: A character denoting the grade.    #    # Write your function here    def calculate(self):        average = sum(self.scores) / len(self.scores)        if 90 &lt;= average &lt;= 100:            grade = &quot;O&quot;        elif 80 &lt;= average &lt; 90:            grade = &quot;E&quot;        elif 70 &lt;= average &lt; 80:            grade = &quot;A&quot;        elif 55 &lt;= average &lt; 70:            grade = &quot;P&quot;        elif 40 &lt;= average &lt; 55:            grade = &quot;D&quot;        else:            grade = &quot;T&quot;        return grade</code></pre><h2 id="문제-2"><a href="#문제-2" class="headerlink" title="문제 2"></a>문제 2</h2><p><a href="https://www.hackerrank.com/challenges/30-abstract-classes/problem"><strong>Problem2 Link(HackerRank)</strong></a></p><p>이 문제는 추상클래스 관련 문제로, Book 추상 클래스를 MyBook에서 구현하는 문제이다.</p><pre><code class="python">from abc import ABCMeta, abstractmethodclass Book:    __metaclass__ = ABCMeta    def __init__(self,title,author):        self.title=title        self.author=author    @abstractmethod    def display(): pass#Write MyBook classclass MyBook(Book):    def __init__(self, _title, _author, _price):        Book.__init__(self, _title, _author)        self.price = _price    def display(self):        print(&quot;Title: &#123;&#125;&quot;.format(self.title))        print(&quot;Author: &#123;&#125;&quot;.format(self.author))        print(&quot;Price: &#123;&#125;&quot;.format(self.price))</code></pre><h2 id="문제-3"><a href="#문제-3" class="headerlink" title="문제 3"></a>문제 3</h2><p><a href="https://www.hackerrank.com/challenges/class-1-dealing-with-complex-numbers/problem"><strong>Problem3 Link(HackerRank)</strong></a></p><p>이 문제는 복소수의 덧셈, 뺄셈, 곱셈, 나눗셈, 나머지 연산에 대한 각 각의 class method를 작성하는 문제이다.</p><pre><code class="python">import mathclass Complex(object):    def __init__(self, real, imaginary):        self.real = real        self.imaginary = imaginary    # 실수부와 허수부를 각 각 나눠서 더해준다.    def __add__(self, no):        return Complex(self.real + no.real, self.imaginary + no.imaginary)    # 실수부와 허수부를 각 각 나눠서 빼준다.    def __sub__(self, no):        return Complex(self.real - no.real, self.imaginary - no.imaginary)    # (a + bi)(c + di) = (ac - bd) + (ad + bc)i    # 실수부끼리의 곱과 허수부끼리의 곱을 빼고, 허수부와 실수의 곱과 실수와 허수의 곱을 더해준다.    def __mul__(self, no):        return Complex(self.real*no.real - self.imaginary*no.imaginary, self.imaginary*no.real + self.real*no.imaginary)    def __div__(self, no):        # 실수부의 제곱과 허수부의 제곱을 더한 값        x = float(no.real ** 2 + no.imaginary ** 2)        # imaginary의 부호를 반대로 하여 켤레수를 곱해준다.        y = self * Complex(no.real, -no.imaginary)        # 켤레수를 곱한 값의 실수값을 x로 나눠서 실수를 구한다.        real = y.real / x        # 켤레수를 곱한 값의 허수값을 x로 나눠서 허수를 구한다.        imaginary = y.imaginary / x        return Complex(real, imaginary)    # 실수의 제곱과 허수의 제곱을 더해서 루트연산을 해준다.    def mod(self):        real = math.sqrt(self.real ** 2 + self.imaginary ** 2)        return Complex(real, 0)</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/hackerrank-logo.jpg&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;p&gt;설날 과제로 강사님이 내주신 HackerRank의 과제에 대해서 정리한다.&lt;/p&gt;
-&lt;h2 id=&quot;문제-1&quot;&gt;&lt;a href=&quot;#문</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-    <category term="HackerRank" scheme="https://leehyungi0622.github.io/tags/HackerRank/"/>
     
   </entry>
   
