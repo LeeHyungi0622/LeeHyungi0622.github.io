@@ -1,5 +1,47 @@
 <!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>Lee Hyungi (이현기)'s blog</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
-</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>Archives · 2021</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/hackerrank-logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/14/202102/210214-Python_HackerRank_assignment/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/hackerrank-logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a><a href="/tags/HackerRank"><i class="tag post-item-tag">HackerRank</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/14/202102/210214-Python_HackerRank_assignment/">210214 Python HackerRank Assignment</a></h2><time class="has-text-grey" datetime="2021-02-14T03:59:41.000Z">2021-02-14</time><p class="is-flex-grow-2 mt-2">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>Archives · 2021</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/python_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/15/202102/210215-Python_til(1)/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/python_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/15/202102/210215-Python_til(1)/">210215 Python TIL 1/2 - Module &amp; Package, Library &amp; Framework, Poetry, Virtualenv</a></h2><time class="has-text-grey" datetime="2021-02-15T04:06:41.000Z">2021-02-15</time><p class="is-flex-grow-2 mt-2">
+
+
+Module, Package
+
+
+Module?
+Python 코드로 이루어진 파일로, 본체에 대한 하위 단위로 정의한다.
+
+
+Package?
+관련 여러 모듈들을 하나의 폴더로 묶은 것을 말한다.
+
+(Module, Package관련 실습내용)(1) fibo.py와 main.py 파일을 만들어서 실습을 진행한다.fibo에 정의되어있는 text변수의 값을 main.py에서 출력한다.
+from fibo import text
+
+print(text)
+(2) fibo directory 내에 binet.py와 rec.py 파일을 생성해서 각 각에 맞는 함수를 구현한다. main.py에서 moulde로써 import해서 사용한다. (VSCode에..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/15/202102/210215-Python_til(1)/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/typescript_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/15/202102/210215-Typescript/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/typescript_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/TypeScript"><i class="tag post-item-tag">TypeScript</i></a><a href="/tags/self-development"><i class="tag post-item-tag">self-development</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/15/202102/210215-Typescript/">210215 TypeScript Book TIL</a></h2><time class="has-text-grey" datetime="2021-02-15T01:30:42.000Z">2021-02-15</time><p class="is-flex-grow-2 mt-2">
+
+이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.
+
+오늘 공부한 내용
+컴파일과 실행에 대한 이해이번에 읽은 내용에서 가장 유익하다고 느꼈던 내용이다. 실제 코드를 작성하고 실행을 했을때 내부에서 구체적으로 어떤 과정에 의해서 처리가 되는지 잘 몰랐었는데 이번 기회에 제대로 알 수 있었던 것 같다.특히 타입스크립트는 자바스크리트나 자바와 같은 주요 언어와는 다른 방식으로 동작하기 때문에 이 부분에 대해서 정리를 해보려고 한다.
+
+일반적으로 프로그래머가 작성한 텍스트(코드)는 컴파일러(compiler)라는 프로그램이 파싱(Parsing)하여, AST(Abstract Synt..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/15/202102/210215-Typescript/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/15/202102/210215-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/15/202102/210215-Self-development_til/">210215 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-14T21:47:00.000Z">2021-02-15</time><p class="is-flex-grow-2 mt-2">Thought of the day끝까지 해보기 전까지는 늘 불가능해 보입니다. (It always seems impossible until its done.) 넬슨 만델라 / Nelson Mandela
+
+
+
+TO DO LIST
+독서
+OReilly TypeScript 독서 1 ~ 17P (완료)
+OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성 (완료)
+OReilly TypeScript 17P 연습문제 실습 (완료)
+오늘 배운내용 블로그에 포스팅하기 (완료)
+
+
+Python 과제
+(1) 교재에 있는 연습문제 (완료)
+(2) 0216 월간테스트 준비하기 (완료)
+
+
+블로그에 포스팅하기
+virtualenv..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/15/202102/210215-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/hackerrank-logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/14/202102/210214-Python_HackerRank_assignment/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/hackerrank-logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a><a href="/tags/HackerRank"><i class="tag post-item-tag">HackerRank</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/14/202102/210214-Python_HackerRank_assignment/">210214 Python HackerRank Assignment</a></h2><time class="has-text-grey" datetime="2021-02-14T03:59:41.000Z">2021-02-14</time><p class="is-flex-grow-2 mt-2">
 
 
 설날 과제로 강사님이 내주신 HackerRank의 과제에 대해서 정리한다.
@@ -84,53 +126,7 @@ React Router Installationreact-router-dom은 navigation을 만들어 주기 위�
 $ yarn add react-router-dom
 
 
-Router.js 작성하기Router와 Route를 사용하여 path와 해당 p..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/12/202102/210212-React_Router/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/side_project_diary_img.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/12/202102/210211_side_project_diary/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/side_project_diary_img.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Side-Project-Diary"><i class="tag post-item-tag">Side-Project-Diary</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/12/202102/210211_side_project_diary/">210212 Side Project Diary 6/7일차</a></h2><time class="has-text-grey" datetime="2021-02-11T22:25:42.000Z">2021-02-12</time><p class="is-flex-grow-2 mt-2">
-Side Project Diary 6/7일차오늘은 금요일날 강사님으로부터 개인 프로젝트 진행과 관련하여 advice 받은 내용들을 정리하는 것을 시작으로 Side Project Diary의 내용을 시작하려고 한다.우선 첫번째, Git branch 관리의 경우, 많은 기업들이 git flow model을 사용하고 있으므로, 복잡하더라도 git flow model을 사용해서 프로젝트를 진행하는 것이 좋겠다고 하셨다. 그래서 개인적인 판단에 프로젝트가 simple하다면, github flow를, 비교적 프로젝트가 어느정도의 복잡성을 가진다면, git flow model을 사용할 예정이다. 적절히 두 가지 git branch model을 ..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/12/202102/210211_side_project_diary/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/12/202102/210212-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/12/202102/210212-Self-development_til/">210212 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-11T22:20:00.000Z">2021-02-12</time><p class="is-flex-grow-2 mt-2">Thought of the day모든 천재들에게는 약간의 미친 구석이 있다. (There is no great genius without some touch of madness.) 세네카 / Seneca
-
-
-
-TO DO LIST
-Side Project 시작
-Side Project Diary 6/7일차 작성 (완료)
-
-
-Blog내용 이전하기
-React router관련 내용 포스팅 (완료)
-
-
-Python 과제
-Blackjack game class 설계한 내용 코드로 구현하기 (예정)
-Procedural Programming으로 Blackjack game 만들기 (조건은 slack 확인)(예정)
-HackerRank 3문제풀기 (예정)
-h..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/12/202102/210212-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/210211_blackjack_img.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/11/202102/210211-black_jack_game/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/210211_blackjack_img.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Python-Assignment"><i class="tag post-item-tag">Python-Assignment</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/11/202102/210211-black_jack_game/">210211 Blackjack game Class Design</a></h2><time class="has-text-grey" datetime="2021-02-11T08:11:00.000Z">2021-02-11</time><p class="is-flex-grow-2 mt-2">
-Blackjack Class Design
-  
-    
-      
-    
-  
-  
-    
-      &lt; Blackjack class design Handwriting &gt;
-    
-  
-
-
-
-  
-    
-      
-    
-  
-  
-    
-      &lt; Blackjack class design UML &gt;
-    
-  
-
-이번 과제에서는 저번 시간의 수업시간의 개념을 최대한 반영해서 class를 설계한다.
-
-우선, Player와 Dealer의 공통적 행위 및 요소를 PersonInCasino 추상 클래스(Abstract class)에 정의한다.각 각의 Player, Dealer class는 PersonInCasino ab..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/11/202102/210211-black_jack_game/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap"><a class="extend prev" rel="prev" href="/archives/2021/page/2/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/archives/2021/">1</a><a class="page-number" href="/archives/2021/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2021/page/4/">4</a><a class="page-number" href="/archives/2021/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2021/page/12/">12</a><a class="extend next" rel="next" href="/archives/2021/page/4/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">76</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">38</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+Router.js 작성하기Router와 Route를 사용하여 path와 해당 p..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/12/202102/210212-React_Router/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap"><a class="extend prev" rel="prev" href="/archives/2021/page/2/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/archives/2021/">1</a><a class="page-number" href="/archives/2021/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2021/page/4/">4</a><a class="page-number" href="/archives/2021/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2021/page/12/">12</a><a class="extend next" rel="next" href="/archives/2021/page/4/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">79</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">38</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
     var images = document.querySelectorAll('.js-img-fadeIn')

@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-22T02:12:13.988Z</updated>
+  <updated>2021-02-23T02:15:21.764Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,99 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210223 HTML/CSS - float TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/23/202102/210223-float_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/23/202102/210223-float_til/</id>
+    <published>2021-02-22T22:14:42.000Z</published>
+    <updated>2021-02-23T02:15:21.764Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210223_float_img.png"></p><h2 id="float"><a href="#float" class="headerlink" title="float"></a><strong>float</strong></h2><p>이번 포스팅에서는 float의 개념과 기본적인 사용에 대해서 정리해보려고 한다. 이미 과거에 짜여진 화면 레이아웃을 파악하거나 예전 버전의 브라우저와 호환되는 웹 레이아웃을 만들기 위해서는 기본적으로 알고 있어야 되는 내용이다.</p><p>Thumbnail 이미지를 보면 알겠지만, float란 단어 자체의 의미처럼 떠있는 상태를 말한다. 물리적인 상태는 이해가 되었으니, 이제 이 float라는 속성이 HTML에서 어떠한 특성을 갖는지 살펴보도록 하겠다.</p><h2 id="개별-요소에서의-float-적용"><a href="#개별-요소에서의-float-적용" class="headerlink" title="개별 요소에서의 float 적용"></a><strong>개별 요소에서의 float 적용</strong></h2><p>HTML에서 이 floating된 요소는 기존의 속성과 관계없이 block 요소가 된다. 예를들어 흔히 링크를 삽입할때 많이 사용되는 &lt;a&gt; anchor tag의 경우 원래 inline-element이지만, 속성으로 float을 주게 되면, &lt;div&gt; 태그와 같이 하나의 block element처럼 변한다. 그리고 자기자신만의 영역을 가지고 있는 inline-block처럼 화면에 rendering된다.</p><p>위의 설명을 간단하게 정리하면, <code>floating element는 inline-block과 같은 효과를 낸다</code>라고 말할 수 있다.</p><p>이제 기본적으로 HTML 내부에 존재하는 개별요소에 float를 적용하게 되면 어떠한 변화가 있는지 살펴보았으니 이제 전체 document의 관점에서 float를 적용한 element의 변화에 대해서 살펴보도록 하겠다.</p><h2 id="전체-document-관점에서의-float-요소"><a href="#전체-document-관점에서의-float-요소" class="headerlink" title="전체 document 관점에서의 float 요소"></a><strong>전체 document 관점에서의 float 요소</strong></h2><p>Document내에 존재하는 float 속성이 적용된 자식요소는 페이지에 표시된 document의 흐름에서 벗어난 상태로, 레이아웃의 배치를 무너뜨리게 하는 요인이 된다.<br>이러한 레이아웃 배치를 무너뜨리게 되는 현상을 해결하기 위해서는 float가 적용된 요소의 주변에 있는 요소들은 영향을 받지 않도록 해야한다.</p><p>주변 요소들로 영향이 없도록 하기 위해서는 주변 요소의 속성에서 float를 해제해야 하는데 그 방법에는 clear 속성을 적용하는 방법과 적용하지 않는 방법, 두 가지로 크게 분류해서 살펴볼 수 있다.</p><br/><h2 id="float-해제하는-방법"><a href="#float-해제하는-방법" class="headerlink" title="float 해제하는 방법"></a><strong>float 해제하는 방법</strong></h2><p>이제부터 주변 요소로의 float 영향을 제거하기 위한 float 해제의 방법에 대해서 정리해보겠다. 방법은 크게 clear 속성을 사용하지 않은 방법들과 clear 속성을 사용한 방법으로 분류하여 정리를 해보겠다.</p><h3 id="우선-clear-속성을-사용하지-않고-float-해제방법에-대해서-정리해보도록-하겠다"><a href="#우선-clear-속성을-사용하지-않고-float-해제방법에-대해서-정리해보도록-하겠다" class="headerlink" title="우선 clear 속성을 사용하지 않고, float 해제방법에 대해서 정리해보도록 하겠다."></a><ins>우선 clear 속성을 사용하지 않고, float 해제방법에 대해서 정리해보도록 하겠다.</ins></h3><p><span><h1><b>첫 번째,</b></h1></span> <ins>우선 <code>수업시간에 배운 overflow: hidden 속성 지정을 통한 float 해제</code>에 대해서 알아보도록 하겠다.</ins><br>자식요소가 부모요소의 크기보다 클 경우, 부모요소는 자식요소의 넘치는 컨텐츠를 숨기고 보이지 않게 한다. overflow의 속성 값 중에 auto도 있는데, 이 auto 속성값을 주게 되면, 자식요소의 너비가 부모요소보다 큰 경우에 스크롤이 생기게 되기 때문에 추천하지 않는 방법이다.</p><p>부모요소가 float 속성을 가진 자식요소의 높이를 인지하지 못한 상황에서 overflow: hidden 속성을 주게되면 부모요소는 자식요소의 overflow된 contents영역을 숨기기 위해 자식요소의 높이값을 자동으로 계산하게 되는데 이를 통해 화면상에서는 부모요소가 자식요소를 감싸안는 형태로 보이게 된다.</p><p><strong><ins><code>float해제에서 overflow: hidden 사용의 단점</code></ins></strong><br><ins><b>이 방법은 동적으로 데이터를 보여주는 경우에는 적합하지 않다.</b></ins> 동적으로 보여지는 데이터가 부모 컨텐츠보다 큰 경우에는 넘치는 데이터 표시부분을 모두 숨겨버리기 때문이다.</p><p><span><h1><b>두 번째,</b></h1></span><ins>가장 널리 사용되는 방법으로 가상 클래스(Pseudo class)를 사용한 float 해제에 대해서 알아보자.</ins></p><p>이 방법은 불 필요한 요소의 추가없이 CSS를 통해 가상 요소를 생성하여 float를 해제한다.</p><pre><code class="css">.parent:after &#123;  content: &quot;&quot;;  display: block;  clear: both;&#125;</code></pre><p>인위적으로 float가 적용된 자식요소의 마지막에 의미없는 형제요소를 만들어서 clear 속성을 넣어 float를 해제시켜 줄 수도 있는데, 불필요한 요소를 추가하게 되므로, 추천되지 않는 방법이다. 이 방법의 단점을 보완한 방법이 가상 클래스를 사용한 방법이다.</p><p>이 가상 클래스를 사용하는 방법은 <code>IE7에서는 지원되지 않기 때문에</code> 가상 클래스 요소 대신에 부모요소에 <code>zoom:1;</code>를 별도로 속성으로 지정해줘야 한다.</p><p><span><h1><b>세 번째,</b></h1></span><ins>부모요소에 inline-block의 특징을 갖게 하는 방법이 있다.</ins></p><p>이 방법에는 크게 두 가지 방법이 있는데, 부모요소에도 자식요소와 똑같이 <strong>float 속성을 지정</strong>해는 방법과 <strong>display 속성에 inline-block 속성값을 지정</strong>해주는 방법이 있다.<br>부모요소에 float 속성을 주게 되면, 자식요소와 동일하게 float한 상태가 되기 때문에 자식요소의 높이를 인지하게 되지만 부모 요소도 inline-block의 특징을 갖게되어, 부모 요소에 지정한 너비만큼만 너비를 갖게 되기 때문에 레이아웃의 전체적인 구성을 고려해서 지정해줘야 한다.</p><h3 id="이제-clear-속성을-사용한-float-해제방법에-대해서-정리해보도록-하겠다"><a href="#이제-clear-속성을-사용한-float-해제방법에-대해서-정리해보도록-하겠다" class="headerlink" title="이제 clear 속성을 사용한 float 해제방법에 대해서 정리해보도록 하겠다."></a><ins>이제 clear 속성을 사용한 float 해제방법에 대해서 정리해보도록 하겠다.</ins></h3><p><span><h1><b>네 번째,</b></h1></span><ins>float를 지정한 자식요소의 부모요소에 clear 속성을 지정함으로써 float 해제하는 방법이 있다.</ins></ins></p><p>이 방법은 clearfix라는 방법으로 불리는데, float 속성이 적용된 자식요소를 감싸는 부모요소에 clear 속성을 지정함으로써 부모요소가 자식요소를 감싸는 형태가 될 수 있도록 한다.<br>clear 속성에는 <code>left, right, both, none</code>등 다양한 속성값이 있으며, <ins><b>내부 자식요소에 float: left를 주었다면, clear:left를, float: right를 주었다면 clear: right를 주면 된다. 그리고 left, right 자식요소 모두 flot해제를 해 줄때에는 both값을 넣어주면 된다.</b></ins></p><p><span><h1><b>다섯 번째,</b></h1></span><ins>micro clearfix라는 방법이 있다.</ins></ins></p><p>이 방법은 아래와 같이 CSS로 float 속성을 가진 자식요소를 감싸는 부모요소에 지정을 해서 float를 해제하는 방법이다.</p><pre><code class="css">.parent &#123;  /* For IE 6/7 only */  *zoom: 1;&#125;.parent:before,.parent:after &#123;  content: &quot;&quot;;  display: table;&#125;.parent:after &#123;  clear: both;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210223_float_img.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;float&quot;&gt;&lt;a href=&quot;#float&quot; class=&quot;headerlink&quot; title=&quot;float&quot;&gt;&lt;/a&gt;&lt;strong&gt;flo</summary>
+      
+    
+    
+    
+    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+    <category term="Float" scheme="https://leehyungi0622.github.io/tags/Float/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210223 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/23/202102/210223-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/23/202102/210223-Self-development_til/</id>
+    <published>2021-02-22T21:13:00.000Z</published>
+    <updated>2021-02-22T21:22:37.427Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>패배는 최악의 실패가 아니다. 시도조차 해보지 않은 것이 진정한 실패다.</strong><br/>(Defeat is not the worst of failures. Not to have tried is the true failure.)**-조지 에드워드 우드버리 (George Edward Woodberry) **</p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li>23일 분 배운내용에 대해서 HTML/CSS TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기</li></ul></li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>23일 분 OReilly TypeScript 독서 -P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210222 HTML/CSS TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/22/202102/210222-html_css_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/22/202102/210222-html_css_til/</id>
+    <published>2021-02-22T04:00:42.000Z</published>
+    <updated>2021-02-23T01:03:13.308Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-첫-수업"><a href="#HTML-CSS-첫-수업" class="headerlink" title="HTML/CSS 첫 수업"></a><strong>HTML/CSS 첫 수업</strong></h2><p>오늘 HTML/CSS 첫 수업을 들으면서 너무 좋았다. 내가 정말 원했던 수업내용과 방식이었고, HTML과 CSS를 정말 제대로 배울 수 있겠다는 느낌을 받았다.<br>프론트엔드 쪽으로 커리어를 쌓아 나갈 것이기 때문에 가장 기본이 되는 HTML/CSS를 제대로 알고 사용하는 개발자가 되기 위해서 정말 노력을 많이 해야겠다.</p><p>시작은 수업진행을 위한 전반적인 개발환경 구축 및 수업자료를 local환경에 준비하는 것으로 시작을 하였다.</p><p>본 수업 커리큘럼은 기본 HTML5/CSS3 ~ Sass(css 전처리기)사용까지 진행할 계획이라고 하셨다.</p><p>Sass에 대해 부가적인 설명은 Sass 중에서 Ruby Sass, Node Sass, Dart Sass가 있는데 Ruby Sass와 Node Sass는 이미 deprecated 되었기 때문에 <ins><b>Sass를 사용하기 위해서는 Dart Sass를 사용해야 한다</b></ins>고 설명해주셨다.</p><p>포스팅 내용 정리는 수업 전체 내용을 정리하는 것이 아닌, 내가 기존에 제대로 알고 있다고 생각되는 부분은 생략하고 <ins><b>제대로 알고 있지 않았던 부분과 새롭게 알게 된 내용 그리고 중요하다고 생각되는 내용을 위주로</b></ins> 정리를 해 나갈 계획이다.</p><h2 id="HTML5-이전과-이후"><a href="#HTML5-이전과-이후" class="headerlink" title="HTML5 이전과 이후"></a>HTML5 이전과 이후</h2><p>HTML5의 이전에는 HTML Tag의 요소를 block/inline 요소로만 구분을 했었다. 하지만 HTML5 이후에는 <code>콘텐츠 모델</code>이라는 개념이 등장을 하게 되었고, 기존에 block/inline 측면의 HTML 구조상에서 유효하지 않았던 태그 구조들이 <ins><b>콘텐츠 모델을 기준으로 가능</b></ins>하게 되었다.<br>콘텐츠 모델이라는 기준으로 작성한 HTML태그가 유효한 코드 구조인지 알기 위해서는 validation 체크를 하면서 작성을 해야한다.</p><p><a href="https://validator.w3.org/#validate_by_uri+with_options">https://validator.w3.org/#validate_by_uri+with_options</a></p><h2 id="W3C-Markup-Validation-Service"><a href="#W3C-Markup-Validation-Service" class="headerlink" title="W3C Markup Validation Service"></a>W3C Markup Validation Service</h2><p>내가 작성한 HTML 코드의 태그가 제대로 배치되어서 사용되고 있는지 체크해주는 Vlidation check service이다.<br>수업시간에 anchor tag와 button tag는 둘 다 interactive한 태그요소이기 때문에 중첩시켜서 작성하면 안된다고 설명해주셨다. 이러한 예처럼 각 태그의 특성을 제대로 파악하고 HTML의 구조를 만들어야 한다.</p><h2 id="HTML-태그에-class이름을-명명하는-방법"><a href="#HTML-태그에-class이름을-명명하는-방법" class="headerlink" title="HTML 태그에 class이름을 명명하는 방법"></a>HTML 태그에 class이름을 명명하는 방법</h2><p><img src="/images/post_images/210223_bem_img.jpg"></p><p>BEM이란? HTML 태그의 class이름을 Block 요소를 기준으로 작성을 하는 방법이다.<br>HTML 태그의 class이름은 그냥 작성을 하는 것이 아니라 BEM과 같은 규칙으로 작성을 해야한다.</p><hr/><h2 id="HTML-태그로-화면구성-구상하기"><a href="#HTML-태그로-화면구성-구상하기" class="headerlink" title="HTML 태그로 화면구성 구상하기"></a>HTML 태그로 화면구성 구상하기</h2><p>화면구성을 HTML태그로 구성하기 위해서는 화면 각 각의 Segment를 아래와 같은 sequence로 구성해나간다.</p><p><strong>첫 번째,</strong> 3단으로 구성할지 4단으로 구성할지 생각한다. 일반적으로 Semantic HTML을 살펴보면, 기본적으로 정해놓은 프레임이 있다. 하지만 페이지 구성에는 정해진 구조와 정답이 있는 것이 아니다.<br>예를들어, Header 태그와 nav 태그를 별도의 segment로 분리시킴으로써 4단으로 구성할 수도, 아니면 Header내부에 nav 태그를 위치시켜서 3단으로 구성할 수도 있다. 위에서 아래로 논리적인 흐름으로 화면 구성을 생각하도록 하자.</p><p><strong>두 번째,</strong> 어떤 구조와 태그로 화면을 구성했는가에는 이유가 있어야 한다. 내가 구성한 페이지 구성에서 사용된 모든 것들에는 직접 설명할 수 있어야 한다.</p><p><strong>세 번째,</strong> 기계가 알아들을 수 있는 각 각의 의미있는 태그로 페이지를 구성해야 한다. 이전에는 단순 div 태그로 페이지를 구성하였다. 하지만 HTML5 이후부터는 기본 화면 구성에 있어 다양한 태그들이 등장했다. 단순히 의미없이 화면의 Partition을 div 태그로 나누지 말고 의미있는 태그를 사용해서 나누는 연습을 하자.</p><p><strong>네 번째,</strong> 화면 전체 컨텐츠를 하나의 container로 묶어주는 작업을 한다. 나중에 화면전체를 한 단위로 컨트롤하기 편하기 때문에 전체를 container class로 묶어주도록 하자.</p><p><strong>다섯 번째,</strong> 페이지의 구성을 직접 손으로 그려가보면서 연습을 하도록 하자.</p><p><strong>여섯 번째,</strong> HTML 태그는 id, class 중에 class를 선언해서 각 element의 스타일을 조작한다.</p><hr/><h2 id="SEO-Search-Engine-Optimization"><a href="#SEO-Search-Engine-Optimization" class="headerlink" title="SEO (Search Engine Optimization)"></a>SEO (Search Engine Optimization)</h2><p>검색 엔진 최적화. 이 부분은 HTML 태그의 title 부분에 대해서 설명을 해주시면서 나온 개념이다.</p><p>이 title에 대한 이해없이 그냥 아무거나 작성하는 경우가 있는데 이 부분은 웹에서 검색을 했을때 해당 웹 페이지를 노출시킬 수 있는데 크게 기여하는 부분이다.<br>title 부분 이외에도 검색 엔진 최적화를 고려해서 개발을 할때 중요한 부분도 있으니 개별적으로 찾아보면서 공부를 할 필요가 있다.<br>프로젝트를 진행할때 SEO를 최대한 녹여내서 진행해보도록 한다.</p><hr/><h2 id="웹-브라우저의-작동과-화면-rendering에-대한-기본-개념-이해"><a href="#웹-브라우저의-작동과-화면-rendering에-대한-기본-개념-이해" class="headerlink" title="웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해"></a>웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해</h2><p>기술적인 부분에 치중해서 개발을 공부하는 경우가 많은데, 전체적인 골격을 우선 공부하는 것이 중요하다.<br>전체적인 골격이 되는 부분을 우선적으로 공부하고, 세세한 부분에 대해서는 나중에 추가적으로 공부를 하는 것이 중요하다.</p><hr/><h2 id="Emmet을-제대로-사용해서-생산성을-높이자"><a href="#Emmet을-제대로-사용해서-생산성을-높이자" class="headerlink" title="Emmet을 제대로 사용해서 생산성을 높이자."></a>Emmet을 제대로 사용해서 생산성을 높이자.</h2><p>Emmet 공식 홈페이지에 들어가면 사용하는 방법에 대한 documentation이 잘 되어있다.<br>아래의 코드는 Emmet을 활용하여 빠르게 HTML 태그들을 작성하는 예시이다.</p><pre><code class="html">&lt;!DOCTYPE html&gt;&lt;html lang=&quot;ko-KR&quot;&gt;  &lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot; /&gt;    &lt;title&gt;웹카페-HTML5, CSS3, 웹 표준, 접근성&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;    &lt;!-- div.container&gt;header.header+div.visual --&gt;    &lt;!-- &gt; : child, + : sibling --&gt;    &lt;div class=&quot;container&quot;&gt;      &lt;header class=&quot;header&quot;&gt;        &lt;nav class=&quot;navigation&quot;&gt;내비게이션&lt;/nav&gt;      &lt;/header&gt;      &lt;div class=&quot;visual&quot;&gt;비주얼&lt;/div&gt;      &lt;main class=&quot;main&quot;&gt;        &lt;!-- div.group.group$*3 --&gt;        &lt;!-- &lt;div class=&quot;group group1&quot;&gt;&lt;/div&gt;            &lt;div class=&quot;group group2&quot;&gt;&lt;/div&gt;            &lt;div class=&quot;group group3&quot;&gt;&lt;/div&gt; --&gt;        &lt;!-- div.group.group$&#123;그룹$&#125;*3 --&gt;        &lt;div class=&quot;group group1&quot;&gt;그룹1&lt;/div&gt;        &lt;div class=&quot;group group2&quot;&gt;그룹2&lt;/div&gt;        &lt;div class=&quot;group group3&quot;&gt;그룹3&lt;/div&gt;      &lt;/main&gt;      &lt;article class=&quot;slogan&quot;&gt;슬로건&lt;/article&gt;      &lt;footer class=&quot;footer&quot;&gt;푸터&lt;/footer&gt;    &lt;/div&gt;  &lt;/body&gt;&lt;/html&gt;</code></pre><hr/><h2 id="Classic-amp-Modern-레이아웃-배치"><a href="#Classic-amp-Modern-레이아웃-배치" class="headerlink" title="Classic &amp; Modern 레이아웃 배치"></a>Classic &amp; Modern 레이아웃 배치</h2><p>과거에는 페이지의 Layout 요소들을 배치할때 float, position을 사용하여 배치하였다. 하지만 요즘에는 flex나 grid를 사용해서 좀 더 편리하게 화면의 element들을 배치할 수 있다.</p><p>이 부분에 대해서는 별도로 포스팅하여 내용정리를 해 볼 것이다.</p><hr/><h2 id="그외-도움되는-이야기-Clone-coding은-어떻게-제대로-진행을-해야하는가"><a href="#그외-도움되는-이야기-Clone-coding은-어떻게-제대로-진행을-해야하는가" class="headerlink" title="그외 도움되는 이야기 : Clone coding은 어떻게 제대로 진행을 해야하는가?"></a><strong>그외 도움되는 이야기</strong> : Clone coding은 어떻게 제대로 진행을 해야하는가?</h2><p>클론코딩은 단순히 똑같이 만드는 것에 의미를 두는 것은 의미가 없다. 기존의 서비스를 클론코딩 해보았으면, 추가적으로 필요한 요소가 있는지 분석을 하고 추가를 하거나 개선되었으면 좋겠다는 부분도 추가적으로 생각해서 반영을 하는 것이 중요하다.</p><p>많은 사람들이 사용을 하고 있는 네이버의 <code>로그인 화면의 배치에도 개선할 점(로그인 상태 유지의 위치)</code>이 있다. 이처럼 이미 서비스하고 있는 유명한 웹이라고 하더라도 반드시 개선점은 있으니, 이 부분을 염두해두고 분석을 해보도록 하자.</p><hr/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;HTML-CSS-첫-수업&quot;&gt;&lt;a href=&quot;#HTML-CSS-첫-수업&quot; class=&quot;headerlink&quot; title=&quot;HTML/CSS </summary>
+      
+    
+    
+    
+    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210222 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/02/22/202102/210222-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/22/202102/210222-Self-development_til/</id>
     <published>2021-02-22T02:09:00.000Z</published>
-    <updated>2021-02-22T02:12:13.988Z</updated>
+    <updated>2021-02-22T02:24:32.687Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>어제의 습관이 오늘의 나를 만들었듯이 오늘의 습관이 10년 후 나를 만든다.</strong><br/> <strong>- 한 줄 명언</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>Pyenv BUILD FAILED 에러 관련해서 포스팅하기</del> (<code>완료</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li><del>OReilly TypeScript 예제 코드실습</del> (<code>완료</code>)</li><li><del>배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>Issue # ) (<code>예정</code>)</li><li>Issue # ) (<code>예정</code>)</li></ul></li></ul></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>어제의 습관이 오늘의 나를 만들었듯이 오늘의 습관이 10년 후 나를 만든다.</strong><br/> <strong>- 한 줄 명언</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><del><strong>블로그 포스팅하기</strong></del></ins></p><ul><li><del>Pyenv BUILD FAILED 에러 관련해서 포스팅하기</del> (<code>완료</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>17일 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li><del>OReilly TypeScript 예제 코드실습</del> (<code>완료</code>)</li><li><del>배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</li><li>실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul></li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>Issue # ) (<code>예정</code>)</li><li>Issue # ) (<code>예정</code>)</li></ul></li></ul></li><li><p><ins><strong>공부 가이드라인 설정</strong></ins></p><ul><li>공부하고 있는 내용이 많기 때문에 요일별 가이드라인 작성하기(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 20% 예정</code>)</li></ul><br/></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li>17일 분 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li></ul>]]></content>
     
     
       
@@ -494,93 +580,6 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210215 Python TIL 1/2 - Module &amp; Package, Library &amp; Framework, Poetry, Virtualenv</title>
-    <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/"/>
-    <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/</id>
-    <published>2021-02-15T04:06:41.000Z</published>
-    <updated>2021-02-16T00:57:05.892Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="Module-Package"><a href="#Module-Package" class="headerlink" title="Module, Package"></a>Module, Package</h2><br/><ul><li><h3 id="Module"><a href="#Module" class="headerlink" title="Module?"></a>Module?</h3><ul><li>Python 코드로 이루어진 파일로, 본체에 대한 하위 단위로 정의한다.</li></ul></li><li><h3 id="Package"><a href="#Package" class="headerlink" title="Package?"></a>Package?</h3><ul><li>관련 여러 모듈들을 하나의 폴더로 묶은 것을 말한다.</li></ul><p><strong>(Module, Package관련 실습내용)</strong><br>(1) fibo.py와 main.py 파일을 만들어서 실습을 진행한다.<br>fibo에 정의되어있는 text변수의 값을 main.py에서 출력한다.</p><pre><code class="python">from fibo import textprint(text)</code></pre><p>(2) fibo directory 내에 binet.py와 rec.py 파일을 생성해서 각 각에 맞는 함수를 구현한다. main.py에서 moulde로써 import해서 사용한다. (VSCode에서는 module로써 사용할 디렉토리내에는 __init__.py파일을 넣어준다.)</p><pre><code class="python">#from fibos import fibo#from fibos import binet as bn#from fibos import fibo, binet#from fibos import *#import print_something#from . import print_something</code></pre></li></ul><br/><ul><li><h3 id="Library-amp-Framework"><a href="#Library-amp-Framework" class="headerlink" title="Library &amp; Framework"></a>Library &amp; Framework</h3><p>라이브러리와 프레임워크의 차이에 대해서 알아보았다.<br>이전에 개인적으로 블로그에 포스팅했던 내용이 있는데, 참고해도 좋을 것 같다.<br><a href="https://leehyungi0622.github.io/2021/02/06/202102/210206-Self-Framework_and_Library_Difference/">https://leehyungi0622.github.io/2021/02/06/202102/210206-Self-Framework_and_Library_Difference/</a></p><ul><li><p><strong>Library</strong></p><ul><li>대표적인 예로 jQuery가 있다.</li><li>함수와 기능의 모음을 말한다.</li><li>파이썬의 print(내장함수)와 math(모듈)등과 같은 파이썬 표준 라이브러리도 라이브러리에 속한다.</li><li>You are in control, you call the library</li></ul></li><li><p><strong>Framework</strong></p><ul><li>대표적인 예로 django, flask, expressJS가 있다.</li><li>개념들의 추상화를 제공하는 클래스와 컴포넌트로 구성되어 있다.</li><li>Framework is in control, it calls you</li></ul><pre><code class="python">from flask import Flaskapp = Flask(__name__)@app.route(&#39;/&#39;)def get_index():  return &#39;this is home&#39;</code></pre></li></ul></li></ul><br/><ul><li><h3 id="Poetry"><a href="#Poetry" class="headerlink" title="Poetry?"></a><strong>Poetry?</strong></h3></li></ul><p><code>Node.js에서 package.json과 같은 역할을 하는 것이 Django의 requirements.txt인데, Poetry를 사용해서 requirements.txt의 관리를 좀 더 편하게 할 수 있다.</code></p><ul><li><h3 id="poetry-설치"><a href="#poetry-설치" class="headerlink" title="poetry 설치"></a>poetry 설치</h3><p>설치를 완료하고 poetry init 까지 완료되었다면, pyproject.toml config파일을 확인할 수 있다. 이 파일을 통해서 설치된 dependency를 관리할 수 있다.</p><p><code>pyproject.toml</code></p><pre><code class="bash">  [too.poetry.dependencies]  python = &quot;^3.9&quot;  # 프로젝트 실행을 위한 dependencies  [tool.poetry.dev-dependencies]  # 개발을 위한 dependencies</code></pre><p><strong>( 참고 :</strong> <a href="https://python-poetry.org/docs/">poetry installation reference</a> <strong>)</strong></p><pre><code class="bash"># Poetry 설치하기$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -# shell 설정파일에 poetry bin폴더의 경로를 설정$ echo &#39;$HOME/.poetry/bin:$PATH&#39; &gt;&gt; ~/.zshrc</code></pre><p><ins><b>zsh configuration 파일에 poetry bin폴더의 경로를 설정 넣어주기</b></ins></p><pre><code class="bash"># pyenv의 PATHexport PYENV_PATH=$HOME/.pyenvif which pyenv &gt; /dev/null; then eval &quot;$(pyenv init -)&quot;; fiif which pyenv-virtualenv-init &gt; /dev/null; then eval &quot;$(pyenv virtualenv-init -)&quot;; fi# poetry실행파일의 PATH가 pyenv의 PATH보다 우선되도록 설정export PATH=$HOME/.poetry/bin:$PATH</code></pre><p><code>.commonrc 파일을 생성해서 관리를 하면 공통적인 개발환경을 관리하기에 좋다.</code><br>→ 개발환경은 global하게 사용할 가상환경과 local하게 프로젝트별로 사용할 가상환경을 구분해서 설정해놓는 것이 좋다.</p><p>pyproject.toml 파일이 있는 위치에서 <code>poetry add django==1.11</code>로 django package를 설치해주면 아래와 같이 설치된 package를 확인할 수 있다.</p><pre><code class="bash">[tool.poetry]name = &quot;practice_project&quot;version = &quot;0.1.0&quot;description = &quot;&quot;authors = [&quot;Lee Hyungi &lt;hyungi.lee.622@gmail.com&gt;&quot;][tool.poetry.dependencies]# ^표시는 2.7이상의 python에서 실행해야 된다는 의미이다.python = &quot;^2.7&quot;Django = &quot;1.11&quot;[tool.poetry.dev-dependencies][build-system]requires = [&quot;poetry-core&gt;=1.0.0&quot;]build-backend = &quot;poetry.core.masonry.api&quot;</code></pre><br/><ul><li><h3 id="Poetry-사용관련-Commands"><a href="#Poetry-사용관련-Commands" class="headerlink" title="Poetry 사용관련 Commands"></a>Poetry 사용관련 Commands</h3></li></ul><pre><code class="bash"># initialize$ poetry init# add package$ poetry add &lt;package name&gt;# remove package$ poetry remove &lt;package name&gt;# show installed package$ poetry show --no-dev --tree# export package list to requirements.txt$ poetry export -f requirements.txt &gt; requirements.txt</code></pre><br/><ul><li><h3 id="Poetry-실습-순서"><a href="#Poetry-실습-순서" class="headerlink" title="Poetry 실습 순서"></a>Poetry 실습 순서</h3></li></ul><pre><code class="bash">(1) 가상환경 생성하기(2) 프로젝트 디렉토리 만들기(3) poetry init(4) poetry add &lt;package name&gt;requestsflaskpillowbeautifulsoup4locust( poetry add --dev locust )</code></pre><p>가상환경을 생성할때에는 pyenv version번호를 virtualenv 이름에 넣어 생성해준다. (이름으로 어떤 버전이 설치되었는지 쉽게 유추할 수 있게 하기 위해)</p><pre><code class="bash"># awesome-390이름의 가상환경을 pyenv로 설치한 3.9.0로 생성해준다.$ virtualenv 3.9.0 awesome-390</code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h2 id=&quot;Module-Package&quot;&gt;&lt;a href=&quot;#Module-Package&quot; class=&quot;headerlink&quot; title=&quot;Mo</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210215 TypeScript Book TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Typescript/"/>
-    <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Typescript/</id>
-    <published>2021-02-15T01:30:42.000Z</published>
-    <updated>2021-02-15T02:49:07.179Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul><li><h3 id="컴파일과-실행에-대한-이해"><a href="#컴파일과-실행에-대한-이해" class="headerlink" title="컴파일과 실행에 대한 이해"></a><strong>컴파일과 실행에 대한 이해</strong></h3><p>이번에 읽은 내용에서 가장 유익하다고 느꼈던 내용이다. 실제 코드를 작성하고 실행을 했을때 내부에서 구체적으로 어떤 과정에 의해서 처리가 되는지 잘 몰랐었는데 이번 기회에 제대로 알 수 있었던 것 같다.<br>특히 타입스크립트는 자바스크리트나 자바와 같은 주요 언어와는 다른 방식으로 동작하기 때문에 이 부분에 대해서 정리를 해보려고 한다.</p><ul><li>일반적으로 프로그래머가 작성한 텍스트(코드)는 컴파일러(compiler)라는 프로그램이 파싱(Parsing)하여, AST(Abstract Syntax Tree, AST)라는 자료구조로 변환된다. 이 AST는 공백, 주석, 탭, 공백 등의 결과를 무시한다.<br/><br>컴파일러는 이 AST 자료구조를 바이트 코드(bytecode)라는 하위 수준의 표현으로 변환을 한다.<br>이렇게 만들어진 바이트 코드는 런타임(runtime)이라는 다른 프로그램에 입력해서 평가하고 결과를 얻을 수 있는 것이다.<br/><ol><li><code>텍스트 코드 =&gt; 컴파일러(Compiler) =&gt; AST(Abstract Syntax Tree)</code><br/></li><li><code>AST(Abstract Syntax Tree) =&gt; 컴파일러(Compiler) =&gt; 바이트 코드(bytecode)</code><br/></li><li><code>런타임(Runtime) =&gt; 바이트 코드(bytecode)</code></li></ol></li></ul><p>즉 일반적으로 <b><ins>프로그램을 실행한다는 것은 컴파일러가 소스코드를 파싱해서 AST로 만들고 이 AST를 바이트코드로 변환한 것을 런타임이 평가하도록 지시하는 일련의 과정을 의미</ins></b>한다.</p></li></ul><br/><p>일반적인 프로그램의 실행은 위의 과정을 거친다. 타입스크립트가 다른 언어의 일반적인 실행과 다른 점은 AST가 바이트 코드로 변환되는 것이 아닌, 자바스크립트 코드로 변환된다.</p><blockquote><p>(TS) 1. 타입스크립트 소스 → 타입스크립트 AST (compiler) <code>(소스코드의 타입사용 O)</code> <br/><br>(TS) 2. 타입 검사기(typechecker)가 AST를 검사 (compiler) <code>(소스코드의 타입사용 O)</code><br/><br>(TS) 3. 타입 스크립트 AST → 자바스크립트 소스 <code>(소스코드의 타입사용 X)</code><br/><br>=============================================<br/><br>(JS) 4. 자바스크립트 소스 → 자바스크립트 AST <br/><br>(JS) 5. AST → 바이트코드 <br/><br>(JS) 6. 런타임이 바이트코드를 평가 <br/></p></blockquote><p>보통 자바스크립트 컴파일러와 런타임은 엔진이라는 하나의 프로그램으로 합쳐진다.<br>프로그래머는 주로 이 엔진과 상호작용을 한다.<br><br/></p><ul><li><h3 id="타입시스템에-대한-이해"><a href="#타입시스템에-대한-이해" class="headerlink" title="타입시스템에 대한 이해"></a><strong>타입시스템에 대한 이해</strong></h3><p>타입 시스템에는 명시적 타입 시스템과 추론적 타입 시스템이 있다.<br/><br>타입 스크립트는 두 시스템의 영향을 받은 언어이다. 그말은 즉슨 개발자는 타입을 명시하거나 별도의 명시없이 타입스크립트가 추론하도록 할 수 있다.</p><p>명시적 타입지정은 <code>value:type</code>의 형태로 작성한다. 추론적 타입지정은 별도로 type을 지정하지 않아도 값에 의해서 TypeScript가 추론을 하는 것을 의미한다.</p></li><li><h3 id="자바스크립트와-타입스크립트의-차이"><a href="#자바스크립트와-타입스크립트의-차이" class="headerlink" title="자바스크립트와 타입스크립트의 차이"></a>자바스크립트와 타입스크립트의 차이</h3><p>자바스크립트와 타입스크립트의 차이점은 자바스크립트는 동적 타입 결정방식인 반면에 타입스크립트는 정적 타입 결정방식을 가진다. 그리고 자바스크립트의 타입체크와 에러검출은 런타임 단계에서 이루어지는 반면에 타입스크립트는 컴파일 단계에서 이루어진다.</p><p>이러한 차이로 인해, 타입스크립트는 코드를 실행하지 않고도 코드에 에러가 있음을 알 수 있다.</p></li></ul><h2 id="오늘-실습한-내용"><a href="#오늘-실습한-내용" class="headerlink" title="오늘 실습한 내용"></a><strong>오늘 실습한 내용</strong></h2><blockquote><p>실습 Repository : <a href="https://github.com/LeeHyungi0622/typescript-oreilly-practice">https://github.com/LeeHyungi0622/typescript-oreilly-practice</a></p></blockquote><ul><li><p><strong>TypeScript</strong></p><ul><li><p>TypeScript 프로젝트 생성</p></li><li><p>NPM 프로젝트 초기화</p><pre><code class="bash">$ npm init</code></pre></li><li><p>typescript tslint @types/node 설치</p><pre><code class="bash">$ npm i -D typescript tsline @types/node</code></pre></li><li><p>tsconfig.json 파일생성<br>직접 파일을 생성하여 실습하였지만, <code>./node_modules/.bin/tsc --init</code> 내장명령을 통해서 자동으로 설정을 해줄 수 있다.</p><pre><code class="javascript">&#123;  &quot;compilerOptions&quot;: &#123;      &quot;lib&quot;: [&quot;es2015&quot;],      &quot;module&quot;: &quot;commonjs&quot;,      &quot;outDir&quot;: &quot;dist&quot;,      &quot;sourceMap&quot;: true,      &quot;strict&quot;: true,      &quot;target&quot;: &quot;es2015&quot;  &#125;,  &quot;include&quot;: [      &quot;src&quot;  ]&#125;</code></pre></li><li><p>tslint.json<br>탭을 사용할지 공백을 사용할지 등에 대한 코딩스타일을 정하는 파일로, <code>./node_modules/.bin/tslint --init</code> 내장명령을 통해서 파일을 생성할 수 있다.</p><pre><code class="javascript">&#123;  &quot;defaultSeverity&quot;: &quot;error&quot;,  &quot;extends&quot;: [      &quot;tslint:recommended&quot;  ],  &quot;rules&quot;: &#123;      &quot;semicolon&quot;: false,      &quot;trailing-comma&quot;: false  &#125;&#125;</code></pre><ul><li><p>src 폴더에 index.ts파일을 생성하여 간단한 코드를 작성한다.</p></li><li><p>TSC로 타입스크립트 파일을 컴파일한다.<br/><br>ts-node를 설치하면 명령 한 번으로 타입스크립트를 컴파일하고 실행할 수 있다.</p><pre><code class="javascript">$ ./node_modules/.bin/tsc</code></pre></li><li><p>NodeJS로 컴파일된 자바스크립트 코드를 실행한다.</p><pre><code class="javascript">$ node ./dist/index.js</code></pre></li></ul><p><ins><code>typescript-node-starter와 같은 뼈대(Scafolding) 도구를 이용해서 프로젝트 디렉터리 구조를 빠르게 생성할 수 있다.</code></ins></p></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/typescript_logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였</summary>
-      
-    
-    
-    
-    <category term="TIL:TypeScript" scheme="https://leehyungi0622.github.io/categories/TIL-TypeScript/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="TypeScript" scheme="https://leehyungi0622.github.io/tags/TypeScript/"/>
-    
-    <category term="self-development" scheme="https://leehyungi0622.github.io/tags/self-development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210215 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/15/202102/210215-Self-development_til/</id>
-    <published>2021-02-14T21:47:00.000Z</published>
-    <updated>2021-02-16T04:16:43.983Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>끝까지 해보기 전까지는 늘 불가능해 보입니다.</strong><br/> (It always seems impossible until its done.)<br/> <strong>넬슨 만델라 / Nelson Mandela</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><ins><strong>독서</strong></ins><ul><li><del>OReilly TypeScript 독서 1 ~ 17P</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 예제 및 연습문제 연습용 Repository 생성</del> (<code>완료</code>)</li><li><del>OReilly TypeScript 17P 연습문제 실습</del> (<code>완료</code>)</li><li><del>오늘 배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</li></ul></li><li><ins><strong>Python 과제</strong></ins><ul><li><del>(1) 교재에 있는 연습문제</del> (<code>완료</code>)</li><li><del>(2) 0216 월간테스트 준비하기</del> (<code>완료</code>)</li></ul></li><li><ins><strong>블로그에 포스팅하기</strong></ins><ul><li><del>virtualenv 설치 및 사용관련해서 포스팅하기</del> (<code>완료</code>) - <ins><b>이전에 작성했던 내용으로 대체</b></ins></li><li>pyenv 설치 및 사용관련해서 포스팅하기 (<code>예정</code>)</li><li><del>poetry 설치 및 사용관련해서 포스팅하기 - Python TIL에 포스팅</del>(<code>완료</code>)<ul><li>tab completion 설치하기 (Tab으로 자동완성 기능)</li></ul></li><li><del>Python TIL 오늘분 정리하기</del> (<code>완료</code>)<ul><li><del><a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/">210215 Python TIL 1/2 - Module &amp; Package, Library &amp; Framework, Poetry, Virtualenv</a></del></li><li><del><a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(2)/">210215 Python TIL 2/2 - Function, Closure, Decorator</a></del><br/></li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
