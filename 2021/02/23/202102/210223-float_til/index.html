@@ -14,7 +14,7 @@
 <p>부모요소가 float 속성을 가진 자식요소의 높이를 인지하지 못한 상황에서 overflow: hidden 속성을 주게되면 부모요소는 자식요소의 overflow된 contents영역을 숨기기 위해 자식요소의 높이값을 자동으로 계산하게 되는데 이를 통해 화면상에서는 부모요소가 자식요소를 감싸안는 형태로 보이게 된다.</p>
 <p><strong><ins><code>float해제에서 overflow: hidden 사용의 단점</code></ins></strong><br><ins><b>이 방법은 동적으로 데이터를 보여주는 경우에는 적합하지 않다.</b></ins> 동적으로 보여지는 데이터가 부모 컨텐츠보다 큰 경우에는 넘치는 데이터 표시부분을 모두 숨겨버리기 때문이다.</p>
 <p><span><h1><b>두 번째,</b></h1></span><ins>가장 널리 사용되는 방법으로 가상 클래스(Pseudo class)를 사용한 float 해제에 대해서 알아보자.</ins></p>
-<p>이 방법은 불 필요한 요소의 추가없이 CSS를 통해 가상 요소를 생성하여 float를 해제한다.</p>
+<p>이 방법은 불 필요한 요소의 추가없이 CSS를 통해 가상 요소를 생성하여 float를 해제한다.<br>display가 block일때만 clear를 적용시킬 수 있기 때문에 아래와 같이 display를 block으로 선언해준다.</p>
 <pre><code class="css">.parent::after &#123;
   content: &quot;&quot;;
   display: block;
