@@ -15,7 +15,7 @@
 <p><strong><ins><code>float해제에서 overflow: hidden 사용의 단점</code></ins></strong><br><ins><b>이 방법은 동적으로 데이터를 보여주는 경우에는 적합하지 않다.</b></ins> 동적으로 보여지는 데이터가 부모 컨텐츠보다 큰 경우에는 넘치는 데이터 표시부분을 모두 숨겨버리기 때문이다.</p>
 <p><span><h1><b>두 번째,</b></h1></span><ins>가장 널리 사용되는 방법으로 가상 클래스(Pseudo class)를 사용한 float 해제에 대해서 알아보자.</ins></p>
 <p>이 방법은 불 필요한 요소의 추가없이 CSS를 통해 가상 요소를 생성하여 float를 해제한다.</p>
-<pre><code class="css">.parent:after &#123;
+<pre><code class="css">.parent::after &#123;
   content: &quot;&quot;;
   display: block;
   clear: both;
@@ -32,12 +32,12 @@
   /* For IE 6/7 only */
   *zoom: 1;
 &#125;
-.parent:before,
-.parent:after &#123;
+.parent::before,
+.parent::after &#123;
   content: &quot;&quot;;
   display: table;
 &#125;
-.parent:after &#123;
+.parent::after &#123;
   clear: both;
 &#125;</code></pre>
 <h3 id="실습코드-micro-clearfix"><a href="#실습코드-micro-clearfix" class="headerlink" title="실습코드 (micro clearfix)"></a>실습코드 (micro clearfix)</h3><img  src="/images/post_images/210223_float_practice.png" alt=""/>
@@ -62,14 +62,14 @@
   &lt;body&gt;&lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <p><strong>style.css</strong></p>
-<pre><code class="css">.parent_container:before,
-.parent_container:after &#123;
+<pre><code class="css">.parent_container::before,
+.parent_container::after &#123;
   content: &quot;&quot;;
   display: table;
   border: 1px solid red;
 &#125;
 
-.parent_container:after &#123;
+.parent_container::after &#123;
   clear: both;
 &#125;
 
