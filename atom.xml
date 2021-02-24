@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-23T11:38:05.059Z</updated>
+  <updated>2021-02-24T03:40:39.783Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210224 Sectioning practice</title>
+    <link href="https://leehyungi0622.github.io/2021/02/24/202102/210224-Self-html_css_sectioningl/"/>
+    <id>https://leehyungi0622.github.io/2021/02/24/202102/210224-Self-html_css_sectioningl/</id>
+    <published>2021-02-24T01:19:00.000Z</published>
+    <updated>2021-02-24T03:40:39.783Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210224_sample_web_page.png"></p><h2 id="sample-웹-페이지의-main-section을-sectioning"><a href="#sample-웹-페이지의-main-section을-sectioning" class="headerlink" title="sample 웹 페이지의 main section을 sectioning"></a><strong>sample 웹 페이지의 main section을 sectioning</strong></h2><p>우선 main content 부분을 크게 세 부분으로 나눠보겠다.<br>단순 div 태그를 사용해서 각 section을 나누지 않고, 기계가 알아들을 수 있는 의미있는 적절한 semantic tag를 이용해서 나눠보도록 하겠다.</p><p>우선,<code>sectioning element</code>의 특징에 대해서 알아보자.</p><p>sectioning element에는 <code>&lt;body&gt;,&lt;nav&gt;,&lt;aside&gt;,&lt;article&gt;,&lt;section&gt;</code>가 있으며, 기본적으로 아래와 같이 내부에 &lt;header&gt;와&lt;footer&gt;를 가질 수 있다. 하지만, &lt;header&gt;와 &lt;footer&gt; 내부에는 또 다시 nested한 형태로 &lt;header&gt;와 &lt;footer&gt;를 가질 수 없다는 것에 주의하자.</p><table>  <tr>    <td>      <img src="/images/post_images/210224_section_img1.png" alt="섹션 이미지1"/>    </td>    <td>      <img src="/images/post_images/210224_section_img2.png" alt="섹션 이미지2"/>    </td>    <td>      <img src="/images/post_images/210224_section_img3.png" alt="섹션 이미지3"/>    </td>  </tr></table><p><strong>출처 :</strong> <a href="https://css-tricks.com/how-to-section-your-html/">https://css-tricks.com/how-to-section-your-html/</a></p><p><ins><b>나는 main contents 부분을 세 개의 파트로 나눌때에 section 태그를 사용해서 나눠보려고 한다.</b></ins><br>자, 그럼 &lt;section&gt;태그는 어느때에 사용을 해야될까? 위의 css-tricks 페이지에서는 <code>if you can&#39;t think of a meaningful heading to apply to a &lt;section&gt;, then it probably shouldn&#39;t be a &lt;section&gt;</code>이라고 정의하고 있다.<br><ins><b>따라서 &lt;section&gt;를 사용할때에는 해당하는 부분에 의미있는 heading을 부여할 수 있는지 없는지 생각해서 &lt;section&gt;태그를 사용하면 된다.</b></ins></p><p>위의 예제의 main contents 부분을 논리적 순서로 왼쪽에서 오르쪽으로 위에서 아래 방향으로 살펴보자.</p><p><ins><b>가장 왼쪽에는</b></ins> 로그인, W3C Validation관련 링크, 웹 관련 용어로 각 각 의미있는 heading을 부여할 수 있다.</p><p><ins><b>가운데에는</b></ins> 검색하는 부분, 공지사항 및 자료실 탭, 새소식 부분으로 각 각 의미있는 heading을 부여해서 section을 구분할 수 있다.</p><p><ins><b>마지막으로 오른쪽은</b></ins> 신규 이벤트, 관련사이트, 인기 사이트 부분으로 section을 구분할 수 있다. 여기서 신규 이벤트와 관련 사이트 부분을 같은 section으로 묶어서 관리되고 있다.</p><p>각 컨텐츠의 구성을 분석하여, &lt;section&gt;태그를 사용해서 웹 페이지의 레이아웃을 구분할 수 있는지 살펴보았다.</p><p>결과적으로 main contents 부분은 아래와같이 의미있는 태그로 구분해보았다.</p><img src="/images/post_images/210224_web_main_sectioning.png" alt="섹션 이미지3"/><p>&lt;aside&gt; 태그 사용에 대해서 정리를 해보면, &lt;aside&gt;태그는 <code>페이지의 다른 컨텐츠들과 약간의 연관성은 가지고 있지만, 해당 컨텐츠들로부터 독립적으로 사용될 수 있는가</code>를 기준으로 사용한다. &lt;main&gt; 태그 양옆으로 &lt;aside&gt; 태그를 사용해서 구분을 하였는데, 로그인, Validation관련 링크, 웹 관련 링크, 신규 이벤트, 관련 사이트, 인기 사이트는 페이지에 있는 컨텐츠들과 웹이라는 공통 분모를 가지고 있지만, 각 각 독립적으로 사용될 수 있기 때문에 &lt;aside&gt; 태그로 그룹화해서 분류하였다.</p><p>그럼 더 나아가 &lt;article&gt;태그를 사용해서 <section>태그 내부를 좀 더 구체적으로 sectioning해보자.</p><p>우선 &lt;article&gt;태그의 사용에 대해서 이해하자. &lt;article&gt;태그란 문맥에서 벗어나도 그 자체로 의미가 있을때 (독립적인 컨텐츠) &lt;article&gt;태그를 사용해서 구분할 수 있다.<br>대표적인 예로 블로그의 글(댓글포함)과 위젯이 있다.</p><p>그럼 현재 실습중인 main contents에서 어떤 부분을 &lt;article&gt;태그로 감싸줄 수 있는지 살펴보자.<br>맨 왼쪽의 제일 하단에 위치한 <code>웹 관련용어 웹 관련용어의 내부 컨텐츠(이미지, 글)</code>와 <code>맨 우측의 신규 이벤트의 내부 컨텐츠(이미지, 글)</code>도 &lt;article&gt;태그로 감싸서 표현해 줄 수 있을 것 같다.</p><img src="/images/post_images/210224_main_contents.png" alt="섹션 이미지4"/><p><strong>Q1.</strong> 그런데 궁금한 점이 &lt;section&gt;태그는 의미있는 heading을 줄 수 있는 부분에서 사용을 하고, &lt;article&gt;태그는 독립적인 컨텐츠로써 사용이 될 수 있는 부분에서 사용이 된다고 했는데, 위에서 내가 생각한 것 처럼 &lt;section&gt; 태그의 내부에 &lt;article&gt; 태그를 포함시켜서 작성을 해도 되는지 궁금하다.</p><p><strong>→ A1.</strong> 위의 질문에 대해서 강사님께 여쭤보았다. 답변은 &lt;section&gt; 태그가 &lt;article&gt;태그의 내부에 위치할 수도 있고, &lt;article&gt;태그가 &lt;section&gt;태그의 내부에 위치할 수도 있다고 한다. 다만 &lt;section&gt; 태그와 &lt;article&gt; 태그를 개념적으로 접근하지 말고, 그 차이를 heading을 주느냐 마느냐를 기준으로 해서 생각하는 것이 좋다고 한다. heading을 주는 부분은 &lt;section&gt;으로, 그렇지 않은 부분을 &lt;article&gt;로 생각해서 작성해주면 된다.</p><br/><p><strong>Q2.</strong> 만약에 된다면, 스타일을 적용시킬때 외부에서 감싸고 있는 &lt;section&gt;태그의 class를 사용해서 스타일링을 해주는지 아니면 내부에서 &lt;article&gt;태그에 정의한 class를 사용해서 스타일링을 해주는지 궁금하다.</p><p><strong>→ A2.</strong> 위의 질문에 대해서 강사님께 여쭤보았다. 답변은 실무에서는 되도록 작은 범주로 나눠서 스타일을 적용시킨다고 설명해주셨다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210224_sample_web_page.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;sample-웹-페이지의-main-section을-sectioning&quot;&gt;&lt;a href=&quot;#sample-웹-페이지의-ma</summary>
+      
+    
+    
+    
+    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210224 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/24/202102/210224-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/24/202102/210224-Self-development_til/</id>
+    <published>2021-02-24T00:41:00.000Z</published>
+    <updated>2021-02-24T03:57:21.931Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li><del>수업시간에 사용하는 sample web page sectioning하는 연습하기</del> (<code>완료</code>)</li><li>24일 분 배운내용에 대해서 HTML/CSS TIL 포스팅하기 (<code>예정</code>)</li><li>이중 float 복합예제 찾아서 연습하기 (<code>예정</code>)</li><li>flex관련 글 포스팅하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기</li></ul></li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>210223 HTML/CSS TIL - float, flex, positioning, 접근성을 고려한 개발</title>
@@ -81,7 +134,7 @@
     <link href="https://leehyungi0622.github.io/2021/02/23/202102/210223-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/23/202102/210223-Self-development_til/</id>
     <published>2021-02-22T21:13:00.000Z</published>
-    <updated>2021-02-23T11:47:37.985Z</updated>
+    <updated>2021-02-24T00:41:48.837Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>패배는 최악의 실패가 아니다. 시도조차 해보지 않은 것이 진정한 실패다.</strong><br/>(Defeat is not the worst of failures. Not to have tried is the true failure.)**-조지 에드워드 우드버리 (George Edward Woodberry) **</p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li><del>22일 분 배운내용에 대해서 HTML/CSS TIL 포스팅하기</del> (<code>완료</code>)</li><li><del>23일 분 배운내용에 대해서 HTML/CSS TIL 포스팅하기</del> (<code>완료</code>)</li><li>이중 float 복합예제 찾아서 연습하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기</li></ul></li></ul><br/></li></ul>]]></content>
     
@@ -522,62 +575,6 @@
     <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
     
     <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210216 TypeScript Book TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/"/>
-    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/</id>
-    <published>2021-02-16T04:30:42.000Z</published>
-    <updated>2021-02-18T22:00:22.301Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul><li><h3 id="타입-type-에-대한-이해"><a href="#타입-type-에-대한-이해" class="headerlink" title="타입(type)에 대한 이해"></a><strong>타입(type)에 대한 이해</strong></h3><p>이번에 독서를 통해서 타입(type)대해서 다시 정의해 볼 수 있었다. 기존에는 type에 대한 정의를 단순 data의 형식(string, number, list)에 국한된 개념으로만 알고 있었다.<br/><br>하지만 이 책에서는 <code>타입을 값과 이 값으로 할 수 있는 일의 집합</code>으로 정의하고 있다.<br><ins><b>예를들어, number 타입을 정의하자면 number라는 type으로써의 값과 숫자에 적용할 수 있는 모든 연산(+,-,*,/,%,||,&amp;&amp;,?등)과 숫자에 호출할 수 있는 모든 메서드(.concat, .toUpperCase 등)를 포괄적으로 포함하는 개념으로 정의할 수 있다.</b></ins><br/><br>이렇게 정의된 타입(type)의 정의를 통해 타입검사기(typechecker)는 주어진 값으로 할 수 있는 유효한 동작과 유효하지 않은 동작을 구분해서 유효하지 않은 동작이 실행되는 일을 예방할 수 있다.</p><br/><ul><li><h4 id="타입의-종류"><a href="#타입의-종류" class="headerlink" title="타입의 종류"></a><strong>타입의 종류</strong></h4><ul><li><p><strong>any</strong><br>타입들의 대부라고 할 수 있는 any. 이 any type은 꼭 필요한 상황이 아니라면 사용하지 않는 것이 좋다. 타입스크립트에서는 컴파일 타임에 모두가 타입이 있어야 하기 때문에 프로그래머와 타입스크립트 둘 다 타입을 알 수 없는 상황에서 any타입으로 가정한다. any를 사용해서 변수의 타입을 지정하게 되면, 자바스크립트처럼 동작하게 된다.</p><ul><li><strong>(TSC Flag: noImplicitAny)</strong> : 타입스크립트는 기본적으로 any로 추론되는 값을 발견하더라도 예외를 발생시키지 않는다. 만약에 any type에 대한 예외를 발생시키고 싶다면, <code>tsconfig.json</code>에서 strict을 true로 정의하거나 noImplicitAny flag를 활성화시켜주면 된다. (noImplicitAny는 strict의 family이기 때문이다)</li></ul></li></ul><br/><ul><li><strong>unknown</strong><br>타입을 미리 알 수 없는 어떤 값에 대해 타입을 정의할때 <code>any보다는 unknown을 사용하는 것이 권장</code>된다.<br>그 이유는 unknown을 사용해서 타입을 미리 알 수 없는 값에 대한 타입을 정의하게 되면, unknown type을 검사해 정제하기 전까지는 타입스크립트가 unknown 타입의 값을 사용할 수 없게 강제한다. unknown 타입은 비교연산(==,===,||,&amp;&amp;,?)과 반전(!)을 지원하고 다른 타입들과 마찬가지로 typeof, instanceof 연산자로 정제할 수 있다.<pre><code class="javascript">let a: unknown = 30;let c = a + b; // unknown type의 값은 + 연산자를 지원하지 않는다.(a 변수의 타입을 정제한 뒤에 기본 사칙연산 사용가능)// typeof를 사용해서 unknown type의 변수를 정제할 수 있다.if (typeof a === &quot;number&quot;) &#123;  let d = a + 10; // number&#125;</code></pre></li></ul><br/><ul><li><strong>boolean</strong><br>기본적으로 개발자들은 대개 타입스크립트가 타입을 추론하도록 작성한다.<br>타입스크립트에서는 값이 특정 boolean임을 명시적으로 타입스크립트에게 알릴 수 있다.<ul><li><strong>타입 리터럴(type literal)</strong><br>아래의 예시 코드에서 변수 e는 true라는 특정한 하나의 값으로 타입을 한정시켰다. 이처럼 오직 하나의 값을 나타내는 타입을 <code>타입 리터럴(type literal)</code>이라고 한다.<br>이 타입 리터럴은 모든 곳에서 일어날 수 있는 실수를 방지해서 안전성을 추가로 확보해주는 강력한 언어의 기능이다.<pre><code class="javascript">const c = true; // 어떤 값이 특정 boolean인지 타입스크립트가 추론하게 만든다.let e: true = true;let f: true = false; // error TS2322 &#39;false&#39;type을 &#39;true&#39; type에 할당할 수 없다.</code></pre></li></ul></li></ul><br/><ul><li><p><strong>number</strong><br>number type 또한 boolean과 같이 타입스크립트가 타입을 추론하도록 작성을 한다.<br>아래와 같이 number도 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.</p><pre><code class="javascript">let f: 2.218 = 2.218;let g: 2.218 = 10; // error TS2322: &#39;10&#39;타입을 &#39;26.218&#39;타입에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>bigint</strong><br>bigint 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>bigint는 자바스크립트와 타입스크립트에 새롭게 추가된 타입으로, 253까지의 정수를 표현할 수 있는 number 대비 bigint를 사용하면 더 큰 수도 표현할 수 있다.<br>bigint는 기본 사칙연산을 포함한 연산을 지원한다.<br><code>일부 자바스크립트 엔진에서는 지원을 안할 수도 있기 때문에 사용하기 전에 대상 플랫폼이 지원을 하는지 확인이 필요하다.</code></p><pre><code class="javascript">let a = 1234n; //bigintconst b = 5678n; //bigintvar c = a + b; //bigintlet g: 100n = 100n;let h: bigint = 100; // 100 type은 bigint 타입에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>string</strong><br>string 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>string은 모든 문자열의 집합으로 연결(+)과 슬라이스(.slice)등의 연산을 수행할 수 있다.</p><pre><code class="javascript">let f: &quot;john&quot; = &quot;john&quot;; // &#39;john&#39;let g: &quot;john&quot; = &quot;zoe&quot;; // &#39;zoe&#39;type을 &#39;john&#39;type에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>symbol</strong><br>symbol은 실무에서는 자주 사용하지 않는다.<br>주로 객체와 맵에서 문자열 키 를 대신하는 용도로 사용된다.<br>Symbol(‘a’)는 주어진 이름으로 새로운 symbol(unique)을 만든다는 의미이다. Symbol타입의 값을 타입스크립트가 추론하도록 코드를 작성하면,<br>추론되는 타입이 symbol이 아닌 typeof (variable)로 정의된다.<br>Symbol type의 값을 const 변수에 넣어주면, unique symbol로 정의할 수 있다.</p><pre><code class="javascript">const e = Symbol(&#39;e&#39;) // typeof econst f: unique symbol = Symbol(&#39;f&#39;) // typeof f</code></pre></li></ul><br/><ul><li><p><strong>객체</strong><br>타입스크립트의 객체(Object) 타입은 객체의 형태(Shape)를 정의한다.<br>객체의 타입만으로 간단한 객체({}로 생성)와 복잡한 객체{new로 생성}를 구분할 수 없다.<br>이는 자바스크립트가 <code>구조 기반 타입(structural type</code>을 갖도록 설계가 되었기 때문이다)</p><blockquote><p>구조 기반 타입화에서는 객체의 이름에 상관없이 객체가 어떤 프로퍼티를 갖고 있는지를 따진다. 이를 일부 언어에서는 덕 타이핑(duck typing)이라고 정의한다.</p></blockquote><ul><li><p><strong>객체를 서술하는 방법</strong><br>(1) <strong>object 선언을 통한 객체 서술</strong><br>object는 any보다 조금 더 좁은 타입으로, object로 선언된 객체에 서술한 값에 관한 정보를 참조할 수 없다. 단지 해당 값 자체가 null이 아닌 자바스크립트의 객체라고 명시해준다.</p><p>(2) <strong>타입스크립트가 추론하도록 작성</strong><br><code>객체 리터럴 문법</code>을 사용해서 객체 타입을 만들 수 있다. 타입스크립트가 객체의 형태를 추론하게 하거나 중괄호 안에 명시적으로 지정해 줄 수 있다.<br>객체 리터럴 문법은 “이런 형태의 물건이 있어” 라고 타입스크립트에게 알려주는 기능을 한다.</p><pre><code class="javascript">let a = &#123;  // &#123;b: string&#125;  b: &quot;x&quot;&#125;;let b = &#123;  // &#123;c: &#123;d: string&#125;&#125;  c: &#123;    d: &quot;f&quot;  &#125;&#125;;let c: &#123; firstName: string, lastName: string &#125; = &#123;  firstName: &quot;john&quot;,  lastName: &quot;barrowman&quot;&#125;;class Person &#123;  constructor(    public firstName: string,    public lastName: string  )&#123;&#125;&#125;c = new Person(&#39;matt&#39;, &#39;smith&#39;)// 타입스크립트에서는 형태를 지정해주면 지정해준 형태에 해당하는 값은 반드시 내부에 선언을 해줘야 한다.// 만약에 선택적으로 선언이 되는 속성이라면 아래와 같이 ?로 nullable한 속성이라고 정의를 해주면 된다.let d : &#123; firstName: string, lastName?: string&#125; = &#123;  firstName: &quot;merry&quot;&#125;</code></pre><p><code>인덱스 시그니처(index signature)</code>란 [key: T]: U와 같은 문법을 말한다. 어떤 객체가 여러 키를 가질 수 있음을 알려주며, 해당 객체에서 모든 T 타입의 키는 U 타입의 값을 갖는다고 정의한다. 인덱스 시그니처를 이용하면 명시적으로 정의한 키 외에 다양한 키를 객체에 안전하게 추가할 수 있다.<br>자바스크립트에서는 문자열을 키의 타입으로 사용하고 있기 때문에 인덱스 시그니처의 키(T)는 반드시 number나 string 타입에 할당할 수 있는 타입이어야 한다.</p><pre><code class="javascript">let a: &#123;  b: number  c?:string  [key: number]: boolean&#125;a = &#123;b: 1&#125; // 인덱스 시그니처로 작성한 인자의 경우, optional 하게 넣어줄 수 있다.a = &#123;b: 1, c: undefined&#125;a = &#123;b: 1, c: &#39;d&#39;&#125;a = &#123;b: 1, 10: true&#125;let airplaneSeatingAssignments: &#123;  [seatNumber: string]: string&#125; = &#123;  &quot;34D&quot;: &quot;Boris Cherny&quot;,  &quot;34E&quot;: &quot;Bill Gates&quot;&#125;;</code></pre><p>객체의 타입을 정의할때에 <code>선택형(?)</code>만 사용할 수 있는 것이 아닌 필요하면 <code>readonly 한정자</code>를 이용해서 특정 필드를 읽기 전용으로 정의할 수 있다.<br>즉, readonly로 정의한 특정 필드값은 초깃값을 할당한 다음에 그 값을 바꿀 수 없다.</p><pre><code class="javascript">let user: &#123;  readonly firstName: string&#125; = &#123;  firstName: &#39;abby&#39;&#125;</code></pre><p><code>2020/02/19 업데이트 내용</code><br>또 다른 객체 리터럴 표기법에는 <code>빈 객체 타입(&#123;&#125;)과 객체: Object</code>이라는 특별한 경우도 있다.<br>빈 객체 타입에는 null과 undefined를 제외한 모든 타입이 할당 될 수 있다. 따라서 가능한 한 빈 객체는 피하는 것이 좋다.<br>두 객체 리터럴 표기법은 서로 비슷하며 사용하는 것을 권장하지 않는다.</p><pre><code class="javascript">let danger: &#123;&#125;;danger = &#123;&#125;;danger = &#123; x: 1 &#125;;danger = [];</code></pre><p><ins><b>object타입과 Object타입을 사용한 객체 정의</b></ins><br/><br>object로 객체를 정의하는 것은 객체의 구체적인 필드 형태는 중요하지 않고 <code>단지 객체 자체가 필요할때</code> 사용된다.</p></li></ul></li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/typescript_logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였</summary>
-      
-    
-    
-    
-    <category term="TIL:TypeScript" scheme="https://leehyungi0622.github.io/categories/TIL-TypeScript/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="TypeScript" scheme="https://leehyungi0622.github.io/tags/TypeScript/"/>
-    
-    <category term="self-development" scheme="https://leehyungi0622.github.io/tags/self-development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210216 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Self-development_til/</id>
-    <published>2021-02-16T04:08:00.000Z</published>
-    <updated>2021-02-17T01:17:56.355Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>고통은 잠깐이다. 포기는 영원히 남는다.</strong><br/> (Pain is temporary. Quitting lasts forever.)<br/> <strong>랜스 암스트롱 / Lance Armstrong</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 17 ~ 33P</del> (<code>완료</code>)</p></li><li><p><del>OReilly TypeScript 예제 코드실습</del> (<code>완료</code>)</p></li><li><p><del>오늘 배운내용 블로그에 포스팅하기</del> (<code>완료</code>)</p></li><li><p><del>오늘 실습한 내용 GitHub에서 관리하기</del> (<code>완료</code>)</p><br/></li></ul></li><li><p><ins><strong>알고리즘 문제풀이</strong></ins></p><ul><li>백준 알고리즘 2474번 피보나치 문제<ul><li><del>다양한 방법으로 문제풀이하기 (+memoization, recursive, for)</del>(<code>완료</code>)</li><li><del>블로그 포스팅하기</del> (<code>완료</code>)<br/></li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
