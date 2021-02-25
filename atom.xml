@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-24T12:45:49.355Z</updated>
+  <updated>2021-02-25T11:45:47.514Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,68 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210225 HTML/CSS TIL (작성중...) -</title>
+    <link href="https://leehyungi0622.github.io/2021/02/25/202102/210225-html_css_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/25/202102/210225-html_css_til/</id>
+    <published>2021-02-25T10:56:42.000Z</published>
+    <updated>2021-02-25T11:45:47.514Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-네번째-수업"><a href="#HTML-CSS-네번째-수업" class="headerlink" title="HTML/CSS 네번째 수업"></a><ins><b>HTML/CSS 네번째 수업</b></ins></h2><p>오늘은 HTML/CSS 네번째 수업날이었다. 오늘은 혼자서 레이아웃을 설계도 해보고, 직접 생각해서 레이아웃을 구성해보는 연습도 하였다.<br>연습하면서 느낀점은 역시 많은 연습이 필요하다는 것이다. 계속해서 끊임없이 노력하자.</p><h2 id="CSS-구체성"><a href="#CSS-구체성" class="headerlink" title="CSS 구체성"></a><ins><b>CSS 구체성</b></ins></h2><p>오늘은 수업의 첫 시작은 CSS의 구체성에 대해서 시작하였다. 이 CSS의 구체성이란 특정 태그에 스타일을 적용시킬때 태그의 어느 요소(id, class(가상클래스 포함), element(태그))를 가지고 얼마나 구체적으로 명시해서 스타일을 적용했느냐를 말한다. 표면적으로는 같은 태그의 스타일을 적용했지만, 선택자를 좀 더 구체적으로 명시한 쪽의 스타일이 적용되는 것은 선택자로 사용한 요소(id, class, element)에 각 각 우선순위 점수가 있기 때문에 점수가 높은 (선택자를 좀 더 구체적으로 지정한) 스타일이 최종적으로 적용되는 스타일이 되는 것이다.</p><table border="1">  <tr align="center">    <th>id(100)</th>    <th>class(10)</th>    <th>element(1)</th>  </tr>  <tr align="center">    <td>0</td>    <td>2</td>    <td>1</td>  </tr>  <tr align="center">    <td>0</td>    <td>1</td>    <td>1</td>  </tr></table><pre><code class="css">/* 점수표에서 첫 번째 행(21) */.member li::before &#123;  content: &quot;|&quot;;&#125;/* 점수표에서 두 번째 행(11) */.first::before &#123;  content: &quot; &quot;;&#125;</code></pre><p>결과적으로 구체성 점수가 높은 첫 번째 스타일이 적용된다.<br><code>개당 배점이 높은 순은 id &gt; class &gt; element이다.</code><br><code>id의 우선순위는 점수상 id:1 == class: 10의 관계를 갖기 때문에 CSS 스타일링을 줄때 id를 사용하지 않고 class를 사용한다.</code></p><p>하지만 <code>!important</code> 를 사용하면 구체성 점수와 상관없이 !important가 붙은 스타일이 최우선으로 적용된다.</p><pre><code class="css">p &#123;  color: red !important;&#125;</code></pre><h2 id="구조-선택자"><a href="#구조-선택자" class="headerlink" title="구조 선택자"></a><ins><b>구조 선택자</b></ins></h2><p>좀 더 세밀하게 태그 내의 요소를 지정해주기 위해서는 <code>구조 선택자</code>를 사용하면 된다. 구체성에 대해 재미있게 정리해놓은 사이트가 있으니 아래 사이트를 참고하도록 하자.<br><a href="http://nthmaster.com/">http://nthmaster.com</a><br>nth-child나 nth-of-type을 사용하면 좀 더 세밀하게 태그를 선택할 수 있다.</p><p><code>nth-child(3n+1): nth-child(even)</code>는 지정한 태그를 3개씩 묶어서 각 묶음에 있는 짝수번째 자식요소를 선택한다는 의미이다.<br><code>span: nth-of-type(3)</code>는 span 태그 중에서 세 번째 span 요소를 선택한다는 의미이다.<br>이러한 구조 선택자를 사용해서 좀 더 세밀하게 태그를 지정해서 스타일링을 해 줄 수 있다.</p><h2 id="CSS-유효성검사"><a href="#CSS-유효성검사" class="headerlink" title="CSS 유효성검사"></a><ins><b>CSS 유효성검사</b></ins></h2><p>CSS도 유효성 검사를 해 줄 수 있기 때문에 필요에 따라서는 W3C CSS validator를 사용해서 작성한 CSS에는 문제가 없는지 유효성 검사를 하도록 하자.<br><a href="https://jigsaw.w3.org/css-validator/">https://jigsaw.w3.org/css-validator/</a></p><h2 id="레이아웃을-만들때는-설계부터"><a href="#레이아웃을-만들때는-설계부터" class="headerlink" title="레이아웃을 만들때는 설계부터"></a><ins><b>레이아웃을 만들때는 설계부터</b></ins></h2><p>화면 구성을 컴포넌트 단위로 나눠서 화면을 설계해야 나중에 유지보수나 코드의 재사용성에 좋다. 따라서 화면을 컴포넌트 단위로 잘 나눠서 설계를 하기 위해서는 레이아웃을 작성할때 무작정 코드를 작성하지 말고, 어떤 태그를 사용하고 어떤 스타일을 적용할 것인지 구체적으로 화면을 설계하는 것이 좋다.</p><h2 id="로그인-폼-설계-및-구현하기"><a href="#로그인-폼-설계-및-구현하기" class="headerlink" title="로그인 폼 설계 및 구현하기"></a><ins><b>로그인 폼 설계 및 구현하기</b></ins></h2><h2 id="유명한-서비스라고-완벽한-것은-아니다"><a href="#유명한-서비스라고-완벽한-것은-아니다" class="headerlink" title="유명한 서비스라고 완벽한 것은 아니다."></a><ins><b>유명한 서비스라고 완벽한 것은 아니다.</b></ins></h2><h2 id="유명한-서비스라고-완벽한-것은-아니다-1"><a href="#유명한-서비스라고-완벽한-것은-아니다-1" class="headerlink" title="유명한 서비스라고 완벽한 것은 아니다."></a><ins><b>유명한 서비스라고 완벽한 것은 아니다.</b></ins></h2><h2 id="explicit-outline과-implicit-outline"><a href="#explicit-outline과-implicit-outline" class="headerlink" title="explicit outline과 implicit outline"></a><ins><b>explicit outline과 implicit outline</b></ins></h2><h2 id="DTD-S-T-F"><a href="#DTD-S-T-F" class="headerlink" title="DTD (S, T, F)"></a><ins><b>DTD (S, T, F)</b></ins></h2><h2 id="의미있게-HTML-태그를-사용하자"><a href="#의미있게-HTML-태그를-사용하자" class="headerlink" title="의미있게 HTML 태그를 사용하자."></a><ins><b>의미있게 HTML 태그를 사용하자.</b></ins></h2><hr/><p><ins><b>remind를 위해 수업시간에 필기했던 노트를 첨부한다. </b></ins></p><table>  <tr>    <td><img src="/images/post_images/210225_html_css_note1.png" alt="개인공부 노트1"></td>    <td><img src="/images/post_images/210225_html_css_note2.png" alt="개인공부 노트2"></td>  </tr>  <tr>    <td><img src="/images/post_images/210225_html_css_note3.png" alt="개인공부 노트3"></td>    <td><img src="/images/post_images/210225_html_css_note4.png" alt="개인공부 노트3"></td>  </tr></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;HTML-CSS-네번째-수업&quot;&gt;&lt;a href=&quot;#HTML-CSS-네번째-수업&quot; class=&quot;headerlink&quot; title=&quot;HTML/</summary>
+      
+    
+    
+    
+    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210225 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/25/202102/210225-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/25/202102/210225-Self-development_til/</id>
+    <published>2021-02-25T00:32:00.000Z</published>
+    <updated>2021-02-25T00:34:36.104Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li>25일 분 배운내용에 대해서 HTML/CSS TIL 포스팅하기 (<code>예정</code>)</li><li>inline, block, inline-block에 대해서 글 포스팅하기 (<code>예정</code>)</li><li>이중 float 복합예제 찾아서 연습하기 (<code>예정</code>)</li><li>flex관련 글 포스팅하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기 (<code>예정</code>)</li></ul></li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210225 Header Practice float/flex 활용해서 구현하기 (Review) (작성중...)</title>
     <link href="https://leehyungi0622.github.io/2021/02/25/202102/210225-Sample-html_css_header_practice/"/>
     <id>https://leehyungi0622.github.io/2021/02/25/202102/210225-Sample-html_css_header_practice/</id>
     <published>2021-02-24T15:19:00.000Z</published>
-    <updated>2021-02-24T12:45:49.355Z</updated>
+    <updated>2021-02-25T10:51:02.858Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210224_html_css_practice_img.png"></p><h2 id="sample-웹-페이지의-header-구성-복습하기-float-amp-flex"><a href="#sample-웹-페이지의-header-구성-복습하기-float-amp-flex" class="headerlink" title="sample 웹 페이지의 header 구성 복습하기(float &amp; flex)"></a><strong>sample 웹 페이지의 header 구성 복습하기(float &amp; flex)</strong></h2>]]></content>
+    <content type="html"><![CDATA[<p><img src="/images/post_images/210224_html_css_practice_img.png"></p><h2 id="sample-웹-페이지의-header-구성-복습하기-float-amp-flex"><a href="#sample-웹-페이지의-header-구성-복습하기-float-amp-flex" class="headerlink" title="sample 웹 페이지의 header 구성 복습하기(float &amp; flex)"></a><strong>sample 웹 페이지의 header 구성 복습하기(float &amp; flex)</strong></h2><p>우선 header 부분의 구성을 분석해보았다.</p><p><img src="/images/post_images/210225_header_layout_design.png"></p><p>손으로 직접 그려보니, 확실히 그냥 타이핑을 쳤을때와는 다르게 전체적인 구성이 그려지는 것 같았다. 이제 분석한 header를 직접 코드로 구현해보도록 하겠다. 실습한 코드는 아래의 repository에서 연습해보도록 한다.</p><p><a href=""></a></p>]]></content>
     
     
       
@@ -37,9 +92,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -93,9 +148,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -119,9 +174,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -205,9 +260,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -260,9 +315,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -286,9 +341,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -337,9 +392,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -396,9 +451,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -452,9 +507,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -514,66 +569,11 @@
     
     <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210217 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-Self-development_til/</id>
-    <published>2021-02-17T02:11:00.000Z</published>
-    <updated>2021-02-17T12:24:24.363Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실수 한 적이 없는 사람은 결코 어떠한 새로운 시도도 하지 않는다.</strong><br/> (A person who never made a mistake never tried anything new)<br/><strong>알버트 아인슈타인 / Albert Einstein</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li><del>TDD(Test-Driven Development)에 대해서 글 포스팅</del> (<code>완료</code>)</li><li><del>Jest의 test, it, describe의 사용에 대해서 글 포스팅</del> (<code>완료</code>)</li><li><del>virtualenv사용해서 환경구성하는 부분에 대해서 글 포스팅</del> (<code>완료</code>)</li><li>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li>오늘 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><del>OReilly TypeScript 독서 33-53P</del> (<code>완료</code>)</p></li><li><p>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</p></li><li><p>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</p></li><li><p>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</p><br/></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>50%완료</code>)</li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210217 Jest의 test, it, describe</title>
-    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-JS_Jest_test_it/"/>
-    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-JS_Jest_test_it/</id>
-    <published>2021-02-17T01:07:42.000Z</published>
-    <updated>2021-02-17T01:18:31.175Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><p>이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 <code>test와 it 키워드</code>의 사용과 여러 개의 테스트 케이스를 묶을때 사용하는 <code>describe 키워드</code>에 대해서 정리를 해보겠다.</p><h2 id="test와-it-키워드의-사용"><a href="#test와-it-키워드의-사용" class="headerlink" title="test와 it 키워드의 사용"></a><strong>test와 it 키워드의 사용</strong></h2><p>이전 포스팅에서 test라는 키워드를 사용해서 테스트 케이스를 작성해보았다. 이 키워드를 대체해서 it이라는 키워드도 사용될 수 있는데 작동 방식은 같다.</p><pre><code class="javascript">// test keyword를 사용한 테스트 코드 작성const &#123; test, expect &#125; = require(&quot;@jest/globals&quot;);const sum = require(&quot;../sum&quot;);// 작성한 테스트코드가 무엇을 하는지에 대해서 첫번째 parameter로 작성해준다.test(&quot;properly adds two numbers&quot;, () =&gt; &#123;  // expected result  expect(sum(1, 2)).toBe(3);&#125;);// it keyword를 사용한 테스트 코드 작성it(&quot;properly adds two numbers&quot;, () =&gt; &#123;  expect(sum(1, 2)).toBe(3);&#125;);</code></pre><br/><h2 id="describe-키워드의-사용"><a href="#describe-키워드의-사용" class="headerlink" title="describe 키워드의 사용"></a><strong>describe 키워드의 사용</strong></h2><p>describe keyword를 사용해서 작은 단위의 테스트 코드를 그룹화할 수 있다.<br>아래의 테스트 코드는 실제 side project를 하면서 작성했던 component의 rendering 및 routing test를 위해 작성했던 코드이다.<br>이처럼 작성하는 테스트 코드가 특정 component에 속하는 테스트 코드라면 아래와같이 describe 키워드를 사용해서 해당 테스트 코드들을 그룹화하는 것이 좋다. 이렇게 그룹화를 해주게 되면, 나중에 테스트 결과를 확인시 좀 더 가시적으로 보기 편하게 테스트 케이스들을 확인할 수 있다.</p><pre><code class="javascript">describe(&#39;&lt;App /&gt;&#39;, () =&gt; &#123;  // Test case 1  test(&#39;&lt;App /&gt; rendering시에 /(root)로 rendering이 되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId, getByText &#125; = render(&lt;App /&gt;);    const navbar = getByTestId(&#39;navbar&#39;);    const link = getByTestId(&#39;HOME&#39;);    // 각 각의 page componet를 lazy하게 가져오고 있기 때문에, 비동기로 wait() 처리를 해준다.    await wait();    expect(getByText(/Hello world/i)).toBeInTheDocument();    expect(navbar).toContainElement(link);  &#125;);  // Test case 2  test(&#39;MENU1 menu를 클릭시, MENU1 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU1&#39;));    await wait();    // menu1-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu1-wrapper&#39;)).toBeInTheDocument();  &#125;);  ......(생략)......</code></pre><br/><h2 id="코드-리팩토링-Code-Refactoring"><a href="#코드-리팩토링-Code-Refactoring" class="headerlink" title="코드 리팩토링(Code Refactoring)"></a><strong>코드 리팩토링(Code Refactoring)</strong></h2><p>만약에 기존의 소스코드를 리팩토링했다고 가정하자. 코드는 바뀌었지만, 결과적으로 output은 같기 때문에 리팩토링을 한 뒤에 <ins><b>기존의 테스트 코드를 실행시켜서 결과값이 같은지 확인을 하면 쉽게 코드가 제대로 작동을 하는지 검증을 할 수 있다. </b></ins><br>이처럼 테스트 코드의 작성은 코드 리팩토링시에도 빠른 코드 검증을 가능하게 해준다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/jest_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;p&gt;이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 &lt;code&gt;test와 it 키워드&lt;/code&gt;의 사용과 여러 개의 테스트 케</summary>
-      
-    
-    
-    
-    <category term="JavaScript-Test" scheme="https://leehyungi0622.github.io/categories/JavaScript-Test/"/>
-    
-    
-    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
-    
-    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
     
   </entry>
   
