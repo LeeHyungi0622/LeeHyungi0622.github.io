@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-25T12:40:33.236Z</updated>
+  <updated>2021-02-26T01:27:19.289Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210226 HTML/CSS Layout practice (w/float)</title>
+    <link href="https://leehyungi0622.github.io/2021/02/26/202102/210226-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/26/202102/210226-Self-development_til/</id>
+    <published>2021-02-26T00:38:00.000Z</published>
+    <updated>2021-02-26T01:27:19.289Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS float 및 구조 선택자를 활용한 레이아웃 배치 연습하기</strong></ins></p></li><li><p><ins><strong>화면 구성 설계해보기</strong></ins></p></li></ul><p>우선 화면의 배치상 이미지는 왼쪽, 타이틀은 오르쪽 상단, 용어 설명은 오른쪽 하단에 위치한다.</p><p>그럼 왼쪽에 높이가 100% , 너비가 50% 비율로 위치하면 되고, 오른쪽에는 높이가 50%, 너비가 50% 비율로 두 개의 박스를 수직방향으로 배치시키면 된다는 결론이 나온다.</p><p>이제 float 속성을 이용해서 왼쪽에 배치해야되는 이미지(dd 첫번째 요소)의 경우 left 속성값을, 오른쪽에 배치해야되는 타이틀(dt)과 용어설명(dd 두번째 요소)은 right 속성값을 위에서 생각한 너비, 높이 비율값과 함께 선언해주면 될 것 같다.<br>그래서 아래와 같은 구조로 우선 생각을 해보았다.</p><table>  <tr>    <td>      <img src="/images/post_images/210226_layout_design1.png" alt="설계단계 레이아웃 이미지" width=300 height=200/>    </td>  </tr>  <tr>    <td align="center">      <strong> <설계단계 레이아웃> </strong>    </td>  </tr></table><p>그리고 용어설명 전체 컨텐츠를 담고 있는 부모요소가 자식요소의 높이 정보를 잃어버렸기 때문에 float를 해제시켜줘야 될 것 같다.</p><p>이제 코드로 구현해가면서 생각했던 부분과 달라진 부분을 수정해가면서 레이아웃을 잡아가보자.<br>원래 레이아웃 설계 단계에서 너비 비율을 50%로 생각을 했었는데, 구현을 해보니, 너비를 이미지 부분은 30%로, 타이틀과 설명 부분은 70%로 해줘야 sample 원본과 비슷하게 나오는 것 같다.</p><table>  <tr>    <td>      <img src="/images/post_images/210226_layout_design2.png" alt="설계단계 레이아웃 수정 이미지" width=300 height=200/>    </td>  </tr>  <tr>    <td align="center">      <strong> <설계단계 레이아웃 수정> </strong>    </td>  </tr></table><p><img src=""></p><p>그리고 추가적으로 기타 용어 설명부분을 원본 페이지와 비슷하게 구성하기 위해서 자간 높이를 line-height 속성을 이용해서 조절해주고, 글자의 weight값과 타이틀 색상을 바꿔줘야겠다고 생각했다.</p><p>코드와 결과화면은 아래와 같다.</p><img src="/images/post_images/210226_result1.png" alt="결과 이미지1" width=300 height=200/><pre><code class="css">.term &#123;  margin-top: 20px;  padding: 16px;  border-radius: 5px;  background: linear-gradient(180deg, #ccc, #eee);  border: 1px solid grey;&#125;.term h2 &#123;  margin: 0;  margin-bottom: 19px;&#125;.term dd,dt,dl &#123;  margin: 0;&#125;.term::after &#123;  content: &quot;&quot;;  display: block;  clear: both;&#125;.term-list div dd:nth-of-type(1) &#123;  float: left;  width: 30%;  height: 100%;&#125;.term-list dt &#123;  float: right;  width: 70%;  font-size: 14px;  color: rgb(12, 110, 172);  font-weight: 400;  margin: 0 0px 10px 0;  padding-left: 5px;&#125;.term-list div dd:nth-of-type(2) &#123;  float: right;  width: 70%;  font-size: 14px;  font-weight: 400;  line-height: 19px;  padding-left: 5px;&#125;</code></pre><br/>그리고 추가적으로, 두 개 이상의 컨텐츠를 좌우 대칭 형태로 교차해서 화면에 표시하는 방법을 구조 선택자를 사용해서 실습해보았다. 각 컨텐츠가 div태그로 분리가 되어있고, 이 div태그가 홀수 번째인지, 짝수 번째인지 구분해서 내부 자식요소의 float 속성 값을 대칭으로 해주면 될 것 같고 생각을 했다.<p>결과 화면과 코드는 아래와 같다.</p><img src="/images/post_images/210226_html_css_result2.png" alt="결과 이미지2" width=300 height=200/><pre><code class="css">/* 웹 관련 용어 */.term &#123;  margin-top: 20px;  padding: 16px;  border-radius: 5px;  background: linear-gradient(180deg, #ccc, #eee);  border: 1px solid grey;&#125;.term h2 &#123;  margin: 0;  margin-bottom: 19px;&#125;.term dd,dt,dl &#123;  margin: 0;&#125;.term::after &#123;  content: &quot;&quot;;  display: block;  clear: both;&#125;/* div 태그가 홀수번째이면 */.term-list div:nth-child(odd) dt &#123;  float: right;  width: 70%;  font-size: 14px;  color: rgb(12, 110, 172);  font-weight: 400;  margin: 0 0px 10px 0;  padding-left: 5px;&#125;.term-list div:nth-child(odd) dd:nth-of-type(1) &#123;  float: left;  width: 30%;  height: 100%;&#125;.term-list div:nth-child(odd) dd:nth-of-type(2) &#123;  float: right;  width: 70%;  font-size: 14px;  font-weight: 400;  line-height: 19px;  padding-left: 5px;&#125;/* div 태그가 짝수번째이면 */.term-list div:nth-child(even) dt &#123;  float: left;  width: 70%;  font-size: 14px;  color: rgb(12, 110, 172);  font-weight: 400;  margin: 0 0px 10px 0;  padding: 20px 0 0 5px;&#125;.term-list div:nth-child(even) dd:nth-of-type(1) &#123;  float: right;  width: 30%;  height: 100%;  padding: 20px 0 0 0;&#125;.term-list div:nth-child(even) dd:nth-of-type(2) &#123;  float: left;  width: 70%;  font-size: 14px;  font-weight: 400;  line-height: 19px;  padding-right: 5px;&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;TO-DO-LIST&quot;&gt;&lt;a href=&quot;#TO-DO-LIST&quot; class=&quot;headerlink&quot; title=&quot;TO DO LIST&quot;&gt;&lt;/a</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>210225 HTML/CSS TIL (작성중...) -</title>
@@ -541,39 +568,6 @@
     <category term="Virtualenv" scheme="https://leehyungi0622.github.io/tags/Virtualenv/"/>
     
     <category term="Autoenv" scheme="https://leehyungi0622.github.io/tags/Autoenv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210217 Python TIL (작성중...)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-Python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-Python_til/</id>
-    <published>2021-02-17T06:10:41.000Z</published>
-    <updated>2021-02-17T11:24:18.713Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/python_logo.png"></p><br/><h2 id="네트워크"><a href="#네트워크" class="headerlink" title="네트워크"></a>네트워크</h2><h2 id="Web-scraping-실습하기"><a href="#Web-scraping-실습하기" class="headerlink" title="Web scraping 실습하기"></a>Web scraping 실습하기</h2><ul><li><h3 id="환경설정"><a href="#환경설정" class="headerlink" title="환경설정"></a>환경설정</h3><ol><li><strong>requests, beautifulsoup4, lxml, jupyter 설치하기</strong></li></ol><pre><code class="bash">$ poetry add requests$ poetry add beautifulsoup4$ poetry add lxml$ poetry add —dev jupiter</code></pre><ol start="2"><li><strong>jupyter notebook 환경에서 requests를 사용해서 Web Scrapping하기</strong></li></ol><pre><code class="python">import requestsurl = &#39;https://api.kurly.com/v2/categories?ver=1&#39;response = requests.get(url)response# response data를 json 형태로 변환하기response.json()&quot;&quot;&quot;&#123;&#39;data&#39;: &#123;&#39;categories&#39;: [&#123;&#39;no&#39;: &#39;907&#39;,  &#39;name&#39;: &#39;채소&#39;,  &#39;show_all_flag&#39;: True,  &#39;pc_icon_url&#39;: &#39;https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive_pc@2x.1586324570.png&#39;,  &#39;icon_url&#39;: &#39;https://img-cf.kurly.com/shop/data/category/icon_veggies_inactive@3x.1586324413.png&#39;,  &#39;pc_icon_active_url&#39;: &#39;https://img-cf.kurly.com/shop/data/  ...(생략)...&quot;&quot;&quot;</code></pre><p>PostgreSQL 데이터베이스는 JSON데이터를 그냥 밀어넣을 수 있기 때문에 Django와 궁합이 좋게 사용된다.<br>response로부터 취득한 text를 파싱하는 도구에는 ‘html.parser’과 ‘lxml’이 있는데, lxml은 c++로 만들어진 html text를 파싱해주는 라이브러리로 파싱하는 속도가 빠르다.</p><pre><code class="python">from bs4 import BeautifulSoupimport lxmlurl = &#39;https://en.wikipedia.org/wiki/Coronavirus&#39;resonse = requests.get(url)html_text = response.textsoup = BeautifulSoup(html_text, &#39;lxml&#39;)</code></pre><ol start="3"><li>Flask를 사용한 routing 실습</li></ol><pre><code class="python">from flask import Flaskapp = Flask(__name__)@app.route(&#39;/&#39;)def index():    return &quot;flask works&quot;@app.route(&#39;/items&#39;)def items():    return &quot;items will be shown shortly&quot;if __name__==&#39;__main__&#39;:    app.run(host=&#39;localhost&#39;, port=8080, debug=True)</code></pre><ol start="4"><li>templates/index.html, items.html 파일생성해서 렌더링하기</li></ol><pre><code class="python">from flask import Flask, render_templateapp = Flask(__name__)@app.route(&#39;/&#39;)def index():    # string을 렌더링한 html파일로 넘겨줄 수 있다.    msg=&#39;hello&#39;    return render_template(&#39;index.html&#39;, msg=msg)@app.route(&#39;/items&#39;)def items():    return render_template(&#39;items.html&#39;)if __name__==&#39;__main__&#39;:    app.run(host=&#39;localhost&#39;, port=8080, debug=True)</code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h2 id=&quot;네트워크&quot;&gt;&lt;a href=&quot;#네트워크&quot; class=&quot;headerlink&quot; title=&quot;네트워크&quot;&gt;&lt;/a&gt;네트워크&lt;/h2&gt;&lt;h2</summary>
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   
