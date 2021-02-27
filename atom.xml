@@ -36,38 +36,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210226 HTML/CSS TIL (작성중...) - 개발자로서의 또 다른 목표,</title>
-    <link href="https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_til/</id>
-    <published>2021-02-26T13:40:42.000Z</published>
-    <updated>2021-02-27T03:50:29.876Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-다섯번째-수업"><a href="#HTML-CSS-다섯번째-수업" class="headerlink" title="HTML/CSS 다섯번째 수업"></a><ins><b>HTML/CSS 다섯번째 수업</b></ins></h2><p>오늘은 HTML/CSS 다섯번째 수업날이었다.</p><h2 id="접근성을-고려해서-레이아웃을-작성하지-않으면-불편함을-느끼는-개발자가-되자"><a href="#접근성을-고려해서-레이아웃을-작성하지-않으면-불편함을-느끼는-개발자가-되자" class="headerlink" title="접근성을 고려해서 레이아웃을 작성하지 않으면 불편함을 느끼는 개발자가 되자."></a><ins><b>접근성을 고려해서 레이아웃을 작성하지 않으면 불편함을 느끼는 개발자가 되자.</b></ins></h2><p>이번 강사님의 수업을 통해 기존에 바라보았던 화면 레이아웃의 시각이 많이 바뀌었다. 이전에는 어떻게 빠르고 효율적으로 화면을 디자인하면 좋을지 시각적인 부분만 생각하고 레이아웃을 바라봤다면, 이제는 접근성과 콘텐츠의 흐름 그리고 사용성을 생각해서 레이아웃을 작성해야겠다는 생각을 했다.<br>이번에 자료실 및 공지사항 레이아웃을 작성하면서 느꼈던 점은 생각만큼 쉽지 않고, 생각보다 생각해야될 요소들이 많다는 것이다. 아마 기존에는 이러한 생각들을 해보지 않아서 그런 것 같다. <ins><b>그렇지만 이러한 연습을 꾸준히 하고 레이아웃을 작성한다면 이것이 습관으로 잡혀서, 접근성을 고려해서 레이아웃을 작성하지 않으면 불편함을 느끼는 개발자가 될 수 있을 거라고 생각한다.</b></ins> 그래서 이제부터 레이아웃을 작성할때에는 각 각의 태그의 의미와 접근성을 고려해서 작성해보도록 하겠다.<br>5일간 김데레사 강사님의 수업을 들으면서 또 다른 목표가 더 생겼다. 그것은 웹 표준과 접근성을 고려해서 개발할 줄 아는 그런 개발자가 되는 것이다.</p><h2 id="용어설명-레이아웃-부분-설계-및-구현-과제-점검"><a href="#용어설명-레이아웃-부분-설계-및-구현-과제-점검" class="headerlink" title="용어설명 레이아웃 부분 설계 및 구현 (과제) 점검"></a><ins><b>용어설명 레이아웃 부분 설계 및 구현 (과제) 점검</b></ins></h2><p>내가 작성했던 코드와 강사님이 작성하신 코드를 비교/분석하며 수업을 들었다.<br>아래의 내용은 레이아웃을 작성하면서 강사님께서 강조하신 내용들이다.</p><p><a href="https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_layout_practice/">https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_layout_practice/</a></p><p><ins><b>내가 작성한 코드와 비교/분석하기</b></ins></p><ul><li><strong>그라디언트가 적용이 안될 경우를 고려해서 default color를 앞에 지정해주자</strong></li><li><strong>chrome 개발자 툴을 이용해서 agent style을 확인하고 제거하자</strong></li><li><strong>실무에서 유지보수를 생각해서 CSS 스타일링에서 단축표기법을 주로 사용하자</strong></li><li><strong>레이아웃에 있는 각 요소들의 영역을 확인하기 위해서 배경색상을 넣고 확인하자</strong></li><li><strong>태그보다는 class 명으로 접근을 하자</strong><br><code>위의 내용은 다시 한 번 remind하면서 HTML/CSS를 사용해서 레이아웃을 작성하도록 하자</code></li></ul><h2 id="직계자식-요소-선택하기"><a href="#직계자식-요소-선택하기" class="headerlink" title="직계자식 요소 선택하기"></a><ins><b>직계자식 요소 선택하기</b></ins></h2><p>&gt;를 사용해서 부모요소의 직계 자식요소를 선택할 수 있다.</p><p>자손 선택자(descendant selector)와 자식 선택자(child selector)의 사용에 대해서 정리한다.</p><p>우선 자손 선택자는 <code>A B&#123;속성:속성값&#125;</code>문법의 형태로 사용한다. A와 B 사이를 공백으로 분리하고, A요소 내에 있는 모든 B요소를 선택해서 스타일을 적용한다.</p><h2 id="inline-element인-lt-img-gt-의-하단에-작은-gap이-발생하는-경우"><a href="#inline-element인-lt-img-gt-의-하단에-작은-gap이-발생하는-경우" class="headerlink" title="inline element인 &lt;img&gt;의 하단에 작은 gap이 발생하는 경우"></a><ins><b>inline element인 &lt;img&gt;의 하단에 작은 gap이 발생하는 경우</b></ins></h2><p>inline element인 &lt;img&gt; 태그를 사용해서 이미지를 삽입하는 경우, 하단에 약간의 gap이 생기는 현상이 발생한다.</p><table>  <tr>    <td>      <img src="/images/post_images/210226_html_css_img_tag_gap.png" alt="인라인 요소 하단부 갭 캡쳐" width="50%" />    </td>    <td width="50%">      <p>왼쪽 이미지는 dd 태그 내부에 img 태그가 삽입된 형태이다. 이미지의 하단을 보면 약간의 갭이 발생한 것을 확인할 수 있는데, 내부의 img 태그는 inline element이기 때문에 block element의 내부에서 약간이 갭이 발생하게 된 것이다. </p>    </td>  </tr></table><ul><li><strong><ins>그럼 해결방법은?</ins></strong><br>해결방법은 내부의 img 태그에 <code>vertical-align: top</code>을 주거나 <code>display: block</code>로 inline element의 성격을 가진 img 태그를 block의 성격을 갖도록 만들어 주는 것이다. img태그가 block 성격을 갖도록 만들어주는 해결법은 단일 이미지의 경우에는 괜찮지만 연속적으로 이미지를 나열해서 출력하는 경우에는 사용되어서는 안되기때문에 레이아웃에 맞게 해결법을 적용하면 된다.</li></ul><h2 id="line-height-이해하기"><a href="#line-height-이해하기" class="headerlink" title="line-height 이해하기"></a><ins><b>line-height 이해하기</b></ins></h2><h2 id="문단의-좌우-정렬-맞추기"><a href="#문단의-좌우-정렬-맞추기" class="headerlink" title="문단의 좌우 정렬 맞추기"></a><ins><b>문단의 좌우 정렬 맞추기</b></ins></h2><p>장문의 설명글을 포함한 컨텐츠를 보면 좌우가 정렬되지 않은 형태로 출력되는 경우가 있다. 그런 경우에는 <code>text-align: justify</code>로 CSS 스타일을 주면 된다.</p><h2 id="상대를-설득하는-능력을-키우자-feat-설득의-심리학"><a href="#상대를-설득하는-능력을-키우자-feat-설득의-심리학" class="headerlink" title="상대를 설득하는 능력을 키우자. (feat. 설득의 심리학)"></a><ins><b>상대를 설득하는 능력을 키우자. (feat. 설득의 심리학)</b></ins></h2><table>  <tr>    <td>      <img src="/images/post_images/210226_book_cover.jpeg" alt="설득의 심리학"/>    </td>    <td width="50%">      <p>개발자로 일을 하게 되면, 디자이너, 기획자, 고객사등 다양한 직업군의 사람들과 함께 협업을 하면서 일을 하게 된다. 각자 자신의 직업에 대한 확고한 직업관이 있고, 고집이 있다.<br/> 그렇기 때문에 같이 협업을 하게 되면, 개발에 대한 배경지식이 없는 다른 직업군의 사람과 대화를 하면서 이해관계가 충돌하는 경우가 생긴다. <br/>때로는 요구사항에 최대한 맞춰서 조율을 할 수도 있겠지만, <ins><b>그것이 힘든 경우에는 상대를 설득하는 능력이 필요</b></ins>하다.       이러한 부분에 대해서 강사님께서 수업시간에 말씀해주셨다. 그래서 시간이 되면 추천해주신 <ins><b>설득의 심리학</b></ins>이라는 책을 읽어보려고 한다.  </p>    </td>  </tr></table><h2 id="clear를-사용해서-float를-해제시킬때에는-직계-부모-요소에서-해주는-것이-좋다"><a href="#clear를-사용해서-float를-해제시킬때에는-직계-부모-요소에서-해주는-것이-좋다" class="headerlink" title="clear를 사용해서 float를 해제시킬때에는 직계 부모 요소에서 해주는 것이 좋다."></a><ins><b>clear를 사용해서 float를 해제시킬때에는 직계 부모 요소에서 해주는 것이 좋다.</b></ins></h2><p>중첩된 형태의 레이아웃 구성의 내부에서 float를 사용해서 레이아웃 배치를 하는 경우, 어디에서 float를 해제시켜주는 것이 좋은 것인지 고민이었는데, 강사님이 이번 과제를 풀이해주시면서 float로 레이아웃을 배치한 요소들의 바로 위 직계 부모 요소에서 clear를 사용해서 float를 해제시켜주는 것이 좋다고 하셨다.</p><h2 id="text-align-amp-vertical-align"><a href="#text-align-amp-vertical-align" class="headerlink" title="text-align &amp; vertical-align"></a><ins><b>text-align &amp; vertical-align</b></ins></h2><h2 id="검색-폼-레이아웃"><a href="#검색-폼-레이아웃" class="headerlink" title="검색 폼 레이아웃"></a><ins><b>검색 폼 레이아웃</b></ins></h2><p>검색 폼 레이아웃 관련 wireframe은 아래 첨부한 3번째 노트를 확인하도록 하자. 레이아웃을 잡을때 첫 번째 우선적으로 해야되는 것은 레이아웃에 표시되는 정보의 논리적 흐름을 파악하는 것이다.</p><h2 id="HTML을-디자인적-관점이-아닌-기계의-관점에서-컨텐츠의-흐름을-중점으로-파악해야-한다"><a href="#HTML을-디자인적-관점이-아닌-기계의-관점에서-컨텐츠의-흐름을-중점으로-파악해야-한다" class="headerlink" title="HTML을 디자인적 관점이 아닌 기계의 관점에서 컨텐츠의 흐름을 중점으로 파악해야 한다."></a><ins><b>HTML을 디자인적 관점이 아닌 기계의 관점에서 컨텐츠의 흐름을 중점으로 파악해야 한다.</b></ins></h2><p>이번 수업에서 가장 핵심이 되는 내용이 아니었나 싶다.<br/> 이번 수업에서 공지사항 및 자료실 부분의 레이아웃을 작성하고 강사님께서 돌아다니시면서 개개인마다 간단한 피드백을 주셨었다. 그 피드백 중에서 가장 기억에 남는 내용이 <code>레이아웃을 디자인적인 관점에서 접근하지 말아라</code>라는 말씀이었다. 그렇다. 나는 나름 접근성을 고려해서 디자인해봐야겠다고 생각은 했지만 막상 레이아웃을 디자인하다보니 어느새 화면에 보여지는 실제 레이아웃의 모양에 치중해서 레이아웃을 작성하고 있었다.<br>이제는 기계의 관점에서 컨텐츠의 논리적 흐름에 중점을 맞춰 레이아웃을 바라보는 습관을 들여야 겠다고 느꼈다.<br><ins><b>하지만 기계적인 관점에서 레이아웃을 짜게 되면, 사용성에 문제가 생긴다.</b></ins> 구체적인 이해를 위해서 아래 첨부한 노트중에 6번째 노트필기를 참고하자. 필기한 내용에는 공지사항 및 자료실 레이아웃에 대한 <code>1안, 2안, 3안</code>이 있다.<br><strong>1안은</strong> 공지사항과 자료실을 &lt;section&gt;태그로 각 각 분류하였다. 그리고 <strong>2안은</strong> 리스트 태그로 공지사항과 자료실에 표시되는 내용들을 각 각의 하위 메뉴로써 분류하여 작성을 하였다. <strong>3안은</strong> 탭에 대한 메뉴는 리스트 태그로 처리를 하고, 각 컨텐츠 내용(공지사항 및 자료실)은 별도의 section으로 분류하여 작성하였다.</p><p>이러한 웹의 접근성에 대한 연구를 하는 모임에서 운영하는 GitHub가 있는데, 아래 주소를 첨부한다. <ins><b>ARIA 레포지토리에 다양한 화면의 요소들을 어떤식으로 접근성 좋게 처리할 수 있는지 다양한 예제코드들을 확인</b></ins>할 수 있다. 과거에 작성된 코드이기 때문에 js코드가 jQuery 코드로 작성이 되어있지만, 코드의 내용을 보고 vanillaJS로 작성해서 사용해보면 좋을 것 같다.</p><p><a href="https://github.com/niawa/ARIA">https://github.com/niawa/ARIA</a></p><p>수업시간에 실습으로 제공되었던 페이지에 Tab 관련 내용이 있었기 때문에 <code>01.tab-ui</code>의 예제코드를 살펴보자.</p><h2 id="강사님이-제공해주신-Figma-디자인-시안으로-접근성을-고려한-레이아웃을-디자인해보자"><a href="#강사님이-제공해주신-Figma-디자인-시안으로-접근성을-고려한-레이아웃을-디자인해보자" class="headerlink" title="강사님이 제공해주신 Figma 디자인 시안으로 접근성을 고려한 레이아웃을 디자인해보자."></a><ins><b>강사님이 제공해주신 Figma 디자인 시안으로 접근성을 고려한 레이아웃을 디자인해보자.</b></ins></h2><hr/><p><ins><b>remind를 위해 수업시간에 필기했던 노트를 첨부한다. </b></ins></p><table>  <tr>    <td><img src="/images/post_images/210226_html_css_note1.png" alt="개인공부 노트1"></td>    <td><img src="/images/post_images/210226_html_css_note2.png" alt="개인공부 노트2"></td>  </tr>  <tr>    <td><img src="/images/post_images/210226_html_css_note3.png" alt="개인공부 노트3"></td>    <td><img src="/images/post_images/210226_html_css_note4.png" alt="개인공부 노트4"></td>  </tr>  <tr>    <td><img src="/images/post_images/210226_html_css_note5.png" alt="개인공부 노트5"></td>    <td><img src="/images/post_images/210226_html_css_note6.png" alt="개인공부 노트6"></td>  </tr>    <tr>    <td><img src="/images/post_images/210226_html_css_note7.png" alt="개인공부 노트7"></td>    <td></td>  </tr></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;HTML-CSS-다섯번째-수업&quot;&gt;&lt;a href=&quot;#HTML-CSS-다섯번째-수업&quot; class=&quot;headerlink&quot; title=&quot;HTM</summary>
-      
-    
-    
-    
-    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
-    
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -91,9 +62,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -119,38 +90,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210225 HTML/CSS TIL (작성중...) -</title>
-    <link href="https://leehyungi0622.github.io/2021/02/25/202102/210225-html_css_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/25/202102/210225-html_css_til/</id>
-    <published>2021-02-25T10:56:42.000Z</published>
-    <updated>2021-02-25T12:40:33.236Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-네번째-수업"><a href="#HTML-CSS-네번째-수업" class="headerlink" title="HTML/CSS 네번째 수업"></a><ins><b>HTML/CSS 네번째 수업</b></ins></h2><p>오늘은 HTML/CSS 네번째 수업날이었다. 오늘은 혼자서 레이아웃을 설계도 해보고, 직접 생각해서 레이아웃을 구성해보는 연습도 하였다.<br>연습하면서 느낀점은 역시 많은 연습이 필요하다는 것이다. 계속해서 끊임없이 노력하자.</p><h2 id="CSS-구체성"><a href="#CSS-구체성" class="headerlink" title="CSS 구체성"></a><ins><b>CSS 구체성</b></ins></h2><p>오늘은 수업의 첫 시작은 CSS의 구체성에 대해서 시작하였다. 이 CSS의 구체성이란 특정 태그에 스타일을 적용시킬때 태그의 어느 요소(id, class(가상클래스 포함), element(태그))를 가지고 얼마나 구체적으로 명시해서 스타일을 적용했느냐를 말한다. 표면적으로는 같은 태그의 스타일을 적용했지만, 선택자를 좀 더 구체적으로 명시한 쪽의 스타일이 적용되는 것은 선택자로 사용한 요소(id, class, element)에 각 각 우선순위 점수가 있기 때문에 점수가 높은 (선택자를 좀 더 구체적으로 지정한) 스타일이 최종적으로 적용되는 스타일이 되는 것이다.</p><table border="1">  <tr align="center">    <th>id(100)</th>    <th>class(10)</th>    <th>element(1)</th>  </tr>  <tr align="center">    <td>0</td>    <td>2</td>    <td>1</td>  </tr>  <tr align="center">    <td>0</td>    <td>1</td>    <td>1</td>  </tr></table><pre><code class="css">/* 점수표에서 첫 번째 행(21) */.member li::before &#123;  content: &quot;|&quot;;&#125;/* 점수표에서 두 번째 행(11) */.first::before &#123;  content: &quot; &quot;;&#125;</code></pre><p>아래와 같이 p태그의 스타일을 적용한다고 했을때, 구체성 점수에 의해 <code>p.test</code>의 스타일이 적용된다.</p><pre><code class="css">p &#123;  color: red;&#125; /* 1점 */p.test &#123;  color: blue;&#125; /* 11점 */.note &#123;  color: green;&#125; /* 10점 */.test &#123;  color: puple;&#125; /* 10점 */</code></pre><p>결과적으로 구체성 점수가 높은 첫 번째 스타일이 적용된다.<br><code>개당 배점이 높은 순은 id &gt; class &gt; element이다.</code><br><code>id의 우선순위는 점수상 id:1 == class: 10의 관계를 갖기 때문에 CSS 스타일링을 줄때 id를 사용하지 않고 class를 사용한다.</code></p><p>하지만 <code>!important</code> 를 사용하면 구체성 점수와 상관없이 !important가 붙은 스타일이 최우선으로 적용된다.</p><pre><code class="css">p &#123;  color: red !important;&#125;</code></pre><h2 id="구조-선택자"><a href="#구조-선택자" class="headerlink" title="구조 선택자"></a><ins><b>구조 선택자</b></ins></h2><p>좀 더 세밀하게 태그 내의 요소를 지정해주기 위해서는 <code>구조 선택자</code>를 사용하면 된다. 구체성에 대해 재미있게 정리해놓은 사이트가 있으니 아래 사이트를 참고하도록 하자.<br><a href="http://nthmaster.com/">http://nthmaster.com</a><br>nth-child나 nth-of-type을 사용하면 좀 더 세밀하게 태그를 선택할 수 있다.</p><p><code>nth-child(3n+1): nth-child(even)</code>는 지정한 태그를 3개씩 묶어서 각 묶음에 있는 짝수번째 자식요소를 선택한다는 의미이다.<br><code>span: nth-of-type(3)</code>는 span 태그 중에서 세 번째 span 요소를 선택한다는 의미이다.<br>이러한 구조 선택자를 사용해서 좀 더 세밀하게 태그를 지정해서 스타일링을 해 줄 수 있다.</p><h2 id="CSS-유효성검사"><a href="#CSS-유효성검사" class="headerlink" title="CSS 유효성검사"></a><ins><b>CSS 유효성검사</b></ins></h2><p>CSS도 유효성 검사를 해 줄 수 있기 때문에 필요에 따라서는 W3C CSS validator를 사용해서 작성한 CSS에는 문제가 없는지 유효성 검사를 하도록 하자.<br><a href="https://jigsaw.w3.org/css-validator/">https://jigsaw.w3.org/css-validator/</a></p><h2 id="레이아웃을-만들때는-설계부터"><a href="#레이아웃을-만들때는-설계부터" class="headerlink" title="레이아웃을 만들때는 설계부터"></a><ins><b>레이아웃을 만들때는 설계부터</b></ins></h2><p>화면 구성을 컴포넌트 단위로 나눠서 화면을 설계해야 나중에 유지보수나 코드의 재사용성에 좋다. 따라서 화면을 컴포넌트 단위로 잘 나눠서 설계를 하기 위해서는 레이아웃을 작성할때 무작정 코드를 작성하지 말고, 어떤 태그를 사용하고 어떤 스타일을 적용할 것인지 구체적으로 화면을 설계하는 것이 좋다.</p><h2 id="접근성-지침서-확인하기"><a href="#접근성-지침서-확인하기" class="headerlink" title="접근성 지침서 확인하기"></a><ins><b>접근성 지침서 확인하기</b></ins></h2><p>웹 접근성 지침 관련해서 미국에 대한 표준과 한국에 대한 표준이 있다.</p><ul><li><h3 id="WCAG-Web-Content-Accessibility-Guidelines"><a href="#WCAG-Web-Content-Accessibility-Guidelines" class="headerlink" title="WCAG(Web Content Accessibility Guidelines)"></a>WCAG(Web Content Accessibility Guidelines)</h3></li><li><h3 id="KWCAG-Korean-Web-Content-Accessibility-Guidelines"><a href="#KWCAG-Korean-Web-Content-Accessibility-Guidelines" class="headerlink" title="KWCAG(Korean Web Content Accessibility Guidelines)"></a>KWCAG(Korean Web Content Accessibility Guidelines)</h3>WCAG 표준에 따르기 어렵다고 한다. 하지만 우리나라의 대한항공 영문 페이지를 확인하면, 이 WCAG 표준에 잘 따르고 있다고 한다. 아래의 사이트를 참고하도록 하자.<br><strong>대한항공 :</strong> <a href="https://www.koreanair.com/us/en">https://www.koreanair.com/us/en</a><br>KWCAG(한국 웹 컨텐츠 접근성 가이드라인)에 대한 내용은 아래 웹 페이지에서 확인할 수 있다.<br><a href="https://www.wah.or.kr:444/board/boardView.asp?page=2&brd_sn=4&brd_idx=975">https://www.wah.or.kr:444/board/boardView.asp?page=2&amp;brd_sn=4&amp;brd_idx=975</a></li></ul><h2 id="로그인-폼-설계-및-구현하기"><a href="#로그인-폼-설계-및-구현하기" class="headerlink" title="로그인 폼 설계 및 구현하기"></a><ins><b>로그인 폼 설계 및 구현하기</b></ins></h2><p>우선 로그인 폼의 설계부터 진행해보자. 우선 로그인 폼에서 필요한 항목을 정리해보자. 필요한 항목으로는 id, password, 로그인 버튼, 회원가입/아이디・비밀번호 찾기의 항목이 필요하다. 레이아웃에 대한 wireframe은 아래 첨부한 두번째 노트를 확인하자.</p><ul><li><h3 id="하나의-input-태그에는-하나의-label을-사용하도록-권고"><a href="#하나의-input-태그에는-하나의-label을-사용하도록-권고" class="headerlink" title="하나의 input 태그에는 하나의 label을 사용하도록 권고"></a><ins><b>하나의 input 태그에는 하나의 label을 사용하도록 권고</b></ins></h3><ul><li><p>&lt;label&gt;태그내에 <code>for</code>속성을 사용해서 해당 label이 어떤 태그를 위한 label인지 알려줘야 한다. (<code>명시적 레이블링(explicit labeling)</code>)</p><pre><code class="html">&lt;div&gt;&lt;label for=&quot;userEmail&quot; /&gt;&lt;input type=&quot;text&quot; id=&quot;userEmail&quot; /&gt;&lt;/div&gt;</code></pre></li><li><p>아래와 같이 label 태그로 관련된 태그를 감싸서 표현할 수도 있다. (<code>암묵적 레이블링(implicit labeling)</code>)<br><strong>이러한 label처리도 19.레이블 제공이라는 항목으로 검사를 할 수 있다. (사다리 모양-OpenWAX)</strong></p></li></ul></li><li><h3 id="필수-입력-항목과-필수-입력이-아닌-항목을-lt-fieldset-gt-태그를-사용해서-분류"><a href="#필수-입력-항목과-필수-입력이-아닌-항목을-lt-fieldset-gt-태그를-사용해서-분류" class="headerlink" title="필수 입력 항목과 필수 입력이 아닌 항목을 &lt;fieldset&gt;태그를 사용해서 분류"></a><ins><b>필수 입력 항목과 필수 입력이 아닌 항목을 <code>&lt;fieldset&gt;</code>태그를 사용해서 분류</b></ins></h3></li><li><h3 id="옵션이지만-lt-legend-gt-태그를-사용해서-분류한-lt-fieldset-gt-에-묶여있는-서식들의-성격을-알려주도록-하자"><a href="#옵션이지만-lt-legend-gt-태그를-사용해서-분류한-lt-fieldset-gt-에-묶여있는-서식들의-성격을-알려주도록-하자" class="headerlink" title="옵션이지만 &lt;legend&gt;태그를 사용해서 분류한 &lt;fieldset&gt;에 묶여있는 서식들의 성격을 알려주도록 하자."></a><ins><b>옵션이지만 <code>&lt;legend&gt;</code>태그를 사용해서 분류한 <code>&lt;fieldset&gt;</code>에 묶여있는 서식들의 성격을 알려주도록 하자.</b></ins></h3><ul><li>예를들어 회원 로그인을 위한 서식들을 묶었다면 <code>회원 로그인 틀</code>이라고 태그내에 정의해주자.</li></ul></li></ul><h2 id="유명한-서비스라고-완벽한-것은-아니다"><a href="#유명한-서비스라고-완벽한-것은-아니다" class="headerlink" title="유명한 서비스라고 완벽한 것은 아니다."></a><ins><b>유명한 서비스라고 완벽한 것은 아니다.</b></ins></h2><h2 id="explicit-outline과-implicit-outline"><a href="#explicit-outline과-implicit-outline" class="headerlink" title="explicit outline과 implicit outline"></a><ins><b>explicit outline과 implicit outline</b></ins></h2><h2 id="DTD-S-T-F"><a href="#DTD-S-T-F" class="headerlink" title="DTD (S, T, F)"></a><ins><b>DTD (S, T, F)</b></ins></h2><h2 id="의미있게-HTML-태그를-사용하자"><a href="#의미있게-HTML-태그를-사용하자" class="headerlink" title="의미있게 HTML 태그를 사용하자."></a><ins><b>의미있게 HTML 태그를 사용하자.</b></ins></h2><hr/><p><ins><b>remind를 위해 수업시간에 필기했던 노트를 첨부한다. </b></ins></p><table>  <tr>    <td><img src="/images/post_images/210225_html_css_note1.png" alt="개인공부 노트1"></td>    <td><img src="/images/post_images/210225_html_css_note2.png" alt="개인공부 노트2"></td>  </tr>  <tr>    <td><img src="/images/post_images/210225_html_css_note3.png" alt="개인공부 노트3"></td>    <td><img src="/images/post_images/210225_html_css_note4.png" alt="개인공부 노트3"></td>  </tr></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;HTML-CSS-네번째-수업&quot;&gt;&lt;a href=&quot;#HTML-CSS-네번째-수업&quot; class=&quot;headerlink&quot; title=&quot;HTML/</summary>
-      
-    
-    
-    
-    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
-    
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -174,9 +116,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -201,9 +143,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -257,9 +199,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -283,9 +225,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -369,9 +311,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -424,9 +366,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -450,9 +392,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -501,9 +443,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -560,9 +502,65 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
+  </entry>
+  
+  <entry>
+    <title>210219 TypeScript Book TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/19/202102/210219-Typescript/"/>
+    <id>https://leehyungi0622.github.io/2021/02/19/202102/210219-Typescript/</id>
+    <published>2021-02-18T21:35:42.000Z</published>
+    <updated>2021-02-22T02:02:43.512Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><h3 id="타입별칭"><a href="#타입별칭" class="headerlink" title="타입별칭"></a>타입별칭</h3><h4 id="일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다"><a href="#일반적으로-변수를-선언하듯이-type-키워드로-type을-선언해서-사용할-수-있다" class="headerlink" title="일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다."></a>일반적으로 변수를 선언하듯이 type 키워드로 type을 선언해서 사용할 수 있다.</h4><pre><code class="javascript">type Age = numbertype persono = &#123;  name: string  age: Age&#125;</code></pre><pre><code class="javascript">type Person = &#123;  name: string  age: number&#125;type Age = numberlet age: Age = 55let driver: Person = &#123;  name: &#39;James May&#39;,  age: age&#125;</code></pre><h4 id="타입의-union과-intersection-type"><a href="#타입의-union과-intersection-type" class="headerlink" title="타입의 union과 intersection type"></a>타입의 union과 intersection type</h4><p>실전에서는 intersection보다는 union을 자주 사용한다.</p><pre><code class="javascript">// 타입의 union과 intersection typetype Cat = &#123; name: string, purrs: boolean &#125;;type Dog = &#123; name: string, barks: boolean, wags: boolean &#125;;type CatOrDogOrBoth = Cat | Dog;// Union : Cat과 Dog의 모든 속성을 가질 수 있는 변수를 설정할 수 있다.let catOrDog: CatOrDogOrBoth = &#123;  name: &quot;name&quot;,  purrs: false,  barks: true,  wags: false&#125;;</code></pre><p>아래 함수는 조건이 참이면 반환 타입을 string으로, 그렇지 않으면 number로 한다는 의미의 함수이다. 즉, string | number를 반환한다.</p><pre><code class="javascript">function(a: string, b: number)&#123;  return a || b&#125;</code></pre><h3 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h3><h4 id="이형배열-heterogeneous-union"><a href="#이형배열-heterogeneous-union" class="headerlink" title="이형배열(heterogeneous) - union"></a>이형배열(heterogeneous) - union</h4><p>타입스크립트에서는 배열을 동형(homogeneous)로, 배열의 모든 항목이 같은 타입을 갖도록 설계한다.</p><pre><code class="javascript">// 이형배열에서의 union사용let a = [1, 2, 3]; // number[]var b = [&quot;a&quot;, &quot;b&quot;]; // string[]let d = [1, &quot;a&quot;]; //(string | number)[]const e = [2, &quot;b&quot;]; // (string | number)[]</code></pre><p>타입스크립트에서는 아래와 같이 우선 배열에서 삽입한 데이터의 타입을 기준으로 배열의 타입을 추론한다.</p><pre><code class="javascript">let f = [&quot;red&quot;]; // string[] array로 정의f.push(&quot;blue&quot;);f.push(true); // error</code></pre><p>아무 데이터도 넣지 않고 배열을 초기화시키면 <code>any[]</code>type으로 정의된다.</p><pre><code class="javascript">let g = []; // any[]g.push(1); // number[]g.push(&quot;red&quot;); // (string | number)[]</code></pre><h3 id="튜플"><a href="#튜플" class="headerlink" title="튜플"></a>튜플</h3><p>배열의 서브타입으로, 튜플은 길이가 고정되었고, 각 index의 type이 이미 알려진 배열의 일종이다. 튜플을 선언할때에는 타입을 명시해야 한다.<br>자바스크립트에서의 배열과 튜플은 대괄호를 사용하고, 타입스크립트에서는 대괄호를 배열 타입으로 추론한다.<br>튜플을 잘 활용하면 순수 배열에 비해 안전성을 높일 수 있다. 튜플의 사용은 권장된다.</p><pre><code class="javascript">let b: [string, string, number] = [&quot;malcolm&quot;, &quot;gladwell&quot;, 1963];</code></pre><p>튜플은 타입선언부에 선택적 요소를 지정할 수 있다.</p><pre><code class="javascript">let trainFares: [number, number?][] = [  [3.75],  [8.25, 7.70],  [10.50]]// 아래의 표현과 위의 표현은 같다.let moreTrainFares: ([number] | [number, number])[] = [  //.......]</code></pre><p>나머지 요소(…)를 사용해서 최소의 길이를 갖도록 설정</p><pre><code class="javascript">let friends: [string, ...string[]] = [&#39;Sara&#39;, &#39;Tali&#39;, &#39;Chloe&#39;, &#39;Claire&#39;]// 이형배열let list: [number, boolean, ...string[]] = [1, false, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre><h4 id="읽기전용-배열과-튜플만들기"><a href="#읽기전용-배열과-튜플만들기" class="headerlink" title="읽기전용 배열과 튜플만들기"></a>읽기전용 배열과 튜플만들기</h4><p>읽기전용타입의 배열에서는 읽기만 가능하다.</p><pre><code class="javascript">let as: readonly number[] = [1, 2, 3] // readonly number[]let bs: readonly number[] = as.concat(4) // readonly number[]let three = bs[2] // number</code></pre><h4 id="다양한-읽기-전용-배열과-튜플의-선언방식"><a href="#다양한-읽기-전용-배열과-튜플의-선언방식" class="headerlink" title="다양한 읽기 전용 배열과 튜플의 선언방식"></a>다양한 읽기 전용 배열과 튜플의 선언방식</h4><pre><code class="javascript">type A = readonly string[] // readonly string[]type B = ReadonlyArray&lt;string&gt; // readonly string[]type C = Readonly&lt;string[]&gt; // readonly string[]type D = readonly [number, string] // readonly [number, string]type E = Readonly&lt;[number, string]&gt; // readonly [number, string]</code></pre><h3 id="null-undefined-void-never"><a href="#null-undefined-void-never" class="headerlink" title="null, undefined, void, never"></a>null, undefined, void, never</h3><p>자바스크립트에서의 null과 undefined는 값의 부재를 의미하지만 타입스크립트에서는 undefined 타입의 값은 undefined, null 타입의 값은 오직 null뿐임을 의미한다.</p><p>undefined: 아직 값을 정의하지 않았음을 의미</p><p>null : 값의 부재를 의미</p><p>void와 never는 값의 부재를 좀 더 세밀하게 분류하는 특수하고 특별한 용도의 타입니다.</p><p><strong>void</strong> : 명시적으로 아무것도 반환하지 않는 함수 반환 타입</p><p><strong>never</strong> : <ins><b>절대 반환하지 않는 함수 타입을 가르킨다.</b></ins> 예를들어 함수에서 exception을 던지거나 while과 같은 반복문으로 영원히 실행이 되며 반환하지 않는 경우가 이에 해당한다.</p><pre><code class="javascript">// never를 반환하는 함수function d() &#123;  throw TypeError(&quot;I always error&quot;);&#125;// never를 반환하는 또 다른 함수function e() &#123;  while (true) &#123;    doSomething();  &#125;&#125;</code></pre><p>타입에 있어 unknown이 모든 타입의 상위타입이라면 never는 모든 타입의 서브타입니다. 이 말은 즉슨, 모든 타입에 never를 할당할 수도 있다는 의미이다.</p><h3 id="열거형-enum"><a href="#열거형-enum" class="headerlink" title="열거형(enum)"></a>열거형(enum)</h3><p>열거형이란 해당 타입으로 사용할 수 있는 값을 열거하는 기법이다. 키가 컴파일될때 고정된 객체로서 정의되며 이 키를 값에 할당하는 순서가 없는 자료구조이다.<br>열거형의 예로 <code>문자열-문자열</code>의 형태나 <code>문자열-숫자</code>로 mapping하는 열거형이 있다.<br>작성법은 열거형의 이름은 <code>단수형 명사</code>를 쓰고, 첫 문자는 대문자로 작성하며, 키 또한 첫 문자는 대문자로 작성하는 것이 관례이다.</p><pre><code class="javascript">enum Language &#123;  English,  Spanish,  Russian&#125;</code></pre><p>열거형의 각 키값에 별도로 값을 할당하지 않으면 타입스크립트가 자동으로 적절한 숫자를 추론해서 할당한다.<br>하지만 필요에 따라 아래와 같이 명시적으로 설정을 해줄수도 있다.<br>명시적으로 설정해 줄 수 있는 값으로는 수식, 문자열, 문자열과 숫자의 혼합을 사용할 수 있다.</p><pre><code class="javascript">enum Language &#123;  English = 0,  Spanish = 1,  Russian = 2&#125;</code></pre><p>열거형 값에 접근을 할때에는 일반적으로 객체에서 값을 가져올때와 같이 점 또는 괄호 표기를 사용해서 값에 접근할 수 있다.</p><pre><code class="javascript">let myFirstLanguage = Language.Russian; // Languagelet mySecondLanguage = Language[&quot;English&quot;]; // Language</code></pre><p>좀 더 안전하게 열거형(enum)을 사용하기 위해서는 <code>const enum</code>을 사용하도록 한다.<br>값에 대한 접근은 .(dot)이나 [문자열 literal]를 통해 접근할 수 있다. ([index]로는 접근할 수 없다)<br>ex. Language[‘English’] (0), Language.English (0), Language[0] (X)</p><pre><code class="javascript">const enum Language &#123;  English,  Spanish,  Russian&#125;</code></pre><p>열거형을 사용할때에는 아래와 같이 문자열 값을 갖는 열거형을 사용하도록 한다.</p><pre><code class="javascript">const enum Flippable &#123;  Burger = &#39;Burger&#39;,  Chair = &#39;Chair&#39;,  Cup = &#39;Cup&#39;,  Skateboard = &#39;Skateboard&#39;,  Table = &#39;Table&#39;&#125;function flip(f: Flippable) &#123;  return &#39;flipped it&#39;&#125;flip(Flippable.Chair)flip(Flippable.Cup)</code></pre><h2 id="연습문제"><a href="#연습문제" class="headerlink" title="연습문제"></a>연습문제</h2><pre><code class="javascript">// 연습문제 11. 값의 추론값 예상하기let a = 1042 // numberlet b = &#39;apples and oranges&#39; // stringconst c = &#39;pineapple&#39; // &#39;pineapple&#39;let d = [true, true, false] // boolean[]let e = &#123;type: &#39;ficus&#39;&#125; // &#123; type: string&#125;let f = [1, false] // (number | boolean)[]const g = [3] // number[]let h = null // any// 연습문제 2let l: unknown = 4if (typeof l === &#39;number&#39;)&#123;    let m = l * 2    console.log(m)&#125;</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/typescript_logo.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였</summary>
+      
+    
+    
+    
+    <category term="TIL:TypeScript" scheme="https://leehyungi0622.github.io/categories/TIL-TypeScript/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="TypeScript" scheme="https://leehyungi0622.github.io/tags/TypeScript/"/>
+    
+    <category term="self-development" scheme="https://leehyungi0622.github.io/tags/self-development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210218 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/18/202102/210218-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/18/202102/210218-Self-development_til/</id>
+    <published>2021-02-18T00:32:00.000Z</published>
+    <updated>2021-02-18T13:09:47.278Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>Python 메인강의</strong></ins></p><ul><li><p>어제 배운내용에 대해서 Python TIL 포스팅하기 (<code>예정</code>)</p></li><li><p>과제</p><ul><li><p><del>Wikipedia의 한국 COVID-19 정보 페이지에서 필요한 정보를 Scrapping하기</del> (<code>완료</code>)</p></li><li><p><del>COVID-19관련 Web API의 JSON형식 데이터를 읽고 가공하기</del> (<code>완료</code>)<br>→ <del><a href="https://github.com/LeeHyungi0622/simple-covid19-flask-app">https://github.com/LeeHyungi0622/simple-covid19-flask-app</a></del></p></li><li><p>TIL:Flask 카테고리 따로 만들어서 VSCODE 환경에서의 Flask 개발환경 구축과 Flask Auto-Reload하는 방법에 대해서 포스팅하기 (<code>예정</code>)</p><br/></li></ul></li></ul></li><li><p><ins><strong>TDD 방식에 익숙해지기 위한 간단한 코드작성 연습하기</strong></ins></p><ul><li>배열이 주어졌을 때 최댓값, 최솟값, 평균, 중앙값, 최빈값을 구하는 함수들을 구현 (<code>나머지 50% 예정</code>)</li></ul><br/></li><li><p><ins><strong>독서</strong></ins></p><ul><li><p><strong>오늘 분 OReilly TypeScript 독서</strong></p><ul><li><del>OReilly TypeScript 독서 53-61P</del> (<code>완료</code>)</li></ul></li><li><p><strong>어제 분 OReilly TypeScript 독서 33-53P</strong></p><ul><li>OReilly TypeScript 예제 코드실습 (<code>예정</code>)</li><li>오늘 배운내용 블로그에 포스팅하기 (<code>예정</code>)</li><li>오늘 실습한 내용 GitHub에서 관리하기 (<code>예정</code>)</li></ul><br/></li></ul></li><li><p><ins><strong>블로그 포스팅하기</strong></ins></p><ul><li>Server side rendering, Client side rendering에 대해서 글 포스팅(<code>예정</code>)</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
