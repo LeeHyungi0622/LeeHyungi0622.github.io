@@ -69,34 +69,6 @@
   </entry>
   
   <entry>
-    <title>210226 HTML/CSS Layout practice (w/float)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_layout_practice/"/>
-    <id>https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_layout_practice/</id>
-    <published>2021-02-26T00:38:00.000Z</published>
-    <updated>2021-02-26T13:34:57.096Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><ul><li><p><ins><strong>HTML/CSS float 및 구조 선택자를 활용한 레이아웃 배치 연습하기</strong></ins></p></li><li><p><ins><strong>화면 구성 설계해보기</strong></ins></p></li></ul><p>우선 화면의 배치상 이미지는 왼쪽, 타이틀은 오르쪽 상단, 용어 설명은 오른쪽 하단에 위치한다.</p><p>그럼 왼쪽에 높이가 100% , 너비가 50% 비율로 위치하면 되고, 오른쪽에는 높이가 50%, 너비가 50% 비율로 두 개의 박스를 수직방향으로 배치시키면 된다는 결론이 나온다.</p><p>이제 float 속성을 이용해서 왼쪽에 배치해야되는 이미지(dd 첫번째 요소)의 경우 left 속성값을, 오른쪽에 배치해야되는 타이틀(dt)과 용어설명(dd 두번째 요소)은 right 속성값을 위에서 생각한 너비, 높이 비율값과 함께 선언해주면 될 것 같다.<br>그래서 아래와 같은 구조로 우선 생각을 해보았다.</p><table>  <tr>    <td>      <img src="/images/post_images/210226_layout_design1.png" alt="설계단계 레이아웃 이미지" width=300 height=200/>    </td>  </tr>  <tr>    <td align="center">      <strong> <설계단계 레이아웃> </strong>    </td>  </tr></table><p>그리고 용어설명 전체 컨텐츠를 담고 있는 부모요소가 자식요소의 높이 정보를 잃어버렸기 때문에 float를 해제시켜줘야 될 것 같다.</p><p>이제 코드로 구현해가면서 생각했던 부분과 달라진 부분을 수정해가면서 레이아웃을 잡아가보자.<br>원래 레이아웃 설계 단계에서 너비 비율을 50%로 생각을 했었는데, 구현을 해보니, 너비를 이미지 부분은 30%로, 타이틀과 설명 부분은 70%로 해줘야 sample 원본과 비슷하게 나오는 것 같다.</p><table>  <tr>    <td>      <img src="/images/post_images/210226_layout_design2.png" alt="설계단계 레이아웃 수정 이미지" width=300 height=200/>    </td>  </tr>  <tr>    <td align="center">      <strong> <설계단계 레이아웃 수정> </strong>    </td>  </tr></table><p><img src=""></p><p>그리고 추가적으로 기타 용어 설명부분을 원본 페이지와 비슷하게 구성하기 위해서 자간 높이를 line-height 속성을 이용해서 조절해주고, 글자의 weight값과 타이틀 색상을 바꿔줘야겠다고 생각했다.</p><p>코드와 결과화면은 아래와 같다.</p><img src="/images/post_images/210226_result1.png" alt="결과 이미지1" width=300 height=200/><pre><code class="css">.term &#123;  margin-top: 20px;  padding: 16px;  border-radius: 5px;  background: linear-gradient(180deg, #ccc, #eee);  border: 1px solid grey;&#125;.term h2 &#123;  margin: 0;  margin-bottom: 19px;&#125;.term dd,dt,dl &#123;  margin: 0;&#125;.term::after &#123;  content: &quot;&quot;;  display: block;  clear: both;&#125;.term-list div dd:nth-of-type(1) &#123;  float: left;  width: 30%;  height: 100%;&#125;.term-list dt &#123;  float: right;  width: 70%;  font-size: 14px;  color: rgb(12, 110, 172);  font-weight: 400;  margin: 0 0px 10px 0;  padding-left: 5px;&#125;.term-list div dd:nth-of-type(2) &#123;  float: right;  width: 70%;  font-size: 14px;  font-weight: 400;  line-height: 19px;  padding-left: 5px;&#125;</code></pre><br/>그리고 추가적으로, 두 개 이상의 컨텐츠를 좌우 대칭 형태로 교차해서 화면에 표시하는 방법을 구조 선택자를 사용해서 실습해보았다. 각 컨텐츠가 div태그로 분리가 되어있고, 이 div태그가 홀수 번째인지, 짝수 번째인지 구분해서 내부 자식요소의 float 속성 값을 대칭으로 해주면 될 것 같고 생각을 했다.<p>결과 화면과 코드는 아래와 같다.</p><img src="/images/post_images/210226_html_css_result2.png" alt="결과 이미지2" width=300 height=200/><pre><code class="css">/* 웹 관련 용어 */.term &#123;  margin-top: 20px;  padding: 16px;  border-radius: 5px;  background: linear-gradient(180deg, #ccc, #eee);  border: 1px solid grey;&#125;.term h2 &#123;  margin: 0;  margin-bottom: 19px;&#125;.term dd,dt,dl &#123;  margin: 0;&#125;.term::after &#123;  content: &quot;&quot;;  display: block;  clear: both;&#125;/* div 태그가 홀수번째이면 */.term-list div:nth-child(odd) dt &#123;  float: right;  width: 70%;  font-size: 14px;  color: rgb(12, 110, 172);  font-weight: 400;  margin: 0 0px 10px 0;  padding-left: 5px;&#125;.term-list div:nth-child(odd) dd:nth-of-type(1) &#123;  float: left;  width: 30%;  height: 100%;&#125;.term-list div:nth-child(odd) dd:nth-of-type(2) &#123;  float: right;  width: 70%;  font-size: 14px;  font-weight: 400;  line-height: 19px;  padding-left: 5px;&#125;/* div 태그가 짝수번째이면 */.term-list div:nth-child(even) dt &#123;  float: left;  width: 70%;  font-size: 14px;  color: rgb(12, 110, 172);  font-weight: 400;  margin: 0 0px 10px 0;  padding: 20px 0 0 5px;&#125;.term-list div:nth-child(even) dd:nth-of-type(1) &#123;  float: right;  width: 30%;  height: 100%;  padding: 20px 0 0 0;&#125;.term-list div:nth-child(even) dd:nth-of-type(2) &#123;  float: left;  width: 70%;  font-size: 14px;  font-weight: 400;  line-height: 19px;  padding-right: 5px;&#125;</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;ins&gt;&lt;strong&gt;HTML/CSS float 및 구조 선택자를 활용한 레이아웃 배치 연습하기&lt;/strong&gt;&lt;/ins&gt;&lt;/</summary>
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>210225 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/02/25/202102/210225-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/02/25/202102/210225-Self-development_til/</id>
@@ -564,6 +536,35 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210217 Jest의 test, it, describe</title>
+    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-JS_Jest_test_it/"/>
+    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-JS_Jest_test_it/</id>
+    <published>2021-02-17T01:07:42.000Z</published>
+    <updated>2021-02-17T01:18:31.175Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/jest_logo.png"></p><br/><p>이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 <code>test와 it 키워드</code>의 사용과 여러 개의 테스트 케이스를 묶을때 사용하는 <code>describe 키워드</code>에 대해서 정리를 해보겠다.</p><h2 id="test와-it-키워드의-사용"><a href="#test와-it-키워드의-사용" class="headerlink" title="test와 it 키워드의 사용"></a><strong>test와 it 키워드의 사용</strong></h2><p>이전 포스팅에서 test라는 키워드를 사용해서 테스트 케이스를 작성해보았다. 이 키워드를 대체해서 it이라는 키워드도 사용될 수 있는데 작동 방식은 같다.</p><pre><code class="javascript">// test keyword를 사용한 테스트 코드 작성const &#123; test, expect &#125; = require(&quot;@jest/globals&quot;);const sum = require(&quot;../sum&quot;);// 작성한 테스트코드가 무엇을 하는지에 대해서 첫번째 parameter로 작성해준다.test(&quot;properly adds two numbers&quot;, () =&gt; &#123;  // expected result  expect(sum(1, 2)).toBe(3);&#125;);// it keyword를 사용한 테스트 코드 작성it(&quot;properly adds two numbers&quot;, () =&gt; &#123;  expect(sum(1, 2)).toBe(3);&#125;);</code></pre><br/><h2 id="describe-키워드의-사용"><a href="#describe-키워드의-사용" class="headerlink" title="describe 키워드의 사용"></a><strong>describe 키워드의 사용</strong></h2><p>describe keyword를 사용해서 작은 단위의 테스트 코드를 그룹화할 수 있다.<br>아래의 테스트 코드는 실제 side project를 하면서 작성했던 component의 rendering 및 routing test를 위해 작성했던 코드이다.<br>이처럼 작성하는 테스트 코드가 특정 component에 속하는 테스트 코드라면 아래와같이 describe 키워드를 사용해서 해당 테스트 코드들을 그룹화하는 것이 좋다. 이렇게 그룹화를 해주게 되면, 나중에 테스트 결과를 확인시 좀 더 가시적으로 보기 편하게 테스트 케이스들을 확인할 수 있다.</p><pre><code class="javascript">describe(&#39;&lt;App /&gt;&#39;, () =&gt; &#123;  // Test case 1  test(&#39;&lt;App /&gt; rendering시에 /(root)로 rendering이 되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId, getByText &#125; = render(&lt;App /&gt;);    const navbar = getByTestId(&#39;navbar&#39;);    const link = getByTestId(&#39;HOME&#39;);    // 각 각의 page componet를 lazy하게 가져오고 있기 때문에, 비동기로 wait() 처리를 해준다.    await wait();    expect(getByText(/Hello world/i)).toBeInTheDocument();    expect(navbar).toContainElement(link);  &#125;);  // Test case 2  test(&#39;MENU1 menu를 클릭시, MENU1 component가 화면에 rendering되는가?&#39;, async() =&gt; &#123;    const &#123; getByTestId &#125; = render(&lt;App /&gt;);    fireEvent.click(getByTestId(&#39;MENU1&#39;));    await wait();    // menu1-wrapper id를 가진 component가 화면에 rendering되어있는지 확인    expect(getByTestId(&#39;menu1-wrapper&#39;)).toBeInTheDocument();  &#125;);  ......(생략)......</code></pre><br/><h2 id="코드-리팩토링-Code-Refactoring"><a href="#코드-리팩토링-Code-Refactoring" class="headerlink" title="코드 리팩토링(Code Refactoring)"></a><strong>코드 리팩토링(Code Refactoring)</strong></h2><p>만약에 기존의 소스코드를 리팩토링했다고 가정하자. 코드는 바뀌었지만, 결과적으로 output은 같기 때문에 리팩토링을 한 뒤에 <ins><b>기존의 테스트 코드를 실행시켜서 결과값이 같은지 확인을 하면 쉽게 코드가 제대로 작동을 하는지 검증을 할 수 있다. </b></ins><br>이처럼 테스트 코드의 작성은 코드 리팩토링시에도 빠른 코드 검증을 가능하게 해준다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/jest_logo.png&quot;&gt;&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;p&gt;이번 포스팅에서는 Jest에서 테스트 코드를 작성할때 사용하는 &lt;code&gt;test와 it 키워드&lt;/code&gt;의 사용과 여러 개의 테스트 케</summary>
+      
+    
+    
+    
+    <category term="JavaScript-Test" scheme="https://leehyungi0622.github.io/categories/JavaScript-Test/"/>
+    
+    
+    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
+    
+    <category term="JavaScript-unit-test" scheme="https://leehyungi0622.github.io/tags/JavaScript-unit-test/"/>
     
   </entry>
   
