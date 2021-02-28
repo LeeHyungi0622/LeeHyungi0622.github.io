@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-27T09:45:03.287Z</updated>
+  <updated>2021-02-28T01:29:18.757Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210228 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/28/202102/210228-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/28/202102/210228-Self-development_til/</id>
+    <published>2021-02-28T01:00:00.000Z</published>
+    <updated>2021-02-28T01:29:18.757Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li>강사님한테 받은 Figma 시안 과제하기 (<code>진행중</code>)<ul><li>세부 Task작업으로 나눠서 작성하기 (<code>예정</code>)</li></ul></li><li>inline, block, inline-block에 대해서 글 포스팅하기 (<code>예정</code>)</li><li>HTML/CSS 테스트 문제풀기 (<code>예정</code>)</li><li>flex관련 글 포스팅하기 (<code>예정</code>)</li><li>이중 float 복합예제 찾아서 연습하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기 (<code>예정</code>)</li></ul></li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>210227 Self Development TIL</title>
@@ -143,6 +169,35 @@
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210222 HTML/CSS TIL - HTML, CSS, float</title>
+    <link href="https://leehyungi0622.github.io/2021/02/22/202102/210222-html_css_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/22/202102/210222-html_css_til/</id>
+    <published>2021-02-22T04:00:42.000Z</published>
+    <updated>2021-02-28T05:16:54.145Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-첫-수업"><a href="#HTML-CSS-첫-수업" class="headerlink" title="HTML/CSS 첫 수업"></a><strong>HTML/CSS 첫 수업</strong></h2><p>오늘 HTML/CSS 첫 수업을 들으면서 너무 좋았다. 내가 정말 원했던 수업내용과 방식이었고, HTML과 CSS를 정말 제대로 배울 수 있겠다는 느낌을 받았다.<br>프론트엔드 쪽으로 커리어를 쌓아 나갈 것이기 때문에 가장 기본이 되는 HTML/CSS를 제대로 알고 사용하는 개발자가 되기 위해서 정말 노력을 많이 해야겠다.</p><p>시작은 수업진행을 위한 전반적인 개발환경 구축 및 수업자료를 local환경에 준비하는 것으로 시작을 하였다.</p><p>본 수업 커리큘럼은 기본 HTML5/CSS3 ~ Sass(css 전처리기)사용까지 진행할 계획이라고 하셨다.</p><p>Sass에 대해 부가적인 설명은 Sass 중에서 Ruby Sass, Node Sass, Dart Sass가 있는데 Ruby Sass와 Node Sass는 이미 deprecated 되었기 때문에 <ins><b>Sass를 사용하기 위해서는 Dart Sass를 사용해야 한다</b></ins>고 설명해주셨다.</p><p>포스팅 내용 정리는 수업 전체 내용을 정리하는 것이 아닌, 내가 기존에 제대로 알고 있다고 생각되는 부분은 생략하고 <ins><b>제대로 알고 있지 않았던 부분과 새롭게 알게 된 내용 그리고 중요하다고 생각되는 내용을 위주로</b></ins> 정리를 해 나갈 계획이다.</p><h2 id="HTML5-이전과-이후"><a href="#HTML5-이전과-이후" class="headerlink" title="HTML5 이전과 이후"></a>HTML5 이전과 이후</h2><p>HTML5의 이전에는 HTML Tag의 요소를 block/inline 요소로만 구분을 했었다. 하지만 HTML5 이후에는 <code>콘텐츠 모델</code>이라는 개념이 등장을 하게 되었고, 기존에 block/inline 측면의 HTML 구조상에서 유효하지 않았던 태그 구조들이 <ins><b>콘텐츠 모델을 기준으로 가능</b></ins>하게 되었다.<br>콘텐츠 모델이라는 기준으로 작성한 HTML태그가 유효한 코드 구조인지 알기 위해서는 validation 체크를 하면서 작성을 해야한다.</p><p><a href="https://validator.w3.org/#validate_by_uri+with_options">https://validator.w3.org/#validate_by_uri+with_options</a></p><h2 id="W3C-Markup-Validation-Service"><a href="#W3C-Markup-Validation-Service" class="headerlink" title="W3C Markup Validation Service"></a>W3C Markup Validation Service</h2><p>내가 작성한 HTML 코드의 태그가 제대로 배치되어서 사용되고 있는지 체크해주는 Vlidation check service이다.<br>수업시간에 anchor tag와 button tag는 둘 다 interactive한 태그요소이기 때문에 중첩시켜서 작성하면 안된다고 설명해주셨다. 이러한 예처럼 각 태그의 특성을 제대로 파악하고 HTML의 구조를 만들어야 한다.</p><h2 id="HTML-태그에-class이름을-명명하는-방법"><a href="#HTML-태그에-class이름을-명명하는-방법" class="headerlink" title="HTML 태그에 class이름을 명명하는 방법"></a>HTML 태그에 class이름을 명명하는 방법</h2><p><img src="/images/post_images/210223_bem_img.jpg"></p><p>BEM이란? HTML 태그의 class이름을 Block 요소를 기준으로 작성을 하는 방법이다.<br>HTML 태그의 class이름은 그냥 작성을 하는 것이 아니라 BEM과 같은 규칙으로 작성을 해야한다.</p><hr/><h2 id="HTML-태그로-화면구성-구상하기"><a href="#HTML-태그로-화면구성-구상하기" class="headerlink" title="HTML 태그로 화면구성 구상하기"></a>HTML 태그로 화면구성 구상하기</h2><p>화면구성을 HTML태그로 구성하기 위해서는 화면 각 각의 Segment를 아래와 같은 sequence로 구성해나간다.</p><p><strong>첫 번째,</strong> 3단으로 구성할지 4단으로 구성할지 생각한다. 일반적으로 Semantic HTML을 살펴보면, 기본적으로 정해놓은 프레임이 있다. 하지만 페이지 구성에는 정해진 구조와 정답이 있는 것이 아니다.<br>예를들어, Header 태그와 nav 태그를 별도의 segment로 분리시킴으로써 4단으로 구성할 수도, 아니면 Header내부에 nav 태그를 위치시켜서 3단으로 구성할 수도 있다. 위에서 아래로 논리적인 흐름으로 화면 구성을 생각하도록 하자.</p><p><strong>두 번째,</strong> 어떤 구조와 태그로 화면을 구성했는가에는 이유가 있어야 한다. 내가 구성한 페이지 구성에서 사용된 모든 것들에는 직접 설명할 수 있어야 한다.</p><p><strong>세 번째,</strong> 기계가 알아들을 수 있는 각 각의 의미있는 태그로 페이지를 구성해야 한다. 이전에는 단순 div 태그로 페이지를 구성하였다. 하지만 HTML5 이후부터는 기본 화면 구성에 있어 다양한 태그들이 등장했다. 단순히 의미없이 화면의 Partition을 div 태그로 나누지 말고 의미있는 태그를 사용해서 나누는 연습을 하자.</p><p><strong>네 번째,</strong> 화면 전체 컨텐츠를 하나의 container로 묶어주는 작업을 한다. 나중에 화면전체를 한 단위로 컨트롤하기 편하기 때문에 전체를 container class로 묶어주도록 하자.</p><p><strong>다섯 번째,</strong> 페이지의 구성을 직접 손으로 그려가보면서 연습을 하도록 하자.</p><p><strong>여섯 번째,</strong> HTML 태그는 id, class 중에 class를 선언해서 각 element의 스타일을 조작한다.</p><hr/><h2 id="SEO-Search-Engine-Optimization"><a href="#SEO-Search-Engine-Optimization" class="headerlink" title="SEO (Search Engine Optimization)"></a>SEO (Search Engine Optimization)</h2><p>검색 엔진 최적화. 이 부분은 HTML 태그의 title 부분에 대해서 설명을 해주시면서 나온 개념이다.</p><p>이 title에 대한 이해없이 그냥 아무거나 작성하는 경우가 있는데 이 부분은 웹에서 검색을 했을때 해당 웹 페이지를 노출시킬 수 있는데 크게 기여하는 부분이다.<br>title 부분 이외에도 검색 엔진 최적화를 고려해서 개발을 할때 중요한 부분도 있으니 개별적으로 찾아보면서 공부를 할 필요가 있다.<br>프로젝트를 진행할때 SEO를 최대한 녹여내서 진행해보도록 한다.</p><hr/><h2 id="웹-브라우저의-작동과-화면-rendering에-대한-기본-개념-이해"><a href="#웹-브라우저의-작동과-화면-rendering에-대한-기본-개념-이해" class="headerlink" title="웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해"></a>웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해</h2><p>기술적인 부분에 치중해서 개발을 공부하는 경우가 많은데, 전체적인 골격을 우선 공부하는 것이 중요하다.<br>전체적인 골격이 되는 부분을 우선적으로 공부하고, 세세한 부분에 대해서는 나중에 추가적으로 공부를 하는 것이 중요하다.</p><hr/><h2 id="Emmet을-제대로-사용해서-생산성을-높이자"><a href="#Emmet을-제대로-사용해서-생산성을-높이자" class="headerlink" title="Emmet을 제대로 사용해서 생산성을 높이자."></a>Emmet을 제대로 사용해서 생산성을 높이자.</h2><p>Emmet 공식 홈페이지에 들어가면 사용하는 방법에 대한 documentation이 잘 되어있다.<br>아래의 코드는 Emmet을 활용하여 빠르게 HTML 태그들을 작성하는 예시이다.</p><pre><code class="html">&lt;!DOCTYPE html&gt;&lt;html lang=&quot;ko-KR&quot;&gt;  &lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot; /&gt;    &lt;title&gt;웹카페-HTML5, CSS3, 웹 표준, 접근성&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;    &lt;!-- div.container&gt;header.header+div.visual --&gt;    &lt;!-- &gt; : child, + : sibling --&gt;    &lt;div class=&quot;container&quot;&gt;      &lt;header class=&quot;header&quot;&gt;        &lt;nav class=&quot;navigation&quot;&gt;내비게이션&lt;/nav&gt;      &lt;/header&gt;      &lt;div class=&quot;visual&quot;&gt;비주얼&lt;/div&gt;      &lt;main class=&quot;main&quot;&gt;        &lt;!-- div.group.group$*3 --&gt;        &lt;!-- &lt;div class=&quot;group group1&quot;&gt;&lt;/div&gt;            &lt;div class=&quot;group group2&quot;&gt;&lt;/div&gt;            &lt;div class=&quot;group group3&quot;&gt;&lt;/div&gt; --&gt;        &lt;!-- div.group.group$&#123;그룹$&#125;*3 --&gt;        &lt;div class=&quot;group group1&quot;&gt;그룹1&lt;/div&gt;        &lt;div class=&quot;group group2&quot;&gt;그룹2&lt;/div&gt;        &lt;div class=&quot;group group3&quot;&gt;그룹3&lt;/div&gt;      &lt;/main&gt;      &lt;article class=&quot;slogan&quot;&gt;슬로건&lt;/article&gt;      &lt;footer class=&quot;footer&quot;&gt;푸터&lt;/footer&gt;    &lt;/div&gt;  &lt;/body&gt;&lt;/html&gt;</code></pre><hr/><h2 id="Classic-amp-Modern-레이아웃-배치"><a href="#Classic-amp-Modern-레이아웃-배치" class="headerlink" title="Classic &amp; Modern 레이아웃 배치"></a>Classic &amp; Modern 레이아웃 배치</h2><p>과거에는 페이지의 Layout 요소들을 배치할때 float, position을 사용하여 배치하였다. 하지만 요즘에는 flex나 grid를 사용해서 좀 더 편리하게 화면의 element들을 배치할 수 있다.</p><p>이 부분에 대해서는 별도로 포스팅하여 내용정리를 해 볼 것이다.</p><hr/><h2 id="그외-도움되는-이야기-Clone-coding은-어떻게-제대로-진행을-해야하는가"><a href="#그외-도움되는-이야기-Clone-coding은-어떻게-제대로-진행을-해야하는가" class="headerlink" title="그외 도움되는 이야기 : Clone coding은 어떻게 제대로 진행을 해야하는가?"></a><strong>그외 도움되는 이야기</strong> : Clone coding은 어떻게 제대로 진행을 해야하는가?</h2><p>클론코딩은 단순히 똑같이 만드는 것에 의미를 두는 것은 의미가 없다. 기존의 서비스를 클론코딩 해보았으면, 추가적으로 필요한 요소가 있는지 분석을 하고 추가를 하거나 개선되었으면 좋겠다는 부분도 추가적으로 생각해서 반영을 하는 것이 중요하다.</p><p>많은 사람들이 사용을 하고 있는 네이버의 <code>로그인 화면의 배치에도 개선할 점(로그인 상태 유지의 위치)</code>이 있다. 이처럼 이미 서비스하고 있는 유명한 웹이라고 하더라도 반드시 개선점은 있으니, 이 부분을 염두해두고 분석을 해보도록 하자.</p><hr/>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;HTML-CSS-첫-수업&quot;&gt;&lt;a href=&quot;#HTML-CSS-첫-수업&quot; class=&quot;headerlink&quot; title=&quot;HTML/CSS </summary>
+      
+    
+    
+    
+    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
     
   </entry>
   
@@ -507,66 +562,6 @@
     
     
     <category term="TDD" scheme="https://leehyungi0622.github.io/tags/TDD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 2747번 피보나치 수 문제 (다양한 방법으로 풀기)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Algorithm_baekjoon_2747/"/>
-    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Algorithm_baekjoon_2747/</id>
-    <published>2021-02-16T09:00:42.000Z</published>
-    <updated>2021-02-16T21:46:45.323Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code"><a href="#백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2747번 피보나치 수 문제 Pseudo code + Python code"></a>백준 저지 2747번 피보나치 수 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210217_fibonacci.png"></p><p>이 문제는 피보나치 수를 구하는 문제로, for-loop와 memoization, recursive 개념을 활용해서 풀이를 해보았다.<br>피보나치 수열의 값은 이미 계산된 값들의 누적 합으로 구성이 된다. 따라서 이미 계산된 부분은 별도의 변수에 값을 저장했다가 필요할때 참조하게 되면 빠르게 원하는 값을 도출해낼 수 있다.(fibonacci-memoization)</p><p><img src="/images/post_images/210216_baekjoon_2747.png"></p><p><code>손코딩으로 작성한 코드 중 for-loop로 풀이한 부분의 초기리스트로 [1,1]이 아닌 [0,1]로 초기화를 시켜줘야 한다.(수정)</code></p><pre><code class="python"># for-loopn = int(input())num_list = [0, 1]for i in range(2, n+1):    num_list.append(num_list[i-1]+num_list[i-2])print(num_list[-1])# memoization__fibo_memo = &#123;&#125;def fibo(n):    if n in __fibo_memo:        return __fibo_memo[n]    else:        __fibo_memo[n] = n if n &lt; 2 else fibo(n-1) + fibo(n-2)        return __fibo_memo[n]# recursive functiondef fibo(n):    return n if n &lt; 2 else fibo(n-1) + fibo(n-2)print(fibo(5))</code></pre><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210216 TypeScript Book TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/"/>
-    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Typescript/</id>
-    <published>2021-02-16T04:30:42.000Z</published>
-    <updated>2021-02-18T22:00:22.301Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/typescript_logo.png"></p><blockquote><p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p></blockquote><h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul><li><h3 id="타입-type-에-대한-이해"><a href="#타입-type-에-대한-이해" class="headerlink" title="타입(type)에 대한 이해"></a><strong>타입(type)에 대한 이해</strong></h3><p>이번에 독서를 통해서 타입(type)대해서 다시 정의해 볼 수 있었다. 기존에는 type에 대한 정의를 단순 data의 형식(string, number, list)에 국한된 개념으로만 알고 있었다.<br/><br>하지만 이 책에서는 <code>타입을 값과 이 값으로 할 수 있는 일의 집합</code>으로 정의하고 있다.<br><ins><b>예를들어, number 타입을 정의하자면 number라는 type으로써의 값과 숫자에 적용할 수 있는 모든 연산(+,-,*,/,%,||,&amp;&amp;,?등)과 숫자에 호출할 수 있는 모든 메서드(.concat, .toUpperCase 등)를 포괄적으로 포함하는 개념으로 정의할 수 있다.</b></ins><br/><br>이렇게 정의된 타입(type)의 정의를 통해 타입검사기(typechecker)는 주어진 값으로 할 수 있는 유효한 동작과 유효하지 않은 동작을 구분해서 유효하지 않은 동작이 실행되는 일을 예방할 수 있다.</p><br/><ul><li><h4 id="타입의-종류"><a href="#타입의-종류" class="headerlink" title="타입의 종류"></a><strong>타입의 종류</strong></h4><ul><li><p><strong>any</strong><br>타입들의 대부라고 할 수 있는 any. 이 any type은 꼭 필요한 상황이 아니라면 사용하지 않는 것이 좋다. 타입스크립트에서는 컴파일 타임에 모두가 타입이 있어야 하기 때문에 프로그래머와 타입스크립트 둘 다 타입을 알 수 없는 상황에서 any타입으로 가정한다. any를 사용해서 변수의 타입을 지정하게 되면, 자바스크립트처럼 동작하게 된다.</p><ul><li><strong>(TSC Flag: noImplicitAny)</strong> : 타입스크립트는 기본적으로 any로 추론되는 값을 발견하더라도 예외를 발생시키지 않는다. 만약에 any type에 대한 예외를 발생시키고 싶다면, <code>tsconfig.json</code>에서 strict을 true로 정의하거나 noImplicitAny flag를 활성화시켜주면 된다. (noImplicitAny는 strict의 family이기 때문이다)</li></ul></li></ul><br/><ul><li><strong>unknown</strong><br>타입을 미리 알 수 없는 어떤 값에 대해 타입을 정의할때 <code>any보다는 unknown을 사용하는 것이 권장</code>된다.<br>그 이유는 unknown을 사용해서 타입을 미리 알 수 없는 값에 대한 타입을 정의하게 되면, unknown type을 검사해 정제하기 전까지는 타입스크립트가 unknown 타입의 값을 사용할 수 없게 강제한다. unknown 타입은 비교연산(==,===,||,&amp;&amp;,?)과 반전(!)을 지원하고 다른 타입들과 마찬가지로 typeof, instanceof 연산자로 정제할 수 있다.<pre><code class="javascript">let a: unknown = 30;let c = a + b; // unknown type의 값은 + 연산자를 지원하지 않는다.(a 변수의 타입을 정제한 뒤에 기본 사칙연산 사용가능)// typeof를 사용해서 unknown type의 변수를 정제할 수 있다.if (typeof a === &quot;number&quot;) &#123;  let d = a + 10; // number&#125;</code></pre></li></ul><br/><ul><li><strong>boolean</strong><br>기본적으로 개발자들은 대개 타입스크립트가 타입을 추론하도록 작성한다.<br>타입스크립트에서는 값이 특정 boolean임을 명시적으로 타입스크립트에게 알릴 수 있다.<ul><li><strong>타입 리터럴(type literal)</strong><br>아래의 예시 코드에서 변수 e는 true라는 특정한 하나의 값으로 타입을 한정시켰다. 이처럼 오직 하나의 값을 나타내는 타입을 <code>타입 리터럴(type literal)</code>이라고 한다.<br>이 타입 리터럴은 모든 곳에서 일어날 수 있는 실수를 방지해서 안전성을 추가로 확보해주는 강력한 언어의 기능이다.<pre><code class="javascript">const c = true; // 어떤 값이 특정 boolean인지 타입스크립트가 추론하게 만든다.let e: true = true;let f: true = false; // error TS2322 &#39;false&#39;type을 &#39;true&#39; type에 할당할 수 없다.</code></pre></li></ul></li></ul><br/><ul><li><p><strong>number</strong><br>number type 또한 boolean과 같이 타입스크립트가 타입을 추론하도록 작성을 한다.<br>아래와 같이 number도 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.</p><pre><code class="javascript">let f: 2.218 = 2.218;let g: 2.218 = 10; // error TS2322: &#39;10&#39;타입을 &#39;26.218&#39;타입에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>bigint</strong><br>bigint 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>bigint는 자바스크립트와 타입스크립트에 새롭게 추가된 타입으로, 253까지의 정수를 표현할 수 있는 number 대비 bigint를 사용하면 더 큰 수도 표현할 수 있다.<br>bigint는 기본 사칙연산을 포함한 연산을 지원한다.<br><code>일부 자바스크립트 엔진에서는 지원을 안할 수도 있기 때문에 사용하기 전에 대상 플랫폼이 지원을 하는지 확인이 필요하다.</code></p><pre><code class="javascript">let a = 1234n; //bigintconst b = 5678n; //bigintvar c = a + b; //bigintlet g: 100n = 100n;let h: bigint = 100; // 100 type은 bigint 타입에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>string</strong><br>string 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>string은 모든 문자열의 집합으로 연결(+)과 슬라이스(.slice)등의 연산을 수행할 수 있다.</p><pre><code class="javascript">let f: &quot;john&quot; = &quot;john&quot;; // &#39;john&#39;let g: &quot;john&quot; = &quot;zoe&quot;; // &#39;zoe&#39;type을 &#39;john&#39;type에 할당할 수 없다.</code></pre></li></ul><br/><ul><li><p><strong>symbol</strong><br>symbol은 실무에서는 자주 사용하지 않는다.<br>주로 객체와 맵에서 문자열 키 를 대신하는 용도로 사용된다.<br>Symbol(‘a’)는 주어진 이름으로 새로운 symbol(unique)을 만든다는 의미이다. Symbol타입의 값을 타입스크립트가 추론하도록 코드를 작성하면,<br>추론되는 타입이 symbol이 아닌 typeof (variable)로 정의된다.<br>Symbol type의 값을 const 변수에 넣어주면, unique symbol로 정의할 수 있다.</p><pre><code class="javascript">const e = Symbol(&#39;e&#39;) // typeof econst f: unique symbol = Symbol(&#39;f&#39;) // typeof f</code></pre></li></ul><br/><ul><li><p><strong>객체</strong><br>타입스크립트의 객체(Object) 타입은 객체의 형태(Shape)를 정의한다.<br>객체의 타입만으로 간단한 객체({}로 생성)와 복잡한 객체{new로 생성}를 구분할 수 없다.<br>이는 자바스크립트가 <code>구조 기반 타입(structural type</code>을 갖도록 설계가 되었기 때문이다)</p><blockquote><p>구조 기반 타입화에서는 객체의 이름에 상관없이 객체가 어떤 프로퍼티를 갖고 있는지를 따진다. 이를 일부 언어에서는 덕 타이핑(duck typing)이라고 정의한다.</p></blockquote><ul><li><p><strong>객체를 서술하는 방법</strong><br>(1) <strong>object 선언을 통한 객체 서술</strong><br>object는 any보다 조금 더 좁은 타입으로, object로 선언된 객체에 서술한 값에 관한 정보를 참조할 수 없다. 단지 해당 값 자체가 null이 아닌 자바스크립트의 객체라고 명시해준다.</p><p>(2) <strong>타입스크립트가 추론하도록 작성</strong><br><code>객체 리터럴 문법</code>을 사용해서 객체 타입을 만들 수 있다. 타입스크립트가 객체의 형태를 추론하게 하거나 중괄호 안에 명시적으로 지정해 줄 수 있다.<br>객체 리터럴 문법은 “이런 형태의 물건이 있어” 라고 타입스크립트에게 알려주는 기능을 한다.</p><pre><code class="javascript">let a = &#123;  // &#123;b: string&#125;  b: &quot;x&quot;&#125;;let b = &#123;  // &#123;c: &#123;d: string&#125;&#125;  c: &#123;    d: &quot;f&quot;  &#125;&#125;;let c: &#123; firstName: string, lastName: string &#125; = &#123;  firstName: &quot;john&quot;,  lastName: &quot;barrowman&quot;&#125;;class Person &#123;  constructor(    public firstName: string,    public lastName: string  )&#123;&#125;&#125;c = new Person(&#39;matt&#39;, &#39;smith&#39;)// 타입스크립트에서는 형태를 지정해주면 지정해준 형태에 해당하는 값은 반드시 내부에 선언을 해줘야 한다.// 만약에 선택적으로 선언이 되는 속성이라면 아래와 같이 ?로 nullable한 속성이라고 정의를 해주면 된다.let d : &#123; firstName: string, lastName?: string&#125; = &#123;  firstName: &quot;merry&quot;&#125;</code></pre><p><code>인덱스 시그니처(index signature)</code>란 [key: T]: U와 같은 문법을 말한다. 어떤 객체가 여러 키를 가질 수 있음을 알려주며, 해당 객체에서 모든 T 타입의 키는 U 타입의 값을 갖는다고 정의한다. 인덱스 시그니처를 이용하면 명시적으로 정의한 키 외에 다양한 키를 객체에 안전하게 추가할 수 있다.<br>자바스크립트에서는 문자열을 키의 타입으로 사용하고 있기 때문에 인덱스 시그니처의 키(T)는 반드시 number나 string 타입에 할당할 수 있는 타입이어야 한다.</p><pre><code class="javascript">let a: &#123;  b: number  c?:string  [key: number]: boolean&#125;a = &#123;b: 1&#125; // 인덱스 시그니처로 작성한 인자의 경우, optional 하게 넣어줄 수 있다.a = &#123;b: 1, c: undefined&#125;a = &#123;b: 1, c: &#39;d&#39;&#125;a = &#123;b: 1, 10: true&#125;let airplaneSeatingAssignments: &#123;  [seatNumber: string]: string&#125; = &#123;  &quot;34D&quot;: &quot;Boris Cherny&quot;,  &quot;34E&quot;: &quot;Bill Gates&quot;&#125;;</code></pre><p>객체의 타입을 정의할때에 <code>선택형(?)</code>만 사용할 수 있는 것이 아닌 필요하면 <code>readonly 한정자</code>를 이용해서 특정 필드를 읽기 전용으로 정의할 수 있다.<br>즉, readonly로 정의한 특정 필드값은 초깃값을 할당한 다음에 그 값을 바꿀 수 없다.</p><pre><code class="javascript">let user: &#123;  readonly firstName: string&#125; = &#123;  firstName: &#39;abby&#39;&#125;</code></pre><p><code>2020/02/19 업데이트 내용</code><br>또 다른 객체 리터럴 표기법에는 <code>빈 객체 타입(&#123;&#125;)과 객체: Object</code>이라는 특별한 경우도 있다.<br>빈 객체 타입에는 null과 undefined를 제외한 모든 타입이 할당 될 수 있다. 따라서 가능한 한 빈 객체는 피하는 것이 좋다.<br>두 객체 리터럴 표기법은 서로 비슷하며 사용하는 것을 권장하지 않는다.</p><pre><code class="javascript">let danger: &#123;&#125;;danger = &#123;&#125;;danger = &#123; x: 1 &#125;;danger = [];</code></pre><p><ins><b>object타입과 Object타입을 사용한 객체 정의</b></ins><br/><br>object로 객체를 정의하는 것은 객체의 구체적인 필드 형태는 중요하지 않고 <code>단지 객체 자체가 필요할때</code> 사용된다.</p></li></ul></li></ul></li></ul></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/typescript_logo.png&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였</summary>
-      
-    
-    
-    
-    <category term="TIL:TypeScript" scheme="https://leehyungi0622.github.io/categories/TIL-TypeScript/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="TypeScript" scheme="https://leehyungi0622.github.io/tags/TypeScript/"/>
-    
-    <category term="self-development" scheme="https://leehyungi0622.github.io/tags/self-development/"/>
     
   </entry>
   
