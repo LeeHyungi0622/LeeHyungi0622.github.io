@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-02-28T01:29:18.757Z</updated>
+  <updated>2021-03-01T06:32:31.066Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>210228 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/28/202102/210228-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/28/202102/210228-Self-development_til/</id>
-    <published>2021-02-28T01:00:00.000Z</published>
-    <updated>2021-02-28T01:29:18.757Z</updated>
+    <title>210301 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/03/01/202103/210301-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/03/01/202103/210301-Self-development_til/</id>
+    <published>2021-03-01T01:23:00.000Z</published>
+    <updated>2021-03-01T06:32:31.066Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li>강사님한테 받은 Figma 시안 과제하기 (<code>진행중</code>)<ul><li>세부 Task작업으로 나눠서 작성하기 (<code>예정</code>)</li></ul></li><li>inline, block, inline-block에 대해서 글 포스팅하기 (<code>예정</code>)</li><li>HTML/CSS 테스트 문제풀기 (<code>예정</code>)</li><li>flex관련 글 포스팅하기 (<code>예정</code>)</li><li>이중 float 복합예제 찾아서 연습하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기 (<code>예정</code>)</li></ul></li></ul><br/></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li><p><del>강사님한테 받은 Figma 시안 과제하기</del> (<code>완료</code>)</p><ul><li><del>로그인 상태 유지 및 IP 보안 ON/OFF 체크박스 수정하기</del> (<code>완료</code>)</li><li><del>개선안 3을 위한 CSS 이벤트 처리관련 조사 및 구현</del> (<code>완료</code>)</li><li><del>반응형 웹 페이지 구현하기</del> (<code>완료</code>)</li><li><del>Project Reflection 작성하기</del> (<code>완료</code>)</li></ul></li><li><p><del>HTML/CSS 테스트 문제풀기</del> (<code>완료</code>)</p></li><li><p>inline, block, inline-block에 대해서 글 포스팅하기 (<code>예정</code>)</p></li><li><p>flex관련 글 포스팅하기 (<code>예정</code>)</p></li></ul><br/></li><li><p><ins><strong>백준 알고리즘 문제풀기</strong></ins></p><ul><li>백준 알고리즘 17609번 회문 문제풀이하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기 (<code>예정</code>)</li></ul></li></ul><br/></li></ul>]]></content>
     
     
       
@@ -36,9 +36,35 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
+  </entry>
+  
+  <entry>
+    <title>210228 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/02/28/202102/210228-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/02/28/202102/210228-Self-development_til/</id>
+    <published>2021-02-28T01:00:00.000Z</published>
+    <updated>2021-02-28T06:06:07.398Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Thought-of-the-day"><a href="#Thought-of-the-day" class="headerlink" title="Thought of the day"></a><strong>Thought of the day</strong></h2><p><strong>실패한 고통보다 최선을 다하지 못했음을 깨닫는 것이 몇배 더 고통스럽다.</strong><br/> <strong>- 앤드류 매튜스</strong></p><br/><p><img src="/images/post_images/self_development_logo.jpg"></p><h2 id="TO-DO-LIST"><a href="#TO-DO-LIST" class="headerlink" title="TO DO LIST"></a><strong>TO DO LIST</strong></h2><ul><li><p><ins><strong>HTML/CSS 메인강의</strong></ins></p><ul><li>강사님한테 받은 Figma 시안 과제하기 (<code>진행중</code>)<ul><li><del>세부 Task작업으로 나눠서 작성하기</del> (<code>완료</code>)</li><li><del>#1 - #5 Task</del> (<code>완료</code>)</li></ul></li><li>inline, block, inline-block에 대해서 글 포스팅하기 (<code>예정</code>)</li><li>HTML/CSS 테스트 문제풀기 (<code>예정</code>)</li><li>flex관련 글 포스팅하기 (<code>예정</code>)</li><li>이중 float 복합예제 찾아서 연습하기 (<code>예정</code>)</li></ul><br/></li><li><p><ins><strong>ReactJS project 프로젝트</strong></ins></p><ul><li><strong>프로젝트 진척</strong><ul><li>HTML Page Segmentation handwriting해서 페이지 구성해보기 (<code>예정</code>)</li></ul></li></ul><br/></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the day&lt;/stro</summary>
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -62,9 +88,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -88,9 +114,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -114,9 +140,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -140,9 +166,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -166,9 +192,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -192,9 +218,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -218,9 +244,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -269,9 +295,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -328,9 +354,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -384,9 +410,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -444,9 +470,9 @@
     <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
     
     
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
     <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
     
@@ -474,9 +500,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -533,36 +559,6 @@
     
     
     <category term="TDD" scheme="https://leehyungi0622.github.io/tags/TDD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baekjoon Online Judge 2747번 피보나치 수 문제 (다양한 방법으로 풀기)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/16/202102/210216-Algorithm_baekjoon_2747/"/>
-    <id>https://leehyungi0622.github.io/2021/02/16/202102/210216-Algorithm_baekjoon_2747/</id>
-    <published>2021-02-16T09:00:42.000Z</published>
-    <updated>2021-02-16T21:46:45.323Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code"><a href="#백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 2747번 피보나치 수 문제 Pseudo code + Python code"></a>백준 저지 2747번 피보나치 수 문제 Pseudo code + Python code</h2><p><img src="/images/post_images/210217_fibonacci.png"></p><p>이 문제는 피보나치 수를 구하는 문제로, for-loop와 memoization, recursive 개념을 활용해서 풀이를 해보았다.<br>피보나치 수열의 값은 이미 계산된 값들의 누적 합으로 구성이 된다. 따라서 이미 계산된 부분은 별도의 변수에 값을 저장했다가 필요할때 참조하게 되면 빠르게 원하는 값을 도출해낼 수 있다.(fibonacci-memoization)</p><p><img src="/images/post_images/210216_baekjoon_2747.png"></p><p><code>손코딩으로 작성한 코드 중 for-loop로 풀이한 부분의 초기리스트로 [1,1]이 아닌 [0,1]로 초기화를 시켜줘야 한다.(수정)</code></p><pre><code class="python"># for-loopn = int(input())num_list = [0, 1]for i in range(2, n+1):    num_list.append(num_list[i-1]+num_list[i-2])print(num_list[-1])# memoization__fibo_memo = &#123;&#125;def fibo(n):    if n in __fibo_memo:        return __fibo_memo[n]    else:        __fibo_memo[n] = n if n &lt; 2 else fibo(n-1) + fibo(n-2)        return __fibo_memo[n]# recursive functiondef fibo(n):    return n if n &lt; 2 else fibo(n-1) + fibo(n-2)print(fibo(5))</code></pre><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/post_images/210124_developer.jpg"></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-2747번-피보나치-수-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title=&quot;백준</summary>
-      
-    
-    
-    
-    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
-    
-    
-    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
-    
-    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
-    
-    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
     
   </entry>
   
