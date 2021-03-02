@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-03-02T01:05:00.827Z</updated>
+  <updated>2021-03-02T03:14:45.024Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Baekjoon Online Judge 17609번  회문/유사회문 문제 (다각도에서 문제 바라보기)</title>
+    <link href="https://leehyungi0622.github.io/2021/03/02/202103/210302-Algorithm_baekjoon_17609/"/>
+    <id>https://leehyungi0622.github.io/2021/03/02/202103/210302-Algorithm_baekjoon_17609/</id>
+    <published>2021-03-02T03:09:42.000Z</published>
+    <updated>2021-03-02T03:14:45.024Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="백준-저지-17609번-회문-유사회문-문제-Pseudo-code-Python-code"><a href="#백준-저지-17609번-회문-유사회문-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 17609번 회문/유사회문 문제 Pseudo code + Python code"></a>백준 저지 17609번 회문/유사회문 문제 Pseudo code + Python code</h2><p><ins><b>문제풀이 접근 방식 : 재귀호출</b></ins></p><h3 id="Pseudo-code-1-RecursionError"><a href="#Pseudo-code-1-RecursionError" class="headerlink" title="Pseudo code #1 RecursionError"></a>Pseudo code #1 RecursionError</h3><p><img src="/images/post_images/210302_baekjoon_17609_recursive-method-solution.png"></p><h3 id="본-코드-1"><a href="#본-코드-1" class="headerlink" title="본 코드 #1"></a>본 코드 #1</h3><pre><code class="python">shift_flag = Falsedef palindrome(input_str):    global shift_flag    if len(input_str) &lt;= 1:        if shift_flag:            return 1        return 0    if input_str[0] != input_str[-1]:        if input_str[0] == input_str[-2]:            shift_flag = True            input_str = input_str[0:-1]        elif input_str[1] == input_str[-1]:            shift_flag = True            input_str = input_str[1:]        else:            return 2    return palindrome(input_str[1:-1])n = int(input())for _ in range(n):    input_str = input()    print(palindrome(input_str))</code></pre><p>첫 번째 재귀함수를 사용한 풀이 방법에는 문제가 있다. 파이썬의 최대 재귀 깊이(maximum recursion depth)가 1000으로 정해져 있다.<br>따라서 문제의 조건 <code>주어지는 문자열의 길이는 3 이상 100,000 이하이고, 영문 알파벳 소문자로만 이루어져 있다.</code>라는 조건에 있어서 최장 문자열의 길이에 대한 적절한 해결책이 되지 못한다.</p><p>최소한으로 재귀호출을 해서 문제를 해결해야 한다.</p><h3 id="Pseudo-code-2-최소-재귀호출"><a href="#Pseudo-code-2-최소-재귀호출" class="headerlink" title="Pseudo code #2 최소 재귀호출"></a>Pseudo code #2 최소 재귀호출</h3><p>유사 재귀호출의 경우에만 재귀호출 형태로 함수를 호출하고 회문인 경우에는 조건처리가 끝나면 자동으로 회문인 것으로 간주한다.</p><p><img src="/images/post_images/210302_baekjoon_17609_less_recursive-method-solution.png"></p><h3 id="본-코드-2"><a href="#본-코드-2" class="headerlink" title="본 코드 #2"></a>본 코드 #2</h3><pre><code class="python"># 유사회문 검사 functiondef inner_palindrome(input_str, start, end):    while start &lt; end:        if input_str[start] == input_str[end]:            start += 1            end -= 1        else:            return False    return Truedef palindrome(input_str, start, end):    while start &lt; end:        if input_str[start] == input_str[end]:            start += 1            end -= 1        else:            fc = inner_palindrome(input_str, start, end-1)            sc = inner_palindrome(input_str, start+1, end)            #  fc와 sc 둘 중에 하나를 만족한다면, 유사 회문이기 때문에 값 1을 반환해준다.            if fc or sc:                return 1            else:                return 2    return 0test_case = int(input())for _ in range(test_case):    input_str = input()    print(palindrome(input_str, 0, len(input_str)-1))</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;백준-저지-17609번-회문-유사회문-문제-Pseudo-code-Python-code&quot;&gt;&lt;a href=&quot;#백준-저지-17609번-회문-유사회문-문제-Pseudo-code-Python-code&quot; class=&quot;headerlink&quot; title</summary>
+      
+    
+    
+    
+    <category term="Algorithm-problem-solving" scheme="https://leehyungi0622.github.io/categories/Algorithm-problem-solving/"/>
+    
+    
+    <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
+    
+    <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
+    
+    <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
+    
+    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
+    
+  </entry>
   
   <entry>
     <title>210302 Self Development TIL</title>
@@ -120,28 +150,6 @@
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://leehyungi0622.github.io/2021/02/28/202103/style/"/>
-    <id>https://leehyungi0622.github.io/2021/02/28/202103/style/</id>
-    <published>2021-02-27T17:24:11.531Z</published>
-    <updated>2021-02-27T17:51:43.579Z</updated>
-    
-    <content type="html"><![CDATA[section {    margin: 50px 0;}]]></content>
-    
-    
-      
-      
-    <summary type="html">section {
-    margin: 50px 0;
-}</summary>
-      
-    
-    
-    
     
   </entry>
   
