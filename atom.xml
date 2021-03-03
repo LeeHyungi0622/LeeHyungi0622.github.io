@@ -65,18 +65,18 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
   <entry>
-    <title>210302 HTML/CSS TIL - (작성중...)</title>
+    <title>210302 HTML/CSS TIL - 키워드 작성완료(세부내용 작성중...)</title>
     <link href="https://leehyungi0622.github.io/2021/03/02/202103/210302-html_css_til/"/>
     <id>https://leehyungi0622.github.io/2021/03/02/202103/210302-html_css_til/</id>
     <published>2021-03-02T10:40:42.000Z</published>
-    <updated>2021-03-03T03:42:15.465Z</updated>
+    <updated>2021-03-03T03:44:53.170Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-여섯-번째-수업"><a href="#HTML-CSS-여섯-번째-수업" class="headerlink" title="HTML/CSS 여섯 번째 수업"></a><ins><b>HTML/CSS 여섯 번째 수업</b></ins></h2><p>오늘은 HTML/CSS 여섯 번째 수업날이었다. 오늘도 많은 유익한 내용들을 배울 수 있던 날이었다. 이 모든 것들을 내 것으로 만들기 위해 끊임없이 노력하자.</p><h2 id="레이아웃-구성할-때는-콘텐츠의-논리적-순서-흐름을-파악하고-나서-구체적인-태그의-배치-시맨틱-마크업-를-고려한다"><a href="#레이아웃-구성할-때는-콘텐츠의-논리적-순서-흐름을-파악하고-나서-구체적인-태그의-배치-시맨틱-마크업-를-고려한다" class="headerlink" title="레이아웃 구성할 때는 콘텐츠의 논리적 순서 흐름을 파악하고 나서 구체적인 태그의 배치(시맨틱 마크업)를 고려한다."></a>레이아웃 구성할 때는 콘텐츠의 논리적 순서 흐름을 파악하고 나서 구체적인 태그의 배치(시맨틱 마크업)를 고려한다.</h2><p>이 내용에 대해서는 HTML/CSS 수업 초반에 강사님께서 강조해주셨던 내용이다. 지금은 개인적으로 레이아웃 설계 연습을 할 때도 항상 되뇌이면서 연습을 하고 있다. 오늘 이 부분에 대해서 강사께서 어쩌면 실무에서 일을 하면서 이러한 콘텐츠의 논리적 순서를 고려하지 않고 레이아웃을 단순 디자인적 관점에서 보게 될 수도 있고, 상황에 따라서는 타협을 해야 될 때가 온다고 하셨다. 이럴때에는 최소한의 접근성을 고려해야 되는 요소만은 지켜서 레이아웃을 설계하면 된다고 하셨다.</p><p><code>콘텐츠의 논리적 순서 → 시맨틱 마크업 → Class 네이밍</code></p><h2 id="구체적인-태그를-배치할-때에는-Block-element는-길게-inline-element는-짧게-그려서-각-태그의-속성을-가시적으로-구분할-수-있도록-하자"><a href="#구체적인-태그를-배치할-때에는-Block-element는-길게-inline-element는-짧게-그려서-각-태그의-속성을-가시적으로-구분할-수-있도록-하자" class="headerlink" title="구체적인 태그를 배치할 때에는 Block element는 길게, inline element는 짧게 그려서 각 태그의 속성을 가시적으로 구분할 수 있도록 하자."></a>구체적인 태그를 배치할 때에는 <strong>Block element는 길게, inline element는 짧게 그려서</strong> 각 태그의 속성을 가시적으로 구분할 수 있도록 하자.</h2><p>태그의 배치도를 그릴 때 앞에서 명시한대로 Block element와 inline element를 구분해서 그려주게 되면, 가시적으로 각 element의 특성을 구분해서 화면 배치를 할때 처리해야 될 스타일링 요소도 같이 고려를 할 수 있다.</p><h2 id="화면의-요소를-배치할때-논리적-순서를-유지할-수-있는-부분은-최대한-유지하고-배치하도록-하자"><a href="#화면의-요소를-배치할때-논리적-순서를-유지할-수-있는-부분은-최대한-유지하고-배치하도록-하자" class="headerlink" title="화면의 요소를 배치할때 논리적 순서를 유지할 수 있는 부분은 최대한 유지하고 배치하도록 하자."></a>화면의 요소를 배치할때 논리적 순서를 유지할 수 있는 부분은 최대한 유지하고 배치하도록 하자.</h2><p>첫 번째 노트를 살펴보자. article 부분을 보면 Thumbnail Image와 title, date, content를 배치해야 되는 레이아웃이다. 처음 이 구조를 보았을 때에 전체적인 article의 position 속성을 relative로 처리하고 내부의 각 요소들의 position을 absolute로 처리해서 요소 배치를 하려고 하였다.<br>하지만, Thumbnail Image를 제외한 나머지 부분을 보면 기존에 작성한 태그들의 논리적 흐름을 유지한다.<br>따라서 article 요소의 position 속성은 relative로 주고, article 내의 요소들을 배치할때에는 Thumbnail Image만 position을 absolute로 하고, top, left 속성을 주어 요소 배치를 하면 쉽게 배치를 할 수 있다.</p><p>그리고 추가적으로 늘어날 가능성이 있는 요소의 경우, position 속성을 사용해서 화면에 배치하지 않도록 하는 것이 좋다. 예를 들어 콘텐츠의 내용은 얼마든지 늘어날 가능성이 있는 부분이기 때문에 이 부분은 되도록이면 position 속성을 지정해서 화면에 배치하지 않는 것이 좋다.</p><h2 id="figure-태그를-사용해서-이미지와-이미지-캡션을-배치하자"><a href="#figure-태그를-사용해서-이미지와-이미지-캡션을-배치하자" class="headerlink" title="figure 태그를 사용해서 이미지와 이미지 캡션을 배치하자."></a>figure 태그를 사용해서 이미지와 이미지 캡션을 배치하자.</h2><h2 id="anchor-태그의-label은-아래-두-가지-경우로-대체할-수-있다"><a href="#anchor-태그의-label은-아래-두-가지-경우로-대체할-수-있다" class="headerlink" title="anchor 태그의 label은 아래 두 가지 경우로 대체할 수 있다."></a>anchor 태그의 label은 아래 두 가지 경우로 대체할 수 있다.</h2><h2 id="CSS의-root-로-스타일-속성-값을-변수로-선언해서-재-사용성을-높일-수-있다"><a href="#CSS의-root-로-스타일-속성-값을-변수로-선언해서-재-사용성을-높일-수-있다" class="headerlink" title="CSS의 :root{ }로 스타일 속성 값을 변수로 선언해서 재 사용성을 높일 수 있다."></a>CSS의 :root{ }로 스타일 속성 값을 변수로 선언해서 재 사용성을 높일 수 있다.</h2><h2 id="Sass와-Less-그-외의-CSS-전처리기"><a href="#Sass와-Less-그-외의-CSS-전처리기" class="headerlink" title="Sass와 Less 그 외의 CSS 전처리기"></a>Sass와 Less 그 외의 CSS 전처리기</h2><h2 id="실무에서의-태그-스타일링-방법"><a href="#실무에서의-태그-스타일링-방법" class="headerlink" title="실무에서의 태그 스타일링 방법"></a>실무에서의 태그 스타일링 방법</h2><h2 id="positioning에-따른-element의-성격-변화"><a href="#positioning에-따른-element의-성격-변화" class="headerlink" title="positioning에 따른 element의 성격 변화"></a>positioning에 따른 element의 성격 변화</h2><h2 id="DOM-CSSOM-Render-Tree"><a href="#DOM-CSSOM-Render-Tree" class="headerlink" title="DOM + CSSOM Render Tree"></a>DOM + CSSOM Render Tree</h2><h2 id="기존에-Presentation-특성의-태그가-HTML5부터-구체적인-의미를-갖게-되었다"><a href="#기존에-Presentation-특성의-태그가-HTML5부터-구체적인-의미를-갖게-되었다" class="headerlink" title="기존에 Presentation 특성의 태그가 HTML5부터 구체적인 의미를 갖게 되었다."></a>기존에 Presentation 특성의 태그가 HTML5부터 구체적인 의미를 갖게 되었다.</h2><h2 id="rgba-와-hsla-의-비교"><a href="#rgba-와-hsla-의-비교" class="headerlink" title="rgba()와 hsla()의 비교"></a>rgba()와 hsla()의 비교</h2><h2 id="1px보다-얇은-디자인-이듬의-브런치-글귀"><a href="#1px보다-얇은-디자인-이듬의-브런치-글귀" class="headerlink" title="1px보다 얇은 디자인 (이듬의 브런치 글귀)"></a>1px보다 얇은 디자인 (이듬의 브런치 글귀)</h2><h2 id="시맨틱적인-이름이-아닌-디자인적인-이름으로-클래스-이름을-작성해서-공통-CSS-스타일을-모듈화-하기"><a href="#시맨틱적인-이름이-아닌-디자인적인-이름으로-클래스-이름을-작성해서-공통-CSS-스타일을-모듈화-하기" class="headerlink" title="시맨틱적인 이름이 아닌 디자인적인 이름으로 클래스 이름을 작성해서 공통 CSS 스타일을 모듈화 하기"></a>시맨틱적인 이름이 아닌 디자인적인 이름으로 클래스 이름을 작성해서 공통 CSS 스타일을 모듈화 하기</h2><h2 id="스프라이트-기법-CSS-Sprites"><a href="#스프라이트-기법-CSS-Sprites" class="headerlink" title="스프라이트 기법 (CSS Sprites)"></a>스프라이트 기법 (CSS Sprites)</h2><h2 id="JS에서-별도로-컨트롤할-element의-집합은-별도의-wrapper-container로-묶어서-처리한다"><a href="#JS에서-별도로-컨트롤할-element의-집합은-별도의-wrapper-container로-묶어서-처리한다" class="headerlink" title="JS에서 별도로 컨트롤할 element의 집합은 별도의 wrapper container로 묶어서 처리한다."></a>JS에서 별도로 컨트롤할 element의 집합은 별도의 wrapper container로 묶어서 처리한다.</h2><p>별도의 wrapper container로 묶어서 처리하게 되면 나중에 해당 container의 id로 내부의 element에 접근하기가 용이해진다.</p><h2 id="img-태그에서의-대체-텍스트를-바라보는-시각-차이"><a href="#img-태그에서의-대체-텍스트를-바라보는-시각-차이" class="headerlink" title="img 태그에서의 대체 텍스트를 바라보는 시각 차이"></a>img 태그에서의 대체 텍스트를 바라보는 시각 차이</h2><p>강사님께서 아시는 디자이너 지인 분의 아이패드 당첨 에피소드로 재미있게 이 대체 텍스트에 대해서 이야기를 해주셨다. 일반인의 시각에서는 배너광고를 통해 당첨 이벤트라는 것을 알 수 있지만, 시각 장애인의 입장에서는 배너광고의 이미지를 대체 텍스트를 통해 해당 배너 광고가 어떤 내용인지 알 수 있다.<br>이 대체 텍스트를 바라보는 시각이 두 가지로 나뉘게 되는데, 첫 번째로 “대체 텍스트를 화면에 표시된 이미지 내의 텍스트 정보만으로 동일하게 담아서 처리를 하고, 부가 정보의 경우에는 title 속성에 담아준다.”라는 시각과 두 번째로 “대체 텍스트를 부가 정보의 개념으로 어떠한 목적으로 해당 이미지가 삽입되었는지에 대한 부가 정보를 이 대체 텍스트에 넣어 준다.” 라는 시각이 존재한다. 이는 개발자의 개별적인 시각에 따라 다르기 때문에 어떤 것이 맞고 틀린 것이 아니다.</p><h2 id="aria-label과-IR-기법으로-화면에-표시한-텍스트-숨김처리-하기"><a href="#aria-label과-IR-기법으로-화면에-표시한-텍스트-숨김처리-하기" class="headerlink" title="aria-label과 IR 기법으로 화면에 표시한 텍스트 숨김처리 하기"></a>aria-label과 IR 기법으로 화면에 표시한 텍스트 숨김처리 하기</h2><p>IR 기법으로 화면에 표시한 텍스트를 숨김처리하는 연습예제는 수업 실습 프로젝트의 <code>ir.html</code> 파일을 참고하고, 수업 노트는 6번째 노트 필기를 참고하도록 하자.</p><hr/><p><ins><b>remind를 위해 수업시간에 필기했던 노트를 첨부한다. </b></ins></p><table>  <tr>    <td><img src="/images/post_images/210302_html_css_note1.png" alt="개인공부 노트1"></td>    <td><img src="/images/post_images/210302_html_css_note2.png" alt="개인공부 노트2"></td>  </tr>  <tr>    <td><img src="/images/post_images/210302_html_css_note3.png" alt="개인공부 노트3"></td>    <td><img src="/images/post_images/210302_html_css_note4.png" alt="개인공부 노트4"></td>  </tr>  <tr>    <td><img src="/images/post_images/210302_html_css_note5.png" alt="개인공부 노트5"></td>    <td><img src="/images/post_images/210302_html_css_note6.png" alt="개인공부 노트6"></td>  </tr>  <tr>    <td><img src="/images/post_images/210302_html_css_note7.png" alt="개인공부 노트7"></td>    <td></td>  </tr></table>]]></content>
     
@@ -152,9 +152,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -181,9 +181,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -207,9 +207,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -233,9 +233,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -260,9 +260,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -286,9 +286,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -341,9 +341,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -369,9 +369,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -424,9 +424,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -451,9 +451,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -507,9 +507,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
@@ -533,9 +533,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
