@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-03-04T13:19:52.046Z</updated>
+  <updated>2021-03-04T14:21:15.823Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210304 HTML/CSS TIL - 키워드 작성중...</title>
+    <link href="https://leehyungi0622.github.io/2021/03/04/202103/210304-html_css_til/"/>
+    <id>https://leehyungi0622.github.io/2021/03/04/202103/210304-html_css_til/</id>
+    <published>2021-03-04T13:40:42.000Z</published>
+    <updated>2021-03-04T14:21:15.823Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/post_images/html_css_logo.png"></p><h2 id="HTML-CSS-여덟번째-수업"><a href="#HTML-CSS-여덟번째-수업" class="headerlink" title="HTML/CSS 여덟번째 수업"></a><ins><b>HTML/CSS 여덟번째 수업</b></ins></h2><p>오늘은 HTML/CSS 여덟번째 수업날이었다. 오늘도 새로운 것에 대한 배움에 즐거운 하루였다.</p><hr/><h2 id="적응형-웹-디자인-AWD-과-반응형-웹-디자인-RWD"><a href="#적응형-웹-디자인-AWD-과-반응형-웹-디자인-RWD" class="headerlink" title="적응형 웹 디자인(AWD)과 반응형 웹 디자인(RWD)"></a>적응형 웹 디자인(AWD)과 반응형 웹 디자인(RWD)</h2><p>이번 수업의 시작은 반응형 웹 디자인을 실습하기 전에 반응형 웹과 관련된 이론적인 부분에 대해서 살펴보았다. 내용의 시작은 <ins><b>적응형과 반응형 웹에 대한 내용</b></ins>이었다.<br>이전에 개인적으로 네이버 포털사이트의 도메인 주소가 모바일에서는 m.으로 시작되고 데스크탑의 웹 주소에서는 www.으로 시작되는 것에 대해서 강사님께 질문을 했던 적이 있는데 이는 <ins><b>네이버에서는 적응형으로 어플리케이션을 개발했기 때문이다.</b></ins> 적응형은 각 플랫폼에 맞게 개별화된 웹 어플리케이션을 만드는 것을 의미하고, 반응형의 경우에는 하나의 코드에서 스타일링만 다르게 적용해서 화면 사이즈에 따라 다르게 콘텐츠의 구조를 출력해주는 것을 말한다.</p><h2 id="서버의-이원화"><a href="#서버의-이원화" class="headerlink" title="서버의 이원화"></a>서버의 이원화</h2><p>앞서 언급한 네이버 포털사이트의 적응형 어플리케이션에 대해서 배워보았다. 그렇다면 batch 서버의 구조는 어떻게 되어있는지 궁금했다. 그래서 문득 같은 batch 서버를 공유하고 있지는 않을까 생각했는데 강사님께 여쭤보니 네이버는 mobile용 batch server와 데스크탑용 batch server가 이원화 되어 처리를 하고 있다고 설명해주셨다.<br>그러고 보니 실제 모바일과 데스크탑 웹 브라우저가 서로 다르게 동작하는 것을 본 적이 있는데 이것이 바로 서버의 이원화로 인한 것이었다.</p><h2 id="AWD와-RWD의-장단점"><a href="#AWD와-RWD의-장단점" class="headerlink" title="AWD와 RWD의 장단점"></a>AWD와 RWD의 장단점</h2><h2 id="개발은-mobile-first-방식으로-구성하기"><a href="#개발은-mobile-first-방식으로-구성하기" class="headerlink" title="개발은 mobile-first 방식으로 구성하기"></a>개발은 mobile-first 방식으로 구성하기</h2><p>개발을 할때에 작은 디바이스부터 대응하고 그 다음으로 큰 디바이스에 대해서 대응하도록 하자.<br>실행의 측면에서 본다면 가장 화면에 렌더링 될 요소가 많은 페이지는 데스크탑용 레이아웃 페이지이다. 이 부분을 고려하더라도 처음에는 가장 가벼운 모바일 환경과 관련된 처리를하고 제일 마지막에 데스크탑 레이아웃과 관련된 처리를 해주면 된다.</p><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p><ins><b>remind를 위해 수업시간에 필기했던 노트를 첨부한다. </b></ins></p><table>  <tr>    <td><img src="/images/post_images/210304_html_css_note1.png" alt="개인공부 노트1"></td>    <td><img src="/images/post_images/210304_html_css_note2.png" alt="개인공부 노트2"></td>  </tr>  <tr>    <td><img src="/images/post_images/210304_html_css_note3.png" alt="개인공부 노트3"></td>    <td><img src="/images/post_images/210304_html_css_note4.png" alt="개인공부 노트4"></td>  </tr></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/html_css_logo.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;HTML-CSS-여덟번째-수업&quot;&gt;&lt;a href=&quot;#HTML-CSS-여덟번째-수업&quot; class=&quot;headerlink&quot; title=&quot;HTM</summary>
+      
+    
+    
+    
+    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
+    
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
+    
+    <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>210304 Self Development TIL</title>
@@ -546,33 +577,6 @@
     <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
     
     <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210224 Sectioning practice</title>
-    <link href="https://leehyungi0622.github.io/2021/02/24/202102/210224-Sample-html_css_sectioning/"/>
-    <id>https://leehyungi0622.github.io/2021/02/24/202102/210224-Sample-html_css_sectioning/</id>
-    <published>2021-02-24T01:19:00.000Z</published>
-    <updated>2021-03-02T01:06:57.215Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/post_images/210224_sample_web_page.png"></p><h2 id="sample-웹-페이지의-main-section을-sectioning"><a href="#sample-웹-페이지의-main-section을-sectioning" class="headerlink" title="sample 웹 페이지의 main section을 sectioning"></a><strong>sample 웹 페이지의 main section을 sectioning</strong></h2><p>우선 main content 부분을 크게 세 부분으로 나눠보겠다.<br>단순 div 태그를 사용해서 각 section을 나누지 않고, 기계가 알아들을 수 있는 의미있는 적절한 semantic tag를 이용해서 나눠보도록 하겠다.</p><p>우선,<code>sectioning element</code>의 특징에 대해서 알아보자.</p><p>sectioning element에는 <code>&lt;body&gt;,&lt;nav&gt;,&lt;aside&gt;,&lt;article&gt;,&lt;section&gt;</code>가 있으며, 기본적으로 아래와 같이 내부에 &lt;header&gt;와&lt;footer&gt;를 가질 수 있다. 하지만, &lt;header&gt;와 &lt;footer&gt; 내부에는 또 다시 nested한 형태로 &lt;header&gt;와 &lt;footer&gt;를 가질 수 없다는 것에 주의하자.</p><table>  <tr>    <td>      <img src="/images/post_images/210224_section_img1.png" alt="섹션 이미지1"/>    </td>    <td>      <img src="/images/post_images/210224_section_img2.png" alt="섹션 이미지2"/>    </td>    <td>      <img src="/images/post_images/210224_section_img3.png" alt="섹션 이미지3"/>    </td>  </tr></table><p><strong>출처 :</strong> <a href="https://css-tricks.com/how-to-section-your-html/">https://css-tricks.com/how-to-section-your-html/</a></p><p><ins><b>나는 main contents 부분을 세 개의 파트로 나눌때에 section 태그를 사용해서 나눠보려고 한다.</b></ins><br>자, 그럼 &lt;section&gt;태그는 어느때에 사용을 해야될까? 위의 css-tricks 페이지에서는 <code>if you can&#39;t think of a meaningful heading to apply to a &lt;section&gt;, then it probably shouldn&#39;t be a &lt;section&gt;</code>이라고 정의하고 있다.<br><ins><b>따라서 &lt;section&gt;를 사용할때에는 해당하는 부분에 의미있는 heading을 부여할 수 있는지 없는지 생각해서 &lt;section&gt;태그를 사용하면 된다.</b></ins></p><p>위의 예제의 main contents 부분을 논리적 순서로 왼쪽에서 오르쪽으로 위에서 아래 방향으로 살펴보자.</p><p><ins><b>가장 왼쪽에는</b></ins> 로그인, W3C Validation관련 링크, 웹 관련 용어로 각 각 의미있는 heading을 부여할 수 있다.</p><p><ins><b>가운데에는</b></ins> 검색하는 부분, 공지사항 및 자료실 탭, 새소식 부분으로 각 각 의미있는 heading을 부여해서 section을 구분할 수 있다.</p><p><ins><b>마지막으로 오른쪽은</b></ins> 신규 이벤트, 관련사이트, 인기 사이트 부분으로 section을 구분할 수 있다. 여기서 신규 이벤트와 관련 사이트 부분을 같은 section으로 묶어서 관리되고 있다.</p><p>각 컨텐츠의 구성을 분석하여, &lt;section&gt;태그를 사용해서 웹 페이지의 레이아웃을 구분할 수 있는지 살펴보았다.</p><p>결과적으로 main contents 부분은 아래와같이 의미있는 태그로 구분해보았다.</p><img src="/images/post_images/210224_web_main_sectioning.png" alt="섹션 이미지3"/><p>&lt;aside&gt; 태그 사용에 대해서 정리를 해보면, &lt;aside&gt;태그는 <code>페이지의 다른 컨텐츠들과 약간의 연관성은 가지고 있지만, 해당 컨텐츠들로부터 독립적으로 사용될 수 있는가</code>를 기준으로 사용한다. &lt;main&gt; 태그 양옆으로 &lt;aside&gt; 태그를 사용해서 구분을 하였는데, 로그인, Validation관련 링크, 웹 관련 링크, 신규 이벤트, 관련 사이트, 인기 사이트는 페이지에 있는 컨텐츠들과 웹이라는 공통 분모를 가지고 있지만, 각 각 독립적으로 사용될 수 있기 때문에 &lt;aside&gt; 태그로 그룹화해서 분류하였다.</p><p>그럼 더 나아가 &lt;article&gt;태그를 사용해서 <section>태그 내부를 좀 더 구체적으로 sectioning해보자.</p><p>우선 &lt;article&gt;태그의 사용에 대해서 이해하자. &lt;article&gt;태그란 문맥에서 벗어나도 그 자체로 의미가 있을때 (독립적인 컨텐츠) &lt;article&gt;태그를 사용해서 구분할 수 있다.<br>대표적인 예로 블로그의 글(댓글포함)과 위젯이 있다.</p><p>그럼 현재 실습중인 main contents에서 어떤 부분을 &lt;article&gt;태그로 감싸줄 수 있는지 살펴보자.<br>맨 왼쪽의 제일 하단에 위치한 <code>웹 관련용어 웹 관련용어의 내부 컨텐츠(이미지, 글)</code>와 <code>맨 우측의 신규 이벤트의 내부 컨텐츠(이미지, 글)</code>도 &lt;article&gt;태그로 감싸서 표현해 줄 수 있을 것 같다.</p><img src="/images/post_images/210224_main_contents.png" alt="섹션 이미지4"/><p><strong>Q1.</strong> 그런데 궁금한 점이 &lt;section&gt;태그는 의미있는 heading을 줄 수 있는 부분에서 사용을 하고, &lt;article&gt;태그는 독립적인 컨텐츠로써 사용이 될 수 있는 부분에서 사용이 된다고 했는데, 위에서 내가 생각한 것 처럼 &lt;section&gt; 태그의 내부에 &lt;article&gt; 태그를 포함시켜서 작성을 해도 되는지 궁금하다.</p><p><strong>→ A1.</strong> 위의 질문에 대해서 강사님께 여쭤보았다. 답변은 &lt;section&gt; 태그가 &lt;article&gt;태그의 내부에 위치할 수도 있고, &lt;article&gt;태그가 &lt;section&gt;태그의 내부에 위치할 수도 있다고 한다. 다만 &lt;section&gt; 태그와 &lt;article&gt; 태그를 개념적으로 접근하지 말고, 그 차이를 heading을 주느냐 마느냐를 기준으로 해서 생각하는 것이 좋다고 한다. heading을 주는 부분은 &lt;section&gt;으로, 그렇지 않은 부분을 &lt;article&gt;로 생각해서 작성해주면 된다.</p><br/><p><strong>Q2.</strong> 만약에 된다면, 스타일을 적용시킬때 외부에서 감싸고 있는 &lt;section&gt;태그의 class를 사용해서 스타일링을 해주는지 아니면 내부에서 &lt;article&gt;태그에 정의한 class를 사용해서 스타일링을 해주는지 궁금하다.</p><p><strong>→ A2.</strong> 위의 질문에 대해서 강사님께 여쭤보았다. 답변은 실무에서는 되도록 작은 범주로 나눠서 스타일을 적용시킨다고 설명해주셨다.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210224_sample_web_page.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;sample-웹-페이지의-main-section을-sectioning&quot;&gt;&lt;a href=&quot;#sample-웹-페이지의-ma</summary>
-      
-    
-    
-    
-    <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
-    
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
   </entry>
   
