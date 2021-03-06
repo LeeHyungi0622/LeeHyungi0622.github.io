@@ -1,0 +1,122 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210207 API &amp; Networking with Axios instance</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210207 API &amp; Networking with Axios instance</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Axios-vs-Fetch"><span class="toc-text">Axios vs Fetch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fetch"><span class="toc-text">Fetch()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Request-object"><span class="toc-text">Request object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Response-object"><span class="toc-text">Response object</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Axios"><span class="toc-text">Axios?</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/ReactJS"><i class="tag post-item-tag">ReactJS</i></a><a href="/tags/ReactJS-Axios"><i class="tag post-item-tag">ReactJS-Axios</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210207 API &amp; Networking with Axios instance</h1><time class="has-text-grey" datetime="2021-02-07T05:55:42.000Z">2021-02-07</time><article class="mt-2 post-content"><p><img src="/images/post_images/react-js-logo.png"></p>
+<blockquote>
+<p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p>
+</blockquote>
+<br/>
+
+<ul>
+<li><h1 id="Axios-vs-Fetch"><a href="#Axios-vs-Fetch" class="headerlink" title="Axios vs Fetch"></a>Axios vs Fetch</h1></li>
+</ul>
+<br/>
+
+<ul>
+<li><h1 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch()"></a>Fetch()</h1></li>
+</ul>
+<p>Fetch API는 Request나 Response와 같은 HTTP Pipeline에 접근 및 조작을 하기 위한 JavaScript interface를 제공한다.<br>Network를 통해 비동기방식으로 resource를 fetch하기 위해서 사용된다고 이해하면 된다.</p>
+<p>사용방법은 아래와 같이 fetch() method에 자원을 얻기 위한 path를 넣어주고 request, response에 접근하면 된다.</p>
+<pre><code class="javascript">// fetch의 기본적인 사용
+fetch(&quot;examples/example.json&quot;)
+  .then((response) =&gt; &#123;
+    // Do stuff with the response
+  &#125;)
+  .catch((error) =&gt; &#123;
+    console.log(&quot;Looks like there was a problem: \n&quot;, error);
+  &#125;);</code></pre>
+<h2 id="Request-object"><a href="#Request-object" class="headerlink" title="Request object"></a>Request object</h2><pre><code class="javascript">// Request object
+&#123;
+  method: &#39;POST&#39;, // *GET, POST, PUT, DELETE, etc.
+  mode: &#39;cors&#39;, // no-cors, *cors, same-origin
+  cache: &#39;no-cache&#39;, // *default, no-cache, reload, force-cache, only-if-cached
+  credentials: &#39;same-origin&#39;, // include, *same-origin, omit
+  headers: &#123;
+   &#39;Content-Type&#39;: &#39;application/json&#39;
+  &#125;,
+  redirect: &#39;follow&#39;, // manual, *follow, error
+  referrerPolicy: &#39;no-referrer&#39;, // no-referrer, *client
+  body: JSON.stringify(data) // body data type must match &quot;Content-Type&quot; header
+&#125;</code></pre>
+<h2 id="Response-object"><a href="#Response-object" class="headerlink" title="Response object"></a>Response object</h2><p>아래와같이 Response 객체를 통해서 서버로부터 넘겨받은 데이터를 여러 형식으로 받아 올 수 있다.<br>response.json(): Parse the response as JSON<br>response.text(): Read the response and return as text<br>response.formData(): Return the response as FormData object<br>response.blob(): Return the response as Blob<br>response.arrayBuffer(): Return the response as ArrayBuffer</p>
+<br/>
+
+<ul>
+<li><h1 id="Axios"><a href="#Axios" class="headerlink" title="Axios?"></a>Axios?</h1></li>
+</ul>
+<p>Axios는 native JavaScript API가 아니기 때문에 사용하려면 우선 <code>npm i axios</code>를 통해 Axios를 설치해줘야 한다. Axios는 JavaScript library로, node.js 또는 XMLHttpRequests로부터 http requests 만들때 사용이 된다.</p>
+<p><code>그럼 Fetch() method와 비교했을때 Axios library는 어떤 장점이 있을까?</code></p>
+<p><em><b>첫번재,</b></em> <ins>Fetch() method에서는 사용할때마다 매번 인자로 resource를 가져올 path를 넣어줘야 하는데, Axios는 baseURL과 기타 설정 부분을 공통처리해서 만든 <code>instance 객체로 재사용해서 사용이 가능</code>하다는 점이다.</ins></p>
+<p><img src="/images/post_images/210207_axios_instance_creation.png"></p>
+<pre><code class="javascript">import axios from &quot;axios&quot;;
+
+const api = axios.create(&#123;
+  baseURL: &quot;https://api.baseurl.com/&quot;,
+  params: &#123;
+    api_key: &quot;06e43891a2b919ee11ba3f3894d63374&quot;,
+    language: &quot;euc-kr&quot;
+  &#125;
+&#125;);
+
+api.get(&quot;test&quot;);
+
+export default api;</code></pre>
+<p><em><b>두번째,</b></em> <ins>Axios는 download progress를 관리할 수 있는 build-in function이 있다.</ins></p>
+<p><em><b>세번째,</b></em> <ins>Axios는 XSRF에 대항하여 client-side 보호가 가능하다.</ins></p>
+<p><strong>XSRF?</strong></p>
+<blockquote>
+<p>사이트 간 요청 위조(또는 크로스 사이트 요청 위조, Cross-site request forgery, CSRF, XSRF)라고 한다. 웹 사이트 취약점 공격들 중에 하나로, 사용자가 자신의 의지와는 무관하게 공격자가 의도한 행위(수정, 삭제, 등록)를 특정 웹 사이트에 요청하게 하는 공격을 말한다.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%ED%8A%B8_%EA%B0%84_%EC%9A%94%EC%B2%AD_%EC%9C%84%EC%A1%B0">Reference website : XSRF-wikipedia</a></p>
+<p><em><b>네번째,</b></em> <ins>자동으로 request와 response를 변환해준다.</ins></p>
+<p>아래의 예시에서 볼 수 있듯이, data를 JSON으로 자동 convert해주고, 이것을 request body로써 전송해준다.</p>
+<pre><code class="javascript">// send a POST request
+axios(&#123;
+  method: &quot;post&quot;,
+  url: &quot;/login&quot;,
+  data: &#123;
+    firstName: &quot;Hyungi&quot;,
+    lastName: &quot;Lee&quot;
+  &#125;
+&#125;);</code></pre>
+<p><em><b>다섯번째</b></em> <ins>Axios는 각기 다른 HTTP requests를 위한 shorthand methods를 제공한다.</ins></p>
+<ul>
+<li>axios.<strong>request</strong>(config)</li>
+<li>axios.<strong>get</strong>(url[, config])</li>
+<li>axios.<strong>delete</strong>(url[, config])</li>
+<li>axios.<strong>head</strong>(url[, config])</li>
+<li>axios.<strong>options</strong>(url[, config])</li>
+<li>axios.<strong>post</strong>(url[, data[, config]])</li>
+<li>axios.<strong>put</strong>(url[, data[, config]])</li>
+<li>axios.<strong>patch</strong>(url[, data[, config]])</li>
+</ul>
+<p>예를들어, post방식으로 /login 에 입력받은 firstName과 lastname을 request body에 담아 보내고자 한다면 아래와 같이 간단하게 작성해 줄 수 있다.</p>
+<pre><code class="javascript">axios
+  .post(&quot;/login&quot;, &#123;
+    firstName: &quot;Hyungi&quot;,
+    lastName: &quot;Lee&quot;
+  &#125;)
+  .then(
+    (response) =&gt; &#123;
+      console.log(response);
+    &#125;,
+    (error) =&gt; &#123;
+      console.log(error);
+    &#125;
+  );</code></pre>
+<p>axios.post는 아래의 response 정보를 반환해준다.</p>
+<pre><code class="json">// `data` is the response that was provided by the server
+  data: &#123;&#125;,
+  // `status` is the HTTP status code from the server response
+  status: 200,
+  // `statusText` is the HTTP status message from the server response
+  statusText: &#39;OK&#39;,
+  // `headers` the headers that the server responded with
+  // All header names are lower cased
+  headers: &#123;&#125;,
+  // `config` is the config that was provided to `axios` for the request
+  config: &#123;&#125;,
+  // `request` is the request that generated this response
+  // It is the last ClientRequest instance in node.js (in redirects)
+  // and an XMLHttpRequest instance the browser
+  request: &#123;&#125;
+&#125;</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/08/202102/210208-JS_Jest_start/" title="210208 Jest의 개념과 기본사용"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210208 Jest의 개념과 기본사용</span></a><a class="button is-default" href="/2021/02/07/202102/210207_side_project_diary/" title="210207 Side Project Diary 2일차"><span class="has-text-weight-semibold">Next: 210207 Side Project Diary 2일차</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

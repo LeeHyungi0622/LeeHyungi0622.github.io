@@ -1,0 +1,75 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210127 TypeScript TIL</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210127 TypeScript TIL</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EA%B3%B5%EB%B6%80%ED%95%9C-%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 공부한 내용</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TypeScript-%EA%B3%B5%EB%B6%80%EC%88%9C%EC%84%9C"><span class="toc-text">TypeScript 공부순서</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><span class="toc-text">공부하는 방법</span></a></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/TypeScript"><i class="tag post-item-tag">TypeScript</i></a><a href="/tags/self-development"><i class="tag post-item-tag">self-development</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210127 TypeScript TIL</h1><time class="has-text-grey" datetime="2021-01-26T21:00:42.000Z">2021-01-27</time><article class="mt-2 post-content"><p><img src="/images/post_images/typescript_logo.png"></p>
+<blockquote>
+<p><strong>이 포스팅은 Udemy : Understanding TypeScript - 2021 Edition 에서 개별 학습한 내용을 기반으로 작성하였습니다.</strong></p>
+</blockquote>
+<h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul>
+<li><p><strong>TypeScript에 대한 개념 이해</strong></p>
+<ul>
+<li><p>TypeScript는 JavaScript의 Superset으로, 기존의 자바스크립트 위에 building된 언어이다.<br>기존에 JavaScript에는 없던 각종 이점들을 추가한 언어라고 생각하면 된다. 하지만 브라우저에서는 실행할 수 없기 때문에 작성한 TypeScript는 JavaScript로 컴파일 된 후에 실행된다.</p>
+<br/>
+</li>
+</ul>
+</li>
+<li><p><strong>TypeScript의 이점</strong></p>
+<ul>
+<li>JavaScript에서의 변수는 단순히 상수(const)와 변수(let)으로만 구분해서 사용하고, 별도로 타입(Type)을 지정하지 않았다. 이로인해 함수의 인자로 넘겨주는 인자값이 어떤 것이든 입력이 되었고, 이로 인해 발생하는 에러는 컴파일(compile)단계에서 잡아서 수정할 수 있었다. 하지만 TypeScript를 사용해서 개발하게 되면, 개발단계에서 미리 에러를 잡아서 수정할 수 있다.</li>
+<li>물론 JavaScript에서도 변수의 타입을 검사해서 유효성 검사 처리를 추가할 수 있다. 하지만 TypeScript를 사용해서 Type을 지정해서 처리하는 것 만큼 효율적이지 않다.</li>
+</ul>
+<pre><code class="javascript">function add(num1, num2) &#123;
+  if (typeof num1 === &quot;number&quot; &amp;&amp; typeof num2 === &quot;number&quot;) &#123;
+    return num1 + num2;
+  &#125; else &#123;
+    return +num1 + +num2;
+  &#125;
+&#125;
+console.log(add(&quot;2&quot;, &quot;3&quot;));</code></pre>
+<ul>
+<li>Non-JavaScript Features인 Interfaces와 Generics을 활용할 수 있다.</li>
+<li>Meta-Programming 특징인 Decorators를 활용하여 개발할 수 있다.</li>
+</ul>
+<br/>
+</li>
+<li><p><strong>TypeScript 설치 및 사용</strong></p>
+<ul>
+<li>npm command를 사용하기 위해 node.js를 설치한다.</li>
+<li>global하게 TypeScript를 설치한다.</li>
+</ul>
+<pre><code class="shell">$ npm install -g typescript</code></pre>
+<ul>
+<li>tsc를 사용하여 TypeScript 파일을 컴파일할 수 있다.</li>
+</ul>
+<pre><code class="shell">$ tsc test.ts</code></pre>
+<br/>
+
+<p><strong>앞서 작성했던 JavaScript 코드에 TypeScript를 적용해서 작성해보도록 한다.</strong></p>
+<p><strong>using-ts.ts</strong></p>
+<pre><code class="typescript">const button = document.querySelector(&quot;button&quot;);
+const input1 = document.getElementById(&quot;num1&quot;)! as HTMLInputElement;
+const input2 = document.getElementById(&quot;num2&quot;)! as HTMLInputElement;
+
+function add(num1: number, num2: number) &#123;
+  return num1 + num2;
+&#125;
+
+button.addEventListener(&quot;click&quot;, function () &#123;
+  console.log(add(+input1.value, +input2.value));
+&#125;);</code></pre>
+</li>
+</ul>
+<h1 id="TypeScript-공부순서"><a href="#TypeScript-공부순서" class="headerlink" title="TypeScript 공부순서"></a><strong>TypeScript 공부순서</strong></h1><ul>
+<li>TypeScript Basics</li>
+<li>Compiler &amp; Configuration Deep Dive</li>
+<li>Working with Next-gen JS Code</li>
+<li>Classes &amp; Interfaces</li>
+<li>Advanced Types &amp; TypeScript Features</li>
+<li>Generics</li>
+<li>Decorators</li>
+<li>Time to Practice - Full Project</li>
+<li>Working with Namespace &amp; Modules</li>
+<li>Webpack &amp; TypeScript</li>
+<li>Third-Party Libraries &amp; TypeScript</li>
+<li>React + TypeScript &amp; NodeJS + TypeScript</li>
+</ul>
+<h1 id="공부하는-방법"><a href="#공부하는-방법" class="headerlink" title="공부하는 방법"></a><strong>공부하는 방법</strong></h1><p>(1) Watch the lecture<br>(2) Code Along (Pause &amp; Rewind)<br>(3) Practice (Advance on your Own(Partly))<br>(4) Debug &amp; Search (Use attached Code, Google, Udemy Search)<br>(5) Ask &amp; Answer (Ask in Q&amp;A section, but also help others!)</p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/01/27/202101/210127-python_til/" title="210127 Python + Self Development TIL - Function, *args, **kwargs, Recursive function"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210127 Python + Self Development TIL - Function, *args, **kwargs, Recursive function</span></a><a class="button is-default" href="/2021/01/26/202101/210126-Self-development_til/" title="210126 Self Development TIL"><span class="has-text-weight-semibold">Next: 210126 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

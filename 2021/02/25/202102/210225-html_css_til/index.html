@@ -1,0 +1,138 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210225 HTML/CSS TIL - CSS 구체성, 구조 선택자, CSS 유효성 검사, 레이아웃 설계, 접근성 지침서(WCAG, KWCAG), 로그인 폼 설계 및 구현, explicit outline과 implicit outline, DTD(S,T,F), 웹 관련 용어 부분 레이아웃 설계 및 구현</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210225 HTML/CSS TIL - CSS 구체성, 구조 선택자, CSS 유효성 검사, 레이아웃 설계, 접근성..</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-CSS-%EB%84%A4%EB%B2%88%EC%A7%B8-%EC%88%98%EC%97%85"><span class="toc-text">HTML&#x2F;CSS 네번째 수업</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%EA%B5%AC%EC%B2%B4%EC%84%B1"><span class="toc-text">CSS 구체성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B5%AC%EC%A1%B0-%EC%84%A0%ED%83%9D%EC%9E%90"><span class="toc-text">구조 선택자</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-%EC%9C%A0%ED%9A%A8%EC%84%B1%EA%B2%80%EC%82%AC"><span class="toc-text">CSS 유효성검사</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%9D%84-%EB%A7%8C%EB%93%A4%EB%95%8C%EB%8A%94-%EC%84%A4%EA%B3%84%EB%B6%80%ED%84%B0"><span class="toc-text">레이아웃을 만들때는 설계부터</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A0%91%EA%B7%BC%EC%84%B1-%EC%A7%80%EC%B9%A8%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0"><span class="toc-text">접근성 지침서 확인하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WCAG-Web-Content-Accessibility-Guidelines"><span class="toc-text">WCAG(Web Content Accessibility Guidelines)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KWCAG-Korean-Web-Content-Accessibility-Guidelines"><span class="toc-text">KWCAG(Korean Web Content Accessibility Guidelines)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%8F%BC-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0"><span class="toc-text">로그인 폼 설계 및 구현하기</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%95%98%EB%82%98%EC%9D%98-input-%ED%83%9C%EA%B7%B8%EC%97%90%EB%8A%94-%ED%95%98%EB%82%98%EC%9D%98-label%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8F%84%EB%A1%9D-%EA%B6%8C%EA%B3%A0"><span class="toc-text">하나의 input 태그에는 하나의 label을 사용하도록 권고</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%95%84%EC%88%98-%EC%9E%85%EB%A0%A5-%ED%95%AD%EB%AA%A9%EA%B3%BC-%ED%95%84%EC%88%98-%EC%9E%85%EB%A0%A5%EC%9D%B4-%EC%95%84%EB%8B%8C-%ED%95%AD%EB%AA%A9%EC%9D%84-lt-fieldset-gt-%ED%83%9C%EA%B7%B8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EB%B6%84%EB%A5%98"><span class="toc-text">필수 입력 항목과 필수 입력이 아닌 항목을 &lt;fieldset&gt;태그를 사용해서 분류</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%98%B5%EC%85%98%EC%9D%B4%EC%A7%80%EB%A7%8C-lt-legend-gt-%ED%83%9C%EA%B7%B8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EB%B6%84%EB%A5%98%ED%95%9C-lt-fieldset-gt-%EC%97%90-%EB%AC%B6%EC%97%AC%EC%9E%88%EB%8A%94-%EC%84%9C%EC%8B%9D%EB%93%A4%EC%9D%98-%EC%84%B1%EA%B2%A9%EC%9D%84-%EC%95%8C%EB%A0%A4%EC%A3%BC%EB%8F%84%EB%A1%9D-%ED%95%98%EC%9E%90"><span class="toc-text">옵션이지만 &lt;legend&gt;태그를 사용해서 분류한 &lt;fieldset&gt;에 묶여있는 서식들의 성격을 알려주도록 하자.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input-%ED%83%9C%EA%B7%B8%EC%9D%98-name-%EC%86%8D%EC%84%B1%EC%9D%80-DB%EC%9D%98-field-%EC%9D%B4%EB%A6%84%EC%9D%B4%EB%8B%A4"><span class="toc-text">input 태그의 name 속성은 DB의 field 이름이다.</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React%EB%8A%94-XHTML-%EB%AC%B8%EB%B2%95%EC%9D%84-%EC%B0%A8%EC%9A%A9%ED%95%9C%EB%8B%A4"><span class="toc-text">React는 XHTML 문법을 차용한다.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9C%A0%EB%AA%85%ED%95%9C-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%9D%BC%EA%B3%A0-%EC%99%84%EB%B2%BD%ED%95%9C-%EA%B2%83%EC%9D%80-%EC%95%84%EB%8B%88%EB%8B%A4"><span class="toc-text">유명한 서비스라고 완벽한 것은 아니다.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explicit-outline%EA%B3%BC-implicit-outline"><span class="toc-text">explicit outline과 implicit outline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8B%A4%EC%96%91%ED%95%9C-form-tag%EC%9D%98-submit-%EB%B2%84%ED%8A%BC-%EC%B2%98%EB%A6%AC"><span class="toc-text">다양한 form tag의 submit 버튼 처리</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#input-%ED%83%9C%EA%B7%B8%EB%A1%9C-type%EC%9D%84-button%EC%9C%BC%EB%A1%9C-%EC%B2%98%EB%A6%AC"><span class="toc-text">input 태그로 type을 button으로 처리</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#button-%ED%83%9C%EA%B7%B8%EB%A1%9C-%EC%B2%98%EB%A6%AC"><span class="toc-text">button 태그로 처리</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DTD-S-T-F"><span class="toc-text">DTD (S, T, F)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DTD-Document-Type-Definition"><span class="toc-text">DTD(Document Type Definition)?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%98%EB%AF%B8%EC%9E%88%EA%B2%8C-HTML-%ED%83%9C%EA%B7%B8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%9E%90"><span class="toc-text">의미있게 HTML 태그를 사용하자.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9B%B9-%EA%B4%80%EB%A0%A8-%EC%9A%A9%EC%96%B4-%EB%B6%80%EB%B6%84-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0"><span class="toc-text">웹 관련 용어 부분 레이아웃 설계 및 구현하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9C%EB%B0%9C%EC%97%90-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%B0%8F-%EA%B9%83%ED%97%88%EB%B8%8C-%EC%B6%94%EC%B2%9C"><span class="toc-text">개발에 유용한 블로그 및 깃허브 추천</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/HTML"><i class="tag post-item-tag">HTML</i></a><a href="/tags/CSS"><i class="tag post-item-tag">CSS</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210225 HTML/CSS TIL - CSS 구체성, 구조 선택자, CSS 유효성 검사, 레이아웃 설계, 접근성 지침서(WCAG, KWCAG), 로그인 폼 설계 및 구현, explicit outline과 implicit outline, DTD(S,T,F), 웹 관련 용어 부분 레이아웃 설계 및 구현</h1><time class="has-text-grey" datetime="2021-02-25T10:56:42.000Z">2021-02-25</time><article class="mt-2 post-content"><p><img src="/images/post_images/html_css_logo.png"></p>
+<h2 id="HTML-CSS-네번째-수업"><a href="#HTML-CSS-네번째-수업" class="headerlink" title="HTML/CSS 네번째 수업"></a><ins><b>HTML/CSS 네번째 수업</b></ins></h2><p>오늘은 HTML/CSS 네번째 수업날이었다. 오늘은 혼자서 레이아웃을 설계도 해보고, 직접 생각해서 레이아웃을 구성해보는 연습도 하였다.<br>연습하면서 느낀점은 역시 많은 연습이 필요하다는 것이다. 계속해서 끊임없이 노력하자.</p>
+<h2 id="CSS-구체성"><a href="#CSS-구체성" class="headerlink" title="CSS 구체성"></a><ins><b>CSS 구체성</b></ins></h2><p>오늘은 수업의 첫 시작은 CSS의 구체성에 대해서 시작하였다. 이 CSS의 구체성이란 특정 태그에 스타일을 적용시킬때 태그의 어느 요소(id, class(가상클래스 포함), element(태그))를 가지고 얼마나 구체적으로 명시해서 스타일을 적용했느냐를 말한다. 표면적으로는 같은 태그의 스타일을 적용했지만, 선택자를 좀 더 구체적으로 명시한 쪽의 스타일이 적용되는 것은 선택자로 사용한 요소(id, class, element)에 각 각 우선순위 점수가 있기 때문에 점수가 높은 (선택자를 좀 더 구체적으로 지정한) 스타일이 최종적으로 적용되는 스타일이 되는 것이다.</p>
+<table border="1">
+  <tr align="center">
+    <th>id(100)</th>
+    <th>class(10)</th>
+    <th>element(1)</th>
+  </tr>
+  <tr align="center">
+    <td>0</td>
+    <td>2</td>
+    <td>1</td>
+  </tr>
+  <tr align="center">
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+</table>
+
+<pre><code class="css">/* 점수표에서 첫 번째 행(21) */
+.member li::before &#123;
+  content: &quot;|&quot;;
+&#125;
+/* 점수표에서 두 번째 행(11) */
+.first::before &#123;
+  content: &quot; &quot;;
+&#125;</code></pre>
+<p>아래와 같이 p태그의 스타일을 적용한다고 했을때, 구체성 점수에 의해 <code>p.test</code>의 스타일이 적용된다.</p>
+<pre><code class="css">p &#123;
+  color: red;
+&#125; /* 1점 */
+p.test &#123;
+  color: blue;
+&#125; /* 11점 */
+.note &#123;
+  color: green;
+&#125; /* 10점 */
+.test &#123;
+  color: puple;
+&#125; /* 10점 */</code></pre>
+<p>결과적으로 구체성 점수가 높은 첫 번째 스타일이 적용된다.<br><code>개당 배점이 높은 순은 id &gt; class &gt; element이다.</code><br><code>id의 우선순위는 점수상 id:1 == class: 10의 관계를 갖기 때문에 CSS 스타일링을 줄때 id를 사용하지 않고 class를 사용한다.</code></p>
+<p>하지만 <code>!important</code> 를 사용하면 구체성 점수와 상관없이 !important가 붙은 스타일이 최우선으로 적용된다.</p>
+<pre><code class="css">p &#123;
+  color: red !important;
+&#125;</code></pre>
+<h2 id="구조-선택자"><a href="#구조-선택자" class="headerlink" title="구조 선택자"></a><ins><b>구조 선택자</b></ins></h2><p>좀 더 세밀하게 태그 내의 요소를 지정해주기 위해서는 <code>구조 선택자</code>를 사용하면 된다. 구체성에 대해 재미있게 정리해놓은 사이트가 있으니 아래 사이트를 참고하도록 하자.<br><a target="_blank" rel="noopener" href="http://nthmaster.com/">http://nthmaster.com</a><br>nth-child나 nth-of-type을 사용하면 좀 더 세밀하게 태그를 선택할 수 있다.</p>
+<p><code>nth-child(3n+1): nth-child(even)</code>는 지정한 태그를 3개씩 묶어서 각 묶음에 있는 짝수번째 자식요소를 선택한다는 의미이다.<br><code>span: nth-of-type(3)</code>는 span 태그 중에서 세 번째 span 요소를 선택한다는 의미이다.<br>이러한 구조 선택자를 사용해서 좀 더 세밀하게 태그를 지정해서 스타일링을 해 줄 수 있다.</p>
+<h2 id="CSS-유효성검사"><a href="#CSS-유효성검사" class="headerlink" title="CSS 유효성검사"></a><ins><b>CSS 유효성검사</b></ins></h2><p>CSS도 유효성 검사를 해 줄 수 있기 때문에 필요에 따라서는 W3C CSS validator를 사용해서 작성한 CSS에는 문제가 없는지 유효성 검사를 하도록 하자.<br><a target="_blank" rel="noopener" href="https://jigsaw.w3.org/css-validator/">https://jigsaw.w3.org/css-validator/</a></p>
+<h2 id="레이아웃을-만들때는-설계부터"><a href="#레이아웃을-만들때는-설계부터" class="headerlink" title="레이아웃을 만들때는 설계부터"></a><ins><b>레이아웃을 만들때는 설계부터</b></ins></h2><p>화면 구성을 컴포넌트 단위로 나눠서 화면을 설계해야 나중에 유지보수나 코드의 재사용성에 좋다. 따라서 화면을 컴포넌트 단위로 잘 나눠서 설계를 하기 위해서는 레이아웃을 작성할때 무작정 코드를 작성하지 말고, 어떤 태그를 사용하고 어떤 스타일을 적용할 것인지 구체적으로 화면을 설계하는 것이 좋다.</p>
+<h2 id="접근성-지침서-확인하기"><a href="#접근성-지침서-확인하기" class="headerlink" title="접근성 지침서 확인하기"></a><ins><b>접근성 지침서 확인하기</b></ins></h2><p>웹 접근성 지침 관련해서 미국에 대한 표준과 한국에 대한 표준이 있다.</p>
+<p>사소해 보일 수 있지만, “변경약관 여기 클릭하세요”라는 문구에서 보통 <strong>여기</strong>라는 부분에 링크를 걸지만 원래 접근성 측면에서는 <strong>약관</strong>에 링크를 걸어서 처리하는 것이 맞다.</p>
+<ul>
+<li><h3 id="WCAG-Web-Content-Accessibility-Guidelines"><a href="#WCAG-Web-Content-Accessibility-Guidelines" class="headerlink" title="WCAG(Web Content Accessibility Guidelines)"></a>WCAG(Web Content Accessibility Guidelines)</h3></li>
+<li><h3 id="KWCAG-Korean-Web-Content-Accessibility-Guidelines"><a href="#KWCAG-Korean-Web-Content-Accessibility-Guidelines" class="headerlink" title="KWCAG(Korean Web Content Accessibility Guidelines)"></a>KWCAG(Korean Web Content Accessibility Guidelines)</h3>WCAG 표준에 따르기 어렵다고 한다. 하지만 우리나라의 대한항공 영문 페이지를 확인하면, 이 WCAG 표준에 잘 따르고 있다고 한다. 아래의 사이트를 참고하도록 하자.<br><strong>대한항공 :</strong> <a target="_blank" rel="noopener" href="https://www.koreanair.com/us/en">https://www.koreanair.com/us/en</a><br>KWCAG(한국 웹 컨텐츠 접근성 가이드라인)에 대한 내용은 아래 웹 페이지에서 확인할 수 있다.<br><a target="_blank" rel="noopener" href="https://www.wah.or.kr:444/board/boardView.asp?page=2&brd_sn=4&brd_idx=975">https://www.wah.or.kr:444/board/boardView.asp?page=2&amp;brd_sn=4&amp;brd_idx=975</a></li>
+</ul>
+<h2 id="로그인-폼-설계-및-구현하기"><a href="#로그인-폼-설계-및-구현하기" class="headerlink" title="로그인 폼 설계 및 구현하기"></a><ins><b>로그인 폼 설계 및 구현하기</b></ins></h2><p>우선 로그인 폼의 설계부터 진행해보자. 우선 로그인 폼에서 필요한 항목을 정리해보자. 필요한 항목으로는 id, password, 로그인 버튼, 회원가입/아이디・비밀번호 찾기의 항목이 필요하다. 레이아웃에 대한 wireframe은 아래 첨부한 두번째 노트를 확인하자. 레이아웃 설계중에 가장 까다로운 부분이 이 form 태그 부분이다. 그렇기 때문에 정확한 수치를 지정해서 레이아웃을 설계하도록 하자.</p>
+<ul>
+<li><h4 id="하나의-input-태그에는-하나의-label을-사용하도록-권고"><a href="#하나의-input-태그에는-하나의-label을-사용하도록-권고" class="headerlink" title="하나의 input 태그에는 하나의 label을 사용하도록 권고"></a><ins><b>하나의 input 태그에는 하나의 label을 사용하도록 권고</b></ins></h4><ul>
+<li><p>&lt;label&gt;태그내에 <code>for</code>속성을 사용해서 해당 label이 어떤 태그를 위한 label인지 알려줘야 한다. (<code>명시적 레이블링(explicit labeling)</code>)</p>
+<pre><code class="html">&lt;div&gt;&lt;label for=&quot;userEmail&quot; /&gt;&lt;input type=&quot;text&quot; id=&quot;userEmail&quot; /&gt;&lt;/div&gt;</code></pre>
+</li>
+<li><p>아래와 같이 label 태그로 관련된 태그를 감싸서 표현할 수도 있다. (<code>암묵적 레이블링(implicit labeling)</code>)<br><strong>이러한 label처리도 19.레이블 제공이라는 항목으로 검사를 할 수 있다. (사다리 모양-OpenWAX)</strong></p>
+</li>
+<li><p>두 번째 노트의 우측 그림을 참고하도록 하자. 이 그림은 한 개의 label 태그에 두 개 이상의 입력 속성이 존재하는 경우를 설명한다.<br>예를들어, 주민번호 입력의 경우 “주민번호”라는 label에 주민번호 앞 6자리, 뒤 7자리라는 두 개의 입력 속성이 존재한다. 이러한 경우에는 <code>input태그에 title 속성(title=&quot;주민 앞 6자리&quot;, title=&quot;주민 뒤 7자리&quot;)을 넣어서 구분</code>해주면 된다.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="필수-입력-항목과-필수-입력이-아닌-항목을-lt-fieldset-gt-태그를-사용해서-분류"><a href="#필수-입력-항목과-필수-입력이-아닌-항목을-lt-fieldset-gt-태그를-사용해서-분류" class="headerlink" title="필수 입력 항목과 필수 입력이 아닌 항목을 &lt;fieldset&gt;태그를 사용해서 분류"></a><ins><b>필수 입력 항목과 필수 입력이 아닌 항목을 <code>&lt;fieldset&gt;</code>태그를 사용해서 분류</b></ins></h4></li>
+<li><h4 id="옵션이지만-lt-legend-gt-태그를-사용해서-분류한-lt-fieldset-gt-에-묶여있는-서식들의-성격을-알려주도록-하자"><a href="#옵션이지만-lt-legend-gt-태그를-사용해서-분류한-lt-fieldset-gt-에-묶여있는-서식들의-성격을-알려주도록-하자" class="headerlink" title="옵션이지만 &lt;legend&gt;태그를 사용해서 분류한 &lt;fieldset&gt;에 묶여있는 서식들의 성격을 알려주도록 하자."></a><ins><b>옵션이지만 <code>&lt;legend&gt;</code>태그를 사용해서 분류한 <code>&lt;fieldset&gt;</code>에 묶여있는 서식들의 성격을 알려주도록 하자.</b></ins></h4><ul>
+<li>예를들어 회원 로그인을 위한 서식들을 묶었다면 <code>회원 로그인 틀</code>이라고 태그내에 정의해주자.</li>
+</ul>
+</li>
+<li><h4 id="input-태그의-name-속성은-DB의-field-이름이다"><a href="#input-태그의-name-속성은-DB의-field-이름이다" class="headerlink" title="input 태그의 name 속성은 DB의 field 이름이다."></a>input 태그의 name 속성은 DB의 field 이름이다.</h4></li>
+</ul>
+<h2 id="React는-XHTML-문법을-차용한다"><a href="#React는-XHTML-문법을-차용한다" class="headerlink" title="React는 XHTML 문법을 차용한다."></a>React는 XHTML 문법을 차용한다.</h2><p>img 태그를 Self-closing tag로 처리한다.</p>
+<h2 id="유명한-서비스라고-완벽한-것은-아니다"><a href="#유명한-서비스라고-완벽한-것은-아니다" class="headerlink" title="유명한 서비스라고 완벽한 것은 아니다."></a><ins><b>유명한 서비스라고 완벽한 것은 아니다.</b></ins></h2><p>네이버 로그인 페이지를 보면, 아이디와 비밀번호 입력란에 placeholder로 아이디와 비밀번호를 넣어주었고, 각 input 태그에 matching되는 label태그를 숨김컨텐츠로써 처리해서 추가해주었다. 이렇게 처리를 하게되면, 스크린리더가 화면을 읽어줄때, 숨김컨텐츠로써 처리해준 label과 placeholder를 연달아 두 번 읽어주게 된다. 이렇게 화면의 레이아웃을 처리하는 것이 회사의 규정으로 굳어진 경우도 있지만, 소리에 의존하는 시각장애인에게는 불편한 요소가 될 수 있다.<br>그렇기 때문에 이러한 경우에는 placeholder대신에 input 태그위에 label 태그를 overlap해서 표시했다가 마우스 focus가 입력상자에 갔을때 해당 label의 텍스트 크기를 원래의 텍스트 크기보다 작게 줄여서 input 태그의 위에 표시될 수 있도록 애니메이션 효과를 처리할 수도 있다.<br>이 부분은 꼭 실습해서 정리해두자.</p>
+<h2 id="explicit-outline과-implicit-outline"><a href="#explicit-outline과-implicit-outline" class="headerlink" title="explicit outline과 implicit outline"></a><ins><b>explicit outline과 implicit outline</b></ins></h2><p>세 번째 노트의 우측에 그려놓은 section 태그를 보면 내부에 heading태그와 ul태그를 묶어주고 있다. 이 section 태그는 생략이 가능하며, 별도로 section 태그로 묶어주지 않아도 암묵적으로 heading태그와 ul태그가 묶인 형태로 인식이 된다.<br>직접 section태그로 묶어서 레이아웃을 작성하는 것을 명시적(explicit)outline, section태그를 생략해서 레이아웃을 작성하는 것을 암시적(implicit)outline이라고 정의한다.</p>
+<h2 id="다양한-form-tag의-submit-버튼-처리"><a href="#다양한-form-tag의-submit-버튼-처리" class="headerlink" title="다양한 form tag의 submit 버튼 처리"></a><ins><b>다양한 form tag의 submit 버튼 처리</b></ins></h2><ul>
+<li><h4 id="input-태그로-type을-button으로-처리"><a href="#input-태그로-type을-button으로-처리" class="headerlink" title="input 태그로 type을 button으로 처리"></a>input 태그로 type을 button으로 처리</h4>role을 “button”으로 넣어주고, 값을 value 속성으로 접근한다.</li>
+<li><h4 id="button-태그로-처리"><a href="#button-태그로-처리" class="headerlink" title="button 태그로 처리"></a>button 태그로 처리</h4>값을 노드로 접근한다.</li>
+</ul>
+<h2 id="DTD-S-T-F"><a href="#DTD-S-T-F" class="headerlink" title="DTD (S, T, F)"></a><ins><b>DTD (S, T, F)</b></ins></h2><ul>
+<li><h4 id="DTD-Document-Type-Definition"><a href="#DTD-Document-Type-Definition" class="headerlink" title="DTD(Document Type Definition)?"></a>DTD(Document Type Definition)?</h4><p>웹 페이지의 html 코드의 최 상단에 &lt;!DOCTYPE html&gt;이라고 선언되어 있는 것을 확인할 수 있다. 이 부분을 DTD라고 한다. 문서 형식 정의로, SGML 계열을 비롯해서 HTML, XHTML, XML등의 마크업 언어에서 문서 형식을 정의할때 사용되고 있다.<br>여기서 말하는 마크업 언어란 태그를 이용하여 문서나 데이터의 구조를 명기하는 언어를 말한다.<br>DTD는 해당 문서가 어떤 문서 형식을 따르고 있다고 정의하는 역할을 한다. 이 DTD 선언에 따라 브라우저의 렌더링 모드가 바뀌게 되고, 사용될 수 있는 태그와 속성이 바뀌게 된다.<br>이 DTD를 선언하지 않을 경우, 브라우저가 표준모드가 아닌, 비표준모드(Quirks mode)로 렌더링되어 크로스 브라우징 문제를 겪게 된다.</p>
+</li>
+<li><p>문서의 타입으로는 S(trict), T(ransitional), F(rameset)이 있다.</p>
+<ul>
+<li><strong>Strict Type은</strong> 엄격한 규격으로 CSS 사용을 장려하기 위해 점차 단계적으로 사라질 표현에 대한 태그와 속성을 배제한 문서 타입이다.</li>
+<li><strong>Transitional Type은</strong> 과도기적인 규격으로, 표준이 정립되지 않은 때에 기존에 만들어진 문서들과의 호환성을 위해서 사용된다.</li>
+<li><strong>Frameset Type은</strong> 현재는 거의 사용되지 않는 프레임셋(html 안에서 html을 분리하는 것)을 구현하는데 사용된다.</li>
+</ul>
+<p><code>HTML5의 경우</code>에는 SGML(Standard Generalized Language)에 기반을 두지 않아서 DTD 참조가 필요없고, 최손한의 코드 작성이 기본 방향이기 때문에 간단하게 선언할 수 있다. 그래서 DTD 선언은 선택적이지만 하위 호환성을 위해서 <code>&lt;!DOCTYPE html&gt;</code>을 선언하는 것이 권장된다.</p>
+<p><ins><b>DTD 선언 예시</b></ins></p>
+<pre><code class="html">HTML 4.01 Strict
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+
+HTML 4.01 Transitional
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+
+HTML 4.01 Frameset
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;
+
+XHTML 1.0 Strict
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+
+XHTML 1.0 Transitional
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+XHTML 1.0 Frameset
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;
+
+XHTML 1.1
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;
+
+HTML5
+&lt;!DOCTYPE html&gt;</code></pre>
+</li>
+</ul>
+<h2 id="의미있게-HTML-태그를-사용하자"><a href="#의미있게-HTML-태그를-사용하자" class="headerlink" title="의미있게 HTML 태그를 사용하자."></a><ins><b>의미있게 HTML 태그를 사용하자.</b></ins></h2><h2 id="웹-관련-용어-부분-레이아웃-설계-및-구현하기"><a href="#웹-관련-용어-부분-레이아웃-설계-및-구현하기" class="headerlink" title="웹 관련 용어 부분 레이아웃 설계 및 구현하기"></a><ins><b>웹 관련 용어 부분 레이아웃 설계 및 구현하기</b></ins></h2><p>설계에 대한 부분은 네 번째 노트필기를 참고하자. 구체적인 구현에 관한 내용은 별도의 블로그 글로 포스팅하였다.<br><a href="https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_layout_practice/">https://leehyungi0622.github.io/2021/02/26/202102/210226-html_css_layout_practice/</a></p>
+<h2 id="개발에-유용한-블로그-및-깃허브-추천"><a href="#개발에-유용한-블로그-및-깃허브-추천" class="headerlink" title="개발에 유용한 블로그 및 깃허브 추천"></a><ins><b>개발에 유용한 블로그 및 깃허브 추천</b></ins></h2><p><strong>김태곤 프론트엔드 개발자님 블로그</strong><br>→ <a target="_blank" rel="noopener" href="https://taegon.kim/archives/5770">https://taegon.kim/archives/5770</a></p>
+<p><strong>Yamoo9님의 깃허브</strong><br>→ <a target="_blank" rel="noopener" href="https://github.com/yamoo9">https://github.com/yamoo9</a></p>
+<hr/>
+
+<p><ins><b>remind를 위해 수업시간에 필기했던 노트를 첨부한다. </b></ins></p>
+<table>
+  <tr>
+    <td><img src="/images/post_images/210225_html_css_note1.png" alt="개인공부 노트1"></td>
+    <td><img src="/images/post_images/210225_html_css_note2.png" alt="개인공부 노트2"></td>
+  </tr>
+  <tr>
+    <td><img src="/images/post_images/210225_html_css_note3.png" alt="개인공부 노트3"></td>
+    <td><img src="/images/post_images/210225_html_css_note4.png" alt="개인공부 노트3"></td>
+  </tr>
+
+</table>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/26/202102/210226-html_css_layout_practice/" title="210226 HTML/CSS Layout practice (w/float)"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210226 HTML/CSS Layout practice (w/float)</span></a><a class="button is-default" href="/2021/02/25/202102/210225-Self-development_til/" title="210225 Self Development TIL"><span class="has-text-weight-semibold">Next: 210225 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

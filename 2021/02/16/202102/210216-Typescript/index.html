@@ -1,0 +1,154 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210216 TypeScript Book TIL</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210216 TypeScript Book TIL</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EA%B3%B5%EB%B6%80%ED%95%9C-%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 공부한 내용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%83%80%EC%9E%85-type-%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4"><span class="toc-text">타입(type)에 대한 이해</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%83%80%EC%9E%85%EC%9D%98-%EC%A2%85%EB%A5%98"><span class="toc-text">타입의 종류</span></a></li></ol></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/TypeScript"><i class="tag post-item-tag">TypeScript</i></a><a href="/tags/self-development"><i class="tag post-item-tag">self-development</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210216 TypeScript Book TIL</h1><time class="has-text-grey" datetime="2021-02-16T04:30:42.000Z">2021-02-16</time><article class="mt-2 post-content"><p><img src="/images/post_images/typescript_logo.png"></p>
+<blockquote>
+<p><strong>이 포스팅은 O’Reilly TypeScript책을 통해 공부한 내용과 실습한 내용을 기반으로 작성하였습니다.</strong></p>
+</blockquote>
+<h2 id="오늘-공부한-내용"><a href="#오늘-공부한-내용" class="headerlink" title="오늘 공부한 내용"></a><strong>오늘 공부한 내용</strong></h2><ul>
+<li><h3 id="타입-type-에-대한-이해"><a href="#타입-type-에-대한-이해" class="headerlink" title="타입(type)에 대한 이해"></a><strong>타입(type)에 대한 이해</strong></h3><p>이번에 독서를 통해서 타입(type)대해서 다시 정의해 볼 수 있었다. 기존에는 type에 대한 정의를 단순 data의 형식(string, number, list)에 국한된 개념으로만 알고 있었다.<br/><br>하지만 이 책에서는 <code>타입을 값과 이 값으로 할 수 있는 일의 집합</code>으로 정의하고 있다.<br><ins><b>예를들어, number 타입을 정의하자면 number라는 type으로써의 값과 숫자에 적용할 수 있는 모든 연산(+,-,*,/,%,||,&amp;&amp;,?등)과 숫자에 호출할 수 있는 모든 메서드(.concat, .toUpperCase 등)를 포괄적으로 포함하는 개념으로 정의할 수 있다.</b></ins><br/><br>이렇게 정의된 타입(type)의 정의를 통해 타입검사기(typechecker)는 주어진 값으로 할 수 있는 유효한 동작과 유효하지 않은 동작을 구분해서 유효하지 않은 동작이 실행되는 일을 예방할 수 있다.</p>
+<br/>
+
+<ul>
+<li><h4 id="타입의-종류"><a href="#타입의-종류" class="headerlink" title="타입의 종류"></a><strong>타입의 종류</strong></h4><ul>
+<li><p><strong>any</strong><br>타입들의 대부라고 할 수 있는 any. 이 any type은 꼭 필요한 상황이 아니라면 사용하지 않는 것이 좋다. 타입스크립트에서는 컴파일 타임에 모두가 타입이 있어야 하기 때문에 프로그래머와 타입스크립트 둘 다 타입을 알 수 없는 상황에서 any타입으로 가정한다. any를 사용해서 변수의 타입을 지정하게 되면, 자바스크립트처럼 동작하게 된다.</p>
+<ul>
+<li><strong>(TSC Flag: noImplicitAny)</strong> : 타입스크립트는 기본적으로 any로 추론되는 값을 발견하더라도 예외를 발생시키지 않는다. 만약에 any type에 대한 예외를 발생시키고 싶다면, <code>tsconfig.json</code>에서 strict을 true로 정의하거나 noImplicitAny flag를 활성화시켜주면 된다. (noImplicitAny는 strict의 family이기 때문이다)</li>
+</ul>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><strong>unknown</strong><br>타입을 미리 알 수 없는 어떤 값에 대해 타입을 정의할때 <code>any보다는 unknown을 사용하는 것이 권장</code>된다.<br>그 이유는 unknown을 사용해서 타입을 미리 알 수 없는 값에 대한 타입을 정의하게 되면, unknown type을 검사해 정제하기 전까지는 타입스크립트가 unknown 타입의 값을 사용할 수 없게 강제한다. unknown 타입은 비교연산(==,===,||,&amp;&amp;,?)과 반전(!)을 지원하고 다른 타입들과 마찬가지로 typeof, instanceof 연산자로 정제할 수 있다.<pre><code class="javascript">let a: unknown = 30;
+let c = a + b; // unknown type의 값은 + 연산자를 지원하지 않는다.(a 변수의 타입을 정제한 뒤에 기본 사칙연산 사용가능)
+// typeof를 사용해서 unknown type의 변수를 정제할 수 있다.
+if (typeof a === &quot;number&quot;) &#123;
+  let d = a + 10; // number
+&#125;</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><strong>boolean</strong><br>기본적으로 개발자들은 대개 타입스크립트가 타입을 추론하도록 작성한다.<br>타입스크립트에서는 값이 특정 boolean임을 명시적으로 타입스크립트에게 알릴 수 있다.<ul>
+<li><strong>타입 리터럴(type literal)</strong><br>아래의 예시 코드에서 변수 e는 true라는 특정한 하나의 값으로 타입을 한정시켰다. 이처럼 오직 하나의 값을 나타내는 타입을 <code>타입 리터럴(type literal)</code>이라고 한다.<br>이 타입 리터럴은 모든 곳에서 일어날 수 있는 실수를 방지해서 안전성을 추가로 확보해주는 강력한 언어의 기능이다.<pre><code class="javascript">const c = true; // 어떤 값이 특정 boolean인지 타입스크립트가 추론하게 만든다.
+let e: true = true;
+let f: true = false; // error TS2322 &#39;false&#39;type을 &#39;true&#39; type에 할당할 수 없다.</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>number</strong><br>number type 또한 boolean과 같이 타입스크립트가 타입을 추론하도록 작성을 한다.<br>아래와 같이 number도 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.</p>
+<pre><code class="javascript">let f: 2.218 = 2.218;
+let g: 2.218 = 10; // error TS2322: &#39;10&#39;타입을 &#39;26.218&#39;타입에 할당할 수 없다.</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>bigint</strong><br>bigint 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>bigint는 자바스크립트와 타입스크립트에 새롭게 추가된 타입으로, 253까지의 정수를 표현할 수 있는 number 대비 bigint를 사용하면 더 큰 수도 표현할 수 있다.<br>bigint는 기본 사칙연산을 포함한 연산을 지원한다.<br><code>일부 자바스크립트 엔진에서는 지원을 안할 수도 있기 때문에 사용하기 전에 대상 플랫폼이 지원을 하는지 확인이 필요하다.</code></p>
+<pre><code class="javascript">let a = 1234n; //bigint
+const b = 5678n; //bigint
+var c = a + b; //bigint
+let g: 100n = 100n;
+let h: bigint = 100; // 100 type은 bigint 타입에 할당할 수 없다.</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>string</strong><br>string 또한 타입 리터럴(type literal)을 사용해서 특정 값을 타입으로 한정시켜서 정의할 수 있다.<br>string은 모든 문자열의 집합으로 연결(+)과 슬라이스(.slice)등의 연산을 수행할 수 있다.</p>
+<pre><code class="javascript">let f: &quot;john&quot; = &quot;john&quot;; // &#39;john&#39;
+let g: &quot;john&quot; = &quot;zoe&quot;; // &#39;zoe&#39;type을 &#39;john&#39;type에 할당할 수 없다.</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>symbol</strong><br>symbol은 실무에서는 자주 사용하지 않는다.<br>주로 객체와 맵에서 문자열 키 를 대신하는 용도로 사용된다.<br>Symbol(‘a’)는 주어진 이름으로 새로운 symbol(unique)을 만든다는 의미이다. Symbol타입의 값을 타입스크립트가 추론하도록 코드를 작성하면,<br>추론되는 타입이 symbol이 아닌 typeof (variable)로 정의된다.<br>Symbol type의 값을 const 변수에 넣어주면, unique symbol로 정의할 수 있다.</p>
+<pre><code class="javascript">const e = Symbol(&#39;e&#39;) // typeof e
+const f: unique symbol = Symbol(&#39;f&#39;) // typeof f</code></pre>
+</li>
+</ul>
+<br/>
+
+<ul>
+<li><p><strong>객체</strong><br>타입스크립트의 객체(Object) 타입은 객체의 형태(Shape)를 정의한다.<br>객체의 타입만으로 간단한 객체({}로 생성)와 복잡한 객체{new로 생성}를 구분할 수 없다.<br>이는 자바스크립트가 <code>구조 기반 타입(structural type</code>을 갖도록 설계가 되었기 때문이다)</p>
+<blockquote>
+<p>구조 기반 타입화에서는 객체의 이름에 상관없이 객체가 어떤 프로퍼티를 갖고 있는지를 따진다. 이를 일부 언어에서는 덕 타이핑(duck typing)이라고 정의한다.</p>
+</blockquote>
+<ul>
+<li><p><strong>객체를 서술하는 방법</strong><br>(1) <strong>object 선언을 통한 객체 서술</strong><br>object는 any보다 조금 더 좁은 타입으로, object로 선언된 객체에 서술한 값에 관한 정보를 참조할 수 없다. 단지 해당 값 자체가 null이 아닌 자바스크립트의 객체라고 명시해준다.</p>
+<p>(2) <strong>타입스크립트가 추론하도록 작성</strong><br><code>객체 리터럴 문법</code>을 사용해서 객체 타입을 만들 수 있다. 타입스크립트가 객체의 형태를 추론하게 하거나 중괄호 안에 명시적으로 지정해 줄 수 있다.<br>객체 리터럴 문법은 “이런 형태의 물건이 있어” 라고 타입스크립트에게 알려주는 기능을 한다.</p>
+<pre><code class="javascript">let a = &#123;
+  // &#123;b: string&#125;
+  b: &quot;x&quot;
+&#125;;
+
+let b = &#123;
+  // &#123;c: &#123;d: string&#125;&#125;
+  c: &#123;
+    d: &quot;f&quot;
+  &#125;
+&#125;;
+
+let c: &#123; firstName: string, lastName: string &#125; = &#123;
+  firstName: &quot;john&quot;,
+  lastName: &quot;barrowman&quot;
+&#125;;
+
+class Person &#123;
+  constructor(
+    public firstName: string,
+    public lastName: string
+  )&#123;&#125;
+&#125;
+
+c = new Person(&#39;matt&#39;, &#39;smith&#39;)
+
+// 타입스크립트에서는 형태를 지정해주면 지정해준 형태에 해당하는 값은 반드시 내부에 선언을 해줘야 한다.
+// 만약에 선택적으로 선언이 되는 속성이라면 아래와 같이 ?로 nullable한 속성이라고 정의를 해주면 된다.
+let d : &#123; firstName: string, lastName?: string&#125; = &#123;
+  firstName: &quot;merry&quot;
+&#125;</code></pre>
+<p><code>인덱스 시그니처(index signature)</code>란 [key: T]: U와 같은 문법을 말한다. 어떤 객체가 여러 키를 가질 수 있음을 알려주며, 해당 객체에서 모든 T 타입의 키는 U 타입의 값을 갖는다고 정의한다. 인덱스 시그니처를 이용하면 명시적으로 정의한 키 외에 다양한 키를 객체에 안전하게 추가할 수 있다.<br>자바스크립트에서는 문자열을 키의 타입으로 사용하고 있기 때문에 인덱스 시그니처의 키(T)는 반드시 number나 string 타입에 할당할 수 있는 타입이어야 한다.</p>
+<pre><code class="javascript">let a: &#123;
+  b: number
+  c?:string
+  [key: number]: boolean
+&#125;
+
+a = &#123;b: 1&#125; // 인덱스 시그니처로 작성한 인자의 경우, optional 하게 넣어줄 수 있다.
+a = &#123;b: 1, c: undefined&#125;
+a = &#123;b: 1, c: &#39;d&#39;&#125;
+a = &#123;b: 1, 10: true&#125;
+
+let airplaneSeatingAssignments: &#123;
+  [seatNumber: string]: string
+&#125; = &#123;
+  &quot;34D&quot;: &quot;Boris Cherny&quot;,
+  &quot;34E&quot;: &quot;Bill Gates&quot;
+&#125;;</code></pre>
+<p>객체의 타입을 정의할때에 <code>선택형(?)</code>만 사용할 수 있는 것이 아닌 필요하면 <code>readonly 한정자</code>를 이용해서 특정 필드를 읽기 전용으로 정의할 수 있다.<br>즉, readonly로 정의한 특정 필드값은 초깃값을 할당한 다음에 그 값을 바꿀 수 없다.</p>
+<pre><code class="javascript">let user: &#123;
+  readonly firstName: string
+&#125; = &#123;
+  firstName: &#39;abby&#39;
+&#125;</code></pre>
+<p><code>2020/02/19 업데이트 내용</code><br>또 다른 객체 리터럴 표기법에는 <code>빈 객체 타입(&#123;&#125;)과 객체: Object</code>이라는 특별한 경우도 있다.<br>빈 객체 타입에는 null과 undefined를 제외한 모든 타입이 할당 될 수 있다. 따라서 가능한 한 빈 객체는 피하는 것이 좋다.<br>두 객체 리터럴 표기법은 서로 비슷하며 사용하는 것을 권장하지 않는다.</p>
+<pre><code class="javascript">let danger: &#123;&#125;;
+danger = &#123;&#125;;
+danger = &#123; x: 1 &#125;;
+danger = [];</code></pre>
+<p><ins><b>object타입과 Object타입을 사용한 객체 정의</b></ins><br/><br>object로 객체를 정의하는 것은 객체의 구체적인 필드 형태는 중요하지 않고 <code>단지 객체 자체가 필요할때</code> 사용된다.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/16/202102/210216-Algorithm_baekjoon_2747/" title="Baekjoon Online Judge 2747번 피보나치 수 문제 (다양한 방법으로 풀기)"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: Baekjoon Online Judge 2747번 피보나치 수 문제 (다양한 방법으로 풀기)</span></a><a class="button is-default" href="/2021/02/16/202102/210216-Self-development_til/" title="210216 Self Development TIL"><span class="has-text-weight-semibold">Next: 210216 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
