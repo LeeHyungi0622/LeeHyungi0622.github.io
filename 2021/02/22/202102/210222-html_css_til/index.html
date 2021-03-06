@@ -1,0 +1,71 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210222 HTML/CSS TIL - HTML, CSS, float</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210222 HTML/CSS TIL - HTML, CSS, float</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-CSS-%EC%B2%AB-%EC%88%98%EC%97%85"><span class="toc-text">HTML&#x2F;CSS 첫 수업</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5-%EC%9D%B4%EC%A0%84%EA%B3%BC-%EC%9D%B4%ED%9B%84"><span class="toc-text">HTML5 이전과 이후</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W3C-Markup-Validation-Service"><span class="toc-text">W3C Markup Validation Service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%ED%83%9C%EA%B7%B8%EC%97%90-class%EC%9D%B4%EB%A6%84%EC%9D%84-%EB%AA%85%EB%AA%85%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95"><span class="toc-text">HTML 태그에 class이름을 명명하는 방법</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-%ED%83%9C%EA%B7%B8%EB%A1%9C-%ED%99%94%EB%A9%B4%EA%B5%AC%EC%84%B1-%EA%B5%AC%EC%83%81%ED%95%98%EA%B8%B0"><span class="toc-text">HTML 태그로 화면구성 구상하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEO-Search-Engine-Optimization"><span class="toc-text">SEO (Search Engine Optimization)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%9D%98-%EC%9E%91%EB%8F%99%EA%B3%BC-%ED%99%94%EB%A9%B4-rendering%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-%EC%9D%B4%ED%95%B4"><span class="toc-text">웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Emmet%EC%9D%84-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EC%83%9D%EC%82%B0%EC%84%B1%EC%9D%84-%EB%86%92%EC%9D%B4%EC%9E%90"><span class="toc-text">Emmet을 제대로 사용해서 생산성을 높이자.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Classic-amp-Modern-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EB%B0%B0%EC%B9%98"><span class="toc-text">Classic &amp; Modern 레이아웃 배치</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B7%B8%EC%99%B8-%EB%8F%84%EC%9B%80%EB%90%98%EB%8A%94-%EC%9D%B4%EC%95%BC%EA%B8%B0-Clone-coding%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%A7%84%ED%96%89%EC%9D%84-%ED%95%B4%EC%95%BC%ED%95%98%EB%8A%94%EA%B0%80"><span class="toc-text">그외 도움되는 이야기 : Clone coding은 어떻게 제대로 진행을 해야하는가?</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/HTML"><i class="tag post-item-tag">HTML</i></a><a href="/tags/CSS"><i class="tag post-item-tag">CSS</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210222 HTML/CSS TIL - HTML, CSS, float</h1><time class="has-text-grey" datetime="2021-02-22T04:00:42.000Z">2021-02-22</time><article class="mt-2 post-content"><p><img src="/images/post_images/html_css_logo.png"></p>
+<h2 id="HTML-CSS-첫-수업"><a href="#HTML-CSS-첫-수업" class="headerlink" title="HTML/CSS 첫 수업"></a><strong>HTML/CSS 첫 수업</strong></h2><p>오늘 HTML/CSS 첫 수업을 들으면서 너무 좋았다. 내가 정말 원했던 수업내용과 방식이었고, HTML과 CSS를 정말 제대로 배울 수 있겠다는 느낌을 받았다.<br>프론트엔드 쪽으로 커리어를 쌓아 나갈 것이기 때문에 가장 기본이 되는 HTML/CSS를 제대로 알고 사용하는 개발자가 되기 위해서 정말 노력을 많이 해야겠다.</p>
+<p>시작은 수업진행을 위한 전반적인 개발환경 구축 및 수업자료를 local환경에 준비하는 것으로 시작을 하였다.</p>
+<p>본 수업 커리큘럼은 기본 HTML5/CSS3 ~ Sass(css 전처리기)사용까지 진행할 계획이라고 하셨다.</p>
+<p>Sass에 대해 부가적인 설명은 Sass 중에서 Ruby Sass, Node Sass, Dart Sass가 있는데 Ruby Sass와 Node Sass는 이미 deprecated 되었기 때문에 <ins><b>Sass를 사용하기 위해서는 Dart Sass를 사용해야 한다</b></ins>고 설명해주셨다.</p>
+<p>포스팅 내용 정리는 수업 전체 내용을 정리하는 것이 아닌, 내가 기존에 제대로 알고 있다고 생각되는 부분은 생략하고 <ins><b>제대로 알고 있지 않았던 부분과 새롭게 알게 된 내용 그리고 중요하다고 생각되는 내용을 위주로</b></ins> 정리를 해 나갈 계획이다.</p>
+<h2 id="HTML5-이전과-이후"><a href="#HTML5-이전과-이후" class="headerlink" title="HTML5 이전과 이후"></a>HTML5 이전과 이후</h2><p>HTML5의 이전에는 HTML Tag의 요소를 block/inline 요소로만 구분을 했었다. 하지만 HTML5 이후에는 <code>콘텐츠 모델</code>이라는 개념이 등장을 하게 되었고, 기존에 block/inline 측면의 HTML 구조상에서 유효하지 않았던 태그 구조들이 <ins><b>콘텐츠 모델을 기준으로 가능</b></ins>하게 되었다.<br>콘텐츠 모델이라는 기준으로 작성한 HTML태그가 유효한 코드 구조인지 알기 위해서는 validation 체크를 하면서 작성을 해야한다.</p>
+<p><a target="_blank" rel="noopener" href="https://validator.w3.org/#validate_by_uri+with_options">https://validator.w3.org/#validate_by_uri+with_options</a></p>
+<h2 id="W3C-Markup-Validation-Service"><a href="#W3C-Markup-Validation-Service" class="headerlink" title="W3C Markup Validation Service"></a>W3C Markup Validation Service</h2><p>내가 작성한 HTML 코드의 태그가 제대로 배치되어서 사용되고 있는지 체크해주는 Vlidation check service이다.<br>수업시간에 anchor tag와 button tag는 둘 다 interactive한 태그요소이기 때문에 중첩시켜서 작성하면 안된다고 설명해주셨다. 이러한 예처럼 각 태그의 특성을 제대로 파악하고 HTML의 구조를 만들어야 한다.</p>
+<h2 id="HTML-태그에-class이름을-명명하는-방법"><a href="#HTML-태그에-class이름을-명명하는-방법" class="headerlink" title="HTML 태그에 class이름을 명명하는 방법"></a>HTML 태그에 class이름을 명명하는 방법</h2><p><img src="/images/post_images/210223_bem_img.jpg"></p>
+<p>BEM이란? HTML 태그의 class이름을 Block 요소를 기준으로 작성을 하는 방법이다.<br>HTML 태그의 class이름은 그냥 작성을 하는 것이 아니라 BEM과 같은 규칙으로 작성을 해야한다.</p>
+<hr/>
+
+<h2 id="HTML-태그로-화면구성-구상하기"><a href="#HTML-태그로-화면구성-구상하기" class="headerlink" title="HTML 태그로 화면구성 구상하기"></a>HTML 태그로 화면구성 구상하기</h2><p>화면구성을 HTML태그로 구성하기 위해서는 화면 각 각의 Segment를 아래와 같은 sequence로 구성해나간다.</p>
+<p><strong>첫 번째,</strong> 3단으로 구성할지 4단으로 구성할지 생각한다. 일반적으로 Semantic HTML을 살펴보면, 기본적으로 정해놓은 프레임이 있다. 하지만 페이지 구성에는 정해진 구조와 정답이 있는 것이 아니다.<br>예를들어, Header 태그와 nav 태그를 별도의 segment로 분리시킴으로써 4단으로 구성할 수도, 아니면 Header내부에 nav 태그를 위치시켜서 3단으로 구성할 수도 있다. 위에서 아래로 논리적인 흐름으로 화면 구성을 생각하도록 하자.</p>
+<p><strong>두 번째,</strong> 어떤 구조와 태그로 화면을 구성했는가에는 이유가 있어야 한다. 내가 구성한 페이지 구성에서 사용된 모든 것들에는 직접 설명할 수 있어야 한다.</p>
+<p><strong>세 번째,</strong> 기계가 알아들을 수 있는 각 각의 의미있는 태그로 페이지를 구성해야 한다. 이전에는 단순 div 태그로 페이지를 구성하였다. 하지만 HTML5 이후부터는 기본 화면 구성에 있어 다양한 태그들이 등장했다. 단순히 의미없이 화면의 Partition을 div 태그로 나누지 말고 의미있는 태그를 사용해서 나누는 연습을 하자.</p>
+<p><strong>네 번째,</strong> 화면 전체 컨텐츠를 하나의 container로 묶어주는 작업을 한다. 나중에 화면전체를 한 단위로 컨트롤하기 편하기 때문에 전체를 container class로 묶어주도록 하자.</p>
+<p><strong>다섯 번째,</strong> 페이지의 구성을 직접 손으로 그려가보면서 연습을 하도록 하자.</p>
+<p><strong>여섯 번째,</strong> HTML 태그는 id, class 중에 class를 선언해서 각 element의 스타일을 조작한다.</p>
+<hr/>
+
+<h2 id="SEO-Search-Engine-Optimization"><a href="#SEO-Search-Engine-Optimization" class="headerlink" title="SEO (Search Engine Optimization)"></a>SEO (Search Engine Optimization)</h2><p>검색 엔진 최적화. 이 부분은 HTML 태그의 title 부분에 대해서 설명을 해주시면서 나온 개념이다.</p>
+<p>이 title에 대한 이해없이 그냥 아무거나 작성하는 경우가 있는데 이 부분은 웹에서 검색을 했을때 해당 웹 페이지를 노출시킬 수 있는데 크게 기여하는 부분이다.<br>title 부분 이외에도 검색 엔진 최적화를 고려해서 개발을 할때 중요한 부분도 있으니 개별적으로 찾아보면서 공부를 할 필요가 있다.<br>프로젝트를 진행할때 SEO를 최대한 녹여내서 진행해보도록 한다.</p>
+<hr/>
+
+<h2 id="웹-브라우저의-작동과-화면-rendering에-대한-기본-개념-이해"><a href="#웹-브라우저의-작동과-화면-rendering에-대한-기본-개념-이해" class="headerlink" title="웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해"></a>웹 브라우저의 작동과 화면 rendering에 대한 기본 개념 이해</h2><p>기술적인 부분에 치중해서 개발을 공부하는 경우가 많은데, 전체적인 골격을 우선 공부하는 것이 중요하다.<br>전체적인 골격이 되는 부분을 우선적으로 공부하고, 세세한 부분에 대해서는 나중에 추가적으로 공부를 하는 것이 중요하다.</p>
+<hr/>
+
+<h2 id="Emmet을-제대로-사용해서-생산성을-높이자"><a href="#Emmet을-제대로-사용해서-생산성을-높이자" class="headerlink" title="Emmet을 제대로 사용해서 생산성을 높이자."></a>Emmet을 제대로 사용해서 생산성을 높이자.</h2><p>Emmet 공식 홈페이지에 들어가면 사용하는 방법에 대한 documentation이 잘 되어있다.<br>아래의 코드는 Emmet을 활용하여 빠르게 HTML 태그들을 작성하는 예시이다.</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko-KR&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;웹카페-HTML5, CSS3, 웹 표준, 접근성&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;!-- div.container&gt;header.header+div.visual --&gt;
+    &lt;!-- &gt; : child, + : sibling --&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;header class=&quot;header&quot;&gt;
+        &lt;nav class=&quot;navigation&quot;&gt;내비게이션&lt;/nav&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;visual&quot;&gt;비주얼&lt;/div&gt;
+      &lt;main class=&quot;main&quot;&gt;
+        &lt;!-- div.group.group$*3 --&gt;
+        &lt;!-- &lt;div class=&quot;group group1&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;group group2&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;group group3&quot;&gt;&lt;/div&gt; --&gt;
+        &lt;!-- div.group.group$&#123;그룹$&#125;*3 --&gt;
+        &lt;div class=&quot;group group1&quot;&gt;그룹1&lt;/div&gt;
+        &lt;div class=&quot;group group2&quot;&gt;그룹2&lt;/div&gt;
+        &lt;div class=&quot;group group3&quot;&gt;그룹3&lt;/div&gt;
+      &lt;/main&gt;
+      &lt;article class=&quot;slogan&quot;&gt;슬로건&lt;/article&gt;
+      &lt;footer class=&quot;footer&quot;&gt;푸터&lt;/footer&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<hr/>
+
+<h2 id="Classic-amp-Modern-레이아웃-배치"><a href="#Classic-amp-Modern-레이아웃-배치" class="headerlink" title="Classic &amp; Modern 레이아웃 배치"></a>Classic &amp; Modern 레이아웃 배치</h2><p>과거에는 페이지의 Layout 요소들을 배치할때 float, position을 사용하여 배치하였다. 하지만 요즘에는 flex나 grid를 사용해서 좀 더 편리하게 화면의 element들을 배치할 수 있다.</p>
+<p>이 부분에 대해서는 별도로 포스팅하여 내용정리를 해 볼 것이다.</p>
+<hr/>
+
+<h2 id="그외-도움되는-이야기-Clone-coding은-어떻게-제대로-진행을-해야하는가"><a href="#그외-도움되는-이야기-Clone-coding은-어떻게-제대로-진행을-해야하는가" class="headerlink" title="그외 도움되는 이야기 : Clone coding은 어떻게 제대로 진행을 해야하는가?"></a><strong>그외 도움되는 이야기</strong> : Clone coding은 어떻게 제대로 진행을 해야하는가?</h2><p>클론코딩은 단순히 똑같이 만드는 것에 의미를 두는 것은 의미가 없다. 기존의 서비스를 클론코딩 해보았으면, 추가적으로 필요한 요소가 있는지 분석을 하고 추가를 하거나 개선되었으면 좋겠다는 부분도 추가적으로 생각해서 반영을 하는 것이 중요하다.</p>
+<p>많은 사람들이 사용을 하고 있는 네이버의 <code>로그인 화면의 배치에도 개선할 점(로그인 상태 유지의 위치)</code>이 있다. 이처럼 이미 서비스하고 있는 유명한 웹이라고 하더라도 반드시 개선점은 있으니, 이 부분을 염두해두고 분석을 해보도록 하자.</p>
+<hr/>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/23/202102/210223-Self-development_til/" title="210223 Self Development TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210223 Self Development TIL</span></a><a class="button is-default" href="/2021/02/22/202102/210222-Self-development_til/" title="210222 Self Development TIL"><span class="has-text-weight-semibold">Next: 210222 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

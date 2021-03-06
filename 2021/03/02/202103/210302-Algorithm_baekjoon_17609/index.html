@@ -1,0 +1,65 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>Baekjoon Online Judge 17609번  회문/유사회문 문제 (다각도에서 문제 바라보기)</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Baekjoon Online Judge 17609번  회문/유사회문 문제 (다각도에서 문제 바라보기)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B0%B1%EC%A4%80-%EC%A0%80%EC%A7%80-17609%EB%B2%88-%ED%9A%8C%EB%AC%B8-%EC%9C%A0%EC%82%AC%ED%9A%8C%EB%AC%B8-%EB%AC%B8%EC%A0%9C-Pseudo-code-Python-code"><span class="toc-text">백준 저지 17609번 회문&#x2F;유사회문 문제 Pseudo code + Python code</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pseudo-code-1-RecursionError"><span class="toc-text">Pseudo code #1 RecursionError</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B3%B8-%EC%BD%94%EB%93%9C-1"><span class="toc-text">본 코드 #1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pseudo-code-2-%EC%B5%9C%EC%86%8C-%EC%9E%AC%EA%B7%80%ED%98%B8%EC%B6%9C"><span class="toc-text">Pseudo code #2 최소 재귀호출</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B3%B8-%EC%BD%94%EB%93%9C-2"><span class="toc-text">본 코드 #2</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Algorithm"><i class="tag post-item-tag">Algorithm</i></a><a href="/tags/PseudoCode"><i class="tag post-item-tag">PseudoCode</i></a><a href="/tags/BaekjoonOnlineJudge"><i class="tag post-item-tag">BaekjoonOnlineJudge</i></a><a href="/tags/Sort"><i class="tag post-item-tag">Sort</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Baekjoon Online Judge 17609번  회문/유사회문 문제 (다각도에서 문제 바라보기)</h1><time class="has-text-grey" datetime="2021-03-02T03:09:42.000Z">2021-03-02</time><article class="mt-2 post-content"><h2 id="백준-저지-17609번-회문-유사회문-문제-Pseudo-code-Python-code"><a href="#백준-저지-17609번-회문-유사회문-문제-Pseudo-code-Python-code" class="headerlink" title="백준 저지 17609번 회문/유사회문 문제 Pseudo code + Python code"></a>백준 저지 17609번 회문/유사회문 문제 Pseudo code + Python code</h2><p><ins><b>문제풀이 접근 방식 : 재귀호출</b></ins></p>
+<h3 id="Pseudo-code-1-RecursionError"><a href="#Pseudo-code-1-RecursionError" class="headerlink" title="Pseudo code #1 RecursionError"></a>Pseudo code #1 RecursionError</h3><p><img src="/images/post_images/210302_baekjoon_17609_recursive-method-solution.png"></p>
+<h3 id="본-코드-1"><a href="#본-코드-1" class="headerlink" title="본 코드 #1"></a>본 코드 #1</h3><pre><code class="python">shift_flag = False
+
+
+def palindrome(input_str):
+    global shift_flag
+    if len(input_str) &lt;= 1:
+        if shift_flag:
+            return 1
+        return 0
+
+    if input_str[0] != input_str[-1]:
+        if input_str[0] == input_str[-2]:
+            shift_flag = True
+            input_str = input_str[0:-1]
+        elif input_str[1] == input_str[-1]:
+            shift_flag = True
+            input_str = input_str[1:]
+        else:
+            return 2
+
+    return palindrome(input_str[1:-1])
+
+
+n = int(input())
+for _ in range(n):
+    input_str = input()
+    print(palindrome(input_str))</code></pre>
+<p>첫 번째 재귀함수를 사용한 풀이 방법에는 문제가 있다. 파이썬의 최대 재귀 깊이(maximum recursion depth)가 1000으로 정해져 있다.<br>따라서 문제의 조건 <code>주어지는 문자열의 길이는 3 이상 100,000 이하이고, 영문 알파벳 소문자로만 이루어져 있다.</code>라는 조건에 있어서 최장 문자열의 길이에 대한 적절한 해결책이 되지 못한다.</p>
+<p>최소한으로 재귀호출을 해서 문제를 해결해야 한다.</p>
+<h3 id="Pseudo-code-2-최소-재귀호출"><a href="#Pseudo-code-2-최소-재귀호출" class="headerlink" title="Pseudo code #2 최소 재귀호출"></a>Pseudo code #2 최소 재귀호출</h3><p>유사 재귀호출의 경우에만 재귀호출 형태로 함수를 호출하고 회문인 경우에는 조건처리가 끝나면 자동으로 회문인 것으로 간주한다.</p>
+<p><img src="/images/post_images/210302_baekjoon_17609_less_recursive-method-solution.png"></p>
+<h3 id="본-코드-2"><a href="#본-코드-2" class="headerlink" title="본 코드 #2"></a>본 코드 #2</h3><pre><code class="python"># 유사회문 검사 function
+def inner_palindrome(input_str, start, end):
+    while start &lt; end:
+        if input_str[start] == input_str[end]:
+            start += 1
+            end -= 1
+        else:
+            return False
+    return True
+
+def palindrome(input_str, start, end):
+    while start &lt; end:
+        if input_str[start] == input_str[end]:
+            start += 1
+            end -= 1
+        else:
+            fc = inner_palindrome(input_str, start, end-1)
+            sc = inner_palindrome(input_str, start+1, end)
+            #  fc와 sc 둘 중에 하나를 만족한다면, 유사 회문이기 때문에 값 1을 반환해준다.
+            if fc or sc:
+                return 1
+            else:
+                return 2
+    return 0
+
+
+test_case = int(input())
+for _ in range(test_case):
+    input_str = input()
+    print(palindrome(input_str, 0, len(input_str)-1))</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/03/02/202103/210302-html_css_til/" title="210302 HTML/CSS TIL - 레이아웃 구성 순서, 태그 배치도를 그릴때는 태그의 특성이 보이게 그리기, 요소배치는 최대한 논리적 순서를 유지한 상태에서 하기, figure 태그, anchor 태그의 대체 텍스트, :root{}를 활용한 스타일 속성의 변수선언(재사용성), CSS 전처리기의 종류 및 장/단점, 실무에서의 스타일링 방법, positioning에 따른 element의 성격 변화, rgba()와 hsla()의 사용법, 1px보다 얇은 디자인, 스프라이트 기법 (CSS Sprites), aria-label과 IR 기법"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210302 HTML/CSS TIL - 레이아웃 구성 순서, 태그 배치도를 그릴때는 태그의 특성이 보이게 그리기, 요소배치는 최대한 논리적 순서를 유지한 상태에서 하기, figure 태그, anchor 태그의 대체 텍스트, :root{}를 활용한 스타일 속성의 변수선언(재사용성), CSS 전처리기의 종류 및 장/단점, 실무에서의 스타일링 방법, positioning에 따른 element의 성격 변화, rgba()와 hsla()의 사용법, 1px보다 얇은 디자인, 스프라이트 기법 (CSS Sprites), aria-label과 IR 기법</span></a><a class="button is-default" href="/2021/03/02/202103/210302-Self-development_til/" title="210302 Self Development TIL"><span class="has-text-weight-semibold">Next: 210302 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

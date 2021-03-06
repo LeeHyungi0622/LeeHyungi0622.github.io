@@ -39,13 +39,13 @@
     <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
     
     
-    <category term="React-router-test" scheme="https://leehyungi0622.github.io/tags/React-router-test/"/>
+    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
     
     <category term="React-testing-library" scheme="https://leehyungi0622.github.io/tags/React-testing-library/"/>
     
-    <category term="Unit-testing" scheme="https://leehyungi0622.github.io/tags/Unit-testing/"/>
+    <category term="React-router-test" scheme="https://leehyungi0622.github.io/tags/React-router-test/"/>
     
-    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
+    <category term="Unit-testing" scheme="https://leehyungi0622.github.io/tags/Unit-testing/"/>
     
     <category term="TDD" scheme="https://leehyungi0622.github.io/tags/TDD/"/>
     
@@ -72,9 +72,9 @@
     <category term="Memoirs" scheme="https://leehyungi0622.github.io/categories/Memoirs/"/>
     
     
-    <category term="HTML-CSS" scheme="https://leehyungi0622.github.io/tags/HTML-CSS/"/>
-    
     <category term="Memoirs" scheme="https://leehyungi0622.github.io/tags/Memoirs/"/>
+    
+    <category term="HTML-CSS" scheme="https://leehyungi0622.github.io/tags/HTML-CSS/"/>
     
   </entry>
   

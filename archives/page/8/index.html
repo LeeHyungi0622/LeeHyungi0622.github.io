@@ -1,0 +1,106 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>Lee Hyungi (이현기)'s blog</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>Archives · All</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/210209_react_testing_library.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/09/202102/210209-React_testing_library_start/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/210209_react_testing_library.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/React-Jest"><i class="tag post-item-tag">React-Jest</i></a><a href="/tags/API-Testing"><i class="tag post-item-tag">API-Testing</i></a><a href="/tags/React-testing-library"><i class="tag post-item-tag">React-testing-library</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/09/202102/210209-React_testing_library_start/">210209 RTL(React Testing Library)를 활용한 Axios Mockup 테스트</a></h2><time class="has-text-grey" datetime="2021-02-09T13:29:42.000Z">2021-02-09</time><p class="is-flex-grow-2 mt-2">
+
+
+실습 Repository :https://github.com/LeeHyungi0622/react_testing_library_mock_axios_request_practice_repo
+React Testing Library 설치$ npm install --save-dev @testing-library/react
+
+
+(1) react-testing-library에서 지원하는 render()function을 이용해서 테스트하고자 하는 component의 rendering 테스트하기import &amp;#123; render &amp;#125; from &amp;quot;@testing-library/react&amp;quot;;
+import Fetch from..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/09/202102/210209-React_testing_library_start/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/python_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/09/202102/210209-Python_Assignment/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/python_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a><a href="/tags/Class-design"><i class="tag post-item-tag">Class-design</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/09/202102/210209-Python_Assignment/">210209 Python Assignment</a></h2><time class="has-text-grey" datetime="2021-02-09T06:29:41.000Z">2021-02-09</time><p class="is-flex-grow-2 mt-2">
+
+
+과제1) 성수역 지하철 열차 시스템
+
+지하철 노선 클래스# 2호선 내부순환선 (총 43개 역) 시청역 &amp;lt;-&amp;gt;시청역 (내부순환)
+# 성수지선 (총 5개 역) 성수역 &amp;lt;-&amp;gt; 신설동
+# 신정지선 (총 38개 역) 성수역 &amp;lt;-&amp;gt;까치산
+# class instance를 만들때 각 노선의 최대 정착역의 수를 구한다.
+class SubwayLine:
+    def __init__(self, num_of_stn):
+        # 지하철역의 수 만큼 [0]리스트를 만들어서
+        # 역별로 정차하고 있는 지하철의 수를 관리
+        self.num_of_stop_train_list = [0]*num..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/09/202102/210209-Python_Assignment/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/09/202102/210209-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/09/202102/210209-Self-development_til/">210209 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-09T02:44:00.000Z">2021-02-09</time><p class="is-flex-grow-2 mt-2">Thought of the day현명한 자라면 찾아낸 기회보다 더 많은 기회를 만들 것이다. (A wise man will make more opportunities than he finds) 프랜시스 베이컨/Sir Francis Bacon
+
+
+
+DAILY RECORD오늘도 하루종일 자습을 하였다.오전에는 Jest framework의 사용법에 대한 공부와 ReactJS side project를 진행하였다. 오후에는 Python 메인 강사님 과제와 ReactJS에서 Jest의 Mock module을 활용해서 Async API 코드를 unit test하는 방법에 대해서 정리를 해 볼 것이다.
+TO DO LIST
+TypeScript 공부 ..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/09/202102/210209-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/jest_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/08/202102/210208-JS_Jest_matchers/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/jest_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Jest"><i class="tag post-item-tag">Jest</i></a><a href="/tags/Jest-matcher"><i class="tag post-item-tag">Jest-matcher</i></a><a href="/tags/JavaScript-unit-test"><i class="tag post-item-tag">JavaScript-unit-test</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/08/202102/210208-JS_Jest_matchers/">210208 Jest의 다양한 matcher</a></h2><time class="has-text-grey" datetime="2021-02-08T12:57:42.000Z">2021-02-08</time><p class="is-flex-grow-2 mt-2">
+
+
+Jest Matcher이전에 사용했던 toBe() matcher는 숫자나 문자와 같은 기본 타입(Primitive Type)의 데이터를 비교할때 사용했다. 그럼 그 외에 다른 matcher에는 어떤 것들이 있는지 알아보고 실습을 해보도록 하겠다.
+Jest의 다양한 matcher
+toEqual() : primitive type의 변수나 객체를 비교할때 사용된다.객체는 참조변수이기 때문에 값은 같더라도 참조하는 주소가 다르다.
+
+toStrictEqual() : 객체를 좀 더 엄격하게 검사할때 사용된다.
+// makeUser()를 toEqual()로 검사를 하게 되면 passed
+// toStrictEqual()를 toEqual()..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/08/202102/210208-JS_Jest_matchers/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/08/202102/210208-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/08/202102/210208-Self-development_til/">210208 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-08T04:30:00.000Z">2021-02-08</time><p class="is-flex-grow-2 mt-2">Thought of the day좋아하는 직업으르 택하면 평생 하루도 일하지 않아도 될 것이니라. (Choose a job you love, and you will never have to work a day in your life.) 공자/Confucius
+
+
+
+DAILY RECORD오늘은 하루종일 자습을 하였다.자습의 시작은 JavaScript test framework인 Jest의 간단한 사용법과 실습한 내용을 정리하는 것으로 시작했다.
+TO DO LIST
+TypeScript 공부 (Understanding TypeScript - 2021 Edition)
+Section 1.8.Setting Up A Code Editor / ID..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/08/202102/210208-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/jest_logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/08/202102/210208-JS_Jest_start/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/jest_logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Jest"><i class="tag post-item-tag">Jest</i></a><a href="/tags/JavaScript-unit-test"><i class="tag post-item-tag">JavaScript-unit-test</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/08/202102/210208-JS_Jest_start/">210208 Jest의 개념과 기본사용</a></h2><time class="has-text-grey" datetime="2021-02-08T00:33:42.000Z">2021-02-08</time><p class="is-flex-grow-2 mt-2">
+
+
+JestJest는 Facebook에 의해서 개발된 JavaScript 테스트 프레임워크이며, 대규모 Web application의 테스트를 좀 더 심플하게 할 수 있도록 도와준다.
+Jest framework의 사용간단한 JavaScript 코드를 Jest framework를 사용해서 테스트 해보도록 하자.
+실습 내용실습 Repository : https://github.com/LeeHyungi0622/javascript-jest-test-practice-repo
+
+프로젝트의 branch 기본 구성은 master branch로 구성한다.
+
+README.md 파일의 documentation작업을 제외한 모든 작업은 별도의 branc..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/08/202102/210208-JS_Jest_start/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/react-js-logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/07/202102/210207-ReactJS_axios/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/react-js-logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/ReactJS"><i class="tag post-item-tag">ReactJS</i></a><a href="/tags/ReactJS-Axios"><i class="tag post-item-tag">ReactJS-Axios</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/07/202102/210207-ReactJS_axios/">210207 API &amp; Networking with Axios instance</a></h2><time class="has-text-grey" datetime="2021-02-07T05:55:42.000Z">2021-02-07</time><p class="is-flex-grow-2 mt-2">
+
+본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.
+
+
+
+
+Axios vs Fetch
+
+
+
+
+Fetch()
+
+Fetch API는 Request나 Response와 같은 HTTP Pipeline에 접근 및 조작을 하기 위한 JavaScript interface를 제공한다.Network를 통해 비동기방식으로 resource를 fetch하기 위해서 사용된다고 이해하면 된다.
+사용방법은 아래와 같이 fetch() method에 자원을 얻기 위한 path를 넣어주고 request, response에 접근하면 된다.
+// fetch의 기본적인 사용
+fetch(&amp;quot;e..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/07/202102/210207-ReactJS_axios/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/side_project_diary_img.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/07/202102/210207_side_project_diary/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/side_project_diary_img.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Side-Project-Diary"><i class="tag post-item-tag">Side-Project-Diary</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/07/202102/210207_side_project_diary/">210207 Side Project Diary 2일차</a></h2><time class="has-text-grey" datetime="2021-02-07T03:16:42.000Z">2021-02-07</time><p class="is-flex-grow-2 mt-2">
+Side Project Diary 2일차오늘은 어제 새로 kick-off한 ReactJS project로 시작을 할 계획이다. 새로 만든 GitHub 계정에서의 첫 번째 나의 Side Project이기 때문에 README 파일 작성, Commit, Pull Request, Issue, Branch 관리 등 전반적으로 제대로 구성해서 진행해 볼 것이다.그래서 오늘은 Issue3(Organize the fundamental folder structure of project.)에 해당하는 작업과 추가적으로 Open API 관련 method를 작성하는 새로운 Issue6를 추가하여, Issue2와 Issue6를 같이 진행할 예정이다.
+Op..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/07/202102/210207_side_project_diary/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/self_development_logo.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/07/202102/210207-Self-development_til/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/self_development_logo.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/07/202102/210207-Self-development_til/">210207 Self Development TIL</a></h2><time class="has-text-grey" datetime="2021-02-07T02:47:42.000Z">2021-02-07</time><p class="is-flex-grow-2 mt-2">Thought of the day인생의 마법은 앞을 내다보는 것이지, 무엇이 잘못되었나 주위를 둘러보거나 과거에 대해 슬픔을 갖는 것이 아니다. (The magic of life is about looking forward, Neither looking around and worrying what is about to go wrong nor having sorrows of the past.) -DR.JOE G.VETHANAYAGAM
+
+
+
+
+DAILY RECORD오늘은 오전 10시 30분에 헬스장에 가서 운동하고 바로 11시 50분경에 집 앞에 있는 투썸 플레이스에 왔다.오늘도 의미있는 하루가 되기 위해 노력하는 내가 되자.
+TO DO..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/07/202102/210207-Self-development_til/">Read more</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/images/post_images/react-js-logo.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2021/02/06/202102/210206-ReactJS_start/"><img class="post-cover-img js-img-fadeIn" src="/images/post_images/react-js-logo.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/ReactJS"><i class="tag post-item-tag">ReactJS</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2021/02/06/202102/210206-ReactJS_start/">210206 ReactJS의 개념과 기본사용</a></h2><time class="has-text-grey" datetime="2021-02-06T06:53:42.000Z">2021-02-06</time><p class="is-flex-grow-2 mt-2">
+
+본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 ReactJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.
+
+
+
+
+ReactJS
+
+NPM에서 React library를 살펴보면, 매주 400만건 이상의 유저가 React Library를 다운받고 있고, Facebook에 의해서 관리가 되고 있다. React를 가장 좋은 기술로 만들기 위해 Facebook에서 전적으로 자원과 커뮤니티, 서포트를 아끼지 않고 있다.
+
+  
+    
+      
+    
+    
+      
+    
+   
+
+
+Front-end 개발의 생태계를 보면, 71.7%의 사용자가 이미 React를 이용했고, 다른 비슷한 프레임워크와 비교를 했을때..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2021/02/06/202102/210206-ReactJS_start/">Read more</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap"><a class="extend prev" rel="prev" href="/archives/page/7/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/page/9/">9</a><a class="page-number" href="/archives/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/15/">15</a><a class="extend next" rel="next" href="/archives/page/9/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>Archives</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">92</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">38</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+
+window.addEventListener('resize', $claudia.throttle(function () {
+    var images = document.querySelectorAll('.js-img-fadeIn')
+
+    images.forEach($claudia.blurBackdropImg)
+}, 150))</script></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/addActiveLinkStyle.js"></script></body></html>
