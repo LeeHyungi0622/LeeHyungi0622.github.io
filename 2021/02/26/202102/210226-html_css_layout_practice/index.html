@@ -1,0 +1,179 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210226 HTML/CSS Layout practice (w/float)</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210226 HTML/CSS Layout practice (w/float)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile is-hidden"></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210226 HTML/CSS Layout practice (w/float)</h1><time class="has-text-grey" datetime="2021-02-26T00:38:00.000Z">2021-02-26</time><article class="mt-2 post-content"><p><img src="/images/post_images/html_css_logo.png"></p>
+<ul>
+<li><p><ins><strong>HTML/CSS float 및 구조 선택자를 활용한 레이아웃 배치 연습하기</strong></ins></p>
+</li>
+<li><p><ins><strong>화면 구성 설계해보기</strong></ins></p>
+</li>
+</ul>
+<p>우선 화면의 배치상 이미지는 왼쪽, 타이틀은 오르쪽 상단, 용어 설명은 오른쪽 하단에 위치한다.</p>
+<p>그럼 왼쪽에 높이가 100% , 너비가 50% 비율로 위치하면 되고, 오른쪽에는 높이가 50%, 너비가 50% 비율로 두 개의 박스를 수직방향으로 배치시키면 된다는 결론이 나온다.</p>
+<p>이제 float 속성을 이용해서 왼쪽에 배치해야되는 이미지(dd 첫번째 요소)의 경우 left 속성값을, 오른쪽에 배치해야되는 타이틀(dt)과 용어설명(dd 두번째 요소)은 right 속성값을 위에서 생각한 너비, 높이 비율값과 함께 선언해주면 될 것 같다.<br>그래서 아래와 같은 구조로 우선 생각을 해보았다.</p>
+<table>
+  <tr>
+    <td>
+      <img src="/images/post_images/210226_layout_design1.png" alt="설계단계 레이아웃 이미지" width="300" height="200/">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong> <설계단계 레이아웃> </설계단계></strong>
+    </td>
+  </tr>
+</table>
+
+<p>그리고 용어설명 전체 컨텐츠를 담고 있는 부모요소가 자식요소의 높이 정보를 잃어버렸기 때문에 float를 해제시켜줘야 될 것 같다.</p>
+<p>이제 코드로 구현해가면서 생각했던 부분과 달라진 부분을 수정해가면서 레이아웃을 잡아가보자.<br>원래 레이아웃 설계 단계에서 너비 비율을 50%로 생각을 했었는데, 구현을 해보니, 너비를 이미지 부분은 30%로, 타이틀과 설명 부분은 70%로 해줘야 sample 원본과 비슷하게 나오는 것 같다.</p>
+<table>
+  <tr>
+    <td>
+      <img src="/images/post_images/210226_layout_design2.png" alt="설계단계 레이아웃 수정 이미지" width="300" height="200/">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong> <설계단계 레이아웃 수정> </설계단계></strong>
+    </td>
+  </tr>
+</table>
+
+<p><img src></p>
+<p>그리고 추가적으로 기타 용어 설명부분을 원본 페이지와 비슷하게 구성하기 위해서 자간 높이를 line-height 속성을 이용해서 조절해주고, 글자의 weight값과 타이틀 색상을 바꿔줘야겠다고 생각했다.</p>
+<p>코드와 결과화면은 아래와 같다.</p>
+<img src="/images/post_images/210226_result1.png" alt="결과 이미지1" width="300" height="200/">
+
+<pre><code class="css">.term &#123;
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #ccc, #eee);
+  border: 1px solid grey;
+&#125;
+
+.term h2 &#123;
+  margin: 0;
+  margin-bottom: 19px;
+&#125;
+
+.term dd,
+dt,
+dl &#123;
+  margin: 0;
+&#125;
+
+.term::after &#123;
+  content: &quot;&quot;;
+  display: block;
+  clear: both;
+&#125;
+
+.term-list div dd:nth-of-type(1) &#123;
+  float: left;
+  width: 30%;
+  height: 100%;
+&#125;
+
+.term-list dt &#123;
+  float: right;
+  width: 70%;
+  font-size: 14px;
+  color: rgb(12, 110, 172);
+  font-weight: 400;
+  margin: 0 0px 10px 0;
+  padding-left: 5px;
+&#125;
+
+.term-list div dd:nth-of-type(2) &#123;
+  float: right;
+  width: 70%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  padding-left: 5px;
+&#125;</code></pre>
+<br>
+그리고 추가적으로, 두 개 이상의 컨텐츠를 좌우 대칭 형태로 교차해서 화면에 표시하는 방법을 구조 선택자를 사용해서 실습해보았다. 
+각 컨텐츠가 div태그로 분리가 되어있고, 이 div태그가 홀수 번째인지, 짝수 번째인지 구분해서 내부 자식요소의 float 속성 값을 대칭으로 해주면 될 것 같고 생각을 했다.
+
+<p>결과 화면과 코드는 아래와 같다.</p>
+<img src="/images/post_images/210226_html_css_result2.png" alt="결과 이미지2" width="300" height="200/">
+
+<pre><code class="css">/* 웹 관련 용어 */
+.term &#123;
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #ccc, #eee);
+  border: 1px solid grey;
+&#125;
+
+.term h2 &#123;
+  margin: 0;
+  margin-bottom: 19px;
+&#125;
+
+.term dd,
+dt,
+dl &#123;
+  margin: 0;
+&#125;
+
+.term::after &#123;
+  content: &quot;&quot;;
+  display: block;
+  clear: both;
+&#125;
+
+/* div 태그가 홀수번째이면 */
+.term-list div:nth-child(odd) dt &#123;
+  float: right;
+  width: 70%;
+  font-size: 14px;
+  color: rgb(12, 110, 172);
+  font-weight: 400;
+  margin: 0 0px 10px 0;
+  padding-left: 5px;
+&#125;
+
+.term-list div:nth-child(odd) dd:nth-of-type(1) &#123;
+  float: left;
+  width: 30%;
+  height: 100%;
+&#125;
+
+.term-list div:nth-child(odd) dd:nth-of-type(2) &#123;
+  float: right;
+  width: 70%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  padding-left: 5px;
+&#125;
+
+/* div 태그가 짝수번째이면 */
+.term-list div:nth-child(even) dt &#123;
+  float: left;
+  width: 70%;
+  font-size: 14px;
+  color: rgb(12, 110, 172);
+  font-weight: 400;
+  margin: 0 0px 10px 0;
+  padding: 20px 0 0 5px;
+&#125;
+
+.term-list div:nth-child(even) dd:nth-of-type(1) &#123;
+  float: right;
+  width: 30%;
+  height: 100%;
+  padding: 20px 0 0 0;
+&#125;
+
+.term-list div:nth-child(even) dd:nth-of-type(2) &#123;
+  float: left;
+  width: 70%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  padding-right: 5px;
+&#125;</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/26/202102/210226-Self-development_til/" title="210226 Self Development TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210226 Self Development TIL</span></a><a class="button is-default" href="/2021/02/25/202102/210225-html_css_til/" title="210225 HTML/CSS TIL - CSS 구체성, 구조 선택자, CSS 유효성 검사, 레이아웃 설계, 접근성 지침서(WCAG, KWCAG), 로그인 폼 설계 및 구현, explicit outline과 implicit outline, DTD(S,T,F), 웹 관련 용어 부분 레이아웃 설계 및 구현"><span class="has-text-weight-semibold">Next: 210225 HTML/CSS TIL - CSS 구체성, 구조 선택자, CSS 유효성 검사, 레이아웃 설계, 접근성 지침서(WCAG, KWCAG), 로그인 폼 설계 및 구현, explicit outline과 implicit outline, DTD(S,T,F), 웹 관련 용어 부분 레이아웃 설계 및 구현</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210215 Python TIL 2/2 - Function, Closure, Decorator</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210215 Python TIL 2/2 - Function, Closure, Decorator</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Function-First-class-function"><span class="toc-text">Function &#x3D; First-class function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Closure"><span class="toc-text">Closure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decorator"><span class="toc-text">Decorator</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#decorator%EC%9D%98-%EA%B8%B0%EB%B3%B8-Syntax"><span class="toc-text">decorator의 기본 Syntax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#decorator%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EA%B3%A0-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0"><span class="toc-text">@ decorator를 사용하지 않고 구현하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#decorator%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0"><span class="toc-text">@ decorator를 사용해서 구현하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EC%99%80-%EB%B0%98%ED%99%98%EA%B0%92%EC%9D%84-%EC%B2%98%EB%A6%AC%ED%95%98%EB%8A%94-decorator"><span class="toc-text">매개변수와 반환값을 처리하는 decorator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%80%EB%B3%80-%EC%9D%B8%EC%88%98-%ED%95%A8%EC%88%98-decorator"><span class="toc-text">가변 인수 함수 decorator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decorator-Practice"><span class="toc-text">Decorator Practice</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EA%B0%80-%EC%97%86%EB%8A%94-decorator-%EC%9E%91%EC%84%B1%ED%95%B4%EB%B3%B4%EA%B8%B0"><span class="toc-text">매개변수가 없는 decorator 작성해보기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#decorator%EB%A1%9C-memoization-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98"><span class="toc-text">decorator로 memoization 구현하기 (피보나치)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#decorator%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-1%ED%98%B8%EC%B0%A8%EC%9E%85%EB%8B%88%EB%8B%A4-5%ED%98%B8%EC%B0%A8-%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0"><span class="toc-text">decorator를 활용해서 1호차입니다. ~ 5호차 입니다. 출력하기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%B0%98%EB%B3%B5%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EA%B3%A0-decorator%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-1%ED%98%B8%EC%B0%A8%EC%9E%85%EB%8B%88%EB%8B%A4-5%ED%98%B8%EC%B0%A8-%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0"><span class="toc-text">반복문을 사용하지 않고 decorator를 활용해서 1호차입니다. ~ 5호차 입니다. 출력하기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#decorator%EB%A1%9C-%ED%94%BC%EB%B3%B4%EB%82%98%EC%B9%98-time-checker-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0"><span class="toc-text">decorator로 피보나치 time checker 구현하기</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Do-it-yourself-%EC%88%99%EC%A0%9C"><span class="toc-text">Do it yourself! (숙제)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%80%EB%B3%80%EC%9D%B8%EC%88%98%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%98%EC%97%AC-%EC%9D%B8%EC%88%98%EB%A5%BC-%ED%95%98%EB%82%98%EB%A1%9C-%EB%B0%9B%EA%B8%B0"><span class="toc-text">가변인수를 활용하여 인수를 하나로 받기</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210215 Python TIL 2/2 - Function, Closure, Decorator</h1><time class="has-text-grey" datetime="2021-02-15T11:35:41.000Z">2021-02-15</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
+<br>
+
+<h2 id="Function-First-class-function"><a href="#Function-First-class-function" class="headerlink" title="Function = First-class function"></a>Function = First-class function</h2><ul>
+<li><p>파이썬에서는 함수를 일급 시민(first class citizen)으로 취급한다.<br>아래의 예시코드를 보면, 함수에서 또 다른 함수를 반환할 수 있으며, 함수에서 반환하는 lambda 함수의 경우 본래 heap에 저장이 되지만, 함수에서 반환된 lambda함수를 변수에 넣음으로써 data 영역에 저장된다.</p>
+<pre><code class="python">def make_difference(operator):
+  if operator == &#39;+&#39;:
+    return lambda x,y:x+y
+  if operator == &#39;-&#39;:
+    return lambda x,y:x-y
+
+plus = make_difference(&#39;+&#39;)
+# lambda는 기본적으로 heap에 저장이 되지만, 변수로 다시 넣기 때문에 데이터의 영역으로 저장이 된다.
+print(plus(1,2)) #3</code></pre>
+</li>
+</ul>
+<br>
+
+<h2 id="Closure"><a href="#Closure" class="headerlink" title="Closure"></a>Closure</h2><ul>
+<li>함수 안에서 함수를 만들고 반환하는 형태</li>
+<li>함수와 함께 함수 자신의 주변 환경을 저장한 레코드를 의미한다.</li>
+</ul>
+<pre><code class="python">def outer():
+  text_a = &#39;John&#39;
+  def inner():
+    b = &#39;Doe&#39;
+    print(&quot;My name is &#123;&#125; &#123;&#125;.&quot;.format(text_a, b))
+  return inner #함수 객체를 전달해줘야 한다.
+
+func = outer()
+print(func) #
+print(func.__dir__())
+print(func.__closure__)
+print(func.__closure__[0].cell_contents) # John이 출력된다.
+# inner function에서는 outer function의 text_a를 가져와서 사용하고 있다.
+# text_a는 closure라는 개념때문에 가능하다.
+# closure의 element에 접근</code></pre>
+<br>
+
+<h2 id="Decorator"><a href="#Decorator" class="headerlink" title="Decorator"></a>Decorator</h2><ul>
+<li>decorator란 어떤 함수에 미리 만든 규격화된 처리를 적용할때 사용하는 것으로 정의할 수 있다.</li>
+<li>프레임워크를 사용하다보면 @controller나 @app.route(“/“)와 같은 데코레이터를 method위에 작성하게 되는데, 이처럼 이미 프레임워크에서 제공하는 규격화된 처리를 적용할때 decorator가 사용된다.</li>
+<li>함수로 decorator를 만들면, <code>함수 decorator</code>라고 하고 클래스로 decorator를 만들면 <code>클래스 decorator</code>라고 정의한다.</li>
+<li><code>기존의 함수를 수정하지 않은 상태에서 추가 기능을 구현할때 사용</code>된다.</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="decorator의-기본-Syntax"><a href="#decorator의-기본-Syntax" class="headerlink" title="decorator의 기본 Syntax"></a>decorator의 기본 Syntax</h3><pre><code class="python"># decorator1이라는 decorator 만들기
+def decorator1(func):
+  def wrapper():
+    # statements
+  return wrapper()
+
+@decorator1
+def actual_work():
+  # statements</code></pre>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="decorator를-사용하지-않고-구현하기"><a href="#decorator를-사용하지-않고-구현하기" class="headerlink" title="@ decorator를 사용하지 않고 구현하기"></a>@ decorator를 사용하지 않고 구현하기</h3><p>decorator 함수는 아래와 같이 실행할 함수를 outer function의 인자로 넣어주고 내부에서는 추가해 줄 기능과 인자로 받은 function을 작성해주며, 최종적으로 outer function에서는 inner function을 반환하는 형태로 적어주면 된다.</p>
+<pre><code class="python">def trace(func): # 호출할 함수를 매개변수로 받는다.
+  def wrapper(): # 호출할 함수를 감싸는 함수
+    print(func.__name__, &#39;fuction start&#39;)
+    func() # 인자로 받은 함수
+    print(func.__name__, &#39;function end&#39;)
+  return wrapper
+
+def hello():
+  print(&#39;hello&#39;)
+
+def world():
+  print(&#39;world&#39;)
+
+# decorator에 호출할 함수를 넣어준다.
+trace_hello = trace(hello)
+# 반환된 함수를 호출한다.
+trace_hello()
+# decorator에 호출할 함수를 넣어준다.
+trace_world = trace(world)
+# 반환된 함수를 호출한다.
+hello_world()</code></pre>
+<br>
+</li>
+<li><h3 id="decorator를-사용해서-구현하기"><a href="#decorator를-사용해서-구현하기" class="headerlink" title="@ decorator를 사용해서 구현하기"></a>@ decorator를 사용해서 구현하기</h3><p>위의 코드를 <code>@decorator</code>를 사용해서 간단하게 작성을 해보자.</p>
+<pre><code class="python">def trace(func): # 호출할 함수를 매개변수로 받는다.
+  def wrapper(): # 호출할 함수를 감싸는 함수
+    print(func.__name__, &#39;fuction start&#39;)
+    func() # 인자로 받은 함수
+    print(func.__name__, &#39;function end&#39;)
+  return wrapper
+
+@trace # @decorator
+def hello():
+  print(&#39;hello&#39;)
+
+@trace # @decorator
+def world():
+  print(&#39;world&#39;)
+
+hello() # 함수를 그대로 호출한다.
+world() # 함수를 그대로 호출한다.</code></pre>
+<br>
+</li>
+<li><h3 id="매개변수와-반환값을-처리하는-decorator"><a href="#매개변수와-반환값을-처리하는-decorator" class="headerlink" title="매개변수와 반환값을 처리하는 decorator"></a>매개변수와 반환값을 처리하는 decorator</h3><pre><code class="python">def trace(func): # 호출할 함수를 매개변수로 받는다.
+  def wrapper(a, b): # 호출할 함수의 매개변수와 똑같이 지정을 해준다.
+    r = func(a, b) # func에 매개변수 a, b를 넣어서 호출하고 반환값을 변수에 저장한다.
+    print(&#39;&#123;0&#125;(a=&#123;1&#125;, b=&#123;2&#125;) -&gt; &#123;3&#125;&#39;.format(func.__name__, a, b, r)) # 매개변수와 반환값을 출력해준다.
+    return r # func의 반환값을 반환해준다.
+    # func함수의 반환값을 반환해주지 않으면 add() 함수를 호출해도 아무값이 출력되지 않는다.
+    # 만약에 func의 반환값이 필요가 없다면, return func(a, b)해주면 된다.
+  return wrapper # wrapper 함수를 반환해준다.
+
+@trace
+def add(a, b):
+  return a + b
+
+print(add(10, 20))
+# add(a=10, b=20) -&gt; 30
+# 30</code></pre>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="가변-인수-함수-decorator"><a href="#가변-인수-함수-decorator" class="headerlink" title="가변 인수 함수 decorator"></a>가변 인수 함수 decorator</h3><ul>
+<li><p>함수의 매개변수(인수)가 고정되지 않은 경우에는 wrapper 함수를 가변 인수 함수로 만들면 된다.</p>
+<pre><code class="python">def trace(func): # 호출할 함수를 매개변수로 받는다.
+  def wrapper(*args, **kwargs): # 가변인수 함수로 만든다.
+    r = func(*args, **kwargs) # func에 args, kwargs를 unpacking해서 넘겨준다.
+    print(&#39;&#123;0&#125;(args=&#123;1&#125;, kwargs=&#123;2&#125;) -&gt; &#123;3&#125;&#39;.format(func.__name__, args, kwargs, r))
+    return r # func의 반환값을 반환
+  return wrapper # wrapper 함수를 반환
+
+def get_max(*args): # 위치 인수를 사용하는 가변 인수 함수 사용
+  return max(args)
+
+def get_min(**kwargs): # 키워드 인수를 사용하는 가변 인수 함수 사용
+  return min(kwargs.values())
+
+print(get_max(10, 20))
+print(get_min(x=10, y=20, z=30))
+
+&quot;&quot;&quot;
+get_max(args=(10, 20), kwargs=&#123;&#125;) -&gt; 20
+20
+get_min(args=(), kwargs=&#123;&#39;x&#39;: 10, &#39;y&#39;: 20, &#39;z&#39;: 30&#125;) -&gt; 10
+10
+&quot;&quot;&quot;</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="Decorator-Practice"><a href="#Decorator-Practice" class="headerlink" title="Decorator Practice"></a>Decorator Practice</h3></li>
+</ul>
+<br>
+
+<ul>
+<li><h4 id="매개변수가-없는-decorator-작성해보기"><a href="#매개변수가-없는-decorator-작성해보기" class="headerlink" title="매개변수가 없는 decorator 작성해보기"></a>매개변수가 없는 decorator 작성해보기</h4><pre><code class="python">def rapper(func):
+  def wrapper():
+    print(&#39;너와 나의 연결고리..&#39;)
+    func()
+  return wrapper
+
+@rapper
+def dok2():
+  print(&#39;이건 우리 안의 소리&#39;)
+
+dok2()
+# 너와나의 연결고리..
+# 이건 우리 안의 소리
+# func()의 위치를 바꿔줌으로써 출력 순서를 바꿀 수도 있다.
+rapper(dok2)()
+# 너와나의 연결고리..
+# 너와나의 연결고리..
+# 이건 우리 안의 소리
+
+# decorator로 지정한 rapper() function이 기본적으로 한 번 실행해주고
+# @rapper dok2() function을 실행시켜준다.</code></pre>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h4 id="decorator로-memoization-구현하기-피보나치"><a href="#decorator로-memoization-구현하기-피보나치" class="headerlink" title="decorator로 memoization 구현하기 (피보나치)"></a>decorator로 memoization 구현하기 (피보나치)</h4><ul>
+<li>재귀호출로 피보나치를 구현하면 아래와 같다.</li>
+</ul>
+<pre><code class="python">def fibo_rec(num):
+  if num &lt; 2:
+    return num
+  else:
+    return fibo_rec(num-2) + fibo_rec(num-1)</code></pre>
+<ul>
+<li><ins><b>위의 재귀호출로 구현한 피보나치를 보면, 이미 연산된 수들의 조합으로 계속 누적해서 더해짐을 알 수 있다. 이미 연산된 수들의 조합을 momoization 개념을 사용해서 decoration 함수로 구현을 해보자.</b></ins></li>
+</ul>
+<pre><code class="python">def memoize(func):
+  memo = &#123;&#125;
+  def wrapper(seq):
+    if seq not in memo: # 매개변수 seq가 memo에 없으면, func에 seq인자를 넣어서 momo 변수에 담아준다.
+    #존재한다면, memo[seq]의 값을 반환해준다.
+      # memo dictionary 객체에 해당 seq를 키값으로 하는 값이 없다면, func(seq)의 값을 넣어준다.
+      memo[seq] = func(seq)
+    return memo[seq]
+  return wrapper
+
+@memoize
+def fibo_memo(num):
+  if num &lt; 2:
+    return num
+  else:
+    return fibo_memo(num-2) + fibo_memo(num-1)</code></pre>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h4 id="decorator를-활용해서-1호차입니다-5호차-입니다-출력하기"><a href="#decorator를-활용해서-1호차입니다-5호차-입니다-출력하기" class="headerlink" title="decorator를 활용해서 1호차입니다. ~ 5호차 입니다. 출력하기"></a>decorator를 활용해서 1호차입니다. ~ 5호차 입니다. 출력하기</h4><pre><code class="python"># 1호차입니다. ~ 5호차 입니다.
+def call_train(func):
+    def wrapper(num):
+        for i in range(1, num+1):
+            func(i)
+    return wrapper
+
+@call_train
+def print_train(num):
+    print(&quot;&#123;&#125;호차 입니다.&quot;.format(num))
+
+print_train(5)</code></pre>
+</li>
+<li><h4 id="반복문을-사용하지-않고-decorator를-활용해서-1호차입니다-5호차-입니다-출력하기"><a href="#반복문을-사용하지-않고-decorator를-활용해서-1호차입니다-5호차-입니다-출력하기" class="headerlink" title="반복문을 사용하지 않고 decorator를 활용해서 1호차입니다. ~ 5호차 입니다. 출력하기"></a>반복문을 사용하지 않고 decorator를 활용해서 1호차입니다. ~ 5호차 입니다. 출력하기</h4><pre><code class="python">def call_train(func):
+  def wrapper(num):
+      func(num)
+      if num == 1:
+          return
+      else:
+          call_train(wrapper(num-1))
+  return wrapper
+
+@call_train
+def print_train(num):
+    print(&quot;&#123;&#125;호차 입니다.&quot;.format(num))
+
+print_train(5)</code></pre>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h4 id="decorator로-피보나치-time-checker-구현하기"><a href="#decorator로-피보나치-time-checker-구현하기" class="headerlink" title="decorator로 피보나치 time checker 구현하기"></a>decorator로 피보나치 time checker 구현하기</h4><pre><code class="python">
+from time import time
+
+def time_checker(func):
+  def wrapper():
+    start_at = time()
+    result = func()
+    end_at = time()
+    print(&quot;execution time: &#123;&#125;sec&quot;.format(end_at-start_at))
+    return result
+  return wrapper
+
+  @time_checker
+  def fibo_rec(num):
+    if num &lt; 2:
+      return num
+    else:
+      fibo_rec(num-2) + fibo_rec(num-1)
+
+  fibo_rec(10)
+
+  #fibo_rec는 time_checker에서 func parameter이다.
+  # 그런데 time_checker function의 내부에서 사용된 func()내부에는
+  # parameter가 없기 때문에 wrapper에 num을 인자로 넘겨준다.
+  # outer function은 decoratorated function(실행될 함수객체)을 넘겨받기 위한 역할을 하고
+  # inner function은 실제로 넘겨받은 decorated function을 실행하기 위한 역할을 한다.
+  def time_checker(func):
+  def wrapper(num):
+    start_at = time(num)
+    result = func()
+    end_at = time()
+    print(&quot;execution time: &#123;&#125;sec&quot;.format(end_at-start_at))
+    return result
+  return wrapper</code></pre>
+<p>recursion 방식에서는 보통 decorator를 사용하지 않는다.<br>반복 출력에 대한 문제를 해결하기 위해서 아래와 같이 작성을 해준다.</p>
+<pre><code class="python"># decorator로 구현된 함수를 직접 인자로 넣어서 처리를 해준다.
+time_checker(fibo_rec)(10)</code></pre>
+</li>
+</ul>
+<h2 id="Do-it-yourself-숙제"><a href="#Do-it-yourself-숙제" class="headerlink" title="Do it yourself! (숙제)"></a>Do it yourself! (숙제)</h2><blockquote>
+<p><br>“Hi, {name}. You might be loved with {lang}” 이라는 문자열이 존재할 때,이 문자열의 앞 뒤로 &lt;h1&gt;, &lt;em&gt; 태그가 붙도록 하는 데코레이터를 생성하세요 <br>ex output) <br>&lt;h1&gt;&lt;em&gt; {text} &lt;/em&gt;&lt;/h1&gt; <br><br>Advanced problem: Decorator 하나로 html 태그 이름을 지정할 수 있도록 수정 <br></p>
+</blockquote>
+<pre><code class="python">def appendHTMLTag(func):
+    def wrapper(name, lang):
+        return &quot;&lt;h1&gt;&lt;em&gt;&#123;&#125;&lt;/em&gt;&lt;/h1&gt;&quot;.format(func(name, lang))
+    return wrapper
+
+@appendHTMLTag
+def getString(name, lang):
+    return f&quot;Hi, &#123;name&#125;. You might be loved with &#123;lang&#125;&quot;
+
+print(getString(&quot;Lee Hyungi&quot;, &quot;Korean&quot;))</code></pre>
+<h2 id="가변인수를-활용하여-인수를-하나로-받기"><a href="#가변인수를-활용하여-인수를-하나로-받기" class="headerlink" title="가변인수를 활용하여 인수를 하나로 받기"></a>가변인수를 활용하여 인수를 하나로 받기</h2><pre><code class="python">def appendHTMLTag(func):
+    def wrapper(*args):
+        return &quot;&lt;h1&gt;&lt;em&gt;&#123;&#125;&lt;/em&gt;&lt;/h1&gt;&quot;.format(func(*args))
+    return wrapper
+
+@appendHTMLTag
+def getString(*args):
+    return &quot;Hi, &#123;&#125;. You might be loved with &#123;&#125;&quot;.format(*args)
+
+
+print(getString(&quot;Lee Hyungi&quot;, &quot;Korean&quot;))</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/16/202102/210216-Self-development_til/" title="210216 Self Development TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210216 Self Development TIL</span></a><a class="button is-default" href="/2021/02/15/202102/210215-Python_til(1)/" title="210215 Python TIL 1/2 - Module &amp; Package, Library &amp; Framework, Poetry, Virtualenv"><span class="has-text-weight-semibold">Next: 210215 Python TIL 1/2 - Module &amp; Package, Library &amp; Framework, Poetry, Virtualenv</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

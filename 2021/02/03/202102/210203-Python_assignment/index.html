@@ -1,0 +1,35 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210203 Python Assignment</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210203 Python Assignment</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8F%AC%ED%84%B8%EC%9D%98-csv%ED%8C%8C%EC%9D%BC%EC%9D%84-json%EC%9C%BC%EB%A1%9C-converting%ED%95%98%EA%B8%B0"><span class="toc-text">공공데이터포털의 csv파일을 json으로 converting하기</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210203 Python Assignment</h1><time class="has-text-grey" datetime="2021-02-03T07:27:41.000Z">2021-02-03</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
+<br>
+
+<h2 id="공공데이터포털의-csv파일을-json으로-converting하기"><a href="#공공데이터포털의-csv파일을-json으로-converting하기" class="headerlink" title="공공데이터포털의 csv파일을 json으로 converting하기"></a>공공데이터포털의 csv파일을 json으로 converting하기</h2><p><code>경기도 성남시_인구및세대_현황</code></p>
+<pre><code class="python">import csv
+import json
+
+population = &#123;&#39;sungnam_population&#39;: []&#125;
+
+# csv 파일을 csv module로 읽어오기
+with open(&#39;20210201_sungnam.csv&#39;, &#39;r&#39;, encoding=&#39;euc-kr&#39;) as f:
+    sungnam_population = csv.reader(f)
+    # list -&gt; dictionary
+    sungnam_population_list = list(sungnam_population)
+
+    for row in sungnam_population_list[1:]:
+        population_dict_row = dict()
+        # 0번째 열에 있는 key값과 index를 이용해서 dictionary 데이터 만들기
+        for index, key in enumerate(sungnam_population_list[0]):
+            population_dict_row[key.replace(
+                &quot; &quot;, &quot;&quot;)] = row[index].replace(&quot; &quot;, &quot;&quot;)
+        population[&#39;sungnam_population&#39;].append(population_dict_row)
+
+# json.dump()를 활용해서 dictionary type의 데이터를 json 파일로 추출하기
+with open(&#39;sungnam_population.json&#39;, &#39;w&#39;, encoding=&#39;euc-kr&#39;) as f:
+    json.dump(population, f)
+
+# 추출된 json 파일을 읽고 출력하기
+with open(&#39;sungnam_population.json&#39;, &#39;r&#39;, encoding=&#39;euc-kr&#39;) as f:
+    des_data = json.load(f)
+
+print(des_data)
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/03/202102/210203-Plotly_Pandas_project_error/" title="210203 [SyntaxError] Non-ASCII Character"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210203 [SyntaxError] Non-ASCII Character</span></a><a class="button is-default" href="/2021/02/03/202102/210203-Self-development_til/" title="210203 Self Development TIL"><span class="has-text-weight-semibold">Next: 210203 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

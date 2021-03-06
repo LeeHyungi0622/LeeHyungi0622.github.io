@@ -1,0 +1,60 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210204 Build a server using ExpressJS &amp; Babel</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210204 Build a server using ExpressJS &amp; Babel</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Express-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-NodeJS-%EC%84%9C%EB%B2%84-%EC%9E%91%EC%84%B1"><span class="toc-text">Express 프레임워크를 사용해서 NodeJS 서버 작성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json%EC%97%90-entry-command-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A3%BC%EA%B8%B0"><span class="toc-text">package.json에 entry command 만들어주기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Babel"><span class="toc-text">Babel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-json%EC%97%90-entry-command-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0"><span class="toc-text">package.json에 entry command 수정하기</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/NodeJS"><i class="tag post-item-tag">NodeJS</i></a><a href="/tags/Express-Framework"><i class="tag post-item-tag">Express-Framework</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210204 Build a server using ExpressJS &amp; Babel</h1><time class="has-text-grey" datetime="2021-02-04T12:32:42.000Z">2021-02-04</time><article class="mt-2 post-content"><p><img src="/images/post_images/210204_babel_logo.png"></p>
+<blockquote>
+<p>본 포스팅 내용은 과거에 개인적으로 공부할때 정리했던 NodeJS의 내용을 복습의 목적으로 다시 정리하는 포스팅입니다.</p>
+</blockquote>
+<br>
+
+<h3 id="Express-프레임워크를-사용해서-NodeJS-서버-작성"><a href="#Express-프레임워크를-사용해서-NodeJS-서버-작성" class="headerlink" title="Express 프레임워크를 사용해서 NodeJS 서버 작성"></a><strong>Express 프레임워크를 사용해서 NodeJS 서버 작성</strong></h3><pre><code class="javascript">// express라는 이름의 파일을 찾아보고, 없으면 node_modules내부에서 찾아본다.
+const express = require(&quot;express&quot;);
+const app = express();
+
+const PORT = 4000;
+
+const handleListening = () =&gt; &#123;
+  console.log(`Listening on: http://localhost:$&#123;PORT&#125;`);
+&#125;;
+
+app.listen(PORT, handleListening);</code></pre>
+<h3 id="package-json에-entry-command-만들어주기"><a href="#package-json에-entry-command-만들어주기" class="headerlink" title="package.json에 entry command 만들어주기"></a><strong>package.json에 entry command 만들어주기</strong></h3><pre><code class="javascript">// package.json
+&quot;scripts&quot;:&#123;
+      &quot;start&quot;: &quot;node index.js&quot;
+&#125;</code></pre>
+<p>위와같이 entry command를 작성해주면 매번 node 명령으로 index.js(server entry) 파일을 실행시키지 않고, <code>npm start</code> 명령으로 server entry 파일을 실행시킬 수 있다.</p>
+<h3 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a><strong>Babel</strong></h3><p>Babel은 최신의 JavaScript코드를 이전 버전의 JavaScript 코드로 변환해주는 역할을 한다. Babel에는 다양한 Loader가 존재하는데 NodeJS에서 사용할 것이기 때문에 Babel node를 설치해준다.</p>
+<ul>
+<li><p><strong>npm install @babel/node</strong> 설치</p>
+</li>
+<li><p><strong>npm install @babel/preset-env</strong> 설치</p>
+</li>
+<li><p><strong>npm install @babel/core</strong> 설치</p>
+</li>
+<li><p><strong>.babelrc 파일을 추가</strong>해준다.</p>
+</li>
+</ul>
+<p><ins>babel에는 다양한 stage가 있는데 최신 stage인 -env를 사용해본다.</ins></p>
+<p><strong>.babelrc</strong></p>
+<pre><code class="javascript">&#123;
+  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]
+&#125;</code></pre>
+<p><strong>index.js</strong></p>
+<pre><code class="javascript">import express from &quot;express&quot;;
+
+const app = express();</code></pre>
+<h3 id="package-json에-entry-command-수정하기"><a href="#package-json에-entry-command-수정하기" class="headerlink" title="package.json에 entry command 수정하기"></a><strong>package.json에 entry command 수정하기</strong></h3><pre><code class="javascript">// package.json
+// babel이 최신 JavaScript 코드를 변환해줌과 동시에 node로 작성한 index.js 파일을 실행시켜 줄 것이다.
+&quot;scripts&quot;:&#123;
+      &quot;start&quot;: &quot;babel-node index.js&quot;
+&#125;</code></pre>
+<p>여지까지 작성한 방법으로는 server 코드에서 변화가 생기면 수동으로 서버를 끄고 다시 켜야 한다. 이러한 과정은 개발에 있어 매우 비효율적이므로, <code>nodemon</code>이라는 package를 설치해서 해결해보도록 하겠다.<br>여기서 설치하는 <code>nodemon</code>은 <ins><strong>개발자가 좀 더 편하게 개발할 수 있도록 도와주는 dependency이므로, 프로젝트의 실행과 직접적인 관련이 있는 dependency와 구별해서 설치해주는 것이 좋다.</strong></ins></p>
+<p>따라서 nodemon을 설치할때에는 <code>option으로 -D</code>를 붙여주도록 한다.</p>
+<pre><code class="bash">$ npm install nodemon -D</code></pre>
+<p>그럼 아래와 같이 별도의 <code>devDependencies</code> 객체로 구분되서 dependency가 설치되는 것을 확인할 수 있따.</p>
+<pre><code class="javascript">&quot;devDependencies&quot;: &#123;
+    &quot;nodemon&quot;: &quot;^2.0.4&quot;
+&#125;</code></pre>
+<p>이제 nodemon이 설치되었으니 package.json에서 entry command 수정해준다.<br>기존의 command에 <code>nodemon --exec</code>와 babel이 JavaScript 파일의 변환하는 것을 위해 2초간 delay될 수 있도록 <code>--delay 2</code>를 붙여준다.</p>
+<pre><code class="javascript">&quot;scripts&quot;: &#123;
+    &quot;start&quot;: &quot;nodemon --exec babel-node index.js --delay 2&quot;
+&#125;</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/04/202102/210204-HTTP_Request_Response/" title="210204 HTTP - Request/Response"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210204 HTTP - Request/Response</span></a><a class="button is-default" href="/2021/02/04/202102/210204-Plotly_Pandas_Practice/" title="210204 Plotly + Pandas Practice"><span class="has-text-weight-semibold">Next: 210204 Plotly + Pandas Practice</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

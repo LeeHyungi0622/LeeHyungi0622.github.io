@@ -1,0 +1,110 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>(Feedback)반응형 네이버 로그인 페이지 구현 및 웹 표준 &amp; 접근성에 기반한 취약점 분석 및 개선안 적용</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">(Feedback)반응형 네이버 로그인 페이지 구현 및 웹 표준 &amp; 접근성에 기반한 취약점 분석 및 개선안 적용</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B0%9C%EB%B0%9C-%EA%B4%80%EB%A0%A8-%ED%94%BC%EB%93%9C%EB%B0%B1"><span class="toc-text">(화면 설계 및 개발 관련 피드백)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#main-%ED%83%9C%EA%B7%B8-%EB%82%B4%EB%B6%80%EC%9D%98-form-%ED%83%9C%EA%B7%B8"><span class="toc-text">main 태그 내부의 form 태그</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label-%ED%83%9C%EA%B7%B8%EC%99%80-controller-%ED%83%9C%EA%B7%B8%EC%9D%98-%EB%B0%B0%EC%B9%98"><span class="toc-text">label 태그와 controller 태그의 배치</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9-%ED%95%A0-%ED%83%9C%EA%B7%B8%EB%A5%BC-%EC%84%A0%EC%A0%95%ED%95%A0-%EB%95%8C%EC%97%90%EB%8A%94-%EA%B5%AC%EC%B2%B4%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%96%B4%EB%96%A4-action%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B6%80%EB%B6%84%EC%9D%B8%EC%A7%80-%EC%9A%B0%EC%84%A0-%EB%B6%84%EC%84%9D%ED%95%98%EB%8F%84%EB%A1%9D-%ED%95%98%EC%9E%90"><span class="toc-text">사용 할 태그를 선정할 때에는 구체적으로 어떤 action을 위한 부분인지 우선 분석하도록 하자.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tabindex%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%B2%98%EB%A6%AC"><span class="toc-text">tabindex에 대한 이벤트 처리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BEM-%EB%B0%A9%EC%8B%9D%EC%9C%BC%EB%A1%9C-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%AA%85%EC%9D%84-%EC%A7%93%EB%8A%94-%EC%97%B0%EC%8A%B5%EC%9D%84-%EA%BE%B8%EC%A4%80%ED%9E%88-%ED%95%98%EC%9E%90"><span class="toc-text">BEM 방식으로 클래스명을 짓는 연습을 꾸준히 하자.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EB%B0%9C%EC%9D%84-%ED%95%A0-%EB%95%8C%EC%97%90%EB%8A%94-mobile-first-%EB%B0%A9%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EC%9D%84-%ED%95%98%EB%8F%84%EB%A1%9D-%ED%95%98%EC%9E%90"><span class="toc-text">개발을 할 때에는 mobile-first 방식으로 개발을 하도록 하자.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A0%91%EA%B7%BC%EC%84%B1-%EA%B4%80%EB%A0%A8-%ED%94%BC%EB%93%9C%EB%B0%B1"><span class="toc-text">(접근성 관련 피드백)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JAWS-NVDA-%EC%8A%A4%ED%81%AC%EB%A6%B0-%EB%A6%AC%EB%8D%94%EA%B0%80-%EB%AC%B4%EC%A1%B0%EA%B1%B4-placeholder%EB%A5%BC-%EC%9D%BD%EC%96%B4%EC%A3%BC%EC%A7%80-%EC%95%8A%EB%8A%94-%EA%B2%83%EC%9D%80-%EC%95%84%EB%8B%88%EB%8B%A4"><span class="toc-text">JAWS&#x2F;NVDA 스크린 리더가 무조건 placeholder를 읽어주지 않는 것은 아니다.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%99%80-%EC%8A%A4%ED%81%AC%EB%A6%B0-%EB%A6%AC%EB%8D%94%EC%9D%98-%EA%B6%81%ED%95%A9"><span class="toc-text">사용자 브라우저와 스크린 리더의 궁합</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EC%A0%90%EC%9C%A0%EC%9C%A8"><span class="toc-text">브라우저 점유율</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%8A%A4%ED%81%AC%EB%A6%B0-%EB%A6%AC%EB%8D%94-%EC%A0%90%EC%9C%A0%EC%9C%A8"><span class="toc-text">스크린 리더 점유율</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%8A%A4%ED%81%AC%EB%A6%B0-%EB%A6%AC%EB%8D%94-%EC%82%AC%EC%9A%A9%EC%9E%90%EC%9D%98-%EC%9B%B9-%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EC%99%80-%EC%8A%A4%ED%81%AC%EB%A6%B0-%EB%A6%AC%EB%8D%94%EC%9D%98-%EC%A1%B0%ED%95%A9"><span class="toc-text">스크린 리더 사용자의 웹 브라우저와 스크린 리더의 조합</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9C%A0%ED%9A%A8%EC%84%B1-%EA%B2%80%EC%82%AC%EC%97%90-%EB%94%B0%EB%A5%B8-%ED%99%94%EB%A9%B4%EC%9D%98-%EC%97%90%EB%9F%AC-%EB%A9%94%EC%8B%9C%EC%A7%80-%EC%B2%98%EB%A6%AC-feat-aria-live"><span class="toc-text">유효성 검사에 따른 화면의 에러 메시지 처리(feat. aria-live)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Light-house-%EB%AA%85%EB%8F%84-%EC%B1%84%EB%8F%84%EC%97%90-%EB%8C%80%ED%95%9C-%EB%AC%B8%EC%A0%9C%EB%8A%94-%EB%94%94%EC%9E%90%EC%9D%B4%EB%84%88%EC%99%80-%ED%98%91%EC%97%85%ED%95%98%EB%8F%84%EB%A1%9D-%ED%95%9C%EB%8B%A4"><span class="toc-text">Light house 명도&#x2F;채도에 대한 문제는 디자이너와 협업하도록 한다.</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Assignment-feedback"><i class="tag post-item-tag">Assignment-feedback</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">(Feedback)반응형 네이버 로그인 페이지 구현 및 웹 표준 &amp; 접근성에 기반한 취약점 분석 및 개선안 적용</h1><time class="has-text-grey" datetime="2021-03-03T00:54:00.000Z">2021-03-03</time><article class="mt-2 post-content"><link rel="stylesheet" href="./style.css">
+
+<div align="center">
+    <img src="/images/post_images/feedback_img.jpeg" alt="프로젝트 intro 이미지" width="600" height="350">
+</div>
+
+<p><strong>프로젝트 Repository :</strong> <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/LeeHyungi0622/responsive-naver-login-page-with-web-standards-and-accessibility">https://github.com/LeeHyungi0622/responsive-naver-login-page-with-web-standards-and-accessibility</a></p>
+<p>이번 3.1절 연휴때 했던 과제에 대해서 어제(03월 02일) 데레사 강사님으로부터 피드백을 받았다. 어제 속이 별로 안좋아서 밥을 안먹고 있다가 마침 강사님이 계셔서 과제에 대한 피드백을 부탁드렸었는데 흔쾌히 해주시겠다고 하셔서 너무 감사했다. 쉬셔야 되는 시간인데 이렇게 소중한 시간을 내주셔서 피드백을 주신 강사님께 다시 한 번 감사의 말씀을 드리고 싶다.</p>
+<p>자 그럼 어제 받은 피드백에 관한 내용을 정리해보자.<br>과제를 수행하는 것도 중요하지만 받은 피드백을 통해 어느 부분이 개선이 필요한지 파악해서 내 것으로 만드는 것이 중요하다.</p>
+<br>
+
+<h2 id="화면-설계-및-개발-관련-피드백"><a href="#화면-설계-및-개발-관련-피드백" class="headerlink" title="(화면 설계 및 개발 관련 피드백)"></a>(화면 설계 및 개발 관련 피드백)</h2><br>
+
+<ul>
+<li><h3 id="main-태그-내부의-form-태그"><a href="#main-태그-내부의-form-태그" class="headerlink" title="main 태그 내부의 form 태그"></a>main 태그 내부의 form 태그</h3><p>main 태그에 바로 form 태그를 넣어줘도 되지만, form 태그를 section이나 div 태그로 한 번 감싸서 넣어주도록 하자. 그리고 main 태그에 heading 태그를 넣어서 주도록 하자.</p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="label-태그와-controller-태그의-배치"><a href="#label-태그와-controller-태그의-배치" class="headerlink" title="label 태그와 controller 태그의 배치"></a>label 태그와 controller 태그의 배치</h3><p>경우에 따라 label 태그가 controller 태그의 다음에 위치하기도 하지만 보통은 label 태그 다음에 controller 태그가 위치하는 것이 일반적이다.</p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="사용-할-태그를-선정할-때에는-구체적으로-어떤-action을-위한-부분인지-우선-분석하도록-하자"><a href="#사용-할-태그를-선정할-때에는-구체적으로-어떤-action을-위한-부분인지-우선-분석하도록-하자" class="headerlink" title="사용 할 태그를 선정할 때에는 구체적으로 어떤 action을 위한 부분인지 우선 분석하도록 하자."></a>사용 할 태그를 선정할 때에는 구체적으로 어떤 action을 위한 부분인지 우선 분석하도록 하자.</h3><p>예를들어, 네이버 로그인 페이지에서 IP 보안 ON, OFF 표시 부준을 보면 표면적으로는 IP 보안은 ON, OFF를 위한 Label로 보일 수 있다. 하지만 IP 보안 부분은 클릭이 되는 부분이고, 별도의 페이지로 이동을 하게 하는 링크 객체이기 때문에 Label 태그가 아닌 anchor 태그로 처리해주는 것이 좋다. 이렇게 되면 ON/OFF(controller)는 mapping되는 label이 없기 때문에 이런 경우에는 ON/OFF(controller 태그)에 aria-label로 label 속성을 넣어서 처리해줘야 한다.</p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="tabindex에-대한-이벤트-처리"><a href="#tabindex에-대한-이벤트-처리" class="headerlink" title="tabindex에 대한 이벤트 처리"></a>tabindex에 대한 이벤트 처리</h3><p>키보드로 focus가 되지 않는 요소에 대해서 태그 속성에 <code>tabindex=0</code>을 넣어주게 되는데, 이런 경우에는 별도로 script단에서 해당 키 값에 대한 이벤트 처리를 해줘야 한다.</p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="BEM-방식으로-클래스명을-짓는-연습을-꾸준히-하자"><a href="#BEM-방식으로-클래스명을-짓는-연습을-꾸준히-하자" class="headerlink" title="BEM 방식으로 클래스명을 짓는 연습을 꾸준히 하자."></a>BEM 방식으로 클래스명을 짓는 연습을 꾸준히 하자.</h3>처음에는 Block Element Modifier 단위로 구분하는 것이 어렵게 느껴지지만 나중에 Sass로 스타일링을 할때 BEM 방식은 매우 유용하다.<br>Sass는 실제 태그의 구조와 같이 nested된 방식으로 스타일링을 할 수 있기 때문에 BEM 방식으로 클래스명을 작성하게 되면 각 Block, Element로 구분이 되어 있기 때문에 클래스명만 보더라도 레이아웃의 구조를 쉽게 파악할 수 있다.</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="개발을-할-때에는-mobile-first-방식으로-개발을-하도록-하자"><a href="#개발을-할-때에는-mobile-first-방식으로-개발을-하도록-하자" class="headerlink" title="개발을 할 때에는 mobile-first 방식으로 개발을 하도록 하자."></a>개발을 할 때에는 <code>mobile-first</code> 방식으로 개발을 하도록 하자.</h3><p>이 부분에 대한 조언은 클래스의 구체성에 대한 이야기를 할 때 강사님께서 해주셨던 조언이었다.<br>웹 페이지를 개발할때 모바일 개발을 우선 고려해서 개발을 진행하게 되면 나중에 데스크탑 기반의 웹 개발과의 구체성 문제를 사전에 예방할 수 있다.</p>
+</li>
+</ul>
+<br>
+
+<h2 id="접근성-관련-피드백"><a href="#접근성-관련-피드백" class="headerlink" title="(접근성 관련 피드백)"></a>(접근성 관련 피드백)</h2><br>
+
+<ul>
+<li><h3 id="JAWS-NVDA-스크린-리더가-무조건-placeholder를-읽어주지-않는-것은-아니다"><a href="#JAWS-NVDA-스크린-리더가-무조건-placeholder를-읽어주지-않는-것은-아니다" class="headerlink" title="JAWS/NVDA 스크린 리더가 무조건 placeholder를 읽어주지 않는 것은 아니다."></a>JAWS/NVDA 스크린 리더가 무조건 placeholder를 읽어주지 않는 것은 아니다.</h3><p>이는 브라우저의 조합에 따라 읽어주기도 하고, 읽어주지 않기도 한다. 스크린 리더와 브라우저의 궁합에 대해서는 접근성 연구소 유튜브 채널에 관련 영상이 있다.(아래 첨부)<br><strong>브라우저와 스크린 리더의 궁합 관련 영상 :</strong> <a target="_blank" rel="external nofollow noopener noreferrer" href="https://youtu.be/ja0RalXx_VA">https://youtu.be/ja0RalXx_VA</a></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="사용자-브라우저와-스크린-리더의-궁합"><a href="#사용자-브라우저와-스크린-리더의-궁합" class="headerlink" title="사용자 브라우저와 스크린 리더의 궁합"></a>사용자 브라우저와 스크린 리더의 궁합</h3><p><strong>국외 접근성 연구/조사 관련 기관 홈페이지</strong>: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://webaim.org/projects/practitionersurvey2/">https://webaim.org/projects/practitionersurvey2/</a><br>접근성 연구소 유튜브 채널의 영상을 통해 배운 내용에 대해서 간단하게 정리를 해보자.</p>
+<ul>
+<li><h4 id="브라우저-점유율"><a href="#브라우저-점유율" class="headerlink" title="브라우저 점유율"></a>브라우저 점유율</h4><p><code>Chrome &gt; Firefox &gt; IE &gt; Safari</code></p>
+<p>사용자 브라우저의 점유율은 장애인과 비 장애인 모두 비슷한 브라우저 점유율을 보여주고 있다.</p>
+<br>
+</li>
+<li><h4 id="스크린-리더-점유율"><a href="#스크린-리더-점유율" class="headerlink" title="스크린 리더 점유율"></a>스크린 리더 점유율</h4><p><code>NVDA &gt; JAWS &gt; VoiceOver &gt; Narrow</code></p>
+<p>NVDA는 무료 스크린 리더이면서 사용자가 사용하기 편한 UI를 가지고 있기 때문에 기존 독과점을 했던 JAWS 스크린 리더의 1위 자리를 차지하였다.<br>그 외 Window에서 무료로 제공해주는 Narrow 스크린 리더는 독자적인 특별한 기능을 제공해주기 때문에 사용자가 증가되고 있는 추세이다.</p>
+<br>
+</li>
+<li><h4 id="스크린-리더-사용자의-웹-브라우저와-스크린-리더의-조합"><a href="#스크린-리더-사용자의-웹-브라우저와-스크린-리더의-조합" class="headerlink" title="스크린 리더 사용자의 웹 브라우저와 스크린 리더의 조합"></a>스크린 리더 사용자의 웹 브라우저와 스크린 리더의 조합</h4><p><code>스크린 리더와 웹 브라우저의 궁합에 따라 호환성을 극대화 시킬 수 있다.</code></p>
+<p>특정 스크린 리더와 웹 브라우저가 만나면 호환성을 극대화 시킬 수 있다. 이 호환성이 극대화되면 스크린 리더가 브라우저 상의 콘텐츠를 잘 해석해주고, 인지해줘서 스크린 리더의 사용자가 빠르게 이해할 수 있도록 도와준다.</p>
+<p>스크린 리더의 명세는 W3C 만큼 빠르게 업데이트 되는 구조가 아니기 때문에 이러한 이유로 특정 스크린 리더에 대한 모든 브라우저의 호환성이 보장되지 않는다.</p>
+<p><code>2019.09 기준</code></p>
+<table border="1">
+    <tr align="center">
+        <td>21.4%</td>
+        <td>JAWS W/Chrome</td>
+    </tr>
+    <tr align="center">
+        <td>19.6%</td>
+        <td>NVDA W/Firefox</td>
+    </tr>
+    <tr align="center">
+        <td>18.0%</td>
+        <td>NVDA W/Chrome</td>
+    </tr>
+    <tr align="center">
+        <td>11.5%</td>
+        <td>JAWS W/IE</td>
+    </tr>
+    <tr align="center">
+        <td>9.1%</td>
+        <td>VoiceOver W/Safari</td>
+    </tr>
+</table>
+
+<br>
+</li>
+</ul>
+</li>
+<li><h3 id="유효성-검사에-따른-화면의-에러-메시지-처리-feat-aria-live"><a href="#유효성-검사에-따른-화면의-에러-메시지-처리-feat-aria-live" class="headerlink" title="유효성 검사에 따른 화면의 에러 메시지 처리(feat. aria-live)"></a>유효성 검사에 따른 화면의 에러 메시지 처리(feat. aria-live)</h3><p>아이디와 비밀번호의 입력과 관련한 화면의 에러 메시지 표시 부분에는 태그 속성에 <code>aria-live=&quot;assertive</code>를 넣어주도록 하자. 그러면 에러 메시지가 보여졌을때 스크린 리더가 해당 에러 메시지를 읽어주게 된다.<br>aria-live의 속성값으로는 다른 옵션들도 있기 때문에 아래 공식 Reference를 참고하도록 하자.</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/ko/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">https://developer.mozilla.org/ko/docs/Web/Accessibility/ARIA/ARIA_Live_Regions</a></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><h3 id="Light-house-명도-채도에-대한-문제는-디자이너와-협업하도록-한다"><a href="#Light-house-명도-채도에-대한-문제는-디자이너와-협업하도록-한다" class="headerlink" title="Light house 명도/채도에 대한 문제는 디자이너와 협업하도록 한다."></a>Light house 명도/채도에 대한 문제는 디자이너와 협업하도록 한다.</h3><p>디자인 시안대로 디자인을 했는데 접근성 검사(Accessibility check)에서 명도/채도 상의 문제가 발견되었다면, 이 부분에 대해서는 디자이너와 협의를 통해 조율을 해야 한다.</p>
+</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/03/03/202103/210303-html_css_til/" title="210303 HTML/CSS TIL - 키워드 작성완료(세부내용 작성 예정)"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210303 HTML/CSS TIL - 키워드 작성완료(세부내용 작성 예정)</span></a><a class="button is-default" href="/2021/03/03/202103/210303-Self-development_til/" title="210303 Self Development TIL"><span class="has-text-weight-semibold">Next: 210303 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

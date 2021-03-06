@@ -1,0 +1,97 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210209 Python Assignment</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210209 Python Assignment</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%BC%EC%A0%9C1-%EC%84%B1%EC%88%98%EC%97%AD-%EC%A7%80%ED%95%98%EC%B2%A0-%EC%97%B4%EC%B0%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="toc-text">과제1) 성수역 지하철 열차 시스템</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A7%80%ED%95%98%EC%B2%A0-%EB%85%B8%EC%84%A0-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="toc-text">지하철 노선 클래스</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A7%80%ED%95%98%EC%B2%A0-%EC%97%B4%EC%B0%A8-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="toc-text">지하철 열차 클래스</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%BC%EC%A0%9C2-Hacker-rank-class2-Find-the-Torsional-Angle"><span class="toc-text">과제2) Hacker rank class2 - Find the Torsional Angle</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Python"><i class="tag post-item-tag">Python</i></a><a href="/tags/Assignment"><i class="tag post-item-tag">Assignment</i></a><a href="/tags/Class-design"><i class="tag post-item-tag">Class-design</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210209 Python Assignment</h1><time class="has-text-grey" datetime="2021-02-09T06:29:41.000Z">2021-02-09</time><article class="mt-2 post-content"><p><img src="/images/post_images/python_logo.png"></p>
+<br>
+
+<h2 id="과제1-성수역-지하철-열차-시스템"><a href="#과제1-성수역-지하철-열차-시스템" class="headerlink" title="과제1) 성수역 지하철 열차 시스템"></a>과제1) 성수역 지하철 열차 시스템</h2><img src="/images/post_images/210209_train.png" alt="210209_train">
+
+<h3 id="지하철-노선-클래스"><a href="#지하철-노선-클래스" class="headerlink" title="지하철 노선 클래스"></a>지하철 노선 클래스</h3><pre><code class="python"># 2호선 내부순환선 (총 43개 역) 시청역 &lt;-&gt;시청역 (내부순환)
+# 성수지선 (총 5개 역) 성수역 &lt;-&gt; 신설동
+# 신정지선 (총 38개 역) 성수역 &lt;-&gt;까치산
+# class instance를 만들때 각 노선의 최대 정착역의 수를 구한다.
+class SubwayLine:
+    def __init__(self, num_of_stn):
+        # 지하철역의 수 만큼 [0]리스트를 만들어서
+        # 역별로 정차하고 있는 지하철의 수를 관리
+        self.num_of_stop_train_list = [0]*num_of_stn
+
+    # 해당 index위치의 count값을 1증가 시켜준다.
+    def increaseNumOfStopTrain(self, idx):
+        if self.num_of_stop_train_list[idx] == 0:
+            self.num_of_stop_train_list[idx] += 1
+        else:
+            #  위험 알람 method를 호출해서 False값을 반환하도록 한다.
+            self.setDangerAlert()
+
+    def decreaseNumOfStopTrain(self, idx):
+        if self.num_of_stop_train_list[idx] == 1:
+            self.num_of_stop_train_list[idx] -= 1
+
+    # 해당 index위치에 정차되어있는 지하철의 수를 반환한다.
+    def getNumOfStopTrain(self, idx):
+        return self.num_of_stop_train_list[idx]
+    # 해당 역 위치에 지하철이 정차되어있는 경우, False값을 반환해서 출발할 수 없도록 한다.
+
+    def setDangerAlert(self):
+        return False</code></pre>
+<h3 id="지하철-열차-클래스"><a href="#지하철-열차-클래스" class="headerlink" title="지하철 열차 클래스"></a>지하철 열차 클래스</h3><pre><code class="python">class Subway:
+    # line : 노선
+    # train_num : 열차번호
+    # acc_dis : 누적 거리
+    # dep_stn : 이전 출발역
+    # arr_stn : 도착역
+    # speed : 속도 (기본속도 21km/h)
+    # direct : 운행방향 (CW:시계 방향, CCW:시계 반대방향)
+    # drive_flag : 운행유/무
+    # stop_flag : 정차유/무
+    def __init__(self, _line, _train_num, _acc_dis, _dep_stn, _arr_stn):
+        self.line = _line
+        self.train_num = _train_num
+        self.acc_dis = acc_dis
+        self.dep_stn = dep_stn
+        self.arr_stn = arr_stn
+        self.speed = 21
+        self.direct = &#39;CW&#39;
+        self.drive_flag = False
+        self.stop_flag = True
+    # 지하철 운행
+    def drive(self, distance):
+        self.drive_flag = True
+        self.stop_flag = False
+        self.acc_dis += distance
+    # 지하철 정차
+    def stop(self):
+        self.drive_flag = False
+        self.stop_flag = True
+    # 방향 재설정
+    def setDirection(self):
+        if self.direct == &#39;CW&#39;:
+            self.direct = &#39;CCW&#39;
+        else:
+            self.direct = &#39;CW&#39;
+    # 지하철의 속도 조정
+    def setSpeed(self, _speed):
+        self.speed = _speed
+    # 이전 출발역 업데이트
+    def setDepartStation(self, _dep_stn):
+        self.dep_stn = _dep_stn
+    # 도착역 업데이트
+    def setArrStation(self, _arr_stn):
+        self.arr_stn = _arr_stn</code></pre>
+<h2 id="과제2-Hacker-rank-class2-Find-the-Torsional-Angle"><a href="#과제2-Hacker-rank-class2-Find-the-Torsional-Angle" class="headerlink" title="과제2) Hacker rank class2 - Find the Torsional Angle"></a>과제2) Hacker rank class2 - Find the Torsional Angle</h2><img src="/images/post_images/210209_hackerrank_find_torsional_angle.png" alt="210209_hackerrank_find_torsional_angle">
+
+<pre><code class="python">import math
+
+class Points(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+    def dot(self, no):
+        return (self.x*no.x)+(self.y*no.y)+(self.z*no.z)
+    def __sub__(self, no):
+        return Points(float(self.x - no.x),(self.y - no.y),(self.z - no.z))
+    def cross(self, no):
+        return Points((self.y*no.z - self.z*no.y),(self.z*no.x - self.x*no.z),(self.x*no.y - self.y*no.x))
+    def absolute(self):
+        return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/09/202102/210209-React_testing_library_start/" title="210209 RTL(React Testing Library)를 활용한 Axios Mockup 테스트"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210209 RTL(React Testing Library)를 활용한 Axios Mockup 테스트</span></a><a class="button is-default" href="/2021/02/09/202102/210209-Self-development_til/" title="210209 Self Development TIL"><span class="has-text-weight-semibold">Next: 210209 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

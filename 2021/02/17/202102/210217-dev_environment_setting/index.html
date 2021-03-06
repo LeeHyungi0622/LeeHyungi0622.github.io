@@ -1,0 +1,169 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210217 Development environment setting(pyenv, virtualenv, autoenv, pip, poetry 사용법)</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210217 Development environment setting(pyenv, virtualenv, autoe..</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%99%9C-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%84-%EA%B0%80%EC%83%81%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9C%BC%EB%A1%9C%EC%8D%A8-%EB%B6%84%EB%A6%AC%ED%95%B4%EC%84%9C-%EA%B4%80%EB%A6%AC%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94%EA%B0%80"><span class="toc-text">왜 개발환경을 가상개발환경으로써 분리해서 관리해야 하는가?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B7%B8%EB%9F%BC-%ED%95%B4%EA%B2%B0%EC%B1%85%EC%9D%80"><span class="toc-text">그럼 해결책은?</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Pyenv"><i class="tag post-item-tag">Pyenv</i></a><a href="/tags/Virtualenv"><i class="tag post-item-tag">Virtualenv</i></a><a href="/tags/Autoenv"><i class="tag post-item-tag">Autoenv</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210217 Development environment setting(pyenv, virtualenv, autoenv, pip, poetry 사용법)</h1><time class="has-text-grey" datetime="2021-02-17T08:30:00.000Z">2021-02-17</time><article class="mt-2 post-content"><p><img src="/images/post_images/210217_virtualenv.png"></p>
+<p>이번 포스팅에서는 파이썬 가상개발환경을 구성하는데 사용되는 <code>pyenv, virtualenv, autoenv, pip, poetry</code>의 사용법에 대해서 정리를 해보겠다.</p>
+<p>우선 가상개발환경을 구축해서 개발환경을 분리하는 이유에 대해서 알아보자.</p>
+<h3 id="왜-개발환경을-가상개발환경으로써-분리해서-관리해야-하는가"><a href="#왜-개발환경을-가상개발환경으로써-분리해서-관리해야-하는가" class="headerlink" title="왜 개발환경을 가상개발환경으로써 분리해서 관리해야 하는가?"></a><strong>왜 개발환경을 가상개발환경으로써 분리해서 관리해야 하는가?</strong></h3><p>파이썬에는 다양한 버전이 존재하고, 각 각의 파이썬 어플리케이션에서 사용되는 파이썬의 버전 또한 다양하기 때문에 가상개발환경을 구축해서 베이스가 되는 파이썬의 버전을 다르게 설정해서 관리해야 한다.<br>그리고 파이썬은 많은 패키지들이 배포되고 있기 때문에 이러한 패키지들을 한 대의 컴퓨터에서 돌릴경우 <code>Python runtime의 version과 Python libray가 서로 충돌을 하는 문제가 발생</code>한다.<br>이러한 문제는 기본적으로 한 대의 컴퓨터에 런타임 및 라이브러리가 전역적으로 설치가 되어 사용이 되기때문에 발생한다.</p>
+<h3 id="그럼-해결책은"><a href="#그럼-해결책은" class="headerlink" title="그럼 해결책은?"></a><strong>그럼 해결책은?</strong></h3><p><ins><b>앞에서 언급한 문제점을 해결하기 위해서는 Python application별로 독립적인 가상개발환경을 구축함으로써 해결할 수 있다.</b><br></ins></p>
+<p>가상개발환경을 구축하기 위해 필요한 것이 이번 포스팅의 주제인 <code>pyenv, virtualenv, autoenv, pip</code>와 같은 툴이 필요하다.<br></p>
+<p>자 그럼 각 각의 툴들에 대해서 정리를 해보자.</p>
+<ul>
+<li><p><strong>(1)pyenv</strong></p>
+<ul>
+<li><p>파이썬 버전을 관리하는 툴로 하나의 컴퓨터에 다양한 파이썬 버전을 설치하고 관리할 수 있게 해준다.</p>
+</li>
+<li><p><strong>xcode command line tool과 zlib 설치</strong><br>Mac환경에서 pyenv를 설치하기 위해서는 xcode command line tool과 zlib의 설치가 필요하다.</p>
+<pre><code class="bash">$ sudo xcode-select --install
+$ brew install homebrew/dupes/zlib</code></pre>
+</li>
+<li><p><strong>homebrew를 이용한 pyenv 설치 및 업그레이드</strong></p>
+<pre><code class="bash">$ brew install pyenv # installation
+$ brew upgrade pyenv # update</code></pre>
+</li>
+<li><p><strong>환경변수 등록 및 업데이트(zsh기준)</strong></p>
+<pre><code class="bash">$ echo &#39;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#39; &gt;&gt; ~/.zshrc
+$ echo &#39;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
+$ echo &#39;eval &quot;$(pyenv init -)&quot;&#39; &gt;&gt; ~/.zshrc
+$ source ~/.zshrc</code></pre>
+</li>
+<li><p><strong>설치된 pyenv 점검</strong></p>
+<pre><code class="bash"># 설치된 python version list확인
+$ pyenv install --list
+# 설치된 pyenv의 버전확인
+$ pyenv --version</code></pre>
+</li>
+<li><p><strong>pyenv 사용방법</strong></p>
+<pre><code class="bash">pyenv [서브 명령] [parameters]</code></pre>
+</li>
+</ul>
+<table>
+  <tr align="center">
+    <td><b>서브 명령 옵션</b></td>
+    <td><b>설명</b></td>
+  </tr>
+  <tr align="center">
+    <td>local</td>
+    <td>현재 directory의 python version 확인 및 지정</td>
+  </tr>
+  <tr align="center">
+    <td>global {version}</td>
+    <td>전역으로 설정된 python의 버전 확인 및 변경(+version option)</td>
+  </tr>
+  <tr align="center">
+    <td>install {version}</td>
+    <td>파이썬 버전을 설치</td>
+  </tr>
+  <tr align="center">
+    <td>uninstall</td>
+    <td>지정한 파이썬 버전을 삭제</td>
+  </tr>
+  <tr align="center">
+    <td>version</td>
+    <td>현재 활성화된 파이썬 버전 출력</td>
+  </tr>
+  <tr align="center">
+    <td>versions</td>
+    <td>pyenv로 설치되어 이용가능한 버전을 출력</td>
+  </tr>
+</table>
+
+<ul>
+<li><p><strong>pyenv 전역설정</strong></p>
+<pre><code class="bash">$ pyenv versions  # pyenv 활성 버전 확인
+$ python --version  # 현재 파이썬 버전확인
+$ pyenv global 3.5.3  # 글로벌 파이썬 설정 변경
+$ python --version   # 현재 파이썬 버전확인</code></pre>
+</li>
+<li><p><strong>pyenv 로컬설정</strong><br>특정 디렉토리에 활성화되는 파이썬의 버전을 지정한다. 기본적으로 파이썬 버전이 지정되지 않은 디렉토리에는 global 설정이 적용된다.</p>
+<pre><code class="bash"># 특정 디렉토리를 만들고, 디렉토리 안에서 pyenv local [version]으로 local 설정한다.
+# 그럼 폴더 내부에 .python-version 파일이 생성되어있음을 확인할 수 있다.
+$ pyenv local 2.7.13
+</code></pre>
+</li>
+</ul>
+<br>
+</li>
+<li><p><strong>(2)virtualenv &amp; pyenv-virtualenv</strong></p>
+<ul>
+<li><p>virtualenv는 파이썬 환경을 격리하는 툴이고, pyenv-virtualenv는 virtualenv의 pyenv 확장 플러그인이다.<br>앞에서 살펴본 <code>pyenv를 이용하게 되면</code> 컴퓨터에 파이썬 버전별로 한 개의 파이썬 runtime으르 설치하고 관리할 수 있다. 그리고 <code>virtualenv를 사용하면</code> 파이썬 버전을 세분화하여 여러 개발환경으로 구분하여 관리하는 것이 가능해진다.<br>여기서 말하는 버전의 세분화는 <ins><b>한 개의 파이썬 버전에 여러개의 런타임을 구성하고 그 각 각의 런타임을 각기 다른 어플리케이션에 할당한다는 의미</b></ins>이다.<br>따라서 pyenv와 virtualenv를 같이 사용하면 효과적이기 때문에 pyenv-virtualenv 플러그인을 사용하는 것이 일반적이다.</p>
+</li>
+<li><p><strong>pyenv-virtualenv 설치</strong></p>
+<pre><code class="bash">$ brew install pyenv-virtualenv</code></pre>
+<p>기본적으로 pyenv로 파이썬을 설치하면 .pyenv/versions 디렉토리에 각 각의 설치된 버전들이 관리가 되고, 파이썬 런타임이 관리가 된다. pyenv의 관리 최소단위는 파이썬 버전이고, virtualenv를 사용하면 동일한 파이썬 버전을 여러 개의 개별적인 환경으로 구분하여 관리한다.</p>
+</li>
+<li><p><strong>pyenv-virtualenv 환경변수 설정(zsh기준)</strong></p>
+<pre><code class="bash">$ echo &#39;eval &quot;$(pyenv virtualenv-init -)&quot;&#39; &gt;&gt; ~/.zshrc</code></pre>
+</li>
+<li><p><strong><ins>(수업시간에 배운 내용)virtualenv를 사용해서도 pyenv로 설치한 python 버전을 지정해서 가상환경을 생성할 수 있다.</ins></strong><br>pyenv로 설치한 python버전을 지정해서 새로운 가상환경 설치</p>
+<pre><code class="bash"># virtualenv name은 사용하는 python 버전이 유추 가능하게 작성하는 것이 좋다.
+$ virtualenv [python version] [virtualenv name]
+$ virtualenv 3.9.0 awesome-390</code></pre>
+</li>
+<li><p><strong>pyenv-virtualenv 사용</strong><br>virtualenv 플러그인을 사용하면 버전(옵션)과 추가적인 이름을 넣어서 파이썬의 런타임을 관리할 수 있다.<br>pyenv-virtualenv의 특징은 python 프로젝트마다 각 각의 가상환경을 제공해준다는 점이다.</p>
+<pre><code class="bash"># 버전은 샹략 가능하며, 버전을 생략할 경우 현재 시스템 버전으로 가상환경이 설정된다. 이렇게 생성된 가상환경의 경우, activate deactivate 명령을 사용해서 활성화/비활성화를 할 수 있다.
+$ pyenv virtualenv &lt;vertualenv-name&gt;
+$ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10
+# 가상개발환경 활성화
+$ pyenv activate &lt;vertualenv-name&gt;
+# 가상개발환경 비활성화
+$ pyenv deactivate
+# 가상개발환경 삭제
+$ pyenv uninstall &lt;vertualenv-name&gt;</code></pre>
+</li>
+<li><p><strong>가상환경생성 실습</strong></p>
+<pre><code class="bash">$ pyenv version # 현재 버전확인
+$ pyenv versions # 설치 버전확인
+$ pyenv virtualenv 2.7.13 awesome-2713 # awesome-2713 가상환경 생성
+$ pyenv activate awesome-2713 # 생성한 가상환경 activate
+$ python -V # awesome-2713 가상환경에서의 파이썬 버전확인
+$ pyenv deactivate # awesome-2713 가상환경 비 활성화
+$ python -V # 현재 전역으로 설정되어 있는 파이썬 버전확인
+# 설치 버전확인
+$ pyenv versions
+#2.7.13/envs/awesome-2713
+#*system
+# 생성한 가상환경 제거하기
+$ pyenv uninstall 2.7.13/envs/awesome-2713</code></pre>
+</li>
+</ul>
+<br>
+</li>
+<li><p><strong>(3)autoenv</strong></p>
+<ul>
+<li><p>앞서 살펴본 pyenv-virtualenv를 사용하면 새로 생성한 가상환경을 활성화 하기 위해 <code>pyenv activate</code>를 해줘야하는 번거로움이 있다. 이러한 번거로움을 autoenv를 사용해서 Python 프로젝트 진입시점에 자동으로 virtualenv환경을 로딩하는 기능을 제공한다.</p>
+</li>
+<li><p><strong>autoenv 설치 및 환경변수 설정(zsh 기준)</strong></p>
+<pre><code class="bash">$ brew install autoenv
+$ echo &quot;source $(brew --prefix autoenv)/activate.sh&quot; &gt;&gt; ~/.zshrc
+$ source ~/.zshrc</code></pre>
+</li>
+<li><p><strong>autoenv 실습하기</strong><br>새롭게 진행할 프로젝트를 위한 디렉토리를 생성하고, <code>.env 파일을 추가</code>한다.<br>이렇게 추가를 해주게 되면, 해당 프로젝트 디렉토리로 이동시 자동으로 해당 가상개발환경으로 activate된다.</p>
+<p><strong>.env</strong></p>
+<pre><code class="bash">echo “***********************************”
+echo “Python Virtual Env &gt; [가상환경이름]”
+echo “***********************************”
+
+pyenv shell [가상환경이름]
+pyenv activate</code></pre>
+</li>
+</ul>
+<br>
+</li>
+<li><p><strong>(4)pip</strong></p>
+<ul>
+<li><p>pip는 파이썬 패키지(라이브러리)를 관리하는 프로그램으로, 라이브러리를 설치할때 의존성을 갖는 모든 라이브러리를 자동으로 설치를 해주며, 개별 버전관리의 기능도 제공한다. (<code>파이썬 2.7.9 버전 이후와 파이썬 3.4 버전 이상에는 기본적으로 설치</code>)</p>
+</li>
+<li><p>pip버전 업데이트</p>
+<pre><code class="bash">$ sudo pip install -U pip</code></pre>
+</li>
+<li><p>pip package list 관리하기<br>pip로 현재 사용중인 파이썬 환경의 모든 라이브러리를 조회하여 <strong>requirement 파일</strong>을 만드는 기능을 제공한다.<br><code>bash # 현재 파이썬 환경에 설치된 모든 라이브러리를 requirements.txt로 export하기 $ pip freeze &gt; requirements.txt </code></p>
+<br>
+</li>
+</ul>
+</li>
+<li><p><strong>(5)poetry</strong><br>앞서 requirements.txt를 활용하여 파이썬의 패키지를 관리할 수도 있지만, poetry라는 툴을 사용하면 좀 더 간편하게 파이썬의 패키지를 관리할 수 있다.<br>poetry는 파이썬 의존성 관리툴로, <code>단순 의존성 관리를 넘어서 poetry.lock을 사용해서 프로젝트의 의존성을 다른 환경에서도 동일하게 유지</code>해줄 수도 있다.<br>그리고 <code>build와 publish도 지원</code>을 해주고 있다.<br>또한 사용법이 npm과 비슷한 부분이 많아서 npm을 사용해봤다면 빨리 익숙해질 수 있을 것 같다.</p>
+<ul>
+<li><ins><b>[참고]Poetry command와 관련 실습내용은 일전에 수업시간에 배운 내용들과 함께 정리해뒀다.</b></ins><br>→ <a href="https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/">https://leehyungi0622.github.io/2021/02/15/202102/210215-Python_til(1)/</a></li>
+</ul>
+</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/02/18/202102/210218-Self-development_til/" title="210218 Self Development TIL"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210218 Self Development TIL</span></a><a class="button is-default" href="/2021/02/17/202102/210217-Python_til/" title="210217 Python TIL (작성중...)"><span class="has-text-weight-semibold">Next: 210217 Python TIL (작성중...)</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

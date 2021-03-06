@@ -1,0 +1,114 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210122 Git + Vim editor usage TIL</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210122 Git + Vim editor usage TIL</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell-Vim-command-or-git"><span class="toc-text">Shell, Vim command or git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%98%A4%EB%8A%98-%EB%B0%B0%EC%9A%B4%EB%82%B4%EC%9A%A9"><span class="toc-text">오늘 배운내용</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/TIL"><i class="tag post-item-tag">TIL</i></a><a href="/tags/Git"><i class="tag post-item-tag">Git</i></a><a href="/tags/Vim"><i class="tag post-item-tag">Vim</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210122 Git + Vim editor usage TIL</h1><time class="has-text-grey" datetime="2021-01-22T13:37:42.000Z">2021-01-22</time><article class="mt-2 post-content"><p><img src="/images/post_images/git_vim_logo.png"></p>
+<h1 id="Shell-Vim-command-or-git"><a href="#Shell-Vim-command-or-git" class="headerlink" title="Shell, Vim command or git"></a><strong>Shell, Vim command or git</strong></h1><h2 id="오늘-배운내용"><a href="#오늘-배운내용" class="headerlink" title="오늘 배운내용"></a><strong>오늘 배운내용</strong></h2><ul>
+<li><p><strong>Shell command</strong></p>
+<ul>
+<li><p>기본 Linux shell command 활용</p>
+<ul>
+<li>cd : 쉘의 현재 위치 이동</li>
+<li>mv : 디렉토리, 파일 이동</li>
+<li>cp : 파일 복사</li>
+<li>rm : 디렉토리, 파일 삭제</li>
+<li>mkdir : 디렉토리 생성</li>
+<li>pwd : 쉘의 현재 위치 확인</li>
+<li>ls (-a, -l option) : 쉘의 현 위치에 있는 디렉토리, 파일을 출력 (옵션을 이용해서 세부사항 출력, 리스트로 출력가능)</li>
+<li>touch : 새로운 파일을 생성</li>
+<li>cat : 파일의 내용을 terminal 상에서 확인</li>
+<li>head : 파일의 앞 부분의 내용을 terminal 상에서 확인</li>
+<li>tail : 파일의 뒷 부분의 내용을 terminal 상에서 확인<br>(option으로 -[N] N 번째 라인까지 확인할지 설정할 수 있다.)</li>
+<li>chmod : 파일권한 설정</li>
+</ul>
+<pre><code>$ chmod [옵션] (8진수) (파일명)</code></pre>
+<pre><code>drwxr-xr-x
+d or -: directory or file
+(user)(group)(other)
+r: read
+w: write
+x: execute
+-: no permission</code></pre>
+</li>
+<li><p>Application 계층과 Kernel 계층 그리고 하드웨어 계층으로 분류하여 이해할 수 있다.</p>
+<ul>
+<li>커널은 하드웨어와 Application 사이에 위치하여 하드웨어와 응용프로그램을 이어주는 운영체제의 핵심 소프트웨어이다.</li>
+</ul>
+</li>
+<li><p>Shell의 정의에 대해 이해할 수 있다. - 커널과 사용자가 소통할 수 있도록 그 사이를 이어주는 소프트웨어이다. - 다양한 쉘이 존재 (sh, csh, bash, zsh)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Vim command</strong></p>
+<ul>
+<li>Vim editor를 이용한 commit message 작성 및 수정</li>
+<li>git commit -m “”을 통한 commit message를 작성하는 것은 되도록 하지 말고 git commit 을 통해 vi editor를 사용해서 commit message를 작성하는 것이 좋다.<pre><code>Vim 기본 사용키
+h,j,k,l - move cursor
+i - insert mode
+v - visual mode
+d - delete
+y - yank
+p - paste
+u - undo
+r - replace
+$ - move end of line
+^ - move start of line
+:q - quit
+:q! - quit w/o write(no warning)
+:wq - write and quit
+:&#123;number&#125; - move to &#123;number&#125;th line</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>Git</strong>:<br>Git은 VSC(Version Control System)으로, SCM(Source Code Management)라고도 한다.</p>
+<ul>
+<li><p>Git과 Github가 다름을 이해한다.</p>
+<ul>
+<li>Git은 VCS(Version Control System)로 tool 자체이며, Github는 이 Git이라는 tool을 활용하여 웹 기반으로 만든 웹 서비스이다.</li>
+</ul>
+</li>
+<li><p>Git을 활용하여 소스코드를 관리한다.</p>
+</li>
+<li><p>전체적인 git flow를 이해한다.<br><img src="/images/post_images/210127git_flow.png"><br>workspace에서 add를 하게 되면, stage(=index)에 Blob의 형태로 파일 정보가 업로드 된다. stage에 올라간 파일을 로컬 repository 에 업데이트 하기 위해서 commit을 하고, 최종적으로 remote repository에 저장하기 위해 push라는 과정을 거친다.</p>
+</li>
+<li><p>git의 환경설정을 할 수 있다.</p>
+<ul>
+<li>기본적으로 local 환경에서 git을 사용하기 전에 user.name, user.email, core.editor 를 설정해준다.</li>
+</ul>
+<pre><code class="terminal">$ git config --global user.name &quot;&#123;github username&#125;&quot;
+$ git config --global user.email &quot;&#123;github email address&#125;&quot;
+$ git config --global core.editor &quot;vim&quot;
+$ git config --global core.pager &quot;cat&quot;
+$ git config --list</code></pre>
+<ul>
+<li><p>core.editor로 등록한 vim을 활용하여 commit message를 작성할 수 있다.</p>
+<ul>
+<li><strong>Commit Convention</strong><ul>
+<li>commit제목은 50자 이내로 요약하여 작성한다.</li>
+<li>제목과 내용사이에는 한 칸 띄어준다.</li>
+<li>prefix를 활용하여 commit의 용도를 한 눈에 알아볼 수 있도록 한다.<pre><code>feat: features
+docs: documentations
+conf: configurations
+test: test
+fix: bug-fix
+refactor: refactoring
+ci: Continuous Integration
+build: Build
+perf: Performance</code></pre>
+</li>
+</ul>
+<strong>ex) Commit Convention - example</strong><pre><code>feat: Create server.py to start flask project
+docs: Create README.md
+conf: poetry init
+test: User model CRUD test complete</code></pre>
+</li>
+</ul>
+</li>
+<li><p>기존에 remote repository를 local 환경에 clone해서 작업을 할 수 있다.</p>
+<pre><code>$ git clone
+
+$ git clone [git repository url] ./[생성할 폴더 이름(옵션)]</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/01/22/202101/210122-python_til/" title="210122 Python TIL - Dictionary와 Set의 활용"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210122 Python TIL - Dictionary와 Set의 활용</span></a><a class="button is-default" href="/2021/01/22/202101/210122-Hexo-blog/" title="210122 Hexo 사용법"><span class="has-text-weight-semibold">Next: 210122 Hexo 사용법</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
