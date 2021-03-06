@@ -3,14 +3,14 @@
 
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/TIL/</loc>
+        <loc>https://leehyungi0622.github.io/tags/Self-Development/</loc>
         <lastmod>2021-03-06T11:23:27.391Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Self-Development/</loc>
+        <loc>https://leehyungi0622.github.io/tags/TIL/</loc>
         <lastmod>2021-03-06T11:23:27.391Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -24,14 +24,14 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Jest/</loc>
+        <loc>https://leehyungi0622.github.io/tags/Unit-testing/</loc>
         <lastmod>2021-03-06T11:23:05.770Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Unit-testing/</loc>
+        <loc>https://leehyungi0622.github.io/tags/React-router-test/</loc>
         <lastmod>2021-03-06T11:23:05.770Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -45,7 +45,7 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/React-router-test/</loc>
+        <loc>https://leehyungi0622.github.io/tags/Jest/</loc>
         <lastmod>2021-03-06T11:23:05.770Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -73,13 +73,6 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Python/</loc>
-        <lastmod>2021-03-06T04:48:03.711Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/</loc>
         <lastmod>2021-03-06T04:48:03.711Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -87,8 +80,8 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Memoirs/</loc>
-        <lastmod>2021-03-06T04:34:03.326Z</lastmod>
+        <loc>https://leehyungi0622.github.io/tags/Python/</loc>
+        <lastmod>2021-03-06T04:48:03.711Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -101,8 +94,8 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Incomplete/</loc>
-        <lastmod>2021-03-06T04:33:58.172Z</lastmod>
+        <loc>https://leehyungi0622.github.io/tags/Memoirs/</loc>
+        <lastmod>2021-03-06T04:34:03.326Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -116,6 +109,13 @@
 
     <url>
         <loc>https://leehyungi0622.github.io/tags/HTML/</loc>
+        <lastmod>2021-03-06T04:33:58.172Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/tags/Incomplete/</loc>
         <lastmod>2021-03-06T04:33:58.172Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -157,14 +157,14 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/PseudoCode/</loc>
+        <loc>https://leehyungi0622.github.io/tags/Sort/</loc>
         <lastmod>2021-03-05T07:09:43.579Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/tags/Sort/</loc>
+        <loc>https://leehyungi0622.github.io/tags/PseudoCode/</loc>
         <lastmod>2021-03-05T07:09:43.579Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
