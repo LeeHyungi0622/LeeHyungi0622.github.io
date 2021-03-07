@@ -9,8 +9,24 @@
 
 
     <url>
-        <loc>https://leehyungi0622.github.io/2021/03/06/202103/210306-Self-development_til/</loc>
-        <lastmod>2021-03-06T11:23:27.391Z</lastmod>
+        <loc>https://leehyungi0622.github.io/2021/03/07/202103/210307-Self-development_til/</loc>
+        <lastmod>2021-03-07T08:00:56.473Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/2021/03/07/202103/210307_html_css_grid/</loc>
+        <lastmod>2021-03-07T07:55:24.039Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/2021/03/07/202103/210307_html_css_flex/</loc>
+        <lastmod>2021-03-07T07:55:14.060Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +34,15 @@
 
     <url>
         <loc>https://leehyungi0622.github.io/2021/03/06/202103/210306-React_testing_mini_project/</loc>
-        <lastmod>2021-03-06T11:23:05.770Z</lastmod>
+        <lastmod>2021-03-07T06:52:05.493Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/2021/03/06/202103/210306-Self-development_til/</loc>
+        <lastmod>2021-03-06T11:23:27.391Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

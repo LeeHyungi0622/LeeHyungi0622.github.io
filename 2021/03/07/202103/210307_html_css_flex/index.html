@@ -1,0 +1,42 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210307 HTML/CSS Flex (작성중...)</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210307 HTML/CSS Flex (작성중...)</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#block%EA%B3%BC-inline-block"><span class="toc-text">block과 inline-block</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flexbox%EC%9D%98-%EA%B7%9C%EC%B9%99"><span class="toc-text">Flexbox의 규칙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-Axis-%E2%80%99row%E2%80%99-justify-content-and-Cross-Axis-align-items"><span class="toc-text">Main Axis&#x3D;’row’(justify-content) and Cross Axis(align-items)</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/HTML-CSS"><i class="tag post-item-tag">HTML-CSS</i></a><a href="/tags/Flex"><i class="tag post-item-tag">Flex</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210307 HTML/CSS Flex (작성중...)</h1><time class="has-text-grey" datetime="2021-03-07T06:58:42.000Z">2021-03-07</time><article class="mt-2 post-content"><p><img src="/images/post_images/210307_flex_structure.jpg"></p>
+<p>우선 flex에 대해서 알아보기 전에 classic한 방식으로 block 요소를 배열하는 방법에 대해서 간단하게 알아보자.</p>
+<h2 id="block과-inline-block"><a href="#block과-inline-block" class="headerlink" title="block과 inline-block"></a>block과 inline-block</h2><p>왼쪽은 display 속성이 block인 요소의 배열을 나타낸다. 배열의 형태에서 유추해 볼 수 있듯이 block요소의 옆에는 어떠한 element도 올 수 없다. 그럼 div 요소의 display 속성을 inline-block으로 바꾸게 되면 어떻게 될까?</p>
+<p>바로 오른쪽 캡쳐와 같이 일렬로 배열되는 것을 확인할 수 있다. inline-block으로 display 속성을 바꾸게 되면, 서로 옆으로 정렬된 형태로 box들이 정렬된다.</p>
+<table>
+  <tr>
+    <td>
+      <img src="/images/post_images/210307_css_block.png" alt="디스플레이 속성이 블럭인 요소 이미지">
+    </td>
+    <td>
+      <img src="/images/post_images/210307_css_inline_block.png" alt="디스플레이 속성이 인라인 블럭인 요소 이미지">
+    </td>
+  </tr>
+</table>
+그렇다면 <ins><b>inline-block과 inline의 차이</b></ins>는 무엇일까?
+
+<p><strong>inline은 유동적이기 때문에 너비와 높이가 없는 요소</strong> 이다. 대표적인 inline 요소는 anchor 태그가 있다.</p>
+<p>이러한 box 요소를 화면에 유연하게 배치할 수 있도록 등장한 modern한 방법이 바로 flex와 grid이다. 우선 간단히 flex에 대해서 알아보도록 하겠다.</p>
+<h2 id="Flexbox의-규칙"><a href="#Flexbox의-규칙" class="headerlink" title="Flexbox의 규칙"></a>Flexbox의 규칙</h2><p>Flexbox의 첫 번째 규칙은 <strong>Don’t talk to children</strong> 이다. flex로 display 속성을 줘서 요소들을 배치하기 위해서는 child 요소를 아우르는 부모 요소의 display 속성에 display 속성 값을 넣어줘야 한다.<br>예를들어 앞서 살펴본 div 박스의 화면구성에서 div박스들을 정렬하기 위해서는 모든 div 박스들의 부모 요소인 body에 display: flex 속성을 넣어줘야 한다.</p>
+<h2 id="Main-Axis-’row’-justify-content-and-Cross-Axis-align-items"><a href="#Main-Axis-’row’-justify-content-and-Cross-Axis-align-items" class="headerlink" title="Main Axis=’row’(justify-content) and Cross Axis(align-items)"></a>Main Axis=’row’(justify-content) and Cross Axis(align-items)</h2><p>flex-direction의 default 값은 row이다. 포스팅의 main 이미지를 살펴보면 flex구조에서의 main axis와 cross axis의 방향 구조에 대해서 이해할 수 있다.</p>
+<p>default 상태일 때에는 justify-content 속성 값을 사용해서 수평축을 기준으로 flex children의 위치를 정렬할 수 있다. 그리고 align-items 속성을 이용해서는 수직축을 기준으로 flex children의 위치를 정렬할 수 있다.</p>
+<p>만약에 flex-direction을 통해서 default인 row 값을 column으로 바꾸게 되면, default 상태일 때와는 반대로 정렬의 기준이 적용된다.</p>
+<table>
+  <tr>
+    <td>
+      <img src="/images/post_images/210307_flex_default_img.png" alt="디스플레이 속성이 flex인 요소의 이미지">
+    </td>
+    <td>
+      <img src="/images/post_images/210307_align_items_stretch.png" alt="디스플레이 속성이 인라인 블럭인 요소 이미지">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>justify-content: space-around + align-items: center</b>
+    </td>
+    <td align="center">
+      <b>align-items: stretch(no height property)</b>
+    </td>
+  </tr>
+</table>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2021/03/07/202103/210307_html_css_grid/" title="210307 HTML/CSS Grid (작성중...)"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">Previous: 210307 HTML/CSS Grid (작성중...)</span></a><a class="button is-default" href="/2021/03/07/202103/210307-Self-development_til/" title="210307 Self Development TIL"><span class="has-text-weight-semibold">Next: 210307 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
