@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://leehyungi0622.github.io/2021/03/06/202103/210306-React_testing_mini_project/</loc>
+        <lastmod>2021-03-08T12:16:01.206Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/2021/03/08/202103/210308-React_testing_mini_project/</loc>
+        <lastmod>2021-03-08T11:57:49.775Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://leehyungi0622.github.io/2021/03/08/202103/210308-javascript-rubber_duck/</loc>
         <lastmod>2021-03-08T11:07:43.322Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,14 +41,6 @@
     </url>
 
     <url>
-        <loc>https://leehyungi0622.github.io/2021/03/08/202103/210308-React_testing_mini_project/</loc>
-        <lastmod>2021-03-08T11:05:15.732Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://leehyungi0622.github.io/2021/03/07/202103/210307-Self-development_til/</loc>
         <lastmod>2021-03-08T11:01:45.642Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +51,6 @@
     <url>
         <loc>https://leehyungi0622.github.io/2021/03/08/202103/210308-Self-development_til/</loc>
         <lastmod>2021-03-08T10:43:53.753Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://leehyungi0622.github.io/2021/03/06/202103/210306-React_testing_mini_project/</loc>
-        <lastmod>2021-03-08T09:55:00.159Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
