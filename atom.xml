@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-03-08T11:06:32.099Z</updated>
+  <updated>2021-03-09T08:46:28.858Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,11 +17,77 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210309 TDD study for React</title>
+    <link href="https://leehyungi0622.github.io/2021/03/09/202103/210309-React-tdd_study/"/>
+    <id>https://leehyungi0622.github.io/2021/03/09/202103/210309-React-tdd_study/</id>
+    <published>2021-03-09T08:18:00.000Z</published>
+    <updated>2021-03-09T08:46:28.858Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/tdd_co-work_img.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;요 몇일동안 아니 저번달도 몇 일정도 이 TDD라는 녀석에 대해서 검색도 해보고, 영상도 보고 나름 이것저것 시행착오를 겪어가며 공부를</summary>
+        
+      
+    
+    
+    
+    <category term="React-Test" scheme="https://leehyungi0622.github.io/categories/React-Test/"/>
+    
+    
+    <category term="React-router-test" scheme="https://leehyungi0622.github.io/tags/React-router-test/"/>
+    
+    <category term="React-testing-library" scheme="https://leehyungi0622.github.io/tags/React-testing-library/"/>
+    
+    <category term="Unit-testing" scheme="https://leehyungi0622.github.io/tags/Unit-testing/"/>
+    
+    <category term="Jest" scheme="https://leehyungi0622.github.io/tags/Jest/"/>
+    
+    <category term="TDD" scheme="https://leehyungi0622.github.io/tags/TDD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210309 Front-end Side Project Diary 1일차</title>
+    <link href="https://leehyungi0622.github.io/2021/03/09/202103/210309_front_end_side_project_diary/"/>
+    <id>https://leehyungi0622.github.io/2021/03/09/202103/210309_front_end_side_project_diary/</id>
+    <published>2021-03-09T07:59:42.000Z</published>
+    <updated>2021-03-09T08:14:52.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/side_project_diary_img.jpg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Front-end-Side-Project-Diary-1일차&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/categories/Side-Project-Diary/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="React" scheme="https://leehyungi0622.github.io/tags/React/"/>
+    
+    <category term="Test-Scenario" scheme="https://leehyungi0622.github.io/tags/Test-Scenario/"/>
+    
+    <category term="Side-Project-Diary" scheme="https://leehyungi0622.github.io/tags/Side-Project-Diary/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210309 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/03/09/202103/210309-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/03/09/202103/210309-Self-development_til/</id>
     <published>2021-03-08T21:00:00.000Z</published>
-    <updated>2021-03-08T11:06:32.099Z</updated>
+    <updated>2021-03-09T08:48:12.498Z</updated>
     
     
       
@@ -37,9 +103,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -48,7 +114,7 @@
     <link href="https://leehyungi0622.github.io/2021/03/08/202103/210308-javascript-rubber_duck/"/>
     <id>https://leehyungi0622.github.io/2021/03/08/202103/210308-javascript-rubber_duck/</id>
     <published>2021-03-08T10:55:42.000Z</published>
-    <updated>2021-03-08T11:07:43.322Z</updated>
+    <updated>2021-03-09T08:59:52.342Z</updated>
     
     
       
@@ -129,9 +195,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -212,9 +278,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -303,9 +369,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -331,9 +397,9 @@
     <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
     
     
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
     
   </entry>
   
@@ -361,11 +427,11 @@
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
-    
     <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
     
     <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   
@@ -392,11 +458,11 @@
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
     
+    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
+    
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
     <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
     
   </entry>
   
@@ -421,9 +487,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -451,11 +517,11 @@
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
-    
     <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
     
     <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   
@@ -480,9 +546,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -510,11 +576,11 @@
     
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
-    
     <category term="HTML" scheme="https://leehyungi0622.github.io/tags/HTML/"/>
     
     <category term="CSS" scheme="https://leehyungi0622.github.io/tags/CSS/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   
@@ -569,9 +635,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -636,11 +702,11 @@
     
     <category term="Algorithm" scheme="https://leehyungi0622.github.io/tags/Algorithm/"/>
     
+    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
+    
     <category term="PseudoCode" scheme="https://leehyungi0622.github.io/tags/PseudoCode/"/>
     
     <category term="BaekjoonOnlineJudge" scheme="https://leehyungi0622.github.io/tags/BaekjoonOnlineJudge/"/>
-    
-    <category term="Sort" scheme="https://leehyungi0622.github.io/tags/Sort/"/>
     
   </entry>
   
@@ -665,9 +731,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -695,9 +761,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -722,9 +788,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -749,9 +815,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -777,9 +843,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -804,9 +870,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -861,9 +927,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -890,9 +956,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -947,9 +1013,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -975,9 +1041,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1033,9 +1099,9 @@
     <category term="TIL:HTML/CSS" scheme="https://leehyungi0622.github.io/categories/TIL-HTML-CSS/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1060,9 +1126,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1149,9 +1215,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1206,9 +1272,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1233,9 +1299,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1286,9 +1352,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1347,9 +1413,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -1405,75 +1471,9 @@
     <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
     
     
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
     <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
     
-  </entry>
-  
-  <entry>
-    <title>210217 Development environment setting(pyenv, virtualenv, autoenv, pip, poetry 사용법)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-dev_environment_setting/"/>
-    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-dev_environment_setting/</id>
-    <published>2021-02-17T08:30:00.000Z</published>
-    <updated>2021-02-17T20:28:15.906Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210217_virtualenv.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;이번 포스팅에서는 파이썬 가상개발환경을 구성하는데 사용되는 &lt;code&gt;pyenv, virtualenv, autoenv, pip,</summary>
-        
-      
-    
-    
-    
-    <category term="Dev-Environment" scheme="https://leehyungi0622.github.io/categories/Dev-Environment/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="Pyenv" scheme="https://leehyungi0622.github.io/tags/Pyenv/"/>
-    
-    <category term="Virtualenv" scheme="https://leehyungi0622.github.io/tags/Virtualenv/"/>
-    
-    <category term="Autoenv" scheme="https://leehyungi0622.github.io/tags/Autoenv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210217 Python TIL (작성중...)</title>
-    <link href="https://leehyungi0622.github.io/2021/02/17/202102/210217-Python_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/17/202102/210217-Python_til/</id>
-    <published>2021-02-17T06:10:41.000Z</published>
-    <updated>2021-02-17T11:24:18.713Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/python_logo.png&quot;&gt;&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h2 id=&quot;네트워크&quot;&gt;&lt;a href=&quot;#네트워크&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="TIL:Python" scheme="https://leehyungi0622.github.io/categories/TIL-Python/"/>
-    
-    
-    <category term="Python" scheme="https://leehyungi0622.github.io/tags/Python/"/>
-    
     <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-    <category term="Assignment" scheme="https://leehyungi0622.github.io/tags/Assignment/"/>
-    
-    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
     
   </entry>
   

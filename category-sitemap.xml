@@ -9,22 +9,29 @@
 
 
     <url>
-        <loc>https://leehyungi0622.github.io/categories/React-Test/</loc>
-        <lastmod>2021-03-08T12:16:01.206Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://leehyungi0622.github.io/categories/JavaScript/</loc>
-        <lastmod>2021-03-08T11:07:43.322Z</lastmod>
+        <lastmod>2021-03-09T08:59:52.342Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://leehyungi0622.github.io/categories/TIL-Self-Development/</loc>
-        <lastmod>2021-03-08T11:06:32.099Z</lastmod>
+        <lastmod>2021-03-09T08:48:12.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/categories/React-Test/</loc>
+        <lastmod>2021-03-09T08:46:28.858Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/categories/Side-Project-Diary/</loc>
+        <lastmod>2021-03-09T08:14:52.648Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -116,13 +123,6 @@
     <url>
         <loc>https://leehyungi0622.github.io/categories/ReactJS/</loc>
         <lastmod>2021-02-12T13:42:58.128Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://leehyungi0622.github.io/categories/Side-Project-Diary/</loc>
-        <lastmod>2021-02-11T22:26:52.833Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
