@@ -1,0 +1,169 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210311 JavaScript assignment</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210311 JavaScript assignment</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EB%B3%80%EC%88%98-x%EA%B0%80-10%EB%B3%B4%EB%8B%A4-%ED%81%AC%EA%B3%A0-20%EB%B3%B4%EB%8B%A4-%EC%9E%91%EC%9D%84-%EB%95%8C-%EB%B3%80%EC%88%98-x%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EB%8A%94-%EC%A1%B0%EA%B1%B4%EC%8B%9D%EC%9D%84-%EC%99%84%EC%84%B1%ED%95%98%EB%9D%BC"><span class="toc-text">1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%EC%A1%B0%EA%B1%B4%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EA%B3%A0-%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90%EB%A1%9C-%ED%92%80%EC%9D%B4%ED%95%B4%EB%B3%B4%EA%B8%B0"><span class="toc-text">1-1. 조건문을 사용하지 않고 삼항연산자로 풀이해보기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%EC%A1%B0%EA%B1%B4%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EA%B3%A0-%EB%8B%A8%EC%B6%95%ED%8F%89%EA%B0%80%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EA%B8%B0"><span class="toc-text">1-2. 조건문을 사용하지 않고 단축평가를 활용해서 풀어보기</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-for%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-0%EB%B6%80%ED%84%B0-10%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-%EC%A7%9D%EC%88%98%EB%A7%8C%EC%9D%84-%EC%9E%91%EC%9D%80-%EC%88%98%EB%B6%80%ED%84%B0-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-for%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-0%EB%B6%80%ED%84%B0-10%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-%EC%A7%9D%EC%88%98%EB%A7%8C%EC%9D%84-%EC%9E%91%EC%9D%80-%EC%88%98%EB%B6%80%ED%84%B0-%EB%AC%B8%EC%9E%90%EC%97%B4%EB%A1%9C-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%B3%80%EC%88%98%EB%A1%9C-%EC%97%B0%EA%B2%B0%ED%95%B4%EC%84%9C-%EA%B2%B0%EA%B3%BC%EA%B0%92-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0"><span class="toc-text">3-1. 문자열 변수로 연결해서 결과값 출력하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%EC%9D%B4-2-%EA%B2%B0%EA%B3%BC%EA%B0%92%EC%9D%84-%EB%A6%AC%EC%8A%A4%ED%8A%B8%EC%97%90-%EB%8B%B4%EA%B3%A0-join-%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%84%9C-%EB%AC%B8%EC%9E%90%EC%97%B4%EB%A1%9C-%ED%95%A9%EC%B9%98%EA%B8%B0-%ED%8C%8C%EC%9D%B4%EC%8D%AC%EA%B3%BC-%EB%8F%99%EC%9D%BC-%EA%B8%B0%EB%8A%A5"><span class="toc-text">3-2. 이 2) 결과값을 리스트에 담고 join()을 사용해서 문자열로 합치기 (파이썬과 동일 기능)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-for%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-0%EB%B6%80%ED%84%B0-10%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-%ED%99%80%EC%88%98%EB%A7%8C%EC%9D%84-%ED%81%B0-%EC%88%98%EB%B6%80%ED%84%B0-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰 수부터 출력하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-while%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-0%EB%B6%80%ED%84%B0-10%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-%EC%A7%9D%EC%88%98%EB%A7%8C%EC%9D%84-%EC%9E%91%EC%9D%80-%EC%88%98%EB%B6%80%ED%84%B0-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">5. while문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-while%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-0%EB%B6%80%ED%84%B0-10-%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-%ED%99%80%EC%88%98%EB%A7%8C%EC%9D%84-%ED%81%B0%EC%88%98%EB%B6%80%ED%84%B0-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">6. while문을 사용하여 0부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-for-%EB%AC%B8%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-0%EB%B6%80%ED%84%B0-10%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98%EC%9D%98-%ED%95%A9%EC%9D%84-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">7. for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1%EB%B6%80%ED%84%B0-20%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-2-%EB%98%90%EB%8A%94-3%EC%9D%98-%EB%B0%B0%EC%88%98%EA%B0%80-%EC%95%84%EB%8B%8C-%EC%88%98%EC%9D%98-%EC%B4%9D%ED%95%A9%EC%9D%84-%EA%B5%AC%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">8. 1부터 20미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1%EB%B6%80%ED%84%B0-20%EB%AF%B8%EB%A7%8C%EC%9D%98-%EC%A0%95%EC%88%98-%EC%A4%91%EC%97%90%EC%84%9C-2-%EB%98%90%EB%8A%94-3%EC%9D%98-%EB%B0%B0%EC%88%98%EC%9D%B8-%EC%88%98%EC%9D%98-%EC%B4%9D%ED%95%A9%EC%9D%84-%EA%B5%AC%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">9. 1부터 20미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%EB%91%90-%EA%B0%9C%EC%9D%98-%EC%A3%BC%EC%82%AC%EC%9C%84%EB%A5%BC-%EB%8D%98%EC%A1%8C%EC%9D%84-%EB%95%8C-%EB%88%88%EC%9D%98-%ED%95%A9%EC%9D%B4-6%EC%9D%B4-%EB%90%98%EB%8A%94-%EB%AA%A8%EB%93%A0-%EA%B2%BD%EC%9A%B0%EC%9D%98-%EC%88%98%EB%A5%BC-%EC%B6%9C%EB%A0%A5%ED%95%98%EC%8B%9C%EC%98%A4"><span class="toc-text">10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%EC%82%BC%EA%B0%81%ED%98%95-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0-pattern1"><span class="toc-text">11. 삼각형 출력하기 - pattern1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%EC%82%BC%EA%B0%81%ED%98%95-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0-pattern2"><span class="toc-text">12. 삼각형 출력하기 - pattern2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%EC%82%BC%EA%B0%81%ED%98%95-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0-pattern3"><span class="toc-text">13. 삼각형 출력하기 - pattern3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%EC%82%BC%EA%B0%81%ED%98%95-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0-pattern4"><span class="toc-text">14. 삼각형 출력하기 - pattern4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%EC%A0%95%EC%82%BC%EA%B0%81%ED%98%95-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0"><span class="toc-text">15. 정삼각형 출력하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%EC%97%AD%EC%A0%95%EC%82%BC%EA%B0%81%ED%98%95-%EC%B6%9C%EB%A0%A5%ED%95%98%EA%B8%B0"><span class="toc-text">16. 역정삼각형 출력하기</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/JavaScript"><i class="tag post-item-tag">JavaScript</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210311 JavaScript assignment</h1><time class="has-text-grey" datetime="2021-03-11T07:14:42.000Z">2021-03-11</time><article class="mt-2 post-content"><p><img src="/images/post_images/javascript_logo.png"></p>
+<h2 id="1-변수-x가-10보다-크고-20보다-작을-때-변수-x를-출력하는-조건식을-완성하라"><a href="#1-변수-x가-10보다-크고-20보다-작을-때-변수-x를-출력하는-조건식을-완성하라" class="headerlink" title="1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라"></a>1. 변수 x가 10보다 크고 20보다 작을 때 변수 x를 출력하는 조건식을 완성하라</h2><pre><code class="javascript">var x = 15;
+
+if (x &gt; 10 &amp;&amp; x &lt; 20) &#123;
+  console.log(x);
+&#125;</code></pre>
+<h3 id="1-1-조건문을-사용하지-않고-삼항연산자로-풀이해보기"><a href="#1-1-조건문을-사용하지-않고-삼항연산자로-풀이해보기" class="headerlink" title="1-1. 조건문을 사용하지 않고 삼항연산자로 풀이해보기"></a>1-1. 조건문을 사용하지 않고 삼항연산자로 풀이해보기</h3><pre><code class="javascript">console.log(x &gt; 10 &amp;&amp; x &lt; 20 ? x : &quot;&quot;);</code></pre>
+<h3 id="1-2-조건문을-사용하지-않고-단축평가를-활용해서-풀어보기"><a href="#1-2-조건문을-사용하지-않고-단축평가를-활용해서-풀어보기" class="headerlink" title="1-2. 조건문을 사용하지 않고 단축평가를 활용해서 풀어보기"></a>1-2. 조건문을 사용하지 않고 단축평가를 활용해서 풀어보기</h3><pre><code class="javascript">console.log(x &gt; 10 &amp;&amp; x &lt; 20 &amp;&amp; x);</code></pre>
+<h2 id="2-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-출력하시오"><a href="#2-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-출력하시오" class="headerlink" title="2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오."></a>2. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.</h2><pre><code class="javascript">for (var i = 0; i &lt; 10; i += 2) &#123;
+  console.log(i);
+&#125;</code></pre>
+<h2 id="3-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-문자열로-출력하시오"><a href="#3-for문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-문자열로-출력하시오" class="headerlink" title="3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오."></a>3. for문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 문자열로 출력하시오.</h2><h3 id="3-1-문자열-변수로-연결해서-결과값-출력하기"><a href="#3-1-문자열-변수로-연결해서-결과값-출력하기" class="headerlink" title="3-1. 문자열 변수로 연결해서 결과값 출력하기"></a>3-1. 문자열 변수로 연결해서 결과값 출력하기</h3><pre><code class="javascript">var result = &quot;&quot;;
+for (var i = 0; i &lt; 10; i += 2) &#123;
+  result += i;
+&#125;
+console.log(result);</code></pre>
+<h3 id="3-2-이-2-결과값을-리스트에-담고-join-을-사용해서-문자열로-합치기-파이썬과-동일-기능"><a href="#3-2-이-2-결과값을-리스트에-담고-join-을-사용해서-문자열로-합치기-파이썬과-동일-기능" class="headerlink" title="3-2. 이 2) 결과값을 리스트에 담고 join()을 사용해서 문자열로 합치기 (파이썬과 동일 기능)"></a>3-2. 이 2) 결과값을 리스트에 담고 join()을 사용해서 문자열로 합치기 (파이썬과 동일 기능)</h3><pre><code class="javascript">var resultList = [];
+for (var i = 0; i &lt; 10; i += 2) &#123;
+  resultList.push(i);
+&#125;
+console.log(resultList.join(&quot;&quot;));</code></pre>
+<h2 id="4-for문을-사용하여-0부터-10미만의-정수-중에서-홀수만을-큰-수부터-출력하시오"><a href="#4-for문을-사용하여-0부터-10미만의-정수-중에서-홀수만을-큰-수부터-출력하시오" class="headerlink" title="4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰 수부터 출력하시오."></a>4. for문을 사용하여 0부터 10미만의 정수 중에서 홀수만을 큰 수부터 출력하시오.</h2><pre><code class="javascript">for (var i = 9; i &gt;= 0; i -= 1) &#123;
+  if (i % 2 != 0) &#123;
+    console.log(i);
+  &#125;
+&#125;</code></pre>
+<h2 id="5-while문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-출력하시오"><a href="#5-while문을-사용하여-0부터-10미만의-정수-중에서-짝수만을-작은-수부터-출력하시오" class="headerlink" title="5. while문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오."></a>5. while문을 사용하여 0부터 10미만의 정수 중에서 짝수만을 작은 수부터 출력하시오.</h2><pre><code class="javascript">conditionalValue = 0;
+
+while (conditionalValue &lt; 10) &#123;
+  if (conditionalValue % 2 === 0) &#123;
+    console.log(conditionalValue);
+  &#125;
+  conditionalValue += 1;
+&#125;</code></pre>
+<h2 id="6-while문을-사용하여-0부터-10-미만의-정수-중에서-홀수만을-큰수부터-출력하시오"><a href="#6-while문을-사용하여-0부터-10-미만의-정수-중에서-홀수만을-큰수부터-출력하시오" class="headerlink" title="6. while문을 사용하여 0부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오."></a>6. while문을 사용하여 0부터 10 미만의 정수 중에서 홀수만을 큰수부터 출력하시오.</h2><pre><code class="javascript">conditionalValue = 10;
+
+while (conditionalValue &gt; 0) &#123;
+  if (conditionalValue % 2 !== 0) &#123;
+    console.log(conditionalValue);
+  &#125;
+  conditionalValue -= 1;
+&#125;</code></pre>
+<h2 id="7-for-문을-사용하여-0부터-10미만의-정수의-합을-출력하시오"><a href="#7-for-문을-사용하여-0부터-10미만의-정수의-합을-출력하시오" class="headerlink" title="7. for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오."></a>7. for 문을 사용하여 0부터 10미만의 정수의 합을 출력하시오.</h2><pre><code class="javascript">sum = 0;
+for (var i = 0; i &lt; 10; i++) &#123;
+  sum += i;
+&#125;
+console.log(sum);</code></pre>
+<h2 id="8-1부터-20미만의-정수-중에서-2-또는-3의-배수가-아닌-수의-총합을-구하시오"><a href="#8-1부터-20미만의-정수-중에서-2-또는-3의-배수가-아닌-수의-총합을-구하시오" class="headerlink" title="8. 1부터 20미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오."></a>8. 1부터 20미만의 정수 중에서 2 또는 3의 배수가 아닌 수의 총합을 구하시오.</h2><pre><code class="javascript">sum = 0;
+for (var i = 1; i &lt; 20; i += 1) &#123;
+  if (i % 2 !== 0 &amp;&amp; i % 3 != 0) &#123;
+    sum += i;
+  &#125;
+&#125;
+console.log(sum);</code></pre>
+<h2 id="9-1부터-20미만의-정수-중에서-2-또는-3의-배수인-수의-총합을-구하시오"><a href="#9-1부터-20미만의-정수-중에서-2-또는-3의-배수인-수의-총합을-구하시오" class="headerlink" title="9. 1부터 20미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오."></a>9. 1부터 20미만의 정수 중에서 2 또는 3의 배수인 수의 총합을 구하시오.</h2><pre><code class="javascript">sum = 0;
+for (var i = 1; i &lt; 20; i += 1) &#123;
+  if (i % 2 === 0 || i % 3 === 0) &#123;
+    sum += i;
+  &#125;
+&#125;
+console.log(sum);</code></pre>
+<h2 id="10-두-개의-주사위를-던졌을-때-눈의-합이-6이-되는-모든-경우의-수를-출력하시오"><a href="#10-두-개의-주사위를-던졌을-때-눈의-합이-6이-되는-모든-경우의-수를-출력하시오" class="headerlink" title="10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오."></a>10. 두 개의 주사위를 던졌을 때, 눈의 합이 6이 되는 모든 경우의 수를 출력하시오.</h2><pre><code class="javascript">for (var i = 1; i &lt;= 6; i += 1) &#123;
+  for (var j = 1; j &lt;= 6; j += 1) &#123;
+    if (i + j === 6) &#123;
+      console.log(`[$&#123;i&#125;, $&#123;j&#125;]`);
+    &#125;
+  &#125;
+&#125;</code></pre>
+<h2 id="11-삼각형-출력하기-pattern1"><a href="#11-삼각형-출력하기-pattern1" class="headerlink" title="11. 삼각형 출력하기 - pattern1"></a>11. 삼각형 출력하기 - pattern1</h2><pre><code class="javascript">// 높이(line)가 5
+for (var i = 1; i &lt;= 5; i += 1) &#123;
+  var line = &quot;&quot;;
+  for (var j = 1; j &lt;= i; j += 1) &#123;
+    line += &quot;*&quot;;
+  &#125;
+  console.log(line);
+&#125;
+//output:
+// *
+// **
+// ***
+// ****
+// *****</code></pre>
+<h2 id="12-삼각형-출력하기-pattern2"><a href="#12-삼각형-출력하기-pattern2" class="headerlink" title="12. 삼각형 출력하기 - pattern2"></a>12. 삼각형 출력하기 - pattern2</h2><pre><code class="javascript">for (var i = 5; i &gt;= 1; i -= 1) &#123;
+  var line = &quot;&quot;;
+  for (var k = 0; k &lt;= 5 - i; k += 1) &#123;
+    line += &quot; &quot;;
+  &#125;
+  for (var j = 1; j &lt;= i; j += 1) &#123;
+    line += &quot;*&quot;;
+  &#125;
+  console.log(line);
+&#125;
+// output:
+//  *****
+//   ****
+//    ***
+//     **
+//      *</code></pre>
+<h2 id="13-삼각형-출력하기-pattern3"><a href="#13-삼각형-출력하기-pattern3" class="headerlink" title="13. 삼각형 출력하기 - pattern3"></a>13. 삼각형 출력하기 - pattern3</h2><pre><code class="javascript">for (var i = 5; i &gt;= 1; i -= 1) &#123;
+  var line = &quot;&quot;;
+  for (var j = 1; j &lt;= i; j += 1) &#123;
+    line += &quot;*&quot;;
+  &#125;
+  console.log(line);
+&#125;
+// output:
+// *****
+// ****
+// ***
+// **
+// *</code></pre>
+<h2 id="14-삼각형-출력하기-pattern4"><a href="#14-삼각형-출력하기-pattern4" class="headerlink" title="14. 삼각형 출력하기 - pattern4"></a>14. 삼각형 출력하기 - pattern4</h2><pre><code class="javascript">for (var i = 1; i &lt;= 5; i += 1) &#123;
+  var line = &quot;&quot;;
+  for (var k = 0; k &lt;= 5 - i; k += 1) &#123;
+    line += &quot; &quot;;
+  &#125;
+  for (var j = 1; j &lt;= i; j += 1) &#123;
+    line += &quot;*&quot;;
+  &#125;
+  console.log(line);
+&#125;
+// output:
+//      *
+//     **
+//    ***
+//   ****
+//  *****</code></pre>
+<h2 id="15-정삼각형-출력하기"><a href="#15-정삼각형-출력하기" class="headerlink" title="15. 정삼각형 출력하기"></a>15. 정삼각형 출력하기</h2><pre><code class="javascript">var count = 0;
+for (var i = 1; i &lt;= 10; i += 1) &#123;
+  var line = &quot;&quot;;
+  if (i % 2 !== 0) &#123;
+    count += 1;
+    for (var j = 0; j &lt;= 5 - count; j += 1) &#123;
+      line += &quot; &quot;;
+    &#125;
+    for (var k = 1; k &lt;= i; k += 1) &#123;
+      line += &quot;*&quot;;
+    &#125;
+    console.log(line);
+  &#125;
+&#125;
+// output :
+//      *
+//     ***
+//    *****
+//   *******
+//  *********</code></pre>
+<h2 id="16-역정삼각형-출력하기"><a href="#16-역정삼각형-출력하기" class="headerlink" title="16. 역정삼각형 출력하기"></a>16. 역정삼각형 출력하기</h2><pre><code class="javascript">var count = 5;
+for (var i = 10; i &gt;= 1; i -= 1) &#123;
+  var line = &quot;&quot;;
+  if (i % 2 !== 0) &#123;
+    for (var j = 5 - count; j &gt;= 0; j -= 1) &#123;
+      line += &quot; &quot;;
+    &#125;
+    for (var k = i; k &gt;= 1; k -= 1) &#123;
+      line += &quot;*&quot;;
+    &#125;
+    count -= 1;
+    console.log(line);
+  &#125;
+&#125;
+// output :
+//  *********
+//   *******
+//    *****
+//     ***
+//      *</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2021/03/11/202103/210311-Self-development_til/" title="210311 Self Development TIL"><span class="has-text-weight-semibold">Next: 210311 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>

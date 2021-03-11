@@ -9,8 +9,22 @@
 
 
     <url>
+        <loc>https://leehyungi0622.github.io/categories/JavaScript/</loc>
+        <lastmod>2021-03-11T09:24:43.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://leehyungi0622.github.io/categories/TIL-Self-Development/</loc>
-        <lastmod>2021-03-10T21:50:28.387Z</lastmod>
+        <lastmod>2021-03-11T01:49:14.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://leehyungi0622.github.io/categories/Side-Project-Diary/</loc>
+        <lastmod>2021-03-11T01:25:29.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -18,20 +32,6 @@
     <url>
         <loc>https://leehyungi0622.github.io/categories/React-Test/</loc>
         <lastmod>2021-03-10T21:33:11.748Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://leehyungi0622.github.io/categories/JavaScript/</loc>
-        <lastmod>2021-03-10T02:07:05.047Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://leehyungi0622.github.io/categories/Side-Project-Diary/</loc>
-        <lastmod>2021-03-09T08:14:52.648Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
