@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-03-11T09:24:43.849Z</updated>
+  <updated>2021-03-11T22:21:37.431Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>210312 Self Development TIL</title>
+    <link href="https://leehyungi0622.github.io/2021/03/12/202103/210312-Self-development_til/"/>
+    <id>https://leehyungi0622.github.io/2021/03/12/202103/210312-Self-development_til/</id>
+    <published>2021-03-11T22:20:00.000Z</published>
+    <updated>2021-03-11T22:21:37.431Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the</summary>
+        
+      
+    
+    
+    
+    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>210312 Rubber Duck Team activity 준비</title>
+    <link href="https://leehyungi0622.github.io/2021/03/12/202103/210312-javascript-rubber_duck/"/>
+    <id>https://leehyungi0622.github.io/2021/03/12/202103/210312-javascript-rubber_duck/</id>
+    <published>2021-03-11T22:15:42.000Z</published>
+    <updated>2021-03-11T22:26:56.788Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/javascript_logo.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;본 포스팅은 월, 수, 금 아침 시간을 활용한 팀원들과의 activity를 위하여 정리한 개발과 관련된</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://leehyungi0622.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="JavaScript" scheme="https://leehyungi0622.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>210311 JavaScript assignment</title>
@@ -49,7 +105,7 @@
     <link href="https://leehyungi0622.github.io/2021/03/11/202103/210311-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/03/11/202103/210311-Self-development_til/</id>
     <published>2021-03-11T00:40:00.000Z</published>
-    <updated>2021-03-11T00:40:31.910Z</updated>
+    <updated>2021-03-11T09:26:43.915Z</updated>
     
     
       
@@ -1396,59 +1452,6 @@
     <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/</id>
     <published>2021-02-20T22:40:00.000Z</published>
     <updated>2021-02-22T02:06:09.617Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the</summary>
-        
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210221 Memoirs 블로그 운영 30일차 회고록</title>
-    <link href="https://leehyungi0622.github.io/2021/02/21/202102/210221-memoirs/"/>
-    <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-memoirs/</id>
-    <published>2021-02-20T21:40:00.000Z</published>
-    <updated>2021-02-20T23:58:31.697Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/210221_meta_recognition.jpg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;30일-112개-포스팅&quot;&gt;&lt;a href=&quot;#30일-112개-포스팅&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Memoirs" scheme="https://leehyungi0622.github.io/categories/Memoirs/"/>
-    
-    
-    <category term="Memoirs" scheme="https://leehyungi0622.github.io/tags/Memoirs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210220 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/20/202102/210220-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/20/202102/210220-Self-development_til/</id>
-    <published>2021-02-20T04:40:00.000Z</published>
-    <updated>2021-02-20T22:47:43.531Z</updated>
     
     
       
