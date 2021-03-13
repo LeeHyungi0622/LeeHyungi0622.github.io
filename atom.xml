@@ -6,7 +6,7 @@
   <link href="https://leehyungi0622.github.io/atom.xml" rel="self"/>
   
   <link href="https://leehyungi0622.github.io/"/>
-  <updated>2021-03-11T22:21:37.431Z</updated>
+  <updated>2021-03-13T10:37:19.374Z</updated>
   <id>https://leehyungi0622.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>210313 JavaScript TIL 1일차 - 변수의 선언과 정의, Hoisting, var, let, const, TDZ</title>
+    <link href="https://leehyungi0622.github.io/2021/03/13/202101/210130-javascript-basic/"/>
+    <id>https://leehyungi0622.github.io/2021/03/13/202101/210130-javascript-basic/</id>
+    <published>2021-03-13T03:21:42.000Z</published>
+    <updated>2021-03-13T10:37:19.374Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/post_images/javascript_logo.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이번주 월요일부터 새롭게 시작한 자바스크립트 강의를 들으면서 데레사 강사님으로부터 HTML/CSS 수업을 들었을 때와 마찬가지로 내가</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://leehyungi0622.github.io/categories/JavaScript/"/>
+    
+    
+    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
+    
+    <category term="Incomplete" scheme="https://leehyungi0622.github.io/tags/Incomplete/"/>
+    
+    <category term="JavaScript" scheme="https://leehyungi0622.github.io/tags/JavaScript/"/>
+    
+    <category term="JavaScript-Basic" scheme="https://leehyungi0622.github.io/tags/JavaScript-Basic/"/>
+    
+  </entry>
+  
+  <entry>
     <title>210312 Self Development TIL</title>
     <link href="https://leehyungi0622.github.io/2021/03/12/202103/210312-Self-development_til/"/>
     <id>https://leehyungi0622.github.io/2021/03/12/202103/210312-Self-development_til/</id>
     <published>2021-03-11T22:20:00.000Z</published>
-    <updated>2021-03-11T22:21:37.431Z</updated>
+    <updated>2021-03-12T03:31:02.191Z</updated>
     
     
       
@@ -1425,33 +1457,6 @@
     <id>https://leehyungi0622.github.io/2021/02/22/202102/210222-Self-development_til/</id>
     <published>2021-02-22T02:09:00.000Z</published>
     <updated>2021-02-22T02:24:32.687Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Thought-of-the-day&quot;&gt;&lt;a href=&quot;#Thought-of-the-day&quot; class=&quot;headerlink&quot; title=&quot;Thought of the day&quot;&gt;&lt;/a&gt;&lt;strong&gt;Thought of the</summary>
-        
-      
-    
-    
-    
-    <category term="TIL:Self-Development" scheme="https://leehyungi0622.github.io/categories/TIL-Self-Development/"/>
-    
-    
-    <category term="Self-Development" scheme="https://leehyungi0622.github.io/tags/Self-Development/"/>
-    
-    <category term="TIL" scheme="https://leehyungi0622.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>210221 Self Development TIL</title>
-    <link href="https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/"/>
-    <id>https://leehyungi0622.github.io/2021/02/21/202102/210221-Self-development_til/</id>
-    <published>2021-02-20T22:40:00.000Z</published>
-    <updated>2021-02-22T02:06:09.617Z</updated>
     
     
       

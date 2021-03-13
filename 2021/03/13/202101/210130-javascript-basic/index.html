@@ -1,0 +1,46 @@
+<!DOCTYPE html><html class="appearance-light" lang="en"><head><meta charset="UTF-8"><title>210313 JavaScript TIL 1일차 - 변수의 선언과 정의, Hoisting, var, let, const, TDZ</title><meta name="description" content="Learn about Python and Django"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon" href="/images/profile.jpg"><link rel="stylesheet" href="/style/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/highlight-theme-light.css"><script src="/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">Lee Hyungi's Tech Study Blog : 개발자로서 좋은 습관 만들기</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">210313 JavaScript TIL 1일차 - 변수의 선언과 정의, Hoisting, var, let, con..</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Click back to the top</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">Home</a></h3><h3 class="is-inline-block"><a href="/about">About</a></h3><h3 class="is-inline-block"><a href="/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hoisting"><span class="toc-text">Hoisting?</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/Self-Development"><i class="tag post-item-tag">Self-Development</i></a><a href="/tags/Incomplete"><i class="tag post-item-tag">Incomplete</i></a><a href="/tags/JavaScript"><i class="tag post-item-tag">JavaScript</i></a><a href="/tags/JavaScript-Basic"><i class="tag post-item-tag">JavaScript-Basic</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">210313 JavaScript TIL 1일차 - 변수의 선언과 정의, Hoisting, var, let, const, TDZ</h1><time class="has-text-grey" datetime="2021-03-13T03:21:42.000Z">2021-03-13</time><article class="mt-2 post-content"><p><img src="/images/post_images/javascript_logo.png"></p>
+<p>이번주 월요일부터 새롭게 시작한 자바스크립트 강의를 들으면서 데레사 강사님으로부터 HTML/CSS 수업을 들었을 때와 마찬가지로 내가 제대로 JavaScript를 알지 못했었구나라는 생각이 들었다. 그래서 강사님이 말씀하시는 내용 하나 하나 놓치지 않으려고 집중하며 들어보았다.</p>
+<p>상대적으로 다른 언어에 비해 러닝커브가 낮기 때문에 처음 배울때에는 마냥 쉽게만 느껴지는 자바스크립트지만, 제대로 그 언어의 특성을 알고 배우기란 여간 쉬운 일이 아니다.</p>
+<p>그래서 수업시간에 배웠던 내용 중에 내가 정말 나중에 개발자로서 성장을 하면서 다시금 돌아보면 유익할 것 같은 내용을 위주로 개인적인 생각을 담아 정리를 해보려고 한다.</p>
+<p>지금 알고 있는 것이 전부라고 생각하지는 않는다.</p>
+<h2 id="Hoisting"><a href="#Hoisting" class="headerlink" title="Hoisting?"></a><strong>Hoisting?</strong></h2><p>첫 번째 수업때 가장 기억에 남는 개념은 바로 이 Hoisting이라는 개념이었다.</p>
+<p>우선 Hoisting에 대해서 살펴보기 이전에 <code>변수의 선언과 정의</code>에 대해서 이야기해보려고 한다.</p>
+<p><code>변수의 선언이란</code> 컴파일러가 참조할 식별자(변수의 타입과 함수의 인수목록)와 이름(변수, 함수, 클래스의 이름)을 알리는 것을 의미한다. 이 과정에서는 별도의 메모리 영역에 영향을 주지 않기 때문에 여러번 중복되어도 문제가 되지 않는다.</p>
+<p><code>변수의 정의란</code> 식별자와 이름으로부터 코드를 생성하여 함수가 호출되거나 변수를 사용할 때 생성된 코드를 참조하는 것을 말한다.</p>
+<p>이렇게 변수의 사용을 선언과 정의 두 가지로 나눠서 살펴 볼 수 있다.<br>실제로 우리가 <code>var a = 10</code>으로 a라는 변수를 10이라는 값으로 초기화해서 사용을 한다면 눈에는 하나의 문(statement)으로 보이지만, 실제로는 선언과 정의, 두 개의 파트로 나눠져 있는 것이다.</p>
+<pre><code class="javascript">var a;
+a = 10;</code></pre>
+<p>앞에서 설명한 내용을 토대로 이제 hoisting에 대해서 살펴보자.</p>
+<p>이 hoisting이란 컴파일 단계에서 컴파일러가 파싱을 하면서 선언에 해당하는 내용을 스코프 내의 최상단으로 끌어 올리는 것을 말한다.<br>이러한 이유로 코드 구현시에 아래와 같은 코드 구조(선 정의 후 선언)가 가능하다.</p>
+<pre><code class="javascript">a = 10;
+var a;</code></pre>
+<p>그렇다면, 이제 다음주 월요일에 배우게 될 변수 사용시에 사용할 키워드인 let과 const는 hoisting이 일어나지 않는 것일까?</p>
+<p>이 부분에 대해서 집에 돌아가는 길 지하철 안에서 궁금증을 참지 못하고 이래 저래 구글링을 해보았다.</p>
+<p>우선 정답은 let과 const로 선언된 변수 또한 var로 선언된 변수와 같이 hoisting이 발생한다. 하지만 <code>var의 경우 정의 전에 해당 변수에 접근하려고 하면 undefined을 반환</code>하지만 <code>let/const의 경우에는 정의 전에 해당 변수에 접근하려고 하면, ReferenceError가 발생</code>한다.</p>
+<p>var와 let/const의 선언에서 차이가 나는 이유는 바로 <strong>TDZ(Temporal Dead Zone)에 의한 제약</strong> 때문이다.<br>갑자기 뜬금없지만 TDZ라는 용어를 보자마자 생각났던 것이 군 복무시에 잠깐 파견을 나갔었던 DMZ(Demilitarized Zone)였고, 두 용어 모두 Zone이라는 공통점이 있다. 이렇게 나의 경험과 학습을 연관시키려는 이유는 HTML/CSS의 데레사 강사님의 수업방식으로부터 배웠다. 강사님은 어떤 예시를 설명해주실때 직접 경험하신 검험담으로 어려운 내용도 좀 더 확장해서 학습할 수 있도록 구체적으로 설명해주셨다. 그래서 나도 되도록이면 나의 경험과 연결시켜서 학습해보려고 하고 있다.</p>
+<p>자 이제 돌아와서 TDZ와 DMZ는 Zone이라는 공통점을 가지고 있고, 뭔가 한정된 영역이라는 느낌을 준다. 자 그럼 이런 느낌으로 한 번 TDZ(Temporal Dead Zone)에 대해서 살펴보자.</p>
+<p>앞서 이미 언급을 했지만, let과 const도 hoisting이 발생하지만, 선언 이전에 정의(엑세스)를 하려고 하면 에러가 발생한다. 이는 선언 이전에 정의(엑세스)를 하려는 영역은 TDZ에 의해 관리가 되고, ReferenceError를 반환하는 것이다.</p>
+<p>TDZ 시맨틱은 선언 전에 정의(엑세스)를 금지한다.</p>
+<pre><code class="javascript">// TDZ(Temporal Dead Zone)
+
+name; // ReferenceError (managed by TDZ(Temporal Dead Zone))
+
+const name = &#39;Lee Hyungi&#39;; // Declaration &amp; Initialization
+
+name;</code></pre>
+<p>앞서 작성한 코드에서 name은 const라는 키워드로 선언이 되기 전까지 TDZ라는 영역에 있다고 볼 수 있다.</p>
+<p>TDZ에 영향을 받는 구문은 앞서 살펴본 const 변수와 let 변수, class 구문, 생성자 내부의 super(), 기본 함수 매개변수가 있다. 이 중에서 생성자 내부의 super()와 기본 함수 매개변수에 대해서 좀 더 자세히 알아보자.</p>
+<pre><code class="javascript">const b = 1;
+function plus(b = b) &#123;
+  return b + b;
+&#125;
+
+plus();</code></pre>
+<pre><code class="javascript">const init = 1;
+function plus(b = init) &#123;
+  return b + b;
+&#125;
+
+plus();</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2021/03/12/202103/210312-Self-development_til/" title="210312 Self Development TIL"><span class="has-text-weight-semibold">Next: 210312 Self Development TIL</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section><article class="mt-6 comment-container"><script async repo="LeeHyungi0622/blog-comment" src="https://utteranc.es/client.js" issue-term="pathname" theme="github-light"></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/LeeHyungi0622"><i class="iconfont icon-github"></i></a><!-- Ins--><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--></section><p><span>Copyright ©</span><span> Lee Hyungi (이현기) 2021</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &nbsp;</p></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/post.js"></script></body></html>
