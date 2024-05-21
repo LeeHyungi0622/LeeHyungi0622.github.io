@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>220605 데이터 파이프라인 구축 오프라인 수업 / 2주차 | HYUNGI&#39;S TECH BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="이번 포스팅에서는 두 번째 데이터 파이프라인 구축 오프라인 수업시간에서 배운 내용을 정리하려고 한다. 2주차 첫 번째 실습) logstash의 input&#x2F;output의 file 플러그인 활용가장 일반적으로 많이 쓰이는 방식으로, 실제 VM에 서버를 띄우고 해당 로그를 취득하거나 도커나 쿠버네티스에 컨테이너에서 서버를 띄우고 로그를">
+<meta property="og:type" content="article">
+<meta property="og:title" content="220605 데이터 파이프라인 구축 오프라인 수업 &#x2F; 2주차">
+<meta property="og:url" content="http://example.com/2022/06/05/202206/220605_datapipeline_study/index.html">
+<meta property="og:site_name" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:description" content="이번 포스팅에서는 두 번째 데이터 파이프라인 구축 오프라인 수업시간에서 배운 내용을 정리하려고 한다. 2주차 첫 번째 실습) logstash의 input&#x2F;output의 file 플러그인 활용가장 일반적으로 많이 쓰이는 방식으로, 실제 VM에 서버를 띄우고 해당 로그를 취득하거나 도커나 쿠버네티스에 컨테이너에서 서버를 띄우고 로그를">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/post_images/220530_review.png">
+<meta property="og:image" content="http://example.com/images/post_images/220607_ctas_query_preview_table.png">
+<meta property="article:published_time" content="2022-06-05T04:43:00.000Z">
+<meta property="article:modified_time" content="2024-05-21T01:00:15.315Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Data-Pipeline">
+<meta property="article:tag" content="AWS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/post_images/220530_review.png">
+  
+    <link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HYUNGI&#39;S TECH BLOG</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-202206/220605_datapipeline_study" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/05/202206/220605_datapipeline_study/" class="article-date">
+  <time class="dt-published" datetime="2022-06-05T04:43:00.000Z" itemprop="datePublished">2022-06-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      220605 데이터 파이프라인 구축 오프라인 수업 / 2주차
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220530_review.png" alt="Review">
+</div>
+
+<br/>
+<br/>
+
+<p>이번 포스팅에서는 두 번째 데이터 파이프라인 구축 오프라인 수업시간에서 배운 내용을 정리하려고 한다.</p>
+<h2 id="2주차-첫-번째-실습-logstash의-input-output의-file-플러그인-활용"><a href="#2주차-첫-번째-실습-logstash의-input-output의-file-플러그인-활용" class="headerlink" title="2주차 첫 번째 실습) logstash의 input&#x2F;output의 file 플러그인 활용"></a><ins><b>2주차 첫 번째 실습) logstash의 input&#x2F;output의 file 플러그인 활용</b></ins></h2><p>가장 일반적으로 많이 쓰이는 방식으로, 실제 <code>VM에 서버를 띄우고 해당 로그를 취득하거나 도커나 쿠버네티스에 컨테이너에서 서버를 띄우고 로그를 취득하는 경우</code>에도 <code>logstash의 input의 file 플러그인을 사용해서 로그 데이터를 땡겨온다.</code></p>
+<p>VM이나 컨테이너의 특정 경로에 로그 데이터를 적재해주고, 시스템 자체로는 Log rotate라고 하는 방식으로 <code>오늘 날짜 기준으로 로그를 쌓다가 날짜가 바뀌면, 다른이름으로 압축을 하거나 삭제를 해서 새로운 로그를 다시 쌓는 방식</code>으로 한다. 이러한 작업에 logstash와 같은 agent를 통해서 밖으로 빼내는 작업을 하는데, 이때 input의 file 플러그인을 가장 많이 사용한다고 한다.</p>
+<span id="more"></span>
+
+<p>이전에 logstash를 사용해서 단순히 twitter의 로그 데이터만 뽑아서 kafka에 넘겨주는 작업을 했을때에는 logstash에 다양한 플러그인에 대해서 잘 몰랐고, logstash의 단편적인 기능만 알았었는데, 이번 실습을 통해서 logstash라는 agent의 input&#x2F;output의 플러그인은 종류가 엄청 다양하고, 실무에서는 어떤식으로 이 logstash를 사용해서 서버로부터 로그 데이터를 땡겨서 적재하는지에 대해서 개괄적으로 알게 된 것 같다.</p>
+<p>이번 실습에서는 외부에서 로그 데이터가 쌓이는 과정을 임의의 <code>&quot;echo &quot;1&quot; &gt;&gt; input.file</code>명령을 통해서 새로운 input.file 로그 파일을 생성하고, 임의의 명령을 통해 로그 파일(input.file)에 데이터가 적재될때마다 logstash의 output의 file 플러그인의 path에 지정된 파일로 <code>새로운 형태의 데이터가 적재</code>되는 과정에 대해서 실습해보았다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$logstash -f logstash/config/logstash-config-file.conf</span><br><span class="line"></span><br><span class="line"># logstash가 input의 file 플러그인을 사용해서 input.file 로그 파일을 listen한다.</span><br><span class="line">input &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">    path =&gt; &quot;/home/ubuntu/input.file&quot;</span><br><span class="line">    start_position =&gt; &quot;beginning&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 다양한 플러그인을 사용해서 로그 데이터를 S3에 직접 저장을 하거나 할 수 있다.</span><br><span class="line">output &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">    path =&gt; &quot;/home/ubuntu/logstash-output-%&#123;+YYYY_MM_dd_HH&#125;.log&quot;</span><br><span class="line">    # 위에 지정한 새로운 로그파일에 &quot;output: 1&quot; 형태로 데이터가 전처리되어 쌓인다.</span><br><span class="line">    codec =&gt; line &#123; format =&gt; &quot;output: %&#123;message&#125;&quot;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># echo 명령을 통해서 input.file에 임의의 로그 파일을 쌓으면, 자동으로 output의 file플러그인에 지정한 파일에 정제된 데이터가 저장된다.</span><br><span class="line"></span><br><span class="line">#input.file 내의 데이터가 업데이트되면, logstash에서는 output 파일에 지속적으로 업데이트를 한다.</span><br><span class="line">#실제로는 어플리케이션으로부터 로그 데이터가 넘겨져서 떨궈지면, 해당 로그 데이터를 읽어서 처리하는데, 현재 실습에서는 임의로 데이터를 쌓기 위한 작업이 추가되었다.</span><br><span class="line">$echo &quot;1&quot; &gt;&gt; input.file</span><br><span class="line">$echo &quot;2&quot; &gt;&gt; input.file</span><br><span class="line">$echo &quot;3&quot; &gt;&gt; input.file</span><br></pre></td></tr></table></figure>
+
+<h2 id="두-번째-실습-실제-Apache-sample-log파일을-활용한-실습"><a href="#두-번째-실습-실제-Apache-sample-log파일을-활용한-실습" class="headerlink" title="두 번째 실습) 실제 Apache sample log파일을 활용한 실습"></a><ins><b>두 번째 실습) 실제 Apache sample log파일을 활용한 실습</b></ins></h2><p>week-1의 apache-sample-log 파일의 샘플 로그 데이터로 실습을 진행하였다.</p>
+<p>grok 플러그인은 들어온 로그데이터를 parsing하는 formatter역할을 한다.</p>
+<p>문자열 한 줄로 출력되던 로그 데이터를 json 형식으로 parsing 되는 것을 확인할 수 있었고, <code>Apache log의 경우에는 보편적으로 사용되기 때문에 grok으로 filter하면 자동으로 json 형식으로 parsing된다.</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">input <span class="punctuation">&#123;</span></span><br><span class="line">    file <span class="punctuation">&#123;</span></span><br><span class="line">        path =&gt; <span class="string">&quot;/home/ubuntu/[log file]&quot;</span></span><br><span class="line">        start_position =&gt; <span class="string">&quot;beginning&quot;</span></span><br><span class="line">        sincedb_path =&gt; <span class="string">&quot;/dev/null&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">filter <span class="punctuation">&#123;</span></span><br><span class="line"><span class="comment">// 결과로 문자열로 출력된 데이터를 json 형태의 데이터로 변환해준다.</span></span><br><span class="line">   grok <span class="punctuation">&#123;</span></span><br><span class="line">     match =&gt; <span class="punctuation">&#123;</span><span class="string">&quot;message&quot;</span> =&gt; <span class="string">&quot;%&#123;COMBINEDAPACHELOG&#125;&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line">   <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="comment">//  grok으로 parsing된 json 형식의 데이터를 prune을 활용해서 특정 필드의 데이터만 추출한다.</span></span><br><span class="line">  <span class="comment">// 용량이 큰 경우나 분석가가 원하는 데이터만 추려서 제한된 데이터로 만들때 사용된다.</span></span><br><span class="line">  <span class="comment">// 반드시 위의 grok을 한 뒤에 prune으로 처리해야한다.</span></span><br><span class="line">   prune <span class="punctuation">&#123;</span></span><br><span class="line">     interpolate =&gt; <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="comment">//  clientip와 timestamp field data만 추려서 로그 파일 출력</span></span><br><span class="line">     whitelist_names =&gt; <span class="punctuation">[</span><span class="string">&quot;clientip&quot;</span><span class="punctuation">,</span> <span class="string">&quot;@timestamp&quot;</span><span class="punctuation">]</span></span><br><span class="line">   <span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">#   mutate <span class="punctuation">&#123;</span></span><br><span class="line">#    remove_field =&gt; <span class="punctuation">[</span><span class="string">&quot;referrer&quot;</span><span class="punctuation">,</span> <span class="string">&quot;path&quot;</span><span class="punctuation">,</span> <span class="string">&quot;agent&quot;</span><span class="punctuation">,</span> <span class="string">&quot;message&quot;</span><span class="punctuation">]</span></span><br><span class="line">#   <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">output <span class="punctuation">&#123;</span></span><br><span class="line">  file <span class="punctuation">&#123;</span></span><br><span class="line">    path =&gt; <span class="string">&quot;/home/ubuntu/logstash-output-%&#123;+YYYY_MM_dd_HH&#125;.log&quot;</span></span><br><span class="line">    codec =&gt; rubydebug</span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>아래 메뉴얼에서 filter plugins을 확인하고 개인적으로 실습을 해보자.</p>
+<p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">https://www.elastic.co/guide/en/logstash/current/filter-plugins.html</a></p>
+<p>유용한 플러그인으로는 IP주소를 CIDR 표기법(<code>ip/(서브넷 bit 수)</code>)로 변환해 줄 수 있는 <code>cidr</code>플러그인도있으며, <code>csv</code>플러그인을 사용해서 comma-separated value 데이터를 개별 필드로 분류해서 뽑아낼 수도 있고, <code>kv</code> 필터 플러그인을 사용해서 key-value 페어로 로그 데이터를 parsing 할 수도 있다. (<code>이 부분에 대해서는 차후에 개인 프로젝트에 적용해서 실습을 해보도록 하자</code>)</p>
+<h2 id="세-번째-실습-Beats-Logstash-연동-실습"><a href="#세-번째-실습-Beats-Logstash-연동-실습" class="headerlink" title="세 번째 실습) Beats - Logstash 연동 실습"></a><ins><b>세 번째 실습) Beats - Logstash 연동 실습</b></ins></h2><p>Beats는 Logstash의 앞 단에 경량화된 데이터 수집기를 심기 위한 목적에서 사용한다. (<code>input.file 로그 파일을 Beats가 읽어서 Logstash로 넘겨준다.</code>)</p>
+<p>현재 실습으로 제공된 파일에서 절대경로로 filebeat가 실행이 되지 않기 때문에 우선적으로 filebreat.yml파일을 ec2 instance의 local의 filebeat 압축해제 폴더에 복사를 한 뒤에 상대경로로 해서 filebeat를 실행해서 실습하도록 한다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#다른 ec2 instance에서는 logstash를 실행한다.</span><br><span class="line">$logstash -f ...../logstash-config-filebeat.conf</span><br><span class="line"></span><br><span class="line">#우선 git repository의 week-1 폴더에 있는 filebeat.yml 파일을 local의 filebeat 폴더에 복사를 해둔다.</span><br><span class="line">$./filebeat run -e filebeat.yml</span><br></pre></td></tr></table></figure>
+
+<p>logstash 로그에서 확인을 해보면, filebeat로부터 넘겨받은 로그데이터 목록을 순차적으로 받는 것을 확인할 수 있다.<br>(<code>filebeat가 listen하고 있는 input.file 로그 파일에 echo 명령을 사용해서 새로운 로그 데이터를 적재해서 변화를 줘야 filebeat에서 이를 감지하고, 변화된 로그 데이터를 읽어서 logstash로 넘겨준다</code>)</p>
+<p>filebeat - logstash - [output plugin 사용해서 S3에 저장을 할 수도 있다] (<code>응용해서 실습해보기</code>)</p>
+<p>filebeat - logstash 구조로 실행을 할 때, background에서 계속 실행이 될 수 있도록 할 수도 있고, 개별 node에 설치를 할 수도 있다.<br>logstash 전용 노드를 설치를 해서 사용할 수 있는 부분에 대해서도 직접 실습을 해보자.(<code>추가 자료 참고</code>)</p>
+<!-- 이 부분까지 정리 완료(1/3 지점) -->
+
+<p>이 부분부터는 2주차 본 수업에서 다룬 데이터 파이프라인의 이론적인 부분에 대한 정리이다.</p>
+<h2 id="용어에-대한-설명"><a href="#용어에-대한-설명" class="headerlink" title="용어에 대한 설명"></a><ins><b>용어에 대한 설명</b></ins></h2><ul>
+<li><h3 id="Data-Lake"><a href="#Data-Lake" class="headerlink" title="Data Lake"></a><strong>Data Lake</strong></h3><p>최근들어 클라우드의 도입으로, 대용량 분산 스토리지 개념이 많이 발달하였다. 따라서 정형과 비정형 데이터(사진, 동영상, json 파일(반정형)를 구분하지 않고 우선적으로 적재를 한 뒤에 필요에 따라 데이터를 추출해서 일부 데이터를 추출하고, 정제한다.<br>(<code>정형화나 정규화가 되어있지 않은 데이터 스토리지</code>, <code>분산 스토리지(S3, HDFS 등을 사용)</code>)<br>DL는 테이블이 아니며, 별도의 스키마가 없고 schema on read(스키마를 읽을 때 스키마가 결정)의 형태를 갖는다. 그리고 ELT(Extract Load Transform)의 중간 저장소 역할을 한다.<br>ETL에서는 DB에 정제된 데이터를 DB에 로드할 때 각 각의 데이터의 스키마가 정해져야 문제없이 데이터가 적제될 수 있기 때문에 우선적으로 데이터가 정제되고, DB에 데이터를 쌓는다.</p>
+</li>
+<li><h3 id="Data-Warehouse"><a href="#Data-Warehouse" class="headerlink" title="Data Warehouse"></a><strong>Data Warehouse</strong></h3><p>실제 의사결정을 위해서 소스 DB(사용자 정보, 거래정보)를 분석하고, 구조화된 형식으로 저장하는 것이 Data Warehouse이다. <code>(다양한 소스로부터 필요한 데이터를 수정/정제해서 집계하는 저장공간)</code><br>ETL 과정을 통해서 분석가능하고 구조화된 데이터로 저장하는 저장소<br>대량의 데이터를 <code>장기 보관(3개월 ~ 2년)</code> (부서 및 기업별로 분류하여 데이터를 체계적으로 정리한다)<br>원천 데이터를 가져와서 데이터를 테이블화하는 것을 말하며, <code>테이블화를 할 수 있다는 의미는 key:value 형태로 데이터가 정형화되어있다는 의미</code>이다.<br>잦은 읽기 쓰기의 RDB를 쓰는 것이 아닌, <code>웨어하우스 솔루션이 많이 쓰인다.</code> (<code>일반적인 RDB와는 다른 구조를 갖지만, 때때로 작은 규모의 데이터에서는 RDB로 대체해서 사용하기도 한다</code>)<br>보통 데이터 웨어하우스 솔루션은 같은 칼럼의 데이터만 묶어서 관리한다. (대량의 배치작업을 위한 처리)<br>보통은 각 각의 칼럼 데이터가 하나의 행으로써 관리가 되는데, 웨어하우스 솔루션에서는 칼럼 데이터로 묶여서 관리된다.<br><code>ref.</code> <strong>columnar</strong> : 데이터 베이스의 각 칼럼 데이터를 별도로 분리해서 관리한다. 그 이유는 대량의 데이터 쓰기 작업이 발생하기 때문</p>
+</li>
+<li><h3 id="Data-Mart"><a href="#Data-Mart" class="headerlink" title="Data Mart"></a><strong>Data Mart</strong></h3><p>데이터 웨어하우스가 중앙 집중식으로 여러 분야의 데이터를 가지고 있다면, 데이터마트는 특정 분야의 데이터만 따로 분류해서 구성한다.(<code>Domain specific data는 DW에 비해 소규모화된 데이터</code>) 각 부서에서 필요로하는 도메인이 확실한 데이터이고, 데이터 웨어하우스보다는 용량이 작기 때문에 (<code>특정 도메인의 데이터를 가져와서 사용하기 때문에</code>) RDS의 사용이 가능하다.<br>그리고 Tableau와 같은 시각화 도구를 직접 DM에 붙여서 사용하기도 하며, OLAP(Online Analysis Processing) 작업을 위해서 BI 툴을 붙여서 사용한다.</p>
+<p>ETL 과정을 통해 데이터 웨어하우스의 데이터를 도메인 세분화된 데이터 마트의 데이터로 분류를 한다.</p>
+</li>
+<li><h3 id="OLAP-Online-Analytical-Processing"><a href="#OLAP-Online-Analytical-Processing" class="headerlink" title="OLAP(Online Analytical Processing)"></a><strong>OLAP(Online Analytical Processing)</strong></h3><p>온라인으로 분석한다는 의미로 데이터 마트에서 사용된다. 반대되는 개념으로 OLTP(RDB)이다. 사용자가 대화형 쿼리를 통해서 다차원의 데이터(OLAP CUBE)들을 분석하고, 여러 테이블을 조인해서 분석하는 과정을 통해 의사결정에 데이터를 활용한다.<br>주로 Columnar (Column Oriented DB)를 사용한다.</p>
+</li>
+<li><h3 id="Row-oriented-DB-Column-oriented-DB-Columnar"><a href="#Row-oriented-DB-Column-oriented-DB-Columnar" class="headerlink" title="Row oriented DB &amp; Column oriented DB(Columnar)"></a><strong>Row oriented DB &amp; Column oriented DB(Columnar)</strong></h3><p><code>Row Oriented DB와 Column Oriented DB의 개념은 데이터베이스의 내부 엔진의 동작방식상의 차이이다. 실제 사용자에게 있어서는 사용에 있어 차이가 없다.</code></p>
+<p>특정 행을 검색&#x2F;삭제&#x2F;업데이트하는 과정에서 사용되는 DB를 Row Oriented DB하고 하며, 트랜젝션과 데이터의 무결성이 중요하다.<br>반면에 데이터 웨어하우스에 많이 사용되는 데이터베이스는 Columnar(Column Oriented DB라고 한다)<br>(<code>Row Oriented DB - OLTP - RDB</code>)</p>
+<p><code>데이터 엔지니어 분야에서는 Column oriented DB(columnar)를 주로 사용</code>한다. Columnar는 열별로 데이터를 저장하고, Row Oriented DB와는 달리 특정 행의 데이터를 삭제하는 것은 가능하나, <code>데이터를 업데이트하는데 비효율적이거나 불가능</code>하다.<br>Columar DB는 특정 칼럼의 데이터만 가져오거나 대량의 데이터에 대한 쿼리를 하는데 유용하다. (<code>같은 자료형의 데이터 처리에 유용</code>)그리고 대량의 데이터를 읽고 쓰는데 종종 쓰인다.<br>(<code>Column Oriented DB - OLAP - DW(Data Warehouse</code>)</p>
+<p>업무에서 배치처리가 70%이상 많은 비중을 차지하고 있다.</p>
+</li>
+</ul>
+<h2 id="Batch-processing"><a href="#Batch-processing" class="headerlink" title="Batch processing"></a><ins><b>Batch processing</b></ins></h2><p>데이터의 일괄처리에 주로 사용되며, 데이터를 일정 기간동안 수집을 하고 나서 one slot으로 데이터를 처리하는 것을 말한다. (<code>대용량의 데이터 처리에 사용</code>)<br>주로 연산량이 많은 ML(Machine Learning)&#x2F;DL(Deep Learning)과 같이 CPU 집약적인 작업에 많이 사용되며, latency보다는 throughput(일정 시간내에 처리해야 되는 처리량)에 더 중요성이 부여된 작업의 경우 사용된다.</p>
+<ul>
+<li><strong>단점</strong><ul>
+<li>불규칙한 데이터 사이즈(데이터 사이즈의 변화가 심하기 때문에 각 데이터 처리 section에 대해 작업 주기를 할당하기가 어렵다. (<code>컴퓨팅 리소스와 배치 작업 주기의 산정의 어려움</code>))</li>
+<li>비즈니스나 DS의 특정 요구사항에 따라 연산 처리 속도와 배치 주기를 다르게 하기 위해 별도의 리소스가 필요</li>
+<li>데이터 처리 중에 문제가 발생해서 재처리하는 경우, 기존의 리소스를 재사용할지 아니면 재처리용 리소스를 별도로 할당할지에 대해 기존의 작업에 영향이 없는 선에서 결정해야 한다.</li>
+<li>연속된 태스크를 스케줄링하는 작업이 태스크 스케줄링(<code>워크플로 스케줄링</code>)이다.<br>(A Task -&gt; B Task if A Task is failed, C Task is executed와 같은 데이터 스케줄링 과정)</li>
+<li>실시간 데이터의 처리가 증가하고 있지만, 여전히 데이터 처리에 있어서는 Batch 처리의 비중이 크다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Hadoop-echo-system"><a href="#Hadoop-echo-system" class="headerlink" title="Hadoop echo system"></a><ins><b>Hadoop echo system</b></ins></h2><p>하둡은 빅데이터 프레임워크로, 주로 배치 처리를 담당한다. HDFS, MapReduce, Spark 등의 Hadoop echo system을 구성하는 오픈소스 기술들을 사용한다.<br>(AWS EMR을 사용하여 Hadoop의 역할을 대체할 수 있고, Hive의 역할은 Amazon Athena이다.(<code>Query로 데이터를 분석</code>))</p>
+<p>이 부분에 대해서는 기본 개념을 잡고, 실제 업무를 하면서 깊게 파고드는 것이 좋다.</p>
+<h2 id="ETL-ELT"><a href="#ETL-ELT" class="headerlink" title="ETL &amp; ELT"></a><ins><b>ETL &amp; ELT</b></ins></h2><ul>
+<li><h3 id="ETL-Extract-Transform-Load"><a href="#ETL-Extract-Transform-Load" class="headerlink" title="ETL(Extract Transform Load)"></a><strong>ETL(Extract Transform Load)</strong></h3><p>주로 OLTP(Online Transaction Processing) DB를 source로 하는 ETL 파이프라인을 만들고 DW와 DM으로 저장한다. 그리고 주로 일괄 처리 방식에서 사용되며, 주로 정형 데이터를 처리한다.</p>
+<p><code>ref</code>. Transform(&#x3D;ﬁlter, sort, aggregate, join, dedup(중복제거), validate, missing value, etc)</p>
+</li>
+<li><h4 id="ETL의-단점"><a href="#ETL의-단점" class="headerlink" title="ETL의 단점"></a><strong>ETL의 단점</strong></h4><ul>
+<li><p>추출해야되는 데이터 스토어가 BE, DE의 영역으로 분류되어 DS나 BI 담당자가 원하는 데이터를 얻기 어렵다.</p>
+</li>
+<li><p>DE가 ETL 작업을 해줘야 원하는 dataset을 얻을 수 있다. (<code>민첩성 결여</code>)</p>
+</li>
+<li><p>기존 DB 구조에서 크게 벗어나지 못하기 때문에 스키마 종속적이고 제한적인 데이터 타입을 가지며, 쿼리 등의 성능 때문에 DB 모델링의 중요성이 크다.</p>
+</li>
+</ul>
+</li>
+<li><h4 id="ETL보다-ELT인가"><a href="#ETL보다-ELT인가" class="headerlink" title="ETL보다 ELT인가?"></a><strong>ETL보다 ELT인가?</strong></h4><p>아니다. 개인정보, 보안, 암호화 등의 요구사항에 따라 <code>데이터의 비식별 처리를 위해서는 ETL 방식이 필요</code>하다.(<code>전체 사용자 대상의 추천 시스템 구축</code>) 그리고 Data outpost가 필요한 경우에는 ETL로 데이터를 뽑아서 DW, DM을 구축한다.<br>따라서 <code>ETL과 ELT를 시스템 및 비즈니스의 요구사항에 맞춰서 구축하는 것이 현명</code>하다.</p>
+</li>
+</ul>
+<!-- 2차 정리 완료 (02:00:00) -->
+
+<h2 id="Storage-구분"><a href="#Storage-구분" class="headerlink" title="Storage 구분"></a><ins><b>Storage 구분</b></ins></h2><p>Storage는 <code>Block, File, Object Storage</code>로 나뉜다.</p>
+<p>File Storage는 File system이 셋팅된 환경에 데이터를 저장하는 것을 말하며, 물리적 저장소에 Block 단위로 저장하는 것을 Block Storage, Object Storage는 구글 드라이브와 같은 저장소에 파일(Object) 단위로 데이터를 저장하는 것을 말한다.</p>
+<h2 id="Amazon-S3"><a href="#Amazon-S3" class="headerlink" title="Amazon S3"></a><ins><b>Amazon S3</b></ins></h2><p>Amazon S3는 DL의 역할을 한다. 개발자들이 코드를 올려서 배포도 가능하며, Data Lake 역할 이외에도 다른 서비스와 연결되는 anchor point 역할을 해주기도 한다.<br>다양한 스토리지 클래스를 나뉘고, 스토리지 내의 데이터 로그 정보, Compliance(규정 준수 및 감사 관련) 관련 정보도 지원한다.</p>
+<ul>
+<li><h3 id="Amazon-S3의-특징"><a href="#Amazon-S3의-특징" class="headerlink" title="Amazon S3의 특징"></a><strong>Amazon S3의 특징</strong></h3><ul>
+<li>Object storage</li>
+<li>정형&#x2F;비정형 데이터를 모두 저장할 수 있는 Data Lake 역할</li>
+<li>무한대로 확장할 수 있다.</li>
+<li>99.999999999% 데이터 내구성</li>
+<li>중간(파일 캐싱, 코드 저장소 등 다양한 쓰임)&#x2F;최종 저장소로 사용된다.</li>
+<li>AWS의 많은 서비스들을 엮어주는 허브의 역할</li>
+<li>객체를 버저닝하고, 비용 효율을 위해서 특정 조건에 따라 스토리지 클래스를 변경하는 것이 자유롭니다.(<code>예시. 30일 후에 Glacier로 저장하는 작업, 1년이 지난 후에 Glacier의 데이터를 업데이트</code>)</li>
+</ul>
+</li>
+<li><h3 id="Amazon-S3의-스토리지-클래스"><a href="#Amazon-S3의-스토리지-클래스" class="headerlink" title="Amazon S3의 스토리지 클래스"></a><strong>Amazon S3의 스토리지 클래스</strong></h3><ul>
+<li>Standard : 자주 읽고 쓰는 경우 사용</li>
+<li>Intelligent-Tiering : 엑세스 빈도에 따라 비용 효율적인 티어로 자동 관리</li>
+<li>Standard-IA : 자주 액세스하진 않지만,필요할 때 빠르게 액세스해야되는 데이터</li>
+<li>One Zone-IA : 3개가 아닌 1개의 AZ에만 저장(Standard보다 20% 저렴)</li>
+<li>Glacier : 데이터 아카이브 (instant retrieval, flexible retrieval, deep archive 등)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Amazon-Athena"><a href="#Amazon-Athena" class="headerlink" title="Amazon Athena"></a><ins><b>Amazon Athena</b></ins></h2><p>Amazon Athena는 S3의 데이터를 표준 SQL을 사용해서 분석할 수 있는 서버리스(<code>별도의 infrastructure나 Capacity에 대한 설정없이 서비스만 이용</code>) 대화식 쿼리 서비스(<code>Interactive하게 데이터를 조회하면서 결과를 바로 학인 가능</code>)이다.</p>
+<ul>
+<li><h3 id="비용-청구"><a href="#비용-청구" class="headerlink" title="비용 청구"></a><strong>비용 청구</strong></h3><p>비용에 대한 청구는 정상적으로 SQL로 처리한 데이터의 양에 따라 청구된다.</p>
+</li>
+<li><h3 id="CTAS-쿼리-사용"><a href="#CTAS-쿼리-사용" class="headerlink" title="CTAS 쿼리 사용"></a><strong>CTAS 쿼리 사용</strong></h3><p>CTAS 쿼리를 사용해서 쿼리를 통해 나온 결과 데이터를 별도의 파일로 추출 할 수 있다. (<code>이외에도 데이터 변환, 포멧 변환이 가능</code>)<br>포멧 변환은 CSV, JSON, ORC, Avro, Parquet 등 다양한 표준 데이터 형식과 호환된다.</p>
+</li>
+</ul>
+<h2 id="S3-Amazon-Athena-실습"><a href="#S3-Amazon-Athena-실습" class="headerlink" title="S3 &amp; Amazon Athena 실습"></a><ins><b>S3 &amp; Amazon Athena 실습</b></ins></h2><ul>
+<li><h3 id="1-분석할-target-log-데이터를-담을-디렉토리와-log정보를-담을-디렉토리를-위한-각-각의-디렉토리는-S3에-생성한다"><a href="#1-분석할-target-log-데이터를-담을-디렉토리와-log정보를-담을-디렉토리를-위한-각-각의-디렉토리는-S3에-생성한다" class="headerlink" title="(1) 분석할 target log 데이터를 담을 디렉토리와 log정보를 담을 디렉토리를 위한 각 각의 디렉토리는 S3에 생성한다."></a><strong>(1) 분석할 target log 데이터를 담을 디렉토리와 log정보를 담을 디렉토리를 위한 각 각의 디렉토리는 S3에 생성한다.</strong></h3>파이프라인이 구축되면 지정된 디렉토리에 정기적으로 로그 데이터가 쌓인다.</li>
+</ul>
+<br/>
+
+<ul>
+<li><h3 id="2-Amazon-Athena-Query-editor-설정-log를-떨궈줄-S3의-디렉토리-경로-위치정보를-업데이트해줘야-한다"><a href="#2-Amazon-Athena-Query-editor-설정-log를-떨궈줄-S3의-디렉토리-경로-위치정보를-업데이트해줘야-한다" class="headerlink" title="(2) Amazon Athena(Query editor) - [설정] - log를 떨궈줄 S3의 디렉토리 경로 위치정보를 업데이트해줘야 한다."></a><strong>(2) Amazon Athena(Query editor) - [설정] - log를 떨궈줄 S3의 디렉토리 경로 위치정보를 업데이트해줘야 한다.</strong></h3>이 설정을 안해주면 테이블 생성시에 에러가 발생한다.</li>
+</ul>
+<br/>
+
+<ul>
+<li><h3 id="3-Amazon-Athena에-새로운-테이블-생성"><a href="#3-Amazon-Athena에-새로운-테이블-생성" class="headerlink" title="(3) Amazon Athena에 새로운 테이블 생성"></a><strong>(3) Amazon Athena에 새로운 테이블 생성</strong></h3>테이블과 DB 생성 - Amazon Athena 페이지에서 Tables and views의 우측 [Create] 클릭 - S3 bucket data 클릭 - Table명 입력, Database 선택, Dataset을 분석할 dataset이 위치한 S3 bucket을 선택한다.<br>Data format은 <code>JSON-Hive SerDe</code>를 선택하고, Column details에서 각 칼럼의 이름과 타입을 분석할 타겟 로그 데이터를 참고하여 입력해준다.<br>최종적으로 <code>Preview table query</code>를 통해 쿼리가 생성된 것을 확인 할 수 있으며, 최종적으로 <code>Create table</code> 클릭을 통해 테이블을 생성해야 한다.</li>
+</ul>
+<br/>
+
+<ul>
+<li><h3 id="4-CTAS-쿼리를-통해서-쿼리한-결과-데이터에-해당하는-칼럼만-가지는-새로운-테이블을-생성한다"><a href="#4-CTAS-쿼리를-통해서-쿼리한-결과-데이터에-해당하는-칼럼만-가지는-새로운-테이블을-생성한다" class="headerlink" title="(4) CTAS 쿼리를 통해서 쿼리한 결과 데이터에 해당하는 칼럼만 가지는 새로운 테이블을 생성한다."></a><strong>(4) CTAS 쿼리를 통해서 쿼리한 결과 데이터에 해당하는 칼럼만 가지는 새로운 테이블을 생성한다.</strong></h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> new_table1 <span class="keyword">WITH</span> (external_location<span class="operator">=</span><span class="string">&#x27;s3://..../ctas/&#x27;</span>,</span><br><span class="line">format<span class="operator">=</span><span class="string">&#x27;PARQUET&#x27;</span>,parquet_compression<span class="operator">=</span><span class="string">&#x27;SNAPPY&#x27;</span>)</span><br><span class="line"><span class="keyword">AS</span> <span class="keyword">SELECT</span> <span class="type">time</span>, remote_ip <span class="keyword">FROM</span> “class&quot;.&quot;hg<span class="operator">-</span>data<span class="operator">-</span><span class="keyword">table</span>&quot;</span><br><span class="line"></span><br><span class="line">CREATE TABLE new_table2 WITH (external_location=‘s3://..../ctas-bucketing/&#x27;,</span><br><span class="line">format=&#x27;PARQUET&#x27;,parquet_compression=&#x27;SNAPPY&#x27;,bucketed_by=ARRAY[&#x27;time&#x27;], bucket_count=1)</span><br><span class="line">AS SELECT time, remote_ip FROM &quot;class&quot;.&quot;hg<span class="operator">-</span>data<span class="operator">-</span><span class="keyword">table</span>&quot;</span><br></pre></td></tr></table></figure>
+
+<div align="center">
+  <img src="/images/post_images/220607_ctas_query_preview_table.png" alt="CTAS query 결과를 S3에 저장해서 Athena에서 새로 생성된 테이블 미리보기">
+</div>
+
+디렉토리 내에 있는 전체 파일에 대해서 분석이 되기 때문에 요금은 디렉토리 내의 전체 파일에 대해서 계산을 해야한다.</li>
+</ul>
+<h2 id="Q-A-section"><a href="#Q-A-section" class="headerlink" title="Q&amp;A section"></a><ins><b>Q&amp;A section</b></ins></h2><ul>
+<li><p>logstash와 filebeat의 실행 순서는 logstash가 listen된 상태에서 filebeat를 띄워야 순차적으로 처리가 되기 때문에 logstash를 우선적으로 실행한 상태에서 filebeat를 실행하도록 한다.</p>
+</li>
+<li><p>JDBC와 같은 툴을 이용해서 다이렉트로 Athena에 로그 데이터를 날려서 처리를 할 수도 있다. (<code>Athena와 JDBC와 연동을 해서 사용하는 방법 찾아보기</code>)</p>
+</li>
+<li><p>CTAS 쿼리를 통해서 나온 결과 데이터를 S3에 새로운 파일의 형태로 (parquet) 생성을 해주는데, 파일이 2개 생성되는 이유는 Athena 내부적으로 여러 engine들이 돌고 있기 때문이다. (<code>테이블의 갯수와는 상관이 없음</code>)</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/05/202206/220605_datapipeline_study/" data-id="clwfoxhvx00xevi8l4rj5354f" data-title="220605 데이터 파이프라인 구축 오프라인 수업 / 2주차" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/06/06/202206/220606_docker_study/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          220606 Docker 스터디 5일차
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/04/202206/220604_docker_study/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">220604 Docker 스터디 4일차</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Airflow/">Airflow</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ant-Design/">Ant-Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Vision/">Computer-Vision</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Pipeline/">Data-Pipeline</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Visualization/">Data-Visualization</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataStorage/">DataStorage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Environment/">Dev-Environment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker-K8s/">Docker&K8s</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end-interview/">Front-end-interview</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML/CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Test/">JavaScript-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Memoirs/">Memoirs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NextJS/">NextJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NiFi/">NiFi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NodeJS/">NodeJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Numpy/">Numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pandas/">Pandas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Test/">React-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS/">ReactJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS-TypeScript/">ReactJS-TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Resolved-Error/">Resolved-Error</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-Project-Diary/">Side-Project-Diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-project/">Side-project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terraform/">Terraform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/To-Be-Good-Front-end-Developer/">To-Be-Good-Front-end-Developer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-browser/">Web-browser</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API-Testing/" rel="tag">API-Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Airflow/" rel="tag">Airflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anchor-tag-security-issue/" rel="tag">Anchor-tag-security-issue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ant-design/" rel="tag">Ant-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aria-label/" rel="tag">Aria-label</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment/" rel="tag">Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment-feedback/" rel="tag">Assignment-feedback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autoenv/" rel="tag">Autoenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BaekjoonOnlineJudge/" rel="tag">BaekjoonOnlineJudge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-term/" rel="tag">Basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/" rel="tag">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-problem/" rel="tag">Brute-force-problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-search-Algorithm/" rel="tag">Brute-force-search-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bundle-size/" rel="tag">Bundle-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-Sprites/" rel="tag">CSS-Sprites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Certificates/" rel="tag">Certificates</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-design/" rel="tag">Class-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ComputerVision/" rel="tag">ComputerVision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consecutive-number-subsequence/" rel="tag">Consecutive-number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ContextAPI/" rel="tag">ContextAPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Counting-sort/" rel="tag">Counting-sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dashboard/" rel="tag">Dashboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Engineer-Projects/" rel="tag">Data-Engineer-Projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-structure-Theory/" rel="tag">Data-structure-Theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataFrames/" rel="tag">DataFrames</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataLake/" rel="tag">DataLake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataWarehouse/" rel="tag">DataWarehouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Decision-algorithm/" rel="tag">Decision-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dictionary-comprehension/" rel="tag">Dictionary-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engineer/" rel="tag">Engineer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Execution-context/" rel="tag">Execution-context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flex/" rel="tag">Flex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Float/" rel="tag">Float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flow/" rel="tag">Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git-Stash/" rel="tag">Git-Stash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grid/" rel="tag">Grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDP/" rel="tag">HDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML-CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-Request-Response/" rel="tag">HTTP-Request-Response</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank/" rel="tag">HackerRank</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-Image-Optimization/" rel="tag">Hexo-Image-Optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IR/" rel="tag">IR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Incomplete/" rel="tag">Incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/" rel="tag">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integration-Test/" rel="tag">Integration-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jasmine/" rel="tag">Jasmine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Basic/" rel="tag">JavaScript-Basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Engine/" rel="tag">JavaScript-Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Map/" rel="tag">JavaScript-Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-module-pattern/" rel="tag">JavaScript-module-pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-unit-test/" rel="tag">JavaScript-unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest-matcher/" rel="tag">Jest-matcher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kibana/" rel="tag">Kibana</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lag/" rel="tag">Lag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lazy/" rel="tag">Lazy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Library/" rel="tag">Library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-list/" rel="tag">Linked-list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-comprehension/" rel="tag">List-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Memoirs/" rel="tag">Memoirs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobile-first-method/" rel="tag">Mobile-first-method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobx/" rel="tag">Mobx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NiFi/" rel="tag">NiFi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Number-subsequence/" rel="tag">Number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/" rel="tag">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Passport-js/" rel="tag">Passport.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/" rel="tag">Pig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portfolio/" rel="tag">Portfolio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Practice/" rel="tag">Practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ProbabilityPuzzle/" rel="tag">ProbabilityPuzzle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PseudoCode/" rel="tag">PseudoCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pull-Request/" rel="tag">Pull-Request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pyenv/" rel="tag">Pyenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Assignment/" rel="tag">Python-Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDS/" rel="tag">RDS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/" rel="tag">RaspberryPi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Framework/" rel="tag">React-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Jest/" rel="tag">React-Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router/" rel="tag">React-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router-test/" rel="tag">React-router-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/" rel="tag">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS-Axios/" rel="tag">ReactJS-Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursive-function/" rel="tag">Recursive-function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolved-Error/" rel="tag">Resolved-Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/" rel="tag">RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLD/" rel="tag">SQLD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seaborn/" rel="tag">Seaborn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Self-Development/" rel="tag">Self-Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-scaling/" rel="tag">Server-scaling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Side-Project-Diary/" rel="tag">Side-Project-Diary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sliding-window/" rel="tag">Sliding-window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack-frame/" rel="tag">Stack-frame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/" rel="tag">Study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Suspense/" rel="tag">Suspense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTI/" rel="tag">TTI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTV/" rel="tag">TTV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tableau/" rel="tag">Tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terraform/" rel="tag">Terraform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test-Scenario/" rel="tag">Test-Scenario</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree-traversal/" rel="tag">Tree-traversal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuple/" rel="tag">Tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Two-pointer-algorithm/" rel="tag">Two-pointer-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-test/" rel="tag">Unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-testing/" rel="tag">Unit-testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv/" rel="tag">Virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/" rel="tag">Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-API/" rel="tag">Web-API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-basic/" rel="tag">Web-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-browser/" rel="tag">Web-browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work-life-balance/" rel="tag">Work-life-balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZoneJS/" rel="tag">ZoneJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/" rel="tag">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basic-term/" rel="tag">basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dummy-data/" rel="tag">dummy-data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/faker/" rel="tag">faker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hotfix-branch/" rel="tag">hotfix-branch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/incomplete/" rel="tag">incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-script/" rel="tag">react-script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/repository/" rel="tag">repository</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-development/" rel="tag">self-development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-binding/" rel="tag">this-binding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 17.2px;">AI</a> <a href="/tags/API-Testing/" style="font-size: 10px;">API-Testing</a> <a href="/tags/AWS/" style="font-size: 16.4px;">AWS</a> <a href="/tags/Airflow/" style="font-size: 11.2px;">Airflow</a> <a href="/tags/Algorithm/" style="font-size: 18.4px;">Algorithm</a> <a href="/tags/Anchor-tag-security-issue/" style="font-size: 10px;">Anchor-tag-security-issue</a> <a href="/tags/Angular/" style="font-size: 11.6px;">Angular</a> <a href="/tags/Ant-design/" style="font-size: 10px;">Ant-design</a> <a href="/tags/Aria-label/" style="font-size: 10px;">Aria-label</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Assignment/" style="font-size: 15.6px;">Assignment</a> <a href="/tags/Assignment-feedback/" style="font-size: 10px;">Assignment-feedback</a> <a href="/tags/Autoenv/" style="font-size: 10px;">Autoenv</a> <a href="/tags/BaekjoonOnlineJudge/" style="font-size: 16px;">BaekjoonOnlineJudge</a> <a href="/tags/Basic-term/" style="font-size: 10px;">Basic-term</a> <a href="/tags/BigData/" style="font-size: 18.8px;">BigData</a> <a href="/tags/Bigdata/" style="font-size: 10px;">Bigdata</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Brute-force-problem/" style="font-size: 10px;">Brute-force-problem</a> <a href="/tags/Brute-force-search-Algorithm/" style="font-size: 10px;">Brute-force-search-Algorithm</a> <a href="/tags/Bundle-size/" style="font-size: 10px;">Bundle-size</a> <a href="/tags/CORS/" style="font-size: 10.4px;">CORS</a> <a href="/tags/CSS/" style="font-size: 13.2px;">CSS</a> <a href="/tags/CSS-Sprites/" style="font-size: 10px;">CSS-Sprites</a> <a href="/tags/Certificates/" style="font-size: 12px;">Certificates</a> <a href="/tags/Class-design/" style="font-size: 10px;">Class-design</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/Consecutive-number-subsequence/" style="font-size: 10px;">Consecutive-number-subsequence</a> <a href="/tags/ContextAPI/" style="font-size: 10px;">ContextAPI</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Counting-sort/" style="font-size: 10px;">Counting-sort</a> <a href="/tags/Dashboard/" style="font-size: 10px;">Dashboard</a> <a href="/tags/Data-Engineer-Projects/" style="font-size: 10px;">Data-Engineer-Projects</a> <a href="/tags/Data-Pipeline/" style="font-size: 19.2px;">Data-Pipeline</a> <a href="/tags/Data-structure-Theory/" style="font-size: 11.2px;">Data-structure-Theory</a> <a href="/tags/DataFrames/" style="font-size: 10px;">DataFrames</a> <a href="/tags/DataLake/" style="font-size: 10px;">DataLake</a> <a href="/tags/DataWarehouse/" style="font-size: 10px;">DataWarehouse</a> <a href="/tags/Decision-algorithm/" style="font-size: 10px;">Decision-algorithm</a> <a href="/tags/Dictionary-comprehension/" style="font-size: 10px;">Dictionary-comprehension</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/EMR/" style="font-size: 12.8px;">EMR</a> <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/Engineer/" style="font-size: 10px;">Engineer</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Execution-context/" style="font-size: 10px;">Execution-context</a> <a href="/tags/Express-Framework/" style="font-size: 10px;">Express Framework</a> <a href="/tags/Express-Framework/" style="font-size: 11.2px;">Express-Framework</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Float/" style="font-size: 10px;">Float</a> <a href="/tags/Flow/" style="font-size: 10px;">Flow</a> <a href="/tags/Framework/" style="font-size: 10px;">Framework</a> <a href="/tags/Git/" style="font-size: 12.4px;">Git</a> <a href="/tags/Git-Stash/" style="font-size: 10px;">Git-Stash</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 10px;">Greedy-Algorithm</a> <a href="/tags/Grid/" style="font-size: 10px;">Grid</a> <a href="/tags/HDFS/" style="font-size: 12.8px;">HDFS</a> <a href="/tags/HDP/" style="font-size: 11.2px;">HDP</a> <a href="/tags/HTML/" style="font-size: 13.2px;">HTML</a> <a href="/tags/HTML-CSS/" style="font-size: 11.6px;">HTML-CSS</a> <a href="/tags/HTTP-Request-Response/" style="font-size: 10.4px;">HTTP-Request-Response</a> <a href="/tags/HackerRank/" style="font-size: 10.4px;">HackerRank</a> <a href="/tags/Hadoop/" style="font-size: 14.8px;">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Image-Optimization/" style="font-size: 10px;">Hexo-Image-Optimization</a> <a href="/tags/Hive/" style="font-size: 14px;">Hive</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/Incomplete/" style="font-size: 14px;">Incomplete</a> <a href="/tags/Installation/" style="font-size: 10.8px;">Installation</a> <a href="/tags/Integration-Test/" style="font-size: 10px;">Integration-Test</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/Jasmine/" style="font-size: 10.4px;">Jasmine</a> <a href="/tags/JavaScript/" style="font-size: 14.8px;">JavaScript</a> <a href="/tags/JavaScript-Basic/" style="font-size: 11.2px;">JavaScript-Basic</a> <a href="/tags/JavaScript-Engine/" style="font-size: 10px;">JavaScript-Engine</a> <a href="/tags/JavaScript-Map/" style="font-size: 10px;">JavaScript-Map</a> <a href="/tags/JavaScript-module-pattern/" style="font-size: 10.4px;">JavaScript-module-pattern</a> <a href="/tags/JavaScript-unit-test/" style="font-size: 11.6px;">JavaScript-unit-test</a> <a href="/tags/Jest/" style="font-size: 13.2px;">Jest</a> <a href="/tags/Jest-matcher/" style="font-size: 10px;">Jest-matcher</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 11.2px;">Kubernetes</a> <a href="/tags/Lag/" style="font-size: 10px;">Lag</a> <a href="/tags/Lazy/" style="font-size: 10px;">Lazy</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linked-list/" style="font-size: 10px;">Linked-list</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/List-comprehension/" style="font-size: 10px;">List-comprehension</a> <a href="/tags/ML/" style="font-size: 13.6px;">ML</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/MapReduce/" style="font-size: 12px;">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Memoirs/" style="font-size: 12px;">Memoirs</a> <a href="/tags/Mobile-first-method/" style="font-size: 10px;">Mobile-first-method</a> <a href="/tags/Mobx/" style="font-size: 10px;">Mobx</a> <a href="/tags/MySQL/" style="font-size: 10.8px;">MySQL</a> <a href="/tags/NiFi/" style="font-size: 10px;">NiFi</a> <a href="/tags/Node/" style="font-size: 10.4px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 14.4px;">NodeJS</a> <a href="/tags/Number-subsequence/" style="font-size: 10px;">Number-subsequence</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Pandas/" style="font-size: 13.2px;">Pandas</a> <a href="/tags/Passport-js/" style="font-size: 10px;">Passport.js</a> <a href="/tags/Pig/" style="font-size: 10.4px;">Pig</a> <a href="/tags/Plotly/" style="font-size: 11.2px;">Plotly</a> <a href="/tags/Portfolio/" style="font-size: 10px;">Portfolio</a> <a href="/tags/Practice/" style="font-size: 10.4px;">Practice</a> <a href="/tags/ProbabilityPuzzle/" style="font-size: 10px;">ProbabilityPuzzle</a> <a href="/tags/Project/" style="font-size: 10px;">Project</a> <a href="/tags/PseudoCode/" style="font-size: 16.8px;">PseudoCode</a> <a href="/tags/Pull-Request/" style="font-size: 10.4px;">Pull-Request</a> <a href="/tags/Pyenv/" style="font-size: 10.4px;">Pyenv</a> <a href="/tags/Python/" style="font-size: 18px;">Python</a> <a href="/tags/Python-Assignment/" style="font-size: 10.4px;">Python-Assignment</a> <a href="/tags/RDS/" style="font-size: 11.6px;">RDS</a> <a href="/tags/RaspberryPi/" style="font-size: 10px;">RaspberryPi</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Framework/" style="font-size: 12px;">React-Framework</a> <a href="/tags/React-Jest/" style="font-size: 10.4px;">React-Jest</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/React-router-test/" style="font-size: 11.6px;">React-router-test</a> <a href="/tags/React-testing-library/" style="font-size: 12.4px;">React-testing-library</a> <a href="/tags/ReactJS/" style="font-size: 11.2px;">ReactJS</a> <a href="/tags/ReactJS-Axios/" style="font-size: 10px;">ReactJS-Axios</a> <a href="/tags/Recursive-function/" style="font-size: 10px;">Recursive-function</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Resolved-Error/" style="font-size: 10px;">Resolved-Error</a> <a href="/tags/RxJS/" style="font-size: 10px;">RxJS</a> <a href="/tags/SQL/" style="font-size: 12.4px;">SQL</a> <a href="/tags/SQLD/" style="font-size: 10px;">SQLD</a> <a href="/tags/SSG/" style="font-size: 10px;">SSG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Seaborn/" style="font-size: 10px;">Seaborn</a> <a href="/tags/Selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/Self-Development/" style="font-size: 19.6px;">Self-Development</a> <a href="/tags/Server-scaling/" style="font-size: 10px;">Server-scaling</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 10px;">Set</a> <a href="/tags/Side-Project-Diary/" style="font-size: 12.4px;">Side-Project-Diary</a> <a href="/tags/Sliding-window/" style="font-size: 10px;">Sliding-window</a> <a href="/tags/Sort/" style="font-size: 13.6px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10.4px;">Sorting</a> <a href="/tags/Spark/" style="font-size: 10.4px;">Spark</a> <a href="/tags/Spring/" style="font-size: 10.4px;">Spring</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Stack-frame/" style="font-size: 11.2px;">Stack-frame</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Suspense/" style="font-size: 10px;">Suspense</a> <a href="/tags/TDD/" style="font-size: 11.6px;">TDD</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TTI/" style="font-size: 10px;">TTI</a> <a href="/tags/TTV/" style="font-size: 10px;">TTV</a> <a href="/tags/Tableau/" style="font-size: 10px;">Tableau</a> <a href="/tags/Terraform/" style="font-size: 10.8px;">Terraform</a> <a href="/tags/Test-Scenario/" style="font-size: 10.8px;">Test-Scenario</a> <a href="/tags/Tree-traversal/" style="font-size: 10.4px;">Tree-traversal</a> <a href="/tags/Tuple/" style="font-size: 10px;">Tuple</a> <a href="/tags/Two-pointer-algorithm/" style="font-size: 10px;">Two-pointer-algorithm</a> <a href="/tags/TypeScript/" style="font-size: 15.2px;">TypeScript</a> <a href="/tags/Unit-Test/" style="font-size: 10.4px;">Unit-Test</a> <a href="/tags/Unit-test/" style="font-size: 10.8px;">Unit-test</a> <a href="/tags/Unit-testing/" style="font-size: 12px;">Unit-testing</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Virtualenv/" style="font-size: 10.4px;">Virtualenv</a> <a href="/tags/Visualization/" style="font-size: 10.4px;">Visualization</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Web-API/" style="font-size: 10px;">Web-API</a> <a href="/tags/Web-basic/" style="font-size: 10px;">Web-basic</a> <a href="/tags/Web-browser/" style="font-size: 10px;">Web-browser</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/Work-life-balance/" style="font-size: 10.4px;">Work-life-balance</a> <a href="/tags/ZoneJS/" style="font-size: 10px;">ZoneJS</a> <a href="/tags/babel/" style="font-size: 10.4px;">babel</a> <a href="/tags/basic-term/" style="font-size: 11.2px;">basic-term</a> <a href="/tags/dummy-data/" style="font-size: 10.4px;">dummy-data</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/faker/" style="font-size: 10.4px;">faker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hotfix-branch/" style="font-size: 10px;">hotfix-branch</a> <a href="/tags/incomplete/" style="font-size: 10px;">incomplete</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react-script/" style="font-size: 10px;">react-script</a> <a href="/tags/repository/" style="font-size: 10px;">repository</a> <a href="/tags/self-development/" style="font-size: 17.6px;">self-development</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/this-binding/" style="font-size: 10px;">this-binding</a> <a href="/tags/webpack/" style="font-size: 10.8px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/16/202210/221016_spring_error/">221016 Mapper class Bean 등록 Issue</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/15/202210/221015_spring_study/">221015 Spring boot 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/202210/221008_apache_nifi_study/">221008 Apache NiFi 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/13/202208/220813_docker_study/">220813 Docker 스터디</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/08/202208/220808_airflow_on_docker/">220808 Apache Airflow</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

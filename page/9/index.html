@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>HYUNGI&#39;S TECH BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:url" content="http://example.com/page/9/index.html">
+<meta property="og:site_name" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HYUNGI&#39;S TECH BLOG</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-202204/220413-data-pipeline-study" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/13/202204/220413-data-pipeline-study/" class="article-date">
+  <time class="dt-published" datetime="2022-04-13T01:41:00.000Z" itemprop="datePublished">2022-04-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/13/202204/220413-data-pipeline-study/">220413 데이터 파이프라인 - 5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220408_data-pipeline.webp" alt="데이터 파이프라인(Data Pipeline)">
+</div>
+
+<p>이번 포스팅에서는 웹 서버 전용 EC2 인스턴스를 생성하고, 생성한 EC2 인스턴스에 httpd 설치 및 실행을 해보고 간단한 테스트 웹 페이지를 띄워보는 실습을 해본다.</p>
+<h2 id="Httpd"><a href="#Httpd" class="headerlink" title="Httpd"></a><ins><b>Httpd</b></ins></h2><p>우선 웹 서버 전용 EC2 인스턴스를 생성한 뒤에 해당 EC2 인스턴스에 Httpd demon을 설치해줬다. 선택한 AMI가 CentOS와 비슷한 이미지를 가지고 만들었기 때문에 설치한 httpd 서비스가 EC2 lifting시에 자동으로 로드되게 하기 위해서는 서비스를 등록해야되는데, 설치하면 default로 서비스에 등록이 되기 때문에 아래와 같은 프로세스로 서비스 설치 및 시작을 하면 된다.<br>설치된 Httpd에 기본 Home 디렉토리(<code>/var/www/html</code>)가 있는데, 해당 위치에 웹 기본이 되는 파일(<code>index.html</code>)을 생성해서 간단하게 웹 페이지 테스트를 할 수 있다.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># httpd 설치</span><br><span class="line">$sudo yum install httpd -y</span><br><span class="line"></span><br><span class="line"># httpd service 시작</span><br><span class="line">$sudo service httpd start</span><br><span class="line">Redirecting to /bin/systemctl start httpd.service</span><br><span class="line"></span><br><span class="line"># 현재 실행되고 있는 service process에서 httpd관련 service를 출력</span><br><span class="line">$ps -ef|grep httpd</span><br><span class="line">root      6563     1  0 02:33 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND</span><br><span class="line">apache    6564  6563  0 02:33 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND</span><br><span class="line">apache    6565  6563  0 02:33 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND</span><br><span class="line">apache    6566  6563  0 02:33 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND</span><br><span class="line">apache    6567  6563  0 02:33 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND</span><br><span class="line">apache    6568  6563  0 02:33 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND</span><br><span class="line">ec2-user  6611  3407  0 02:33 pts/0    00:00:00 grep --color=auto httpd</span><br><span class="line"></span><br><span class="line"># root 사용자로 변경 (prompt $ -&gt; #)</span><br><span class="line">$sudo su -</span><br><span class="line"></span><br><span class="line"># 웹 서버에 출력할 html파일 출력</span><br><span class="line">$cd /var/www/html/</span><br><span class="line"></span><br><span class="line"># index.html 파일 작성</span><br><span class="line">$vi index.html</span><br></pre></td></tr></table></figure>
+
+<p>위에서 index.html 파일내에 HTML 코드를 작성 후, 주소표시줄에 “연결” 메뉴에서 확인하였던 퍼블릭 DNS 주소를 웹에 붙여넣으면, 작성했던 HTML 페이지가 출력됨을 확인 할 수 있다.<br>이처럼 Public DNS 주소를 통해 생성된 EC2 인스턴스의 리소스에 접근을 할 수 있다는 것을 알 수 있다.</p>
+<p>추가적으로 위의 httpd를 설치 및 서비스 시작하는 일련의 과정을 EC2 인스턴스 생성시에 <code>고급 세부 정보 세션에</code>서 <code>사용자 데이터 부분</code>에 스크립트로 넣어서 간단하게 실습해볼 수도 있다. (웹 서버 시작 부분까지)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$yum update -y</span><br><span class="line">$yum install httpd -y</span><br><span class="line">$sudo service httpd start</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/13/202204/220413-data-pipeline-study/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/13/202204/220413-data-pipeline-study/" data-id="clwfoxhw7011ovi8lg75u7jh8" data-title="220413 데이터 파이프라인 - 5" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220412-hadoop_bigdata_class-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/12/202204/220412-hadoop_bigdata_class-1/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T01:39:00.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/12/202204/220412-hadoop_bigdata_class-1/">220412 Hadoop과 친해지기 일곱 번째 이야기(MAPREDUCE 이해)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220412_hadoop_mapreduce.png" alt="Hadoop MapReduce">
+</div>
+
+<p>이번 포스팅에서는 MapReduce의 정의에 대해서 알아보고, 어떻게 작동을 하는지 그리고 분산처리하는 방법과 간단한 MapReduce 연습문제를 통해 데이터를 분류해보도록 하겠다.</p>
+<h2 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce?"></a><ins><b>MapReduce?</b></ins></h2><p>이전에 Hadoop의 Core System에 대해서 전반적으로 알아볼때 이미 학습했지만, MapReduce는 HDFS -&gt; YARN -&gt; MapReduce 순으로 구조화되어있다. 즉, MapReduce는 HDFS, YARN과 함께 제공되는 Hadoop의 핵심기술이다.<br>Hadoop을 이해하기 위해서는 MapReduce를 잘 이해하는 것이 필수이다.</p>
+<p>MapReduce는 Hadoop에 내제된 기능으로, 클러스터에 데이터의 처리를 분배하는 역할을 한다.데이터를 파티션으로 나눠서 클러스터 전반에 걸쳐서 병렬 처리되도록 한다.<br>이러한 일련의 과정에서 관리를 하고 실패하였을때 감당하는 역할을 한다.</p>
+<h3 id="Data-Mapping-Mapper-Data-Transformation"><a href="#Data-Mapping-Mapper-Data-Transformation" class="headerlink" title="Data Mapping -&gt; Mapper -&gt; Data Transformation"></a><strong>Data Mapping -&gt; Mapper -&gt; Data Transformation</strong></h3><p>데이터를 변형(Transformation)하는 과정으로, 데이터가 한 줄씩 들어오면, Mapper는 해당 데이터를 변형시키게 된다. 들어오는 데이터에서 필요한 정보를 추출하고, 이해할 수 있는 구조로 정리를 해서 해결하고자하는 문제를 해결한다.</p>
+<p>데이터를 집계하고자 하는 중요한 데이터를 <code>키-값의 형태로 연관시켜서 구조화</code>시킨다. (키:집계하고자하는 항목)<br><code>input line -&gt; (mapper) -&gt; Data 추출 및 구조화해서 한 줄로 출력</code></p>
+<p><code>Mapper의 처리 순서</code>는 아래와 같다.</p>
+<p>INPUT DATA -&gt; Mapper -&gt; K1:V, K2:V, K3:V, K4:V, K5:V ….</p>
+<h3 id="Data-Reducing-Reducer-Data-Aggregation"><a href="#Data-Reducing-Reducer-Data-Aggregation" class="headerlink" title="Data Reducing -&gt; Reducer -&gt; Data Aggregation"></a><strong>Data Reducing -&gt; Reducer -&gt; Data Aggregation</strong></h3><p>Reducer는 데이터를 집계한다. Mapper를 통해 key:value의 형태로 변형된 데이터가 shuffle &amp; sort 과정을 거쳐서 <code>Reducer는 얻고자 하는 결과 데이터를 기준으로 key:value에서 value 데이터를 집계</code>한다.</p>
+<h3 id="MapReducer를-통한-문제해결"><a href="#MapReducer를-통한-문제해결" class="headerlink" title="[MapReducer를 통한 문제해결]"></a><strong>[MapReducer를 통한 문제해결]</strong></h3><p>Mapper와 Reducer를 창의적으로 조합하면, 놀랄만큼 다양한 분석문제를 해결할 수 있다.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/12/202204/220412-hadoop_bigdata_class-1/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/12/202204/220412-hadoop_bigdata_class-1/" data-id="clwfoxhw6011dvi8lcae24661" data-title="220412 Hadoop과 친해지기 일곱 번째 이야기(MAPREDUCE 이해)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220412-hadoop_bigdata_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/12/202204/220412-hadoop_bigdata_class/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T23:30:00.000Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/12/202204/220412-hadoop_bigdata_class/">220412 Hadoop과 친해지기 여섯 번째 이야기(HDFS 다뤄보기)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220410_hadoop-hdfs.jpeg" alt="Hadoop HDFS">
+</div>
+
+<p>이번 포스팅에서는 sample 데이터를 활용해서 HDFS를 실제로 다뤄보는 실습을 해본다.</p>
+<h2 id="Ambari"><a href="#Ambari" class="headerlink" title="Ambari"></a><ins><b>Ambari</b></ins></h2><p>Ambari는 Hadoop Eco System에서 구조상 최 상위에 위치해있는 어플리케이션으로, Hadoop과 관려된 서비스들 전체를 모니터링할 수 있는 웹 인터페이스 환경을 제공한다.</p>
+<h2 id="웹-인터페이스를-사용해서-HDFS-다뤄보기"><a href="#웹-인터페이스를-사용해서-HDFS-다뤄보기" class="headerlink" title="웹 인터페이스를 사용해서 HDFS 다뤄보기"></a><ins><b>웹 인터페이스를 사용해서 HDFS 다뤄보기</b></ins></h2><div align="center">
+  <img src="/images/post_images/220412_ambari_browser_hdfs.png" alt="Ambari Browser">
+</div>
+
+<p>HTTP 인터페이스로 간단하게 HDFS에 파일을 업로드, 로컬 디스크에 다운로드, HDFS에 업로드한 파일들을 삭제해보았다.</p>
+<p>HDFS에 파일을 업로드할때에는 단순히 파일을 업로드 되는 것처럼 보이지만, 실제로는 파일을 올릴때 HDFS 내부의 Name Node에 어느 Data Node에 저장을 할지 확인하는 절차를 통해 클러스터내의 특정 Data Node에 저장을 하고, 정상적으로 저장이 완료되면 Name Node에 결과를 알려줘서 Name Node가 관리하고 있는 저장 데이터와 관련된 메타 데이터 테이블에 새롭게 저장된 데이터 정보를 추가하게 된다.<br>(내부적으로 이러한 일련의 과정을 거치고 있다는 것을 인지한 상태에서 계속해서 학습을 이어가도록 하자)</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/12/202204/220412-hadoop_bigdata_class/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/12/202204/220412-hadoop_bigdata_class/" data-id="clwfoxhw6011hvi8lahvob50h" data-title="220412 Hadoop과 친해지기 여섯 번째 이야기(HDFS 다뤄보기)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220411-data-pipeline-study" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/11/202204/220411-data-pipeline-study/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T07:28:00.000Z" itemprop="datePublished">2022-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/11/202204/220411-data-pipeline-study/">220411 데이터 파이프라인 스터디 4일차</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220408_data-pipeline.webp" alt="데이터 파이프라인(Data Pipeline)">
+</div>
+
+<p>이번 포스팅에서는 앞으로 진행하게 될 첫 실습내용에 대해서 개괄적으로 정리를 해보려고 한다.<br>실습에 사용되는 것은 AWS의 EC2, Kafka, Logstash, Twitter이며, 간단하게 말하면 <code>EC2 가상 서버를 기반으로 설치된 Producer와 Kafka(queue), Consumer</code>로 구성하고, <code>Producer가 Twitter에서 발생하는 데이터를 수집</code>해서 <code>Kafka queue에 저장된 Twitter의 데이터를 Consumer에서 가져와서 화면에 보여주는 형태</code>로 실습을 진행한다.</p>
+<p><ins>(Kafka를 온프레미스에 설치하듯이 AWS의 EC2에 설치를 해서 실습을 진행한다)</ins></p>
+<h2 id="Kafka가-뭐지"><a href="#Kafka가-뭐지" class="headerlink" title="Kafka가 뭐지?"></a><ins><b>Kafka가 뭐지?</b></ins></h2><div align="center">
+  <img src="/images/post_images/220411_kafka_img.png" alt="Kafka">
+</div>
+
+<p>Kafaka란 <code>메시지 큐이고, 분산환경에 특화되어 설계</code>가 되어있다는 특징을 가지고 있다. 따라서 기존의 RabbitMQ와 같은 다른 메시지큐보다 훨씬 빠르게 처리한다.<br>(<code>여기서 RabbitMQ란 커다란 바구니 안에 여러가지 공이 있는데, 공은 queue에 있는 job을 의미한다. 공들 중에서 하나를 꺼내서 job을 수행하고, 성공적으로 job이 끝나면 해당 job을 삭제하는 일련의 과정을 거친다</code>)</p>
+<p>Kafka가 다른 메시지큐보다 빠른 이유는 위에서 언급했듯이, 분산환경에 특화되어 설계가 되어있는데, 때문에 여러 서버 혹은 서비스에서 발생하는 데이터를 한 군데에서 수집할 수 있는 환경을 구성할 수 있다.</p>
+<p>또한 <code>대표적인 스트림 큐의 서비스</code>이며, 파일 사이즈를 기준으로 설정하며, default로 1GB 정도의 데이터를 유지한다. 만약에 큐의 데이터가 1GB를 넘을 경우, 삭제처리한다.<br><code>(ex. 폭포에 비유 : 사이즈를 넘는 데이터는 폭포에서 떨어지는 데이터로, 삭제 처리한다)</code></p>
+<h3 id="특징"><a href="#특징" class="headerlink" title="[특징]"></a><strong>[특징]</strong></h3><ul>
+<li><code>LinkedIn에서 개발된 분산 메시징 처리 시스템</code>이다.</li>
+<li>파일시스템을 사용하기 <code>때문에 데이터영속성이 보장</code>된다.</li>
+<li><code>대용량의 실시간 로그 처리에 특화되어 설계된 메시징 시스템</code>으로, 기존 범용 메시징 시스템대비, TPS가 우수하다. 이러한 이유로 최근에 가장 많이 사용하는 스트림 큐이다.</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/11/202204/220411-data-pipeline-study/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/11/202204/220411-data-pipeline-study/" data-id="clwfoxhw6011avi8lbh7ghpjv" data-title="220411 데이터 파이프라인 스터디 4일차" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220411-data-pipeline-4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/11/202204/220411-data-pipeline-4/" class="article-date">
+  <time class="dt-published" datetime="2022-04-11T06:28:00.000Z" itemprop="datePublished">2022-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/11/202204/220411-data-pipeline-4/">220411 데이터 파이프라인 - 4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220408_data-pipeline.webp" alt="데이터 파이프라인(Data Pipeline)">
+</div>
+
+<p>이번 포스팅에서는 앞으로 진행하게 될 첫 실습내용에 대해서 개괄적으로 정리를 해보려고 한다.<br>실습에 사용되는 것은 AWS의 EC2, Kafka, Logstash, Twitter이며, 간단하게 말하면 <code>EC2 가상 서버를 기반으로 설치된 Producer와 Kafka(queue), Consumer</code>로 구성하고, <code>Producer가 Twitter에서 발생하는 데이터를 수집</code>해서 <code>Kafka queue에 저장된 Twitter의 데이터를 Consumer에서 가져와서 화면에 보여주는 형태</code>로 실습을 진행한다.</p>
+<p><ins>(Kafka를 온프레미스에 설치하듯이 AWS의 EC2에 설치를 해서 실습을 진행한다)</ins></p>
+<h2 id="Kafka가-뭐지"><a href="#Kafka가-뭐지" class="headerlink" title="Kafka가 뭐지?"></a><ins><b>Kafka가 뭐지?</b></ins></h2><div align="center">
+  <img src="/images/post_images/220411_kafka.png" alt="Kafka">
+</div>
+
+<p>Kafaka란 <code>메시지 큐이고, 분산환경에 특화되어 설계</code>가 되어있다는 특징을 가지고 있다. 따라서 기존의 RabbitMQ와 같은 다른 메시지큐보다 훨씬 빠르게 처리한다.<br>(<code>여기서 RabbitMQ란 커다란 바구니 안에 여러가지 공이 있는데, 공은 queue에 있는 job을 의미한다. 공들 중에서 하나를 꺼내서 job을 수행하고, 성공적으로 job이 끝나면 해당 job을 삭제하는 일련의 과정을 거친다</code>)</p>
+<p>Kafka가 다른 메시지큐보다 빠른 이유는 위에서 언급했듯이, 분산환경에 특화되어 설계가 되어있는데, 때문에 여러 서버 혹은 서비스에서 발생하는 데이터를 한 군데에서 수집할 수 있는 환경을 구성할 수 있다.</p>
+<p>또한 <code>대표적인 스트림 큐의 서비스</code>이며, 파일 사이즈를 기준으로 설정하며, default로 1GB 정도의 데이터를 유지한다. 만약에 큐의 데이터가 1GB를 넘을 경우, 삭제처리한다.<br><code>(ex. 폭포에 비유 : 사이즈를 넘는 데이터는 폭포에서 떨어지는 데이터로, 삭제 처리한다)</code></p>
+<h3 id="특징"><a href="#특징" class="headerlink" title="[특징]"></a><strong>[특징]</strong></h3><ul>
+<li><code>LinkedIn에서 개발된 분산 메시징 처리 시스템</code>이다.</li>
+<li>파일시스템을 사용하기 <code>때문에 데이터영속성이 보장</code>된다.</li>
+<li><code>대용량의 실시간 로그 처리에 특화되어 설계된 메시징 시스템</code>으로, 기존 범용 메시징 시스템대비, TPS가 우수하다. 이러한 이유로 최근에 가장 많이 사용하는 스트림 큐이다.</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/11/202204/220411-data-pipeline-4/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/11/202204/220411-data-pipeline-4/" data-id="clwfoxhw60116vi8l38bw7g9k" data-title="220411 데이터 파이프라인 - 4" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220410-hadoop_bigdata_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/10/202204/220410-hadoop_bigdata_class/" class="article-date">
+  <time class="dt-published" datetime="2022-04-10T07:27:00.000Z" itemprop="datePublished">2022-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/10/202204/220410-hadoop_bigdata_class/">220410 Hadoop과 친해지기 다섯 번째 이야기(HDFS에 대한 이해)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220410_hadoop-hdfs.jpeg" alt="Hadoop HDFS">
+</div>
+
+<p>이번 포스팅에서는 HDFS의 내부구성에 대해서 알아보고, 대용량의 파일을 어떤식으로 처리하는지에 대해서 한 번 정리해보겠다.</p>
+<p>개괄적으로 HDFS에서 대용량의 파일을 처리하는 방법에 대해서 간단히 알아보면 대용량의 파일을 여러개의 블록 단위로 쪼개서 클러스터를 구성하고있는 각 노드에 저장을 한다.<br>각 노드는 같은 데이터 블록 정보를 저장하고 있기 때문에 노드 중에 한 개에 문제가 생겨도 복원을 할 수 있다.<br><code>(Single point failure issue 대응)</code></p>
+<p>이제 한 번 STEP BY STEP으로 HDFS(Hadoop Distribution File System)에 대해서 알아보자.</p>
+<h2 id="STEP1-BIG-DATA의-등장과-블록단위로-쪼개고-저장하기"><a href="#STEP1-BIG-DATA의-등장과-블록단위로-쪼개고-저장하기" class="headerlink" title="STEP1 BIG DATA의 등장과 블록단위로 쪼개고 저장하기"></a><ins><b>STEP1 BIG DATA의 등장과 블록단위로 쪼개고 저장하기</b></ins></h2><div align="center">
+  <img src="/images/post_images/220410_big_data.jpeg" alt="Big data">
+</div>
+
+<p>자, 엄청나게 큰 데이터가 주어졌다고 가정하자.<br>HDFS는 이러한 빅데이터를 전체 클러스터에 분산해서 안정적으로 저장해서 어플리케이션이 그 데이터를 신속하게 액세스해 분석할 수 있도록 돕는다.</p>
+<p>좀 더 구체적으로 말하면 HDFS는 대용량 파일들을 다루기 위해서 만들어졌다. 작은 데이터는 누구든 쉽게 다룰 수 있지만, <code>HDFS는 이런 대용량의 파일들을 작은 조각으로 쪼개서 클러스터 전체에 걸쳐 분산시키는데 최적화</code>되어있다.<br>그래서 <code>분산 파일 시스템</code>이라고 하는 것이다.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/10/202204/220410-hadoop_bigdata_class/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/10/202204/220410-hadoop_bigdata_class/" data-id="clwfoxhw50113vi8lc9ol7s2g" data-title="220410 Hadoop과 친해지기 다섯 번째 이야기(HDFS에 대한 이해)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220410-data-pipeline-4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/10/202204/220410-data-pipeline-4/" class="article-date">
+  <time class="dt-published" datetime="2022-04-09T22:50:00.000Z" itemprop="datePublished">2022-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/10/202204/220410-data-pipeline-4/">220410 데이터 파이프라인 스터디 3일차</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220408_data-pipeline.webp" alt="데이터 파이프라인(Data Pipeline)">
+</div>
+
+<p>이번 포스팅에서는 <code>Data 분석 대상</code>에 대한 부분과 이전 1, 2일차때 공부했던 데이터 파이프라인 구성시에 필요한 AWS 서비스 이외에 기본적으로 필요한 AWS 서비스에 대해서 학습한 내용에 대해서 정리해보려고 한다.</p>
+<h2 id="1-Data-분석-대상"><a href="#1-Data-분석-대상" class="headerlink" title="(1) Data 분석 대상"></a><ins><b>(1) Data 분석 대상</b></ins></h2><p>우리가 분석할 데이터는 기업의 플랫폼이 되는 웹 또는 앱에서 발생한다.<br>이전 포스팅에서도 이 부분에 대해서 언급을 했었는데, 이러한 데이터를 이용해서 실제 사용자가 해당 서비스에서 어떤 것을 필요로 하는지, 니즈를 파악해서 기존 서비스를 개선할 수 있다.</p>
+<p>데이터는 웹과 앱에서 발생하는 이벤트를 통해서 취득하게 되는데, 사용자가 페이지(화면)에서 특정 카테고리를 클릭하고 어떤 경로로 또는 어떤 depth로 메뉴를 타고 들어가서 정보를 확인하는지, 이러한 일련의 네비게이션 과정에 대해서 파악을 한다.<br>이러한 일련의 사이클들에 대해서 파악을 하게 되면, 사용자들이 서비스에서 어떻게 메뉴를 구성했을때 주문이 많아졌는지, 그리고 어떤 부분에 관심이 많은지에 대한 파악을 할 수 있다.</p>
+<p>더 나아가서 어떻게 데이터 파이프라인을 구성했을 때 가장 효율적으로 데이터를 수집하고 분석을 빠르게 할 수 있는지에 대한 고민도 필요하다.</p>
+<p>데이터를 수집할 수 있는 외부 서비스에는 <code>050 시스템, Appsflyer, Adbrix</code>가 있는데, 050 시스템의 경우에는 상담사가 전화한 내용을 전부 Web Hook을 통해서 DB서버에 저장을 하고, 저장된 데이터를 텍스트로 변환하는 작업까지 한다.<br>그 외의 두 개의 서비스는 다채널 마케팅으로, 어느쪽에 광고를 실었을대 가장 효율이 좋은지 데이터적 근거를 통해 분석할 수 있다.</p>
+<p>Google Analytics와 같은 서비스를 통해서도 데이터를 파악 및 분석할 수 있지만, 데이터를 내제화해서 데이터를 일괄적으로 모은 다음에 디테일하게 분석하기 위해서는 별도의 파이프라인 구성이 필요하다.<br>특정 사용자가 네이버 블로그를 통해서 앱을 설치했다고 가정하자. 사용자가 앱을 설치한 뒤에 앱을 삭제할 수도 있고, 앱을 설치하고 앱을 통해 원하는 정보를 확인할 수도 있다. <code>이러한 디테일한 사용자의 니즈를 파악하기 위해서는 데이터를 내제화할 필요성</code>이 있다. 그리고 클라우드에는 이러한 데이터 내제화에 도움이 되는 여러 서비스들이 있다.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/10/202204/220410-data-pipeline-4/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/10/202204/220410-data-pipeline-4/" data-id="clwfoxhw5010zvi8lf9ky332r" data-title="220410 데이터 파이프라인 스터디 3일차" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220409-data-pipeline-study" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/09/202204/220409-data-pipeline-study/" class="article-date">
+  <time class="dt-published" datetime="2022-04-09T07:37:00.000Z" itemprop="datePublished">2022-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/09/202204/220409-data-pipeline-study/">220409 데이터 파이프라인 스터디 2일차</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220408_data-pipeline.webp" alt="Data Pipeline">
+</div>
+
+<p>이번 포스팅에서는 2일차에 학습했던 데이터 파이프라인과 관련된 학습내용을 정리하면서 간단하게 회고 내용을 작성해보려고 한다.</p>
+<p>2일차 학습했던 학습내용을 개괄적으로 정리하자면, 우선 <code>Data &amp; AI LANDSCAPE</code>를 통해서 현재 빅데이터 관련 서비스에 어떠한 변화가 있는지 살펴보았고, <code>Data Pipeline 구축에 접근하는 방법</code>에 대해서 배워보았다. Data Pipeline 구축을 할 때 <code>Lambda Architecture</code>라는 Architecture를 활용해서 배워보았는데, 실제 실무에서는 어떤식으로 접근해서 Data Pipeline을 구축하는지 궁금했는데 그 궁금증이 어느정도 해소되었던 소중한 시간이었다.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/09/202204/220409-data-pipeline-study/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/09/202204/220409-data-pipeline-study/" data-id="clwfoxhw5010svi8l7cx1dpyu" data-title="220409 데이터 파이프라인 스터디 2일차" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220409-hidden-links" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/09/202204/220409-hidden-links/" class="article-date">
+  <time class="dt-published" datetime="2022-04-09T03:23:00.000Z" itemprop="datePublished">2022-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/09/202204/220409-hidden-links/">220409 비공개 링크</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="개인적-학습-목적으로-정리한-강의내용-비공개-정리-포스팅-링크"><a href="#개인적-학습-목적으로-정리한-강의내용-비공개-정리-포스팅-링크" class="headerlink" title="개인적 학습 목적으로 정리한 강의내용(비공개) 정리 포스팅 링크"></a><ins><b>개인적 학습 목적으로 정리한 강의내용(비공개) 정리 포스팅 링크</b></ins></h2><h3 id="데이터-파이프라인-학습-관련-비공개-링크"><a href="#데이터-파이프라인-학습-관련-비공개-링크" class="headerlink" title="[데이터 파이프라인 학습 관련 비공개 링크]"></a><strong>[데이터 파이프라인 학습 관련 비공개 링크]</strong></h3><p><a target="_blank" rel="noopener" href="https://leehyungi0622.github.io/2022/04/08/202204/220408-data-pipeline-1">https://leehyungi0622.github.io/2022/04/08/202204/220408-data-pipeline-1</a></p>
+<p><a target="_blank" rel="noopener" href="https://leehyungi0622.github.io/2022/04/08/202204/220408-data-pipeline-2/">https://leehyungi0622.github.io/2022/04/08/202204/220408-data-pipeline-2/</a></p>
+<p><a target="_blank" rel="noopener" href="https://leehyungi0622.github.io/2022/04/09/202204/220409-data-pipeline-3/">https://leehyungi0622.github.io/2022/04/09/202204/220409-data-pipeline-3/</a></p>
+<p><a target="_blank" rel="noopener" href="https://leehyungi0622.github.io/2022/04/11/202204/220411-data-pipeline-4/">https://leehyungi0622.github.io/2022/04/11/202204/220411-data-pipeline-4/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/09/202204/220409-hidden-links/" data-id="clwfoxhw5010wvi8l9wfmcasd" data-title="220409 비공개 링크" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202204/220409-data-pipeline-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/09/202204/220409-data-pipeline-3/" class="article-date">
+  <time class="dt-published" datetime="2022-04-09T01:50:00.000Z" itemprop="datePublished">2022-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/04/09/202204/220409-data-pipeline-3/">220409 데이터 파이프라인의 구축 - 3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220409_data_table.png" alt="Data &AI LANDSCAPE">
+</div>
+
+<p>이번 포스팅에서는 데이터 파이프라인을 구축함에 있어 어떤 방식으로 접근을 해야하는지, 그리고 고려해야되는 부분과 실무에서 예외발생이 발생하며, 대체방안으로 어떤 부부을 선택해야되는지에 대해 정리해보려고 한다.</p>
+<h2 id="1-Data-AI-LANDSCAPE"><a href="#1-Data-AI-LANDSCAPE" class="headerlink" title="(1) Data &amp; AI LANDSCAPE"></a><ins><b>(1) Data &amp; AI LANDSCAPE</b></ins></h2><p>2015년도 Bigdata landscape에서는 서비스가 셀 수 있을 만큼의 갯수였는데, 2020년 기준으로(상단의 이미지 참조), 여러 데이터 기반의 회사가 등장하고, 대표적으로 넷플릭스가 등장하면서 분석 및 추천에 많은 공헌을 하였다. 이러한 서비스들은 오픈소스화하는 경우가 많았고, 오픈소스화된 서비스들은 클라우드 진영에서 자체 서비스화하기 위해 더욱 다양한 서비스들이 등장하기 시작했다.</p>
+<p>최근에 페이스북, 트위터, 리프트의 기업들이 데이터 기반으로 비즈니스를 확대하면서, 여러 서비스들을 운영하기 시작했다.</p>
+<p><code>[참고]</code><br><code>Airflow</code>는 Airbnb에서 만든 전체 플로우를 컨트롤할 수 있는 툴(workflow tool)인데 오픈소스화하면서, 이 것을 기반으로 클라우드 진영에서는 자체 서비스화하기 위해서 다양한 서비스들이 등장을 하였다.<br>그 외에도 데이터 예측을 위해 <code>AI 진영에도 다양한 서비스들이 등장</code>하였다.</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/04/09/202204/220409-data-pipeline-3/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/09/202204/220409-data-pipeline-3/" data-id="clwfoxhw4010pvi8lfstx2tok" data-title="220409 데이터 파이프라인의 구축 - 3" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Airflow/">Airflow</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ant-Design/">Ant-Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Vision/">Computer-Vision</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Pipeline/">Data-Pipeline</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Visualization/">Data-Visualization</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataStorage/">DataStorage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Environment/">Dev-Environment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker-K8s/">Docker&K8s</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end-interview/">Front-end-interview</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML/CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Test/">JavaScript-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Memoirs/">Memoirs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NextJS/">NextJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NiFi/">NiFi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NodeJS/">NodeJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Numpy/">Numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pandas/">Pandas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Test/">React-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS/">ReactJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS-TypeScript/">ReactJS-TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Resolved-Error/">Resolved-Error</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-Project-Diary/">Side-Project-Diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-project/">Side-project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terraform/">Terraform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/To-Be-Good-Front-end-Developer/">To-Be-Good-Front-end-Developer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-browser/">Web-browser</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API-Testing/" rel="tag">API-Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Airflow/" rel="tag">Airflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anchor-tag-security-issue/" rel="tag">Anchor-tag-security-issue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ant-design/" rel="tag">Ant-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aria-label/" rel="tag">Aria-label</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment/" rel="tag">Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment-feedback/" rel="tag">Assignment-feedback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autoenv/" rel="tag">Autoenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BaekjoonOnlineJudge/" rel="tag">BaekjoonOnlineJudge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-term/" rel="tag">Basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/" rel="tag">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-problem/" rel="tag">Brute-force-problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-search-Algorithm/" rel="tag">Brute-force-search-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bundle-size/" rel="tag">Bundle-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-Sprites/" rel="tag">CSS-Sprites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Certificates/" rel="tag">Certificates</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-design/" rel="tag">Class-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ComputerVision/" rel="tag">ComputerVision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consecutive-number-subsequence/" rel="tag">Consecutive-number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ContextAPI/" rel="tag">ContextAPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Counting-sort/" rel="tag">Counting-sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dashboard/" rel="tag">Dashboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Engineer-Projects/" rel="tag">Data-Engineer-Projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-structure-Theory/" rel="tag">Data-structure-Theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataFrames/" rel="tag">DataFrames</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataLake/" rel="tag">DataLake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataWarehouse/" rel="tag">DataWarehouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Decision-algorithm/" rel="tag">Decision-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dictionary-comprehension/" rel="tag">Dictionary-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engineer/" rel="tag">Engineer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Execution-context/" rel="tag">Execution-context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flex/" rel="tag">Flex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Float/" rel="tag">Float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flow/" rel="tag">Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git-Stash/" rel="tag">Git-Stash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grid/" rel="tag">Grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDP/" rel="tag">HDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML-CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-Request-Response/" rel="tag">HTTP-Request-Response</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank/" rel="tag">HackerRank</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-Image-Optimization/" rel="tag">Hexo-Image-Optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IR/" rel="tag">IR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Incomplete/" rel="tag">Incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/" rel="tag">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integration-Test/" rel="tag">Integration-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jasmine/" rel="tag">Jasmine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Basic/" rel="tag">JavaScript-Basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Engine/" rel="tag">JavaScript-Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Map/" rel="tag">JavaScript-Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-module-pattern/" rel="tag">JavaScript-module-pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-unit-test/" rel="tag">JavaScript-unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest-matcher/" rel="tag">Jest-matcher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kibana/" rel="tag">Kibana</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lag/" rel="tag">Lag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lazy/" rel="tag">Lazy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Library/" rel="tag">Library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-list/" rel="tag">Linked-list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-comprehension/" rel="tag">List-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Memoirs/" rel="tag">Memoirs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobile-first-method/" rel="tag">Mobile-first-method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobx/" rel="tag">Mobx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NiFi/" rel="tag">NiFi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Number-subsequence/" rel="tag">Number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/" rel="tag">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Passport-js/" rel="tag">Passport.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/" rel="tag">Pig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portfolio/" rel="tag">Portfolio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Practice/" rel="tag">Practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ProbabilityPuzzle/" rel="tag">ProbabilityPuzzle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PseudoCode/" rel="tag">PseudoCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pull-Request/" rel="tag">Pull-Request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pyenv/" rel="tag">Pyenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Assignment/" rel="tag">Python-Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDS/" rel="tag">RDS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/" rel="tag">RaspberryPi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Framework/" rel="tag">React-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Jest/" rel="tag">React-Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router/" rel="tag">React-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router-test/" rel="tag">React-router-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/" rel="tag">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS-Axios/" rel="tag">ReactJS-Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursive-function/" rel="tag">Recursive-function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolved-Error/" rel="tag">Resolved-Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/" rel="tag">RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLD/" rel="tag">SQLD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seaborn/" rel="tag">Seaborn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Self-Development/" rel="tag">Self-Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-scaling/" rel="tag">Server-scaling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Side-Project-Diary/" rel="tag">Side-Project-Diary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sliding-window/" rel="tag">Sliding-window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack-frame/" rel="tag">Stack-frame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/" rel="tag">Study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Suspense/" rel="tag">Suspense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTI/" rel="tag">TTI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTV/" rel="tag">TTV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tableau/" rel="tag">Tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terraform/" rel="tag">Terraform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test-Scenario/" rel="tag">Test-Scenario</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree-traversal/" rel="tag">Tree-traversal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuple/" rel="tag">Tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Two-pointer-algorithm/" rel="tag">Two-pointer-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-test/" rel="tag">Unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-testing/" rel="tag">Unit-testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv/" rel="tag">Virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/" rel="tag">Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-API/" rel="tag">Web-API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-basic/" rel="tag">Web-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-browser/" rel="tag">Web-browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work-life-balance/" rel="tag">Work-life-balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZoneJS/" rel="tag">ZoneJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/" rel="tag">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basic-term/" rel="tag">basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dummy-data/" rel="tag">dummy-data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/faker/" rel="tag">faker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hotfix-branch/" rel="tag">hotfix-branch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/incomplete/" rel="tag">incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-script/" rel="tag">react-script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/repository/" rel="tag">repository</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-development/" rel="tag">self-development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-binding/" rel="tag">this-binding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 17.2px;">AI</a> <a href="/tags/API-Testing/" style="font-size: 10px;">API-Testing</a> <a href="/tags/AWS/" style="font-size: 16.4px;">AWS</a> <a href="/tags/Airflow/" style="font-size: 11.2px;">Airflow</a> <a href="/tags/Algorithm/" style="font-size: 18.4px;">Algorithm</a> <a href="/tags/Anchor-tag-security-issue/" style="font-size: 10px;">Anchor-tag-security-issue</a> <a href="/tags/Angular/" style="font-size: 11.6px;">Angular</a> <a href="/tags/Ant-design/" style="font-size: 10px;">Ant-design</a> <a href="/tags/Aria-label/" style="font-size: 10px;">Aria-label</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Assignment/" style="font-size: 15.6px;">Assignment</a> <a href="/tags/Assignment-feedback/" style="font-size: 10px;">Assignment-feedback</a> <a href="/tags/Autoenv/" style="font-size: 10px;">Autoenv</a> <a href="/tags/BaekjoonOnlineJudge/" style="font-size: 16px;">BaekjoonOnlineJudge</a> <a href="/tags/Basic-term/" style="font-size: 10px;">Basic-term</a> <a href="/tags/BigData/" style="font-size: 18.8px;">BigData</a> <a href="/tags/Bigdata/" style="font-size: 10px;">Bigdata</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Brute-force-problem/" style="font-size: 10px;">Brute-force-problem</a> <a href="/tags/Brute-force-search-Algorithm/" style="font-size: 10px;">Brute-force-search-Algorithm</a> <a href="/tags/Bundle-size/" style="font-size: 10px;">Bundle-size</a> <a href="/tags/CORS/" style="font-size: 10.4px;">CORS</a> <a href="/tags/CSS/" style="font-size: 13.2px;">CSS</a> <a href="/tags/CSS-Sprites/" style="font-size: 10px;">CSS-Sprites</a> <a href="/tags/Certificates/" style="font-size: 12px;">Certificates</a> <a href="/tags/Class-design/" style="font-size: 10px;">Class-design</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/Consecutive-number-subsequence/" style="font-size: 10px;">Consecutive-number-subsequence</a> <a href="/tags/ContextAPI/" style="font-size: 10px;">ContextAPI</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Counting-sort/" style="font-size: 10px;">Counting-sort</a> <a href="/tags/Dashboard/" style="font-size: 10px;">Dashboard</a> <a href="/tags/Data-Engineer-Projects/" style="font-size: 10px;">Data-Engineer-Projects</a> <a href="/tags/Data-Pipeline/" style="font-size: 19.2px;">Data-Pipeline</a> <a href="/tags/Data-structure-Theory/" style="font-size: 11.2px;">Data-structure-Theory</a> <a href="/tags/DataFrames/" style="font-size: 10px;">DataFrames</a> <a href="/tags/DataLake/" style="font-size: 10px;">DataLake</a> <a href="/tags/DataWarehouse/" style="font-size: 10px;">DataWarehouse</a> <a href="/tags/Decision-algorithm/" style="font-size: 10px;">Decision-algorithm</a> <a href="/tags/Dictionary-comprehension/" style="font-size: 10px;">Dictionary-comprehension</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/EMR/" style="font-size: 12.8px;">EMR</a> <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/Engineer/" style="font-size: 10px;">Engineer</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Execution-context/" style="font-size: 10px;">Execution-context</a> <a href="/tags/Express-Framework/" style="font-size: 10px;">Express Framework</a> <a href="/tags/Express-Framework/" style="font-size: 11.2px;">Express-Framework</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Float/" style="font-size: 10px;">Float</a> <a href="/tags/Flow/" style="font-size: 10px;">Flow</a> <a href="/tags/Framework/" style="font-size: 10px;">Framework</a> <a href="/tags/Git/" style="font-size: 12.4px;">Git</a> <a href="/tags/Git-Stash/" style="font-size: 10px;">Git-Stash</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 10px;">Greedy-Algorithm</a> <a href="/tags/Grid/" style="font-size: 10px;">Grid</a> <a href="/tags/HDFS/" style="font-size: 12.8px;">HDFS</a> <a href="/tags/HDP/" style="font-size: 11.2px;">HDP</a> <a href="/tags/HTML/" style="font-size: 13.2px;">HTML</a> <a href="/tags/HTML-CSS/" style="font-size: 11.6px;">HTML-CSS</a> <a href="/tags/HTTP-Request-Response/" style="font-size: 10.4px;">HTTP-Request-Response</a> <a href="/tags/HackerRank/" style="font-size: 10.4px;">HackerRank</a> <a href="/tags/Hadoop/" style="font-size: 14.8px;">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Image-Optimization/" style="font-size: 10px;">Hexo-Image-Optimization</a> <a href="/tags/Hive/" style="font-size: 14px;">Hive</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/Incomplete/" style="font-size: 14px;">Incomplete</a> <a href="/tags/Installation/" style="font-size: 10.8px;">Installation</a> <a href="/tags/Integration-Test/" style="font-size: 10px;">Integration-Test</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/Jasmine/" style="font-size: 10.4px;">Jasmine</a> <a href="/tags/JavaScript/" style="font-size: 14.8px;">JavaScript</a> <a href="/tags/JavaScript-Basic/" style="font-size: 11.2px;">JavaScript-Basic</a> <a href="/tags/JavaScript-Engine/" style="font-size: 10px;">JavaScript-Engine</a> <a href="/tags/JavaScript-Map/" style="font-size: 10px;">JavaScript-Map</a> <a href="/tags/JavaScript-module-pattern/" style="font-size: 10.4px;">JavaScript-module-pattern</a> <a href="/tags/JavaScript-unit-test/" style="font-size: 11.6px;">JavaScript-unit-test</a> <a href="/tags/Jest/" style="font-size: 13.2px;">Jest</a> <a href="/tags/Jest-matcher/" style="font-size: 10px;">Jest-matcher</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 11.2px;">Kubernetes</a> <a href="/tags/Lag/" style="font-size: 10px;">Lag</a> <a href="/tags/Lazy/" style="font-size: 10px;">Lazy</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linked-list/" style="font-size: 10px;">Linked-list</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/List-comprehension/" style="font-size: 10px;">List-comprehension</a> <a href="/tags/ML/" style="font-size: 13.6px;">ML</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/MapReduce/" style="font-size: 12px;">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Memoirs/" style="font-size: 12px;">Memoirs</a> <a href="/tags/Mobile-first-method/" style="font-size: 10px;">Mobile-first-method</a> <a href="/tags/Mobx/" style="font-size: 10px;">Mobx</a> <a href="/tags/MySQL/" style="font-size: 10.8px;">MySQL</a> <a href="/tags/NiFi/" style="font-size: 10px;">NiFi</a> <a href="/tags/Node/" style="font-size: 10.4px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 14.4px;">NodeJS</a> <a href="/tags/Number-subsequence/" style="font-size: 10px;">Number-subsequence</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Pandas/" style="font-size: 13.2px;">Pandas</a> <a href="/tags/Passport-js/" style="font-size: 10px;">Passport.js</a> <a href="/tags/Pig/" style="font-size: 10.4px;">Pig</a> <a href="/tags/Plotly/" style="font-size: 11.2px;">Plotly</a> <a href="/tags/Portfolio/" style="font-size: 10px;">Portfolio</a> <a href="/tags/Practice/" style="font-size: 10.4px;">Practice</a> <a href="/tags/ProbabilityPuzzle/" style="font-size: 10px;">ProbabilityPuzzle</a> <a href="/tags/Project/" style="font-size: 10px;">Project</a> <a href="/tags/PseudoCode/" style="font-size: 16.8px;">PseudoCode</a> <a href="/tags/Pull-Request/" style="font-size: 10.4px;">Pull-Request</a> <a href="/tags/Pyenv/" style="font-size: 10.4px;">Pyenv</a> <a href="/tags/Python/" style="font-size: 18px;">Python</a> <a href="/tags/Python-Assignment/" style="font-size: 10.4px;">Python-Assignment</a> <a href="/tags/RDS/" style="font-size: 11.6px;">RDS</a> <a href="/tags/RaspberryPi/" style="font-size: 10px;">RaspberryPi</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Framework/" style="font-size: 12px;">React-Framework</a> <a href="/tags/React-Jest/" style="font-size: 10.4px;">React-Jest</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/React-router-test/" style="font-size: 11.6px;">React-router-test</a> <a href="/tags/React-testing-library/" style="font-size: 12.4px;">React-testing-library</a> <a href="/tags/ReactJS/" style="font-size: 11.2px;">ReactJS</a> <a href="/tags/ReactJS-Axios/" style="font-size: 10px;">ReactJS-Axios</a> <a href="/tags/Recursive-function/" style="font-size: 10px;">Recursive-function</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Resolved-Error/" style="font-size: 10px;">Resolved-Error</a> <a href="/tags/RxJS/" style="font-size: 10px;">RxJS</a> <a href="/tags/SQL/" style="font-size: 12.4px;">SQL</a> <a href="/tags/SQLD/" style="font-size: 10px;">SQLD</a> <a href="/tags/SSG/" style="font-size: 10px;">SSG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Seaborn/" style="font-size: 10px;">Seaborn</a> <a href="/tags/Selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/Self-Development/" style="font-size: 19.6px;">Self-Development</a> <a href="/tags/Server-scaling/" style="font-size: 10px;">Server-scaling</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 10px;">Set</a> <a href="/tags/Side-Project-Diary/" style="font-size: 12.4px;">Side-Project-Diary</a> <a href="/tags/Sliding-window/" style="font-size: 10px;">Sliding-window</a> <a href="/tags/Sort/" style="font-size: 13.6px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10.4px;">Sorting</a> <a href="/tags/Spark/" style="font-size: 10.4px;">Spark</a> <a href="/tags/Spring/" style="font-size: 10.4px;">Spring</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Stack-frame/" style="font-size: 11.2px;">Stack-frame</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Suspense/" style="font-size: 10px;">Suspense</a> <a href="/tags/TDD/" style="font-size: 11.6px;">TDD</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TTI/" style="font-size: 10px;">TTI</a> <a href="/tags/TTV/" style="font-size: 10px;">TTV</a> <a href="/tags/Tableau/" style="font-size: 10px;">Tableau</a> <a href="/tags/Terraform/" style="font-size: 10.8px;">Terraform</a> <a href="/tags/Test-Scenario/" style="font-size: 10.8px;">Test-Scenario</a> <a href="/tags/Tree-traversal/" style="font-size: 10.4px;">Tree-traversal</a> <a href="/tags/Tuple/" style="font-size: 10px;">Tuple</a> <a href="/tags/Two-pointer-algorithm/" style="font-size: 10px;">Two-pointer-algorithm</a> <a href="/tags/TypeScript/" style="font-size: 15.2px;">TypeScript</a> <a href="/tags/Unit-Test/" style="font-size: 10.4px;">Unit-Test</a> <a href="/tags/Unit-test/" style="font-size: 10.8px;">Unit-test</a> <a href="/tags/Unit-testing/" style="font-size: 12px;">Unit-testing</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Virtualenv/" style="font-size: 10.4px;">Virtualenv</a> <a href="/tags/Visualization/" style="font-size: 10.4px;">Visualization</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Web-API/" style="font-size: 10px;">Web-API</a> <a href="/tags/Web-basic/" style="font-size: 10px;">Web-basic</a> <a href="/tags/Web-browser/" style="font-size: 10px;">Web-browser</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/Work-life-balance/" style="font-size: 10.4px;">Work-life-balance</a> <a href="/tags/ZoneJS/" style="font-size: 10px;">ZoneJS</a> <a href="/tags/babel/" style="font-size: 10.4px;">babel</a> <a href="/tags/basic-term/" style="font-size: 11.2px;">basic-term</a> <a href="/tags/dummy-data/" style="font-size: 10.4px;">dummy-data</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/faker/" style="font-size: 10.4px;">faker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hotfix-branch/" style="font-size: 10px;">hotfix-branch</a> <a href="/tags/incomplete/" style="font-size: 10px;">incomplete</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react-script/" style="font-size: 10px;">react-script</a> <a href="/tags/repository/" style="font-size: 10px;">repository</a> <a href="/tags/self-development/" style="font-size: 17.6px;">self-development</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/this-binding/" style="font-size: 10px;">this-binding</a> <a href="/tags/webpack/" style="font-size: 10.8px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/16/202210/221016_spring_error/">221016 Mapper class Bean 등록 Issue</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/15/202210/221015_spring_study/">221015 Spring boot 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/202210/221008_apache_nifi_study/">221008 Apache NiFi 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/13/202208/220813_docker_study/">220813 Docker 스터디</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/08/202208/220808_airflow_on_docker/">220808 Apache Airflow</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

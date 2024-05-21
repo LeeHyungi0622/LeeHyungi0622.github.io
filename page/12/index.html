@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>HYUNGI&#39;S TECH BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:url" content="http://example.com/page/12/index.html">
+<meta property="og:site_name" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HYUNGI&#39;S TECH BLOG</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-202203/220326-hadoop_bigdata_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/26/202203/220326-hadoop_bigdata_class/" class="article-date">
+  <time class="dt-published" datetime="2022-03-26T03:58:00.000Z" itemprop="datePublished">2022-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/26/202203/220326-hadoop_bigdata_class/">220326 Hadoop과 친해지기 + 첫 하둡 실습</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220326_hadoop_logo.png" alt="하둡(Hadoop)">
+</div>
+
+<p>이번 포스팅에서는 본격적으로 <code>Hadoop</code>이라는 녀석의 <code>개요와 역사 그리고 생태계</code>에 대해 알아보고 본격적으로 설치를 해보는 것에 대해 작성해보려고 한다.<br>처음이라 마냥 어렵게 느껴지지만, 이 친구도 이 세상의 많은 기술들 중에 하나이며, 다 이유가 있어서 태어난 친구이기 때문에 한 번 친해져보려고 한다.</p>
+<p>재미있는 것은 이 하둡(Hadoop)이라는 녀석과 나는 초면이 아니라는 것이다. (그냥 과거에 스쳐간 인연..)<br>내가 라즈베리파이에 관심이 한창 있을 무렵에 구글링을 하다가 우연히 라즈베리파이로 슈퍼컴퓨터를 만든 사람이 올린 사진을 보았었는데, 그때 어떻게 만들었는지 너무 궁금해서 이것 저것 찾아보다가 <code>컴퓨터 클러스터링 기술</code>과 관련된 내용을 보았었는데, 이 곳에서 <code>데이터 분산저장하는 기술</code>로 이 하둡(Hadoop)이라는 친구에 대한 내용이 있었다. 딱 여기까지..그때는 컴퓨터로 클러스터링(병렬화)한다는 내용과 이런 내용들이 마냥 어렵게만 느껴져서 이 친구와의 인연은 딱 거기서 마무리되었었다.<br>그런데 이번에 데이터 엔지니어관련 공부를 하면서 인연의 끈이 있었던 것인지, 이렇게 다시 좀 더 딥하게 공부할 수 있는 기회가 되었다.</p>
+<p>자, 이제 컴퓨터 클러스터의 방대한 데이터 세트를 변형하고 분석하는 강력한 도구인 하둡(Hadoop)과 친해져보도록 하자.</p>
+<div align="center">
+  <img src="/images/post_images/220326_raspberrypi_super_pc.png" alt="라즈베리파이로 만든 슈퍼 컴퓨터">
+</div>
+
+<h2><b>HDP(Hortonworks Data Platform)?</b></h2>
+
+<p>분산 스토리지 및 대규모 멀티 소스 데이터 세트 처리가 가능한 오픈소스 프레임워크이다. 이 프레임워크를 설치하는 이유는 이 프레임워크에 Hadoop이 이미 설치가되어있고, 관련 기술들도 일괄 설치가 되어있다.<br>그래서 나와 같이 하둡을 처음 접하는 사람에게는 적합하다.<br>간단하게 Virtualbox에 이미지를 올려서 실습하려고 했는데, 기본 RAM이 8GB로 설정이 되어있다.<del>내가 휴대하면서 사용하고 있는 노트북의 RAM이 8GB라 어려울 것 같다는 느낌적인 느낌이 든다. 그래서 간단하게 AWS에 이미지를 올려서 사용을 해보기로 했다.</del><br>(이번 기회에 RAM 32GB&#x2F;SSD 1TB&#x2F;i5 11세대 스펙이 되는 노트북 하나를 장만했다. 아무래도 향후 프로젝트를 진행하게 되면서 다양한 프로그램을 돌리게 될텐데, 사양이 안좋은 PC로 더 이상 작업을 이어가기 어려울 것 같아 이번 기회에 사양대비 저렴한 노트북 한 대를 구매하였다. 미래를 위한 일종의 투자라고 생각하자.)</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/03/26/202203/220326-hadoop_bigdata_class/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/26/202203/220326-hadoop_bigdata_class/" data-id="clwfoxhvq00ufvi8lakg11f3y" data-title="220326 Hadoop과 친해지기 + 첫 하둡 실습" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220314-pandas_master_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/14/202203/220314-pandas_master_class/" class="article-date">
+  <time class="dt-published" datetime="2022-03-14T09:23:00.000Z" itemprop="datePublished">2022-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Pandas/">Pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/14/202203/220314-pandas_master_class/">220314 Pandas DataFrame Fundamentals</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/" alt="">
+</div>
+
+<p>이번 포스팅에서는 본격적으로 Pandas의 DataFrame에 대한 학습을 하면서 학습한 내용들을 정리해보려고 한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">bank_client_df = pd.DataFrame(&#123;<span class="string">&#x27;Bank Client ID&#x27;</span>:[<span class="number">111</span>, <span class="number">222</span>, <span class="number">333</span>, <span class="number">444</span>],</span><br><span class="line">                               <span class="string">&#x27;Bank Client Name&#x27;</span>:[<span class="string">&#x27;Laila Aly&#x27;</span>, <span class="string">&#x27;Kate Steve&#x27;</span>, <span class="string">&#x27;Nicole Mitch&#x27;</span>, <span class="string">&#x27;Francis Morris&#x27;</span>],</span><br><span class="line">                               <span class="string">&#x27;Net Worth [$]&#x27;</span>:[<span class="number">35000</span>, <span class="number">3000</span>, <span class="number">100000</span>, <span class="number">2000</span>],</span><br><span class="line">                               <span class="string">&#x27;Years with Bank&#x27;</span>:[<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">15</span>]&#125;)</span><br><span class="line"></span><br><span class="line">bank_client_df</span><br><span class="line"></span><br><span class="line"><span class="built_in">type</span>(bank_client_df) <span class="comment">#pandas.core.frame.DataFrame</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#DataFrame의 상위 3개 값 출력</span></span><br><span class="line">bank_client_df.head(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#DataFrame의 하위 1개 값 출력</span></span><br><span class="line">bank_client_df.tail(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#DataFrame의 shape</span></span><br><span class="line">bank_client_df.shape <span class="comment">#(4, 4)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#DataFrame의 정보 출력</span></span><br><span class="line">bank_client_df.info()</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;class &#x27;pandas.core.frame.DataFrame&#x27;&gt;</span></span><br><span class="line"><span class="comment"># RangeIndex: 4 entries, 0 to 3</span></span><br><span class="line"><span class="comment"># Data columns (total 4 columns):</span></span><br><span class="line"><span class="comment">#  #   Column            Non-Null Count  Dtype</span></span><br><span class="line"><span class="comment"># ---  ------            --------------  -----</span></span><br><span class="line"><span class="comment">#  0   Bank Client ID    4 non-null      int64</span></span><br><span class="line"><span class="comment">#  1   Bank Client Name  4 non-null      object</span></span><br><span class="line"><span class="comment">#  2   Net Worth [$]     4 non-null      int64</span></span><br><span class="line"><span class="comment">#  3   Years with Bank   4 non-null      int64</span></span><br><span class="line"><span class="comment"># dtypes: int64(3), object(1)</span></span><br><span class="line"><span class="comment"># memory usage: 256.0+ bytes</span></span><br></pre></td></tr></table></figure>
+
+<p>Pandas series는 pd.Series constructor method의 parameter로 data를 넘겨주어 Pandas series를 정의하였다. Pandas DataFrame도 마찬가지로 위와같이 pd.DataFrame constructor method의 parameter로 python의 dictionary data를 넘겨주어 정의한다.<br>Dictionary의 key&#x2F;value에서 key값이 DataFrame의 column명이 되며, value의 리스트 타입의 값이 각 row의 값이 된다.</p>
+<div align="center">
+  <img src="/images/post_images/220314_result_of_pandas_dataframe.png" alt="Pandas DataFrame example">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Challenge#1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 이번 챌린지에서는 Pandas DataFrame에서 보유 주식 수와 각 주식의 가격을 곱해서 합한 결과를 구하는 문제이다.</span></span><br><span class="line"></span><br><span class="line">portfolio_df = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;stocker ticker symbols&#x27;</span>: [<span class="string">&#x27;NVDA&#x27;</span>,<span class="string">&#x27;MSFT&#x27;</span>,<span class="string">&#x27;FB&#x27;</span>, <span class="string">&#x27;AMZN&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;number of shares&#x27;</span>: [<span class="number">3</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">8</span>],</span><br><span class="line">    <span class="string">&#x27;price per share[$]&#x27;</span>: [<span class="number">3500</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">400</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">portfolio_df</span><br><span class="line"></span><br><span class="line">portfolio_df[<span class="string">&#x27;price per share[$]&#x27;</span>]</span><br><span class="line">portfolio_df[<span class="string">&#x27;number of shares&#x27;</span>]</span><br><span class="line"></span><br><span class="line">stocks_dollar_value = portfolio_df[<span class="string">&#x27;price per share[$]&#x27;</span>] * portfolio_df[<span class="string">&#x27;number of shares&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(stocks_dollar_value)</span><br><span class="line"></span><br><span class="line">stocks_dollar_value.<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Total Portfolio Value = &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(stocks_dollar_value.<span class="built_in">sum</span>()))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> DEFINE A PANDAS DATAFRAME</span><br><span class="line">[<span class="number">2</span>]</span><br><span class="line"><span class="number">1</span>초</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">[<span class="number">3</span>]</span><br><span class="line"><span class="number">0</span>초</span><br><span class="line"><span class="comment"># Let&#x27;s define a two-dimensional Pandas DataFrame</span></span><br><span class="line"><span class="comment"># Note that you can create a pandas dataframe from a python dictionary</span></span><br><span class="line">bank_client_df = pd.DataFrame(&#123;<span class="string">&#x27;Bank Client ID&#x27;</span>:[<span class="number">111</span>, <span class="number">222</span>, <span class="number">333</span>, <span class="number">444</span>],</span><br><span class="line">                               <span class="string">&#x27;Bank Client Name&#x27;</span>:[<span class="string">&#x27;Laila Aly&#x27;</span>, <span class="string">&#x27;Kate Steve&#x27;</span>, <span class="string">&#x27;Nicole Mitch&#x27;</span>, <span class="string">&#x27;Francis Morris&#x27;</span>],</span><br><span class="line">                               <span class="string">&#x27;Net Worth [$]&#x27;</span>:[<span class="number">35000</span>, <span class="number">3000</span>, <span class="number">100000</span>, <span class="number">2000</span>],</span><br><span class="line">                               <span class="string">&#x27;Years with Bank&#x27;</span>:[<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">15</span>]&#125;)</span><br><span class="line">bank_client_df</span><br><span class="line"></span><br><span class="line">[<span class="number">4</span>]</span><br><span class="line"><span class="number">0</span>초</span><br><span class="line"><span class="comment"># Let&#x27;s obtain the data type</span></span><br><span class="line"><span class="built_in">type</span>(bank_client_df)</span><br><span class="line">pandas.core.frame.DataFrame</span><br><span class="line">[<span class="number">7</span>]</span><br><span class="line"><span class="number">0</span>초</span><br><span class="line"><span class="comment"># you can only view the first couple of rows using .head()</span></span><br><span class="line">bank_client_df.head(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">[<span class="number">8</span>]</span><br><span class="line"><span class="number">0</span>초</span><br><span class="line"><span class="comment"># you can only view the last couple of rows using .tail()</span></span><br><span class="line">bank_client_df.tail(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">[<span class="number">9</span>]</span><br><span class="line"><span class="number">0</span>초</span><br><span class="line"><span class="comment"># You can obtain the shape of the DataFrame (#rows, #columns)</span></span><br><span class="line">bank_client_df.shape</span><br><span class="line">(<span class="number">4</span>, <span class="number">4</span>)</span><br><span class="line">[<span class="number">10</span>]</span><br><span class="line"><span class="number">0</span>초</span><br><span class="line"><span class="comment"># Obtain DataFrame information</span></span><br><span class="line">bank_client_df.info()</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;pandas.core.frame.DataFrame&#x27;</span>&gt;</span><br><span class="line">RangeIndex: <span class="number">4</span> entries, <span class="number">0</span> to <span class="number">3</span></span><br><span class="line">Data columns (total <span class="number">4</span> columns):</span><br><span class="line"> <span class="comment">#   Column            Non-Null Count  Dtype</span></span><br><span class="line">---  ------            --------------  -----</span><br><span class="line"> <span class="number">0</span>   Bank Client ID    <span class="number">4</span> non-null      int64</span><br><span class="line"> <span class="number">1</span>   Bank Client Name  <span class="number">4</span> non-null      <span class="built_in">object</span></span><br><span class="line"> <span class="number">2</span>   Net Worth [$]     <span class="number">4</span> non-null      int64</span><br><span class="line"> <span class="number">3</span>   Years <span class="keyword">with</span> Bank   <span class="number">4</span> non-null      int64</span><br><span class="line">dtypes: int64(<span class="number">3</span>), <span class="built_in">object</span>(<span class="number">1</span>)</span><br><span class="line">memory usage: <span class="number">256.0</span>+ <span class="built_in">bytes</span></span><br><span class="line"></span><br><span class="line">MINI CHALLENGE <span class="comment">#1:</span></span><br><span class="line"></span><br><span class="line">A porfolio contains a collection of securities such <span class="keyword">as</span> stocks, bonds <span class="keyword">and</span> ETFs. Define a dataframe named <span class="string">&#x27;portfolio_df&#x27;</span> that holds <span class="number">3</span> different stock ticker symbols, number of shares, <span class="keyword">and</span> price per share (feel free to choose <span class="built_in">any</span> stocks)</span><br><span class="line">Calculate the total value of the porfolio including <span class="built_in">all</span> stocks</span><br><span class="line">[<span class="number">20</span>]</span><br><span class="line">portfolio_df = pd.DataFrame(&#123;</span><br><span class="line">    <span class="string">&#x27;stocker ticker symbols&#x27;</span>: [<span class="string">&#x27;NVDA&#x27;</span>,<span class="string">&#x27;MSFT&#x27;</span>,<span class="string">&#x27;FB&#x27;</span>, <span class="string">&#x27;AMZN&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;number of shares&#x27;</span>: [<span class="number">3</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">8</span>],</span><br><span class="line">    <span class="string">&#x27;price per share[$]&#x27;</span>: [<span class="number">3500</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">400</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">portfolio_df</span><br><span class="line"></span><br><span class="line">portfolio_df[<span class="string">&#x27;price per share[$]&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0 3500</span></span><br><span class="line"><span class="comment"># 1 200</span></span><br><span class="line"><span class="comment"># 2 300</span></span><br><span class="line"><span class="comment"># 3 40</span></span><br><span class="line"><span class="comment"># Name: price per share[$], dtype: int64</span></span><br><span class="line"></span><br><span class="line">portfolio_df[<span class="string">&#x27;number of shares&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0 3</span></span><br><span class="line"><span class="comment"># 1 4</span></span><br><span class="line"><span class="comment"># 2 9</span></span><br><span class="line"><span class="comment"># 3 8</span></span><br><span class="line"><span class="comment"># Name: number of shares, dtype: int64</span></span><br><span class="line"></span><br><span class="line">stocks_dollar_value = portfolio_df[<span class="string">&#x27;price per share[$]&#x27;</span>] * portfolio_df[<span class="string">&#x27;number of shares&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(stocks_dollar_value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0 10500</span></span><br><span class="line"><span class="comment"># 1 800</span></span><br><span class="line"><span class="comment"># 2 2700</span></span><br><span class="line"><span class="comment"># 3 320</span></span><br><span class="line"><span class="comment"># dtype: int64</span></span><br><span class="line"></span><br><span class="line">stocks_dollar_value.<span class="built_in">sum</span>() <span class="comment"># 14320</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Total Portfolio Value = &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(stocks_dollar_value.<span class="built_in">sum</span>()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 0    10500</span></span><br><span class="line"><span class="comment"># 1      800</span></span><br><span class="line"><span class="comment"># 2     2700</span></span><br><span class="line"><span class="comment"># 3     3200</span></span><br><span class="line"><span class="comment"># dtype: int64</span></span><br><span class="line"><span class="comment"># Total Portfolio Value = 17200</span></span><br></pre></td></tr></table></figure>
+
+<p><code>2022/03/24(목) 추가 기록</code></p>
+<h2><b>INPUTS(CSV와 HTML DATA 읽기)</b></h2>
+이번 파트에서는 Pandas를 활용하여 CSV, HTML 데이터를 읽고 해당 데이터를 DataFrame의 형태로 저장하는 부분에 대해서 정리해보겠다.
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">bank_df = pd.read_csv(<span class="string">&#x27;bank_client_information.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<div align="center">
+  <img src="/images/post_images/220324_bank-client-information.png" alt="은행 고객 정보 DataFrame">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">house_prices_df = pd.read_html(<span class="string">&#x27;https://www.livingin-canada.com/house-prices-canada.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<div align="center">
+  <img src="/images/post_images/220324_house-prices-canada.png" alt="은행 고객 정보 DataFrame">
+</div>
+
+<h2><b>CSV에 데이터 프레임 쓰기</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bank_df.to_csv(<span class="string">&#x27;sample_output_noindex.csv&#x27;</span>, index = <span class="literal">False</span>)</span><br><span class="line">bank_df.to_csv(<span class="string">&#x27;sample_output_noindex.csv&#x27;</span>, index = <span class="literal">False</span>, compression=<span class="string">&#x27;gzip&#x27;</span>) <span class="comment"># 용량을 줄인다.(압축 파일 *.csv.gz)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/14/202203/220314-pandas_master_class/" data-id="clwfoxhvp00u8vi8lhwjmgln3" data-title="220314 Pandas DataFrame Fundamentals" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataFrames/" rel="tag">DataFrames</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220311-pandas_master_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/12/202203/220311-pandas_master_class/" class="article-date">
+  <time class="dt-published" datetime="2022-03-12T08:20:00.000Z" itemprop="datePublished">2022-03-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Pandas/">Pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/12/202203/220311-pandas_master_class/">220312 Pandas DataFrame으로 넘어가기 전 Pandas Series 최종복습 및 실습</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220311_google-playstore.png" alt="(Kaggle dataset)Google playstore">
+</div>
+
+<p>이번 포스팅에서는 학습했던 Pandas series에 대한 내용에 대해서 복습 및 실습을 하고, 그에 대한 내용을 정리해보고자 한다.</p>
+<p>우선 <code>Pandas란 데이터를 분석하고 각종 처리를 할 때 이용하는 파이썬 언어 기반의 라이브러리이다.Pandas로 데이터를 표현하는 두 가지 방법</code>이 있는데 바로 여지까지 학습했던 <code>시리즈(Series)</code>라는 녀석과 데이터프레임(DataFrame)이란 놈이다.<br><br/></p>
+<p>이전 포스팅에서 두 개념(시리즈&#x2F;데이터프레임)에 대해서 간단하게 다뤄보았지만, 아주간단하게 요약을 하자면,</p>
+<p>시리즈(Series)란, 표(table)로 포멧팅되지 않은 리스트 형태로만 표현된 것으로, 열(Column)이 하나인 데이터 프레임이라고 생각하면 된다. 즉, 데이터 프레임은 여러 column의 series를 dictionary형태로 묶은 것이라고 볼 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DataFrame 예시</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pad</span><br><span class="line"></span><br><span class="line"><span class="comment"># DataFrame 생성</span></span><br><span class="line"><span class="comment"># 각 행과 열에들어가는 값은 숫자는 물론, 문자나 boolean 형태도 가능하다.</span></span><br><span class="line">pd.DataFrame(&#123; <span class="string">&#x27;Nanun&#x27;</span> : [<span class="number">0</span>, <span class="number">3</span>], <span class="string">&#x27;Zoey&#x27;</span> : [<span class="number">4</span>, <span class="number">2</span>]&#125;, index=[<span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Banana&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<h2><b>그래서 왜 Pandas를 사용하는데?</b></h2>
+
+<p>실제로 실무에서 분석하고 처리해야되는 데이터는 위에서 예시로 든 데이터와는 비교도 안 될 정도로 엄청 크고 방대할 것이다.<br>따라서 한눈에 보기 어려운 많은 양의 데이터가 <code>어떤 개요(Overview)와 성향(Features)를 가지고 있고, 그 성향을 좀 더 잘 해석하기 위해서는 어떻게 데이터가 그룹화되어 표현되어야 하는지에 대한 남다른 해석능력도 필요하다. 그리고 데이터 중에서 유독 튀는 이상한 값은 없는지, 항상 확인하고 조작하는데 이 Pandas를 활용한다.</code></p>
+<h2><b>(Kaggle dataset)구글 플레이 스토어 앱 다운로드</b></h2>
+
+<p>CSV 파일을 Pandas를 이용해서 읽어보고 직접 조작해보도록 하겠다. dataset은 kaggle에서 제공해주는 데이터 중에서 개인적인 흥미에 따라 구글 플레이 스토어 앱 다운로드와 관련된 데이터셋 데이터 정보를 다운받았다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">gpstore = pd.read_csv(<span class="string">&#x27;./googleplaystore.csv&#x27;</span>, index_col=<span class="number">0</span>)</span><br><span class="line"><span class="comment">#vscode에서 DataViewer로 DataFrame의 데이터 리스트를 확인하기 위해서는 데이터가 출력되는 부분에 Break Point를 두고,</span></span><br><span class="line"><span class="comment">#&quot;실행 및 버그&quot;에서 활성화 세션의 &quot;변수&quot; 영역에서 Break Point영역 변수명에 마우스 우측클릭해서 &quot;View Value in Data Viewer&quot; 항목을 선택한다.</span></span><br><span class="line"><span class="built_in">print</span>(gpstore)</span><br><span class="line"></span><br><span class="line"><span class="comment">#.shape를 통해 (rows x columns)를 확인할 수 있다.</span></span><br><span class="line"><span class="built_in">print</span>(gpstore.shape) <span class="comment">#[10841 rows x 12 columns]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(gpstore.head(n)) <span class="comment">#DataFrame의 상단에서부터 n개까지 출력해준다.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div align="center">
+  <img src="/images/post_images/220312_debug_dataviewer.png" alt="Data viewer in VS Code">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 구글플레이 스토어에서 다운받은 앱들 중에서 평점이 4.0 이상인 것들만 Genres, Rating, Installs, Size 항목으로 분류해서 나타낼 수 있도록 DataFrame 구성</span></span><br><span class="line">best_app = gpstore.loc[gpstore.Rating &gt; <span class="number">4.0</span>, [<span class="string">&#x27;Genres&#x27;</span>, <span class="string">&#x27;Rating&#x27;</span>, <span class="string">&#x27;Installs&#x27;</span>, <span class="string">&#x27;Size&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(best_app)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 평점이 4.0이 넘는 구글 플레이스토어의 앱의 수 (6801)</span></span><br><span class="line"><span class="built_in">print</span>(best_app.count())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Genres      6801</span></span><br><span class="line"><span class="comment"># Rating      6801</span></span><br><span class="line"><span class="comment"># Installs    6801</span></span><br><span class="line"><span class="comment"># Size        6801</span></span><br><span class="line"><span class="comment"># dtype: int64</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(best_app.groupby([<span class="string">&#x27;App&#x27;</span>]).count())</span><br></pre></td></tr></table></figure>
+
+<div align="center">
+  <img src="/images/post_images/220312_pandas_best_app_in_google_play_store.png" alt="DataFrame filtered data">
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/12/202203/220311-pandas_master_class/" data-id="clwfoxhvp00u5vi8l2gyv1eu8" data-title="220312 Pandas DataFrame으로 넘어가기 전 Pandas Series 최종복습 및 실습" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220309-ai-basic-skku" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/202203/220309-ai-basic-skku/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T05:12:00.000Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI/">AI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/09/202203/220309-ai-basic-skku/">220309 인공지능(AI) 기초 다지기 5편</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/.png" alt="Unsupervised Learning">
+</div>
+
+<p>이번 포스팅에서는 이전에 포스팅하였던 지도학습(Supervised Learning)의 학습 과정에 대해서 좀 더 구체적으로 정리를 해보고자 한다.</p>
+<br/>
+
+<h2><b>지도학습(Supervised Learning) 학습과정 3단계</b></h2>
+
+<p><strong><code>1단계 데이터 수집 및 특징 추출하기</code></strong></p>
+<p>머신러닝의 지도학습 유형에서는 <code>(X,Y)</code>에서 output에 해당하는 Y(labeling data)가 필요하다. 이 labeling data는 <code>CrowdSourcing</code>을 통하여 labeling 작업이 되고 있다.<br>input에 해당하는 X의 경우에는 feature의 표현으로, 주어진 X가 어떤식으로 표현이 될 것인가에 대해 결정을 되는 중요한 부분이다.</p>
+<p><strong><code>2단계 ML Model 선택하기</code></strong></p>
+<p>ML Model의 종류로는 아래와 같다.<br>(1) Logistic regression, SVM : 분류모델<br>(2) Decision Tree, Random forest : 트리기반, 회귀모델<br>(3) Nearest neighbor : 비선형 모델 (근처 데이터를 통해 데이터 결정)<br>(4) Neural Network, MLP : 딥러닝의 모체가 되는 모델</p>
+<p><code>[ML Model 선택 가이드라인]</code></p>
+<ul>
+<li>주어진 뎅티터의 특성에 따라 특정 ML Model이 더 낫다는 판단이 있을 수 있다.</li>
+<li>많은 데이터 분석의 경험을 통해서 상대적으로 데이터가 많다면, Parameter가 많은 모델들이 Parameter가 적은 모델보다는 더 효과적으로 동작할 수 있다.</li>
+</ul>
+<p><strong><code>3단계 파라미터 값 최적화하기</code></strong></p>
+<p>주어진 모델하에서 모델이 가지고 있는 학습하고자하는 Parameter의 값을 결정하는 단계이다.</p>
+<p>아래와 같이 회귀(regression)그래프가 주어져있고, 실제 우리가 학습하고자하는 Parameter값들이 아래와 같이 분포되어있다고 가정하자.</p>
+<div align="center">
+  <img src="/images/post_images/220309_optimizing_parameter.png" alt="Regression graph">
+</div>
+
+<p><code>f(x; w1, w2, w3)</code>에서 각 각의 가중치 w1, w2, w3 값을 조정해서 우리가 학습하고자 하는 Parameter값들을 좀 더 잘 표현 할 수 있는 모델을 결정지을 수 있도록 조정할 수 있다. 하지만 첨부한 사진에서 보듯이 <code>정성적 판단(사람의 눈으로 판단)</code>으로만 본다면 명확히 어느 가중치의 값이 가장 최적의 값인지 알 수 없다.<br>따라서 이 경우에는 <code>정량적 판단(지표를 통한 판단)</code>이 중요하다. f(x)와 y간의 관계에서 error를 최소화 함으로써 우리가 학습하고자 하는 Parameter와 실제 데이터 간의 오차범위가 작음을 확인하는 것이다.</p>
+<div align="center">
+  <img src="/images/post_images/220309_error_function.png" alt="Error function">
+</div>
+
+<p>아래의 공식은 에러의 정도를 정량적으로 판단하기위한 것으로, 위의 그래프에서 선형함수(예측값)와 Parameter(실제값) 사이의 차이값(actual Y - estimated Y)의 제곱된 값을 모든 데이터 (x,y)에 대해 모두 시행하여 합한 것을 의미한다. 여기서 <code>W</code>는 Error를 최소화하기 위한 값인데, 이 에러를 최소화시켜줄 값 W를 통해서 최고의 모델을 찾을 수 있다.</p>
+<div align="center">
+  <img src="/images/post_images/220309_error_formulation.png" alt="Error function fomulation">
+</div>
+
+<p>주어진 데이터를 표현하는 <code>최고의 Parameter를 찾는 문제는 f(x)와 y사이에서 에러를 최소화 시키는 것</code>이다 이것이 최적화 문제이며, 문제해결에는 아래의 두 가지 방법이 있다.</p>
+<p>(1) <code>Analytic solution</code> : 방정식 풀이를 통해 최적의 해 구하기</p>
+<p>(2) <code>Numerical solution</code> : 주어진 함수를 통해 해를 구하지 못하는 경우, 수치를 통해 해와 가장 가깡툰 근사치를 구한다</p>
+<p><code>이렇게 학습된 Model을 사용해서 새로운 input x를 통해 output y를 예측하거나 추론한다.</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/09/202203/220309-ai-basic-skku/" data-id="clwfoxhvp00u1vi8l9s2xbxmh" data-title="220309 인공지능(AI) 기초 다지기 5편" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220308-pandas_master_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/08/202203/220308-pandas_master_class/" class="article-date">
+  <time class="dt-published" datetime="2022-03-07T17:30:00.000Z" itemprop="datePublished">2022-03-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Pandas/">Pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/08/202203/220308-pandas_master_class/">220308 AI를 위한 Pandas (Pandas series에서 특정 요소 찾기, Pandas series slicing)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220302_pandas.jpg" alt="pandas">
+</div>
+
+<br/>
+
+<h2><b>Parantheses() 그리고 Brackets[]</b></h2>
+
+<ul>
+<li><p>속성을 조회할때에는 Parantheses()를 사용하지 않는다.<br><code>ex)my_series.values, my_series.shape</code></p>
+</li>
+<li><p>Parantheses()를 사용하는 경우에는 arguments(인자)를 포함하거나 Pandas series를 대체하거나 바꾼다.<br><code>ex)my_series.tail(), my_series.head(), my_series.drop_duplicates()</code></p>
+</li>
+<li><p>Brackets[]를 사용하는 경우에는 Pandas series나 DataFrame에서 특정 요소에 접근하기 위함이다.<br><code>ex)</code></p>
+</li>
+</ul>
+<h2><b>Pandas series에서 특정 요소 찾기</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">True</span>)</span><br><span class="line">sp500[n-<span class="number">1</span>] <span class="comment">#n번째 index 값</span></span><br></pre></td></tr></table></figure>
+
+<h2><b>Pandas series 슬라이싱</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># index 0 ~ 4 까지 슬라이싱</span></span><br><span class="line"><span class="comment"># 오른쪽 숫자는 범위에서 포함되지 않는다. N-1</span></span><br><span class="line">sp500[<span class="number">0</span>:<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># index 0 ~ 9 까지 슬라이싱</span></span><br><span class="line"><span class="comment"># 가장 처음 index부터 시작이기 때문에 아래와 같이 생략할 수 있다.</span></span><br><span class="line">sp500[:<span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># index 5 ~ end 슬라이싱</span></span><br><span class="line">sp500[<span class="number">5</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Challenge#13 마지막 세 개 요소를 제외한 Pandas series 출력</span></span><br><span class="line">sp500[:-<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/08/202203/220308-pandas_master_class/" data-id="clwfoxhvp00tyvi8l5diu5t3i" data-title="220308 AI를 위한 Pandas (Pandas series에서 특정 요소 찾기, Pandas series slicing)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220307-ai-basic-skku" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/07/202203/220307-ai-basic-skku/" class="article-date">
+  <time class="dt-published" datetime="2022-03-07T08:00:00.000Z" itemprop="datePublished">2022-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI/">AI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/07/202203/220307-ai-basic-skku/">220307 인공지능(AI) 기초 다지기 4편</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220305_unsupervised-learning.png" alt="Unsupervised Learning">
+</div>
+
+<p>이번 포스팅에서는 이전 포스팅에서 개괄적으로 분류해보았던 Reinforcement Learning에 대해서 좀 더 구체적으로 정리를 해보고자 한다.</p>
+<br/>
+
+<h2><b>강화학습(Reinforcement Learning)?</b></h2>
+강화학습이란 다른 머신러닝(지도학습, 비지도학습)과는 달리 agent라는 개념이 도입된다. 이 agent는 environment(환경)에서 행동을 하는 주체이며, 행동에 의해 새로운 action을 갖으며, 이에 따라 새로운 state(상태)를 갖는다. 이 상대적인 action에 따라 environment(환경)은 새로운 state(상태)와 함께 보상(rewards)을 행동의 주체인 agent에게 부여한다.
+
+<p><code>예시) 미로에서 치즈를 찾는 생쥐 - 환경(미로) / action(쥐의 미로 속 이동) / rewards(치즈) / state(미로 내 쥐의 위치)</code></p>
+<ul>
+<li>Supervisor가 없고, 환경(Environment)에 의해서 보상을 받고 최상의 rewards를 얻기 위한 action을 선택하도록 한다.</li>
+<li>Feedback이 delay될 수 있다.</li>
+<li>Action이 순차적으로 미래에 주어지는 보상에 영향을 줄 수 있다.</li>
+<li>환경이 어떤 새로운 상태를 반환할지 예측할 수 없기 때문에 <code>Black box 상태</code>로, <code>어떤식으로 rewards, state를 나타내는지 알지 못한다.</code></li>
+<li>The key challenge is to learn to make good decisions under uncertainty. (핵심 과제는 불확실성에서 최고의 결정을 도출해내는 것을 배우는 것이다.)</li>
+</ul>
+<h2><b>OpenAI 사용해보기</b></h2>
+
+<p>OpenAI<a target="_blank" rel="noopener" href="https://gym.openai.com/">https://gym.openai.com/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">&quot;Taxi-v1&quot;</span>)</span><br><span class="line">observation = env.reset()</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">  env.render()</span><br><span class="line">  action = env.action_space.sample() <span class="comment">#your agent here (this takes random actions)</span></span><br><span class="line">  <span class="comment">#결과(observation)</span></span><br><span class="line">  observation, reward, done, info = env.step(action)</span><br></pre></td></tr></table></figure>
+
+<h2><b>강화학습 예시1) Frozen Lake</b></h2>
+
+<div align="center">
+  <img src="/images/post_images/220308_reinforcement-learning.jpeg" alt="Frozen Lake">
+</div>
+
+<p>Source에서 Goal까지 이동을 하는 Agent가 존재한다. 위의 그림과 같이 얼은 빙판은 F(Frozen), 구멍이 뚫린 부분은 H(Hole)로 표기가 되어있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gym</span><br><span class="line">env = gym.make(<span class="string">&quot;FrozenLake-v0&quot;</span>)</span><br><span class="line">observation = env.reset()</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">  env.render()</span><br><span class="line">  action = env.action_space.sample()</span><br><span class="line">  observation, reward, done, info = env.step(action)</span><br></pre></td></tr></table></figure>
+
+<h2><b>강화학습 예시2) 갤러그 게임</b></h2>
+
+<p>왼쪽, 오른쪽, 총 쏘기와 같은 액션(동작)이 주어지고, 이 액션에 따라 보상(점수)가 주어진다. agent인 player의 상태(state)는 지속적으로 업데이트를 해주며, 이러한 학습을 통해 갤러그와 같은 총 쏘기 게임을 머신러닝의 강화학습 형태로 학습할 수 있다.</p>
+<h2><b>강화학습 예시3) 벽돌깨기 게임</b></h2>
+
+<p>사람만이 할 수 있는 전략도 컴퓨털가 학습하여 게임에 적용할 수 있다.</p>
+<h2><b>강화학습 예시4) 알파고</b></h2>
+
+<h2><b>강화학습 예시5) 자율주행</b></h2>
+
+<h2><b>Artificial Neural networks</b></h2>
+
+<p>딥러닝(Deep Learning)은 머신러닝의 여러 방법 중 중요한 방법론이며, 인공 신경망(Artificial Neural Network)의 한 종류이다. <code>즉, 인공지능 ⊃ 머신러닝 ⊃ 인공신경망 ⊃ 딥러닝 관계가 성립</code>한다.<br>우선 딥러닝에 대해서 학습을 할 것이기 때문에 뉴럴 네트워크의 역사적 배경에 대해서는 상식적으로 알아두어야 한다. 그래서 큼직큼직한 사건은 알아두도록 하기 위해 정리하고 암기해둬야겠다.</p>
+<p>Neural network, 한국말로하면, 신경 네트워크이다. 이 Neural network라는 말은 요즘 들어 각광을 받고 있지만, 이 말은 1940년대부터 쓰였던 말이었다. 이 시기부터 사람들은 사람의 뇌 신경 구조를 전자기적 형태(인공 신경망)로 구현하고자 했다. 그래서 <code>1940년대에는 Electronic brain</code>라고 해서 <code>X AND Y</code> <code>X OR Y</code>와 같은 형태로 구조화 시키려고 했다. 하지만 현실적으로 AND, OR로 신경 구조를 만드는 것은 불가능했다.</p>
+<p><code>1957년 Perceptron</code>이라는 개념이 등장을 했는데, <code>이때부터 사람의 뇌 신경구조를 모방한 인공 신경망을 구현</code>할 수 있었다.</p>
+<p><code>1960년부터 1970년까지 Neural network의 황금기</code>였다가 <code>1970년대에 XOR 문제가 발견이 되면서 Neural network의 암흑기</code>로 돌아간다.</p>
+<p><code>1986년 조페리 힌튼(Geoffrey Hinton)이 Multi-layered Perceptron(Back Propagation)으로 XOR문제를 해결할 수 있다고 증명</code>하였으나, 그 과정이 너무 복잡하고 긴 학습시간으로 주목받지 못하였다.</p>
+<p>이후에 <code>1995년 SVM(Support Vector Machine)을 활용해서 XOR문제와 같은 비선형 관계를 학습할 수 있는 모델이 등장</code>하였고, 조페리 힌튼이 제시한 BackPropagation보다 간단하고 효과적이었다.</p>
+<p><code>2006년 Deep Neural Network(Pretraining)</code>모델이 등장을 하게 되고, <code>1986년 Multi-layered Perceptron(Back Propagation)을 제시했던 조페리 힌튼</code>이 어떻게 학습하는지에 대한 제안을 하게된다.</p>
+<p>cf) 심층 신경망(Deep neural networks)<br>(1) 입력 변수들 간의 비선형 조합이 가능하다.<br>(2) 특징 표현(Feature representation)이 학습 과정에서 함께 수행될 수 있다.<br>(3) 데이터가 증가함에 따라 성능이 개선될 수 있다.</p>
+<p>이에따라 <code>2010년 후반에는 CNN기반의 이미지 분류 모델인 AlexNet을 통해 Neural Network 모델이 복잡한 문제를 해결할 수 있음을 증명</code></p>
+<h2><b>AI vs ML vs DL 상관관계</b></h2>
+
+<p>AI(Artificial Intelligence)는 ML(Machine Learning)과 DL(Deep Learning)을 아우르는 개념이다. AI는 1990년대 전후로 나눠서 살펴 볼 수 있는데, 1990년대 전에는 명시적 룰(rule)만을 적용해서 기계가 판단하는 식이 전부였다. 하지만 1990년대 이후부터는 명시적 룰(rule)이 아닌 통계를 기반으로 기계가 판단을 하였다.<br>DL(Deep Learning)은 수많은 parameter들을 가진 복잡한 모델을 어떻게 학습 할 것인지에 대해서 학습기법이다.</p>
+<div align="center">
+  <img src="/images/post_images/220308_machine-learning_deep-learning.png" alt="Machine Learning vs Deep Learning">
+</div>
+
+<p><code>전통적인 머신러닝과 딥러닝의 가장 큰 차이는 feature extraction 과정과 classification 과정의 분리/통합 유/무</code> 상태이다. 전통적인 머신러닝은 두 과정이 서로 분리되어있으며, feature extraction을 통해 나온 출력결과와 Output의 결과가 서로 비교되어 관계학습을 하게 된다.<br>하지만 딥러닝에서는 feature extraction 단계가 전통적인 머신러닝에서는 필수 단계로 간주되었던 것과 달리, <code>feature extraction(=learned feature) + classification가 통합되어 학습으로 관여</code>된다.<br>사용하는 측면에서 <code>end to end learning</code>이기 때문에 쉽지만, 이해하는 측면에서는 Black box 형태로 가려져있기 때문에 어렵다.</p>
+<h2><b>딥러닝 모델의 예시</b></h2>
+
+<ul>
+<li><p>Convolutional Neural Network(CNN) : 합성곱 신경망</p>
+</li>
+<li><p>Recurrent Neural Network(RNN) : 순환 신경망<br><code>→ 순차적 관계를 가진 시계열 데이터 처리에 가장 적합한 심층 신경망 기법</code></p>
+</li>
+<li><p>Graph Neural Network(GNN) : 그래프 신경망</p>
+</li>
+<li><p>Image Classification</p>
+<ul>
+<li><strong>SVN</strong> 25% ERROR RATE</li>
+<li><strong>AlexNet</strong> 16% ERROR RATE</li>
+</ul>
+</li>
+<li><p>Speech Recognition : 2010년 초 RNN model 적용</p>
+</li>
+<li><p>Machine Translation : 2010년 speech to speech model 적용, 2018 - 2019년 Transformer 적용 (Google translator&#x2F;Naver Papago)</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/07/202203/220307-ai-basic-skku/" data-id="clwfoxhvo00tqvi8l67m99axn" data-title="220307 인공지능(AI) 기초 다지기 4편" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220307-pandas_master_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/07/202203/220307-pandas_master_class/" class="article-date">
+  <time class="dt-published" datetime="2022-03-07T06:33:00.000Z" itemprop="datePublished">2022-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Pandas/">Pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/07/202203/220307-pandas_master_class/">220307 AI를 위한 Pandas (Pandas series의 method, Pandas를 활용한 csv파일 읽기, Pandas 빌트인 함수, Pandas series 정렬(index, values 기준), Pandas series 연산)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220302_pandas.jpg" alt="pandas">
+</div>
+
+<br/>
+
+<p>이번 포스팅에서는 Pandas series의 method에 대한 내용을 정리해보고자 한다.</p>
+<h2><b>Pandas series의 method</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#Series.sum() : 합계</span></span><br><span class="line">my_series = pd.Series(data = [<span class="number">100</span>, <span class="number">200</span>, <span class="number">500</span>, <span class="number">1000</span>, <span class="number">5000</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Series.product(): 곱</span></span><br><span class="line">my_series.product()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Series.mean(): 평균</span></span><br><span class="line">my_series.mean()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Series.head(n): 위에서부터 n개 출력</span></span><br><span class="line">my_series.head(<span class="number">2</span>) <span class="comment">#최 상단에서 2개까지 출력</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Series.tail(n): 아래에서부터 n개 출력</span></span><br><span class="line">my_series.tail(<span class="number">2</span>) <span class="comment">#최 하단에서 2개까지 출력</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Series.memory_usage(): Pandas series가 사용하고 있는 용량 확인(bytes)</span></span><br><span class="line">my_series.memory_usage() <span class="comment">#example:168(bytes)</span></span><br></pre></td></tr></table></figure>
+
+<h2><b>Pandas 활용해서 CSV 파일 읽기</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Pandas의 read_csv method를 활용해서 csv파일을 읽기 위해서는 squeeze=True option은 필수이다.</span></span><br><span class="line"><span class="comment">#squeeze=True : One dimentional table data를 읽기 위한 옵션</span></span><br><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">type</span>(sp500) <span class="comment">#pandas.core.series.Series</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#squeeze=False : Multi dimentional(다차원) table data를 읽기 위한 옵션이다.</span></span><br><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">False</span>)</span><br><span class="line"><span class="comment">#squeeze=False or default</span></span><br><span class="line"><span class="built_in">type</span>(sp500) <span class="comment">#pandas.core.frame.DataFrame</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>위의 각 결과를 보면 알 수 있듯이, Pandas series의 경우에는 formatting 없이 단순하게 (1차원의)하나의 열로 테이블화 된 형태로 데이터가 출력이 되고, DataFrame의 경우에는 각 셀에 스타일이 적용되어 테이블이 formatting되어 데이터가 출력된다.<br><code>데이터 프레임(DataFrame)이란 1개의 열이 아닌, 여러 행과 열을 가진 다차원 데이터 테이블</code>이다.</p>
+<h2><b>Pandas 빌트인 함수</b></h2>
+
+<p>Pandas는 이미 존재하는 python의 수 많은 함수들과 상호동작한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Pandas의 Data type을 얻을 때</span></span><br><span class="line"><span class="built_in">type</span>(sp500)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Pandas series의 data길이를 얻을 때</span></span><br><span class="line"><span class="built_in">len</span>(sp500)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Pandas series에서 최대값을 얻을 때</span></span><br><span class="line"><span class="built_in">max</span>(sp500)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Pandas series에서 최소값을 얻을 때</span></span><br><span class="line"><span class="built_in">min</span>(sp500)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 주어진 Pandas series type의 데이터(리스트)에서 모든 양의 값은 음의 값으로 Python의 built-in function을 활용하여 구하시오.</span></span><br><span class="line"><span class="comment"># 주어진 Pandas series의 값에서 중복되지 않은 Unique한 값을 Python의 built-in function을 활용하여 구하시오.</span></span><br><span class="line">my_series = pd.Series(data = [-<span class="number">10</span>, <span class="number">100</span>, -<span class="number">30</span>, <span class="number">50</span>, <span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">result = [ -i <span class="keyword">for</span> i <span class="keyword">in</span> my_series ]</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">#solution</span></span><br><span class="line"><span class="comment">#모든 값을 양의 값으로 치환하는 문제였다.</span></span><br><span class="line"><span class="built_in">abs</span>(my_series)</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span>(my_series)</span><br></pre></td></tr></table></figure>
+
+<h2><b>Pandas series sorting(ascending order)</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(sp500)</span><br><span class="line"></span><br><span class="line"><span class="comment">#sort the values in the dataframes</span></span><br><span class="line"><span class="comment">#최솟값 ~ 최대값 순으로 정렬</span></span><br><span class="line">sp500.sort_values()</span><br><span class="line"></span><br><span class="line"><span class="comment">#sort_values()의 결과값은 별도로 변수에 저장해줘야한다. (메모리 정렬)</span></span><br><span class="line">sp500.sort_values(inplace = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#index 순으로 정렬</span></span><br><span class="line">sp500.sort_index(inplace = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#challenge#8 (descending sorting)</span></span><br><span class="line">sp500.sort_values(ascending=<span class="literal">False</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2><b>Pandas Series Math operation</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">sp500 = pd.read_csv(<span class="string">&#x27;S&amp;P500_Prices.csv&#x27;</span>, squeeze=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Sum method on Pandas series</span></span><br><span class="line">sp500.<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Count method on Pandas series</span></span><br><span class="line">sp500.count()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Obtain the maximum value</span></span><br><span class="line">sp500.<span class="built_in">max</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Obtain the minimum value</span></span><br><span class="line">sp500.<span class="built_in">min</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">#새로운 dataset을 다룰때 describe method를 사용한다.</span></span><br><span class="line"><span class="comment"># count, mean, std(표준편차), min, 25%, 50%, 75%, max 정보의 summary 정보를 알 수 있다.</span></span><br><span class="line">sp500.describe()</span><br><span class="line"></span><br><span class="line"><span class="comment">#Challenge#9 Obtain the average price of the S&amp;P500 using two different method</span></span><br><span class="line">sp500.mean()</span><br><span class="line">sp500.<span class="built_in">sum</span>()/sp500.count()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#주어진 요소가 값으로 존재하는지 체크</span></span><br><span class="line"><span class="number">1295.500000</span> <span class="keyword">in</span> sp500.values</span><br><span class="line"></span><br><span class="line"><span class="comment">#주어진 요소가 인덱스로 존재하는지 체크</span></span><br><span class="line"><span class="number">1295.500000</span> <span class="keyword">in</span> sp500.index</span><br><span class="line"></span><br><span class="line"><span class="comment">#주어진 요소가 값이 아닌 인덱스로 존재하는지 체크 (in 은 기본적으로 index를 기준으로 찾는다)</span></span><br><span class="line"><span class="number">1295.500000</span> <span class="keyword">in</span> sp500</span><br><span class="line"></span><br><span class="line"><span class="comment">#Challenge#10</span></span><br><span class="line"><span class="number">3349</span> <span class="keyword">in</span> sp500.values</span><br><span class="line"></span><br><span class="line"><span class="comment">#sp500의 values를 반올림한다.</span></span><br><span class="line">rounded_sp500 = <span class="built_in">round</span>(sp500)</span><br><span class="line"></span><br><span class="line"><span class="comment">#반올림된 값 리스트에서 3349가 값이 존재하는지 확인한다.</span></span><br><span class="line"><span class="number">3349</span> <span class="keyword">in</span> rounded_sp500.values</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/07/202203/220307-pandas_master_class/" data-id="clwfoxhvo00ttvi8lhkwed2uo" data-title="220307 AI를 위한 Pandas (Pandas series의 method, Pandas를 활용한 csv파일 읽기, Pandas 빌트인 함수, Pandas series 정렬(index, values 기준), Pandas series 연산)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220305-ai-basic-skku" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/05/202203/220305-ai-basic-skku/" class="article-date">
+  <time class="dt-published" datetime="2022-03-05T09:20:00.000Z" itemprop="datePublished">2022-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI/">AI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/05/202203/220305-ai-basic-skku/">220305 인공지능(AI) 기초 다지기 3편</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220305_unsupervised-learning.png" alt="Unsupervised Learning">
+</div>
+
+<p>이번 포스팅에서는 이전 포스팅에서 개괄적으로 분류해보았던 Unsupervised Learning에 대해서 좀 더 구체적으로 정리를 해보고자 한다.</p>
+<br/>
+
+<h2><b>Unsupervised Learning ?</b></h2>
+
+<p>Supervised Learning이란 (<code>X</code>(input), <code>Y</code>(output))에서 Y(output) 값에 대한 레이블이 제공되지 않은 상태로, 최소한의 사람의 개입을 통해 데이터를 해석해서 숨겨진 데이터의 패턴을 찾아낸다.</p>
+<p>그 예시로 각기 다른 모양과 색상을 가진 사과와 바나나가 나열되어있다고 가정해보자. <code>어떤 기준으로 나열을 할 것인가?</code> 앞서 이미 언급을 했듯이 Y라는 label이 주어지지 않은 상태에서 기계는 주어진 데이터들을 분류해야한다. 기계는 사람과 같이 직관력이 없기 때문에 모양이 동그란지 혹은 길죽한지에 따라서 분류를 하기도 하고, 색상이 알록달록한지 아닌지에 따라 분류하기도 한다.</p>
+<h2><b>Unsupervised Learning 예시</b></h2>
+
+<p>그렇다면 비지도 학습의 예시로는 어떤것들이 있을까?</p>
+<p>우선 첫 번째, <code>클러스터링(lustering)</code>이 있다. Clustering은 Classification과 비슷하지만 Y labeling data가 주어지지 않는다는 점이 다르다. Clustering은 말 그대로 <code>data duples을 clusters로 grouping하는 것을 말한다.</code> <code>Similar/Dissimilar</code>를 정의함에 있어서는 사람이 개입을 하게 되는데, 이 부분에 있어서만 최소한으로 사람이 개입하게 된다.</p>
+<div align="center">
+  <img src="/images/post_images/220306_unsupervised-learning_clustering.jpeg" alt="Unsupervised learning - Clustering">
+</div>
+
+<p>두 번째, <code>차원축소(Dimensionality reduction)</code>가 있다. 대표적인 예시로 PCA(Principal Component Analysis)가 있으며, 2차원의 데이터를 1차원 데이터로, 3차원 데이터를 2차원 데이터로 축소를 하게 된다. <code>이렇게 차원을 축소하게 되면 어떤 효과가 있을까?</code><br>우선 첫 번째 고차원에서는 알 수 없었던 <code>correlation(상관관계)를 효과적으로 알 수</code> 있고, <code>불필요한 noise를 제거</code>할 수 있으며, <code>저장공간을 효율적으로 사용</code> 할 수 있다. 그리고 마지막으로 <code>시각화와 해석능력이 좋아진다.</code></p>
+<p>세 번째, <code>밀집도 판단(Density estimation)</code> : sample 모양이 규칙적이지 않고, 복잡한 모양인 경우가 많다. 이러한 복잡하고 규칙적이지 않은 모양의 영역에서 실제 데이터 영역을 추출해내야되는 경우가 많은데, 우리는 <code>Manifold Hypothesis</code>라는 용어에 집중해야 한다. 이 용어는 고차원 데이터라 할지라도 실질적으로 해당 데이터를 나타내주는 저차원 공간인 manifold 존재한다는 것을 의미한다. (sparse한 고차원 데이터를 간추려서 보다 저차원 공간으로 나타낼 수 있다는 의미)</p>
+<p><code>manifold란, 다차원 데이터에서 실질적으로 의미를 가지는 특징을 모아둔 조밀한 특성 공간을 뜻하며, 실제 데이터를 통해 스스로 학습하는 딥러닝 비지도 학습이 이러한 manifold를 스스로 찾아낸다.</code></p>
+<p>이러한 Manifold Hypothesis를 통해 가능한 가능해진 기술이 바로 <code>GAN(Generative Adversarial Network)</code>로, 실제로 존재하지 않는 사람을 예상으로 생성해내는 기술이다. 최근에는 사람 이외에도 자연 이미지도 예상&#x2F;예측해서 생성해내고 있다.<br>이외에도 style-based GAN, video-to-video synthesis, source to tareget GAN 등이 있다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/05/202203/220305-ai-basic-skku/" data-id="clwfoxhvo00tlvi8lee1w0s9b" data-title="220305 인공지능(AI) 기초 다지기 3편" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220302-ai-basic-skku" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/02/202203/220302-ai-basic-skku/" class="article-date">
+  <time class="dt-published" datetime="2022-03-02T08:54:00.000Z" itemprop="datePublished">2022-03-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI/">AI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/02/202203/220302-ai-basic-skku/">220302 인공지능(AI) 기초 다지기 2편</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220302_supervised-learning_unsupervised-learning.jpeg" alt="Supervised Learning & Unsupervised Learning">
+</div>
+
+<p>이번 포스팅에서는 이전 포스팅에서 개괄적으로 분류해보았던 Supervised Learning과 Unsupervised Learning에 대해서 좀 더 구체적으로 정리를 해보고자 한다.</p>
+<br/>
+
+<h2><b>Supervised Learning ?</b></h2>
+
+<div align="center">
+  <img src="/images/post_images/220302_supervised-learning.png" alt="Supervised Learning">
+</div>
+
+<p>이전 포스팅에서 알아보았듯이 Supervised Learning이란 (<code>X</code>(input), <code>Y</code>(output))에서 Y(output)에 대한 값이 labeling을 통해 주어지고, 이를 통해 X(input)값이 유추되는 형태이다.<br>Y의 값이 direct feedback으로 주어지고, Y 데이터의 형태에 따라 두 가지 형태로 분류된다.</p>
+<ul>
+<li><p>Y labels are continuous &#x3D; <code>Regression</code><br>Regression은 크게 Linear Regression과 Polynomial regression으로 분류된다.</p>
+<p><code>Polynomial regression은 레이블이 다항식 관계에 있는 경우이며, 2차 3차 함수의 계수 형태로 존재한다.</code></p>
+</li>
+</ul>
+<div align="center">
+  <img src="/images/post_images/220302_linear_polynomial_model.png" alt="Linear and Polynomial regression">
+</div>
+
+<ul>
+<li>Y labels are discrete &#x3D; <code>Classification</code></li>
+</ul>
+<p>Y 데이터가 아래와 같이 discrete형태로 분류된다면 이는 supervised learning의 classification로 분류된다.</p>
+<p><code>ex)</code></p>
+<p><code>(1) SVM (Support Vector Machine)</code> : 기계학습의 분야 중 하나로 패턴 인식, 자료 분석을 위한 지도학습 모델이며, 주로 분류와 회귀 분석을 위해 사용된다.</p>
+<p><code>(2) 신경망(Neural Network)</code> : 신경망은 인간의 뇌 행동을 반영한다. 인간의 뇌 행동에 있어, 컴퓨터 프로그램은 특정 패턴을 인지하고 AI, 머신러닝, 딥러닝 분야에서의 일반적인 문제들을 해결하는 것 또한 허용한다.<br>신경망은 <code>Artificial Neural Networks(ANNs)</code> 또는 <code>Simulated Neural Networks(SNNs)</code>로 알려져있다.<br>이 신경망 개념은 머신러닝의 부분집합 개념이자, 딥러닝 알고리즘의 핵심적인 부분이다.</p>
+<p>이 신경망이라는 이름과 구조는 인간의 뇌로부터 영감을 받았으며, 생물학적인 뉴런들의 시그널을 주고받는 방식을 모방하였다.</p>
+<pre><code>- 퍼셉트론(Perceptron)
+  인공 신경망은 수많은 머신 러닝 방법 중 하나로, 딥 러닝을 이해하기 위해서는 우선 인공 신경망에 대한 이해가 필요하기 때문에 초기 인공 신경망인 퍼셉트론(Perceptron)에 대한 이해가 필요하다.
+</code></pre>
+<p><strong>[참고]</strong> <a target="_blank" rel="noopener" href="https://wikidocs.net/24958">https://wikidocs.net/24958</a></p>
+<pre><code>- 다층 퍼셉트론(MultiLayer Perceptron, MLP)
+</code></pre>
+<p><code>(3) 의사결정 나무(Decision tree)</code> : 의사결정나무는 DTs라고도 하며 여러가지 규칙을 순차적으로 적용하며서 독립 변수 공간을 분할하는 분류 모형이다. 분류(Classification)와 회귀 분석(Regression)에 모두 사용될 수 있기 때문에 CART(Classification And Regression Tree)라고도 한다.</p>
+<p><code>(4) 나이브 베이즈 분류(Naive Bayes classification)</code> : 스팸메일 필터, 텍스트 분류, 감정 분석, ㅊ투천 시스템 등에서 광범위하게 활용되는 분류기법이다. 나이브 베이즈 모델인 용어에서 알 수 있듯이, Naive(단순한, 순진한, 전문성이 없는)한 모델임을 알 수 있다. 나이브 베이즈 모델은 모든 feature(속성)가 동등하게중요하고 독립적이라고 가정한다. 하지만 실생활에서 각 feature(속성)들 간에 독립성을 보장하기는 쉽지 않기 때문에 실생활에 바로 적용하기에는 어려움이 있다.</p>
+<p><a target="_blank" rel="noopener" href="https://bkshin.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-1%EB%82%98%EC%9D%B4%EB%B8%8C-%EB%B2%A0%EC%9D%B4%EC%A6%88-%EB%B6%84%EB%A5%98-Naive-Bayes-Classification">참고 - 머신러닝 관련 블로그 글 (bkshin tistory)</a></p>
+<p><code>(5) K-nearest neighbors(K-NN)</code> : 지도 학습 기반에 한 종류로 거리기반 분류분석 모델이라고 할 수 있다. 기존 관측지의 Y값(Class)가 존재한다는 점에서 비지도학습인 클러스터링(Clustering)과 차이가 있다.</p>
+<p>유유상종이라는 말이 있다. 같은 날개를 가진 새들끼리 함께 모인다는 말인데, <code>K-NN 알고리즘</code>을 설명하기 적합한 속담이다. 머신러닝에서 데이터를 가장 가까운 유사 속성에 따라 분류하여 데이터를 분류하는 기법이 바로 K-NN 알고리즘 기법이기 때문이다.</p>
+<div align="center">
+  <img src="/images/post_images/220302_classification_model.png" alt="Classification model">
+</div>
+
+<h2>Classification model 예시</h2>
+
+<p>분류 모델의 예시로는 대표적으로 문서 분류 Sports, Politics, science … <code>topic 별로 분류</code>하는 것과 e-mail 중 <code>ham vs spam</code> SNS 내용중에 sentiment: negative, confidence: 99%, trend: boring 과 같은 <code>감성적인 내용으로의 분류</code>의 예시가 있다.</p>
+<p>이외에도 아래의 분류 관련 예시들이 있다.<br><code>(1) Image Classification</code> : ImageNet Competetion<br><code>(2) Video Classification</code> : 영상의 frame을 쪼개서 분석<br><code>(3) Object Detection</code><br><code>(4) Video Summarization</code> : 범죄 현장에서 수사에 활용되는 기법으로 다른 시간대의 물체가 동시간대에 시간만 다르게 labeling 되어 표시된다.<br><code>(5) Image Captioning</code> : 이미지에 대한 설명 label X와 Y의 관계를 규명 (Image caption)<br><code>(6) Speech Recognition</code> : X(Speech data), Y(대응 텍스트 - 영상에 대한 설명)</p>
+<p>이러한 머신러닝의 기법 중에 하나인 Supervised learning 기법은 우리의 실생활은 물론 현업에서도 많이 활용되고 있다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/02/202203/220302-ai-basic-skku/" data-id="clwfoxhvn00tevi8lfkrag9jx" data-title="220302 인공지능(AI) 기초 다지기 2편" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-202203/220302-pandas_master_class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/02/202203/220302-pandas_master_class/" class="article-date">
+  <time class="dt-published" datetime="2022-03-02T04:58:00.000Z" itemprop="datePublished">2022-03-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Pandas/">Pandas</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/02/202203/220302-pandas_master_class/">220302 AI를 위한 Pandas 본격적으로 시작하기 (데이터의 중요성과 Pandas series 속성)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220302_pandas.jpg" alt="pandas">
+</div>
+
+<br/>
+
+<p>이번 포스팅에서는 인공지능 모델을 개발할 때 필요한 필수 요소인 데이터를 준비하고 정제(전처리 및 결합)하는데 필요한 Pandas에 대한 학습을 하기 전에 데이터의 중요성과 왜 내가 지금 이 공부를 해야되는지에 대한 이유에 대해서 정리를 해보고자 한다.</p>
+<h2><b>데이터의 중요성</b></h2>
+방대한 데이터를 유의미한 데이터로 가공해서 그 데이터를 통해서 가치있는 insight를 얻어서 매출 증가와 생산력을 증가시키는 기업들이 많다. 우리가 요즘 많이 시청하는 넷플릭스 또한 영화 추천 시스템을 제공하는데 이 또한 고객의 데이터를 활용해서 끊임없이 고객에게 고객이 선호하는 콘텐츠를 추천하고 제공한다.
+
+<h2><b>내가 데이터 준비 및 정제에 대한 공부가 필요한 이유?</b></h2>
+
+<p>인공지능 모델을 개발 할 때 <code>DATA + MODEL + COMPUTE</code> 이 세 가지는 필수적인 요소이다. 이 세가지 요소는 인공지능 모델을 개발 할 때 충족해야되는 요소들로, 여기서 <code>DATA</code>란 어떻게 정제하고 합치고 시각화하는지가 중요시되며, <code>MODEL</code>은 DATA를 이용해서 인공지능을 만들 수 있는 마치 수학식과 같은 개념이라고 할 수 있다.<br>그리고 <code>DATA</code>를 사용해서 <code>MODEL</code>을 학습시키기 위해서는 <code>COMPUTE</code>의 과정이 필요하다.</p>
+<h2><b>앞으로의 공부계획</b></h2>
+
+<ul>
+<li><p>앞으로 데이터의 정제 및 시각화를 어떻게 하는지에 대해 학습 (수치계산에 특화된 <code>numpy</code>, 데이터 분석에 필요한 <code>pandas</code>, 데이터 시각화에 필요한 <code>matplot, seaborn</code> 활용)</p>
+</li>
+<li><p>머신러닝, 데이터 사이언스에서 사용되는 대용량 데이터 세트를 다루는 방법에 대해서 학습</p>
+<p>대용량 데이터의 샘플로는 <code>KAGGLE</code>, <code>UCI</code>, <code>ImageNet</code>에서 제공하는 <code>dataset</code>을 활용해 볼 것이다.</p>
+<p>(1)KAGGLE : <a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a><br>(2)UCI : <a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/index.php">https://archive.ics.uci.edu/ml/index.php</a><br>(3)ImageNet : <a target="_blank" rel="noopener" href="https://www.image-net.org/">https://www.image-net.org/</a></p>
+</li>
+</ul>
+<h2><b>Pandas</b></h2>
+
+<p>Pandas는 데이터 조작 및 분석 툴로써, Numpy를 기반으로 한다.<br>(Numpy는 파이썬을 통해서 데이터 분석을 할 때 기본적으로 사용되는 라이브러리로, C언어로 구현이 되어있는 파이썬 라이브러리이다. 고성능의 수치계산을 위해서 제작이 되었으며, <code>Numerical Python</code>의 줄임말이다. Numpy는 백터 및 행렬 연산에 있어서 매우 편리한 기능을 제공한다는 장점을 가지고 있으며, 데이터 분석을 사용 할 때 사용되는 라이브러리인 Pandas와 Matplotlib의 기반으로 사용되기도 한다.)</p>
+<p>Pandas는 DataFrame으로 알려져있는 데이터 구조(MS Office excel의 Python 버전이라고 생각하면 된다)를 사용하며, DataFramems은 프로그래머로 하여금 표로 정리된 행과 열과 열 데이터의 저장과 조작을 용이하게 해준다.</p>
+<p><code>(Series는 DataFrame 데이터 구조에서 단일 칼럼(Single column)으로 간주한다)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">my_favorite_movie = [<span class="string">&#x27;Dead Poets Society&#x27;</span>, <span class="string">&#x27;Good Will Hunting&#x27;</span>, <span class="string">&#x27;The Pursuit of Happyness&#x27;</span>]</span><br><span class="line"></span><br><span class="line">my_series = pd.Series(data = my_favorite_movie)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series)</span><br><span class="line"><span class="comment">#0          Dead Poets Society</span></span><br><span class="line"><span class="comment">#1           Good Will Hunting</span></span><br><span class="line"><span class="comment">#2    The Pursuit of Happyness</span></span><br><span class="line"><span class="comment">#dtype: object</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># index는 자동으로 생성이 되게 할 수도 있지만, Series의 두 번째 인수로 index 값을 넘겨주어 사용자 정의 index 값을 정의해줄 수도 있다.</span></span><br><span class="line"></span><br><span class="line">my_favorite_movie = [<span class="string">&#x27;Dead Poets Society&#x27;</span>, <span class="string">&#x27;Good Will Hunting&#x27;</span>, <span class="string">&#x27;The Pursuit of Happyness&#x27;</span>]</span><br><span class="line">idx = [<span class="string">&#x27;movie#1&#x27;</span>, <span class="string">&#x27;Movie#2&#x27;</span>, <span class="string">&#x27;movie#3&#x27;</span>]</span><br><span class="line"></span><br><span class="line">my_series = pd.Series(data = my_favorite_movie, index = idx)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series)</span><br><span class="line"><span class="comment">#movie#1          Dead Poets Society</span></span><br><span class="line"><span class="comment">#Movie#2           Good Will Hunting</span></span><br><span class="line"><span class="comment">#movie#3    The Pursuit of Happyness</span></span><br><span class="line"><span class="comment">#dtype: object</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">type</span>(my_series)</span><br><span class="line"><span class="comment">#pandas.core.series.Series</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 위에서는 pandas.Series의 인수로 리스트(data)를 넘겨서 series type의 데이터를 생성하였는데, dictionary 타입의 데이터도 넘겨서 처리할 수 있다.</span></span><br><span class="line"></span><br><span class="line">stock_dict = &#123;<span class="string">&#x27;Nvidia&#x27;</span>: <span class="number">10000</span>,</span><br><span class="line">              <span class="string">&#x27;Microsoft&#x27;</span>: <span class="number">20000</span>,</span><br><span class="line">              <span class="string">&#x27;Facebook&#x27;</span>: <span class="number">15000</span>,</span><br><span class="line">              <span class="string">&#x27;Amazon&#x27;</span>: <span class="number">20000</span>,</span><br><span class="line">              <span class="string">&#x27;Boeing&#x27;</span>: <span class="number">30000</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">type</span>(stock_dict)</span><br><span class="line"></span><br><span class="line">stock_dict_series = pd.Series(stock_dict)</span><br><span class="line">stock_dict_series</span><br><span class="line"></span><br><span class="line"><span class="comment">#Nvidia       10000</span></span><br><span class="line"><span class="comment">#Microsoft    20000</span></span><br><span class="line"><span class="comment">#Facebook     15000</span></span><br><span class="line"><span class="comment">#Amazon       20000</span></span><br><span class="line"><span class="comment">#Boeing       30000</span></span><br><span class="line"><span class="comment">#dtype: int64</span></span><br></pre></td></tr></table></figure>
+
+<h2><b>Data source / Type</b></h2>
+
+<p>Data source는 <code>image, audio/sound, time series/signals</code> 등 다양한 형태로 존재한다.<br>이러한 뎅니터 리소스를 얻는 것은 어려운데, 데이터를 얻기 위해서는 데이터 스크래핑 과정을 거쳐서 스크래핑한 데이터를 구조화시키고, 이를 분석해서 마케팅이나 기획에서 활용된다. Data scientist가 실무에서 80% 정도의 시간을 소요하는 부분이 바로 <code>데이터 준비 및 정제 / 데이터 전처리 및 결합</code>이다.</p>
+<p>데이터의 타입에는 크게 labeled data와 unlabeled data로 나뉘게 되는데, 별도로 supervisor가 시간과 비용을 들여서 labeling 과정을 거쳐 raw data에 labeling을 하는 경우에 <code>labeled data</code>가 만들어지게 된다.</p>
+<h2><b>Pandas series 속성</b></h2>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">&#x27;NVDA&#x27;</span>, <span class="string">&#x27;MSFT&#x27;</span>, <span class="string">&#x27;FB&#x27;</span>, <span class="string">&#x27;AMZN&#x27;</span>, <span class="string">&#x27;BA&#x27;</span>]</span><br><span class="line">my_series = pd.Series(data = my_list)</span><br><span class="line"><span class="built_in">print</span>(my_series)</span><br><span class="line"><span class="comment">#0    NVDA</span></span><br><span class="line"><span class="comment">#1    MSFT</span></span><br><span class="line"><span class="comment">#2      FB</span></span><br><span class="line"><span class="comment">#3    AMZN</span></span><br><span class="line"><span class="comment">#4      BA</span></span><br><span class="line"><span class="comment">#dtype: object</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series.values)</span><br><span class="line"><span class="comment">#array([&#x27;NVDA&#x27;, &#x27;MSFT&#x27;, &#x27;FB&#x27;, &#x27;AMZN&#x27;, &#x27;BA&#x27;], dtype=object)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series.index)</span><br><span class="line"><span class="comment">#RangeIndex(start=0, stop=5, step=1)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series.dtype)</span><br><span class="line"><span class="comment">#dtype(&#x27;O&#x27;) (&#x27;O&#x27; stands for &#x27;object&#x27; datatype)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series.is_unique)</span><br><span class="line"><span class="comment">#True (모든 값이 Unique하기 때문에 True)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series.shape)</span><br><span class="line"><span class="comment">#(5,) (Pandas series가 One dimensional이기 때문에)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(my_series.size)</span><br><span class="line"><span class="comment">#5 (Pandas series의 size를 구하기 위해서는 size method를 사용해야 한다)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/02/202203/220302-pandas_master_class/" data-id="clwfoxhvo00tivi8l3rljd1o2" data-title="220302 AI를 위한 Pandas 본격적으로 시작하기 (데이터의 중요성과 Pandas series 속성)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Airflow/">Airflow</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ant-Design/">Ant-Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Vision/">Computer-Vision</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Pipeline/">Data-Pipeline</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Visualization/">Data-Visualization</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataStorage/">DataStorage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Environment/">Dev-Environment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker-K8s/">Docker&K8s</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end-interview/">Front-end-interview</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML/CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Test/">JavaScript-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Memoirs/">Memoirs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NextJS/">NextJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NiFi/">NiFi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NodeJS/">NodeJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Numpy/">Numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pandas/">Pandas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Test/">React-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS/">ReactJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS-TypeScript/">ReactJS-TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Resolved-Error/">Resolved-Error</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-Project-Diary/">Side-Project-Diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-project/">Side-project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terraform/">Terraform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/To-Be-Good-Front-end-Developer/">To-Be-Good-Front-end-Developer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-browser/">Web-browser</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API-Testing/" rel="tag">API-Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Airflow/" rel="tag">Airflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anchor-tag-security-issue/" rel="tag">Anchor-tag-security-issue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ant-design/" rel="tag">Ant-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aria-label/" rel="tag">Aria-label</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment/" rel="tag">Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment-feedback/" rel="tag">Assignment-feedback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autoenv/" rel="tag">Autoenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BaekjoonOnlineJudge/" rel="tag">BaekjoonOnlineJudge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-term/" rel="tag">Basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/" rel="tag">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-problem/" rel="tag">Brute-force-problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-search-Algorithm/" rel="tag">Brute-force-search-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bundle-size/" rel="tag">Bundle-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-Sprites/" rel="tag">CSS-Sprites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Certificates/" rel="tag">Certificates</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-design/" rel="tag">Class-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ComputerVision/" rel="tag">ComputerVision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consecutive-number-subsequence/" rel="tag">Consecutive-number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ContextAPI/" rel="tag">ContextAPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Counting-sort/" rel="tag">Counting-sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dashboard/" rel="tag">Dashboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Engineer-Projects/" rel="tag">Data-Engineer-Projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-structure-Theory/" rel="tag">Data-structure-Theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataFrames/" rel="tag">DataFrames</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataLake/" rel="tag">DataLake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataWarehouse/" rel="tag">DataWarehouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Decision-algorithm/" rel="tag">Decision-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dictionary-comprehension/" rel="tag">Dictionary-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engineer/" rel="tag">Engineer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Execution-context/" rel="tag">Execution-context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flex/" rel="tag">Flex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Float/" rel="tag">Float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flow/" rel="tag">Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git-Stash/" rel="tag">Git-Stash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grid/" rel="tag">Grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDP/" rel="tag">HDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML-CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-Request-Response/" rel="tag">HTTP-Request-Response</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank/" rel="tag">HackerRank</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-Image-Optimization/" rel="tag">Hexo-Image-Optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IR/" rel="tag">IR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Incomplete/" rel="tag">Incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/" rel="tag">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integration-Test/" rel="tag">Integration-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jasmine/" rel="tag">Jasmine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Basic/" rel="tag">JavaScript-Basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Engine/" rel="tag">JavaScript-Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Map/" rel="tag">JavaScript-Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-module-pattern/" rel="tag">JavaScript-module-pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-unit-test/" rel="tag">JavaScript-unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest-matcher/" rel="tag">Jest-matcher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kibana/" rel="tag">Kibana</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lag/" rel="tag">Lag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lazy/" rel="tag">Lazy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Library/" rel="tag">Library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-list/" rel="tag">Linked-list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-comprehension/" rel="tag">List-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Memoirs/" rel="tag">Memoirs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobile-first-method/" rel="tag">Mobile-first-method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobx/" rel="tag">Mobx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NiFi/" rel="tag">NiFi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Number-subsequence/" rel="tag">Number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/" rel="tag">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Passport-js/" rel="tag">Passport.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/" rel="tag">Pig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portfolio/" rel="tag">Portfolio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Practice/" rel="tag">Practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ProbabilityPuzzle/" rel="tag">ProbabilityPuzzle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PseudoCode/" rel="tag">PseudoCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pull-Request/" rel="tag">Pull-Request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pyenv/" rel="tag">Pyenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Assignment/" rel="tag">Python-Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDS/" rel="tag">RDS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/" rel="tag">RaspberryPi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Framework/" rel="tag">React-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Jest/" rel="tag">React-Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router/" rel="tag">React-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router-test/" rel="tag">React-router-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/" rel="tag">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS-Axios/" rel="tag">ReactJS-Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursive-function/" rel="tag">Recursive-function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolved-Error/" rel="tag">Resolved-Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/" rel="tag">RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLD/" rel="tag">SQLD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seaborn/" rel="tag">Seaborn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Self-Development/" rel="tag">Self-Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-scaling/" rel="tag">Server-scaling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Side-Project-Diary/" rel="tag">Side-Project-Diary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sliding-window/" rel="tag">Sliding-window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack-frame/" rel="tag">Stack-frame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/" rel="tag">Study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Suspense/" rel="tag">Suspense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTI/" rel="tag">TTI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTV/" rel="tag">TTV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tableau/" rel="tag">Tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terraform/" rel="tag">Terraform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test-Scenario/" rel="tag">Test-Scenario</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree-traversal/" rel="tag">Tree-traversal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuple/" rel="tag">Tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Two-pointer-algorithm/" rel="tag">Two-pointer-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-test/" rel="tag">Unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-testing/" rel="tag">Unit-testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv/" rel="tag">Virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/" rel="tag">Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-API/" rel="tag">Web-API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-basic/" rel="tag">Web-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-browser/" rel="tag">Web-browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work-life-balance/" rel="tag">Work-life-balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZoneJS/" rel="tag">ZoneJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/" rel="tag">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basic-term/" rel="tag">basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dummy-data/" rel="tag">dummy-data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/faker/" rel="tag">faker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hotfix-branch/" rel="tag">hotfix-branch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/incomplete/" rel="tag">incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-script/" rel="tag">react-script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/repository/" rel="tag">repository</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-development/" rel="tag">self-development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-binding/" rel="tag">this-binding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 17.2px;">AI</a> <a href="/tags/API-Testing/" style="font-size: 10px;">API-Testing</a> <a href="/tags/AWS/" style="font-size: 16.4px;">AWS</a> <a href="/tags/Airflow/" style="font-size: 11.2px;">Airflow</a> <a href="/tags/Algorithm/" style="font-size: 18.4px;">Algorithm</a> <a href="/tags/Anchor-tag-security-issue/" style="font-size: 10px;">Anchor-tag-security-issue</a> <a href="/tags/Angular/" style="font-size: 11.6px;">Angular</a> <a href="/tags/Ant-design/" style="font-size: 10px;">Ant-design</a> <a href="/tags/Aria-label/" style="font-size: 10px;">Aria-label</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Assignment/" style="font-size: 15.6px;">Assignment</a> <a href="/tags/Assignment-feedback/" style="font-size: 10px;">Assignment-feedback</a> <a href="/tags/Autoenv/" style="font-size: 10px;">Autoenv</a> <a href="/tags/BaekjoonOnlineJudge/" style="font-size: 16px;">BaekjoonOnlineJudge</a> <a href="/tags/Basic-term/" style="font-size: 10px;">Basic-term</a> <a href="/tags/BigData/" style="font-size: 18.8px;">BigData</a> <a href="/tags/Bigdata/" style="font-size: 10px;">Bigdata</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Brute-force-problem/" style="font-size: 10px;">Brute-force-problem</a> <a href="/tags/Brute-force-search-Algorithm/" style="font-size: 10px;">Brute-force-search-Algorithm</a> <a href="/tags/Bundle-size/" style="font-size: 10px;">Bundle-size</a> <a href="/tags/CORS/" style="font-size: 10.4px;">CORS</a> <a href="/tags/CSS/" style="font-size: 13.2px;">CSS</a> <a href="/tags/CSS-Sprites/" style="font-size: 10px;">CSS-Sprites</a> <a href="/tags/Certificates/" style="font-size: 12px;">Certificates</a> <a href="/tags/Class-design/" style="font-size: 10px;">Class-design</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/Consecutive-number-subsequence/" style="font-size: 10px;">Consecutive-number-subsequence</a> <a href="/tags/ContextAPI/" style="font-size: 10px;">ContextAPI</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Counting-sort/" style="font-size: 10px;">Counting-sort</a> <a href="/tags/Dashboard/" style="font-size: 10px;">Dashboard</a> <a href="/tags/Data-Engineer-Projects/" style="font-size: 10px;">Data-Engineer-Projects</a> <a href="/tags/Data-Pipeline/" style="font-size: 19.2px;">Data-Pipeline</a> <a href="/tags/Data-structure-Theory/" style="font-size: 11.2px;">Data-structure-Theory</a> <a href="/tags/DataFrames/" style="font-size: 10px;">DataFrames</a> <a href="/tags/DataLake/" style="font-size: 10px;">DataLake</a> <a href="/tags/DataWarehouse/" style="font-size: 10px;">DataWarehouse</a> <a href="/tags/Decision-algorithm/" style="font-size: 10px;">Decision-algorithm</a> <a href="/tags/Dictionary-comprehension/" style="font-size: 10px;">Dictionary-comprehension</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/EMR/" style="font-size: 12.8px;">EMR</a> <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/Engineer/" style="font-size: 10px;">Engineer</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Execution-context/" style="font-size: 10px;">Execution-context</a> <a href="/tags/Express-Framework/" style="font-size: 10px;">Express Framework</a> <a href="/tags/Express-Framework/" style="font-size: 11.2px;">Express-Framework</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Float/" style="font-size: 10px;">Float</a> <a href="/tags/Flow/" style="font-size: 10px;">Flow</a> <a href="/tags/Framework/" style="font-size: 10px;">Framework</a> <a href="/tags/Git/" style="font-size: 12.4px;">Git</a> <a href="/tags/Git-Stash/" style="font-size: 10px;">Git-Stash</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 10px;">Greedy-Algorithm</a> <a href="/tags/Grid/" style="font-size: 10px;">Grid</a> <a href="/tags/HDFS/" style="font-size: 12.8px;">HDFS</a> <a href="/tags/HDP/" style="font-size: 11.2px;">HDP</a> <a href="/tags/HTML/" style="font-size: 13.2px;">HTML</a> <a href="/tags/HTML-CSS/" style="font-size: 11.6px;">HTML-CSS</a> <a href="/tags/HTTP-Request-Response/" style="font-size: 10.4px;">HTTP-Request-Response</a> <a href="/tags/HackerRank/" style="font-size: 10.4px;">HackerRank</a> <a href="/tags/Hadoop/" style="font-size: 14.8px;">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Image-Optimization/" style="font-size: 10px;">Hexo-Image-Optimization</a> <a href="/tags/Hive/" style="font-size: 14px;">Hive</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/Incomplete/" style="font-size: 14px;">Incomplete</a> <a href="/tags/Installation/" style="font-size: 10.8px;">Installation</a> <a href="/tags/Integration-Test/" style="font-size: 10px;">Integration-Test</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/Jasmine/" style="font-size: 10.4px;">Jasmine</a> <a href="/tags/JavaScript/" style="font-size: 14.8px;">JavaScript</a> <a href="/tags/JavaScript-Basic/" style="font-size: 11.2px;">JavaScript-Basic</a> <a href="/tags/JavaScript-Engine/" style="font-size: 10px;">JavaScript-Engine</a> <a href="/tags/JavaScript-Map/" style="font-size: 10px;">JavaScript-Map</a> <a href="/tags/JavaScript-module-pattern/" style="font-size: 10.4px;">JavaScript-module-pattern</a> <a href="/tags/JavaScript-unit-test/" style="font-size: 11.6px;">JavaScript-unit-test</a> <a href="/tags/Jest/" style="font-size: 13.2px;">Jest</a> <a href="/tags/Jest-matcher/" style="font-size: 10px;">Jest-matcher</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 11.2px;">Kubernetes</a> <a href="/tags/Lag/" style="font-size: 10px;">Lag</a> <a href="/tags/Lazy/" style="font-size: 10px;">Lazy</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linked-list/" style="font-size: 10px;">Linked-list</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/List-comprehension/" style="font-size: 10px;">List-comprehension</a> <a href="/tags/ML/" style="font-size: 13.6px;">ML</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/MapReduce/" style="font-size: 12px;">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Memoirs/" style="font-size: 12px;">Memoirs</a> <a href="/tags/Mobile-first-method/" style="font-size: 10px;">Mobile-first-method</a> <a href="/tags/Mobx/" style="font-size: 10px;">Mobx</a> <a href="/tags/MySQL/" style="font-size: 10.8px;">MySQL</a> <a href="/tags/NiFi/" style="font-size: 10px;">NiFi</a> <a href="/tags/Node/" style="font-size: 10.4px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 14.4px;">NodeJS</a> <a href="/tags/Number-subsequence/" style="font-size: 10px;">Number-subsequence</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Pandas/" style="font-size: 13.2px;">Pandas</a> <a href="/tags/Passport-js/" style="font-size: 10px;">Passport.js</a> <a href="/tags/Pig/" style="font-size: 10.4px;">Pig</a> <a href="/tags/Plotly/" style="font-size: 11.2px;">Plotly</a> <a href="/tags/Portfolio/" style="font-size: 10px;">Portfolio</a> <a href="/tags/Practice/" style="font-size: 10.4px;">Practice</a> <a href="/tags/ProbabilityPuzzle/" style="font-size: 10px;">ProbabilityPuzzle</a> <a href="/tags/Project/" style="font-size: 10px;">Project</a> <a href="/tags/PseudoCode/" style="font-size: 16.8px;">PseudoCode</a> <a href="/tags/Pull-Request/" style="font-size: 10.4px;">Pull-Request</a> <a href="/tags/Pyenv/" style="font-size: 10.4px;">Pyenv</a> <a href="/tags/Python/" style="font-size: 18px;">Python</a> <a href="/tags/Python-Assignment/" style="font-size: 10.4px;">Python-Assignment</a> <a href="/tags/RDS/" style="font-size: 11.6px;">RDS</a> <a href="/tags/RaspberryPi/" style="font-size: 10px;">RaspberryPi</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Framework/" style="font-size: 12px;">React-Framework</a> <a href="/tags/React-Jest/" style="font-size: 10.4px;">React-Jest</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/React-router-test/" style="font-size: 11.6px;">React-router-test</a> <a href="/tags/React-testing-library/" style="font-size: 12.4px;">React-testing-library</a> <a href="/tags/ReactJS/" style="font-size: 11.2px;">ReactJS</a> <a href="/tags/ReactJS-Axios/" style="font-size: 10px;">ReactJS-Axios</a> <a href="/tags/Recursive-function/" style="font-size: 10px;">Recursive-function</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Resolved-Error/" style="font-size: 10px;">Resolved-Error</a> <a href="/tags/RxJS/" style="font-size: 10px;">RxJS</a> <a href="/tags/SQL/" style="font-size: 12.4px;">SQL</a> <a href="/tags/SQLD/" style="font-size: 10px;">SQLD</a> <a href="/tags/SSG/" style="font-size: 10px;">SSG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Seaborn/" style="font-size: 10px;">Seaborn</a> <a href="/tags/Selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/Self-Development/" style="font-size: 19.6px;">Self-Development</a> <a href="/tags/Server-scaling/" style="font-size: 10px;">Server-scaling</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 10px;">Set</a> <a href="/tags/Side-Project-Diary/" style="font-size: 12.4px;">Side-Project-Diary</a> <a href="/tags/Sliding-window/" style="font-size: 10px;">Sliding-window</a> <a href="/tags/Sort/" style="font-size: 13.6px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10.4px;">Sorting</a> <a href="/tags/Spark/" style="font-size: 10.4px;">Spark</a> <a href="/tags/Spring/" style="font-size: 10.4px;">Spring</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Stack-frame/" style="font-size: 11.2px;">Stack-frame</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Suspense/" style="font-size: 10px;">Suspense</a> <a href="/tags/TDD/" style="font-size: 11.6px;">TDD</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TTI/" style="font-size: 10px;">TTI</a> <a href="/tags/TTV/" style="font-size: 10px;">TTV</a> <a href="/tags/Tableau/" style="font-size: 10px;">Tableau</a> <a href="/tags/Terraform/" style="font-size: 10.8px;">Terraform</a> <a href="/tags/Test-Scenario/" style="font-size: 10.8px;">Test-Scenario</a> <a href="/tags/Tree-traversal/" style="font-size: 10.4px;">Tree-traversal</a> <a href="/tags/Tuple/" style="font-size: 10px;">Tuple</a> <a href="/tags/Two-pointer-algorithm/" style="font-size: 10px;">Two-pointer-algorithm</a> <a href="/tags/TypeScript/" style="font-size: 15.2px;">TypeScript</a> <a href="/tags/Unit-Test/" style="font-size: 10.4px;">Unit-Test</a> <a href="/tags/Unit-test/" style="font-size: 10.8px;">Unit-test</a> <a href="/tags/Unit-testing/" style="font-size: 12px;">Unit-testing</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Virtualenv/" style="font-size: 10.4px;">Virtualenv</a> <a href="/tags/Visualization/" style="font-size: 10.4px;">Visualization</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Web-API/" style="font-size: 10px;">Web-API</a> <a href="/tags/Web-basic/" style="font-size: 10px;">Web-basic</a> <a href="/tags/Web-browser/" style="font-size: 10px;">Web-browser</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/Work-life-balance/" style="font-size: 10.4px;">Work-life-balance</a> <a href="/tags/ZoneJS/" style="font-size: 10px;">ZoneJS</a> <a href="/tags/babel/" style="font-size: 10.4px;">babel</a> <a href="/tags/basic-term/" style="font-size: 11.2px;">basic-term</a> <a href="/tags/dummy-data/" style="font-size: 10.4px;">dummy-data</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/faker/" style="font-size: 10.4px;">faker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hotfix-branch/" style="font-size: 10px;">hotfix-branch</a> <a href="/tags/incomplete/" style="font-size: 10px;">incomplete</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react-script/" style="font-size: 10px;">react-script</a> <a href="/tags/repository/" style="font-size: 10px;">repository</a> <a href="/tags/self-development/" style="font-size: 17.6px;">self-development</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/this-binding/" style="font-size: 10px;">this-binding</a> <a href="/tags/webpack/" style="font-size: 10.8px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/16/202210/221016_spring_error/">221016 Mapper class Bean 등록 Issue</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/15/202210/221015_spring_study/">221015 Spring boot 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/202210/221008_apache_nifi_study/">221008 Apache NiFi 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/13/202208/220813_docker_study/">220813 Docker 스터디</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/08/202208/220808_airflow_on_docker/">220808 Apache Airflow</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

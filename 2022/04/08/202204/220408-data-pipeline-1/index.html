@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>220408 데이터 파이프라인의 구축 - 1 | HYUNGI&#39;S TECH BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="이번 포스팅에서는 데이터 수집 -&gt; 전처리 및 저장 -&gt; 분석&#x2F;시각화에 이르는 데이터 파이프라인의 흐름에 대해 이해하고, 각 단계에서 필요한 AWS 서비스와 각 각의 용어와 의미에 대해서 정리해보려고 한다.(정리를 하는 이유는 반복학습을 위해서이다. 물론 한 번에 보고 이해를 하고 외워지면 좋겠지만, 그렇지 않기 때문에 정리를 하는 것">
+<meta property="og:type" content="article">
+<meta property="og:title" content="220408 데이터 파이프라인의 구축 - 1">
+<meta property="og:url" content="http://example.com/2022/04/08/202204/220408-data-pipeline-1/index.html">
+<meta property="og:site_name" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:description" content="이번 포스팅에서는 데이터 수집 -&gt; 전처리 및 저장 -&gt; 분석&#x2F;시각화에 이르는 데이터 파이프라인의 흐름에 대해 이해하고, 각 단계에서 필요한 AWS 서비스와 각 각의 용어와 의미에 대해서 정리해보려고 한다.(정리를 하는 이유는 반복학습을 위해서이다. 물론 한 번에 보고 이해를 하고 외워지면 좋겠지만, 그렇지 않기 때문에 정리를 하는 것">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/post_images/220408_data-pipeline.webp">
+<meta property="og:image" content="http://example.com/images/post_images/220408_data_pipeline_architecture.png">
+<meta property="article:published_time" content="2022-04-08T03:28:00.000Z">
+<meta property="article:modified_time" content="2024-05-21T01:00:15.287Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="BigData">
+<meta property="article:tag" content="Data-Pipeline">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/post_images/220408_data-pipeline.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HYUNGI&#39;S TECH BLOG</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-202204/220408-data-pipeline-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/08/202204/220408-data-pipeline-1/" class="article-date">
+  <time class="dt-published" datetime="2022-04-08T03:28:00.000Z" itemprop="datePublished">2022-04-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Pipeline/">Data-Pipeline</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      220408 데이터 파이프라인의 구축 - 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <div align="center">
+  <img src="/images/post_images/220408_data-pipeline.webp" alt="데이터 파이프라인(Data Pipeline)">
+</div>
+
+<p>이번 포스팅에서는 <code>데이터 수집 -&gt; 전처리 및 저장 -&gt; 분석/시각화</code>에 이르는 데이터 파이프라인의 흐름에 대해 이해하고, 각 단계에서 필요한 AWS 서비스와 각 각의 용어와 의미에 대해서 정리해보려고 한다.<br>(정리를 하는 이유는 반복학습을 위해서이다. 물론 한 번에 보고 이해를 하고 외워지면 좋겠지만, 그렇지 않기 때문에 정리를 하는 것이고, 시간날때마다 반복해서 보고 추가적으로 다른 제 3자에서 설명할 수 있을때까지 추가적인 노력하자)<br><code>탄탄한 이론 위에서 실습을 해야 향후에 새로운 기술들이 나왔을 때 연결고리를 만들어서 새롭게 가지치기를 하면서 학습을 이어나갈 수 있다.</code></p>
+<p>데이터 엔지니어 채용관련 공고를 보았을 때 드는 생각이 AWS 클라우드 환경에서의 개발&#x2F;운영 경험에 대한 요구사항이 많았다.</p>
+<p>그렇다면, 온프레미스(On-premise)방식과 클라우드 환경에서의 데이터 처리가 차이가 있다는 것인데, 요구사항이 많다는 것은 <code>온프레미스 방식보다는 클라우드 환경에서의 데이터 처리가 훨씬 더 효율적이고 좋다는 결론</code>이 나온다.<br>앞으로 클라우드 환경에서 데이터 파이프라인을 구축했을 때의 장점에 대해서 인지하면서 실습을 해보도록 하겠다.</p>
+<h2 id="1-데이터-파이프라인의-흐름의-이해-STEP-BY-STEP"><a href="#1-데이터-파이프라인의-흐름의-이해-STEP-BY-STEP" class="headerlink" title="(1) 데이터 파이프라인의 흐름의 이해 STEP BY STEP"></a><ins><b>(1) 데이터 파이프라인의 흐름의 이해 STEP BY STEP</b></ins></h2><p>파이프라인은 하나의 데이터 처리 단계의 출력이 다음 단계의 입력으로 이어지는 형태로, 서로 파이프가 연결된 것과 같은 연결구조로 생각하면 된다.</p>
+<span id="more"></span>
+
+<p><code>[1단계] 데이터 수집</code> : 이 데이터가 왜 중요한지? 요구사항 수집 및 데이터 선정</p>
+<p><code>[2단계] 데이터 전처리(Transformation) 저장</code> : 데이터 수집 단계에서 취득한 데이터를 전처리하고 저장하는 과정</p>
+<p><code>[3단계] 데이터 시각화 분석</code> : 전처리 후 저장된 데이터를 SQL이나 데이터 시각화 지식이 없는 다른 부서에 제공을 해주기 위한 데이터 시각화 과정</p>
+<!-- more -->
+
+<div align="center">
+  <img src="/images/post_images/220408_data_pipeline_architecture.png" alt="데이터 파이프라인 아키텍처">
+</div>
+
+<h2 id="2-데이터-파이프라인에-필요한-AWS-서비스에-대한-이해"><a href="#2-데이터-파이프라인에-필요한-AWS-서비스에-대한-이해" class="headerlink" title="(2) 데이터 파이프라인에 필요한 AWS 서비스에 대한 이해"></a><ins><b>(2) 데이터 파이프라인에 필요한 AWS 서비스에 대한 이해</b></ins></h2><p>앞서 이미 정리를 했지만 온프레미스 방식의 서버 운영보다는 AWS와 같은 클라우드 기반의 서버 운영방식(off-premise)이 훨씬 장점이 많다고 했다. 그렇다면, AWS 서비스를 기반으로 데이터 파이프라인을 구축했을 때, 많은 AWS 서비스 중에서 어떤 서비스를 선택해서 사용해야되고, 해당 서비스가 어떤 기능을 제공하는지에 대한 기반 지식이 필요하다.<br>이번 파트에서는 AWS 기반으로 데이터 파이프라인을 구축했을 때, 데이터 파이프라인의 각 세션(수집&#x2F;전처리 및 저장&#x2F;분석 및 시각화)에서 AWS의 어떤 서비스를 적용해야되는지에 대해 정리를 해보려고 한다.</p>
+<h3 id="데이터-생성의-원천"><a href="#데이터-생성의-원천" class="headerlink" title="데이터 생성의 원천"></a><strong>데이터 생성의 원천</strong></h3><p>기업에서 서비스를 운영할때, 데이터 기반으로 기존에 운영하고 있는 서비스를 개선한다는 이야기는 많이 들어봤다. 따라서 데이터란 기본적으로 운영되는 서비스의 기반 플랫폼이 되는 앱 또는 웹 사이트에 의해서 발생하는 이벤트를 통해 데이터가 생성되며, 이를 통해 수집할 수 있다.<br>수집된 데이터를 기준으로 서비스를 이용하고 있는 고객들의 성향이나 고객이 필요로하는 서비스를 분석하여, 서비스 개선시에 반영을 하고 있다.</p>
+<p>각 기업마다 사용되는 외부에서 제공되는 분석 서비스가 있는데, 그 예로, <code>앱스플라이어</code>와 같은 서비스가 있다. 클라우드가 활성화되면서 이를 통해 간단하게 스크립트만 넣으면 원하는 데이터를 뽑을 수 있도록 하는 서비스의 형태이다.</p>
+<p><code>[1단계] 데이터 수집 단계</code> :<br>데이터 수집 단계에는 아래의 <code>네 가지 AWS 서비스</code>가 있다.</p>
+<ul>
+<li>Amazon Kinesis Streams</li>
+<li>Amazon Kinesis Firehose</li>
+<li>Amazon API Gate wway</li>
+<li>Lambda function</li>
+</ul>
+<p>우선 <code>첫 번째 Amazon Kinesis Streams</code>은 일종의 큐 서비스이며, 레디스 큐(&#x3D;스트림 큐))라고도 한다. 스트림은 흐름의 의미로, 강물에 비유하기도 하며 앞단부터 차근차근 쌓아놓고 흘러가는 데이터의 형태라고 이해하면 된다.<br>강물에서 물고기를 그물을 사용해서 잡는다고 가정했을 때, 강물이 바로 분석하고자 하는 데이터이고, 물고기가 바로 내가 찾고자하는 데이터이며, 던진 그물의 크기를 <code>윈도우</code>라고 한다.</p>
+<p>데이터 전체를 일괄적으로 저장할 수 없기 때문에 폭포가 있는 강처럼 일정 사이즈 용량으로 한정하고, 일정 시간이 되면, 데이터가 소멸하게 되는 형태로 구성된다.</p>
+<p>데이터를 스트림 형태로 사용하는 이유는 <code>대량의 데이터를 가지고 있기 때문에 여러 서비스에서 분석 가능</code>하며, 만약 앱상에서 발생한 데이터를 클라우드에 저장하거나 한다면, 사용자가 앱 내에서 네이게이션을 하고 있을 때 앱의 퍼포먼스에 영향을 줘서 버벅거리거나 하는 사용감에 불편함을 줄 수 있다.<br>앞서 언급한 단점으로 인해서 스트림 형태로 데이터를 사용한다.</p>
+<p><code>수집된 데이터 -&gt; RDBMS에 직접 저장</code>하게 되면, RDBMS는 리소스가 한정적이기 때문에, 트래픽이 일괄적으로 몰리면 앱이 느려지는 경향이 있다.<br>따라서 이러한 경우에는 <code>수집된 데이터 -&gt; (큐 서비스) -&gt; RDBMS</code>의 형태로 RDBMS에 데이터를 적재하기 전에 큐 서비스가 사이에서 모든 데이터를 받고, 사용자가 네비게이션을 할 때 불편함이 없도록 원활하게 앱이 동작할 수 있도록 도와준다.</p>
+<p><code>두 번째로 Amazon Kinesis Firehose</code>라는 큐에 있는 데이터를 별도의 코딩없이 S3에 저장할 수 있도록 지원하는 서비스가 있다. (요즘에는 S3 뿐 아니라 ElasticSearch와 같은 third party에 실시간으로 데이터를 넣을 수 있는 스토리지가 있다)</p>
+<p><code>세 번째로 Amazon API Gate way</code>라는 외부에서 웹&#x2F;앱에서 AWS와 연결시켜주는 역할을 해주는 프록시 서비스가 있다. 각 서비스간에 서로 영향을 주지 않는 마이크로 서비스라고도 하며, 10개의 서비스 중에 1개의 서비스가 fail out이 되더라도 나머지 9개가 정상적으로 동작할 수 있도록 도와주는 서비스이다.</p>
+<p><code>마지막으로 네 번째, Lambda function</code>이있다. Lambda function은 Event-driven 데이터 처리를 할때 이벤트에서 발생하는 여러가지 서비스를 핸들링하기 위해서 사용된다.</p>
+<p>초기에는 <code>Amazon kinesis Stream -&gt; (Lambda function) -&gt; S3 / RDBMS</code>의 형태로 해서 데이터를 저장하였다.</p>
+<p><code>[1.5단계] 데이터 수집과 전처리의 교차점</code> : AWS Glue</p>
+<p>이 과정에는 AWS Glue라는 서비스가 있다.<br>우선 AWS Glue의 등장배경은 AWS의 Pipeline이라는 서비스이다. 데이터 파이프라인을 통해서 기본적인 ETL(Extract&#x2F;Transformation&#x2F;Load)라는 처리를 하게 되는데, Amazon의 Pipeline이라는 녀석이 관리되는 파이프라인이 많아졌을 때 관리 및 운영하는데 어려움이 있었기 때문에 이러한 문제를 개선하기 위해 등장한 친구가 바로 <code>AWS Glue</code>이다. AWS Glue에는 파이프라인의 기본적인 서비스들이 추가가 되어있으며, 가장 비용 효율적으로 잘 활용되고 있는 부분은 바로 <code>메타 스토어 정보</code>가 포함되어있는 부분이다. 이 메타 스토어 정보에는 <code>데이터 위치/포멧/버전의 변경사항</code>등에 대한 정보를 포함하고 있다.</p>
+<p><code>[2단계] 전처리 및 저장</code> : Amazon S3, Amazon EMR</p>
+<p><code>Amazon EMR</code>는 AWS에 있는 <code>Hadoop Eco System을 가지고 있는 관리형 서비스</code>이다.<br>과거에는 하둡을 설정하려면 서버에서 리눅스 설치, 하둡에 필요한 라이브러리 및 서비스를 설치하고 각 노드들을 연결하기 위해 네이밍을 하는 작업들을 해야만 했는데, 대략 2주정도 소요가 된다고 한다.<br>그런데 이 Amazon EMR을 이용하면, 기본적으로 구축된 환경을 제공해기 때문에 최대 5-10분 사이에 구축된 서비스를 이용할 수 있다.<br>Amazon EMR을 통해 전처리하고 전처리된 데이터를 저장하고자하는 타겟 요소에 저장되도록 도와준다.</p>
+<p><code>[3단계] 분석 및 시각화</code> : AWS Athena, Tableau, Periscope Data, Superset<br>AWS Athena는 adhoc하게 데이터를 분석할 수 있도록 도와준다.<br>그외의 시각화 툴인 녀석들을 이용해서 SQL관련 지식이 없는 타 부서 업무 담당자에게 시각화를 해서 정보를 제공해줄 수 있다.</p>
+<p>앞서 정리한 <code>[1단계] ~ [3단계]</code>에서 정리한 내용은 틈틈이 실습을 하면서 내가 지금 하고있는 실습이 몇 단계에 해당되는 내용인지 확인을 하고 실습 및 활용을 하는 것이 좋다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/08/202204/220408-data-pipeline-1/" data-id="clwfoxhw3010bvi8lgsvzhcku" data-title="220408 데이터 파이프라인의 구축 - 1" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/04/08/202204/220408-data-pipeline-term/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          220408 데이터 파이프라인 학습 용어 정리
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/05/202204/220405-hadoop_bigdata_class/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">220405 Hadoop과 친해지기 그 네 번째 이야기</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Airflow/">Airflow</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ant-Design/">Ant-Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Vision/">Computer-Vision</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Pipeline/">Data-Pipeline</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Visualization/">Data-Visualization</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataStorage/">DataStorage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Environment/">Dev-Environment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker-K8s/">Docker&K8s</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end-interview/">Front-end-interview</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML/CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Test/">JavaScript-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Memoirs/">Memoirs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NextJS/">NextJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NiFi/">NiFi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NodeJS/">NodeJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Numpy/">Numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pandas/">Pandas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Test/">React-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS/">ReactJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS-TypeScript/">ReactJS-TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Resolved-Error/">Resolved-Error</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-Project-Diary/">Side-Project-Diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-project/">Side-project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terraform/">Terraform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/To-Be-Good-Front-end-Developer/">To-Be-Good-Front-end-Developer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-browser/">Web-browser</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API-Testing/" rel="tag">API-Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Airflow/" rel="tag">Airflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anchor-tag-security-issue/" rel="tag">Anchor-tag-security-issue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ant-design/" rel="tag">Ant-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aria-label/" rel="tag">Aria-label</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment/" rel="tag">Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment-feedback/" rel="tag">Assignment-feedback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autoenv/" rel="tag">Autoenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BaekjoonOnlineJudge/" rel="tag">BaekjoonOnlineJudge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-term/" rel="tag">Basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/" rel="tag">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-problem/" rel="tag">Brute-force-problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-search-Algorithm/" rel="tag">Brute-force-search-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bundle-size/" rel="tag">Bundle-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-Sprites/" rel="tag">CSS-Sprites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Certificates/" rel="tag">Certificates</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-design/" rel="tag">Class-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ComputerVision/" rel="tag">ComputerVision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consecutive-number-subsequence/" rel="tag">Consecutive-number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ContextAPI/" rel="tag">ContextAPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Counting-sort/" rel="tag">Counting-sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dashboard/" rel="tag">Dashboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Engineer-Projects/" rel="tag">Data-Engineer-Projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-structure-Theory/" rel="tag">Data-structure-Theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataFrames/" rel="tag">DataFrames</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataLake/" rel="tag">DataLake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataWarehouse/" rel="tag">DataWarehouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Decision-algorithm/" rel="tag">Decision-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dictionary-comprehension/" rel="tag">Dictionary-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engineer/" rel="tag">Engineer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Execution-context/" rel="tag">Execution-context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flex/" rel="tag">Flex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Float/" rel="tag">Float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flow/" rel="tag">Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git-Stash/" rel="tag">Git-Stash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grid/" rel="tag">Grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDP/" rel="tag">HDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML-CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-Request-Response/" rel="tag">HTTP-Request-Response</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank/" rel="tag">HackerRank</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-Image-Optimization/" rel="tag">Hexo-Image-Optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IR/" rel="tag">IR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Incomplete/" rel="tag">Incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/" rel="tag">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integration-Test/" rel="tag">Integration-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jasmine/" rel="tag">Jasmine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Basic/" rel="tag">JavaScript-Basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Engine/" rel="tag">JavaScript-Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Map/" rel="tag">JavaScript-Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-module-pattern/" rel="tag">JavaScript-module-pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-unit-test/" rel="tag">JavaScript-unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest-matcher/" rel="tag">Jest-matcher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kibana/" rel="tag">Kibana</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lag/" rel="tag">Lag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lazy/" rel="tag">Lazy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Library/" rel="tag">Library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-list/" rel="tag">Linked-list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-comprehension/" rel="tag">List-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Memoirs/" rel="tag">Memoirs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobile-first-method/" rel="tag">Mobile-first-method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobx/" rel="tag">Mobx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NiFi/" rel="tag">NiFi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Number-subsequence/" rel="tag">Number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/" rel="tag">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Passport-js/" rel="tag">Passport.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/" rel="tag">Pig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portfolio/" rel="tag">Portfolio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Practice/" rel="tag">Practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ProbabilityPuzzle/" rel="tag">ProbabilityPuzzle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PseudoCode/" rel="tag">PseudoCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pull-Request/" rel="tag">Pull-Request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pyenv/" rel="tag">Pyenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Assignment/" rel="tag">Python-Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDS/" rel="tag">RDS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/" rel="tag">RaspberryPi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Framework/" rel="tag">React-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Jest/" rel="tag">React-Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router/" rel="tag">React-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router-test/" rel="tag">React-router-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/" rel="tag">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS-Axios/" rel="tag">ReactJS-Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursive-function/" rel="tag">Recursive-function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolved-Error/" rel="tag">Resolved-Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/" rel="tag">RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLD/" rel="tag">SQLD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seaborn/" rel="tag">Seaborn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Self-Development/" rel="tag">Self-Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-scaling/" rel="tag">Server-scaling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Side-Project-Diary/" rel="tag">Side-Project-Diary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sliding-window/" rel="tag">Sliding-window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack-frame/" rel="tag">Stack-frame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/" rel="tag">Study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Suspense/" rel="tag">Suspense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTI/" rel="tag">TTI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTV/" rel="tag">TTV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tableau/" rel="tag">Tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terraform/" rel="tag">Terraform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test-Scenario/" rel="tag">Test-Scenario</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree-traversal/" rel="tag">Tree-traversal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuple/" rel="tag">Tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Two-pointer-algorithm/" rel="tag">Two-pointer-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-test/" rel="tag">Unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-testing/" rel="tag">Unit-testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv/" rel="tag">Virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/" rel="tag">Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-API/" rel="tag">Web-API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-basic/" rel="tag">Web-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-browser/" rel="tag">Web-browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work-life-balance/" rel="tag">Work-life-balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZoneJS/" rel="tag">ZoneJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/" rel="tag">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basic-term/" rel="tag">basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dummy-data/" rel="tag">dummy-data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/faker/" rel="tag">faker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hotfix-branch/" rel="tag">hotfix-branch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/incomplete/" rel="tag">incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-script/" rel="tag">react-script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/repository/" rel="tag">repository</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-development/" rel="tag">self-development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-binding/" rel="tag">this-binding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 17.2px;">AI</a> <a href="/tags/API-Testing/" style="font-size: 10px;">API-Testing</a> <a href="/tags/AWS/" style="font-size: 16.4px;">AWS</a> <a href="/tags/Airflow/" style="font-size: 11.2px;">Airflow</a> <a href="/tags/Algorithm/" style="font-size: 18.4px;">Algorithm</a> <a href="/tags/Anchor-tag-security-issue/" style="font-size: 10px;">Anchor-tag-security-issue</a> <a href="/tags/Angular/" style="font-size: 11.6px;">Angular</a> <a href="/tags/Ant-design/" style="font-size: 10px;">Ant-design</a> <a href="/tags/Aria-label/" style="font-size: 10px;">Aria-label</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Assignment/" style="font-size: 15.6px;">Assignment</a> <a href="/tags/Assignment-feedback/" style="font-size: 10px;">Assignment-feedback</a> <a href="/tags/Autoenv/" style="font-size: 10px;">Autoenv</a> <a href="/tags/BaekjoonOnlineJudge/" style="font-size: 16px;">BaekjoonOnlineJudge</a> <a href="/tags/Basic-term/" style="font-size: 10px;">Basic-term</a> <a href="/tags/BigData/" style="font-size: 18.8px;">BigData</a> <a href="/tags/Bigdata/" style="font-size: 10px;">Bigdata</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Brute-force-problem/" style="font-size: 10px;">Brute-force-problem</a> <a href="/tags/Brute-force-search-Algorithm/" style="font-size: 10px;">Brute-force-search-Algorithm</a> <a href="/tags/Bundle-size/" style="font-size: 10px;">Bundle-size</a> <a href="/tags/CORS/" style="font-size: 10.4px;">CORS</a> <a href="/tags/CSS/" style="font-size: 13.2px;">CSS</a> <a href="/tags/CSS-Sprites/" style="font-size: 10px;">CSS-Sprites</a> <a href="/tags/Certificates/" style="font-size: 12px;">Certificates</a> <a href="/tags/Class-design/" style="font-size: 10px;">Class-design</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/Consecutive-number-subsequence/" style="font-size: 10px;">Consecutive-number-subsequence</a> <a href="/tags/ContextAPI/" style="font-size: 10px;">ContextAPI</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Counting-sort/" style="font-size: 10px;">Counting-sort</a> <a href="/tags/Dashboard/" style="font-size: 10px;">Dashboard</a> <a href="/tags/Data-Engineer-Projects/" style="font-size: 10px;">Data-Engineer-Projects</a> <a href="/tags/Data-Pipeline/" style="font-size: 19.2px;">Data-Pipeline</a> <a href="/tags/Data-structure-Theory/" style="font-size: 11.2px;">Data-structure-Theory</a> <a href="/tags/DataFrames/" style="font-size: 10px;">DataFrames</a> <a href="/tags/DataLake/" style="font-size: 10px;">DataLake</a> <a href="/tags/DataWarehouse/" style="font-size: 10px;">DataWarehouse</a> <a href="/tags/Decision-algorithm/" style="font-size: 10px;">Decision-algorithm</a> <a href="/tags/Dictionary-comprehension/" style="font-size: 10px;">Dictionary-comprehension</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/EMR/" style="font-size: 12.8px;">EMR</a> <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/Engineer/" style="font-size: 10px;">Engineer</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Execution-context/" style="font-size: 10px;">Execution-context</a> <a href="/tags/Express-Framework/" style="font-size: 10px;">Express Framework</a> <a href="/tags/Express-Framework/" style="font-size: 11.2px;">Express-Framework</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Float/" style="font-size: 10px;">Float</a> <a href="/tags/Flow/" style="font-size: 10px;">Flow</a> <a href="/tags/Framework/" style="font-size: 10px;">Framework</a> <a href="/tags/Git/" style="font-size: 12.4px;">Git</a> <a href="/tags/Git-Stash/" style="font-size: 10px;">Git-Stash</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 10px;">Greedy-Algorithm</a> <a href="/tags/Grid/" style="font-size: 10px;">Grid</a> <a href="/tags/HDFS/" style="font-size: 12.8px;">HDFS</a> <a href="/tags/HDP/" style="font-size: 11.2px;">HDP</a> <a href="/tags/HTML/" style="font-size: 13.2px;">HTML</a> <a href="/tags/HTML-CSS/" style="font-size: 11.6px;">HTML-CSS</a> <a href="/tags/HTTP-Request-Response/" style="font-size: 10.4px;">HTTP-Request-Response</a> <a href="/tags/HackerRank/" style="font-size: 10.4px;">HackerRank</a> <a href="/tags/Hadoop/" style="font-size: 14.8px;">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Image-Optimization/" style="font-size: 10px;">Hexo-Image-Optimization</a> <a href="/tags/Hive/" style="font-size: 14px;">Hive</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/Incomplete/" style="font-size: 14px;">Incomplete</a> <a href="/tags/Installation/" style="font-size: 10.8px;">Installation</a> <a href="/tags/Integration-Test/" style="font-size: 10px;">Integration-Test</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/Jasmine/" style="font-size: 10.4px;">Jasmine</a> <a href="/tags/JavaScript/" style="font-size: 14.8px;">JavaScript</a> <a href="/tags/JavaScript-Basic/" style="font-size: 11.2px;">JavaScript-Basic</a> <a href="/tags/JavaScript-Engine/" style="font-size: 10px;">JavaScript-Engine</a> <a href="/tags/JavaScript-Map/" style="font-size: 10px;">JavaScript-Map</a> <a href="/tags/JavaScript-module-pattern/" style="font-size: 10.4px;">JavaScript-module-pattern</a> <a href="/tags/JavaScript-unit-test/" style="font-size: 11.6px;">JavaScript-unit-test</a> <a href="/tags/Jest/" style="font-size: 13.2px;">Jest</a> <a href="/tags/Jest-matcher/" style="font-size: 10px;">Jest-matcher</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 11.2px;">Kubernetes</a> <a href="/tags/Lag/" style="font-size: 10px;">Lag</a> <a href="/tags/Lazy/" style="font-size: 10px;">Lazy</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linked-list/" style="font-size: 10px;">Linked-list</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/List-comprehension/" style="font-size: 10px;">List-comprehension</a> <a href="/tags/ML/" style="font-size: 13.6px;">ML</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/MapReduce/" style="font-size: 12px;">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Memoirs/" style="font-size: 12px;">Memoirs</a> <a href="/tags/Mobile-first-method/" style="font-size: 10px;">Mobile-first-method</a> <a href="/tags/Mobx/" style="font-size: 10px;">Mobx</a> <a href="/tags/MySQL/" style="font-size: 10.8px;">MySQL</a> <a href="/tags/NiFi/" style="font-size: 10px;">NiFi</a> <a href="/tags/Node/" style="font-size: 10.4px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 14.4px;">NodeJS</a> <a href="/tags/Number-subsequence/" style="font-size: 10px;">Number-subsequence</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Pandas/" style="font-size: 13.2px;">Pandas</a> <a href="/tags/Passport-js/" style="font-size: 10px;">Passport.js</a> <a href="/tags/Pig/" style="font-size: 10.4px;">Pig</a> <a href="/tags/Plotly/" style="font-size: 11.2px;">Plotly</a> <a href="/tags/Portfolio/" style="font-size: 10px;">Portfolio</a> <a href="/tags/Practice/" style="font-size: 10.4px;">Practice</a> <a href="/tags/ProbabilityPuzzle/" style="font-size: 10px;">ProbabilityPuzzle</a> <a href="/tags/Project/" style="font-size: 10px;">Project</a> <a href="/tags/PseudoCode/" style="font-size: 16.8px;">PseudoCode</a> <a href="/tags/Pull-Request/" style="font-size: 10.4px;">Pull-Request</a> <a href="/tags/Pyenv/" style="font-size: 10.4px;">Pyenv</a> <a href="/tags/Python/" style="font-size: 18px;">Python</a> <a href="/tags/Python-Assignment/" style="font-size: 10.4px;">Python-Assignment</a> <a href="/tags/RDS/" style="font-size: 11.6px;">RDS</a> <a href="/tags/RaspberryPi/" style="font-size: 10px;">RaspberryPi</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Framework/" style="font-size: 12px;">React-Framework</a> <a href="/tags/React-Jest/" style="font-size: 10.4px;">React-Jest</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/React-router-test/" style="font-size: 11.6px;">React-router-test</a> <a href="/tags/React-testing-library/" style="font-size: 12.4px;">React-testing-library</a> <a href="/tags/ReactJS/" style="font-size: 11.2px;">ReactJS</a> <a href="/tags/ReactJS-Axios/" style="font-size: 10px;">ReactJS-Axios</a> <a href="/tags/Recursive-function/" style="font-size: 10px;">Recursive-function</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Resolved-Error/" style="font-size: 10px;">Resolved-Error</a> <a href="/tags/RxJS/" style="font-size: 10px;">RxJS</a> <a href="/tags/SQL/" style="font-size: 12.4px;">SQL</a> <a href="/tags/SQLD/" style="font-size: 10px;">SQLD</a> <a href="/tags/SSG/" style="font-size: 10px;">SSG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Seaborn/" style="font-size: 10px;">Seaborn</a> <a href="/tags/Selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/Self-Development/" style="font-size: 19.6px;">Self-Development</a> <a href="/tags/Server-scaling/" style="font-size: 10px;">Server-scaling</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 10px;">Set</a> <a href="/tags/Side-Project-Diary/" style="font-size: 12.4px;">Side-Project-Diary</a> <a href="/tags/Sliding-window/" style="font-size: 10px;">Sliding-window</a> <a href="/tags/Sort/" style="font-size: 13.6px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10.4px;">Sorting</a> <a href="/tags/Spark/" style="font-size: 10.4px;">Spark</a> <a href="/tags/Spring/" style="font-size: 10.4px;">Spring</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Stack-frame/" style="font-size: 11.2px;">Stack-frame</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Suspense/" style="font-size: 10px;">Suspense</a> <a href="/tags/TDD/" style="font-size: 11.6px;">TDD</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TTI/" style="font-size: 10px;">TTI</a> <a href="/tags/TTV/" style="font-size: 10px;">TTV</a> <a href="/tags/Tableau/" style="font-size: 10px;">Tableau</a> <a href="/tags/Terraform/" style="font-size: 10.8px;">Terraform</a> <a href="/tags/Test-Scenario/" style="font-size: 10.8px;">Test-Scenario</a> <a href="/tags/Tree-traversal/" style="font-size: 10.4px;">Tree-traversal</a> <a href="/tags/Tuple/" style="font-size: 10px;">Tuple</a> <a href="/tags/Two-pointer-algorithm/" style="font-size: 10px;">Two-pointer-algorithm</a> <a href="/tags/TypeScript/" style="font-size: 15.2px;">TypeScript</a> <a href="/tags/Unit-Test/" style="font-size: 10.4px;">Unit-Test</a> <a href="/tags/Unit-test/" style="font-size: 10.8px;">Unit-test</a> <a href="/tags/Unit-testing/" style="font-size: 12px;">Unit-testing</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Virtualenv/" style="font-size: 10.4px;">Virtualenv</a> <a href="/tags/Visualization/" style="font-size: 10.4px;">Visualization</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Web-API/" style="font-size: 10px;">Web-API</a> <a href="/tags/Web-basic/" style="font-size: 10px;">Web-basic</a> <a href="/tags/Web-browser/" style="font-size: 10px;">Web-browser</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/Work-life-balance/" style="font-size: 10.4px;">Work-life-balance</a> <a href="/tags/ZoneJS/" style="font-size: 10px;">ZoneJS</a> <a href="/tags/babel/" style="font-size: 10.4px;">babel</a> <a href="/tags/basic-term/" style="font-size: 11.2px;">basic-term</a> <a href="/tags/dummy-data/" style="font-size: 10.4px;">dummy-data</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/faker/" style="font-size: 10.4px;">faker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hotfix-branch/" style="font-size: 10px;">hotfix-branch</a> <a href="/tags/incomplete/" style="font-size: 10px;">incomplete</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react-script/" style="font-size: 10px;">react-script</a> <a href="/tags/repository/" style="font-size: 10px;">repository</a> <a href="/tags/self-development/" style="font-size: 17.6px;">self-development</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/this-binding/" style="font-size: 10px;">this-binding</a> <a href="/tags/webpack/" style="font-size: 10.8px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/16/202210/221016_spring_error/">221016 Mapper class Bean 등록 Issue</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/15/202210/221015_spring_study/">221015 Spring boot 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/202210/221008_apache_nifi_study/">221008 Apache NiFi 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/13/202208/220813_docker_study/">220813 Docker 스터디</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/08/202208/220808_airflow_on_docker/">220808 Apache Airflow</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

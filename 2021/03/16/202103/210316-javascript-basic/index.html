@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>210316 JavaScript TIL 4일차 - 함수, 함수의 정의, 함수 객체 생성, 프로토 타입, 프로토 타입 멤버 속성 추가/삭제, 객체의 동결, 즉시 실행함수, 중첩 함수, 콜백 함수, 순수 함수, 스코프, 전역변수 사용하지 말기, 일단 const로 변수 선언하기 | HYUNGI&#39;S TECH BLOG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Preview오늘은 내일 있을 자바스크립트 수업을 위해서 12장 함수 ~ 15장 let, const와 블록 레벨 스코프에 해당하는 교재의 내용을 읽어보고 개인적으로 궁금한 내용들을 찾아보며 공부해보았다. 우선 강사님이 함수 부분이 가장 중요하다고 하셔서 이 부분을 읽을때 좀 더 집중해서 읽어보았다.다시 한 번 읽어보고 싶은 내용에 대해서 다시 한 번 정리">
+<meta property="og:type" content="article">
+<meta property="og:title" content="210316 JavaScript TIL 4일차 - 함수, 함수의 정의, 함수 객체 생성, 프로토 타입, 프로토 타입 멤버 속성 추가&#x2F;삭제, 객체의 동결, 즉시 실행함수, 중첩 함수, 콜백 함수, 순수 함수, 스코프, 전역변수 사용하지 말기, 일단 const로 변수 선언하기">
+<meta property="og:url" content="http://example.com/2021/03/16/202103/210316-javascript-basic/index.html">
+<meta property="og:site_name" content="HYUNGI&#39;S TECH BLOG">
+<meta property="og:description" content="Preview오늘은 내일 있을 자바스크립트 수업을 위해서 12장 함수 ~ 15장 let, const와 블록 레벨 스코프에 해당하는 교재의 내용을 읽어보고 개인적으로 궁금한 내용들을 찾아보며 공부해보았다. 우선 강사님이 함수 부분이 가장 중요하다고 하셔서 이 부분을 읽을때 좀 더 집중해서 읽어보았다.다시 한 번 읽어보고 싶은 내용에 대해서 다시 한 번 정리">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/post_images/javascript_logo.png">
+<meta property="og:image" content="http://example.com/images/post_images/210314_javascript_note1.png">
+<meta property="og:image" content="http://example.com/images/post_images/210314_javascript_note2.png">
+<meta property="article:published_time" content="2021-03-15T18:30:42.000Z">
+<meta property="article:modified_time" content="2024-05-21T01:00:15.220Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Self-Development">
+<meta property="article:tag" content="Incomplete">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="JavaScript-Basic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/post_images/javascript_logo.png">
+  
+    <link rel="alternate" href="/atom.xml" title="HYUNGI'S TECH BLOG" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">HYUNGI&#39;S TECH BLOG</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-202103/210316-javascript-basic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/16/202103/210316-javascript-basic/" class="article-date">
+  <time class="dt-published" datetime="2021-03-15T18:30:42.000Z" itemprop="datePublished">2021-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      210316 JavaScript TIL 4일차 - 함수, 함수의 정의, 함수 객체 생성, 프로토 타입, 프로토 타입 멤버 속성 추가/삭제, 객체의 동결, 즉시 실행함수, 중첩 함수, 콜백 함수, 순수 함수, 스코프, 전역변수 사용하지 말기, 일단 const로 변수 선언하기
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/post_images/javascript_logo.png"></p>
+<h2 id="Preview"><a href="#Preview" class="headerlink" title="Preview"></a>Preview</h2><p>오늘은 내일 있을 자바스크립트 수업을 위해서 12장 함수 ~ 15장 let, const와 블록 레벨 스코프에 해당하는 교재의 내용을 읽어보고 개인적으로 궁금한 내용들을 찾아보며 공부해보았다.</p>
+<p>우선 강사님이 함수 부분이 가장 중요하다고 하셔서 이 부분을 읽을때 좀 더 집중해서 읽어보았다.<br>다시 한 번 읽어보고 싶은 내용에 대해서 다시 한 번 정리를 해두었다.</p>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>이번 수업에서 가장 중요한 개념은 중첩함수와 콜백함수의 개념이였다.</p>
+<h2 id="함수-fuction"><a href="#함수-fuction" class="headerlink" title="함수(fuction)"></a><ins><b>함수(fuction)</b></ins></h2><ul>
+<li><h3 id="자바스크립트에서-함수는-객체이다"><a href="#자바스크립트에서-함수는-객체이다" class="headerlink" title="자바스크립트에서 함수는 객체이다."></a>자바스크립트에서 함수는 객체이다.</h3><p>자바스크립트의 함수객체는 다른 일반 객체와는 다르다. 일반 객체는 호출할 수 없지만, 함수 객체는 호출할 수 있다.</p>
+<p>자바스크립트에서 함수는 객체이기 때문에 함수 객체만이 가질 수 있는 고유한 속성(property)를 가지고 있다.<br>아래 첨부한 노트의 첫 번째를 참고하자. 첫 번째 노트의 우측 상단부를 보면, 함수 객체가 가지는 고유속성 5가지(arguments, caller, length, name, prototype)가 있는 것을 알 수 있다.</p>
+<p>순차적으로 언급한 순서로 함수 객체의 고유 속성에 대해서 알아보도록 하자.</p>
+<ul>
+<li><h4 id="arguments-함수의-인수로-iterable한-유사배열-객체이다-함수-내부에서-사용되는-지역변수이며-가변-인자-넘겨받을-인수의-갯수가-정해지지-않았을때-함수-내부에서-사용될-수-있다"><a href="#arguments-함수의-인수로-iterable한-유사배열-객체이다-함수-내부에서-사용되는-지역변수이며-가변-인자-넘겨받을-인수의-갯수가-정해지지-않았을때-함수-내부에서-사용될-수-있다" class="headerlink" title="arguments : 함수의 인수로 iterable한 유사배열 객체이다. 함수 내부에서 사용되는 지역변수이며, 가변 인자((넘겨받을 인수의 갯수가 정해지지 않았을때 함수 내부에서 사용될 수 있다)"></a>arguments : 함수의 인수로 iterable한 유사배열 객체이다. 함수 내부에서 사용되는 지역변수이며, 가변 인자((넘겨받을 인수의 갯수가 정해지지 않았을때 함수 내부에서 사용될 수 있다)</h4><p>과거에 가변 인자의 사용으로 인해 argument라는 속성을 사용했지만, ES6에서 rest parameter의 개념이 도입되었다. (…args)</p>
+</li>
+<li><h4 id="caller-ECMAScript-사양에-포함되지-않은-비표준-property이다"><a href="#caller-ECMAScript-사양에-포함되지-않은-비표준-property이다" class="headerlink" title="caller : ECMAScript 사양에 포함되지 않은 비표준 property이다."></a>caller : ECMAScript 사양에 포함되지 않은 비표준 property이다.</h4></li>
+<li><h4 id="length-함수로-전달된-매개변수-parameter-의-갯수"><a href="#length-함수로-전달된-매개변수-parameter-의-갯수" class="headerlink" title="length : 함수로 전달된 매개변수(parameter)의 갯수"></a>length : 함수로 전달된 매개변수(parameter)의 갯수</h4></li>
+<li><h4 id="prototype-proto-type-object에-접근이-가능하게-해준다"><a href="#prototype-proto-type-object에-접근이-가능하게-해준다" class="headerlink" title="prototype : proto type object에 접근이 가능하게 해준다."></a>prototype : proto type object에 접근이 가능하게 해준다.</h4></li>
+</ul>
+<br/>
+</li>
+<li><h3 id="함수는-객체-타입의-값이다"><a href="#함수는-객체-타입의-값이다" class="headerlink" title="함수는 객체 타입의 값이다."></a>함수는 객체 타입의 값이다.</h3><span id="more"></span>
+
+<br/>
+</li>
+<li><h3 id="함수-선언문과-함수-리터럴"><a href="#함수-선언문과-함수-리터럴" class="headerlink" title="함수 선언문과 함수 리터럴"></a><ins><b>함수 선언문과 함수 리터럴</b></ins></h3><ul>
+<li><h4 id="함수-리터럴에는-표현식이-아닌-문-함수-선언문-과-표현식인-문-함수-리터럴-표현식-으로-구분"><a href="#함수-리터럴에는-표현식이-아닌-문-함수-선언문-과-표현식인-문-함수-리터럴-표현식-으로-구분" class="headerlink" title="함수 리터럴에는 표현식이 아닌 문(함수 선언문)과 표현식인 문(함수 리터럴 표현식)으로 구분"></a>함수 리터럴에는 표현식이 아닌 문(함수 선언문)과 표현식인 문(함수 리터럴 표현식)으로 구분</h4><p>단독으로 사용된 함수 리터럴은 함수 선언문으로 해석되며, 그룹 연산자()내에 있는 함수 리터럴은 함수 리터럴 표현식으로 해석된다.</p>
+<p>함수 리터럴에서 함수 이름은 함수 몸체 내에서만 참조할 수 있는 식별자이다. (함수를 가리키는 식별자가 없다. 즉 외부에서 함수 선언문을 호출할 수 없다)</p>
+<p>함수 선언문에서 함수 이름은 자바스크립트 엔진이 암묵적으로 같은 이름으로 식별자로서 생성한다. 따라서 외부에서 함수 선언문의 함수 이름을 통해서 호출이 가능하다.<br><b>함수는 함수의 이름으로 호출되는 것이 아니라 함수 객체를 가르키는 식별자로 호출되는 것이다.</b></p>
+</li>
+</ul>
+<br/>
+</li>
+<li><h3 id="자바스크립트의-함수는-일급-객체-first-class-object"><a href="#자바스크립트의-함수는-일급-객체-first-class-object" class="headerlink" title="자바스크립트의 함수는 일급 객체(first-class object)"></a><ins><b>자바스크립트의 함수는 일급 객체(first-class object)</b></ins></h3><ul>
+<li>무명의 리터럴로 생성이 가능하다. (선언과정 없이 정의만으로 함수를 생성하는 것이 가능하다는 말 (정의는 Runtime 과정에서 발생한다))</li>
+<li>변수나 객체&#x2F;배열 등의 자료구조에 담을 수 있다.</li>
+<li>함수의 매개 변수로 전달할 수 있다.</li>
+<li>함수의 반환값으로도 사용할 수 있다.</li>
+</ul>
+<br/>
+</li>
+<li><h3 id="함수-리터럴로-생성한-함수-객체를-변수에-할당할-수-있다"><a href="#함수-리터럴로-생성한-함수-객체를-변수에-할당할-수-있다" class="headerlink" title="함수 리터럴로 생성한 함수 객체를 변수에 할당할 수 있다."></a>함수 리터럴로 생성한 함수 객체를 변수에 할당할 수 있다.</h3><p>함수 리터럴의 함수 이름은 생략할 수 있다. (익명함수)</p>
+</li>
+<li><h3 id="함수-객체-생성"><a href="#함수-객체-생성" class="headerlink" title="함수 객체 생성"></a>함수 객체 생성</h3><p>함수 선언문을 해석해서 함수 객체를 생성한다.<br><code>(첨부한 첫 번째 노트의 우측 상단을 참고)</code><br>구체적으로 어떤 흐름으로 자바스크립트에서 함수객체를 만들어내는지 알아보도록 하자.<br>우선, 자바스크립트가 프로토타입 기반의 언어라는 것을 이해해야 한다. 프로토타입 기반이라는 말은 <code>객체를 만들때 자신을 만드는데 사용된 원형인 프로토 타입 객체를 이용하여 객체를 만든다</code>는 말이다.<br>다른 언어에는 클래스 개념이 있기 때문에 클래스라는 하나의 틀을 만들어서 인스턴스 변수의 생성을 통해 객체 인스턴스를 만들어낸다.<br>하지만 자바스크립트에는 클래스가 없다. 따라서 기본적으로 상속기능도 없다고 할 수 있다. 그냥 클래스와 상속을 흉내낸 것이다.</p>
+<p>그럼 ES6의 표준에서 Class 키워드를 사용한 문법이 추가되었는데 클래스 기반 언어로 변화된 것일까? <code>아니다! 여전히 프로토 타입 기반의 언어이며, 문법만 새롭게 추가된 것이다.</code></p>
+<ul>
+<li><h4 id="함수-객체-생성에-대해서-알아보기-전에-함수의-정의에-대해서-우선-알아보자"><a href="#함수-객체-생성에-대해서-알아보기-전에-함수의-정의에-대해서-우선-알아보자" class="headerlink" title="함수 객체 생성에 대해서 알아보기 전에 함수의 정의에 대해서 우선 알아보자."></a>함수 객체 생성에 대해서 알아보기 전에 함수의 정의에 대해서 우선 알아보자.</h4><p>함수가 정의되면 어떤 일이 일어날까?<br>아래 첨부한 노트의 첫 번째 페이지 하단의 내용을 같이 참조하도록 하자.<br>함수를 정의하게 되면 우선 기본적으로 함수의 내부에는 <code>prototype</code>이라는 함수객체 고유의 속성을 갖게 된다. 동시에 이 prototype 속성은 Prototype Object(프로토 타입 객체)를 가르키게 되고, Prototype Object 내의 생성자(constructor)는 prototype을 속성으로 가지는 정의한 함수를 가르키게 된다. 프로토 타입 객체의 내부에는 생성자와 <code>__proto__</code>라는 모든 객체가 가지고 있는 속성을 가지게 된다. <code>(함수의 proto type object 생성 및 연결)</code><br><code>__proto__</code> 라는 속성은 원형 프로토 타입 객체를 사용해서 생성한 객체의 내부에도 존재한다. 이 속성은 객체가 만들어지기 위해 사용된 원형인 프로토타입 객체를 숨은 링크로 참조하는 역할을 한다.<br><code>(이 숨겨진 참조링크를 프로토 타입이라고 정의한다)</code></p>
+</li>
+<li><h4 id="prototype-객체에-동적으로-런타임에-멤버를-추가"><a href="#prototype-객체에-동적으로-런타임에-멤버를-추가" class="headerlink" title="prototype 객체에 동적으로 런타임에 멤버를 추가"></a>prototype 객체에 동적으로 런타임에 멤버를 추가</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">eyes</span> = <span class="number">2</span>;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">nose</span> = <span class="number">1</span>;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">getType</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;human&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>); <span class="comment">// Object&#123;eyes: 2, nose: 1, getType: f&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>추가된 prototype 멤버 속성은 같은 원형을 복사해서 생성한 모든 객체에서 공유할 수 있다. (멤버 속성을 추가하기 전에 생성한 객체에서도 새롭게 추가된 멤버 속성을 사용할 수 있다)</p>
+</li>
+<li><h4 id="어떻게-prototype-object에-존재하는-eyes-속성의-참조가-가능한-것인지"><a href="#어떻게-prototype-object에-존재하는-eyes-속성의-참조가-가능한-것인지" class="headerlink" title="어떻게 prototype object에 존재하는 eyes 속성의 참조가 가능한 것인지?"></a>어떻게 prototype object에 존재하는 eyes 속성의 참조가 가능한 것인지?</h4><p><code>(두 번째 필기노트 참조)</code><br>원형 프로토 타입 객체를 복제해서 새로 객체를 생성하게 되면, 새로 생성된 객체의 속성에는 모든 객체가 가지고 있는 <strong>proto</strong>라는 속성을 갖게 된다. 앞서 이미 설명했듯이 <strong>proto</strong>라는 속성은 객체를 생성할때 복제한 프로토 타입 객체 원형을 숨은 링크로 참조하는 역할을 하게 되므로, 프로토 타입 객체에 추가한 멤버 속성을 참조할 수 있는 것이다.</p>
+</li>
+<li><h4 id="객체를-생성할때-복제한-프로토타입-객체의-proto-속성은-최상위-Object-prototype-object를-가르킨다"><a href="#객체를-생성할때-복제한-프로토타입-객체의-proto-속성은-최상위-Object-prototype-object를-가르킨다" class="headerlink" title="객체를 생성할때 복제한 프로토타입 객체의 proto 속성은 최상위 Object prototype object를 가르킨다."></a>객체를 생성할때 복제한 프로토타입 객체의 <strong>proto</strong> 속성은 최상위 Object prototype object를 가르킨다.</h4><p><code>(첨부한 두 번째 필기 노트 참고)</code><br>복제한 프로토 타입 객체의 <strong>proto</strong> 속성이 최상위 Object prototype object를 가르키고 있기 때문에 기본적으로 모든 객체는 Object prototype object이 가지고 있는 모든 속성을 사용할 수 있다. 예를 들어 toString()과 같은 함수가 있다.</p>
+</li>
+<li><h4 id="proto는-객체가-생성될-때-조상이었던-함수의-prototype-object를-가르킨다"><a href="#proto는-객체가-생성될-때-조상이었던-함수의-prototype-object를-가르킨다" class="headerlink" title="proto는 객체가 생성될 때 조상이었던 함수의 prototype object를 가르킨다."></a><strong>proto</strong>는 객체가 생성될 때 조상이었던 함수의 prototype object를 가르킨다.</h4></li>
+</ul>
+<p>아래에 첨부한 두 번째 필기 노트를 보면 Person이라는 함수를 통해서 Lee라는 새로운 객체를 만들었다. Lee 객체는 Person 함수로부터 생성되었기 때문에, Person함수의 prototype object를 가르키고 있다. (<code>프로토타입 체인</code>)</p>
+</li>
+</ul>
+<h2 id="객체의-동결"><a href="#객체의-동결" class="headerlink" title="객체의 동결"></a><ins><b>객체의 동결</b></ins></h2><ul>
+<li><h3 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze()"></a>Object.freeze()</h3><p>아래와 같이 객체 리터럴로 객체를 생성하고 const 키워드를 사용하여 상수 변수로 선언해준다고 하더라도 객체의 속성의 추가&#x2F;삭제는 가능하다. 따라서 수정할 수 없는 객체를 만들어주기 위해서는 <code>Object.freeze()</code>를 사용해서 값을 동결시키고 싶은 객체를 얼릴 수 있다.</p>
+<p><b>참고 : </b> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects&#x2F;Object&#x2F;freeze</a></p>
+</li>
+</ul>
+<h2 id="즉시-실행-함수"><a href="#즉시-실행-함수" class="headerlink" title="즉시 실행 함수"></a><ins><b>즉시 실행 함수</b></ins></h2><p>그룹 연산자 내부에서 함수 리터럴 뒤에 괄호를 써서 처리해주면, 즉시 실행할 수 있는 함수가 된다.<br>(연산자 내부에는 값만 올 수 있다. 따라서 연산자 내부에서 함수 선언문을 작성하면 함수 리터럴이 된다)</p>
+<p>중요한 이유는 클로저(Closure) 개념을 이해하기 위해서 알아야 하는 개념이기 때문이다.</p>
+<p>화살표 함수가 등장하면서 붙여주는 괄호의 위치가 그룹 연산자 내부가 아닌, 그룹 연산자 외부에 붙여주도록 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span> (<span class="params"></span>)&#123;</span><br><span class="line">  ....</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h2 id="중첩-함수"><a href="#중첩-함수" class="headerlink" title="중첩 함수"></a><ins><b>중첩 함수</b></ins></h2><p>외부 함수(outer)에서 중첩 함수(inner)는 외부 함수의 내부에서만 사용할 수 있도록 정의된 함수이다. 정보은닉의 측면에서 실제 사용되는 범위(스코프)내부에서 정의하도록 한다. 중첩함수를 개별 함수의 형태로 작성하는 이유는 중첩함수의 이름을 통해서 구체적으로 어떤 처리를 하는 부분인지 유추할 수 있기 때문이다.<br> 로직&#x2F;행위의 재사용을 위해 함수를 작성한다.</p>
+<p><code>예시코드 작성</code></p>
+<h2 id="콜백-함수"><a href="#콜백-함수" class="headerlink" title="콜백 함수"></a><ins><b>콜백 함수</b></ins></h2><p>어떤 일에 대한 추상화는 함수를 통해 구현한다. 재사용 가능한 함수를 구현할때에 인자로 넘겨주는 함수 인자를 callback(나중에 호출되는 함수)라고 정의한다.</p>
+<ul>
+<li><h3 id="용어-살펴보기"><a href="#용어-살펴보기" class="headerlink" title="용어 살펴보기"></a>용어 살펴보기</h3><p>콜백함수를 인자로 받아주는 함수를 고차 함수(Higher-Order Function, HOF)라고 정의한다. 여기서 고차 함수란 콜백함수를 인자로 받거나 함수를 결과값으로 반환해주는 함수를 정의하는 용어이다.</p>
+</li>
+<li><h3 id="프론트엔드-개발자-배열의-고차함수를-자유자재로-사용할-줄-알아야-한다"><a href="#프론트엔드-개발자-배열의-고차함수를-자유자재로-사용할-줄-알아야-한다" class="headerlink" title="(프론트엔드 개발자)배열의 고차함수를 자유자재로 사용할 줄 알아야 한다."></a>(프론트엔드 개발자)배열의 고차함수를 자유자재로 사용할 줄 알아야 한다.</h3><p>map함수에서 numbers의 갯수만큼 인자로 받은 callback함수(화살표 함수)를 map이 반복 실행한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열의 고차함수</span></span><br><span class="line">result = numbers.<span class="title function_">map</span>(<span class="function">(<span class="params">item</span>) =&gt;</span> item + <span class="number">1</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="순수함수"><a href="#순수함수" class="headerlink" title="순수함수"></a><ins><b>순수함수</b></ins></h2><p>함수는 최대한 단순하고 기능은 최소한으로 해서 작성을 해줘야 한다.<br>테스트하기 쉬운 함수를 작성하기 위해서는 순수함수를 작성해야 한다.<br>항상 일관된 결과를 출력해야 테스트하기에 용이하다.<br>비순수 함수의 경우, 예를들어 입력되는 날짜에 따라 출력되는 결과가 다를경우, 이러한 함수를 비순수 함수라 정의한다.</p>
+<h2 id="스코프"><a href="#스코프" class="headerlink" title="스코프"></a><ins><b>스코프</b></ins></h2><p>전역코드가 실행되면 전체 스코프가 생성이 된다.(Lexical Environment)<br>함수가 실행이 되면, 함수 스코프가 생성이 된다. (함수가 호출된 다음에 해당 함수의 스코프가 생성이 된다)<br>함수 내부에서 사용중인 변수가 해당 내부 스코프에 존재하지 않는다면 상위 스코프로 이동해서 해당 변수를 찾는다.(우선적으로 자신이 속해있는 스코프에서 탐색을 시작한다)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">a</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="number">2</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p>함수 스코프에서 상위 스코프(전역 스코프)로 이동해서 탐색을 하기 위해서는 스코프 간의 관계가 성립되어 있어야 한다.(단방향 연결 리스트(링크드 리스트) 구조 - 스코프 체인) (하위 스코프로는 이동을 하지 않는다)</p>
+<ul>
+<li><h3 id="스코프-생성-순서-구체적으로"><a href="#스코프-생성-순서-구체적으로" class="headerlink" title="스코프 생성 순서 (구체적으로)"></a>스코프 생성 순서 (구체적으로)</h3><p>제일 먼저 전역 스코프에 있는 변수와 함수의 선언과 정의(런타임)가 발생된다. 내부 함수가 호출&#x2F;실행된 뒤에 내부에 선언된 함수의 스코프 내부에 존재하는 변수와 함수의 선언과 정의(런타임)가 발생한다.<br>내부 함수의 스코프 상에서 사용된 변수를 탐색할 때에는 우선적으로 내부 함수 스코프를 탐색하고 존재하지 않을 경우에는 외부 함수로 탐색을 이어간다. 외부에도 탐색하는 변수가 존재하지 않을 경우, Reference Error가 발생된다.</p>
+</li>
+<li><h3 id="함수-레벨-스코프-var키워드로-선언된-변수의-스코프"><a href="#함수-레벨-스코프-var키워드로-선언된-변수의-스코프" class="headerlink" title="함수 레벨 스코프 (var키워드로 선언된 변수의 스코프)"></a>함수 레벨 스코프 (var키워드로 선언된 변수의 스코프)</h3><p>var 키워드로 변수를 선언할 경우, if 문 내에 존재하는 var 키워드 선언 변수일지라도 if문 내부 블럭에 존재하는 변수가 아닌 외부 스코프에 존재하는 변수이다.</p>
+<ul>
+<li><h4 id="블럭-레벨-스코프-let-const-키워드로-선언된-변수의-스코프"><a href="#블럭-레벨-스코프-let-const-키워드로-선언된-변수의-스코프" class="headerlink" title="블럭 레벨 스코프 (let, const 키워드로 선언된 변수의 스코프)"></a>블럭 레벨 스코프 (let, const 키워드로 선언된 변수의 스코프)</h4>let, const로 변수를 선언하게 되면 if 문 내에 존재하는 변수의 경우, if문 내부 블럭에만 허용되는 변수로써 존재한다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수 a가 덮어써진다.</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="상위-스코프의-결정-함수가-정의된-위치를-기준으로-상위-스코프-결정"><a href="#상위-스코프의-결정-함수가-정의된-위치를-기준으로-상위-스코프-결정" class="headerlink" title="상위 스코프의 결정 (함수가 정의된 위치를 기준으로 상위 스코프 결정**)"></a>상위 스코프의 결정 (함수가 정의된 위치를 기준으로 상위 스코프 결정**)</h4><p>함수가 정의된 위치를 기준으로 상위 스코프를 결정한다.(렉시컬 스코프 방식)<br>아래의 코드에서 boo()함수의 상위 스코프는 foo()함수의 지역 스코프가 아닌 전역 스코프이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">  <span class="title function_">boo</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">boo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>함수 호출이 종료되면(return-반환) 정의되었던 스코프가 사라진다.<br>어플리케이션의 성능면을 고려했을때, 전역변수를 사용하지 않고 지역변수로 처리를 해서 함수의 생명주기를 짧게 만들어줘야 한다. (전역변수의 경우 브라우저와 동일한 생명주기를 갖는다)<br>또한 함수를 만들때에는 하나의 동작만 하도록 작성을 해줘야 좋은 함수이다.</p>
+</li>
+</ul>
+<p><strong>cf) 동적 스코프 방식</strong> : 어디서 호출되었느냐를 기준으로 스코프를 결정한다.<br>ex) Perl</p>
+</li>
+<li><p><strong>렉시컬 환경(Lexical Environment)</strong></p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://meetup.toast.com/posts/86">https://meetup.toast.com/posts/86</a></p>
+<h2 id="전역변수를-사용하지-않는-방법"><a href="#전역변수를-사용하지-않는-방법" class="headerlink" title="전역변수를 사용하지 않는 방법"></a><ins><b>전역변수를 사용하지 않는 방법</b></ins></h2><p>전역변수는 되도록 사용하지 않도록 해야한다.<br>즉시 실행함수로 감싸서 전역변수를 처리한다.(지역 변수화 - classic한 방법)<br>ES6의 module 방식으로 코드를 작성한다.(modern한 방식)<br>모듈을 사용하는 것이 권장되는 방식이다.</p>
+<h2 id="사용되는-변수는-일단-const로-선언하고-재할당이-필요하다고-인지했을때-let으로-변경"><a href="#사용되는-변수는-일단-const로-선언하고-재할당이-필요하다고-인지했을때-let으로-변경" class="headerlink" title="사용되는 변수는 일단 const로 선언하고 재할당이 필요하다고 인지했을때, let으로 변경"></a><ins><b>사용되는 변수는 일단 const로 선언하고 재할당이 필요하다고 인지했을때, let으로 변경</b></ins></h2><p>의외로 재할당을 할 필요가 없다. 따라서 자바스크립트에서는 let보다는 const를 사용한다.</p>
+<p>Remind를 위해서 예습하면서 필기했던 노트를 첨부한다.</p>
+<table>
+  <tr>
+    <td>
+      <img src="/images/post_images/210314_javascript_note1.png" alt="노트필기 첫번째 사진">
+    </td>
+    <td>
+      <img src="/images/post_images/210314_javascript_note2.png" alt="노트필기 두번째 사진">
+    </td>
+  </tr>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/16/202103/210316-javascript-basic/" data-id="clwfoxhud0071vi8lgvjg6kvb" data-title="210316 JavaScript TIL 4일차 - 함수, 함수의 정의, 함수 객체 생성, 프로토 타입, 프로토 타입 멤버 속성 추가/삭제, 객체의 동결, 즉시 실행함수, 중첩 함수, 콜백 함수, 순수 함수, 스코프, 전역변수 사용하지 말기, 일단 const로 변수 선언하기" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Incomplete/" rel="tag">Incomplete</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-Basic/" rel="tag">JavaScript-Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Self-Development/" rel="tag">Self-Development</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/03/16/202103/210316-Self-development_til/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          210316 Self Development TIL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/15/202103/210315-Self-development_til/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">210315 Self Development TIL</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/AWS/">AWS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Airflow/">Airflow</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm-problem-solving/">Algorithm-problem-solving</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Angular/">Angular</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ant-Design/">Ant-Design</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer-Vision/">Computer-Vision</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Pipeline/">Data-Pipeline</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Structure-Algorithm/">Data-Structure-&-Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Visualization/">Data-Visualization</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/DataStorage/">DataStorage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Environment/">Dev-Environment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Docker-K8s/">Docker&K8s</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Front-end-interview/">Front-end-interview</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML-CSS/">HTML/CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hadoop/">Hadoop</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-Test/">JavaScript-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Memoirs/">Memoirs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NextJS/">NextJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NiFi/">NiFi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/NodeJS/">NodeJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Numpy/">Numpy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Pandas/">Pandas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/React-Test/">React-Test</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS/">ReactJS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJS-TypeScript/">ReactJS-TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Resolved-Error/">Resolved-Error</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-Project-Diary/">Side-Project-Diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Side-project/">Side-project</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-Self-Development/">TIL:Self-Development</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL-TypeScript/">TIL:TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Terraform/">Terraform</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/To-Be-Good-Front-end-Developer/">To-Be-Good-Front-end-Developer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web-browser/">Web-browser</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/API-Testing/" rel="tag">API-Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Airflow/" rel="tag">Airflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Anchor-tag-security-issue/" rel="tag">Anchor-tag-security-issue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Angular/" rel="tag">Angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ant-design/" rel="tag">Ant-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aria-label/" rel="tag">Aria-label</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment/" rel="tag">Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Assignment-feedback/" rel="tag">Assignment-feedback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autoenv/" rel="tag">Autoenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BaekjoonOnlineJudge/" rel="tag">BaekjoonOnlineJudge</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Basic-term/" rel="tag">Basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BigData/" rel="tag">BigData</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bigdata/" rel="tag">Bigdata</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/" rel="tag">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-problem/" rel="tag">Brute-force-problem</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Brute-force-search-Algorithm/" rel="tag">Brute-force-search-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bundle-size/" rel="tag">Bundle-size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS-Sprites/" rel="tag">CSS-Sprites</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Certificates/" rel="tag">Certificates</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Class-design/" rel="tag">Class-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ComputerVision/" rel="tag">ComputerVision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Consecutive-number-subsequence/" rel="tag">Consecutive-number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ContextAPI/" rel="tag">ContextAPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cookie/" rel="tag">Cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Counting-sort/" rel="tag">Counting-sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dashboard/" rel="tag">Dashboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Engineer-Projects/" rel="tag">Data-Engineer-Projects</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Pipeline/" rel="tag">Data-Pipeline</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-structure-Theory/" rel="tag">Data-structure-Theory</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataFrames/" rel="tag">DataFrames</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataLake/" rel="tag">DataLake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DataWarehouse/" rel="tag">DataWarehouse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Decision-algorithm/" rel="tag">Decision-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dictionary-comprehension/" rel="tag">Dictionary-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Engineer/" rel="tag">Engineer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Execution-context/" rel="tag">Execution-context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Express-Framework/" rel="tag">Express-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flex/" rel="tag">Flex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Float/" rel="tag">Float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flow/" rel="tag">Flow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git-Stash/" rel="tag">Git-Stash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy-Algorithm/" rel="tag">Greedy-Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Grid/" rel="tag">Grid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HDP/" rel="tag">HDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML-CSS/" rel="tag">HTML-CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP-Request-Response/" rel="tag">HTTP-Request-Response</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HackerRank/" rel="tag">HackerRank</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo-Image-Optimization/" rel="tag">Hexo-Image-Optimization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IR/" rel="tag">IR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Incomplete/" rel="tag">Incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Installation/" rel="tag">Installation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Integration-Test/" rel="tag">Integration-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jasmine/" rel="tag">Jasmine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Basic/" rel="tag">JavaScript-Basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Engine/" rel="tag">JavaScript-Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-Map/" rel="tag">JavaScript-Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-module-pattern/" rel="tag">JavaScript-module-pattern</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-unit-test/" rel="tag">JavaScript-unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest/" rel="tag">Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jest-matcher/" rel="tag">Jest-matcher</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kibana/" rel="tag">Kibana</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lag/" rel="tag">Lag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lazy/" rel="tag">Lazy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Library/" rel="tag">Library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-list/" rel="tag">Linked-list</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List/" rel="tag">List</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/List-comprehension/" rel="tag">List-comprehension</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Map/" rel="tag">Map</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matplotlib/" rel="tag">Matplotlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Memoirs/" rel="tag">Memoirs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobile-first-method/" rel="tag">Mobile-first-method</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mobx/" rel="tag">Mobx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NiFi/" rel="tag">NiFi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/" rel="tag">Node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Number-subsequence/" rel="tag">Number-subsequence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpy/" rel="tag">Numpy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Passport-js/" rel="tag">Passport.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pig/" rel="tag">Pig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Portfolio/" rel="tag">Portfolio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Practice/" rel="tag">Practice</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ProbabilityPuzzle/" rel="tag">ProbabilityPuzzle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Project/" rel="tag">Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PseudoCode/" rel="tag">PseudoCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pull-Request/" rel="tag">Pull-Request</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pyenv/" rel="tag">Pyenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python-Assignment/" rel="tag">Python-Assignment</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RDS/" rel="tag">RDS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/" rel="tag">RaspberryPi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Framework/" rel="tag">React-Framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Jest/" rel="tag">React-Jest</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router/" rel="tag">React-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-router-test/" rel="tag">React-router-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-testing-library/" rel="tag">React-testing-library</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/" rel="tag">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS-Axios/" rel="tag">ReactJS-Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursive-function/" rel="tag">Recursive-function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redux/" rel="tag">Redux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Resolved-Error/" rel="tag">Resolved-Error</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJS/" rel="tag">RxJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLD/" rel="tag">SQLD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSG/" rel="tag">SSG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/" rel="tag">Sass</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seaborn/" rel="tag">Seaborn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Selenium/" rel="tag">Selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Self-Development/" rel="tag">Self-Development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-scaling/" rel="tag">Server-scaling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Set/" rel="tag">Set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Side-Project-Diary/" rel="tag">Side-Project-Diary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sliding-window/" rel="tag">Sliding-window</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack-frame/" rel="tag">Stack-frame</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/" rel="tag">String</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Study/" rel="tag">Study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Suspense/" rel="tag">Suspense</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDD/" rel="tag">TDD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTI/" rel="tag">TTI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TTV/" rel="tag">TTV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tableau/" rel="tag">Tableau</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terraform/" rel="tag">Terraform</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Test-Scenario/" rel="tag">Test-Scenario</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree-traversal/" rel="tag">Tree-traversal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuple/" rel="tag">Tuple</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Two-pointer-algorithm/" rel="tag">Two-pointer-algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit-Test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-test/" rel="tag">Unit-test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-testing/" rel="tag">Unit-testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv/" rel="tag">Virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Visualization/" rel="tag">Visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-API/" rel="tag">Web-API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-basic/" rel="tag">Web-basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-browser/" rel="tag">Web-browser</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work-life-balance/" rel="tag">Work-life-balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZoneJS/" rel="tag">ZoneJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/babel/" rel="tag">babel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/basic-term/" rel="tag">basic-term</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dummy-data/" rel="tag">dummy-data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">eslint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/faker/" rel="tag">faker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hotfix-branch/" rel="tag">hotfix-branch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/incomplete/" rel="tag">incomplete</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/queue/" rel="tag">queue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-script/" rel="tag">react-script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/repository/" rel="tag">repository</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-development/" rel="tag">self-development</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sorting/" rel="tag">sorting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this-binding/" rel="tag">this-binding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 17.2px;">AI</a> <a href="/tags/API-Testing/" style="font-size: 10px;">API-Testing</a> <a href="/tags/AWS/" style="font-size: 16.4px;">AWS</a> <a href="/tags/Airflow/" style="font-size: 11.2px;">Airflow</a> <a href="/tags/Algorithm/" style="font-size: 18.4px;">Algorithm</a> <a href="/tags/Anchor-tag-security-issue/" style="font-size: 10px;">Anchor-tag-security-issue</a> <a href="/tags/Angular/" style="font-size: 11.6px;">Angular</a> <a href="/tags/Ant-design/" style="font-size: 10px;">Ant-design</a> <a href="/tags/Aria-label/" style="font-size: 10px;">Aria-label</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Assignment/" style="font-size: 15.6px;">Assignment</a> <a href="/tags/Assignment-feedback/" style="font-size: 10px;">Assignment-feedback</a> <a href="/tags/Autoenv/" style="font-size: 10px;">Autoenv</a> <a href="/tags/BaekjoonOnlineJudge/" style="font-size: 16px;">BaekjoonOnlineJudge</a> <a href="/tags/Basic-term/" style="font-size: 10px;">Basic-term</a> <a href="/tags/BigData/" style="font-size: 18.8px;">BigData</a> <a href="/tags/Bigdata/" style="font-size: 10px;">Bigdata</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Brute-force-problem/" style="font-size: 10px;">Brute-force-problem</a> <a href="/tags/Brute-force-search-Algorithm/" style="font-size: 10px;">Brute-force-search-Algorithm</a> <a href="/tags/Bundle-size/" style="font-size: 10px;">Bundle-size</a> <a href="/tags/CORS/" style="font-size: 10.4px;">CORS</a> <a href="/tags/CSS/" style="font-size: 13.2px;">CSS</a> <a href="/tags/CSS-Sprites/" style="font-size: 10px;">CSS-Sprites</a> <a href="/tags/Certificates/" style="font-size: 12px;">Certificates</a> <a href="/tags/Class-design/" style="font-size: 10px;">Class-design</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/Consecutive-number-subsequence/" style="font-size: 10px;">Consecutive-number-subsequence</a> <a href="/tags/ContextAPI/" style="font-size: 10px;">ContextAPI</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/Counting-sort/" style="font-size: 10px;">Counting-sort</a> <a href="/tags/Dashboard/" style="font-size: 10px;">Dashboard</a> <a href="/tags/Data-Engineer-Projects/" style="font-size: 10px;">Data-Engineer-Projects</a> <a href="/tags/Data-Pipeline/" style="font-size: 19.2px;">Data-Pipeline</a> <a href="/tags/Data-structure-Theory/" style="font-size: 11.2px;">Data-structure-Theory</a> <a href="/tags/DataFrames/" style="font-size: 10px;">DataFrames</a> <a href="/tags/DataLake/" style="font-size: 10px;">DataLake</a> <a href="/tags/DataWarehouse/" style="font-size: 10px;">DataWarehouse</a> <a href="/tags/Decision-algorithm/" style="font-size: 10px;">Decision-algorithm</a> <a href="/tags/Dictionary-comprehension/" style="font-size: 10px;">Dictionary-comprehension</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/EMR/" style="font-size: 12.8px;">EMR</a> <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/Engineer/" style="font-size: 10px;">Engineer</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Execution-context/" style="font-size: 10px;">Execution-context</a> <a href="/tags/Express-Framework/" style="font-size: 10px;">Express Framework</a> <a href="/tags/Express-Framework/" style="font-size: 11.2px;">Express-Framework</a> <a href="/tags/Flex/" style="font-size: 10px;">Flex</a> <a href="/tags/Float/" style="font-size: 10px;">Float</a> <a href="/tags/Flow/" style="font-size: 10px;">Flow</a> <a href="/tags/Framework/" style="font-size: 10px;">Framework</a> <a href="/tags/Git/" style="font-size: 12.4px;">Git</a> <a href="/tags/Git-Stash/" style="font-size: 10px;">Git-Stash</a> <a href="/tags/Greedy-Algorithm/" style="font-size: 10px;">Greedy-Algorithm</a> <a href="/tags/Grid/" style="font-size: 10px;">Grid</a> <a href="/tags/HDFS/" style="font-size: 12.8px;">HDFS</a> <a href="/tags/HDP/" style="font-size: 11.2px;">HDP</a> <a href="/tags/HTML/" style="font-size: 13.2px;">HTML</a> <a href="/tags/HTML-CSS/" style="font-size: 11.6px;">HTML-CSS</a> <a href="/tags/HTTP-Request-Response/" style="font-size: 10.4px;">HTTP-Request-Response</a> <a href="/tags/HackerRank/" style="font-size: 10.4px;">HackerRank</a> <a href="/tags/Hadoop/" style="font-size: 14.8px;">Hadoop</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Image-Optimization/" style="font-size: 10px;">Hexo-Image-Optimization</a> <a href="/tags/Hive/" style="font-size: 14px;">Hive</a> <a href="/tags/IR/" style="font-size: 10px;">IR</a> <a href="/tags/Incomplete/" style="font-size: 14px;">Incomplete</a> <a href="/tags/Installation/" style="font-size: 10.8px;">Installation</a> <a href="/tags/Integration-Test/" style="font-size: 10px;">Integration-Test</a> <a href="/tags/JWT/" style="font-size: 10px;">JWT</a> <a href="/tags/Jasmine/" style="font-size: 10.4px;">Jasmine</a> <a href="/tags/JavaScript/" style="font-size: 14.8px;">JavaScript</a> <a href="/tags/JavaScript-Basic/" style="font-size: 11.2px;">JavaScript-Basic</a> <a href="/tags/JavaScript-Engine/" style="font-size: 10px;">JavaScript-Engine</a> <a href="/tags/JavaScript-Map/" style="font-size: 10px;">JavaScript-Map</a> <a href="/tags/JavaScript-module-pattern/" style="font-size: 10.4px;">JavaScript-module-pattern</a> <a href="/tags/JavaScript-unit-test/" style="font-size: 11.6px;">JavaScript-unit-test</a> <a href="/tags/Jest/" style="font-size: 13.2px;">Jest</a> <a href="/tags/Jest-matcher/" style="font-size: 10px;">Jest-matcher</a> <a href="/tags/Kafka/" style="font-size: 10px;">Kafka</a> <a href="/tags/Kibana/" style="font-size: 10px;">Kibana</a> <a href="/tags/Kubernetes/" style="font-size: 11.2px;">Kubernetes</a> <a href="/tags/Lag/" style="font-size: 10px;">Lag</a> <a href="/tags/Lazy/" style="font-size: 10px;">Lazy</a> <a href="/tags/Library/" style="font-size: 10px;">Library</a> <a href="/tags/Linked-list/" style="font-size: 10px;">Linked-list</a> <a href="/tags/List/" style="font-size: 10px;">List</a> <a href="/tags/List-comprehension/" style="font-size: 10px;">List-comprehension</a> <a href="/tags/ML/" style="font-size: 13.6px;">ML</a> <a href="/tags/Map/" style="font-size: 10px;">Map</a> <a href="/tags/MapReduce/" style="font-size: 12px;">MapReduce</a> <a href="/tags/Matplotlib/" style="font-size: 10px;">Matplotlib</a> <a href="/tags/Memoirs/" style="font-size: 12px;">Memoirs</a> <a href="/tags/Mobile-first-method/" style="font-size: 10px;">Mobile-first-method</a> <a href="/tags/Mobx/" style="font-size: 10px;">Mobx</a> <a href="/tags/MySQL/" style="font-size: 10.8px;">MySQL</a> <a href="/tags/NiFi/" style="font-size: 10px;">NiFi</a> <a href="/tags/Node/" style="font-size: 10.4px;">Node</a> <a href="/tags/NodeJS/" style="font-size: 14.4px;">NodeJS</a> <a href="/tags/Number-subsequence/" style="font-size: 10px;">Number-subsequence</a> <a href="/tags/Numpy/" style="font-size: 10px;">Numpy</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Pandas/" style="font-size: 13.2px;">Pandas</a> <a href="/tags/Passport-js/" style="font-size: 10px;">Passport.js</a> <a href="/tags/Pig/" style="font-size: 10.4px;">Pig</a> <a href="/tags/Plotly/" style="font-size: 11.2px;">Plotly</a> <a href="/tags/Portfolio/" style="font-size: 10px;">Portfolio</a> <a href="/tags/Practice/" style="font-size: 10.4px;">Practice</a> <a href="/tags/ProbabilityPuzzle/" style="font-size: 10px;">ProbabilityPuzzle</a> <a href="/tags/Project/" style="font-size: 10px;">Project</a> <a href="/tags/PseudoCode/" style="font-size: 16.8px;">PseudoCode</a> <a href="/tags/Pull-Request/" style="font-size: 10.4px;">Pull-Request</a> <a href="/tags/Pyenv/" style="font-size: 10.4px;">Pyenv</a> <a href="/tags/Python/" style="font-size: 18px;">Python</a> <a href="/tags/Python-Assignment/" style="font-size: 10.4px;">Python-Assignment</a> <a href="/tags/RDS/" style="font-size: 11.6px;">RDS</a> <a href="/tags/RaspberryPi/" style="font-size: 10px;">RaspberryPi</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Framework/" style="font-size: 12px;">React-Framework</a> <a href="/tags/React-Jest/" style="font-size: 10.4px;">React-Jest</a> <a href="/tags/React-router/" style="font-size: 10px;">React-router</a> <a href="/tags/React-router-test/" style="font-size: 11.6px;">React-router-test</a> <a href="/tags/React-testing-library/" style="font-size: 12.4px;">React-testing-library</a> <a href="/tags/ReactJS/" style="font-size: 11.2px;">ReactJS</a> <a href="/tags/ReactJS-Axios/" style="font-size: 10px;">ReactJS-Axios</a> <a href="/tags/Recursive-function/" style="font-size: 10px;">Recursive-function</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Resolved-Error/" style="font-size: 10px;">Resolved-Error</a> <a href="/tags/RxJS/" style="font-size: 10px;">RxJS</a> <a href="/tags/SQL/" style="font-size: 12.4px;">SQL</a> <a href="/tags/SQLD/" style="font-size: 10px;">SQLD</a> <a href="/tags/SSG/" style="font-size: 10px;">SSG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/Seaborn/" style="font-size: 10px;">Seaborn</a> <a href="/tags/Selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/Self-Development/" style="font-size: 19.6px;">Self-Development</a> <a href="/tags/Server-scaling/" style="font-size: 10px;">Server-scaling</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Set/" style="font-size: 10px;">Set</a> <a href="/tags/Side-Project-Diary/" style="font-size: 12.4px;">Side-Project-Diary</a> <a href="/tags/Sliding-window/" style="font-size: 10px;">Sliding-window</a> <a href="/tags/Sort/" style="font-size: 13.6px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10.4px;">Sorting</a> <a href="/tags/Spark/" style="font-size: 10.4px;">Spark</a> <a href="/tags/Spring/" style="font-size: 10.4px;">Spring</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Stack-frame/" style="font-size: 11.2px;">Stack-frame</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Suspense/" style="font-size: 10px;">Suspense</a> <a href="/tags/TDD/" style="font-size: 11.6px;">TDD</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TTI/" style="font-size: 10px;">TTI</a> <a href="/tags/TTV/" style="font-size: 10px;">TTV</a> <a href="/tags/Tableau/" style="font-size: 10px;">Tableau</a> <a href="/tags/Terraform/" style="font-size: 10.8px;">Terraform</a> <a href="/tags/Test-Scenario/" style="font-size: 10.8px;">Test-Scenario</a> <a href="/tags/Tree-traversal/" style="font-size: 10.4px;">Tree-traversal</a> <a href="/tags/Tuple/" style="font-size: 10px;">Tuple</a> <a href="/tags/Two-pointer-algorithm/" style="font-size: 10px;">Two-pointer-algorithm</a> <a href="/tags/TypeScript/" style="font-size: 15.2px;">TypeScript</a> <a href="/tags/Unit-Test/" style="font-size: 10.4px;">Unit-Test</a> <a href="/tags/Unit-test/" style="font-size: 10.8px;">Unit-test</a> <a href="/tags/Unit-testing/" style="font-size: 12px;">Unit-testing</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Virtualenv/" style="font-size: 10.4px;">Virtualenv</a> <a href="/tags/Visualization/" style="font-size: 10.4px;">Visualization</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Web-API/" style="font-size: 10px;">Web-API</a> <a href="/tags/Web-basic/" style="font-size: 10px;">Web-basic</a> <a href="/tags/Web-browser/" style="font-size: 10px;">Web-browser</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/Work-life-balance/" style="font-size: 10.4px;">Work-life-balance</a> <a href="/tags/ZoneJS/" style="font-size: 10px;">ZoneJS</a> <a href="/tags/babel/" style="font-size: 10.4px;">babel</a> <a href="/tags/basic-term/" style="font-size: 11.2px;">basic-term</a> <a href="/tags/dummy-data/" style="font-size: 10.4px;">dummy-data</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/faker/" style="font-size: 10.4px;">faker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hotfix-branch/" style="font-size: 10px;">hotfix-branch</a> <a href="/tags/incomplete/" style="font-size: 10px;">incomplete</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/react-script/" style="font-size: 10px;">react-script</a> <a href="/tags/repository/" style="font-size: 10px;">repository</a> <a href="/tags/self-development/" style="font-size: 17.6px;">self-development</a> <a href="/tags/sorting/" style="font-size: 10px;">sorting</a> <a href="/tags/this-binding/" style="font-size: 10px;">this-binding</a> <a href="/tags/webpack/" style="font-size: 10.8px;">webpack</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/16/202210/221016_spring_error/">221016 Mapper class Bean 등록 Issue</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/15/202210/221015_spring_study/">221015 Spring boot 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/08/202210/221008_apache_nifi_study/">221008 Apache NiFi 스터디 (작성중...)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/13/202208/220813_docker_study/">220813 Docker 스터디</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/08/202208/220808_airflow_on_docker/">220808 Apache Airflow</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
